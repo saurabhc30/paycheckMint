@@ -1,33 +1,34 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Monthly Paycheck Calculator 2026 | PaycheckMint</title>
+    <title>
+        Biweekly Paycheck Calculator 2026 | PaycheckMint
+    </title>
 
     <meta name="description"
-        content="Use the PaycheckMint 2026 monthly paycheck calculator to estimate your monthly take-home pay after federal, Social Security, Medicare, state taxes, and deductions.">
+        content="Use the PaycheckMint 2026 biweekly paycheck calculator to estimate your take-home pay after federal, Social Security, Medicare, state taxes, and deductions.">
 
     <meta name="robots" content="index, follow, max-image-preview:large">
 
-    <link rel="canonical" href="https://paycheckmint.vercel.app/monthly-paycheck-calculator.html">
+    <link rel="canonical" href="https://paycheckmint.vercel.app/biweekly-paycheck-calculator/">
 
     <meta name="theme-color" content="#5954d9">
 
-    <meta property="og:title" content="Monthly Paycheck Calculator 2026 | PaycheckMint">
-    <meta property="og:description"
-        content="Estimate your 2026 monthly take-home pay after federal, Social Security, Medicare, state taxes, and deductions.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://paycheckmint.vercel.app/monthly-paycheck-calculator.html">
-    <meta property="og:site_name" content="PaycheckMint">
+    <meta property="og:title" content="Biweekly Paycheck Calculator 2026 | PaycheckMint">
 
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Monthly Paycheck Calculator 2026 | PaycheckMint">
-    <meta name="twitter:description"
-        content="Estimate your monthly take-home pay after taxes and deductions with PaycheckMint.">
+    <meta property="og:description"
+        content="Estimate your 2026 biweekly take-home pay after federal, Social Security, Medicare, state taxes, and deductions.">
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:url" content="https://paycheckmint.vercel.app/biweekly-paycheck-calculator/">
+
+    <meta property="og:site_name" content="PaycheckMint">
 
     <link rel="icon" href="/icon.ico">
 
@@ -57,7 +58,8 @@
             --radius: 12px;
             --radius-small: 8px;
 
-            --shadow: 0 8px 30px rgba(20, 20, 20, 0.06);
+            --shadow:
+                0 8px 30px rgba(20, 20, 20, 0.06);
         }
 
         * {
@@ -382,7 +384,7 @@
             font-size: 12px;
         }
 
-        /* Chart */
+        /* Donut */
 
         .chart-wrap {
             display: flex;
@@ -394,7 +396,8 @@
             width: 190px;
             height: 190px;
             border-radius: 50%;
-            background: conic-gradient(var(--chart-net) 0% 70%,
+            background:
+                conic-gradient(var(--chart-net) 0% 70%,
                     var(--chart-federal) 70% 82%,
                     var(--chart-fica) 82% 92%,
                     var(--chart-state) 92% 97%,
@@ -498,6 +501,11 @@
 
         .dot-deductions {
             background: var(--chart-deductions);
+        }
+
+        .legend-value {
+            font-weight: 700;
+            white-space: nowrap;
         }
 
         /* Breakdown */
@@ -610,8 +618,6 @@
             color: var(--muted);
             font-size: 14px;
         }
-
-        /* Examples */
 
         .example-table {
             width: 100%;
@@ -792,7 +798,7 @@
             }
 
             .summary-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-template-columns: 1fr 1fr;
             }
 
             .footer-inner {
@@ -802,6 +808,10 @@
 
             .footer-links {
                 justify-content: center;
+            }
+
+            .example-table {
+                font-size: 13px;
             }
 
             .example-table th,
@@ -871,89 +881,93 @@
         }
     </style>
 
+    <!-- Tax rules and shared calculation engine -->
     <script src="/tax-rules-2026.js"></script>
     <script src="/tax-engine.js"></script>
 
+    <!-- WebSite structured data -->
     <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "PaycheckMint",
-    "url": "https://paycheckmint.vercel.app/"
-}
-</script>
-
-    <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Monthly Paycheck Calculator",
-    "url": "https://paycheckmint.vercel.app/monthly-paycheck-calculator.html",
-    "applicationCategory": "FinanceApplication",
-    "operatingSystem": "Web",
-    "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "PaycheckMint",
+        "url": "https://paycheckmint.vercel.app/"
     }
-}
-</script>
+    </script>
 
+    <!-- WebApplication structured data -->
     <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-        {
-            "@type": "Question",
-            "name": "How is a monthly paycheck calculated?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "For a monthly salary, annual gross pay is divided by 12 to estimate gross monthly pay. Estimated federal, Social Security, Medicare, state taxes, and deductions are then subtracted to estimate take-home pay."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "How much is $60,000 a year per month?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "A $60,000 annual salary equals $5,000 in gross monthly pay before taxes and deductions."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "How much is $75,000 a year per month?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "A $75,000 annual salary equals $6,250 in gross monthly pay before taxes and deductions."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Is monthly pay the same as semimonthly pay?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "No. Monthly pay means one paycheck per month and normally 12 paychecks per year. Semimonthly pay means two paychecks per month and 24 paychecks per year."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "How much of my monthly paycheck will I take home?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Your take-home pay depends on federal income tax, Social Security, Medicare, state taxes, filing status, dependents, and payroll deductions."
-            }
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Biweekly Paycheck Calculator",
+        "url": "https://paycheckmint.vercel.app/biweekly-paycheck-calculator/",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
         }
-    ]
-}
-</script>
+    }
+    </script>
 
+    <!-- FAQ structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How many biweekly paychecks are there in a year?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A standard biweekly pay schedule has 26 paychecks per year because employees are paid every two weeks."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How is a biweekly paycheck calculated?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Annual gross income is divided by 26 to estimate gross biweekly pay. Federal income tax, Social Security, Medicare, state taxes, and applicable deductions are then subtracted to estimate take-home pay."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much is $75,000 a year paid biweekly?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A $75,000 annual salary produces approximately $2,884.62 in gross pay per biweekly paycheck before taxes and deductions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are biweekly and semimonthly pay the same?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Biweekly employees are generally paid 26 times per year, while semimonthly employees are paid 24 times per year."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why do some months have three biweekly paychecks?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Because there are 26 biweekly pay periods in a year, two months in many calendar years contain three paychecks instead of the usual two."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 
 <body>
 
     <header class="site-header">
         <div class="container header-inner">
+
             <a href="/" class="brand" aria-label="PaycheckMint home">
                 PaycheckMint
             </a>
@@ -963,39 +977,57 @@
                 <a href="/#how-it-works">How it works</a>
                 <a href="/#faq">FAQ</a>
             </nav>
+
         </div>
     </header>
 
+
     <main>
+
+        <!-- Hero -->
 
         <section class="hero">
             <div class="container">
-                <p class="eyebrow">2026 MONTHLY PAYCHECK CALCULATOR</p>
 
-                <h1>Calculate your monthly paycheck.</h1>
+                <p class="eyebrow">
+                    2026 BIWEEKLY PAYCHECK CALCULATOR
+                </p>
+
+                <h1>
+                    Calculate your biweekly paycheck.
+                </h1>
 
                 <p>
-                    Estimate your monthly take-home pay after federal
-                    taxes, Social Security, Medicare, state taxes,
+                    Estimate your take-home pay every two weeks after
+                    federal taxes, Social Security, Medicare, state taxes,
                     and deductions.
                 </p>
+
             </div>
         </section>
+
+
+        <!-- Calculator -->
 
         <section class="calculator-section">
             <div class="container">
 
                 <div class="calculator">
 
+                    <!-- Inputs -->
+
                     <section class="calculator-card">
 
                         <h2 class="card-title">
-                            Monthly paycheck calculator
+                            Biweekly paycheck calculator
                         </h2>
 
                         <p class="card-subtitle">
                             Enter your annual income and payroll details.
                         </p>
+
+
+                        <!-- Income -->
 
                         <div class="form-section">
 
@@ -1019,60 +1051,159 @@
                                 </div>
 
                                 <div class="field">
-                                    <label>Pay frequency</label>
+
+                                    <label>
+                                        Pay frequency
+                                    </label>
 
                                     <div class="fixed-frequency">
-                                        <strong>Monthly</strong>
-                                        <span>12 paychecks</span>
+                                        <strong>
+                                            Biweekly
+                                        </strong>
+
+                                        <span>
+                                            26 paychecks
+                                        </span>
                                     </div>
+
                                 </div>
 
                                 <div class="field">
-                                    <label for="state">State</label>
+
+                                    <label for="state">
+                                        State
+                                    </label>
 
                                     <select id="state">
-                                        <option value="none">No state tax</option>
-                                        <option value="al">Alabama</option>
-                                        <option value="az">Arizona</option>
-                                        <option value="ca">California</option>
-                                        <option value="co">Colorado</option>
-                                        <option value="fl">Florida</option>
-                                        <option value="ga">Georgia</option>
-                                        <option value="il">Illinois</option>
-                                        <option value="ma">Massachusetts</option>
-                                        <option value="mi">Michigan</option>
-                                        <option value="nc">North Carolina</option>
-                                        <option value="nj">New Jersey</option>
-                                        <option value="ny">New York</option>
-                                        <option value="oh">Ohio</option>
-                                        <option value="or">Oregon</option>
-                                        <option value="pa">Pennsylvania</option>
-                                        <option value="tn">Tennessee</option>
-                                        <option value="tx">Texas</option>
-                                        <option value="va">Virginia</option>
-                                        <option value="wa">Washington</option>
-                                        <option value="other">Other state</option>
+
+                                        <option value="none">
+                                            No state tax
+                                        </option>
+
+                                        <option value="al">
+                                            Alabama
+                                        </option>
+
+                                        <option value="az">
+                                            Arizona
+                                        </option>
+
+                                        <option value="ca">
+                                            California
+                                        </option>
+
+                                        <option value="co">
+                                            Colorado
+                                        </option>
+
+                                        <option value="fl">
+                                            Florida
+                                        </option>
+
+                                        <option value="ga">
+                                            Georgia
+                                        </option>
+
+                                        <option value="il">
+                                            Illinois
+                                        </option>
+
+                                        <option value="ma">
+                                            Massachusetts
+                                        </option>
+
+                                        <option value="mi">
+                                            Michigan
+                                        </option>
+
+                                        <option value="nc">
+                                            North Carolina
+                                        </option>
+
+                                        <option value="nj">
+                                            New Jersey
+                                        </option>
+
+                                        <option value="ny">
+                                            New York
+                                        </option>
+
+                                        <option value="oh">
+                                            Ohio
+                                        </option>
+
+                                        <option value="or">
+                                            Oregon
+                                        </option>
+
+                                        <option value="pa">
+                                            Pennsylvania
+                                        </option>
+
+                                        <option value="tn">
+                                            Tennessee
+                                        </option>
+
+                                        <option value="tx">
+                                            Texas
+                                        </option>
+
+                                        <option value="va">
+                                            Virginia
+                                        </option>
+
+                                        <option value="wa">
+                                            Washington
+                                        </option>
+
+                                        <option value="other">
+                                            Other state
+                                        </option>
+
                                     </select>
+
                                 </div>
 
                                 <div class="field">
-                                    <label for="filing">Filing status</label>
+
+                                    <label for="filing">
+                                        Filing status
+                                    </label>
 
                                     <select id="filing">
-                                        <option value="single">Single</option>
-                                        <option value="married">Married filing jointly</option>
-                                        <option value="hoh">Head of household</option>
+
+                                        <option value="single">
+                                            Single
+                                        </option>
+
+                                        <option value="married">
+                                            Married filing jointly
+                                        </option>
+
+                                        <option value="hoh">
+                                            Head of household
+                                        </option>
+
                                     </select>
+
                                 </div>
 
                                 <div class="field">
-                                    <label for="dependents">Dependents</label>
+
+                                    <label for="dependents">
+                                        Dependents
+                                    </label>
 
                                     <input id="dependents" type="number" min="0" step="1" value="0" inputmode="numeric">
+
                                 </div>
 
                             </div>
+
                         </div>
+
+
+                        <!-- Pre-tax deductions -->
 
                         <div class="form-section">
 
@@ -1083,41 +1214,69 @@
                             <div class="form-grid">
 
                                 <div class="field">
-                                    <label for="retirement401k">401(k) contribution</label>
+
+                                    <label for="retirement401k">
+                                        401(k) contribution
+                                    </label>
 
                                     <input id="retirement401k" type="number" min="0" step="25" value="0"
                                         inputmode="decimal">
 
-                                    <small>Annual amount</small>
+                                    <small>
+                                        Annual amount
+                                    </small>
+
                                 </div>
 
                                 <div class="field">
-                                    <label for="healthInsurance">Health insurance</label>
+
+                                    <label for="healthInsurance">
+                                        Health insurance
+                                    </label>
 
                                     <input id="healthInsurance" type="number" min="0" step="25" value="0"
                                         inputmode="decimal">
 
-                                    <small>Annual amount</small>
+                                    <small>
+                                        Annual amount
+                                    </small>
+
                                 </div>
 
                                 <div class="field">
-                                    <label for="hsa">HSA contribution</label>
+
+                                    <label for="hsa">
+                                        HSA contribution
+                                    </label>
 
                                     <input id="hsa" type="number" min="0" step="25" value="0" inputmode="decimal">
 
-                                    <small>Annual amount</small>
+                                    <small>
+                                        Annual amount
+                                    </small>
+
                                 </div>
 
                                 <div class="field">
-                                    <label for="fsa">FSA contribution</label>
+
+                                    <label for="fsa">
+                                        FSA contribution
+                                    </label>
 
                                     <input id="fsa" type="number" min="0" step="25" value="0" inputmode="decimal">
 
-                                    <small>Annual amount</small>
+                                    <small>
+                                        Annual amount
+                                    </small>
+
                                 </div>
 
                             </div>
+
                         </div>
+
+
+                        <!-- Advanced -->
 
                         <details class="advanced-options">
 
@@ -1130,6 +1289,7 @@
                                 <div class="form-grid">
 
                                     <div class="field">
+
                                         <label for="extraFederal">
                                             Extra federal withholding
                                         </label>
@@ -1137,10 +1297,14 @@
                                         <input id="extraFederal" type="number" min="0" step="25" value="0"
                                             inputmode="decimal">
 
-                                        <small>Annual amount</small>
+                                        <small>
+                                            Annual amount
+                                        </small>
+
                                     </div>
 
                                     <div class="field">
+
                                         <label for="extraState">
                                             Extra state withholding
                                         </label>
@@ -1148,10 +1312,14 @@
                                         <input id="extraState" type="number" min="0" step="25" value="0"
                                             inputmode="decimal">
 
-                                        <small>Annual amount</small>
+                                        <small>
+                                            Annual amount
+                                        </small>
+
                                     </div>
 
                                     <div class="field">
+
                                         <label for="additionalMedicare">
                                             Additional Medicare
                                         </label>
@@ -1159,10 +1327,14 @@
                                         <input id="additionalMedicare" type="number" min="0" step="25" value="0"
                                             inputmode="decimal">
 
-                                        <small>Annual amount</small>
+                                        <small>
+                                            Annual amount
+                                        </small>
+
                                     </div>
 
                                     <div class="field">
+
                                         <label for="otherPretax">
                                             Other pre-tax deductions
                                         </label>
@@ -1170,12 +1342,20 @@
                                         <input id="otherPretax" type="number" min="0" step="25" value="0"
                                             inputmode="decimal">
 
-                                        <small>Annual amount</small>
+                                        <small>
+                                            Annual amount
+                                        </small>
+
                                     </div>
 
                                 </div>
+
                             </div>
+
                         </details>
+
+
+                        <!-- Post-tax deductions -->
 
                         <div class="form-section">
 
@@ -1186,32 +1366,51 @@
                             <div class="form-grid">
 
                                 <div class="field">
-                                    <label for="roth401k">Roth 401(k)</label>
+
+                                    <label for="roth401k">
+                                        Roth 401(k)
+                                    </label>
 
                                     <input id="roth401k" type="number" min="0" step="25" value="0" inputmode="decimal">
 
-                                    <small>Annual amount</small>
+                                    <small>
+                                        Annual amount
+                                    </small>
+
                                 </div>
 
                                 <div class="field">
-                                    <label for="loanRepayment">Loan repayment</label>
+
+                                    <label for="loanRepayment">
+                                        Loan repayment
+                                    </label>
 
                                     <input id="loanRepayment" type="number" min="0" step="25" value="0"
                                         inputmode="decimal">
 
-                                    <small>Annual amount</small>
+                                    <small>
+                                        Annual amount
+                                    </small>
+
                                 </div>
 
                                 <div class="field">
-                                    <label for="garnishments">Garnishments</label>
+
+                                    <label for="garnishments">
+                                        Garnishments
+                                    </label>
 
                                     <input id="garnishments" type="number" min="0" step="25" value="0"
                                         inputmode="decimal">
 
-                                    <small>Annual amount</small>
+                                    <small>
+                                        Annual amount
+                                    </small>
+
                                 </div>
 
                                 <div class="field">
+
                                     <label for="otherPosttax">
                                         Other post-tax deductions
                                     </label>
@@ -1219,22 +1418,30 @@
                                     <input id="otherPosttax" type="number" min="0" step="25" value="0"
                                         inputmode="decimal">
 
-                                    <small>Annual amount</small>
+                                    <small>
+                                        Annual amount
+                                    </small>
+
                                 </div>
 
                             </div>
+
                         </div>
 
+
                         <button type="button" id="calculate" class="calculate-button">
-                            Calculate monthly paycheck
+                            Calculate biweekly paycheck
                         </button>
 
                     </section>
 
+
+                    <!-- Results -->
+
                     <section class="result-card" aria-live="polite">
 
                         <p class="result-label" id="resultPeriod">
-                            Estimated monthly take-home pay
+                            Estimated biweekly take-home pay
                         </p>
 
                         <div class="take-home" id="takeHome">
@@ -1245,20 +1452,27 @@
                             Estimated after taxes and deductions.
                         </p>
 
+
                         <div class="chart-wrap">
 
-                            <div class="chart" id="paycheckChart" aria-label="Monthly paycheck breakdown">
+                            <div class="chart" id="paycheckChart" aria-label="Biweekly paycheck breakdown">
 
                                 <div class="chart-center">
-                                    <strong id="chartNet">$0</strong>
-                                    <span>Take-home</span>
+
+                                    <strong id="chartNet">
+                                        $0
+                                    </strong>
+
+                                    <span>
+                                        Take-home
+                                    </span>
+
                                 </div>
 
                             </div>
 
                         </div>
 
-                        <!-- FIXED LEGEND -->
 
                         <div class="legend">
 
@@ -1309,10 +1523,11 @@
 
                         </div>
 
+
                         <div class="breakdown">
 
                             <div class="breakdown-row">
-                                <span>Gross monthly pay</span>
+                                <span>Gross biweekly pay</span>
                                 <strong id="grossResult">$0.00</strong>
                             </div>
 
@@ -1343,9 +1558,12 @@
 
                         </div>
 
+
                         <div class="pay-summary">
 
-                            <h3>Take-home pay by period</h3>
+                            <h3>
+                                Take-home pay by period
+                            </h3>
 
                             <div class="summary-grid">
 
@@ -1376,338 +1594,453 @@
                     </section>
 
                 </div>
+
             </div>
         </section>
 
-        <section class="content-section">
 
+        <!-- What is biweekly pay -->
+
+        <section class="content-section">
             <div class="container">
 
                 <div class="section-heading">
-                    <p class="eyebrow">MONTHLY PAY</p>
 
-                    <h2>What is a monthly paycheck?</h2>
+                    <p class="eyebrow">
+                        BIWEEKLY PAY
+                    </p>
+
+                    <h2>
+                        What is a biweekly paycheck?
+                    </h2>
 
                     <p>
-                        A monthly paycheck is issued once per month,
-                        resulting in 12 paychecks during a standard
-                        calendar year.
+                        A biweekly paycheck is paid every two weeks.
+                        Most employees on a biweekly schedule receive
+                        26 paychecks during a calendar year.
                     </p>
+
                 </div>
 
                 <div class="content-grid">
 
                     <article class="content-block">
-                        <h3>12 paychecks per year</h3>
+
+                        <h3>
+                            26 paychecks per year
+                        </h3>
 
                         <p>
-                            If you are paid monthly, your annual salary
-                            is normally divided across 12 pay periods.
-                            For example, a $60,000 salary produces
-                            $5,000 in gross monthly pay.
+                            Because there are 52 weeks in a typical year
+                            and employees are paid every two weeks,
+                            annual income is normally divided across
+                            26 pay periods.
                         </p>
+
                     </article>
 
                     <article class="content-block">
-                        <h3>Gross monthly pay</h3>
+
+                        <h3>
+                            Two three-paycheck months
+                        </h3>
 
                         <p>
-                            Gross monthly pay is your salary before
-                            federal income tax, Social Security,
-                            Medicare, state tax, and payroll deductions.
+                            Employees paid biweekly usually receive
+                            three paychecks in two months of the year.
+                            The exact months depend on the employer's
+                            payroll calendar.
                         </p>
+
                     </article>
 
                     <article class="content-block">
-                        <h3>Monthly take-home pay</h3>
+
+                        <h3>
+                            Gross vs. take-home pay
+                        </h3>
 
                         <p>
-                            Take-home pay is the amount remaining after
-                            estimated payroll taxes and deductions are
-                            subtracted from your gross earnings.
+                            Gross biweekly pay is your earnings before
+                            taxes and deductions. Take-home pay is what
+                            remains after estimated payroll taxes and
+                            deductions.
                         </p>
+
                     </article>
 
                     <article class="content-block">
-                        <h3>Your actual paycheck may differ</h3>
+
+                        <h3>
+                            Taxes are estimated
+                        </h3>
 
                         <p>
-                            Actual withholding depends on your Form W-4,
-                            employer benefits, state and local taxes,
-                            year-to-date wages, and other payroll details.
+                            Your actual paycheck can differ because
+                            withholding depends on your Form W-4,
+                            benefits, state rules, local taxes,
+                            and other payroll details.
                         </p>
+
                     </article>
 
                 </div>
-            </div>
 
+            </div>
         </section>
 
-        <section class="content-section" id="how-it-works">
 
+        <!-- How calculation works -->
+
+        <section class="content-section">
             <div class="container">
 
                 <div class="section-heading">
-                    <p class="eyebrow">HOW IT WORKS</p>
 
-                    <h2>How to calculate monthly take-home pay</h2>
+                    <p class="eyebrow">
+                        HOW IT WORKS
+                    </p>
+
+                    <h2>
+                        How to calculate biweekly take-home pay
+                    </h2>
 
                     <p>
-                        Monthly gross pay starts with your annual salary
-                        divided by 12. Payroll taxes and deductions are
-                        then estimated to determine monthly take-home pay.
+                        A simple starting point is to divide annual gross
+                        pay by 26. Taxes and deductions are then applied
+                        to estimate your actual biweekly paycheck.
                     </p>
+
                 </div>
 
                 <div class="content-grid">
 
                     <article class="content-block">
-                        <h3>1. Enter annual salary</h3>
+
+                        <h3>
+                            1. Start with annual income
+                        </h3>
+
                         <p>
-                            Start with your gross annual income before
-                            taxes and deductions.
+                            Enter your annual gross salary before taxes,
+                            retirement contributions, insurance, or other
+                            payroll deductions.
                         </p>
+
                     </article>
 
                     <article class="content-block">
-                        <h3>2. Divide by 12</h3>
+
+                        <h3>
+                            2. Divide by 26
+                        </h3>
+
                         <p>
-                            A monthly pay schedule has 12 paychecks
-                            per year, so annual gross income is divided
-                            by 12.
+                            For a standard biweekly schedule, annual gross
+                            pay is divided by 26 to estimate gross pay
+                            for each paycheck.
                         </p>
+
                     </article>
 
                     <article class="content-block">
-                        <h3>3. Estimate taxes</h3>
+
+                        <h3>
+                            3. Estimate payroll taxes
+                        </h3>
+
                         <p>
-                            Federal income tax, Social Security,
-                            Medicare, and applicable state taxes are
-                            estimated using the 2026 tax rules.
+                            Federal income tax, Social Security, Medicare,
+                            and applicable state taxes are estimated using
+                            the calculator's 2026 tax rules.
                         </p>
+
                     </article>
 
                     <article class="content-block">
-                        <h3>4. Subtract deductions</h3>
+
+                        <h3>
+                            4. Subtract deductions
+                        </h3>
+
                         <p>
-                            Pre-tax and post-tax deductions can reduce
-                            the amount of money you take home each month.
+                            Pre-tax and post-tax deductions can change
+                            your final take-home amount.
                         </p>
+
                     </article>
 
                 </div>
-            </div>
 
+            </div>
         </section>
 
-        <section class="content-section">
 
+        <!-- Salary examples -->
+
+        <section class="content-section">
             <div class="container">
 
                 <div class="section-heading">
-                    <p class="eyebrow">SALARY EXAMPLES</p>
 
-                    <h2>Monthly paycheck examples</h2>
+                    <p class="eyebrow">
+                        EXAMPLES
+                    </p>
+
+                    <h2>
+                        Biweekly paycheck examples
+                    </h2>
 
                     <p>
-                        These figures show gross monthly pay before
+                        These examples show gross biweekly pay before
                         taxes and deductions.
                     </p>
+
                 </div>
 
                 <table class="example-table">
 
                     <thead>
                         <tr>
-                            <th>Annual salary</th>
-                            <th>Gross monthly pay</th>
+                            <th>
+                                Annual salary
+                            </th>
+
+                            <th>
+                                Biweekly gross pay
+                            </th>
                         </tr>
                     </thead>
 
                     <tbody>
+
                         <tr>
-                            <td>$40,000</td>
-                            <td>$3,333.33</td>
+                            <td>
+                                $50,000
+                            </td>
+
+                            <td>
+                                $1,923.08
+                            </td>
                         </tr>
 
                         <tr>
-                            <td>$50,000</td>
-                            <td>$4,166.67</td>
+                            <td>
+                                $60,000
+                            </td>
+
+                            <td>
+                                $2,307.69
+                            </td>
                         </tr>
 
                         <tr>
-                            <td>$60,000</td>
-                            <td>$5,000.00</td>
+                            <td>
+                                $75,000
+                            </td>
+
+                            <td>
+                                $2,884.62
+                            </td>
                         </tr>
 
                         <tr>
-                            <td>$75,000</td>
-                            <td>$6,250.00</td>
+                            <td>
+                                $80,000
+                            </td>
+
+                            <td>
+                                $3,076.92
+                            </td>
                         </tr>
 
                         <tr>
-                            <td>$100,000</td>
-                            <td>$8,333.33</td>
+                            <td>
+                                $100,000
+                            </td>
+
+                            <td>
+                                $3,846.15
+                            </td>
                         </tr>
 
-                        <tr>
-                            <td>$120,000</td>
-                            <td>$10,000.00</td>
-                        </tr>
                     </tbody>
 
                 </table>
 
             </div>
-
         </section>
 
-        <section class="content-section">
 
+        <!-- Biweekly vs semimonthly -->
+
+        <section class="content-section">
             <div class="container">
 
                 <div class="section-heading">
-                    <p class="eyebrow">PAY SCHEDULES</p>
 
-                    <h2>Monthly vs. other pay schedules</h2>
+                    <p class="eyebrow">
+                        PAY SCHEDULES
+                    </p>
+
+                    <h2>
+                        Biweekly vs. semimonthly pay
+                    </h2>
 
                     <p>
-                        The number of paychecks you receive each year
-                        changes how much gross pay appears on each
-                        paycheck.
+                        The two schedules are different even though
+                        both commonly result in two paychecks during
+                        most months.
                     </p>
+
                 </div>
 
                 <div class="content-grid">
 
                     <article class="content-block">
-                        <h3>Monthly</h3>
+
+                        <h3>
+                            Biweekly
+                        </h3>
+
                         <p>
-                            12 paychecks per year. Annual salary is
-                            divided by 12.
+                            Paid every two weeks. A standard schedule
+                            has 26 paychecks per year and two months
+                            with three paychecks.
                         </p>
+
                     </article>
 
                     <article class="content-block">
-                        <h3>Semimonthly</h3>
-                        <p>
-                            24 paychecks per year. Employees are usually
-                            paid twice each month.
-                        </p>
-                    </article>
 
-                    <article class="content-block">
-                        <h3>Biweekly</h3>
-                        <p>
-                            26 paychecks per year. Employees are paid
-                            every two weeks.
-                        </p>
-                    </article>
+                        <h3>
+                            Semimonthly
+                        </h3>
 
-                    <article class="content-block">
-                        <h3>Weekly</h3>
                         <p>
-                            52 paychecks per year under a standard
-                            weekly payroll schedule.
+                            Paid twice each month. This results in
+                            24 paychecks per year, usually on fixed
+                            calendar dates such as the 15th and last
+                            day of the month.
                         </p>
+
                     </article>
 
                 </div>
-            </div>
 
+            </div>
         </section>
 
-        <section class="content-section" id="faq">
 
+        <!-- FAQ -->
+
+        <section class="content-section" id="faq">
             <div class="container">
 
                 <div class="section-heading">
-                    <p class="eyebrow">FAQ</p>
 
-                    <h2>Monthly paycheck calculator FAQ</h2>
+                    <p class="eyebrow">
+                        FAQ
+                    </p>
+
+                    <h2>
+                        Biweekly paycheck calculator FAQ
+                    </h2>
+
                 </div>
 
                 <div class="faq-list">
 
                     <details class="faq-item">
                         <summary>
-                            How is a monthly paycheck calculated?
+                            How many biweekly paychecks are there in a year?
                         </summary>
 
                         <p>
-                            Annual gross income is divided by 12 to
-                            estimate gross monthly pay. Estimated federal
-                            tax, Social Security, Medicare, state tax,
-                            and deductions are then subtracted.
+                            A standard biweekly schedule has 26 paychecks
+                            per year because employees are paid every two
+                            weeks.
                         </p>
                     </details>
 
                     <details class="faq-item">
                         <summary>
-                            How much is $60,000 a year per month?
+                            How is a biweekly paycheck calculated?
                         </summary>
 
                         <p>
-                            A $60,000 annual salary equals $5,000 in
-                            gross monthly pay before taxes and deductions.
+                            Annual gross income is divided by 26 to estimate
+                            gross biweekly pay. Estimated federal tax,
+                            Social Security, Medicare, state tax, and
+                            deductions are then subtracted.
                         </p>
                     </details>
 
                     <details class="faq-item">
                         <summary>
-                            How much is $75,000 a year per month?
+                            How much is $75,000 a year paid biweekly?
                         </summary>
 
                         <p>
-                            A $75,000 annual salary equals $6,250 in
-                            gross monthly pay before taxes and deductions.
+                            A $75,000 annual salary equals approximately
+                            $2,884.62 in gross pay per biweekly paycheck
+                            before taxes and deductions.
                         </p>
                     </details>
 
                     <details class="faq-item">
                         <summary>
-                            Is monthly pay the same as semimonthly pay?
+                            Are biweekly and semimonthly pay the same?
                         </summary>
 
                         <p>
-                            No. Monthly pay normally means 12 paychecks
-                            per year. Semimonthly pay means 24 paychecks
-                            per year, usually two each month.
+                            No. Biweekly employees generally receive
+                            26 paychecks per year, while semimonthly
+                            employees receive 24.
                         </p>
                     </details>
 
                     <details class="faq-item">
                         <summary>
-                            How much of my monthly paycheck will I take home?
+                            Why do some months have three biweekly paychecks?
                         </summary>
 
                         <p>
-                            Your take-home amount depends on federal
-                            income tax, Social Security, Medicare,
-                            state taxes, filing status, dependents,
-                            and payroll deductions.
+                            There are 26 biweekly pay periods in a year.
+                            Since most months contain two paychecks,
+                            two months will normally contain a third
+                            paycheck depending on the employer's payroll
+                            calendar.
                         </p>
                     </details>
 
                 </div>
-            </div>
 
+            </div>
         </section>
 
-        <section class="content-section">
 
+        <!-- Methodology -->
+
+        <section class="content-section">
             <div class="container">
 
                 <div class="section-heading">
-                    <p class="eyebrow">METHODOLOGY</p>
 
-                    <h2>About this calculator</h2>
+                    <p class="eyebrow">
+                        METHODOLOGY
+                    </p>
+
+                    <h2>
+                        About this calculator
+                    </h2>
 
                     <p>
-                        PaycheckMint uses centralized 2026 tax rules
-                        and calculation logic to estimate monthly
+                        PaycheckMint uses centralized 2026 tax rules and
+                        payroll calculation logic to estimate biweekly
                         take-home pay.
                     </p>
+
                 </div>
 
                 <div class="content-block">
@@ -1733,11 +2066,12 @@
                     </div>
 
                 </div>
-            </div>
 
+            </div>
         </section>
 
     </main>
+
 
     <footer class="site-footer">
 
@@ -1749,16 +2083,41 @@
 
             <nav class="footer-links" aria-label="Footer navigation">
 
-                <a href="/">Calculator</a>
-                <a href="/hourly-paycheck-calculator.html">Hourly Paycheck</a>
-                <a href="/weekly-paycheck-calculator.html">Weekly Paycheck</a>
-                <a href="/biweekly-paycheck-calculator.html">Biweekly Paycheck</a>
-                <a href="/monthly-paycheck-calculator.html">Monthly Paycheck</a>
-                <a href="/overtime-pay-calculator.html">Overtime</a>
-                <a href="/paycheck-tax-calculator.html">Paycheck Tax</a>
-                <a href="/privacy-policy.html">Privacy</a>
-                <a href="/terms.html">Terms</a>
-                <a href="/contact.html">Contact</a>
+                <a href="/">
+                    Calculator
+                </a>
+
+                <a href="/hourly-paycheck-calculator/">
+                    Hourly Paycheck
+                </a>
+
+                <a href="/weekly-paycheck-calculator/">
+                    Weekly Paycheck
+                </a>
+
+                <a href="/biweekly-paycheck-calculator/">
+                    Biweekly Paycheck
+                </a>
+
+                <a href="/overtime-pay-calculator/">
+                    Overtime
+                </a>
+
+                <a href="/paycheck-tax-calculator/">
+                    Paycheck Tax
+                </a>
+
+                <a href="/privacy-policy/">
+                    Privacy
+                </a>
+
+                <a href="/terms/">
+                    Terms
+                </a>
+
+                <a href="/contact/">
+                    Contact
+                </a>
 
             </nav>
 
@@ -1766,15 +2125,14 @@
 
     </footer>
 
+
     <script>
         (function () {
-
             "use strict";
 
             const $ = (id) => document.getElementById(id);
 
             function number(id, fallback = 0) {
-
                 const element = $(id);
 
                 if (!element) {
@@ -1789,7 +2147,6 @@
             }
 
             function money(value) {
-
                 return new Intl.NumberFormat("en-US", {
                     style: "currency",
                     currency: "USD",
@@ -1799,7 +2156,6 @@
             }
 
             function setText(id, value) {
-
                 const element = $(id);
 
                 if (element) {
@@ -1807,8 +2163,8 @@
                 }
             }
 
-            function annualToMonthly(value) {
-                return (Number(value) || 0) / 12;
+            function annualToBiweekly(value) {
+                return (Number(value) || 0) / 26;
             }
 
             function calculate() {
@@ -1823,17 +2179,19 @@
                     return;
                 }
 
-                const annualGross = number("grossPayInput");
+                const annualGross =
+                    number("grossPayInput");
 
-                const dependents = Math.floor(
-                    number("dependents")
-                );
+                const dependents =
+                    Math.floor(
+                        number("dependents")
+                    );
 
                 const inputs = {
 
                     annualGross,
 
-                    frequency: "monthly",
+                    frequency: "biweekly",
 
                     state:
                         $("state")?.value || "none",
@@ -1844,7 +2202,6 @@
                     dependents,
 
                     pretax: {
-
                         retirement401k:
                             number("retirement401k"),
 
@@ -1862,7 +2219,6 @@
                     },
 
                     posttax: {
-
                         roth401k:
                             number("roth401k"),
 
@@ -1902,7 +2258,7 @@
                 } catch (error) {
 
                     console.error(
-                        "Monthly calculator error:",
+                        "Biweekly calculator error:",
                         error
                     );
 
@@ -1910,8 +2266,7 @@
                 }
 
                 const gross =
-                    Number(result?.gross?.annual) ||
-                    annualGross;
+                    Number(result?.gross?.annual) || annualGross;
 
                 const federal =
                     Number(result?.federal?.tax) || 0;
@@ -1962,96 +2317,73 @@
                         deductions
                     );
 
-                const monthlyNet =
-                    annualToMonthly(annualNet);
-
-                /*
-                 * Main result
-                 */
+                const biweeklyNet =
+                    annualToBiweekly(
+                        annualNet
+                    );
 
                 setText(
                     "resultPeriod",
-                    "Estimated monthly take-home pay"
+                    "Estimated biweekly take-home pay"
                 );
 
                 setText(
                     "takeHome",
-                    money(monthlyNet)
+                    money(biweeklyNet)
                 );
 
                 setText(
                     "chartNet",
-                    money(monthlyNet)
+                    money(biweeklyNet)
                 );
-
-                /*
-                 * Legend
-                 *
-                 * Label and amount are separate elements.
-                 */
 
                 setText(
                     "legendNet",
-                    money(monthlyNet)
+                    money(biweeklyNet)
                 );
 
                 setText(
                     "legendFederal",
-                    money(
-                        annualToMonthly(federal)
-                    )
+                    money(annualToBiweekly(federal))
                 );
 
                 setText(
                     "legendFica",
-                    money(
-                        annualToMonthly(fica)
-                    )
+                    money(annualToBiweekly(fica))
                 );
 
                 setText(
                     "legendState",
-                    money(
-                        annualToMonthly(stateTax)
-                    )
+                    money(annualToBiweekly(stateTax))
                 );
-
-                setText(
-                    "legendDeductions",
-                    money(
-                        annualToMonthly(deductions)
-                    )
-                );
-
-                /*
-                 * Breakdown
-                 */
 
                 setText(
                     "grossResult",
                     money(
-                        annualToMonthly(gross)
+                        annualToBiweekly(gross)
                     )
                 );
 
                 setText(
                     "federalTax",
                     money(
-                        annualToMonthly(federal)
+                        annualToBiweekly(federal)
                     )
                 );
 
                 setText(
                     "socialSecurity",
                     money(
-                        annualToMonthly(socialSecurity)
+                        annualToBiweekly(
+                            socialSecurity
+                        )
                     )
                 );
 
                 setText(
                     "medicare",
                     money(
-                        annualToMonthly(
+                        annualToBiweekly(
                             medicare +
                             additionalMedicare
                         )
@@ -2061,19 +2393,20 @@
                 setText(
                     "stateTax",
                     money(
-                        annualToMonthly(stateTax)
+                        annualToBiweekly(stateTax)
                     )
                 );
 
                 setText(
                     "totalTaxes",
                     money(
-                        annualToMonthly(totalTaxes)
+                        annualToBiweekly(totalTaxes)
                     )
                 );
 
                 /*
-                 * Donut chart
+                 * Keep the chart based on annual values so the
+                 * percentages remain accurate.
                  */
 
                 const net =
@@ -2098,10 +2431,7 @@
                     stateAmount +
                     deductionAmount;
 
-                const chart =
-                    $("paycheckChart");
-
-                if (chart && total > 0) {
+                if (total > 0) {
 
                     const netPercent =
                         net / total * 100;
@@ -2127,30 +2457,38 @@
                         ficaEnd +
                         statePercent;
 
-                    chart.style.background =
-                        "conic-gradient(" +
+                    const chart =
+                        $("paycheckChart");
 
-                        "var(--chart-net) 0% " +
-                        netPercent + "%, " +
+                    if (chart) {
 
-                        "var(--chart-federal) " +
-                        netPercent + "% " +
-                        federalEnd + "%, " +
+                        chart.style.background =
+                            "conic-gradient(" +
 
-                        "var(--chart-fica) " +
-                        federalEnd + "% " +
-                        ficaEnd + "%, " +
+                            "var(--chart-net) 0% " +
+                            netPercent + "%, " +
 
-                        "var(--chart-state) " +
-                        ficaEnd + "% " +
-                        stateEnd + "%, " +
+                            "var(--chart-federal) " +
+                            netPercent + "% " +
+                            federalEnd + "%, " +
 
-                        "var(--chart-deductions) " +
-                        stateEnd + "% 100%)";
+                            "var(--chart-fica) " +
+                            federalEnd + "% " +
+                            ficaEnd + "%, " +
+
+                            "var(--chart-state) " +
+                            ficaEnd + "% " +
+                            stateEnd + "%, " +
+
+                            "var(--chart-deductions) " +
+                            stateEnd + "% 100%" +
+
+                            ")";
+                    }
                 }
 
                 /*
-                 * Pay summary
+                 * Pay-period summary.
                  */
 
                 setText(
@@ -2164,7 +2502,6 @@
                 setText(
                     "biweeklyPay",
                     money(
-                        Number(result?.net?.biweekly) ||
                         annualNet / 26
                     )
                 );
@@ -2179,23 +2516,21 @@
 
                 setText(
                     "monthlyPay",
-                    money(monthlyNet)
+                    money(
+                        Number(result?.net?.monthly) ||
+                        annualNet / 12
+                    )
                 );
 
-                /*
-                 * Expose result.
-                 */
-
-                window.paycheckMintMonthlyResult = {
-
+                window.paycheckMintBiweeklyResult = {
                     ...result,
 
                     annualGross: gross,
 
-                    monthlyGross:
-                        gross / 12,
+                    biweeklyGross:
+                        gross / 26,
 
-                    monthlyNet,
+                    biweeklyNet,
 
                     annualFederalTax:
                         federal,
@@ -2211,9 +2546,6 @@
                 };
             }
 
-            /*
-             * Calculate button
-             */
 
             const calculateButton =
                 $("calculate");
@@ -2226,9 +2558,6 @@
                 );
             }
 
-            /*
-             * Live calculation
-             */
 
             const fields =
                 document.querySelectorAll(
@@ -2264,15 +2593,15 @@
 
             });
 
-            /*
-             * Initialize
-             */
 
             function init() {
                 calculate();
             }
 
-            if (document.readyState === "loading") {
+
+            if (
+                document.readyState === "loading"
+            ) {
 
                 document.addEventListener(
                     "DOMContentLoaded",
