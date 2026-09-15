@@ -1,0 +1,2377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weekly Paycheck Calculator 2026 | PaycheckMint</title>
+
+    <meta name="description"
+        content="Use the PaycheckMint 2026 weekly paycheck calculator to estimate your weekly take-home pay after federal, Social Security, Medicare, state taxes, and deductions.">
+
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="author" content="PaycheckMint">
+    <meta name="theme-color" content="#5954d9">
+
+    <link rel="canonical" href="/weekly-paycheck-calculator.html">
+    <link rel="icon" href="/icon.ico">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Weekly Paycheck Calculator 2026 | PaycheckMint">
+    <meta property="og:description"
+        content="Estimate your weekly take-home pay after federal, FICA, state taxes, and deductions with PaycheckMint.">
+    <meta property="og:url" content="/weekly-paycheck-calculator.html">
+    <meta property="og:site_name" content="PaycheckMint">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Weekly Paycheck Calculator 2026">
+    <meta name="twitter:description"
+        content="Estimate your weekly take-home pay with the free PaycheckMint weekly paycheck calculator.">
+
+    <style>
+        :root {
+            --bg: #f6f5f1;
+            --surface: #ffffff;
+            --surface-soft: #faf9f6;
+            --ink: #191919;
+            --muted: #74736f;
+            --line: #deddd8;
+            --line-dark: #cbc9c3;
+            --accent: #5954d9;
+            --accent-dark: #4843c4;
+            --accent-soft: #eeecff;
+
+            --chart-net: #5954d9;
+            --chart-federal: #e7a23b;
+            --chart-fica: #e06c5d;
+            --chart-state: #72a86f;
+            --chart-deductions: #aaa9a3;
+
+            --radius: 14px;
+            --shadow: 0 8px 30px rgba(25, 25, 25, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button,
+        input,
+        select {
+            font: inherit;
+        }
+
+        /* =========================
+   HEADER
+========================= */
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(246, 245, 241, 0.94);
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            width: min(1120px, calc(100% - 32px));
+            min-height: 68px;
+            margin: 0 auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            color: var(--ink);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 750;
+            letter-spacing: -0.03em;
+            white-space: nowrap;
+        }
+
+        .site-nav {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .site-nav a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: color 0.18s ease;
+        }
+
+        .site-nav a:hover {
+            color: var(--ink);
+        }
+
+        /* =========================
+   PAGE
+========================= */
+
+        .page {
+            width: min(1120px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        /* =========================
+   HERO
+========================= */
+
+        .hero {
+            width: min(760px, 100%);
+            margin: 0 auto;
+            padding: 70px 0 38px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            margin: 0 0 10px;
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2rem, 5vw, 3.3rem);
+            line-height: 1.08;
+            letter-spacing: -0.045em;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 18px auto 0;
+            color: var(--muted);
+            font-size: 1.04rem;
+        }
+
+        /* =========================
+   CALCULATOR
+========================= */
+
+        .calculator {
+            width: min(940px, 100%);
+            margin: 0 auto 70px;
+            padding: 28px;
+
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+
+            overflow: hidden;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 20px;
+        }
+
+        .field {
+            min-width: 0;
+        }
+
+        .field.full,
+        .section-title {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+
+        .field-note {
+            margin: 6px 0 0;
+            color: var(--muted);
+            font-size: 0.77rem;
+            line-height: 1.4;
+        }
+
+        input,
+        select {
+            width: 100%;
+            height: 48px;
+            min-width: 0;
+
+            padding: 0 13px;
+
+            border: 1px solid var(--line-dark);
+            border-radius: 10px;
+
+            background: #fff;
+            color: var(--ink);
+
+            outline: none;
+            appearance: auto;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-soft);
+        }
+
+        .input-prefix {
+            position: relative;
+            width: 100%;
+        }
+
+        .input-prefix span {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: var(--muted);
+            pointer-events: none;
+            font-weight: 600;
+        }
+
+        .input-prefix input {
+            padding-left: 30px;
+        }
+
+        .section-title {
+            padding-top: 4px;
+            margin-bottom: -4px;
+        }
+
+        .section-title h2 {
+            margin: 0;
+            font-size: 1rem;
+            letter-spacing: -0.015em;
+        }
+
+        .section-title p {
+            margin: 3px 0 0;
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        /* =========================
+   ADVANCED OPTIONS
+========================= */
+
+        .advanced-options {
+            grid-column: 1 / -1;
+
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+
+            padding: 15px 0;
+        }
+
+        .advanced-options summary {
+            cursor: pointer;
+            color: var(--ink);
+
+            font-size: 0.9rem;
+            font-weight: 700;
+
+            list-style-position: inside;
+        }
+
+        .advanced-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        /* =========================
+   CALCULATE BUTTON
+========================= */
+
+        .calculate-button {
+            display: block;
+
+            width: 100%;
+            min-height: 52px;
+
+            margin-top: 24px;
+            padding: 12px 18px;
+
+            border: 0;
+            border-radius: 11px;
+
+            background: var(--accent);
+            color: #fff;
+
+            font: inherit;
+            font-weight: 750;
+
+            cursor: pointer;
+
+            transition:
+                background 0.18s ease,
+                transform 0.18s ease;
+        }
+
+        .calculate-button:hover {
+            background: var(--accent-dark);
+        }
+
+        .calculate-button:active {
+            transform: translateY(1px);
+        }
+
+        /* =========================
+   RESULT
+========================= */
+
+        .result {
+            margin-top: 28px;
+            padding-top: 28px;
+
+            border-top: 1px solid var(--line);
+        }
+
+        .result-top {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 220px;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .result-label {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.84rem;
+            font-weight: 700;
+        }
+
+        .total {
+            margin: 4px 0 5px;
+
+            font-size: clamp(2.2rem, 7vw, 3.2rem);
+            line-height: 1;
+            letter-spacing: -0.05em;
+            font-weight: 800;
+
+            overflow-wrap: anywhere;
+        }
+
+        .result-subtitle {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        .chart-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chart {
+            position: relative;
+
+            width: 190px;
+            height: 190px;
+
+            flex: 0 0 190px;
+
+            border-radius: 50%;
+
+            background:
+                conic-gradient(var(--chart-net) 0 100%);
+        }
+
+        .chart::after {
+            content: "";
+
+            position: absolute;
+            inset: 28px;
+
+            border-radius: 50%;
+            background: var(--surface);
+        }
+
+        .chart-center {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+        }
+
+        .chart-center span {
+            color: var(--muted);
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        .chart-center strong {
+            margin-top: 2px;
+            font-size: 1rem;
+        }
+
+        /* =========================
+   LEGEND
+========================= */
+
+        .legend {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 9px 18px;
+
+            margin-top: 22px;
+        }
+
+        .legend-item {
+            min-width: 0;
+
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            color: var(--muted);
+            font-size: 0.78rem;
+        }
+
+        .legend-item span:last-child {
+            min-width: 0;
+        }
+
+        .legend-dot {
+            width: 9px;
+            height: 9px;
+
+            flex: 0 0 9px;
+
+            border-radius: 50%;
+        }
+
+        .dot-net {
+            background: var(--chart-net);
+        }
+
+        .dot-federal {
+            background: var(--chart-federal);
+        }
+
+        .dot-fica {
+            background: var(--chart-fica);
+        }
+
+        .dot-state {
+            background: var(--chart-state);
+        }
+
+        .dot-deductions {
+            background: var(--chart-deductions);
+        }
+
+        /* =========================
+   BREAKDOWN
+========================= */
+
+        .breakdown {
+            margin-top: 24px;
+            border-top: 1px solid var(--line);
+        }
+
+        .breakdown-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 20px;
+
+            min-height: 44px;
+            padding: 10px 0;
+
+            border-bottom: 1px solid var(--line);
+
+            font-size: 0.9rem;
+        }
+
+        .breakdown-row span:first-child {
+            color: var(--muted);
+        }
+
+        .breakdown-row strong {
+            white-space: nowrap;
+            text-align: right;
+        }
+
+        /* =========================
+   PAY SUMMARY
+========================= */
+
+        .pay-summary {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .pay-summary-item {
+            min-width: 0;
+
+            padding: 13px;
+
+            border: 1px solid var(--line);
+            border-radius: 10px;
+
+            background: var(--surface-soft);
+        }
+
+        .pay-summary-item span {
+            display: block;
+
+            color: var(--muted);
+            font-size: 0.73rem;
+        }
+
+        .pay-summary-item strong {
+            display: block;
+
+            margin-top: 2px;
+
+            font-size: 0.98rem;
+            overflow-wrap: anywhere;
+        }
+
+        /* =========================
+   CONTENT
+========================= */
+
+        .content {
+            width: min(850px, 100%);
+            margin: 0 auto;
+            padding-bottom: 80px;
+        }
+
+        .content-section {
+            margin-bottom: 50px;
+        }
+
+        .content-section h2 {
+            margin: 0 0 14px;
+
+            font-size: clamp(1.45rem, 4vw, 1.9rem);
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+        }
+
+        .content-section h3 {
+            margin: 26px 0 8px;
+            font-size: 1.05rem;
+        }
+
+        .content-section p {
+            margin: 0 0 14px;
+            color: #4f4e4a;
+        }
+
+        .content-section ul {
+            margin: 12px 0 0;
+            padding-left: 22px;
+            color: #4f4e4a;
+        }
+
+        .content-section li {
+            margin: 6px 0;
+        }
+
+        .info-box {
+            padding: 20px;
+
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+        }
+
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-item {
+            padding: 18px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .faq-item:first-child {
+            border-top: 1px solid var(--line);
+        }
+
+        .faq-item h3 {
+            margin: 0 0 7px;
+            font-size: 1rem;
+        }
+
+        .faq-item p {
+            margin: 0;
+        }
+
+        .disclaimer {
+            padding: 18px;
+
+            border: 1px solid var(--line);
+            border-radius: 12px;
+
+            background: var(--surface-soft);
+            color: var(--muted);
+
+            font-size: 0.86rem;
+        }
+
+        /* =========================
+   FOOTER
+========================= */
+
+        .site-footer {
+            border-top: 1px solid var(--line);
+            background: var(--surface);
+        }
+
+        .footer-inner {
+            width: min(1120px, calc(100% - 32px));
+            margin: 0 auto;
+
+            padding: 34px 0;
+
+            text-align: center;
+        }
+
+        .footer-brand strong {
+            font-size: 1rem;
+        }
+
+        .footer-brand p {
+            margin: 4px 0 18px;
+            color: var(--muted);
+            font-size: 0.84rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.84rem;
+            font-weight: 600;
+        }
+
+        .footer-links a:hover {
+            color: var(--ink);
+        }
+
+        .footer-copy {
+            margin: 18px 0 0;
+            color: var(--muted);
+            font-size: 0.76rem;
+        }
+
+        /* =========================
+   TABLET
+========================= */
+
+        @media (max-width: 820px) {
+
+            .result-top {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .chart-wrap {
+                justify-content: center;
+            }
+
+            .pay-summary {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        /* =========================
+   MOBILE
+========================= */
+
+        @media (max-width: 760px) {
+
+            .hero {
+                padding: 52px 0 30px;
+            }
+
+            .hero p {
+                max-width: 620px;
+            }
+
+            .calculator {
+                padding: 22px;
+                margin-bottom: 55px;
+            }
+
+            .calculator-grid,
+            .advanced-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .field.full,
+            .section-title,
+            .advanced-options {
+                grid-column: auto;
+            }
+
+            .advanced-options {
+                margin-top: 2px;
+            }
+
+            .content {
+                padding-bottom: 55px;
+            }
+        }
+
+        /* =========================
+   SMALL MOBILE
+========================= */
+
+        @media (max-width: 560px) {
+
+            .header-inner {
+                width: calc(100% - 24px);
+                min-height: 60px;
+            }
+
+            .brand {
+                font-size: 1.08rem;
+            }
+
+            .site-nav {
+                gap: 12px;
+                min-width: 0;
+            }
+
+            .site-nav a {
+                font-size: 0.78rem;
+            }
+
+            .page {
+                width: calc(100% - 24px);
+            }
+
+            .hero {
+                padding: 40px 0 26px;
+            }
+
+            .eyebrow {
+                font-size: 0.68rem;
+                letter-spacing: 0.1em;
+            }
+
+            h1 {
+                font-size: clamp(1.9rem, 9vw, 2.5rem);
+                letter-spacing: -0.04em;
+            }
+
+            .hero p {
+                margin-top: 14px;
+                font-size: 0.94rem;
+                line-height: 1.5;
+            }
+
+            .calculator {
+                width: 100%;
+                padding: 17px;
+                margin-bottom: 48px;
+
+                border-radius: 14px;
+            }
+
+            .calculator-grid {
+                gap: 17px;
+            }
+
+            .section-title {
+                padding-top: 2px;
+            }
+
+            .section-title h2 {
+                font-size: 0.96rem;
+            }
+
+            .section-title p {
+                font-size: 0.78rem;
+                line-height: 1.45;
+            }
+
+            label {
+                margin-bottom: 6px;
+                font-size: 0.84rem;
+            }
+
+            input,
+            select {
+                height: 47px;
+                font-size: 16px;
+            }
+
+            .field-note {
+                font-size: 0.73rem;
+            }
+
+            .advanced-options {
+                padding: 14px 0;
+            }
+
+            .advanced-options summary {
+                font-size: 0.84rem;
+            }
+
+            .advanced-grid {
+                gap: 16px;
+                margin-top: 16px;
+            }
+
+            .calculate-button {
+                min-height: 50px;
+                margin-top: 21px;
+                font-size: 0.95rem;
+            }
+
+            .result {
+                margin-top: 24px;
+                padding-top: 24px;
+            }
+
+            .result-top {
+                gap: 22px;
+            }
+
+            .result-label {
+                font-size: 0.8rem;
+            }
+
+            .total {
+                margin-top: 6px;
+                font-size: clamp(2.15rem, 12vw, 2.8rem);
+            }
+
+            .result-subtitle {
+                font-size: 0.8rem;
+                line-height: 1.45;
+            }
+
+            .chart {
+                width: 164px;
+                height: 164px;
+                flex-basis: 164px;
+            }
+
+            .chart::after {
+                inset: 24px;
+            }
+
+            .chart-center span {
+                font-size: 0.68rem;
+            }
+
+            .chart-center strong {
+                font-size: 0.92rem;
+            }
+
+            .legend {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                margin-top: 20px;
+            }
+
+            .legend-item {
+                font-size: 0.76rem;
+            }
+
+            .breakdown {
+                margin-top: 21px;
+            }
+
+            .breakdown-row {
+                gap: 12px;
+                min-height: 43px;
+                padding: 9px 0;
+                font-size: 0.82rem;
+            }
+
+            .breakdown-row span:first-child {
+                min-width: 0;
+            }
+
+            .breakdown-row strong {
+                flex-shrink: 0;
+            }
+
+            .pay-summary {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 8px;
+                margin-top: 18px;
+            }
+
+            .pay-summary-item {
+                padding: 11px;
+            }
+
+            .pay-summary-item span {
+                font-size: 0.69rem;
+            }
+
+            .pay-summary-item strong {
+                font-size: 0.88rem;
+            }
+
+            .content {
+                width: 100%;
+            }
+
+            .content-section {
+                margin-bottom: 38px;
+            }
+
+            .content-section h2 {
+                font-size: 1.4rem;
+                margin-bottom: 12px;
+            }
+
+            .content-section h3 {
+                font-size: 1rem;
+            }
+
+            .content-section p,
+            .content-section li {
+                font-size: 0.91rem;
+                line-height: 1.65;
+            }
+
+            .info-box {
+                padding: 16px;
+            }
+
+            .disclaimer {
+                padding: 15px;
+                font-size: 0.8rem;
+            }
+
+            .footer-inner {
+                width: calc(100% - 24px);
+                padding: 28px 0;
+            }
+
+            .footer-links {
+                gap: 10px 15px;
+            }
+
+            .footer-links a {
+                font-size: 0.77rem;
+            }
+        }
+
+        /* =========================
+   VERY SMALL PHONES
+========================= */
+
+        @media (max-width: 380px) {
+
+            .header-inner {
+                width: calc(100% - 20px);
+            }
+
+            .brand {
+                font-size: 1rem;
+            }
+
+            .site-nav {
+                gap: 9px;
+            }
+
+            .site-nav a {
+                font-size: 0.72rem;
+            }
+
+            .site-nav a:nth-child(n + 3) {
+                display: none;
+            }
+
+            .page {
+                width: calc(100% - 20px);
+            }
+
+            .hero {
+                padding-top: 34px;
+            }
+
+            h1 {
+                font-size: 1.85rem;
+            }
+
+            .hero p {
+                font-size: 0.88rem;
+            }
+
+            .calculator {
+                padding: 14px;
+                border-radius: 13px;
+            }
+
+            .calculator-grid {
+                gap: 15px;
+            }
+
+            input,
+            select {
+                height: 46px;
+            }
+
+            .calculate-button {
+                min-height: 48px;
+                font-size: 0.9rem;
+            }
+
+            .total {
+                font-size: 2.15rem;
+            }
+
+            .chart {
+                width: 150px;
+                height: 150px;
+                flex-basis: 150px;
+            }
+
+            .chart::after {
+                inset: 22px;
+            }
+
+            .breakdown-row {
+                font-size: 0.78rem;
+                gap: 8px;
+            }
+
+            .pay-summary {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .pay-summary-item {
+                padding: 10px;
+            }
+
+            .pay-summary-item strong {
+                font-size: 0.82rem;
+            }
+
+            .content-section p,
+            .content-section li {
+                font-size: 0.88rem;
+            }
+
+            .footer-inner {
+                width: calc(100% - 20px);
+            }
+        }
+
+        /* =========================
+   EXTRA SMALL 320px
+========================= */
+
+        @media (max-width: 330px) {
+
+            .site-nav a {
+                font-size: 0.68rem;
+            }
+
+            .hero {
+                padding-top: 30px;
+            }
+
+            .eyebrow {
+                font-size: 0.62rem;
+            }
+
+            h1 {
+                font-size: 1.7rem;
+            }
+
+            .calculator {
+                padding: 12px;
+            }
+
+            .total {
+                font-size: 2rem;
+            }
+
+            .chart {
+                width: 140px;
+                height: 140px;
+                flex-basis: 140px;
+            }
+
+            .chart::after {
+                inset: 20px;
+            }
+
+            .breakdown-row {
+                font-size: 0.75rem;
+            }
+
+            .pay-summary-item span {
+                font-size: 0.65rem;
+            }
+
+            .pay-summary-item strong {
+                font-size: 0.77rem;
+            }
+        }
+    </style>
+
+    <!-- WebSite structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "PaycheckMint",
+        "url": "/"
+    }
+    </script>
+
+    <!-- WebApplication structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "PaycheckMint Weekly Paycheck Calculator",
+        "url": "/weekly-paycheck-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "description": "A free online weekly paycheck calculator for estimating weekly gross pay, taxes, deductions, and take-home pay."
+    }
+    </script>
+
+    <!-- FAQ structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a weekly paycheck calculator?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A weekly paycheck calculator estimates how much you may receive in a weekly paycheck after federal income tax, Social Security, Medicare, state taxes, and selected deductions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I calculate my weekly paycheck?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Start with your annual gross pay, then estimate federal income tax, Social Security, Medicare, state tax, and applicable deductions. The remaining amount is your estimated weekly take-home pay."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much is $1,000 a week after taxes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The take-home amount depends on filing status, state, deductions, and other withholding factors. A weekly paycheck calculator can provide an estimate based on those inputs."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does a weekly paycheck include Social Security and Medicare taxes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Generally, employee wages are subject to Social Security and Medicare taxes. The exact amount depends on wages and applicable payroll rules."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="/" class="brand" aria-label="PaycheckMint home">
+                PaycheckMint
+            </a>
+
+            <nav class="site-nav" aria-label="Main navigation">
+                <a href="/">Calculator</a>
+                <a href="/#how-it-works">How it works</a>
+                <a href="/#faq">FAQ</a>
+                <a href="/about.html">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <p class="eyebrow">2026 WEEKLY PAYCHECK CALCULATOR</p>
+
+            <h1>Calculate your weekly paycheck.</h1>
+
+            <p>
+                Estimate your weekly take-home pay after federal income tax,
+                Social Security, Medicare, state taxes, and deductions.
+            </p>
+        </section>
+
+        <section class="calculator" aria-label="Weekly paycheck calculator">
+
+            <div class="calculator-grid">
+
+                <div class="section-title">
+                    <h2>Pay information</h2>
+                    <p>Enter your annual salary and choose your state and filing status.</p>
+                </div>
+
+                <div class="field full">
+                    <label for="grossPayInput">Annual gross pay</label>
+
+                    <div class="input-prefix">
+                        <span>$</span>
+
+                        <input id="grossPayInput" type="number" inputmode="decimal" min="0" step="100" value="75000"
+                            placeholder="75000">
+                    </div>
+
+                    <p class="field-note">
+                        Enter your gross annual income before taxes and deductions.
+                    </p>
+                </div>
+
+                <div class="field">
+                    <label for="frequency">Pay frequency</label>
+
+                    <select id="frequency">
+                        <option value="52" selected>Weekly</option>
+                        <option value="26">Biweekly</option>
+                        <option value="24">Semimonthly</option>
+                        <option value="12">Monthly</option>
+                        <option value="4">Quarterly</option>
+                        <option value="2">Semiannually</option>
+                        <option value="1">Annually</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="state">State</label>
+
+                    <select id="state">
+                        <option value="none" selected>No state tax</option>
+                        <option value="al">Alabama</option>
+                        <option value="az">Arizona</option>
+                        <option value="ca">California</option>
+                        <option value="co">Colorado</option>
+                        <option value="fl">Florida</option>
+                        <option value="ga">Georgia</option>
+                        <option value="il">Illinois</option>
+                        <option value="ma">Massachusetts</option>
+                        <option value="mi">Michigan</option>
+                        <option value="nc">North Carolina</option>
+                        <option value="nj">New Jersey</option>
+                        <option value="ny">New York</option>
+                        <option value="oh">Ohio</option>
+                        <option value="or">Oregon</option>
+                        <option value="pa">Pennsylvania</option>
+                        <option value="tn">Tennessee</option>
+                        <option value="tx">Texas</option>
+                        <option value="va">Virginia</option>
+                        <option value="wa">Washington</option>
+                        <option value="other">Other state</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="filing">Filing status</label>
+
+                    <select id="filing">
+                        <option value="single" selected>Single</option>
+                        <option value="married">Married filing jointly</option>
+                        <option value="hoh">Head of household</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="dependents">Dependents</label>
+
+                    <input id="dependents" type="number" inputmode="numeric" min="0" step="1" value="0">
+                </div>
+
+                <div class="section-title">
+                    <h2>Pre-tax deductions</h2>
+                    <p>Optional deductions that may reduce taxable income.</p>
+                </div>
+
+                <div class="field">
+                    <label for="retirement401k">401(k) contribution</label>
+
+                    <div class="input-prefix">
+                        <span>$</span>
+
+                        <input id="retirement401k" type="number" inputmode="decimal" min="0" step="10" value="0">
+                    </div>
+
+                    <p class="field-note">Annual amount.</p>
+                </div>
+
+                <div class="field">
+                    <label for="healthInsurance">Health insurance</label>
+
+                    <div class="input-prefix">
+                        <span>$</span>
+
+                        <input id="healthInsurance" type="number" inputmode="decimal" min="0" step="10" value="0">
+                    </div>
+
+                    <p class="field-note">Annual amount.</p>
+                </div>
+
+                <div class="field">
+                    <label for="hsa">HSA contribution</label>
+
+                    <div class="input-prefix">
+                        <span>$</span>
+
+                        <input id="hsa" type="number" inputmode="decimal" min="0" step="10" value="0">
+                    </div>
+
+                    <p class="field-note">Annual amount.</p>
+                </div>
+
+                <div class="field">
+                    <label for="fsa">FSA contribution</label>
+
+                    <div class="input-prefix">
+                        <span>$</span>
+
+                        <input id="fsa" type="number" inputmode="decimal" min="0" step="10" value="0">
+                    </div>
+
+                    <p class="field-note">Annual amount.</p>
+                </div>
+
+                <details class="advanced-options">
+                    <summary>Advanced tax and deduction options</summary>
+
+                    <div class="advanced-grid">
+
+                        <div class="field">
+                            <label for="extraFederal">Extra federal withholding</label>
+
+                            <div class="input-prefix">
+                                <span>$</span>
+
+                                <input id="extraFederal" type="number" inputmode="decimal" min="0" step="10" value="0">
+                            </div>
+
+                            <p class="field-note">Annual amount.</p>
+                        </div>
+
+                        <div class="field">
+                            <label for="extraState">Extra state withholding</label>
+
+                            <div class="input-prefix">
+                                <span>$</span>
+
+                                <input id="extraState" type="number" inputmode="decimal" min="0" step="10" value="0">
+                            </div>
+
+                            <p class="field-note">Annual amount.</p>
+                        </div>
+
+                        <div class="field">
+                            <label for="additionalMedicare">Additional Medicare tax</label>
+
+                            <div class="input-prefix">
+                                <span>$</span>
+
+                                <input id="additionalMedicare" type="number" inputmode="decimal" min="0" step="10"
+                                    value="0">
+                            </div>
+
+                            <p class="field-note">Annual amount.</p>
+                        </div>
+
+                        <div class="field">
+                            <label for="otherPretax">Other pre-tax deductions</label>
+
+                            <div class="input-prefix">
+                                <span>$</span>
+
+                                <input id="otherPretax" type="number" inputmode="decimal" min="0" step="10" value="0">
+                            </div>
+
+                            <p class="field-note">Annual amount.</p>
+                        </div>
+
+                    </div>
+                </details>
+
+                <div class="section-title">
+                    <h2>Post-tax deductions</h2>
+                    <p>Optional deductions taken after taxes.</p>
+                </div>
+
+                <div class="field">
+                    <label for="roth401k">Roth 401(k)</label>
+
+                    <div class="input-prefix">
+                        <span>$</span>
+
+                        <input id="roth401k" type="number" inputmode="decimal" min="0" step="10" value="0">
+                    </div>
+
+                    <p class="field-note">Annual amount.</p>
+                </div>
+
+                <div class="field">
+                    <label for="loanRepayment">Loan repayment</label>
+
+                    <div class="input-prefix">
+                        <span>$</span>
+
+                        <input id="loanRepayment" type="number" inputmode="decimal" min="0" step="10" value="0">
+                    </div>
+
+                    <p class="field-note">Annual amount.</p>
+                </div>
+
+                <div class="field">
+                    <label for="garnishments">Garnishments</label>
+
+                    <div class="input-prefix">
+                        <span>$</span>
+
+                        <input id="garnishments" type="number" inputmode="decimal" min="0" step="10" value="0">
+                    </div>
+
+                    <p class="field-note">Annual amount.</p>
+                </div>
+
+                <div class="field">
+                    <label for="otherPosttax">Other post-tax deductions</label>
+
+                    <div class="input-prefix">
+                        <span>$</span>
+
+                        <input id="otherPosttax" type="number" inputmode="decimal" min="0" step="10" value="0">
+                    </div>
+
+                    <p class="field-note">Annual amount.</p>
+                </div>
+
+            </div>
+
+            <button type="button" class="calculate-button" id="calculate">
+                Calculate weekly paycheck
+            </button>
+
+            <div class="result" id="result" aria-live="polite">
+
+                <div class="result-top">
+
+                    <div>
+                        <p class="result-label" id="resultPeriod">
+                            Estimated weekly take-home pay
+                        </p>
+
+                        <div class="total" id="takeHome">
+                            $0.00
+                        </div>
+
+                        <p class="result-subtitle">
+                            Your estimated amount after taxes and deductions.
+                        </p>
+                    </div>
+
+                    <div class="chart-wrap">
+                        <div class="chart" id="paycheckChart" aria-label="Weekly paycheck breakdown chart">
+                            <div class="chart-center">
+                                <span>Weekly net</span>
+                                <strong id="chartNet">$0.00</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="legend">
+
+                    <div class="legend-item">
+                        <span class="legend-dot dot-net"></span>
+                        <span>Take-home</span>
+                    </div>
+
+                    <div class="legend-item">
+                        <span class="legend-dot dot-federal"></span>
+                        <span>Federal tax</span>
+                    </div>
+
+                    <div class="legend-item">
+                        <span class="legend-dot dot-fica"></span>
+                        <span>Social Security & Medicare</span>
+                    </div>
+
+                    <div class="legend-item">
+                        <span class="legend-dot dot-state"></span>
+                        <span>State tax</span>
+                    </div>
+
+                    <div class="legend-item">
+                        <span class="legend-dot dot-deductions"></span>
+                        <span>Deductions</span>
+                    </div>
+
+                </div>
+
+                <div class="breakdown">
+
+                    <div class="breakdown-row">
+                        <span>Weekly gross pay</span>
+                        <strong id="grossResult">$0.00</strong>
+                    </div>
+
+                    <div class="breakdown-row">
+                        <span>Federal income tax</span>
+                        <strong id="federalTax">$0.00</strong>
+                    </div>
+
+                    <div class="breakdown-row">
+                        <span>Social Security</span>
+                        <strong id="socialSecurity">$0.00</strong>
+                    </div>
+
+                    <div class="breakdown-row">
+                        <span>Medicare</span>
+                        <strong id="medicare">$0.00</strong>
+                    </div>
+
+                    <div class="breakdown-row">
+                        <span>State tax</span>
+                        <strong id="stateTax">$0.00</strong>
+                    </div>
+
+                    <div class="breakdown-row">
+                        <span>Total taxes</span>
+                        <strong id="totalTaxes">$0.00</strong>
+                    </div>
+
+                </div>
+
+                <div class="pay-summary">
+
+                    <div class="pay-summary-item">
+                        <span>Weekly</span>
+                        <strong id="weeklyPay">$0.00</strong>
+                    </div>
+
+                    <div class="pay-summary-item">
+                        <span>Biweekly</span>
+                        <strong id="biweeklyPay">$0.00</strong>
+                    </div>
+
+                    <div class="pay-summary-item">
+                        <span>Semimonthly</span>
+                        <strong id="semimonthlyPay">$0.00</strong>
+                    </div>
+
+                    <div class="pay-summary-item">
+                        <span>Monthly</span>
+                        <strong id="monthlyPay">$0.00</strong>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <article class="content">
+
+            <section class="content-section">
+                <h2>What is a weekly paycheck?</h2>
+
+                <p>
+                    A weekly paycheck is a payment an employee receives once each
+                    week. A weekly pay schedule generally results in 52 paychecks
+                    during a full year, although the exact number can vary depending
+                    on the employer's payroll calendar.
+                </p>
+
+                <p>
+                    Your weekly gross pay is the amount you earn before taxes and
+                    deductions. Your weekly take-home pay is the amount remaining
+                    after applicable taxes, payroll deductions, and other
+                    withholding.
+                </p>
+            </section>
+
+            <section class="content-section">
+                <h2>How to calculate weekly take-home pay</h2>
+
+                <p>
+                    To estimate weekly take-home pay, start with your annual gross
+                    income and divide it by 52. Federal income tax, Social Security,
+                    Medicare, state tax, and eligible deductions are then estimated
+                    to determine your weekly net pay.
+                </p>
+
+                <div class="info-box">
+                    <p>
+                        <strong>Annual gross pay ÷ 52 = estimated weekly gross pay</strong>
+                    </p>
+
+                    <p>
+                        <strong>
+                            Weekly gross pay − taxes − deductions = estimated weekly take-home pay
+                        </strong>
+                    </p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>How much is $1,000 a week after taxes?</h2>
+
+                <p>
+                    If your gross weekly pay is $1,000, your actual take-home pay
+                    depends on your federal tax withholding, filing status, state,
+                    Social Security and Medicare taxes, and deductions such as
+                    retirement contributions or health insurance.
+                </p>
+
+                <p>
+                    There is no single after-tax amount for everyone earning $1,000
+                    per week. Use the calculator above to enter your circumstances
+                    and estimate your weekly take-home pay.
+                </p>
+            </section>
+
+            <section class="content-section">
+                <h2>Weekly paycheck taxes</h2>
+
+                <p>
+                    A typical weekly paycheck can include several types of taxes.
+                    Federal income tax depends on taxable income and filing
+                    circumstances. Social Security and Medicare are generally
+                    payroll taxes withheld from employee wages. State income tax
+                    depends on the state and applicable rules.
+                </p>
+
+                <ul>
+                    <li>Federal income tax</li>
+                    <li>Social Security tax</li>
+                    <li>Medicare tax</li>
+                    <li>State income tax where applicable</li>
+                    <li>Pre-tax and post-tax deductions</li>
+                </ul>
+
+                <p>
+                    Actual payroll withholding can differ from a simple annual tax
+                    estimate because employers use payroll withholding rules,
+                    employee Form W-4 information, pay frequency, year-to-date
+                    wages, and other factors.
+                </p>
+            </section>
+
+            <section class="content-section">
+                <h2>Weekly paycheck examples</h2>
+
+                <h3>$52,000 annual salary</h3>
+
+                <p>
+                    An annual salary of $52,000 equals approximately $1,000 in gross
+                    weekly pay when divided across 52 weeks. Your actual weekly
+                    take-home pay will be lower after taxes and deductions.
+                </p>
+
+                <h3>$75,000 annual salary</h3>
+
+                <p>
+                    A $75,000 annual salary produces approximately $1,442.31 in
+                    gross weekly pay before taxes and deductions.
+                </p>
+
+                <h3>$100,000 annual salary</h3>
+
+                <p>
+                    A $100,000 annual salary produces approximately $1,923.08 in
+                    gross weekly pay before taxes and deductions.
+                </p>
+            </section>
+
+            <section class="content-section">
+                <h2>Weekly vs. biweekly pay</h2>
+
+                <p>
+                    Weekly employees generally receive 52 paychecks per year.
+                    Biweekly employees generally receive 26 paychecks per year.
+                    The annual salary is normally the same, but the amount and timing
+                    of each paycheck are different.
+                </p>
+
+                <p>
+                    Weekly pay can make budgeting easier because money arrives more
+                    frequently. However, monthly and annual totals should be compared
+                    when evaluating overall compensation.
+                </p>
+            </section>
+
+            <section class="content-section">
+                <h2>Weekly Paycheck Calculator FAQ</h2>
+
+                <div class="faq-item">
+                    <h3>What is a weekly paycheck calculator?</h3>
+
+                    <p>
+                        It estimates your weekly gross and take-home pay after
+                        estimated federal, payroll, state taxes, and deductions.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How many weekly paychecks are there in a year?</h3>
+
+                    <p>
+                        A typical weekly payroll schedule has 52 paychecks in a year.
+                        Some payroll calendars can result in an additional paycheck
+                        during a particular calendar year.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How do I calculate my weekly salary?</h3>
+
+                    <p>
+                        For a simple annual salary calculation, divide your annual
+                        gross salary by 52 to estimate weekly gross pay.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Does weekly pay get taxed differently?</h3>
+
+                    <p>
+                        Your annual tax liability is not simply determined by how
+                        frequently you are paid. Payroll withholding can vary with
+                        pay frequency and withholding information, while Social
+                        Security and Medicare generally apply to covered wages.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What is the difference between weekly gross pay and take-home pay?</h3>
+
+                    <p>
+                        Gross pay is your earnings before taxes and deductions.
+                        Take-home pay is the amount remaining after applicable taxes
+                        and deductions.
+                    </p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Methodology and limitations</h2>
+
+                <p>
+                    PaycheckMint calculates an estimated weekly paycheck from annual
+                    gross income, filing status, dependents, state, pre-tax
+                    deductions, post-tax deductions, and the selected 2026 tax rules.
+                </p>
+
+                <p>
+                    State calculations are simplified planning estimates and may not
+                    represent every state or local withholding rule. Actual payroll
+                    withholding can also differ based on Form W-4 elections,
+                    employer benefits, year-to-date wages, local taxes, and other
+                    circumstances.
+                </p>
+
+                <div class="disclaimer">
+                    <strong>Important:</strong>
+                    PaycheckMint provides estimates for educational and planning
+                    purposes. This calculator is not tax or financial advice and
+                    does not replace an employer payroll calculation or official
+                    tax guidance.
+                </div>
+            </section>
+
+        </article>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+
+            <div class="footer-brand">
+                <strong>PaycheckMint</strong>
+
+                <p>
+                    Simple tools for understanding your paycheck.
+                </p>
+            </div>
+
+            <nav class="footer-links" aria-label="Footer navigation">
+                <a href="/">Calculator</a>
+                <a href="/hourly-paycheck-calculator.html">Hourly Paycheck</a>
+                <a href="/overtime-pay-calculator.html">Overtime</a>
+                <a href="/paycheck-tax-calculator.html">Paycheck Tax</a>
+                <a href="/privacy-policy.html">Privacy</a>
+                <a href="/terms.html">Terms</a>
+                <a href="/contact.html">Contact</a>
+            </nav>
+
+            <p class="footer-copy">
+                © 2026 PaycheckMint. All rights reserved.
+            </p>
+
+        </div>
+    </footer>
+
+    <script src="/tax-rules-2026.js"></script>
+    <script src="/tax-engine.js"></script>
+
+    <script>
+        (function () {
+            "use strict";
+
+            const $ = (id) =>
+                document.getElementById(id);
+
+            function money(value) {
+                return new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                }).format(Number(value) || 0);
+            }
+
+            function number(id, fallback = 0) {
+                const el = $(id);
+
+                if (!el) {
+                    return fallback;
+                }
+
+                const parsed =
+                    parseFloat(el.value);
+
+                return Number.isFinite(parsed)
+                    ? Math.max(0, parsed)
+                    : fallback;
+            }
+
+            function value(id, fallback = "") {
+                const el = $(id);
+
+                return el
+                    ? el.value
+                    : fallback;
+            }
+
+            function setText(id, text) {
+                const el = $(id);
+
+                if (el) {
+                    el.textContent = text;
+                }
+            }
+
+            function getFrequency() {
+                const map = {
+                    "52": "weekly",
+                    "26": "biweekly",
+                    "24": "semimonthly",
+                    "12": "monthly",
+                    "4": "quarterly",
+                    "2": "semiannually",
+                    "1": "annually"
+                };
+
+                return (
+                    map[value("frequency", "52")] ||
+                    "weekly"
+                );
+            }
+
+            function getPeriods(frequency) {
+                const periods = {
+                    weekly: 52,
+                    biweekly: 26,
+                    semimonthly: 24,
+                    monthly: 12,
+                    quarterly: 4,
+                    semiannually: 2,
+                    annually: 1
+                };
+
+                return periods[frequency] || 52;
+            }
+
+            function periodValue(
+                annualValue,
+                frequency
+            ) {
+                return (
+                    Number(annualValue) || 0
+                ) / getPeriods(frequency);
+            }
+
+            function getInputs() {
+                return {
+                    annualGross:
+                        number("grossPayInput"),
+
+                    state:
+                        value("state", "none"),
+
+                    filing:
+                        value("filing", "single"),
+
+                    dependents:
+                        number("dependents"),
+
+                    frequency:
+                        getFrequency(),
+
+                    pretax: {
+                        retirement401k:
+                            number("retirement401k"),
+
+                        healthInsurance:
+                            number("healthInsurance"),
+
+                        hsa:
+                            number("hsa"),
+
+                        fsa:
+                            number("fsa"),
+
+                        other:
+                            number("otherPretax")
+                    },
+
+                    posttax: {
+                        roth401k:
+                            number("roth401k"),
+
+                        loanRepayment:
+                            number("loanRepayment"),
+
+                        garnishments:
+                            number("garnishments"),
+
+                        other:
+                            number("otherPosttax")
+                    },
+
+                    extraFederal:
+                        number("extraFederal"),
+
+                    extraState:
+                        number("extraState"),
+
+                    additionalMedicare:
+                        number("additionalMedicare"),
+
+                    otherAdjustments: 0,
+                    overtimeDeduction: 0
+                };
+            }
+
+            function resetResults() {
+                const fields = [
+                    "takeHome",
+                    "chartNet",
+                    "grossResult",
+                    "federalTax",
+                    "socialSecurity",
+                    "medicare",
+                    "stateTax",
+                    "totalTaxes",
+                    "weeklyPay",
+                    "biweeklyPay",
+                    "semimonthlyPay",
+                    "monthlyPay"
+                ];
+
+                fields.forEach((id) => {
+                    setText(id, money(0));
+                });
+
+                const chart =
+                    $("paycheckChart");
+
+                if (chart) {
+                    chart.style.background =
+                        "conic-gradient(var(--chart-net) 0 100%)";
+                }
+            }
+
+            function updateChart(result) {
+                const chart =
+                    $("paycheckChart");
+
+                if (!chart) {
+                    return;
+                }
+
+                const net =
+                    Math.max(
+                        0,
+                        Number(
+                            result.net?.annual
+                        ) || 0
+                    );
+
+                const federal =
+                    Math.max(
+                        0,
+                        Number(
+                            result.federal?.tax
+                        ) || 0
+                    );
+
+                const fica =
+                    Math.max(
+                        0,
+                        Number(
+                            result.fica?.total
+                        ) || 0
+                    );
+
+                const state =
+                    Math.max(
+                        0,
+                        Number(
+                            result.state?.tax
+                        ) || 0
+                    );
+
+                const deductions =
+                    Math.max(
+                        0,
+                        Number(
+                            result.deductions?.total
+                        ) || 0
+                    );
+
+                const total =
+                    net +
+                    federal +
+                    fica +
+                    state +
+                    deductions;
+
+                if (total <= 0) {
+                    chart.style.background =
+                        "conic-gradient(var(--chart-net) 0 100%)";
+
+                    setText(
+                        "chartNet",
+                        money(0)
+                    );
+
+                    return;
+                }
+
+                const netEnd =
+                    (net / total) * 100;
+
+                const federalEnd =
+                    netEnd +
+                    (federal / total) * 100;
+
+                const ficaEnd =
+                    federalEnd +
+                    (fica / total) * 100;
+
+                const stateEnd =
+                    ficaEnd +
+                    (state / total) * 100;
+
+                chart.style.background =
+                    `conic-gradient(
+                        var(--chart-net) 0 ${netEnd}%,
+                        var(--chart-federal) ${netEnd}% ${federalEnd}%,
+                        var(--chart-fica) ${federalEnd}% ${ficaEnd}%,
+                        var(--chart-state) ${ficaEnd}% ${stateEnd}%,
+                        var(--chart-deductions) ${stateEnd}% 100%
+                    )`;
+
+                setText(
+                    "chartNet",
+                    money(net)
+                );
+            }
+
+            function updateBreakdown(
+                result,
+                frequency
+            ) {
+                setText(
+                    "grossResult",
+                    money(
+                        periodValue(
+                            result.gross?.annual,
+                            frequency
+                        )
+                    )
+                );
+
+                setText(
+                    "federalTax",
+                    money(
+                        periodValue(
+                            result.federal?.tax,
+                            frequency
+                        )
+                    )
+                );
+
+                setText(
+                    "socialSecurity",
+                    money(
+                        periodValue(
+                            result.fica?.socialSecurity,
+                            frequency
+                        )
+                    )
+                );
+
+                const medicareAnnual =
+                    (
+                        Number(
+                            result.fica?.medicare
+                        ) || 0
+                    ) +
+                    (
+                        Number(
+                            result.fica?.additionalMedicare
+                        ) || 0
+                    );
+
+                setText(
+                    "medicare",
+                    money(
+                        periodValue(
+                            medicareAnnual,
+                            frequency
+                        )
+                    )
+                );
+
+                setText(
+                    "stateTax",
+                    money(
+                        periodValue(
+                            result.state?.tax,
+                            frequency
+                        )
+                    )
+                );
+
+                setText(
+                    "totalTaxes",
+                    money(
+                        periodValue(
+                            result.taxes?.total,
+                            frequency
+                        )
+                    )
+                );
+            }
+
+            function updatePaySummary(result) {
+                setText(
+                    "weeklyPay",
+                    money(result.net?.weekly)
+                );
+
+                setText(
+                    "biweeklyPay",
+                    money(result.net?.biweekly)
+                );
+
+                setText(
+                    "semimonthlyPay",
+                    money(result.net?.semimonthly)
+                );
+
+                setText(
+                    "monthlyPay",
+                    money(result.net?.monthly)
+                );
+            }
+
+            function calculate() {
+                if (
+                    !window.PaycheckMintTax
+                ) {
+                    console.error(
+                        "PaycheckMintTax is not loaded."
+                    );
+
+                    return;
+                }
+
+                const inputs =
+                    getInputs();
+
+                if (
+                    inputs.annualGross <= 0
+                ) {
+                    resetResults();
+                    return;
+                }
+
+                let result;
+
+                try {
+                    result =
+                        window.PaycheckMintTax.calculate(
+                            inputs
+                        );
+                } catch (error) {
+                    console.error(
+                        "PaycheckMint weekly paycheck calculation failed:",
+                        error
+                    );
+
+                    return;
+                }
+
+                const frequency =
+                    inputs.frequency;
+
+                setText(
+                    "takeHome",
+                    money(result.net?.period)
+                );
+
+                setText(
+                    "resultPeriod",
+                    "Estimated weekly take-home pay"
+                );
+
+                updateBreakdown(
+                    result,
+                    frequency
+                );
+
+                updateChart(result);
+
+                updatePaySummary(result);
+
+                window.paycheckMintWeeklyResult = {
+                    inputs,
+                    result
+                };
+            }
+
+            function bindEvents() {
+                const button =
+                    $("calculate");
+
+                if (button) {
+                    button.addEventListener(
+                        "click",
+                        calculate
+                    );
+                }
+
+                const fields =
+                    document.querySelectorAll(
+                        "input, select"
+                    );
+
+                fields.forEach((field) => {
+                    field.addEventListener(
+                        "input",
+                        calculate
+                    );
+
+                    field.addEventListener(
+                        "change",
+                        calculate
+                    );
+                });
+            }
+
+            function init() {
+                bindEvents();
+                calculate();
+            }
+
+            if (
+                document.readyState ===
+                "loading"
+            ) {
+                document.addEventListener(
+                    "DOMContentLoaded",
+                    init
+                );
+            } else {
+                init();
+            }
+
+        })();
+    </script>
+
+</body>
+
+</html>

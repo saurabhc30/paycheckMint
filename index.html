@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Paycheck Calculator 2026 — Estimate Your Take-Home Pay | PaycheckMint
+    </title>
+
+    <meta name="description"
+        content="Estimate your 2026 take-home pay after federal, Social Security, Medicare and state taxes. Calculate weekly, biweekly, monthly and annual pay with PaycheckMint.">
+
+    <meta name="robots" content="index,follow,max-image-preview:large">
+
+    <meta name="theme-color" content="#5954d9">
+
+    <link rel="canonical" href="/">
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:title" content="Paycheck Calculator 2026 | PaycheckMint">
+
+    <meta property="og:description" content="Estimate your 2026 take-home pay after federal, FICA and state taxes.">
+
+    <meta property="og:site_name" content="PaycheckMint">
+
+    <meta property="og:url" content="/">
+
+    <meta name="twitter:card" content="summary">
+
+    <meta name="twitter:title" content="Paycheck Calculator 2026 | PaycheckMint">
+
+    <meta name="twitter:description" content="Calculate your estimated take-home pay for 2026.">
+
+    <link rel="icon" href="/icon.ico">
+
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- WebSite schema -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "PaycheckMint",
+    "url": "/",
+    "description": "Free 2026 paycheck calculator for estimating take-home pay."
+  }
+  </script>
+
+    <!-- WebApplication schema -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PaycheckMint Paycheck Calculator",
+    "url": "/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "description": "Estimate 2026 take-home pay after federal, FICA and state taxes.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+    <!-- FAQ schema -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is take-home pay calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "PaycheckMint estimates take-home pay by starting with gross wages, subtracting applicable pre-tax deductions and estimated federal, Social Security, Medicare and state taxes, then subtracting post-tax deductions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this an exact paycheck calculator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. PaycheckMint provides an estimate. Actual paycheck withholding can differ because employers use payroll-specific withholding tables, W-4 information, state rules and local tax rules."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the 2026 Social Security tax rate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The 2026 employee Social Security tax rate is 6.2% up to the annual Social Security wage base."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Additional Medicare Tax?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Employers withhold an additional 0.9% Medicare tax from wages above $200,000 paid to an employee during the calendar year."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container header-inner">
+
+            <a class="brand" href="/" aria-label="PaycheckMint home">
+                PaycheckMint
+            </a>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="#calculator">Calculator</a>
+                <a href="#how-it-works">How it works</a>
+                <a href="#faq">FAQ</a>
+                <a href="/about.html">About</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container hero-inner">
+
+                <p class="eyebrow">
+                    2026 PAYCHECK CALCULATOR
+                </p>
+
+                <h1>
+                    Estimate your 2026 take-home pay.
+                </h1>
+
+                <p class="hero-copy">
+                    Enter your income, pay frequency, deductions and tax information
+                    to estimate what you may take home from each paycheck.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- CALCULATOR -->
+        <section id="calculator" class="calculator-section">
+
+            <div class="container">
+
+                <div class="calculator-layout">
+
+                    <!-- INPUT PANEL -->
+                    <div class="calculator-card">
+
+                        <div class="card-heading">
+                            <div>
+                                <p class="section-kicker">
+                                    INCOME
+                                </p>
+
+                                <h2>
+                                    Pay details
+                                </h2>
+                            </div>
+                        </div>
+
+
+                        <!-- Salary / Hourly -->
+                        <div class="mode-switch">
+                            <button type="button" id="salaryMode" class="mode-button active" aria-pressed="true">
+                                Salary
+                            </button>
+
+                            <button type="button" id="hourlyMode" class="mode-button" aria-pressed="false">
+                                Hourly
+                            </button>
+                        </div>
+
+
+                        <!-- Salary -->
+                        <div id="salaryFields">
+
+                            <label class="field-label" for="salary">
+                                Annual salary
+                            </label>
+
+                            <div class="input-wrap">
+                                <span>$</span>
+
+                                <input id="salary" type="number" min="0" step="100" inputmode="decimal" value="60000"
+                                    placeholder="60000">
+                            </div>
+
+                        </div>
+
+
+                        <!-- Hourly -->
+                        <div id="hourlyFields" hidden>
+
+                            <div class="field-grid">
+
+                                <div>
+                                    <label class="field-label" for="hourlyRate">
+                                        Hourly rate
+                                    </label>
+
+                                    <div class="input-wrap">
+                                        <span>$</span>
+
+                                        <input id="hourlyRate" type="number" min="0" step="0.01" inputmode="decimal"
+                                            value="25">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="field-label" for="hoursWeek">
+                                        Hours / week
+                                    </label>
+
+                                    <input id="hoursWeek" class="plain-input" type="number" min="0" max="168" step="0.5"
+                                        value="40">
+                                </div>
+
+                            </div>
+
+                            <div class="field-block">
+
+                                <label class="field-label" for="overtimeWeek">
+                                    Overtime hours / week
+                                </label>
+
+                                <input id="overtimeWeek" class="plain-input" type="number" min="0" max="168" step="0.5"
+                                    value="0">
+
+                                <p class="field-help">
+                                    Overtime is estimated at 1.5× the regular hourly rate.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Frequency -->
+                        <div class="field-block">
+
+                            <label class="field-label" for="frequency">
+                                Pay frequency
+                            </label>
+
+                            <select id="frequency">
+                                <option value="weekly">Weekly</option>
+                                <option value="biweekly" selected>
+                                    Biweekly
+                                </option>
+                                <option value="semimonthly">
+                                    Semimonthly
+                                </option>
+                                <option value="monthly">
+                                    Monthly
+                                </option>
+                                <option value="quarterly">
+                                    Quarterly
+                                </option>
+                                <option value="semiannually">
+                                    Semiannually
+                                </option>
+                                <option value="annually">
+                                    Annually
+                                </option>
+                            </select>
+
+                        </div>
+
+
+                        <!-- State -->
+                        <div class="field-block">
+
+                            <label class="field-label" for="state">
+                                State
+                            </label>
+
+                            <select id="state">
+
+                                <option value="none">
+                                    Select state
+                                </option>
+
+                                <option value="al">
+                                    Alabama
+                                </option>
+
+                                <option value="az">
+                                    Arizona
+                                </option>
+
+                                <option value="ca">
+                                    California
+                                </option>
+
+                                <option value="co">
+                                    Colorado
+                                </option>
+
+                                <option value="fl">
+                                    Florida
+                                </option>
+
+                                <option value="ga">
+                                    Georgia
+                                </option>
+
+                                <option value="il">
+                                    Illinois
+                                </option>
+
+                                <option value="ma">
+                                    Massachusetts
+                                </option>
+
+                                <option value="mi">
+                                    Michigan
+                                </option>
+
+                                <option value="nc">
+                                    North Carolina
+                                </option>
+
+                                <option value="nj">
+                                    New Jersey
+                                </option>
+
+                                <option value="ny">
+                                    New York
+                                </option>
+
+                                <option value="oh">
+                                    Ohio
+                                </option>
+
+                                <option value="or">
+                                    Oregon
+                                </option>
+
+                                <option value="pa">
+                                    Pennsylvania
+                                </option>
+
+                                <option value="tn">
+                                    Tennessee
+                                </option>
+
+                                <option value="tx">
+                                    Texas
+                                </option>
+
+                                <option value="va">
+                                    Virginia
+                                </option>
+
+                                <option value="wa">
+                                    Washington
+                                </option>
+
+                                <option value="other">
+                                    Other state
+                                </option>
+
+                            </select>
+
+                            <p class="field-help">
+                                State withholding is an estimate. Local taxes may apply.
+                            </p>
+
+                        </div>
+
+
+                        <!-- Filing -->
+                        <div class="field-grid">
+
+                            <div>
+
+                                <label class="field-label" for="filing">
+                                    Filing status
+                                </label>
+
+                                <select id="filing">
+
+                                    <option value="single" selected>
+                                        Single
+                                    </option>
+
+                                    <option value="married">
+                                        Married filing jointly
+                                    </option>
+
+                                    <option value="hoh">
+                                        Head of household
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                            <div>
+
+                                <label class="field-label" for="dependents">
+                                    Dependents
+                                </label>
+
+                                <input id="dependents" class="plain-input" type="number" min="0" max="20" step="1"
+                                    value="0">
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- PRE-TAX -->
+                        <div class="form-section">
+
+                            <div class="form-section-heading">
+
+                                <div>
+                                    <p class="section-kicker">
+                                        PRE-TAX
+                                    </p>
+
+                                    <h3>
+                                        Pre-tax deductions
+                                    </h3>
+                                </div>
+
+                                <span id="pretaxTotal" class="section-total">
+                                    $0.00
+                                </span>
+
+                            </div>
+
+
+                            <div class="field-block">
+
+                                <label class="field-label" for="retirement401k">
+                                    401(k) / traditional retirement
+                                </label>
+
+                                <div class="input-wrap">
+                                    <span>$</span>
+
+                                    <input id="retirement401k" type="number" min="0" step="10" value="0">
+                                </div>
+
+                            </div>
+
+
+                            <div class="field-grid">
+
+                                <div>
+
+                                    <label class="field-label" for="hsa">
+                                        HSA
+                                    </label>
+
+                                    <div class="input-wrap">
+                                        <span>$</span>
+
+                                        <input id="hsa" type="number" min="0" step="10" value="0">
+                                    </div>
+
+                                </div>
+
+                                <div>
+
+                                    <label class="field-label" for="fsa">
+                                        FSA
+                                    </label>
+
+                                    <div class="input-wrap">
+                                        <span>$</span>
+
+                                        <input id="fsa" type="number" min="0" step="10" value="0">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="field-grid">
+
+                                <div>
+
+                                    <label class="field-label" for="healthInsurance">
+                                        Health insurance
+                                    </label>
+
+                                    <div class="input-wrap">
+                                        <span>$</span>
+
+                                        <input id="healthInsurance" type="number" min="0" step="10" value="0">
+                                    </div>
+
+                                </div>
+
+                                <div>
+
+                                    <label class="field-label" for="otherPretax">
+                                        Other pre-tax
+                                    </label>
+
+                                    <div class="input-wrap">
+                                        <span>$</span>
+
+                                        <input id="otherPretax" type="number" min="0" step="10" value="0">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <p class="field-help">
+                                Deduction amounts are entered per paycheck.
+                            </p>
+
+                        </div>
+
+
+                        <!-- ADVANCED -->
+                        <details class="advanced-options">
+
+                            <summary>
+                                <span>
+                                    Advanced W-4 options
+                                </span>
+
+                                <span class="summary-arrow">
+                                    +
+                                </span>
+                            </summary>
+
+
+                            <div class="advanced-content">
+
+                                <p class="advanced-description">
+                                    These options approximate common Form W-4
+                                    adjustments. Actual employer withholding can differ.
+                                </p>
+
+
+                                <div class="field-block">
+
+                                    <label class="field-label" for="multipleJobs">
+                                        Multiple jobs / spouse works
+                                    </label>
+
+                                    <select id="multipleJobs">
+
+                                        <option value="no" selected>
+                                            No
+                                        </option>
+
+                                        <option value="yes">
+                                            Yes
+                                        </option>
+
+                                    </select>
+
+                                    <p class="field-help">
+                                        Step 2 generally results in higher federal withholding.
+                                    </p>
+
+                                </div>
+
+
+                                <div class="field-block">
+
+                                    <label class="field-label" for="otherIncome">
+                                        Other annual income
+                                    </label>
+
+                                    <div class="input-wrap">
+                                        <span>$</span>
+
+                                        <input id="otherIncome" type="number" min="0" step="100" value="0">
+                                    </div>
+
+                                    <p class="field-help">
+                                        For example, interest, dividends or other taxable income.
+                                    </p>
+
+                                </div>
+
+
+                                <div class="field-block">
+
+                                    <label class="field-label" for="otherDeductions">
+                                        Other annual deductions
+                                    </label>
+
+                                    <div class="input-wrap">
+                                        <span>$</span>
+
+                                        <input id="otherDeductions" type="number" min="0" step="100" value="0">
+                                    </div>
+
+                                </div>
+
+
+                                <div class="field-block">
+
+                                    <label class="field-label" for="extraFederal">
+                                        Extra federal withholding / paycheck
+                                    </label>
+
+                                    <div class="input-wrap">
+                                        <span>$</span>
+
+                                        <input id="extraFederal" type="number" min="0" step="5" value="0">
+                                    </div>
+
+                                </div>
+
+
+                                <div class="field-block">
+
+                                    <label class="field-label" for="extraState">
+                                        Extra state withholding / paycheck
+                                    </label>
+
+                                    <div class="input-wrap">
+                                        <span>$</span>
+
+                                        <input id="extraState" type="number" min="0" step="5" value="0">
+                                    </div>
+
+                                </div>
+
+
+                                <div class="field-block">
+
+                                    <label class="field-label" for="additionalMedicare">
+                                        Additional Medicare / paycheck
+                                    </label>
+
+                                    <div class="input-wrap">
+                                        <span>$</span>
+
+                                        <input id="additionalMedicare" type="number" min="0" step="1" value="0">
+                                    </div>
+
+                                    <p class="field-help">
+                                        Automatic 0.9% Additional Medicare is already estimated
+                                        above the federal threshold.
+                                    </p>
+
+                                </div>
+
+
+                                <div class="field-block">
+
+                                    <label class="field-label" for="otherAdjustments">
+                                        Other paycheck adjustments
+                                    </label>
+
+                                    <div class="input-wrap">
+                                        <span>$</span>
+
+                                        <input id="otherAdjustments" type="number" min="0" step="5" value="0">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </details>
+
+
+                        <!-- POST-TAX -->
+                        <div class="form-section">
+
+                            <div class="form-section-heading">
+
+                                <div>
+                                    <p class="section-kicker">
+                                        POST-TAX
+                                    </p>
+
+                                    <h3>
+                                        Post-tax deductions
+                                    </h3>
+                                </div>
+
+                                <span id="posttaxTotal" class="section-total">
+                                    $0.00
+                                </span>
+
+                            </div>
+
+
+                            <div class="field-grid">
+
+                                <div>
+
+                                    <label class="field-label" for="roth401k">
+                                        Roth 401(k)
+                                    </label>
+
+                                    <div class="input-wrap">
+                                        <span>$</span>
+
+                                        <input id="roth401k" type="number" min="0" step="10" value="0">
+                                    </div>
+
+                                </div>
+
+                                <div>
+
+                                    <label class="field-label" for="loanRepayment">
+                                        Loan repayment
+                                    </label>
+
+                                    <div class="input-wrap">
+                                        <span>$</span>
+
+                                        <input id="loanRepayment" type="number" min="0" step="10" value="0">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="field-grid">
+
+                                <div>
+
+                                    <label class="field-label" for="garnishments">
+                                        Garnishments
+                                    </label>
+
+                                    <div class="input-wrap">
+                                        <span>$</span>
+
+                                        <input id="garnishments" type="number" min="0" step="10" value="0">
+                                    </div>
+
+                                </div>
+
+                                <div>
+
+                                    <label class="field-label" for="otherPosttax">
+                                        Other post-tax
+                                    </label>
+
+                                    <div class="input-wrap">
+                                        <span>$</span>
+
+                                        <input id="otherPosttax" type="number" min="0" step="10" value="0">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <button id="calculate" class="calculate-button" type="button">
+                            Calculate take-home pay
+                        </button>
+
+
+                        <p class="calculator-note">
+                            Estimates are for planning purposes and may differ
+                            from your actual paycheck.
+                        </p>
+
+                    </div>
+
+
+                    <!-- RESULT PANEL -->
+                    <aside class="result-card">
+
+                        <div class="result-heading">
+
+                            <div>
+                                <p class="section-kicker">
+                                    ESTIMATED TAKE-HOME
+                                </p>
+
+                                <div id="takeHome" class="take-home">
+                                    $0.00
+                                </div>
+
+                                <p id="resultPeriod" class="result-period">
+                                    Biweekly take-home
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <!-- DONUT -->
+                        <div class="chart-area">
+
+                            <div id="paycheckChart" class="paycheck-chart">
+
+                                <div class="chart-center">
+
+                                    <span>
+                                        Take home
+                                    </span>
+
+                                    <strong id="chartNet">
+                                        $0
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- LEGEND -->
+                        <div class="legend">
+
+                            <div class="legend-row">
+
+                                <span class="legend-label">
+                                    <i class="legend-dot net"></i>
+                                    Take home
+                                </span>
+
+                                <strong id="legendNet">
+                                    $0
+                                </strong>
+
+                            </div>
+
+                            <div class="legend-row">
+
+                                <span class="legend-label">
+                                    <i class="legend-dot federal"></i>
+                                    Federal
+                                </span>
+
+                                <strong id="legendFederal">
+                                    $0
+                                </strong>
+
+                            </div>
+
+                            <div class="legend-row">
+
+                                <span class="legend-label">
+                                    <i class="legend-dot fica"></i>
+                                    FICA
+                                </span>
+
+                                <strong id="legendFica">
+                                    $0
+                                </strong>
+
+                            </div>
+
+                            <div class="legend-row">
+
+                                <span class="legend-label">
+                                    <i class="legend-dot state"></i>
+                                    State
+                                </span>
+
+                                <strong id="legendState">
+                                    $0
+                                </strong>
+
+                            </div>
+
+                            <div class="legend-row">
+
+                                <span class="legend-label">
+                                    <i class="legend-dot deductions"></i>
+                                    Deductions
+                                </span>
+
+                                <strong id="legendDeductions">
+                                    $0
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- BREAKDOWN -->
+                        <div class="result-section">
+
+                            <div class="result-section-heading">
+                                Paycheck breakdown
+                            </div>
+
+                            <div class="breakdown-list">
+
+                                <div class="breakdown-row">
+                                    <span>Gross pay</span>
+                                    <strong id="grossPay">$0.00</strong>
+                                </div>
+
+                                <div class="breakdown-row">
+                                    <span>Federal tax</span>
+                                    <strong id="federalTax">$0.00</strong>
+                                </div>
+
+                                <div class="breakdown-row">
+                                    <span>Social Security + Medicare</span>
+                                    <strong id="fica">$0.00</strong>
+                                </div>
+
+                                <div class="breakdown-row">
+                                    <span>State tax</span>
+                                    <strong id="stateTax">$0.00</strong>
+                                </div>
+
+                                <div class="breakdown-row">
+                                    <span>Pre-tax deductions</span>
+                                    <strong id="preTaxResult">$0.00</strong>
+                                </div>
+
+                                <div class="breakdown-row">
+                                    <span>Post-tax deductions</span>
+                                    <strong id="postTaxResult">$0.00</strong>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- SUMMARY -->
+                        <div class="result-section">
+
+                            <div class="result-section-heading">
+                                Take-home by frequency
+                            </div>
+
+                            <div class="pay-summary">
+
+                                <div>
+                                    <span>Weekly</span>
+                                    <strong id="weeklyPay">$0.00</strong>
+                                </div>
+
+                                <div>
+                                    <span>Biweekly</span>
+                                    <strong id="biweeklyPay">$0.00</strong>
+                                </div>
+
+                                <div>
+                                    <span>Semimonthly</span>
+                                    <strong id="semimonthlyPay">$0.00</strong>
+                                </div>
+
+                                <div>
+                                    <span>Monthly</span>
+                                    <strong id="monthlyPay">$0.00</strong>
+                                </div>
+
+                                <div>
+                                    <span>Annual</span>
+                                    <strong id="annualPay">$0.00</strong>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </aside>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- AD SPACE -->
+        <section class="ad-section">
+            <div class="container">
+                <div class="ad-placeholder">
+                    Advertisement
+                </div>
+            </div>
+        </section>
+
+
+        <section class="tools-section" aria-labelledby="tools-title">
+            <div class="section-heading">
+                <p class="eyebrow">PAYCHECK TOOLS</p>
+
+                <h2 id="tools-title">More paycheck calculators</h2>
+
+                <p>
+                    Use PaycheckMint's free tools to estimate different parts of your
+                    earnings and understand your pay.
+                </p>
+            </div>
+
+            <div class="tools-grid">
+
+                <a href="/overtime-pay-calculator.html" class="tool-link">
+                    <div>
+                        <span class="tool-label">OVERTIME</span>
+                        <h3>Overtime Pay Calculator</h3>
+                        <p>
+                            Calculate regular pay, overtime pay, and total gross earnings.
+                        </p>
+                    </div>
+
+                    <span class="tool-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <a href="/hourly-paycheck-calculator.html" class="tool-link">
+                    <div>
+                        <span class="tool-label">HOURLY PAY</span>
+                        <h3>Hourly Paycheck Calculator</h3>
+                        <p>
+                            Estimate your hourly paycheck, taxes, deductions, and take-home pay.
+                        </p>
+                    </div>
+
+                    <span class="tool-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <a href="/take-home-pay-calculator.html" class="tool-link">
+                    <div> <span class="tool-label">TAKE HOME PAY</span>
+                        <h3>Take-Home Paycheck Calculator</h3>
+                        <p> Estimate your earnings gross pay, taxes, deductions, and take-home pay. </p>
+                    </div> <span class="tool-arrow" aria-hidden="true">→</span>
+                </a>
+
+
+                <a href="/weekly-paycheck-calculator.html" class="tool-link">
+                    <div> <span class="tool-label">WEEKLY PAY</span>
+                        <h3>Weekly Paycheck Calculator</h3>
+                        <p> Estimate your weekly gross pay, taxes, deductions, and take-home pay. </p>
+                    </div> <span class="tool-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <a href="/biweekly-paycheck-calculator.html" class="tool-link">
+                    <div> <span class="tool-label">BiWEEKLY PAY</span>
+                        <h3>BiWeekly Paycheck Calculator</h3>
+                        <p> Estimate your Biweekly gross pay, taxes, deductions, and take-home pay. </p>
+                    </div> <span class="tool-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <a href="/monthly-paycheck-calculator.html" class="tool-link">
+                    <div> <span class="tool-label">MONTHLY PAY</span>
+                        <h3>Monthly Paycheck Calculator</h3>
+                        <p> Estimate your Monthly gross pay, taxes, deductions, and take-home pay. </p>
+                    </div> <span class="tool-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <a href="/salary-paycheck-calculator.html" class="tool-link">
+                    <div>
+                        <span class="tool-label">SALARY PAY</span>
+                        <h3>Salary Paycheck Calculator</h3>
+                        <p>
+                            Estimate your salary take-home pay after taxes and deductions.
+                        </p>
+                    </div>
+                    <span class="tool-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <a href="/paycheck-tax-calculator.html" class="tool-link">
+                    <div>
+                        <span class="tool-label">PAYROLL TAX</span>
+                        <h3>Paycheck Tax Calculator</h3>
+                        <p>
+                            Estimate federal tax, FICA, state tax, and total taxes from your paycheck.
+                        </p>
+                    </div>
+                    <span class="tool-arrow" aria-hidden="true">→</span>
+                </a>
+            </div>
+        </section>
+        <!-- HOW IT WORKS -->
+        <section id="how-it-works" class="content-section">
+
+            <div class="container narrow">
+
+                <p class="section-kicker">
+                    HOW IT WORKS
+                </p>
+
+                <h2>
+                    How PaycheckMint estimates your paycheck
+                </h2>
+
+                <p class="section-intro">
+                    PaycheckMint starts with your gross wages and estimates
+                    the major taxes and deductions that can reduce your
+                    take-home pay.
+                </p>
+
+
+                <div class="info-grid">
+
+                    <article class="info-item">
+                        <h3>1. Gross pay</h3>
+                        <p>
+                            Your salary or hourly earnings are converted into
+                            an annual amount and then into your selected pay period.
+                        </p>
+                    </article>
+
+                    <article class="info-item">
+                        <h3>2. Federal tax</h3>
+                        <p>
+                            The calculator estimates federal withholding using
+                            2026 federal withholding concepts and your W-4 inputs.
+                        </p>
+                    </article>
+
+                    <article class="info-item">
+                        <h3>3. FICA</h3>
+                        <p>
+                            Social Security and Medicare taxes are calculated
+                            separately because they follow different rules.
+                        </p>
+                    </article>
+
+                    <article class="info-item">
+                        <h3>4. State tax</h3>
+                        <p>
+                            State income-tax estimates vary by state. Local taxes
+                            and employer-specific withholding rules may cause
+                            your actual paycheck to differ.
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 2026 INFO -->
+        <section class="content-section muted-section">
+
+            <div class="container narrow">
+
+                <p class="section-kicker">
+                    2026 TAX INFORMATION
+                </p>
+
+                <h2>
+                    What can affect your 2026 paycheck?
+                </h2>
+
+                <div class="tax-facts">
+
+                    <div class="tax-fact">
+                        <strong>Social Security</strong>
+                        <span>
+                            6.2% employee tax up to the 2026 wage base.
+                        </span>
+                    </div>
+
+                    <div class="tax-fact">
+                        <strong>Medicare</strong>
+                        <span>
+                            1.45% employee tax with no Social Security-style wage cap.
+                        </span>
+                    </div>
+
+                    <div class="tax-fact">
+                        <strong>Additional Medicare</strong>
+                        <span>
+                            0.9% withholding on wages above $200,000 paid by an employer.
+                        </span>
+                    </div>
+
+                    <div class="tax-fact">
+                        <strong>W-4 information</strong>
+                        <span>
+                            Filing status, multiple jobs, credits, other income,
+                            deductions and extra withholding can change federal withholding.
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- METHODOLOGY -->
+        <section class="content-section">
+
+            <div class="container narrow">
+
+                <p class="section-kicker">
+                    METHODOLOGY
+                </p>
+
+                <h2>
+                    Gross pay vs. take-home pay
+                </h2>
+
+                <p>
+                    Gross pay is the amount you earn before taxes and deductions.
+                    Take-home pay is the amount remaining after estimated taxes
+                    and deductions.
+                </p>
+
+                <p>
+                    For example, a $60,000 annual salary does not mean you receive
+                    $5,000 in your bank account every month. Federal taxes,
+                    Social Security, Medicare, state taxes and deductions can
+                    reduce the amount of each paycheck.
+                </p>
+
+                <p>
+                    PaycheckMint is designed to give you a quick planning estimate
+                    before you receive your actual payroll statement.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- SOURCES -->
+        <section class="content-section muted-section">
+
+            <div class="container narrow">
+
+                <p class="section-kicker">
+                    SOURCES
+                </p>
+
+                <h2>
+                    Official tax information
+                </h2>
+
+                <p>
+                    PaycheckMint's tax methodology is informed by official
+                    IRS publications and payroll guidance.
+                </p>
+
+                <ul class="source-list">
+
+                    <li>
+                        <a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener noreferrer">
+                            IRS Publication 15-T — Federal Income Tax Withholding Methods
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.irs.gov/publications/p15" target="_blank" rel="noopener noreferrer">
+                            IRS Publication 15 — Employer's Tax Guide
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.irs.gov/taxtopics/tc751" target="_blank" rel="noopener noreferrer">
+                            IRS Tax Topic 751 — Social Security and Medicare
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.irs.gov/forms-pubs/about-form-w-4" target="_blank"
+                            rel="noopener noreferrer">
+                            IRS Form W-4 information
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- FAQ -->
+        <section id="faq" class="content-section">
+
+            <div class="container narrow">
+
+                <p class="section-kicker">
+                    FAQ
+                </p>
+
+                <h2>
+                    Paycheck calculator questions
+                </h2>
+
+
+                <div class="faq-list">
+
+                    <details>
+                        <summary>
+                            Is PaycheckMint an exact paycheck calculator?
+                        </summary>
+
+                        <p>
+                            No. PaycheckMint provides an estimate for planning purposes.
+                            Actual payroll withholding can differ based on your employer's
+                            payroll system, W-4 information, state rules, local taxes,
+                            year-to-date wages and benefit treatment.
+                        </p>
+                    </details>
+
+
+                    <details>
+                        <summary>
+                            How is take-home pay calculated?
+                        </summary>
+
+                        <p>
+                            The calculator starts with gross wages and estimates federal
+                            income tax, Social Security, Medicare, state tax and the
+                            deductions you enter. The remaining amount is your estimated
+                            take-home pay.
+                        </p>
+                    </details>
+
+
+                    <details>
+                        <summary>
+                            Does PaycheckMint calculate overtime?
+                        </summary>
+
+                        <p>
+                            Yes. Hourly workers can enter regular hours and overtime hours.
+                            The calculator estimates overtime at 1.5 times the regular
+                            hourly rate.
+                        </p>
+                    </details>
+
+
+                    <details>
+                        <summary>
+                            Why can my real paycheck be different?
+                        </summary>
+
+                        <p>
+                            Your actual paycheck can differ because employers use detailed
+                            federal and state withholding methods. Local taxes, benefit
+                            plans, year-to-date wages and your completed Form W-4 can also
+                            affect withholding.
+                        </p>
+                    </details>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DISCLAIMER -->
+        <section class="disclaimer-section">
+
+            <div class="container narrow">
+
+                <strong>
+                    Disclaimer
+                </strong>
+
+                <p>
+                    PaycheckMint provides estimates for informational and planning
+                    purposes only. It is not tax, legal, accounting or financial advice.
+                    Actual payroll withholding and take-home pay may differ. Consult
+                    your employer's payroll department or a qualified tax professional
+                    for advice about your individual situation.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="site-footer">
+
+        <div class="container footer-inner">
+
+            <p>
+                © 2026 PaycheckMint. Free online paycheck calculator.
+            </p>
+
+            <nav aria-label="Footer navigation">
+
+                <a href="/privacy-policy.html">
+                    Privacy Policy
+                </a>
+
+                <a href="/terms.html">
+                    Terms
+                </a>
+
+                <a href="/contact.html">
+                    Contact
+                </a>
+
+                <a href="/about.html">About</a>
+
+            </nav>
+
+        </div>
+
+    </footer>
+
+    <script src="/tax-rules-2026.js"></script>
+    <script src="/tax-engine.js"></script>
+    <script src="/script.js"></script>
+
+</body>
+
+</html>

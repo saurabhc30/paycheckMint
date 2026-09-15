@@ -1,0 +1,2219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hourly Paycheck Calculator 2026 | PaycheckMint</title>
+
+    <meta name="description"
+        content="Use the PaycheckMint 2026 hourly paycheck calculator to estimate your gross pay, taxes, deductions, and take-home pay from an hourly wage.">
+
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="author" content="PaycheckMint">
+    <meta name="theme-color" content="#5954d9">
+
+    <link rel="canonical" href="/hourly-paycheck-calculator.html">
+    <link rel="icon" href="/icon.ico">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hourly Paycheck Calculator 2026 | PaycheckMint">
+    <meta property="og:description"
+        content="Estimate hourly gross pay, taxes, deductions, and take-home pay with PaycheckMint.">
+    <meta property="og:url" content="/hourly-paycheck-calculator.html">
+    <meta property="og:site_name" content="PaycheckMint">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Hourly Paycheck Calculator 2026">
+    <meta name="twitter:description" content="Estimate your hourly paycheck and take-home pay with PaycheckMint.">
+
+    <style>
+        :root {
+            --bg: #f6f5f1;
+            --surface: #ffffff;
+            --surface-soft: #faf9f6;
+            --ink: #191919;
+            --muted: #74736f;
+            --line: #deddd8;
+            --line-dark: #cbc9c3;
+            --accent: #5954d9;
+            --accent-dark: #4843c4;
+            --accent-soft: #eeecff;
+
+            --chart-net: #5954d9;
+            --chart-federal: #e7a23b;
+            --chart-fica: #e06c5d;
+            --chart-state: #72a86f;
+            --chart-deductions: #aaa9a3;
+
+            --radius: 14px;
+            --shadow: 0 8px 30px rgba(25, 25, 25, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button,
+        input,
+        select {
+            font: inherit;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(246, 245, 241, 0.94);
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            width: min(1120px, calc(100% - 32px));
+            min-height: 68px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            color: var(--ink);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 750;
+            letter-spacing: -0.03em;
+        }
+
+        .site-nav {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .site-nav a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 600;
+        }
+
+        .site-nav a:hover {
+            color: var(--ink);
+        }
+
+        .page {
+            width: min(1120px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .hero {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 68px 0 38px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            margin: 0 0 10px;
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: clamp(2rem, 5vw, 3.25rem);
+            line-height: 1.08;
+            letter-spacing: -0.045em;
+        }
+
+        .hero p {
+            max-width: 670px;
+            margin: 18px auto 0;
+            color: var(--muted);
+            font-size: 1.04rem;
+        }
+
+        .calculator {
+            width: min(940px, 100%);
+            margin: 0 auto 70px;
+            padding: 28px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .section-title {
+            grid-column: 1 / -1;
+            padding-top: 2px;
+        }
+
+        .section-title h2 {
+            margin: 0;
+            font-size: 1rem;
+            letter-spacing: -0.015em;
+        }
+
+        .section-title p {
+            margin: 3px 0 0;
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        .field {
+            min-width: 0;
+        }
+
+        .field.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+
+        .field-note {
+            margin: 6px 0 0;
+            color: var(--muted);
+            font-size: 0.77rem;
+            line-height: 1.45;
+        }
+
+        input,
+        select {
+            width: 100%;
+            height: 48px;
+            padding: 0 13px;
+            border: 1px solid var(--line-dark);
+            border-radius: 10px;
+            outline: none;
+            background: #fff;
+            color: var(--ink);
+        }
+
+        input:focus,
+        select:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-soft);
+        }
+
+        .money-input {
+            position: relative;
+        }
+
+        .money-input span {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted);
+            font-weight: 600;
+            pointer-events: none;
+        }
+
+        .money-input input {
+            padding-left: 30px;
+        }
+
+        details.advanced {
+            grid-column: 1 / -1;
+            border-top: 1px solid var(--line);
+            padding-top: 18px;
+        }
+
+        details.advanced summary {
+            cursor: pointer;
+            color: var(--ink);
+            font-size: 0.9rem;
+            font-weight: 750;
+            list-style: none;
+        }
+
+        details.advanced summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details.advanced summary::after {
+            content: "+";
+            float: right;
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        details.advanced[open] summary::after {
+            content: "−";
+        }
+
+        .advanced-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .calculate-button {
+            width: 100%;
+            min-height: 52px;
+            margin-top: 24px;
+            border: 0;
+            border-radius: 11px;
+            background: var(--accent);
+            color: #fff;
+            font-weight: 750;
+            cursor: pointer;
+            transition: background 0.18s ease, transform 0.18s ease;
+        }
+
+        .calculate-button:hover {
+            background: var(--accent-dark);
+        }
+
+        .calculate-button:active {
+            transform: translateY(1px);
+        }
+
+        .result {
+            margin-top: 28px;
+            padding-top: 28px;
+            border-top: 1px solid var(--line);
+        }
+
+        .result-top {
+            display: grid;
+            grid-template-columns: 1fr 220px;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .result-label {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.84rem;
+            font-weight: 700;
+        }
+
+        .take-home {
+            margin: 3px 0 5px;
+            font-size: clamp(2.2rem, 7vw, 3.4rem);
+            line-height: 1;
+            font-weight: 800;
+            letter-spacing: -0.055em;
+        }
+
+        .result-subtitle {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.87rem;
+        }
+
+        .chart {
+            width: 190px;
+            height: 190px;
+            margin-left: auto;
+            border-radius: 50%;
+            background:
+                conic-gradient(var(--chart-net) 0deg var(--net-end),
+                    var(--chart-federal) var(--net-end) var(--federal-end),
+                    var(--chart-fica) var(--federal-end) var(--fica-end),
+                    var(--chart-state) var(--fica-end) var(--state-end),
+                    var(--chart-deductions) var(--state-end) 360deg);
+            position: relative;
+            display: grid;
+            place-items: center;
+        }
+
+        .chart::before {
+            content: "";
+            position: absolute;
+            width: 126px;
+            height: 126px;
+            border-radius: 50%;
+            background: var(--surface);
+        }
+
+        .chart-center {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .chart-center span {
+            display: block;
+            color: var(--muted);
+            font-size: 0.7rem;
+        }
+
+        .chart-center strong {
+            display: block;
+            margin-top: 2px;
+            font-size: 1.05rem;
+        }
+
+        .legend {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin-top: 24px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            min-width: 0;
+            color: var(--muted);
+            font-size: 0.74rem;
+        }
+
+        .legend-dot {
+            width: 9px;
+            height: 9px;
+            flex: 0 0 9px;
+            border-radius: 50%;
+        }
+
+        .dot-net {
+            background: var(--chart-net);
+        }
+
+        .dot-federal {
+            background: var(--chart-federal);
+        }
+
+        .dot-fica {
+            background: var(--chart-fica);
+        }
+
+        .dot-state {
+            background: var(--chart-state);
+        }
+
+        .dot-deductions {
+            background: var(--chart-deductions);
+        }
+
+        .breakdown {
+            margin-top: 22px;
+            border-top: 1px solid var(--line);
+        }
+
+        .breakdown-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 11px 0;
+            border-bottom: 1px solid var(--line);
+            font-size: 0.9rem;
+        }
+
+        .breakdown-row span:first-child {
+            color: var(--muted);
+        }
+
+        .breakdown-row strong {
+            white-space: nowrap;
+        }
+
+        .pay-summary {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .pay-summary-item {
+            padding: 14px;
+            background: var(--surface-soft);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+        }
+
+        .pay-summary-item span {
+            display: block;
+            color: var(--muted);
+            font-size: 0.73rem;
+        }
+
+        .pay-summary-item strong {
+            display: block;
+            margin-top: 3px;
+            font-size: 0.98rem;
+        }
+
+        .content {
+            width: min(850px, 100%);
+            margin: 0 auto;
+            padding-bottom: 80px;
+        }
+
+        .content-section {
+            margin-bottom: 50px;
+        }
+
+        .content-section h2 {
+            margin: 0 0 14px;
+            font-size: clamp(1.45rem, 4vw, 1.9rem);
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+        }
+
+        .content-section h3 {
+            margin: 25px 0 8px;
+            font-size: 1.05rem;
+        }
+
+        .content-section p {
+            margin: 0 0 14px;
+            color: #4f4e4a;
+        }
+
+        .content-section ul {
+            margin: 12px 0;
+            padding-left: 22px;
+            color: #4f4e4a;
+        }
+
+        .content-section li {
+            margin: 6px 0;
+        }
+
+        .info-box {
+            padding: 20px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+        }
+
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-item {
+            padding: 18px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .faq-item:first-child {
+            border-top: 1px solid var(--line);
+        }
+
+        .faq-item h3 {
+            margin: 0 0 7px;
+            font-size: 1rem;
+        }
+
+        .faq-item p {
+            margin: 0;
+        }
+
+        .disclaimer {
+            padding: 18px;
+            background: var(--surface-soft);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            color: var(--muted);
+            font-size: 0.86rem;
+        }
+
+        .site-footer {
+            background: var(--surface);
+            border-top: 1px solid var(--line);
+        }
+
+        .footer-inner {
+            width: min(1120px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 34px 0;
+            text-align: center;
+        }
+
+        .footer-brand strong {
+            font-size: 1rem;
+        }
+
+        .footer-brand p {
+            margin: 4px 0 18px;
+            color: var(--muted);
+            font-size: 0.84rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.84rem;
+            font-weight: 600;
+        }
+
+        .footer-links a:hover {
+            color: var(--ink);
+        }
+
+        .footer-copy {
+            margin: 18px 0 0;
+            color: var(--muted);
+            font-size: 0.76rem;
+        }
+
+        @media (max-width: 800px) {
+            .result-top {
+                grid-template-columns: 1fr;
+            }
+
+            .chart {
+                margin: 22px auto 0;
+            }
+
+            .legend {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .legend-item:last-child {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .hero {
+                padding: 52px 0 30px;
+            }
+
+            .calculator {
+                padding: 22px;
+                margin-bottom: 55px;
+            }
+
+            .calculator-grid,
+            .advanced-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title,
+            .field.full,
+            details.advanced {
+                grid-column: auto;
+            }
+
+            .pay-summary {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .content {
+                padding-bottom: 55px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .header-inner {
+                width: calc(100% - 24px);
+                min-height: 60px;
+            }
+
+            .site-nav {
+                gap: 12px;
+            }
+
+            .site-nav a {
+                font-size: 0.78rem;
+            }
+
+            .page {
+                width: calc(100% - 24px);
+            }
+
+            .hero {
+                padding-top: 40px;
+            }
+
+            .hero p {
+                font-size: 0.94rem;
+            }
+
+            .calculator {
+                padding: 17px;
+                border-radius: 14px;
+            }
+
+            input,
+            select {
+                height: 46px;
+            }
+
+            .legend {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .pay-summary {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .site-nav a:nth-child(n + 3) {
+                display: none;
+            }
+
+            .calculator {
+                padding: 14px;
+            }
+
+            .take-home {
+                font-size: 2.25rem;
+            }
+
+            .chart {
+                width: 170px;
+                height: 170px;
+            }
+
+            .chart::before {
+                width: 112px;
+                height: 112px;
+            }
+
+            .breakdown-row {
+                font-size: 0.83rem;
+            }
+
+            .footer-inner {
+                width: calc(100% - 24px);
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "PaycheckMint",
+    "url": "/"
+  }
+  </script>
+
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PaycheckMint Hourly Paycheck Calculator",
+    "url": "/hourly-paycheck-calculator.html",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "description": "An online hourly paycheck calculator for estimating gross pay, taxes, deductions, and take-home pay."
+  }
+  </script>
+
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I calculate my paycheck from an hourly wage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Multiply your hourly rate by the hours you work. Add qualifying overtime pay when applicable, then subtract estimated taxes and deductions to estimate take-home pay."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much is $20 an hour per paycheck?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "At 40 hours per week, $20 per hour produces $800 of gross weekly pay before taxes and deductions. Actual take-home pay depends on pay frequency, taxes, benefits, and other deductions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this hourly paycheck calculator include overtime?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can enter weekly overtime hours and the calculator estimates overtime pay using a 1.5 times multiplier by default."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the result an exact paycheck amount?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. PaycheckMint provides an estimate. Actual payroll withholding can vary based on W-4 elections, state and local rules, employer benefits, year-to-date wages, and other payroll factors."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="header-inner">
+
+            <a href="/" class="brand" aria-label="PaycheckMint home">
+                PaycheckMint
+            </a>
+
+            <nav class="site-nav" aria-label="Main navigation">
+                <a href="/">Calculator</a>
+                <a href="/#how-it-works">How it works</a>
+                <a href="/#faq">FAQ</a>
+                <a href="/about.html">About</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <main class="page">
+
+        <section class="hero">
+
+            <p class="eyebrow">2026 HOURLY PAYCHECK CALCULATOR</p>
+
+            <h1>Estimate your hourly paycheck.</h1>
+
+            <p>
+                Enter your hourly wage, working hours, overtime, pay frequency,
+                state, and deductions to estimate your gross pay and take-home pay.
+            </p>
+
+        </section>
+
+
+        <section class="calculator" aria-label="Hourly paycheck calculator">
+
+            <div class="calculator-grid">
+
+                <div class="section-title">
+                    <h2>Hourly pay</h2>
+                    <p>Start with your hourly wage and typical weekly hours.</p>
+                </div>
+
+
+                <div class="field">
+
+                    <label for="hourlyRate">Hourly rate</label>
+
+                    <div class="money-input">
+                        <span>$</span>
+
+                        <input id="hourlyRate" type="number" inputmode="decimal" min="0" step="0.01" value="25"
+                            placeholder="25.00">
+                    </div>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="regularHours">Regular hours per week</label>
+
+                    <input id="regularHours" type="number" inputmode="decimal" min="0" max="168" step="0.25" value="40"
+                        placeholder="40">
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="overtimeHours">Overtime hours per week</label>
+
+                    <input id="overtimeHours" type="number" inputmode="decimal" min="0" max="128" step="0.25" value="0"
+                        placeholder="0">
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="overtimeMultiplier">Overtime rate</label>
+
+                    <select id="overtimeMultiplier">
+                        <option value="1.5" selected>1.5× — Time and a half</option>
+                        <option value="2">2× — Double time</option>
+                        <option value="1.25">1.25×</option>
+                        <option value="1.75">1.75×</option>
+                        <option value="1">1× — Regular rate</option>
+                    </select>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="frequency">Pay frequency</label>
+
+                    <select id="frequency">
+                        <option value="52">Weekly</option>
+                        <option value="26" selected>Biweekly</option>
+                        <option value="24">Semimonthly</option>
+                        <option value="12">Monthly</option>
+                        <option value="4">Quarterly</option>
+                        <option value="1">Annually</option>
+                    </select>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="state">State</label>
+
+                    <select id="state">
+                        <option value="none">No state tax / not selected</option>
+                        <option value="al">Alabama</option>
+                        <option value="az">Arizona</option>
+                        <option value="ca">California</option>
+                        <option value="co">Colorado</option>
+                        <option value="fl">Florida</option>
+                        <option value="ga">Georgia</option>
+                        <option value="il">Illinois</option>
+                        <option value="ma">Massachusetts</option>
+                        <option value="mi">Michigan</option>
+                        <option value="nc">North Carolina</option>
+                        <option value="nj">New Jersey</option>
+                        <option value="ny">New York</option>
+                        <option value="oh">Ohio</option>
+                        <option value="or">Oregon</option>
+                        <option value="pa">Pennsylvania</option>
+                        <option value="tn">Tennessee</option>
+                        <option value="tx">Texas</option>
+                        <option value="va">Virginia</option>
+                        <option value="wa">Washington</option>
+                        <option value="other">Other state</option>
+                    </select>
+
+                </div>
+
+
+                <div class="section-title">
+
+                    <h2>Tax information</h2>
+
+                    <p>
+                        These settings help produce a simplified federal and state estimate.
+                    </p>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="filing">Filing status</label>
+
+                    <select id="filing">
+                        <option value="single" selected>Single</option>
+                        <option value="married">Married filing jointly</option>
+                        <option value="hoh">Head of household</option>
+                    </select>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="dependents">Dependents</label>
+
+                    <input id="dependents" type="number" inputmode="numeric" min="0" max="20" step="1" value="0"
+                        placeholder="0">
+
+                </div>
+
+
+                <div class="section-title">
+
+                    <h2>Pre-tax deductions</h2>
+
+                    <p>
+                        Enter deductions that may reduce taxable wages.
+                    </p>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="retirement401k">401(k) contribution</label>
+
+                    <div class="money-input">
+                        <span>$</span>
+
+                        <input id="retirement401k" type="number" inputmode="decimal" min="0" step="0.01" value="0"
+                            placeholder="0.00">
+                    </div>
+
+                    <p class="field-note">Amount per paycheck.</p>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="healthInsurance">Health insurance</label>
+
+                    <div class="money-input">
+                        <span>$</span>
+
+                        <input id="healthInsurance" type="number" inputmode="decimal" min="0" step="0.01" value="0"
+                            placeholder="0.00">
+                    </div>
+
+                    <p class="field-note">Amount per paycheck.</p>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="hsa">HSA contribution</label>
+
+                    <div class="money-input">
+                        <span>$</span>
+
+                        <input id="hsa" type="number" inputmode="decimal" min="0" step="0.01" value="0"
+                            placeholder="0.00">
+                    </div>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="fsa">FSA contribution</label>
+
+                    <div class="money-input">
+                        <span>$</span>
+
+                        <input id="fsa" type="number" inputmode="decimal" min="0" step="0.01" value="0"
+                            placeholder="0.00">
+                    </div>
+
+                </div>
+
+
+                <details class="advanced">
+
+                    <summary>Advanced options</summary>
+
+                    <div class="advanced-grid">
+
+                        <div class="field">
+
+                            <label for="extraFederal">
+                                Additional federal withholding
+                            </label>
+
+                            <div class="money-input">
+                                <span>$</span>
+
+                                <input id="extraFederal" type="number" inputmode="decimal" min="0" step="0.01" value="0"
+                                    placeholder="0.00">
+                            </div>
+
+                            <p class="field-note">Additional amount per paycheck.</p>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="extraState">
+                                Additional state withholding
+                            </label>
+
+                            <div class="money-input">
+                                <span>$</span>
+
+                                <input id="extraState" type="number" inputmode="decimal" min="0" step="0.01" value="0"
+                                    placeholder="0.00">
+                            </div>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="additionalMedicare">
+                                Additional Medicare tax
+                            </label>
+
+                            <div class="money-input">
+                                <span>$</span>
+
+                                <input id="additionalMedicare" type="number" inputmode="decimal" min="0" step="0.01"
+                                    value="0" placeholder="0.00">
+                            </div>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="otherPretax">Other pre-tax deductions</label>
+
+                            <div class="money-input">
+                                <span>$</span>
+
+                                <input id="otherPretax" type="number" inputmode="decimal" min="0" step="0.01" value="0"
+                                    placeholder="0.00">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </details>
+
+
+                <div class="section-title">
+
+                    <h2>Post-tax deductions</h2>
+
+                    <p>
+                        These amounts are subtracted after estimated taxes.
+                    </p>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="roth401k">Roth 401(k)</label>
+
+                    <div class="money-input">
+                        <span>$</span>
+
+                        <input id="roth401k" type="number" inputmode="decimal" min="0" step="0.01" value="0"
+                            placeholder="0.00">
+                    </div>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="loanRepayment">Loan repayment</label>
+
+                    <div class="money-input">
+                        <span>$</span>
+
+                        <input id="loanRepayment" type="number" inputmode="decimal" min="0" step="0.01" value="0"
+                            placeholder="0.00">
+                    </div>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="garnishments">Garnishments</label>
+
+                    <div class="money-input">
+                        <span>$</span>
+
+                        <input id="garnishments" type="number" inputmode="decimal" min="0" step="0.01" value="0"
+                            placeholder="0.00">
+                    </div>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="otherPosttax">Other post-tax deductions</label>
+
+                    <div class="money-input">
+                        <span>$</span>
+
+                        <input id="otherPosttax" type="number" inputmode="decimal" min="0" step="0.01" value="0"
+                            placeholder="0.00">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button type="button" class="calculate-button" id="calculate">
+                Calculate hourly paycheck
+            </button>
+
+
+            <div class="result" aria-live="polite">
+
+                <div class="result-top">
+
+                    <div>
+                        <p class="result-label" id="resultLabel">
+                            Estimated biweekly take-home pay
+                        </p>
+
+                        <div class="take-home" id="takeHome">
+                            $0.00
+                        </div>
+
+                        <p class="result-subtitle">
+                            Estimated after federal tax, FICA, state tax, and deductions.
+                        </p>
+                    </div>
+
+
+                    <div class="chart" id="paycheckChart" aria-label="Paycheck breakdown chart">
+                        <div class="chart-center">
+                            <span>Take home</span>
+                            <strong id="chartNet">$0</strong>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="legend">
+
+                    <div class="legend-item">
+                        <span class="legend-dot dot-net"></span>
+                        <span>Take home</span>
+                    </div>
+
+                    <div class="legend-item">
+                        <span class="legend-dot dot-federal"></span>
+                        <span>Federal</span>
+                    </div>
+
+                    <div class="legend-item">
+                        <span class="legend-dot dot-fica"></span>
+                        <span>FICA</span>
+                    </div>
+
+                    <div class="legend-item">
+                        <span class="legend-dot dot-state"></span>
+                        <span>State</span>
+                    </div>
+
+                    <div class="legend-item">
+                        <span class="legend-dot dot-deductions"></span>
+                        <span>Deductions</span>
+                    </div>
+
+                </div>
+
+
+                <div class="breakdown">
+
+                    <div class="breakdown-row">
+                        <span>Gross pay</span>
+                        <strong id="grossPay">$0.00</strong>
+                    </div>
+
+                    <div class="breakdown-row">
+                        <span>Federal tax</span>
+                        <strong id="federalTax">$0.00</strong>
+                    </div>
+
+                    <div class="breakdown-row">
+                        <span>Social Security + Medicare</span>
+                        <strong id="fica">$0.00</strong>
+                    </div>
+
+                    <div class="breakdown-row">
+                        <span>State tax</span>
+                        <strong id="stateTax">$0.00</strong>
+                    </div>
+
+                    <div class="breakdown-row">
+                        <span>Pre-tax deductions</span>
+                        <strong id="preTaxResult">$0.00</strong>
+                    </div>
+
+                    <div class="breakdown-row">
+                        <span>Post-tax deductions</span>
+                        <strong id="postTaxResult">$0.00</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="pay-summary">
+
+                    <div class="pay-summary-item">
+                        <span>Weekly</span>
+                        <strong id="weeklyPay">$0.00</strong>
+                    </div>
+
+                    <div class="pay-summary-item">
+                        <span>Biweekly</span>
+                        <strong id="biweeklyPay">$0.00</strong>
+                    </div>
+
+                    <div class="pay-summary-item">
+                        <span>Semimonthly</span>
+                        <strong id="semimonthlyPay">$0.00</strong>
+                    </div>
+
+                    <div class="pay-summary-item">
+                        <span>Monthly</span>
+                        <strong id="monthlyPay">$0.00</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <article class="content">
+
+            <section class="content-section">
+
+                <h2>How does an hourly paycheck work?</h2>
+
+                <p>
+                    An hourly paycheck starts with your hourly wage and the number of
+                    hours you work. Your regular gross pay is generally calculated by
+                    multiplying your hourly rate by your regular hours.
+                </p>
+
+                <p>
+                    If you work qualifying overtime hours, those hours may be paid at a
+                    higher rate. Taxes and deductions are then applied to determine the
+                    amount that may reach your paycheck.
+                </p>
+
+                <div class="info-box">
+
+                    <p>
+                        <strong>
+                            Regular pay = hourly rate × regular hours
+                        </strong>
+                    </p>
+
+                    <p>
+                        <strong>
+                            Overtime pay = hourly rate × overtime multiplier × overtime hours
+                        </strong>
+                    </p>
+
+                    <p>
+                        <strong>
+                            Gross pay = regular pay + overtime pay
+                        </strong>
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <section class="content-section">
+
+                <h2>How this hourly paycheck calculator works</h2>
+
+                <p>
+                    Enter your hourly wage and typical weekly hours first. You can then
+                    add overtime hours, select your pay frequency, and provide basic tax
+                    and deduction information.
+                </p>
+
+                <ul>
+                    <li>Enter your regular hourly wage.</li>
+                    <li>Enter your regular weekly working hours.</li>
+                    <li>Add overtime hours if applicable.</li>
+                    <li>Select your pay frequency and state.</li>
+                    <li>Choose your filing status and number of dependents.</li>
+                    <li>Add pre-tax and post-tax deductions.</li>
+                    <li>Review your estimated take-home pay and breakdown.</li>
+                </ul>
+
+            </section>
+
+
+            <section class="content-section">
+
+                <h2>How much is $20 an hour per paycheck?</h2>
+
+                <p>
+                    At $20 per hour and 40 hours per week, your regular gross pay is
+                    $800 per week before taxes and deductions.
+                </p>
+
+                <p>
+                    That is approximately $1,600 gross every two weeks or about $3,467
+                    gross per month when annualized over 12 months.
+                </p>
+
+                <p>
+                    Your actual take-home amount will be lower after federal taxes,
+                    Social Security, Medicare, state taxes, benefits, and other
+                    deductions.
+                </p>
+
+            </section>
+
+
+            <section class="content-section">
+
+                <h2>Hourly pay and overtime</h2>
+
+                <p>
+                    Overtime can significantly change an hourly paycheck. This calculator
+                    uses a 1.5× overtime multiplier by default, commonly called
+                    "time and a half."
+                </p>
+
+                <p>
+                    For example, a $20 hourly rate produces a $30 overtime rate at 1.5×.
+                    Five overtime hours would therefore add an estimated $150 to weekly
+                    gross pay.
+                </p>
+
+                <p>
+                    Overtime eligibility and required overtime rates depend on applicable
+                    federal and state rules, employee classification, and other
+                    circumstances.
+                </p>
+
+                <p>
+                    For a dedicated overtime calculation, use the
+                    <a href="/overtime-pay-calculator.html">
+                        PaycheckMint Overtime Pay Calculator
+                    </a>.
+                </p>
+
+            </section>
+
+
+            <section class="content-section">
+
+                <h2>Gross pay vs. take-home pay</h2>
+
+                <p>
+                    Gross pay is the amount you earn before taxes and deductions.
+                    Take-home pay, also called net pay, is the amount remaining after
+                    applicable taxes and deductions are taken into account.
+                </p>
+
+                <p>
+                    Two people earning the same hourly wage can have different
+                    take-home pay because their filing status, benefits, retirement
+                    contributions, state taxes, and other payroll settings may differ.
+                </p>
+
+            </section>
+
+
+            <section class="content-section">
+
+                <h2>2026 tax estimate</h2>
+
+                <p>
+                    PaycheckMint uses 2026 federal tax information and simplified state
+                    tax estimates to provide a planning estimate.
+                </p>
+
+                <p>
+                    Actual payroll withholding can differ because employers generally
+                    calculate withholding using employee Form W-4 information, payroll
+                    tables, state requirements, local taxes, year-to-date wages, and
+                    other payroll information.
+                </p>
+
+                <p>
+                    The calculator should therefore be used as an estimate rather than
+                    as a replacement for an actual employer paycheck calculation.
+                </p>
+
+            </section>
+
+
+            <section class="content-section">
+
+                <h2>Hourly Paycheck Calculator FAQ</h2>
+
+
+                <div class="faq-item">
+
+                    <h3>How do I calculate my paycheck from an hourly wage?</h3>
+
+                    <p>
+                        Multiply your hourly rate by the number of regular hours worked.
+                        Add qualifying overtime pay when applicable, then subtract
+                        estimated taxes and deductions.
+                    </p>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <h3>How much is $20 an hour per paycheck?</h3>
+
+                    <p>
+                        At 40 hours per week, $20 per hour produces $800 in gross weekly
+                        pay before taxes and deductions. Your actual take-home pay depends
+                        on your payroll and tax circumstances.
+                    </p>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <h3>Does this calculator include overtime?</h3>
+
+                    <p>
+                        Yes. Enter your weekly overtime hours. The calculator uses a 1.5×
+                        multiplier by default and allows other multipliers when needed.
+                    </p>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <h3>Is the calculated take-home pay exact?</h3>
+
+                    <p>
+                        No. PaycheckMint provides an estimate. Actual withholding can vary
+                        because of W-4 elections, state and local rules, employer
+                        benefits, year-to-date wages, and other payroll factors.
+                    </p>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <h3>Can I use this calculator for weekly or biweekly pay?</h3>
+
+                    <p>
+                        Yes. Select your pay frequency and the calculator will estimate
+                        the corresponding paycheck amount.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <section class="content-section">
+
+                <h2>Methodology and limitations</h2>
+
+                <p>
+                    The calculator converts hourly earnings into an estimated annual
+                    gross income and then applies simplified federal, FICA, and state
+                    tax calculations. Pre-tax and post-tax deductions entered by the
+                    user are also considered.
+                </p>
+
+                <p>
+                    This is intended for general planning and comparison. It does not
+                    reproduce every employer's payroll system or every federal, state,
+                    or local withholding rule.
+                </p>
+
+                <div class="disclaimer">
+                    <strong>Important:</strong>
+                    PaycheckMint provides estimates for informational and planning
+                    purposes only. It does not provide tax, legal, accounting, or
+                    financial advice. For an actual payroll amount, refer to your
+                    employer's payroll statement or consult a qualified professional.
+                </div>
+
+            </section>
+
+        </article>
+
+    </main>
+
+
+    <footer class="site-footer">
+
+        <div class="footer-inner">
+
+            <div class="footer-brand">
+                <strong>PaycheckMint</strong>
+
+                <p>
+                    Simple tools for understanding your paycheck.
+                </p>
+            </div>
+
+
+            <nav class="footer-links" aria-label="Footer navigation">
+                <a href="/">Calculator</a>
+                <a href="/about.html">About</a>
+                <a href="/privacy-policy.html">Privacy</a>
+                <a href="/terms.html">Terms</a>
+                <a href="/contact.html">Contact</a>
+            </nav>
+
+
+            <p class="footer-copy">
+                © 2026 PaycheckMint. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="/tax-rules-2026.js"></script>
+    <script src="/tax-engine.js"></script>
+
+    <script>
+        (function () {
+            "use strict";
+
+            function init() {
+                if (!window.PaycheckMintTax) {
+                    console.error(
+                        "PaycheckMint: tax-engine.js was not loaded."
+                    );
+                    return;
+                }
+
+                const $ = (id) =>
+                    document.getElementById(id);
+
+                function number(id, fallback = 0) {
+                    const el = $(id);
+
+                    if (!el) {
+                        return fallback;
+                    }
+
+                    const value = parseFloat(el.value);
+
+                    return Number.isFinite(value)
+                        ? Math.max(0, value)
+                        : fallback;
+                }
+
+                function value(id, fallback = "") {
+                    const el = $(id);
+
+                    return el
+                        ? el.value
+                        : fallback;
+                }
+
+                function money(amount) {
+                    return new Intl.NumberFormat("en-US", {
+                        style: "currency",
+                        currency: "USD",
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 0
+                    }).format(
+                        Math.max(0, Number(amount) || 0)
+                    );
+                }
+
+                function moneyExact(amount) {
+                    return new Intl.NumberFormat("en-US", {
+                        style: "currency",
+                        currency: "USD",
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2
+                    }).format(
+                        Math.max(0, Number(amount) || 0)
+                    );
+                }
+
+                function setText(id, text) {
+                    const el = $(id);
+
+                    if (el) {
+                        el.textContent = text;
+                    }
+                }
+
+                /*
+                 * HTML frequency value
+                 *        ↓
+                 * tax-engine frequency name
+                 */
+                function getFrequency() {
+                    const map = {
+                        "52": "weekly",
+                        "26": "biweekly",
+                        "24": "semimonthly",
+                        "12": "monthly",
+                        "4": "quarterly",
+                        "2": "semiannually",
+                        "1": "annually"
+                    };
+
+                    return (
+                        map[value("frequency", "26")] ||
+                        "biweekly"
+                    );
+                }
+
+                function getPeriods(frequency) {
+                    const periods = {
+                        weekly: 52,
+                        biweekly: 26,
+                        semimonthly: 24,
+                        monthly: 12,
+                        quarterly: 4,
+                        semiannually: 2,
+                        annually: 1
+                    };
+
+                    return periods[frequency] || 26;
+                }
+
+                function getFrequencyLabel(frequency) {
+                    const labels = {
+                        weekly: "weekly",
+                        biweekly: "biweekly",
+                        semimonthly: "semimonthly",
+                        monthly: "monthly",
+                        quarterly: "quarterly",
+                        semiannually: "semiannual",
+                        annually: "annual"
+                    };
+
+                    return labels[frequency] || "biweekly";
+                }
+
+                function annualToPeriod(
+                    annualAmount,
+                    frequency
+                ) {
+                    return (
+                        Number(annualAmount) || 0
+                    ) / getPeriods(frequency);
+                }
+
+                /*
+                 * Calculate hourly gross income.
+                 */
+                function calculateHourlyGross() {
+                    return PaycheckMintTax.calculateHourlyGross({
+                        hourlyRate:
+                            number("hourlyRate"),
+
+                        hoursPerWeek:
+                            number("regularHours", 40),
+
+                        overtimeHoursPerWeek:
+                            number("overtimeHours"),
+
+                        overtimeMultiplier:
+                            number(
+                                "overtimeMultiplier",
+                                1.5
+                            )
+                    });
+                }
+
+                /*
+                 * Build tax-engine input.
+                 */
+                function buildTaxInput(
+                    hourlyGross,
+                    frequency
+                ) {
+                    return {
+                        annualGross:
+                            hourlyGross.annualGross,
+
+                        state:
+                            value("state", "none"),
+
+                        filing:
+                            value("filing", "single"),
+
+                        dependents:
+                            number("dependents"),
+
+                        frequency,
+
+                        pretax: {
+                            retirement401k:
+                                number("retirement401k"),
+
+                            healthInsurance:
+                                number("healthInsurance"),
+
+                            hsa:
+                                number("hsa"),
+
+                            fsa:
+                                number("fsa"),
+
+                            other:
+                                number("otherPretax")
+                        },
+
+                        posttax: {
+                            roth401k:
+                                number("roth401k"),
+
+                            loanRepayment:
+                                number("loanRepayment"),
+
+                            garnishments:
+                                number("garnishments"),
+
+                            other:
+                                number("otherPosttax")
+                        },
+
+                        extraFederal:
+                            number("extraFederal"),
+
+                        extraState:
+                            number("extraState"),
+
+                        additionalMedicare:
+                            number("additionalMedicare"),
+
+                        /*
+                         * These inputs do not exist on this page.
+                         * Keep them at zero for compatibility
+                         * with the shared engine.
+                         */
+                        otherAdjustments: 0,
+                        overtimeDeduction: 0
+                    };
+                }
+
+                /*
+                 * Update the main result.
+                 */
+                function updateMainResult(
+                    result,
+                    frequency
+                ) {
+                    setText(
+                        "takeHome",
+                        money(result.net?.period)
+                    );
+
+                    setText(
+                        "resultLabel",
+                        `Estimated ${getFrequencyLabel(frequency)} take-home pay`
+                    );
+                }
+
+                /*
+                 * Update breakdown.
+                 *
+                 * The shared engine stores taxes/deductions
+                 * annually, while the page displays the
+                 * selected paycheck period.
+                 */
+                function updateBreakdown(
+                    result,
+                    frequency
+                ) {
+                    const gross =
+                        annualToPeriod(
+                            result.gross?.annual,
+                            frequency
+                        );
+
+                    const federal =
+                        annualToPeriod(
+                            result.federal?.tax,
+                            frequency
+                        );
+
+                    const fica =
+                        annualToPeriod(
+                            result.fica?.total,
+                            frequency
+                        );
+
+                    const state =
+                        annualToPeriod(
+                            result.state?.tax,
+                            frequency
+                        );
+
+                    const pretax =
+                        annualToPeriod(
+                            result.deductions?.pretax,
+                            frequency
+                        );
+
+                    const posttax =
+                        annualToPeriod(
+                            result.deductions?.posttax,
+                            frequency
+                        );
+
+                    setText(
+                        "grossPay",
+                        money(gross)
+                    );
+
+                    setText(
+                        "federalTax",
+                        money(federal)
+                    );
+
+                    setText(
+                        "fica",
+                        money(fica)
+                    );
+
+                    setText(
+                        "stateTax",
+                        money(state)
+                    );
+
+                    setText(
+                        "preTaxResult",
+                        money(pretax)
+                    );
+
+                    setText(
+                        "postTaxResult",
+                        money(posttax)
+                    );
+                }
+
+                /*
+                 * Update weekly / biweekly /
+                 * semimonthly / monthly summary.
+                 */
+                function updatePaySummary(result) {
+                    setText(
+                        "weeklyPay",
+                        money(result.net?.weekly)
+                    );
+
+                    setText(
+                        "biweeklyPay",
+                        money(result.net?.biweekly)
+                    );
+
+                    setText(
+                        "semimonthlyPay",
+                        money(result.net?.semimonthly)
+                    );
+
+                    setText(
+                        "monthlyPay",
+                        money(result.net?.monthly)
+                    );
+                }
+
+                /*
+                 * Update hourly earnings information
+                 * if matching elements are ever added
+                 * to the page.
+                 */
+                function updateHourlySummary(
+                    hourlyGross
+                ) {
+                    setText(
+                        "regularPay",
+                        moneyExact(
+                            hourlyGross.regularWeeklyPay
+                        )
+                    );
+
+                    setText(
+                        "overtimePay",
+                        moneyExact(
+                            hourlyGross.overtimeWeeklyPay
+                        )
+                    );
+
+                    setText(
+                        "weeklyGross",
+                        moneyExact(
+                            hourlyGross.weeklyGross
+                        )
+                    );
+
+                    setText(
+                        "annualGross",
+                        moneyExact(
+                            hourlyGross.annualGross
+                        )
+                    );
+                }
+
+                /*
+                 * Donut chart.
+                 *
+                 * Chart proportions are annual because
+                 * annual values preserve the correct ratio
+                 * regardless of selected pay frequency.
+                 */
+                function updateChart(result) {
+                    const chart =
+                        $("paycheckChart");
+
+                    if (!chart) {
+                        return;
+                    }
+
+                    const net =
+                        Math.max(
+                            0,
+                            Number(result.net?.annual) || 0
+                        );
+
+                    const federal =
+                        Math.max(
+                            0,
+                            Number(result.federal?.tax) || 0
+                        );
+
+                    const fica =
+                        Math.max(
+                            0,
+                            Number(result.fica?.total) || 0
+                        );
+
+                    const state =
+                        Math.max(
+                            0,
+                            Number(result.state?.tax) || 0
+                        );
+
+                    const deductions =
+                        Math.max(
+                            0,
+                            Number(result.deductions?.total) || 0
+                        );
+
+                    const total =
+                        net +
+                        federal +
+                        fica +
+                        state +
+                        deductions;
+
+                    if (total <= 0) {
+                        chart.style.background =
+                            "var(--line)";
+                        setText("chartNet", money(0));
+                        return;
+                    }
+
+                    const netEnd =
+                        (net / total) * 100;
+
+                    const federalEnd =
+                        netEnd +
+                        (federal / total) * 100;
+
+                    const ficaEnd =
+                        federalEnd +
+                        (fica / total) * 100;
+
+                    const stateEnd =
+                        ficaEnd +
+                        (state / total) * 100;
+
+                    chart.style.background =
+                        `conic-gradient(
+                    var(--chart-net) 0 ${netEnd}%,
+                    var(--chart-federal) ${netEnd}% ${federalEnd}%,
+                    var(--chart-fica) ${federalEnd}% ${ficaEnd}%,
+                    var(--chart-state) ${ficaEnd}% ${stateEnd}%,
+                    var(--chart-deductions) ${stateEnd}% 100%
+                )`;
+
+                    setText(
+                        "chartNet",
+                        money(net)
+                    );
+                }
+
+                /*
+                 * Main calculation.
+                 */
+                function calculate() {
+                    const frequency =
+                        getFrequency();
+
+                    const hourlyGross =
+                        calculateHourlyGross();
+
+                    if (
+                        !hourlyGross ||
+                        hourlyGross.annualGross <= 0
+                    ) {
+                        setText(
+                            "takeHome",
+                            "$0"
+                        );
+
+                        setText(
+                            "resultLabel",
+                            `Estimated ${getFrequencyLabel(frequency)} take-home pay`
+                        );
+
+                        setText(
+                            "chartNet",
+                            "$0"
+                        );
+
+                        return;
+                    }
+
+                    const inputs =
+                        buildTaxInput(
+                            hourlyGross,
+                            frequency
+                        );
+
+                    let result;
+
+                    try {
+                        result =
+                            PaycheckMintTax.calculate(
+                                inputs
+                            );
+                    } catch (error) {
+                        console.error(
+                            "PaycheckMint hourly paycheck calculation failed:",
+                            error
+                        );
+                        return;
+                    }
+
+                    updateMainResult(
+                        result,
+                        frequency
+                    );
+
+                    updateBreakdown(
+                        result,
+                        frequency
+                    );
+
+                    updatePaySummary(
+                        result
+                    );
+
+                    updateHourlySummary(
+                        hourlyGross
+                    );
+
+                    updateChart(
+                        result
+                    );
+
+                    /*
+                     * Useful for debugging and
+                     * future features.
+                     */
+                    window.paycheckMintHourlyResult = {
+                        hourly: hourlyGross,
+                        tax: result,
+                        inputs
+                    };
+                }
+
+                /*
+                 * Button.
+                 */
+                const calculateButton =
+                    $("calculate");
+
+                if (calculateButton) {
+                    calculateButton.addEventListener(
+                        "click",
+                        calculate
+                    );
+                }
+
+                /*
+                 * Live calculation.
+                 */
+                const fields =
+                    document.querySelectorAll(
+                        "input, select"
+                    );
+
+                fields.forEach((field) => {
+                    field.addEventListener(
+                        "input",
+                        calculate
+                    );
+
+                    field.addEventListener(
+                        "change",
+                        calculate
+                    );
+                });
+
+                /*
+                 * Initial calculation.
+                 */
+                calculate();
+            }
+
+            if (
+                document.readyState ===
+                "loading"
+            ) {
+                document.addEventListener(
+                    "DOMContentLoaded",
+                    init
+                );
+            } else {
+                init();
+            }
+
+        })();
+    </script>
+
+</body>
+
+</html>
