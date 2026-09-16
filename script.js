@@ -134,20 +134,19 @@ document.addEventListener("DOMContentLoaded", () => {
     function setMode(newMode) {
         mode = newMode;
 
-        const salaryFields =
-            document.querySelectorAll(".salary-only");
+        const salaryFields = $("salaryFields");
+        const hourlyFields = $("hourlyFields");
 
-        const hourlyFields =
-            document.querySelectorAll(".hourly-only");
+        // Show / hide the correct input section
+        if (salaryFields) {
+            salaryFields.hidden = newMode !== "salary";
+        }
 
-        salaryFields.forEach((el) => {
-            el.hidden = newMode !== "salary";
-        });
+        if (hourlyFields) {
+            hourlyFields.hidden = newMode !== "hourly";
+        }
 
-        hourlyFields.forEach((el) => {
-            el.hidden = newMode !== "hourly";
-        });
-
+        // Update Salary button
         if (salaryMode) {
             salaryMode.classList.toggle(
                 "active",
@@ -160,6 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
             );
         }
 
+        // Update Hourly button
         if (hourlyMode) {
             hourlyMode.classList.toggle(
                 "active",
@@ -222,21 +222,19 @@ document.addEventListener("DOMContentLoaded", () => {
        --------------------------------------------------------- */
 
     function getHourlyAnnualGross() {
-        const result =
-            PaycheckMintTax.calculateHourlyGross({
-                hourlyRate:
-                    positive(hourlyRate?.value),
+        const rate = positive(hourlyRate?.value);
+        const regularHours = positive(hoursWeek?.value) || 40;
+        const overtimeHours = positive(overtimeWeek?.value);
+        const overtimeMultiplier = 1.5;
 
-                hoursPerWeek:
-                    positive(hoursWeek?.value) || 40,
+        const regularWeeklyPay = rate * regularHours;
+        const overtimeWeeklyPay =
+            rate * overtimeMultiplier * overtimeHours;
 
-                overtimeHoursPerWeek:
-                    positive(overtimeWeek?.value),
+        const weeklyGross =
+            regularWeeklyPay + overtimeWeeklyPay;
 
-                overtimeMultiplier: 1.5
-            });
-
-        return result.annualGross;
+        return weeklyGross * 52;
     }
 
     /* ---------------------------------------------------------
