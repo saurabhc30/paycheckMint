@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{TITLE}}</title>
+    <meta name="description" content="{{DESCRIPTION}}">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="{{CANONICAL}}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{TITLE}}">
+    <meta property="og:description" content="{{DESCRIPTION}}">
+    <meta property="og:url" content="{{CANONICAL}}">
+    <meta property="og:site_name" content="PaycheckMint">
+    <meta name="theme-color" content="#5954d9">
+    <link rel="icon" href="/favicon.ico">
+    <script type="application/ld+json">{{SCHEMA}}</script>
+    <style>
+        :root {
+            --bg: #f6f5f1;
+            --surface: #fff;
+            --soft: #faf9f6;
+            --ink: #191919;
+            --muted: #74736f;
+            --line: #deddd8;
+            --accent: #5954d9;
+            --accent-dark: #4843c4
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.55
+        }
+
+        a {
+            color: inherit
+        }
+
+        .header {
+            border-bottom: 1px solid var(--line);
+            background: #fff
+        }
+
+        .head,
+        main,
+        footer>div {
+            width: min(1100px, calc(100% - 32px));
+            margin: auto
+        }
+
+        .head {
+            min-height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px
+        }
+
+        .brand {
+            font-weight: 800;
+            font-size: 20px;
+            text-decoration: none
+        }
+
+        .nav {
+            display: flex;
+            gap: 18px;
+            font-size: 14px
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--muted)
+        }
+
+        .hero {
+            padding: 50px 0 25px;
+            max-width: 820px
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase
+        }
+
+        h1 {
+            font-size: clamp(34px, 6vw, 54px);
+            line-height: 1.03;
+            letter-spacing: -.045em;
+            margin: 8px 0 14px
+        }
+
+        .hero p {
+            color: var(--muted);
+            font-size: 18px
+        }
+
+        .calc {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(280px, .72fr);
+            gap: 18px;
+            margin: 10px 0 48px
+        }
+
+        .panel {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 24px;
+            min-width: 0
+        }
+
+        .panel h2 {
+            margin: 0 0 18px;
+            font-size: 20px
+        }
+
+        .field {
+            margin-bottom: 15px
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 7px
+        }
+
+        input,
+        select {
+            width: 100%;
+            min-height: 46px;
+            padding: 10px 12px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            font: inherit;
+            background: #fff;
+            color: var(--ink)
+        }
+
+        input:focus,
+        select:focus {
+            outline: 0;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px #eeecff
+        }
+
+        .two {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px
+        }
+
+        button {
+            width: 100%;
+            min-height: 48px;
+            border: 0;
+            border-radius: 10px;
+            background: var(--accent);
+            color: #fff;
+            font: inherit;
+            font-weight: 800;
+            cursor: pointer
+        }
+
+        button:hover {
+            background: var(--accent-dark)
+        }
+
+        .label {
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 700
+        }
+
+        .take {
+            font-size: clamp(32px, 5vw, 46px);
+            font-weight: 850;
+            letter-spacing: -.045em
+        }
+
+        .note {
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        .chartwrap {
+            text-align: center;
+            margin: 24px 0
+        }
+
+        .chart {
+            width: 180px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            margin: auto;
+            display: grid;
+            place-items: center;
+            position: relative;
+            background: var(--line)
+        }
+
+        .chart:after {
+            content: "";
+            position: absolute;
+            width: 112px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: #fff
+        }
+
+        .center {
+            z-index: 1;
+            text-align: center
+        }
+
+        .center strong {
+            display: block
+        }
+
+        .center span {
+            font-size: 11px;
+            color: var(--muted)
+        }
+
+        .rows {
+            display: grid;
+            gap: 11px
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            font-size: 14px
+        }
+
+        .row span {
+            color: var(--muted)
+        }
+
+        .paygrid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px
+        }
+
+        .pay {
+            background: var(--soft);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 12px
+        }
+
+        .pay small {
+            display: block;
+            color: var(--muted);
+            font-size: 11px
+        }
+
+        .content {
+            max-width: 820px;
+            padding-bottom: 65px
+        }
+
+        .content section {
+            border-top: 1px solid var(--line);
+            padding: 30px 0
+        }
+
+        .content h2 {
+            font-size: 26px;
+            letter-spacing: -.03em
+        }
+
+        .content p,
+        .content li {
+            color: #4f4e4a
+        }
+
+        .example {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 18px
+        }
+
+        .faq details {
+            border-top: 1px solid var(--line);
+            padding: 15px 0
+        }
+
+        .faq details:last-child {
+            border-bottom: 1px solid var(--line)
+        }
+
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 24px 0;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        footer>div {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap
+        }
+
+        @media(max-width:760px) {
+            .calc {
+                grid-template-columns: 1fr
+            }
+
+            .paygrid {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media(max-width:430px) {
+
+            .head,
+            main,
+            footer>div {
+                width: calc(100% - 20px)
+            }
+
+            .nav {
+                gap: 9px;
+                font-size: 12px
+            }
+
+            .hero {
+                padding-top: 34px
+            }
+
+            .hero p {
+                font-size: 16px
+            }
+
+            .panel {
+                padding: 18px;
+                border-radius: 14px
+            }
+
+            .two {
+                grid-template-columns: 1fr
+            }
+
+            .paygrid {
+                grid-template-columns: 1fr
+            }
+
+            h1 {
+                font-size: 36px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="head"><a class="brand" href="/">PaycheckMint</a>
+            <nav class="nav"><a href="/">Calculator</a><a href="/hourly-paycheck-calculator.html">Hourly</a><a
+                    href="/paycheck-tax-calculator.html">Tax</a><a href="/take-home-pay-calculator.html">Take-Home</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="eyebrow">2026 hourly paycheck calculator</div>
+            <h1>How much is {{WAGE_TEXT}} an hour?</h1>
+            <p>Use this {{WAGE_TEXT}}-an-hour paycheck calculator to estimate gross pay, taxes, and take-home pay.
+                Adjust hours, overtime, state, filing status, and pay frequency.</p>
+        </section>
+        <section class="calc">
+            <div class="panel">
+                <h2>{{WAGE_TEXT}} an hour calculator</h2>
+                <div class="field"><label for="rate">Hourly rate</label><input id="rate" type="number" min="0"
+                        step=".01" value="{{WAGE}}"></div>
+                <div class="two">
+                    <div class="field"><label for="hours">Regular hours per week</label><input id="hours" type="number"
+                            min="0" step=".5" value="40"></div>
+                    <div class="field"><label for="ot">Overtime hours per week</label><input id="ot" type="number"
+                            min="0" step=".5" value="0"></div>
+                </div>
+                <div class="two">
+                    <div class="field"><label for="freq">Pay frequency</label><select id="freq">
+                            <option value="weekly">Weekly</option>
+                            <option value="biweekly" selected>Biweekly</option>
+                            <option value="semimonthly">Semimonthly</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="quarterly">Quarterly</option>
+                            <option value="semiannually">Semiannually</option>
+                            <option value="annually">Annually</option>
+                        </select></div>
+                    <div class="field"><label for="state">State</label><select id="state">
+                            <option value="none">Not selected</option>
+                            <option value="al">Alabama</option>
+                            <option value="az">Arizona</option>
+                            <option value="ca">California</option>
+                            <option value="co">Colorado</option>
+                            <option value="fl">Florida</option>
+                            <option value="ga">Georgia</option>
+                            <option value="il">Illinois</option>
+                            <option value="ma">Massachusetts</option>
+                            <option value="mi">Michigan</option>
+                            <option value="nc">North Carolina</option>
+                            <option value="nj">New Jersey</option>
+                            <option value="ny">New York</option>
+                            <option value="oh">Ohio</option>
+                            <option value="or">Oregon</option>
+                            <option value="pa">Pennsylvania</option>
+                            <option value="tn">Tennessee</option>
+                            <option value="tx">Texas</option>
+                            <option value="va">Virginia</option>
+                            <option value="wa">Washington</option>
+                            <option value="other">Other</option>
+                        </select></div>
+                </div>
+                <div class="two">
+                    <div class="field"><label for="filing">Filing status</label><select id="filing">
+                            <option value="single">Single</option>
+                            <option value="married">Married filing jointly</option>
+                            <option value="hoh">Head of household</option>
+                        </select></div>
+                    <div class="field"><label for="deps">Dependents</label><input id="deps" type="number" min="0"
+                            value="0"></div>
+                </div>
+                <button id="calc" type="button">Calculate paycheck</button>
+            </div>
+            <div class="panel">
+                <div class="label" id="periodLabel">Estimated biweekly take-home</div>
+                <div class="take" id="take">$0</div>
+                <div class="note">Estimated after federal, FICA, state tax, and deductions.</div>
+                <div class="chartwrap">
+                    <div class="chart" id="chart">
+                        <div class="center"><strong id="chartNet">$0</strong><span>take-home</span></div>
+                    </div>
+                </div>
+                <div class="rows">
+                    <div class="row"><span>Gross pay</span><strong id="gross">$0</strong></div>
+                    <div class="row"><span>Federal tax</span><strong id="fed">$0</strong></div>
+                    <div class="row"><span>FICA</span><strong id="fica">$0</strong></div>
+                    <div class="row"><span>State tax</span><strong id="st">$0</strong></div>
+                    <div class="row"><span>Pre-tax deductions</span><strong id="pre">$0</strong></div>
+                    <div class="row"><span>Post-tax deductions</span><strong id="post">$0</strong></div>
+                </div>
+            </div>
+        </section>
+        <section class="panel" style="margin-bottom:50px">
+            <h2>{{WAGE_TEXT}} per hour gross pay</h2>
+            <div class="paygrid">
+                <div class="pay"><small>Weekly</small><strong id="weekly">$0</strong></div>
+                <div class="pay"><small>Biweekly</small><strong id="biweekly">$0</strong></div>
+                <div class="pay"><small>Monthly</small><strong id="monthly">$0</strong></div>
+                <div class="pay"><small>Annual</small><strong id="annual">$0</strong></div>
+            </div>
+        </section>
+        <article class="content">
+            <section>
+                <h2>How much is {{WAGE_TEXT}} an hour annually?</h2>
+                <p>Assuming 40 regular hours per week for 52 weeks, {{WAGE_TEXT}} per hour equals
+                    <strong>{{ANNUAL}}</strong> in annual gross pay before taxes and deductions.
+                </p>
+                <div class="example"><strong>{{WAGE_TEXT}}/hour at 40 hours per week</strong>
+                    <ul>
+                        <li>Weekly: <strong>{{WEEKLY}}</strong></li>
+                        <li>Biweekly: <strong>{{BIWEEKLY}}</strong></li>
+                        <li>Monthly average: <strong>{{MONTHLY}}</strong></li>
+                        <li>Annual: <strong>{{ANNUAL}}</strong></li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <h2>How the calculation works</h2>
+                <p>Gross annual pay is calculated from the hourly rate, regular weekly hours, overtime hours, and 52
+                    weeks per year. Overtime uses the calculator's 1.5× multiplier.</p>
+                <p>Estimated take-home pay can be lower than gross pay because federal income tax, Social Security,
+                    Medicare, state tax, and deductions may reduce your paycheck.</p>
+            </section>
+            <section>
+                <h2>{{WAGE_TEXT}} an hour after taxes</h2>
+                <p>Your actual take-home pay depends on state, filing status, dependents, deductions, and withholding
+                    choices. Use the calculator above for an estimate.</p>
+                <p>PaycheckMint provides simplified planning estimates and is not an official IRS or state withholding
+                    calculator.</p>
+            </section>
+            <section class="faq">
+                <h2>Frequently asked questions</h2>
+                <details>
+                    <summary>How much is {{WAGE_TEXT}} an hour for 40 hours a week?</summary>
+                    <p>{{WAGE_TEXT}} an hour is {{WEEKLY}} in weekly gross pay and {{ANNUAL}} annually before taxes and
+                        deductions.</p>
+                </details>
+                <details>
+                    <summary>How much is {{WAGE_TEXT}} an hour biweekly?</summary>
+                    <p>At 40 hours per week, gross biweekly pay is approximately {{BIWEEKLY}}.</p>
+                </details>
+                <details>
+                    <summary>How much is {{WAGE_TEXT}} an hour monthly?</summary>
+                    <p>At 40 hours per week, average monthly gross pay is approximately {{MONTHLY}}.</p>
+                </details>
+                <details>
+                    <summary>Will everyone take home the same amount?</summary>
+                    <p>No. Taxes and deductions vary by individual circumstances and location.</p>
+                </details>
+            </section>
+            <section>
+                <h2>Methodology and disclaimer</h2>
+                <p>Examples assume 40 regular hours per week and 52 weeks per year. The calculator supports overtime,
+                    pay frequency, states, filing status, and dependents.</p>
+                <p>Estimates are for educational and planning purposes. Check official federal and state guidance for
+                    your circumstances.</p>
+            </section>
+        </article>
+    </main>
+    <footer>
+        <div><span>© 2026 PaycheckMint. Free paycheck calculator.</span><span><a href="/privacy-policy/">Privacy</a> ·
+                <a href="/terms/">Terms</a> · <a href="/contact/">Contact</a> · <a href="/about/">About</a></span></div>
+    </footer>
+    <script src="/tax-rules-2026.js"></script>
+    <script src="/tax-engine.js"></script>
+    <script>
+        (function () { const wage = {{ WAGE_JSON } }, $ = id => document.getElementById(id);
+        const money = n => new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(Math.max(0, Number(n) || 0));
+        function calc() {
+            if (!window.PaycheckMintTax) return; const r = Math.max(0, Number($("rate").value) || wage.wage), h = Math.max(0, Number($("hours").value) || 40), ot = Math.max(0, Number($("ot").value) || 0), weekly = r * h + r * 1.5 * ot, annual = weekly * 52, f = $("freq").value || "biweekly"; const result = PaycheckMintTax.calculate({ annualGross: annual, state: $("state").value || "none", filing: $("filing").value || "single", dependents: Math.max(0, Number($("deps").value) || 0), frequency: f, pretax: { retirement401k: 0, healthInsurance: 0, hsa: 0, fsa: 0, other: 0 }, posttax: { roth401k: 0, loanRepayment: 0, garnishments: 0, other: 0 }, extraFederal: 0, extraState: 0, additionalMedicare: 0, otherAdjustments: 0 });
+            $("take").textContent = money(result.net.period); $("periodLabel").textContent = "Estimated " + f + " take-home"; $("gross").textContent = money(result.gross.period); $("fed").textContent = money(result.federal.tax / result.periodsPerYear); $("fica").textContent = money(result.fica.total / result.periodsPerYear); $("st").textContent = money(result.state.tax / result.periodsPerYear); $("pre").textContent = money(result.deductions.pretax / result.periodsPerYear); $("post").textContent = money(result.deductions.posttax / result.periodsPerYear); $("chartNet").textContent = money(result.net.annual); $("weekly").textContent = money(weekly); $("biweekly").textContent = money(annual / 26); $("monthly").textContent = money(annual / 12); $("annual").textContent = money(annual);
+            const n = Math.max(0, result.net.annual), fed = Math.max(0, result.federal.tax), fi = Math.max(0, result.fica.total), st = Math.max(0, result.state.tax), d = Math.max(0, result.deductions.total), t = n + fed + fi + st + d; if (t) { let a = n / t * 100, b = a + fed / t * 100, c = b + fi / t * 100, e = c + st / t * 100; $("chart").style.background = `conic-gradient(var(--accent) 0 ${a}%,#e7a23b ${a}% ${b}%,#e06c5d ${b}% ${c}%,#72a86f ${c}% ${e}%,#aaa9a3 ${e}% 100%)` }
+        } $("calc").addEventListener("click", calc); document.querySelectorAll("input,select").forEach(e => { e.addEventListener("input", calc); e.addEventListener("change", calc) }); calc()}) ();
+    </script>
+</body>
+
+</html>

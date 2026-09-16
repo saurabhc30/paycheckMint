@@ -1,2622 +1,2051 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
 
-<head>
-    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Biweekly Paycheck Calculator 2026 | PaycheckMint</title>
 
-    <title>
-        Biweekly Paycheck Calculator 2026 | PaycheckMint
-    </title>
+        <meta
+            name="description"
+            content="Use the PaycheckMint 2026 biweekly paycheck calculator to estimate your take-home pay after federal, Social Security, Medicare, state taxes, and deductions."
+        />
 
-    <meta name="description"
-        content="Use the PaycheckMint 2026 biweekly paycheck calculator to estimate your take-home pay after federal, Social Security, Medicare, state taxes, and deductions.">
+        <meta name="robots" content="index, follow, max-image-preview:large" />
 
-    <meta name="robots" content="index, follow, max-image-preview:large">
+        <link rel="canonical" href="https://paycheckmint.vercel.app/biweekly-paycheck-calculator/" />
 
-    <link rel="canonical" href="https://paycheckmint.vercel.app/biweekly-paycheck-calculator/">
+        <meta name="theme-color" content="#5954d9" />
 
-    <meta name="theme-color" content="#5954d9">
+        <meta property="og:title" content="Biweekly Paycheck Calculator 2026 | PaycheckMint" />
 
-    <meta property="og:title" content="Biweekly Paycheck Calculator 2026 | PaycheckMint">
+        <meta
+            property="og:description"
+            content="Estimate your 2026 biweekly take-home pay after federal, Social Security, Medicare, state taxes, and deductions."
+        />
 
-    <meta property="og:description"
-        content="Estimate your 2026 biweekly take-home pay after federal, Social Security, Medicare, state taxes, and deductions.">
+        <meta property="og:type" content="website" />
 
-    <meta property="og:type" content="website">
+        <meta property="og:url" content="https://paycheckmint.vercel.app/biweekly-paycheck-calculator/" />
 
-    <meta property="og:url" content="https://paycheckmint.vercel.app/biweekly-paycheck-calculator/">
+        <meta property="og:site_name" content="PaycheckMint" />
 
-    <meta property="og:site_name" content="PaycheckMint">
+        <link rel="icon" href="/icon.ico" />
 
-    <link rel="icon" href="/icon.ico">
+        <style>
+            :root {
+                --bg: #f6f5f1;
+                --surface: #ffffff;
+                --surface-soft: #faf9f6;
 
-    <style>
-        :root {
-            --bg: #f6f5f1;
-            --surface: #ffffff;
-            --surface-soft: #faf9f6;
+                --ink: #191919;
+                --muted: #74736f;
+                --muted-light: #999791;
 
-            --ink: #191919;
-            --muted: #74736f;
-            --muted-light: #999791;
+                --line: #deddd8;
+                --line-dark: #cbc9c3;
 
-            --line: #deddd8;
-            --line-dark: #cbc9c3;
+                --accent: #5954d9;
+                --accent-dark: #4843c4;
+                --accent-soft: #eeecff;
 
-            --accent: #5954d9;
-            --accent-dark: #4843c4;
-            --accent-soft: #eeecff;
+                --chart-net: #5954d9;
+                --chart-federal: #e7a23b;
+                --chart-fica: #e06c5d;
+                --chart-state: #72a86f;
+                --chart-deductions: #aaa9a3;
 
-            --chart-net: #5954d9;
-            --chart-federal: #e7a23b;
-            --chart-fica: #e06c5d;
-            --chart-state: #72a86f;
-            --chart-deductions: #aaa9a3;
+                --radius: 12px;
+                --radius-small: 8px;
 
-            --radius: 12px;
-            --radius-small: 8px;
-
-            --shadow:
-                0 8px 30px rgba(20, 20, 20, 0.06);
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            background: var(--bg);
-            color: var(--ink);
-            font-family:
-                Inter,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                Roboto,
-                Arial,
-                sans-serif;
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button,
-        input,
-        select {
-            font: inherit;
-        }
-
-        .container {
-            width: min(1120px, calc(100% - 32px));
-            margin: 0 auto;
-        }
-
-        /* Header */
-
-        .site-header {
-            border-bottom: 1px solid var(--line);
-            background: rgba(246, 245, 241, 0.96);
-        }
-
-        .header-inner {
-            min-height: 68px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-        }
-
-        .brand {
-            font-size: 20px;
-            font-weight: 750;
-            letter-spacing: -0.03em;
-        }
-
-        .site-nav {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-        }
-
-        .site-nav a {
-            color: var(--muted);
-            font-size: 14px;
-            font-weight: 600;
-            transition: color 0.18s ease;
-        }
-
-        .site-nav a:hover {
-            color: var(--accent);
-        }
-
-        /* Hero */
-
-        .hero {
-            padding: 58px 0 32px;
-            text-align: center;
-        }
-
-        .eyebrow {
-            margin: 0 0 10px;
-            color: var(--accent);
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 0.11em;
-        }
-
-        .hero h1 {
-            margin: 0 auto;
-            max-width: 780px;
-            font-size: clamp(34px, 5vw, 54px);
-            line-height: 1.04;
-            letter-spacing: -0.045em;
-        }
-
-        .hero p {
-            max-width: 680px;
-            margin: 18px auto 0;
-            color: var(--muted);
-            font-size: 17px;
-        }
-
-        /* Calculator */
-
-        .calculator-section {
-            padding: 18px 0 60px;
-        }
-
-        .calculator {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
-            gap: 18px;
-            align-items: start;
-        }
-
-        .calculator-card,
-        .result-card {
-            min-width: 0;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
-
-        .calculator-card {
-            padding: 26px;
-        }
-
-        .result-card {
-            padding: 26px;
-            position: sticky;
-            top: 20px;
-        }
-
-        .card-title {
-            margin: 0;
-            font-size: 20px;
-            letter-spacing: -0.02em;
-        }
-
-        .card-subtitle {
-            margin: 5px 0 22px;
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        /* Form */
-
-        .form-section {
-            padding: 20px 0;
-            border-top: 1px solid var(--line);
-        }
-
-        .form-section:first-of-type {
-            padding-top: 0;
-            border-top: 0;
-        }
-
-        .form-section-title {
-            margin: 0 0 14px;
-            font-size: 14px;
-            font-weight: 750;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 14px;
-        }
-
-        .field {
-            min-width: 0;
-        }
-
-        .field.full {
-            grid-column: 1 / -1;
-        }
-
-        .field label {
-            display: block;
-            margin-bottom: 7px;
-            font-size: 13px;
-            font-weight: 650;
-        }
-
-        .field input,
-        .field select {
-            width: 100%;
-            height: 44px;
-            padding: 0 12px;
-            border: 1px solid var(--line-dark);
-            border-radius: var(--radius-small);
-            background: #fff;
-            color: var(--ink);
-            outline: none;
-            transition:
-                border-color 0.18s ease,
-                box-shadow 0.18s ease;
-        }
-
-        .field input:focus,
-        .field select:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(89, 84, 217, 0.1);
-        }
-
-        .field small {
-            display: block;
-            margin-top: 5px;
-            color: var(--muted-light);
-            font-size: 11px;
-        }
-
-        .fixed-frequency {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            min-height: 44px;
-            padding: 0 12px;
-            border: 1px solid var(--line-dark);
-            border-radius: var(--radius-small);
-            background: var(--surface-soft);
-        }
-
-        .fixed-frequency strong {
-            font-size: 14px;
-        }
-
-        .fixed-frequency span {
-            color: var(--muted);
-            font-size: 12px;
-        }
-
-        /* Advanced */
-
-        .advanced-options {
-            border-top: 1px solid var(--line);
-        }
-
-        .advanced-options summary {
-            padding: 18px 0;
-            cursor: pointer;
-            color: var(--ink);
-            font-size: 14px;
-            font-weight: 700;
-            list-style: none;
-        }
-
-        .advanced-options summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .advanced-options summary::after {
-            content: "+";
-            float: right;
-            color: var(--muted);
-            font-size: 18px;
-            font-weight: 400;
-        }
-
-        .advanced-options[open] summary::after {
-            content: "−";
-        }
-
-        .advanced-content {
-            padding-bottom: 18px;
-        }
-
-        /* Button */
-
-        .calculate-button {
-            width: 100%;
-            min-height: 48px;
-            margin-top: 4px;
-            border: 0;
-            border-radius: var(--radius-small);
-            background: var(--accent);
-            color: #fff;
-            cursor: pointer;
-            font-weight: 750;
-            transition:
-                background 0.18s ease,
-                transform 0.18s ease;
-        }
-
-        .calculate-button:hover {
-            background: var(--accent-dark);
-        }
-
-        .calculate-button:active {
-            transform: translateY(1px);
-        }
-
-        /* Result */
-
-        .result-label {
-            margin: 0;
-            color: var(--muted);
-            font-size: 13px;
-            font-weight: 650;
-        }
-
-        .take-home {
-            margin: 4px 0 0;
-            color: var(--accent);
-            font-size: clamp(34px, 5vw, 48px);
-            line-height: 1.1;
-            letter-spacing: -0.045em;
-            font-weight: 800;
-        }
-
-        .result-note {
-            margin: 5px 0 24px;
-            color: var(--muted-light);
-            font-size: 12px;
-        }
-
-        /* Donut */
-
-        .chart-wrap {
-            display: flex;
-            justify-content: center;
-            margin: 4px 0 24px;
-        }
-
-        .chart {
-            width: 190px;
-            height: 190px;
-            border-radius: 50%;
-            background:
-                conic-gradient(var(--chart-net) 0% 70%,
-                    var(--chart-federal) 70% 82%,
-                    var(--chart-fica) 82% 92%,
-                    var(--chart-state) 92% 97%,
-                    var(--chart-deductions) 97% 100%);
-            display: grid;
-            place-items: center;
-        }
-
-        .chart::before {
-            content: "";
-            width: 116px;
-            height: 116px;
-            border-radius: 50%;
-            background: var(--surface);
-            grid-area: 1 / 1;
-        }
-
-        .chart-center {
-            position: relative;
-            z-index: 1;
-            grid-area: 1 / 1;
-            text-align: center;
-        }
-
-        .chart-center strong {
-            display: block;
-            font-size: 15px;
-        }
-
-        .chart-center span {
-            display: block;
-            margin-top: 1px;
-            color: var(--muted);
-            font-size: 11px;
-        }
-
-        /* Legend */
-
-        .legend {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 9px;
-            margin-bottom: 24px;
-        }
-
-        .legend-row {
-            width: 100%;
-            min-width: 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            font-size: 13px;
-        }
-
-        .legend-label {
-            min-width: 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .legend-label span:last-child {
-            color: var(--muted);
-            white-space: nowrap;
-        }
-
-        .legend-row strong {
-            flex: 0 0 auto;
-            margin-left: auto;
-            color: var(--ink);
-            font-size: 13px;
-            font-weight: 700;
-            white-space: nowrap;
-            text-align: right;
-        }
-
-        .legend-dot {
-            width: 9px;
-            height: 9px;
-            flex: 0 0 9px;
-            border-radius: 50%;
-        }
-
-        .dot-net {
-            background: var(--chart-net);
-        }
-
-        .dot-federal {
-            background: var(--chart-federal);
-        }
-
-        .dot-fica {
-            background: var(--chart-fica);
-        }
-
-        .dot-state {
-            background: var(--chart-state);
-        }
-
-        .dot-deductions {
-            background: var(--chart-deductions);
-        }
-
-        .legend-value {
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        /* Breakdown */
-
-        .breakdown {
-            border-top: 1px solid var(--line);
-        }
-
-        .breakdown-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            padding: 11px 0;
-            border-bottom: 1px solid var(--line);
-            font-size: 13px;
-        }
-
-        .breakdown-row span:first-child {
-            color: var(--muted);
-        }
-
-        .breakdown-row strong {
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        /* Summary */
-
-        .pay-summary {
-            margin-top: 22px;
-            padding-top: 18px;
-            border-top: 1px solid var(--line);
-        }
-
-        .pay-summary h3 {
-            margin: 0 0 10px;
-            font-size: 14px;
-        }
-
-        .summary-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 8px;
-        }
-
-        .summary-item {
-            padding: 11px;
-            border: 1px solid var(--line);
-            border-radius: var(--radius-small);
-            background: var(--surface-soft);
-        }
-
-        .summary-item span {
-            display: block;
-            color: var(--muted);
-            font-size: 11px;
-        }
-
-        .summary-item strong {
-            display: block;
-            margin-top: 2px;
-            font-size: 14px;
-        }
-
-        /* Content */
-
-        .content-section {
-            padding: 70px 0;
-            border-top: 1px solid var(--line);
-        }
-
-        .section-heading {
-            max-width: 720px;
-            margin-bottom: 30px;
-        }
-
-        .section-heading h2 {
-            margin: 0;
-            font-size: clamp(28px, 4vw, 38px);
-            line-height: 1.15;
-            letter-spacing: -0.035em;
-        }
-
-        .section-heading p:not(.eyebrow) {
-            margin: 12px 0 0;
-            color: var(--muted);
-        }
-
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 16px;
-        }
-
-        .content-block {
-            padding: 22px;
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            background: var(--surface);
-        }
-
-        .content-block h3 {
-            margin: 0 0 8px;
-            font-size: 17px;
-        }
-
-        .content-block p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        .example-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            overflow: hidden;
-        }
-
-        .example-table th,
-        .example-table td {
-            padding: 13px 15px;
-            text-align: left;
-            border-bottom: 1px solid var(--line);
-            font-size: 14px;
-        }
-
-        .example-table th {
-            background: var(--surface-soft);
-            font-weight: 750;
-        }
-
-        .example-table tr:last-child td {
-            border-bottom: 0;
-        }
-
-        .example-table td:last-child,
-        .example-table th:last-child {
-            text-align: right;
-        }
-
-        /* FAQ */
-
-        .faq-list {
-            max-width: 820px;
-        }
-
-        .faq-item {
-            border-top: 1px solid var(--line);
-        }
-
-        .faq-item:last-child {
-            border-bottom: 1px solid var(--line);
-        }
-
-        .faq-item summary {
-            padding: 18px 0;
-            cursor: pointer;
-            font-weight: 700;
-            list-style: none;
-        }
-
-        .faq-item summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .faq-item p {
-            max-width: 760px;
-            margin: -4px 0 18px;
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        /* Disclaimer */
-
-        .disclaimer {
-            margin-top: 22px;
-            padding: 18px;
-            border: 1px solid var(--line);
-            border-radius: var(--radius-small);
-            background: var(--surface-soft);
-            color: var(--muted);
-            font-size: 12px;
-        }
-
-        /* Footer */
-
-        .site-footer {
-            padding: 32px 0;
-            border-top: 1px solid var(--line);
-        }
-
-        .footer-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .footer-copy {
-            color: var(--muted);
-            font-size: 12px;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-            gap: 15px;
-        }
-
-        .footer-links a {
-            color: var(--muted);
-            font-size: 12px;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-
-        /* Responsive */
-
-        @media (max-width: 850px) {
-            .calculator {
-                grid-template-columns: 1fr;
+                --shadow: 0 8px 30px rgba(20, 20, 20, 0.06);
             }
 
-            .result-card {
-                position: static;
+            * {
+                box-sizing: border-box;
             }
 
-            .content-grid {
-                grid-template-columns: 1fr;
+            html {
+                scroll-behavior: smooth;
             }
-        }
 
-        @media (max-width: 760px) {
+            body {
+                margin: 0;
+                background: var(--bg);
+                color: var(--ink);
+                font-family:
+                    Inter,
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    Roboto,
+                    Arial,
+                    sans-serif;
+                line-height: 1.6;
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            button,
+            input,
+            select {
+                font: inherit;
+            }
+
             .container {
-                width: min(100% - 24px, 680px);
+                width: min(1120px, calc(100% - 32px));
+                margin: 0 auto;
             }
 
-            .hero {
-                padding: 42px 0 24px;
+            /* Header */
+
+            .site-header {
+                border-bottom: 1px solid var(--line);
+                background: rgba(246, 245, 241, 0.96);
             }
 
-            .hero h1 {
-                font-size: clamp(32px, 9vw, 44px);
-            }
-
-            .hero p {
-                font-size: 15px;
-            }
-
-            .calculator-section {
-                padding-bottom: 44px;
-            }
-
-            .calculator-card,
-            .result-card {
-                padding: 20px;
-            }
-
-            .content-section {
-                padding: 50px 0;
-            }
-        }
-
-        @media (max-width: 560px) {
             .header-inner {
-                min-height: 60px;
-            }
-
-            .site-nav {
-                gap: 12px;
-            }
-
-            .site-nav a {
-                font-size: 12px;
-            }
-
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .field.full {
-                grid-column: auto;
-            }
-
-            .summary-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .footer-inner {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-links {
-                justify-content: center;
-            }
-
-            .example-table {
-                font-size: 13px;
-            }
-
-            .example-table th,
-            .example-table td {
-                padding: 10px;
-            }
-        }
-
-        @media (max-width: 380px) {
-            .container {
-                width: calc(100% - 20px);
-            }
-
-            .calculator-card,
-            .result-card {
-                padding: 16px;
-                border-radius: 10px;
+                min-height: 68px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 24px;
             }
 
             .brand {
-                font-size: 18px;
+                font-size: 20px;
+                font-weight: 750;
+                letter-spacing: -0.03em;
             }
 
             .site-nav {
-                gap: 9px;
+                display: flex;
+                align-items: center;
+                gap: 24px;
             }
 
             .site-nav a {
-                font-size: 11px;
+                color: var(--muted);
+                font-size: 14px;
+                font-weight: 600;
+                transition: color 0.18s ease;
             }
 
+            .site-nav a:hover {
+                color: var(--accent);
+            }
+
+            /* Hero */
+
             .hero {
-                padding-top: 34px;
+                padding: 58px 0 32px;
+                text-align: center;
+            }
+
+            .eyebrow {
+                margin: 0 0 10px;
+                color: var(--accent);
+                font-size: 12px;
+                font-weight: 800;
+                letter-spacing: 0.11em;
             }
 
             .hero h1 {
-                font-size: 30px;
+                margin: 0 auto;
+                max-width: 780px;
+                font-size: clamp(34px, 5vw, 54px);
+                line-height: 1.04;
+                letter-spacing: -0.045em;
             }
 
             .hero p {
+                max-width: 680px;
+                margin: 18px auto 0;
+                color: var(--muted);
+                font-size: 17px;
+            }
+
+            /* Calculator */
+
+            .calculator-section {
+                padding: 18px 0 60px;
+            }
+
+            .calculator {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+                gap: 18px;
+                align-items: start;
+            }
+
+            .calculator-card,
+            .result-card {
+                min-width: 0;
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: var(--radius);
+                box-shadow: var(--shadow);
+            }
+
+            .calculator-card {
+                padding: 26px;
+            }
+
+            .result-card {
+                padding: 26px;
+                position: sticky;
+                top: 20px;
+            }
+
+            .card-title {
+                margin: 0;
+                font-size: 20px;
+                letter-spacing: -0.02em;
+            }
+
+            .card-subtitle {
+                margin: 5px 0 22px;
+                color: var(--muted);
                 font-size: 14px;
             }
 
-            .chart {
-                width: 165px;
-                height: 165px;
+            /* Form */
+
+            .form-section {
+                padding: 20px 0;
+                border-top: 1px solid var(--line);
             }
 
-            .chart::before {
-                width: 102px;
-                height: 102px;
+            .form-section:first-of-type {
+                padding-top: 0;
+                border-top: 0;
+            }
+
+            .form-section-title {
+                margin: 0 0 14px;
+                font-size: 14px;
+                font-weight: 750;
+            }
+
+            .form-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 14px;
+            }
+
+            .field {
+                min-width: 0;
+            }
+
+            .field.full {
+                grid-column: 1 / -1;
+            }
+
+            .field label {
+                display: block;
+                margin-bottom: 7px;
+                font-size: 13px;
+                font-weight: 650;
+            }
+
+            .field input,
+            .field select {
+                width: 100%;
+                height: 44px;
+                padding: 0 12px;
+                border: 1px solid var(--line-dark);
+                border-radius: var(--radius-small);
+                background: #fff;
+                color: var(--ink);
+                outline: none;
+                transition:
+                    border-color 0.18s ease,
+                    box-shadow 0.18s ease;
+            }
+
+            .field input:focus,
+            .field select:focus {
+                border-color: var(--accent);
+                box-shadow: 0 0 0 3px rgba(89, 84, 217, 0.1);
+            }
+
+            .field small {
+                display: block;
+                margin-top: 5px;
+                color: var(--muted-light);
+                font-size: 11px;
+            }
+
+            .fixed-frequency {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                min-height: 44px;
+                padding: 0 12px;
+                border: 1px solid var(--line-dark);
+                border-radius: var(--radius-small);
+                background: var(--surface-soft);
+            }
+
+            .fixed-frequency strong {
+                font-size: 14px;
+            }
+
+            .fixed-frequency span {
+                color: var(--muted);
+                font-size: 12px;
+            }
+
+            /* Advanced */
+
+            .advanced-options {
+                border-top: 1px solid var(--line);
+            }
+
+            .advanced-options summary {
+                padding: 18px 0;
+                cursor: pointer;
+                color: var(--ink);
+                font-size: 14px;
+                font-weight: 700;
+                list-style: none;
+            }
+
+            .advanced-options summary::-webkit-details-marker {
+                display: none;
+            }
+
+            .advanced-options summary::after {
+                content: "+";
+                float: right;
+                color: var(--muted);
+                font-size: 18px;
+                font-weight: 400;
+            }
+
+            .advanced-options[open] summary::after {
+                content: "−";
+            }
+
+            .advanced-content {
+                padding-bottom: 18px;
+            }
+
+            /* Button */
+
+            .calculate-button {
+                width: 100%;
+                min-height: 48px;
+                margin-top: 4px;
+                border: 0;
+                border-radius: var(--radius-small);
+                background: var(--accent);
+                color: #fff;
+                cursor: pointer;
+                font-weight: 750;
+                transition:
+                    background 0.18s ease,
+                    transform 0.18s ease;
+            }
+
+            .calculate-button:hover {
+                background: var(--accent-dark);
+            }
+
+            .calculate-button:active {
+                transform: translateY(1px);
+            }
+
+            /* Result */
+
+            .result-label {
+                margin: 0;
+                color: var(--muted);
+                font-size: 13px;
+                font-weight: 650;
             }
 
             .take-home {
-                font-size: 34px;
+                margin: 4px 0 0;
+                color: var(--accent);
+                font-size: clamp(34px, 5vw, 48px);
+                line-height: 1.1;
+                letter-spacing: -0.045em;
+                font-weight: 800;
+            }
+
+            .result-note {
+                margin: 5px 0 24px;
+                color: var(--muted-light);
+                font-size: 12px;
+            }
+
+            /* Donut */
+
+            .chart-wrap {
+                display: flex;
+                justify-content: center;
+                margin: 4px 0 24px;
+            }
+
+            .chart {
+                width: 190px;
+                height: 190px;
+                border-radius: 50%;
+                background: conic-gradient(
+                    var(--chart-net) 0% 70%,
+                    var(--chart-federal) 70% 82%,
+                    var(--chart-fica) 82% 92%,
+                    var(--chart-state) 92% 97%,
+                    var(--chart-deductions) 97% 100%
+                );
+                display: grid;
+                place-items: center;
+            }
+
+            .chart::before {
+                content: "";
+                width: 116px;
+                height: 116px;
+                border-radius: 50%;
+                background: var(--surface);
+                grid-area: 1 / 1;
+            }
+
+            .chart-center {
+                position: relative;
+                z-index: 1;
+                grid-area: 1 / 1;
+                text-align: center;
+            }
+
+            .chart-center strong {
+                display: block;
+                font-size: 15px;
+            }
+
+            .chart-center span {
+                display: block;
+                margin-top: 1px;
+                color: var(--muted);
+                font-size: 11px;
+            }
+
+            /* Legend */
+
+            .legend {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 9px;
+                margin-bottom: 24px;
+            }
+
+            .legend-row {
+                width: 100%;
+                min-width: 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 16px;
+                font-size: 13px;
+            }
+
+            .legend-label {
+                min-width: 0;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .legend-label span:last-child {
+                color: var(--muted);
+                white-space: nowrap;
+            }
+
+            .legend-row strong {
+                flex: 0 0 auto;
+                margin-left: auto;
+                color: var(--ink);
+                font-size: 13px;
+                font-weight: 700;
+                white-space: nowrap;
+                text-align: right;
+            }
+
+            .legend-dot {
+                width: 9px;
+                height: 9px;
+                flex: 0 0 9px;
+                border-radius: 50%;
+            }
+
+            .dot-net {
+                background: var(--chart-net);
+            }
+
+            .dot-federal {
+                background: var(--chart-federal);
+            }
+
+            .dot-fica {
+                background: var(--chart-fica);
+            }
+
+            .dot-state {
+                background: var(--chart-state);
+            }
+
+            .dot-deductions {
+                background: var(--chart-deductions);
+            }
+
+            .legend-value {
+                font-weight: 700;
+                white-space: nowrap;
+            }
+
+            /* Breakdown */
+
+            .breakdown {
+                border-top: 1px solid var(--line);
+            }
+
+            .breakdown-row {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                padding: 11px 0;
+                border-bottom: 1px solid var(--line);
+                font-size: 13px;
+            }
+
+            .breakdown-row span:first-child {
+                color: var(--muted);
+            }
+
+            .breakdown-row strong {
+                font-weight: 700;
+                white-space: nowrap;
+            }
+
+            /* Summary */
+
+            .pay-summary {
+                margin-top: 22px;
+                padding-top: 18px;
+                border-top: 1px solid var(--line);
+            }
+
+            .pay-summary h3 {
+                margin: 0 0 10px;
+                font-size: 14px;
             }
 
             .summary-grid {
-                grid-template-columns: 1fr;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 8px;
+            }
+
+            .summary-item {
+                padding: 11px;
+                border: 1px solid var(--line);
+                border-radius: var(--radius-small);
+                background: var(--surface-soft);
+            }
+
+            .summary-item span {
+                display: block;
+                color: var(--muted);
+                font-size: 11px;
+            }
+
+            .summary-item strong {
+                display: block;
+                margin-top: 2px;
+                font-size: 14px;
+            }
+
+            /* Content */
+
+            .content-section {
+                padding: 70px 0;
+                border-top: 1px solid var(--line);
+            }
+
+            .section-heading {
+                max-width: 720px;
+                margin-bottom: 30px;
+            }
+
+            .section-heading h2 {
+                margin: 0;
+                font-size: clamp(28px, 4vw, 38px);
+                line-height: 1.15;
+                letter-spacing: -0.035em;
+            }
+
+            .section-heading p:not(.eyebrow) {
+                margin: 12px 0 0;
+                color: var(--muted);
+            }
+
+            .content-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 16px;
+            }
+
+            .content-block {
+                padding: 22px;
+                border: 1px solid var(--line);
+                border-radius: var(--radius);
+                background: var(--surface);
+            }
+
+            .content-block h3 {
+                margin: 0 0 8px;
+                font-size: 17px;
+            }
+
+            .content-block p {
+                margin: 0;
+                color: var(--muted);
+                font-size: 14px;
+            }
+
+            .example-table {
+                width: 100%;
+                border-collapse: collapse;
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: var(--radius);
+                overflow: hidden;
             }
 
             .example-table th,
             .example-table td {
-                padding: 8px 7px;
+                padding: 13px 15px;
+                text-align: left;
+                border-bottom: 1px solid var(--line);
+                font-size: 14px;
+            }
+
+            .example-table th {
+                background: var(--surface-soft);
+                font-weight: 750;
+            }
+
+            .example-table tr:last-child td {
+                border-bottom: 0;
+            }
+
+            .example-table td:last-child,
+            .example-table th:last-child {
+                text-align: right;
+            }
+
+            /* FAQ */
+
+            .faq-list {
+                max-width: 820px;
+            }
+
+            .faq-item {
+                border-top: 1px solid var(--line);
+            }
+
+            .faq-item:last-child {
+                border-bottom: 1px solid var(--line);
+            }
+
+            .faq-item summary {
+                padding: 18px 0;
+                cursor: pointer;
+                font-weight: 700;
+                list-style: none;
+            }
+
+            .faq-item summary::-webkit-details-marker {
+                display: none;
+            }
+
+            .faq-item p {
+                max-width: 760px;
+                margin: -4px 0 18px;
+                color: var(--muted);
+                font-size: 14px;
+            }
+
+            /* Disclaimer */
+
+            .disclaimer {
+                margin-top: 22px;
+                padding: 18px;
+                border: 1px solid var(--line);
+                border-radius: var(--radius-small);
+                background: var(--surface-soft);
+                color: var(--muted);
                 font-size: 12px;
             }
-        }
-    </style>
 
-    <!-- Tax rules and shared calculation engine -->
-    <script src="/tax-rules-2026.js"></script>
-    <script src="/tax-engine.js"></script>
+            /* Footer */
 
-    <!-- WebSite structured data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "PaycheckMint",
-        "url": "https://paycheckmint.vercel.app/"
-    }
-    </script>
+            .site-footer {
+                padding: 32px 0;
+                border-top: 1px solid var(--line);
+            }
 
-    <!-- WebApplication structured data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Biweekly Paycheck Calculator",
-        "url": "https://paycheckmint.vercel.app/biweekly-paycheck-calculator/",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        }
-    }
-    </script>
+            .footer-inner {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 20px;
+            }
 
-    <!-- FAQ structured data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "How many biweekly paychecks are there in a year?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "A standard biweekly pay schedule has 26 paychecks per year because employees are paid every two weeks."
+            .footer-copy {
+                color: var(--muted);
+                font-size: 12px;
+            }
+
+            .footer-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                gap: 15px;
+            }
+
+            .footer-links a {
+                color: var(--muted);
+                font-size: 12px;
+            }
+
+            .footer-links a:hover {
+                color: var(--accent);
+            }
+
+            /* Responsive */
+
+            @media (max-width: 850px) {
+                .calculator {
+                    grid-template-columns: 1fr;
                 }
-            },
-            {
-                "@type": "Question",
-                "name": "How is a biweekly paycheck calculated?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Annual gross income is divided by 26 to estimate gross biweekly pay. Federal income tax, Social Security, Medicare, state taxes, and applicable deductions are then subtracted to estimate take-home pay."
+
+                .result-card {
+                    position: static;
                 }
-            },
-            {
-                "@type": "Question",
-                "name": "How much is $75,000 a year paid biweekly?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "A $75,000 annual salary produces approximately $2,884.62 in gross pay per biweekly paycheck before taxes and deductions."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Are biweekly and semimonthly pay the same?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "No. Biweekly employees are generally paid 26 times per year, while semimonthly employees are paid 24 times per year."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Why do some months have three biweekly paychecks?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Because there are 26 biweekly pay periods in a year, two months in many calendar years contain three paychecks instead of the usual two."
+
+                .content-grid {
+                    grid-template-columns: 1fr;
                 }
             }
-        ]
-    }
-    </script>
-</head>
 
-<body>
+            @media (max-width: 760px) {
+                .container {
+                    width: min(100% - 24px, 680px);
+                }
 
-    <header class="site-header">
-        <div class="container header-inner">
+                .hero {
+                    padding: 42px 0 24px;
+                }
 
-            <a href="/" class="brand" aria-label="PaycheckMint home">
-                PaycheckMint
-            </a>
+                .hero h1 {
+                    font-size: clamp(32px, 9vw, 44px);
+                }
 
-            <nav class="site-nav" aria-label="Main navigation">
-                <a href="/">Calculator</a>
-                <a href="/#how-it-works">How it works</a>
-                <a href="/#faq">FAQ</a>
-            </nav>
+                .hero p {
+                    font-size: 15px;
+                }
 
-        </div>
-    </header>
+                .calculator-section {
+                    padding-bottom: 44px;
+                }
 
+                .calculator-card,
+                .result-card {
+                    padding: 20px;
+                }
 
-    <main>
+                .content-section {
+                    padding: 50px 0;
+                }
+            }
 
-        <!-- Hero -->
+            @media (max-width: 560px) {
+                .header-inner {
+                    min-height: 60px;
+                }
 
-        <section class="hero">
-            <div class="container">
+                .site-nav {
+                    gap: 12px;
+                }
 
-                <p class="eyebrow">
-                    2026 BIWEEKLY PAYCHECK CALCULATOR
-                </p>
+                .site-nav a {
+                    font-size: 12px;
+                }
 
-                <h1>
-                    Calculate your biweekly paycheck.
-                </h1>
+                .form-grid {
+                    grid-template-columns: 1fr;
+                }
 
-                <p>
-                    Estimate your take-home pay every two weeks after
-                    federal taxes, Social Security, Medicare, state taxes,
-                    and deductions.
-                </p>
+                .field.full {
+                    grid-column: auto;
+                }
 
+                .summary-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+
+                .footer-inner {
+                    flex-direction: column;
+                    text-align: center;
+                }
+
+                .footer-links {
+                    justify-content: center;
+                }
+
+                .example-table {
+                    font-size: 13px;
+                }
+
+                .example-table th,
+                .example-table td {
+                    padding: 10px;
+                }
+            }
+
+            @media (max-width: 380px) {
+                .container {
+                    width: calc(100% - 20px);
+                }
+
+                .calculator-card,
+                .result-card {
+                    padding: 16px;
+                    border-radius: 10px;
+                }
+
+                .brand {
+                    font-size: 18px;
+                }
+
+                .site-nav {
+                    gap: 9px;
+                }
+
+                .site-nav a {
+                    font-size: 11px;
+                }
+
+                .hero {
+                    padding-top: 34px;
+                }
+
+                .hero h1 {
+                    font-size: 30px;
+                }
+
+                .hero p {
+                    font-size: 14px;
+                }
+
+                .chart {
+                    width: 165px;
+                    height: 165px;
+                }
+
+                .chart::before {
+                    width: 102px;
+                    height: 102px;
+                }
+
+                .take-home {
+                    font-size: 34px;
+                }
+
+                .summary-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .example-table th,
+                .example-table td {
+                    padding: 8px 7px;
+                    font-size: 12px;
+                }
+            }
+        </style>
+
+        <!-- Tax rules and shared calculation engine -->
+        <script src="/tax-rules-2026.js"></script>
+        <script src="/tax-engine.js"></script>
+
+        <!-- WebSite structured data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "PaycheckMint",
+                "url": "https://paycheckmint.vercel.app/"
+            }
+        </script>
+
+        <!-- WebApplication structured data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebApplication",
+                "name": "Biweekly Paycheck Calculator",
+                "url": "https://paycheckmint.vercel.app/biweekly-paycheck-calculator/",
+                "applicationCategory": "FinanceApplication",
+                "operatingSystem": "Web",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                }
+            }
+        </script>
+
+        <!-- FAQ structured data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "How many biweekly paychecks are there in a year?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "A standard biweekly pay schedule has 26 paychecks per year because employees are paid every two weeks."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How is a biweekly paycheck calculated?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Annual gross income is divided by 26 to estimate gross biweekly pay. Federal income tax, Social Security, Medicare, state taxes, and applicable deductions are then subtracted to estimate take-home pay."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How much is $75,000 a year paid biweekly?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "A $75,000 annual salary produces approximately $2,884.62 in gross pay per biweekly paycheck before taxes and deductions."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Are biweekly and semimonthly pay the same?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "No. Biweekly employees are generally paid 26 times per year, while semimonthly employees are paid 24 times per year."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Why do some months have three biweekly paychecks?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Because there are 26 biweekly pay periods in a year, two months in many calendar years contain three paychecks instead of the usual two."
+                        }
+                    }
+                ]
+            }
+        </script>
+    </head>
+
+    <body>
+        <header class="site-header">
+            <div class="container header-inner">
+                <a href="/" class="brand" aria-label="PaycheckMint home"> PaycheckMint </a>
+
+                <nav class="site-nav" aria-label="Main navigation">
+                    <a href="/">Calculator</a>
+                    <a href="/#how-it-works">How it works</a>
+                    <a href="/#faq">FAQ</a>
+                </nav>
             </div>
-        </section>
+        </header>
 
+        <main>
+            <!-- Hero -->
 
-        <!-- Calculator -->
+            <section class="hero">
+                <div class="container">
+                    <p class="eyebrow">2026 BIWEEKLY PAYCHECK CALCULATOR</p>
 
-        <section class="calculator-section">
-            <div class="container">
+                    <h1>Calculate your biweekly paycheck.</h1>
 
-                <div class="calculator">
+                    <p>
+                        Estimate your take-home pay every two weeks after federal taxes, Social Security, Medicare,
+                        state taxes, and deductions.
+                    </p>
+                </div>
+            </section>
 
-                    <!-- Inputs -->
+            <!-- Calculator -->
 
-                    <section class="calculator-card">
+            <section class="calculator-section">
+                <div class="container">
+                    <div class="calculator">
+                        <!-- Inputs -->
 
-                        <h2 class="card-title">
-                            Biweekly paycheck calculator
-                        </h2>
+                        <section class="calculator-card">
+                            <h2 class="card-title">Biweekly paycheck calculator</h2>
 
-                        <p class="card-subtitle">
-                            Enter your annual income and payroll details.
-                        </p>
+                            <p class="card-subtitle">Enter your annual income and payroll details.</p>
 
+                            <!-- Income -->
 
-                        <!-- Income -->
-
-                        <div class="form-section">
-
-                            <h3 class="form-section-title">
-                                Income
-                            </h3>
-
-                            <div class="form-grid">
-
-                                <div class="field full">
-                                    <label for="grossPayInput">
-                                        Annual gross pay
-                                    </label>
-
-                                    <input id="grossPayInput" type="number" min="0" step="100" value="75000"
-                                        inputmode="decimal">
-
-                                    <small>
-                                        Your gross annual salary before taxes and deductions.
-                                    </small>
-                                </div>
-
-                                <div class="field">
-
-                                    <label>
-                                        Pay frequency
-                                    </label>
-
-                                    <div class="fixed-frequency">
-                                        <strong>
-                                            Biweekly
-                                        </strong>
-
-                                        <span>
-                                            26 paychecks
-                                        </span>
-                                    </div>
-
-                                </div>
-
-                                <div class="field">
-
-                                    <label for="state">
-                                        State
-                                    </label>
-
-                                    <select id="state">
-
-                                        <option value="none">
-                                            No state tax
-                                        </option>
-
-                                        <option value="al">
-                                            Alabama
-                                        </option>
-
-                                        <option value="az">
-                                            Arizona
-                                        </option>
-
-                                        <option value="ca">
-                                            California
-                                        </option>
-
-                                        <option value="co">
-                                            Colorado
-                                        </option>
-
-                                        <option value="fl">
-                                            Florida
-                                        </option>
-
-                                        <option value="ga">
-                                            Georgia
-                                        </option>
-
-                                        <option value="il">
-                                            Illinois
-                                        </option>
-
-                                        <option value="ma">
-                                            Massachusetts
-                                        </option>
-
-                                        <option value="mi">
-                                            Michigan
-                                        </option>
-
-                                        <option value="nc">
-                                            North Carolina
-                                        </option>
-
-                                        <option value="nj">
-                                            New Jersey
-                                        </option>
-
-                                        <option value="ny">
-                                            New York
-                                        </option>
-
-                                        <option value="oh">
-                                            Ohio
-                                        </option>
-
-                                        <option value="or">
-                                            Oregon
-                                        </option>
-
-                                        <option value="pa">
-                                            Pennsylvania
-                                        </option>
-
-                                        <option value="tn">
-                                            Tennessee
-                                        </option>
-
-                                        <option value="tx">
-                                            Texas
-                                        </option>
-
-                                        <option value="va">
-                                            Virginia
-                                        </option>
-
-                                        <option value="wa">
-                                            Washington
-                                        </option>
-
-                                        <option value="other">
-                                            Other state
-                                        </option>
-
-                                    </select>
-
-                                </div>
-
-                                <div class="field">
-
-                                    <label for="filing">
-                                        Filing status
-                                    </label>
-
-                                    <select id="filing">
-
-                                        <option value="single">
-                                            Single
-                                        </option>
-
-                                        <option value="married">
-                                            Married filing jointly
-                                        </option>
-
-                                        <option value="hoh">
-                                            Head of household
-                                        </option>
-
-                                    </select>
-
-                                </div>
-
-                                <div class="field">
-
-                                    <label for="dependents">
-                                        Dependents
-                                    </label>
-
-                                    <input id="dependents" type="number" min="0" step="1" value="0" inputmode="numeric">
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- Pre-tax deductions -->
-
-                        <div class="form-section">
-
-                            <h3 class="form-section-title">
-                                Pre-tax deductions
-                            </h3>
-
-                            <div class="form-grid">
-
-                                <div class="field">
-
-                                    <label for="retirement401k">
-                                        401(k) contribution
-                                    </label>
-
-                                    <input id="retirement401k" type="number" min="0" step="25" value="0"
-                                        inputmode="decimal">
-
-                                    <small>
-                                        Annual amount
-                                    </small>
-
-                                </div>
-
-                                <div class="field">
-
-                                    <label for="healthInsurance">
-                                        Health insurance
-                                    </label>
-
-                                    <input id="healthInsurance" type="number" min="0" step="25" value="0"
-                                        inputmode="decimal">
-
-                                    <small>
-                                        Annual amount
-                                    </small>
-
-                                </div>
-
-                                <div class="field">
-
-                                    <label for="hsa">
-                                        HSA contribution
-                                    </label>
-
-                                    <input id="hsa" type="number" min="0" step="25" value="0" inputmode="decimal">
-
-                                    <small>
-                                        Annual amount
-                                    </small>
-
-                                </div>
-
-                                <div class="field">
-
-                                    <label for="fsa">
-                                        FSA contribution
-                                    </label>
-
-                                    <input id="fsa" type="number" min="0" step="25" value="0" inputmode="decimal">
-
-                                    <small>
-                                        Annual amount
-                                    </small>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- Advanced -->
-
-                        <details class="advanced-options">
-
-                            <summary>
-                                Advanced tax adjustments
-                            </summary>
-
-                            <div class="advanced-content">
+                            <div class="form-section">
+                                <h3 class="form-section-title">Income</h3>
 
                                 <div class="form-grid">
+                                    <div class="field full">
+                                        <label for="grossPayInput"> Annual gross pay </label>
 
-                                    <div class="field">
+                                        <input
+                                            id="grossPayInput"
+                                            type="number"
+                                            min="0"
+                                            step="100"
+                                            value="75000"
+                                            inputmode="decimal"
+                                        />
 
-                                        <label for="extraFederal">
-                                            Extra federal withholding
-                                        </label>
-
-                                        <input id="extraFederal" type="number" min="0" step="25" value="0"
-                                            inputmode="decimal">
-
-                                        <small>
-                                            Annual amount
-                                        </small>
-
+                                        <small> Your gross annual salary before taxes and deductions. </small>
                                     </div>
 
                                     <div class="field">
+                                        <label> Pay frequency </label>
 
-                                        <label for="extraState">
-                                            Extra state withholding
-                                        </label>
+                                        <div class="fixed-frequency">
+                                            <strong> Biweekly </strong>
 
-                                        <input id="extraState" type="number" min="0" step="25" value="0"
-                                            inputmode="decimal">
-
-                                        <small>
-                                            Annual amount
-                                        </small>
-
+                                            <span> 26 paychecks </span>
+                                        </div>
                                     </div>
 
                                     <div class="field">
+                                        <label for="state"> State </label>
 
-                                        <label for="additionalMedicare">
-                                            Additional Medicare
-                                        </label>
+                                        <select id="state">
+                                            <option value="none">No state tax</option>
 
-                                        <input id="additionalMedicare" type="number" min="0" step="25" value="0"
-                                            inputmode="decimal">
+                                            <option value="al">Alabama</option>
 
-                                        <small>
-                                            Annual amount
-                                        </small>
+                                            <option value="az">Arizona</option>
 
+                                            <option value="ca">California</option>
+
+                                            <option value="co">Colorado</option>
+
+                                            <option value="fl">Florida</option>
+
+                                            <option value="ga">Georgia</option>
+
+                                            <option value="il">Illinois</option>
+
+                                            <option value="ma">Massachusetts</option>
+
+                                            <option value="mi">Michigan</option>
+
+                                            <option value="nc">North Carolina</option>
+
+                                            <option value="nj">New Jersey</option>
+
+                                            <option value="ny">New York</option>
+
+                                            <option value="oh">Ohio</option>
+
+                                            <option value="or">Oregon</option>
+
+                                            <option value="pa">Pennsylvania</option>
+
+                                            <option value="tn">Tennessee</option>
+
+                                            <option value="tx">Texas</option>
+
+                                            <option value="va">Virginia</option>
+
+                                            <option value="wa">Washington</option>
+
+                                            <option value="other">Other state</option>
+                                        </select>
                                     </div>
 
                                     <div class="field">
+                                        <label for="filing"> Filing status </label>
 
-                                        <label for="otherPretax">
-                                            Other pre-tax deductions
-                                        </label>
+                                        <select id="filing">
+                                            <option value="single">Single</option>
 
-                                        <input id="otherPretax" type="number" min="0" step="25" value="0"
-                                            inputmode="decimal">
+                                            <option value="married">Married filing jointly</option>
 
-                                        <small>
-                                            Annual amount
-                                        </small>
-
+                                            <option value="hoh">Head of household</option>
+                                        </select>
                                     </div>
 
-                                </div>
+                                    <div class="field">
+                                        <label for="dependents"> Dependents </label>
 
+                                        <input
+                                            id="dependents"
+                                            type="number"
+                                            min="0"
+                                            step="1"
+                                            value="0"
+                                            inputmode="numeric"
+                                        />
+                                    </div>
+                                </div>
                             </div>
 
-                        </details>
+                            <!-- Pre-tax deductions -->
 
+                            <div class="form-section">
+                                <h3 class="form-section-title">Pre-tax deductions</h3>
 
-                        <!-- Post-tax deductions -->
+                                <div class="form-grid">
+                                    <div class="field">
+                                        <label for="retirement401k"> 401(k) contribution </label>
 
-                        <div class="form-section">
+                                        <input
+                                            id="retirement401k"
+                                            type="number"
+                                            min="0"
+                                            step="25"
+                                            value="0"
+                                            inputmode="decimal"
+                                        />
 
-                            <h3 class="form-section-title">
-                                Post-tax deductions
-                            </h3>
+                                        <small> Annual amount </small>
+                                    </div>
 
-                            <div class="form-grid">
+                                    <div class="field">
+                                        <label for="healthInsurance"> Health insurance </label>
 
-                                <div class="field">
+                                        <input
+                                            id="healthInsurance"
+                                            type="number"
+                                            min="0"
+                                            step="25"
+                                            value="0"
+                                            inputmode="decimal"
+                                        />
 
-                                    <label for="roth401k">
-                                        Roth 401(k)
-                                    </label>
+                                        <small> Annual amount </small>
+                                    </div>
 
-                                    <input id="roth401k" type="number" min="0" step="25" value="0" inputmode="decimal">
+                                    <div class="field">
+                                        <label for="hsa"> HSA contribution </label>
 
-                                    <small>
-                                        Annual amount
-                                    </small>
+                                        <input id="hsa" type="number" min="0" step="25" value="0" inputmode="decimal" />
 
+                                        <small> Annual amount </small>
+                                    </div>
+
+                                    <div class="field">
+                                        <label for="fsa"> FSA contribution </label>
+
+                                        <input id="fsa" type="number" min="0" step="25" value="0" inputmode="decimal" />
+
+                                        <small> Annual amount </small>
+                                    </div>
                                 </div>
-
-                                <div class="field">
-
-                                    <label for="loanRepayment">
-                                        Loan repayment
-                                    </label>
-
-                                    <input id="loanRepayment" type="number" min="0" step="25" value="0"
-                                        inputmode="decimal">
-
-                                    <small>
-                                        Annual amount
-                                    </small>
-
-                                </div>
-
-                                <div class="field">
-
-                                    <label for="garnishments">
-                                        Garnishments
-                                    </label>
-
-                                    <input id="garnishments" type="number" min="0" step="25" value="0"
-                                        inputmode="decimal">
-
-                                    <small>
-                                        Annual amount
-                                    </small>
-
-                                </div>
-
-                                <div class="field">
-
-                                    <label for="otherPosttax">
-                                        Other post-tax deductions
-                                    </label>
-
-                                    <input id="otherPosttax" type="number" min="0" step="25" value="0"
-                                        inputmode="decimal">
-
-                                    <small>
-                                        Annual amount
-                                    </small>
-
-                                </div>
-
                             </div>
 
-                        </div>
+                            <!-- Advanced -->
 
+                            <details class="advanced-options">
+                                <summary>Advanced tax adjustments</summary>
 
-                        <button type="button" id="calculate" class="calculate-button">
-                            Calculate biweekly paycheck
-                        </button>
+                                <div class="advanced-content">
+                                    <div class="form-grid">
+                                        <div class="field">
+                                            <label for="extraFederal"> Extra federal withholding </label>
 
-                    </section>
+                                            <input
+                                                id="extraFederal"
+                                                type="number"
+                                                min="0"
+                                                step="25"
+                                                value="0"
+                                                inputmode="decimal"
+                                            />
 
+                                            <small> Annual amount </small>
+                                        </div>
 
-                    <!-- Results -->
+                                        <div class="field">
+                                            <label for="extraState"> Extra state withholding </label>
 
-                    <section class="result-card" aria-live="polite">
+                                            <input
+                                                id="extraState"
+                                                type="number"
+                                                min="0"
+                                                step="25"
+                                                value="0"
+                                                inputmode="decimal"
+                                            />
 
-                        <p class="result-label" id="resultPeriod">
-                            Estimated biweekly take-home pay
-                        </p>
+                                            <small> Annual amount </small>
+                                        </div>
 
-                        <div class="take-home" id="takeHome">
-                            $0.00
-                        </div>
+                                        <div class="field">
+                                            <label for="additionalMedicare"> Additional Medicare </label>
 
-                        <p class="result-note">
-                            Estimated after taxes and deductions.
-                        </p>
+                                            <input
+                                                id="additionalMedicare"
+                                                type="number"
+                                                min="0"
+                                                step="25"
+                                                value="0"
+                                                inputmode="decimal"
+                                            />
 
+                                            <small> Annual amount </small>
+                                        </div>
 
-                        <div class="chart-wrap">
+                                        <div class="field">
+                                            <label for="otherPretax"> Other pre-tax deductions </label>
 
-                            <div class="chart" id="paycheckChart" aria-label="Biweekly paycheck breakdown">
+                                            <input
+                                                id="otherPretax"
+                                                type="number"
+                                                min="0"
+                                                step="25"
+                                                value="0"
+                                                inputmode="decimal"
+                                            />
 
-                                <div class="chart-center">
-
-                                    <strong id="chartNet">
-                                        $0
-                                    </strong>
-
-                                    <span>
-                                        Take-home
-                                    </span>
-
+                                            <small> Annual amount </small>
+                                        </div>
+                                    </div>
                                 </div>
+                            </details>
 
+                            <!-- Post-tax deductions -->
+
+                            <div class="form-section">
+                                <h3 class="form-section-title">Post-tax deductions</h3>
+
+                                <div class="form-grid">
+                                    <div class="field">
+                                        <label for="roth401k"> Roth 401(k) </label>
+
+                                        <input
+                                            id="roth401k"
+                                            type="number"
+                                            min="0"
+                                            step="25"
+                                            value="0"
+                                            inputmode="decimal"
+                                        />
+
+                                        <small> Annual amount </small>
+                                    </div>
+
+                                    <div class="field">
+                                        <label for="loanRepayment"> Loan repayment </label>
+
+                                        <input
+                                            id="loanRepayment"
+                                            type="number"
+                                            min="0"
+                                            step="25"
+                                            value="0"
+                                            inputmode="decimal"
+                                        />
+
+                                        <small> Annual amount </small>
+                                    </div>
+
+                                    <div class="field">
+                                        <label for="garnishments"> Garnishments </label>
+
+                                        <input
+                                            id="garnishments"
+                                            type="number"
+                                            min="0"
+                                            step="25"
+                                            value="0"
+                                            inputmode="decimal"
+                                        />
+
+                                        <small> Annual amount </small>
+                                    </div>
+
+                                    <div class="field">
+                                        <label for="otherPosttax"> Other post-tax deductions </label>
+
+                                        <input
+                                            id="otherPosttax"
+                                            type="number"
+                                            min="0"
+                                            step="25"
+                                            value="0"
+                                            inputmode="decimal"
+                                        />
+
+                                        <small> Annual amount </small>
+                                    </div>
+                                </div>
                             </div>
 
-                        </div>
+                            <button type="button" id="calculate" class="calculate-button">
+                                Calculate biweekly paycheck
+                            </button>
+                        </section>
 
+                        <!-- Results -->
 
-                        <div class="legend">
+                        <section class="result-card" aria-live="polite">
+                            <p class="result-label" id="resultPeriod">Estimated biweekly take-home pay</p>
 
-                            <div class="legend-row">
-                                <div class="legend-label">
-                                    <span class="legend-dot dot-net"></span>
-                                    <span>Take-home</span>
+                            <div class="take-home" id="takeHome">$0.00</div>
+
+                            <p class="result-note">Estimated after taxes and deductions.</p>
+
+                            <div class="chart-wrap">
+                                <div class="chart" id="paycheckChart" aria-label="Biweekly paycheck breakdown">
+                                    <div class="chart-center">
+                                        <strong id="chartNet"> $0 </strong>
+
+                                        <span> Take-home </span>
+                                    </div>
                                 </div>
-
-                                <strong id="legendNet">$0.00</strong>
                             </div>
 
-                            <div class="legend-row">
-                                <div class="legend-label">
-                                    <span class="legend-dot dot-federal"></span>
+                            <div class="legend">
+                                <div class="legend-row">
+                                    <div class="legend-label">
+                                        <span class="legend-dot dot-net"></span>
+                                        <span>Take-home</span>
+                                    </div>
+
+                                    <strong id="legendNet">$0.00</strong>
+                                </div>
+
+                                <div class="legend-row">
+                                    <div class="legend-label">
+                                        <span class="legend-dot dot-federal"></span>
+                                        <span>Federal tax</span>
+                                    </div>
+
+                                    <strong id="legendFederal">$0.00</strong>
+                                </div>
+
+                                <div class="legend-row">
+                                    <div class="legend-label">
+                                        <span class="legend-dot dot-fica"></span>
+                                        <span>FICA</span>
+                                    </div>
+
+                                    <strong id="legendFica">$0.00</strong>
+                                </div>
+
+                                <div class="legend-row">
+                                    <div class="legend-label">
+                                        <span class="legend-dot dot-state"></span>
+                                        <span>State tax</span>
+                                    </div>
+
+                                    <strong id="legendState">$0.00</strong>
+                                </div>
+
+                                <div class="legend-row">
+                                    <div class="legend-label">
+                                        <span class="legend-dot dot-deductions"></span>
+                                        <span>Deductions</span>
+                                    </div>
+
+                                    <strong id="legendDeductions">$0.00</strong>
+                                </div>
+                            </div>
+
+                            <div class="breakdown">
+                                <div class="breakdown-row">
+                                    <span>Gross biweekly pay</span>
+                                    <strong id="grossResult">$0.00</strong>
+                                </div>
+
+                                <div class="breakdown-row">
                                     <span>Federal tax</span>
+                                    <strong id="federalTax">$0.00</strong>
                                 </div>
 
-                                <strong id="legendFederal">$0.00</strong>
-                            </div>
-
-                            <div class="legend-row">
-                                <div class="legend-label">
-                                    <span class="legend-dot dot-fica"></span>
-                                    <span>FICA</span>
+                                <div class="breakdown-row">
+                                    <span>Social Security</span>
+                                    <strong id="socialSecurity">$0.00</strong>
                                 </div>
 
-                                <strong id="legendFica">$0.00</strong>
-                            </div>
+                                <div class="breakdown-row">
+                                    <span>Medicare</span>
+                                    <strong id="medicare">$0.00</strong>
+                                </div>
 
-                            <div class="legend-row">
-                                <div class="legend-label">
-                                    <span class="legend-dot dot-state"></span>
+                                <div class="breakdown-row">
                                     <span>State tax</span>
+                                    <strong id="stateTax">$0.00</strong>
                                 </div>
 
-                                <strong id="legendState">$0.00</strong>
-                            </div>
-
-                            <div class="legend-row">
-                                <div class="legend-label">
-                                    <span class="legend-dot dot-deductions"></span>
-                                    <span>Deductions</span>
+                                <div class="breakdown-row">
+                                    <span>Total taxes</span>
+                                    <strong id="totalTaxes">$0.00</strong>
                                 </div>
-
-                                <strong id="legendDeductions">$0.00</strong>
                             </div>
 
-                        </div>
+                            <div class="pay-summary">
+                                <h3>Take-home pay by period</h3>
 
+                                <div class="summary-grid">
+                                    <div class="summary-item">
+                                        <span>Weekly</span>
+                                        <strong id="weeklyPay">$0.00</strong>
+                                    </div>
 
-                        <div class="breakdown">
+                                    <div class="summary-item">
+                                        <span>Biweekly</span>
+                                        <strong id="biweeklyPay">$0.00</strong>
+                                    </div>
 
-                            <div class="breakdown-row">
-                                <span>Gross biweekly pay</span>
-                                <strong id="grossResult">$0.00</strong>
-                            </div>
+                                    <div class="summary-item">
+                                        <span>Semimonthly</span>
+                                        <strong id="semimonthlyPay">$0.00</strong>
+                                    </div>
 
-                            <div class="breakdown-row">
-                                <span>Federal tax</span>
-                                <strong id="federalTax">$0.00</strong>
-                            </div>
-
-                            <div class="breakdown-row">
-                                <span>Social Security</span>
-                                <strong id="socialSecurity">$0.00</strong>
-                            </div>
-
-                            <div class="breakdown-row">
-                                <span>Medicare</span>
-                                <strong id="medicare">$0.00</strong>
-                            </div>
-
-                            <div class="breakdown-row">
-                                <span>State tax</span>
-                                <strong id="stateTax">$0.00</strong>
-                            </div>
-
-                            <div class="breakdown-row">
-                                <span>Total taxes</span>
-                                <strong id="totalTaxes">$0.00</strong>
-                            </div>
-
-                        </div>
-
-
-                        <div class="pay-summary">
-
-                            <h3>
-                                Take-home pay by period
-                            </h3>
-
-                            <div class="summary-grid">
-
-                                <div class="summary-item">
-                                    <span>Weekly</span>
-                                    <strong id="weeklyPay">$0.00</strong>
+                                    <div class="summary-item">
+                                        <span>Monthly</span>
+                                        <strong id="monthlyPay">$0.00</strong>
+                                    </div>
                                 </div>
-
-                                <div class="summary-item">
-                                    <span>Biweekly</span>
-                                    <strong id="biweeklyPay">$0.00</strong>
-                                </div>
-
-                                <div class="summary-item">
-                                    <span>Semimonthly</span>
-                                    <strong id="semimonthlyPay">$0.00</strong>
-                                </div>
-
-                                <div class="summary-item">
-                                    <span>Monthly</span>
-                                    <strong id="monthlyPay">$0.00</strong>
-                                </div>
-
                             </div>
-
-                        </div>
-
-                    </section>
-
+                        </section>
+                    </div>
                 </div>
+            </section>
 
-            </div>
-        </section>
+            <!-- What is biweekly pay -->
 
+            <section class="content-section">
+                <div class="container">
+                    <div class="section-heading">
+                        <p class="eyebrow">BIWEEKLY PAY</p>
 
-        <!-- What is biweekly pay -->
-
-        <section class="content-section">
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <p class="eyebrow">
-                        BIWEEKLY PAY
-                    </p>
-
-                    <h2>
-                        What is a biweekly paycheck?
-                    </h2>
-
-                    <p>
-                        A biweekly paycheck is paid every two weeks.
-                        Most employees on a biweekly schedule receive
-                        26 paychecks during a calendar year.
-                    </p>
-
-                </div>
-
-                <div class="content-grid">
-
-                    <article class="content-block">
-
-                        <h3>
-                            26 paychecks per year
-                        </h3>
+                        <h2>What is a biweekly paycheck?</h2>
 
                         <p>
-                            Because there are 52 weeks in a typical year
-                            and employees are paid every two weeks,
-                            annual income is normally divided across
-                            26 pay periods.
+                            A biweekly paycheck is paid every two weeks. Most employees on a biweekly schedule receive
+                            26 paychecks during a calendar year.
                         </p>
-
-                    </article>
-
-                    <article class="content-block">
-
-                        <h3>
-                            Two three-paycheck months
-                        </h3>
-
-                        <p>
-                            Employees paid biweekly usually receive
-                            three paychecks in two months of the year.
-                            The exact months depend on the employer's
-                            payroll calendar.
-                        </p>
-
-                    </article>
-
-                    <article class="content-block">
-
-                        <h3>
-                            Gross vs. take-home pay
-                        </h3>
-
-                        <p>
-                            Gross biweekly pay is your earnings before
-                            taxes and deductions. Take-home pay is what
-                            remains after estimated payroll taxes and
-                            deductions.
-                        </p>
-
-                    </article>
-
-                    <article class="content-block">
-
-                        <h3>
-                            Taxes are estimated
-                        </h3>
-
-                        <p>
-                            Your actual paycheck can differ because
-                            withholding depends on your Form W-4,
-                            benefits, state rules, local taxes,
-                            and other payroll details.
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- How calculation works -->
-
-        <section class="content-section">
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <p class="eyebrow">
-                        HOW IT WORKS
-                    </p>
-
-                    <h2>
-                        How to calculate biweekly take-home pay
-                    </h2>
-
-                    <p>
-                        A simple starting point is to divide annual gross
-                        pay by 26. Taxes and deductions are then applied
-                        to estimate your actual biweekly paycheck.
-                    </p>
-
-                </div>
-
-                <div class="content-grid">
-
-                    <article class="content-block">
-
-                        <h3>
-                            1. Start with annual income
-                        </h3>
-
-                        <p>
-                            Enter your annual gross salary before taxes,
-                            retirement contributions, insurance, or other
-                            payroll deductions.
-                        </p>
-
-                    </article>
-
-                    <article class="content-block">
-
-                        <h3>
-                            2. Divide by 26
-                        </h3>
-
-                        <p>
-                            For a standard biweekly schedule, annual gross
-                            pay is divided by 26 to estimate gross pay
-                            for each paycheck.
-                        </p>
-
-                    </article>
-
-                    <article class="content-block">
-
-                        <h3>
-                            3. Estimate payroll taxes
-                        </h3>
-
-                        <p>
-                            Federal income tax, Social Security, Medicare,
-                            and applicable state taxes are estimated using
-                            the calculator's 2026 tax rules.
-                        </p>
-
-                    </article>
-
-                    <article class="content-block">
-
-                        <h3>
-                            4. Subtract deductions
-                        </h3>
-
-                        <p>
-                            Pre-tax and post-tax deductions can change
-                            your final take-home amount.
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- Salary examples -->
-
-        <section class="content-section">
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <p class="eyebrow">
-                        EXAMPLES
-                    </p>
-
-                    <h2>
-                        Biweekly paycheck examples
-                    </h2>
-
-                    <p>
-                        These examples show gross biweekly pay before
-                        taxes and deductions.
-                    </p>
-
-                </div>
-
-                <table class="example-table">
-
-                    <thead>
-                        <tr>
-                            <th>
-                                Annual salary
-                            </th>
-
-                            <th>
-                                Biweekly gross pay
-                            </th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-
-                        <tr>
-                            <td>
-                                $50,000
-                            </td>
-
-                            <td>
-                                $1,923.08
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                $60,000
-                            </td>
-
-                            <td>
-                                $2,307.69
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                $75,000
-                            </td>
-
-                            <td>
-                                $2,884.62
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                $80,000
-                            </td>
-
-                            <td>
-                                $3,076.92
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                $100,000
-                            </td>
-
-                            <td>
-                                $3,846.15
-                            </td>
-                        </tr>
-
-                    </tbody>
-
-                </table>
-
-            </div>
-        </section>
-
-
-        <!-- Biweekly vs semimonthly -->
-
-        <section class="content-section">
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <p class="eyebrow">
-                        PAY SCHEDULES
-                    </p>
-
-                    <h2>
-                        Biweekly vs. semimonthly pay
-                    </h2>
-
-                    <p>
-                        The two schedules are different even though
-                        both commonly result in two paychecks during
-                        most months.
-                    </p>
-
-                </div>
-
-                <div class="content-grid">
-
-                    <article class="content-block">
-
-                        <h3>
-                            Biweekly
-                        </h3>
-
-                        <p>
-                            Paid every two weeks. A standard schedule
-                            has 26 paychecks per year and two months
-                            with three paychecks.
-                        </p>
-
-                    </article>
-
-                    <article class="content-block">
-
-                        <h3>
-                            Semimonthly
-                        </h3>
-
-                        <p>
-                            Paid twice each month. This results in
-                            24 paychecks per year, usually on fixed
-                            calendar dates such as the 15th and last
-                            day of the month.
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- FAQ -->
-
-        <section class="content-section" id="faq">
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <p class="eyebrow">
-                        FAQ
-                    </p>
-
-                    <h2>
-                        Biweekly paycheck calculator FAQ
-                    </h2>
-
-                </div>
-
-                <div class="faq-list">
-
-                    <details class="faq-item">
-                        <summary>
-                            How many biweekly paychecks are there in a year?
-                        </summary>
-
-                        <p>
-                            A standard biweekly schedule has 26 paychecks
-                            per year because employees are paid every two
-                            weeks.
-                        </p>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary>
-                            How is a biweekly paycheck calculated?
-                        </summary>
-
-                        <p>
-                            Annual gross income is divided by 26 to estimate
-                            gross biweekly pay. Estimated federal tax,
-                            Social Security, Medicare, state tax, and
-                            deductions are then subtracted.
-                        </p>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary>
-                            How much is $75,000 a year paid biweekly?
-                        </summary>
-
-                        <p>
-                            A $75,000 annual salary equals approximately
-                            $2,884.62 in gross pay per biweekly paycheck
-                            before taxes and deductions.
-                        </p>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary>
-                            Are biweekly and semimonthly pay the same?
-                        </summary>
-
-                        <p>
-                            No. Biweekly employees generally receive
-                            26 paychecks per year, while semimonthly
-                            employees receive 24.
-                        </p>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary>
-                            Why do some months have three biweekly paychecks?
-                        </summary>
-
-                        <p>
-                            There are 26 biweekly pay periods in a year.
-                            Since most months contain two paychecks,
-                            two months will normally contain a third
-                            paycheck depending on the employer's payroll
-                            calendar.
-                        </p>
-                    </details>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- Methodology -->
-
-        <section class="content-section">
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <p class="eyebrow">
-                        METHODOLOGY
-                    </p>
-
-                    <h2>
-                        About this calculator
-                    </h2>
-
-                    <p>
-                        PaycheckMint uses centralized 2026 tax rules and
-                        payroll calculation logic to estimate biweekly
-                        take-home pay.
-                    </p>
-
-                </div>
-
-                <div class="content-block">
-
-                    <p>
-                        The calculator estimates federal income tax,
-                        Social Security, Medicare, applicable state tax,
-                        and user-entered payroll deductions. The estimate
-                        is intended for planning and educational purposes.
-                        Actual payroll withholding can differ based on
-                        Form W-4 elections, employer payroll systems,
-                        state and local taxes, year-to-date wages,
-                        benefits, credits, and other circumstances.
-                    </p>
-
-                    <div class="disclaimer">
-                        <strong>Important:</strong>
-                        This calculator provides an estimate and is not
-                        tax, payroll, legal, or financial advice. For
-                        official federal withholding information, refer
-                        to current IRS publications and your employer's
-                        payroll documentation.
                     </div>
 
+                    <div class="content-grid">
+                        <article class="content-block">
+                            <h3>26 paychecks per year</h3>
+
+                            <p>
+                                Because there are 52 weeks in a typical year and employees are paid every two weeks,
+                                annual income is normally divided across 26 pay periods.
+                            </p>
+                        </article>
+
+                        <article class="content-block">
+                            <h3>Two three-paycheck months</h3>
+
+                            <p>
+                                Employees paid biweekly usually receive three paychecks in two months of the year. The
+                                exact months depend on the employer's payroll calendar.
+                            </p>
+                        </article>
+
+                        <article class="content-block">
+                            <h3>Gross vs. take-home pay</h3>
+
+                            <p>
+                                Gross biweekly pay is your earnings before taxes and deductions. Take-home pay is what
+                                remains after estimated payroll taxes and deductions.
+                            </p>
+                        </article>
+
+                        <article class="content-block">
+                            <h3>Taxes are estimated</h3>
+
+                            <p>
+                                Your actual paycheck can differ because withholding depends on your Form W-4, benefits,
+                                state rules, local taxes, and other payroll details.
+                            </p>
+                        </article>
+                    </div>
                 </div>
+            </section>
 
+            <!-- How calculation works -->
+
+            <section class="content-section">
+                <div class="container">
+                    <div class="section-heading">
+                        <p class="eyebrow">HOW IT WORKS</p>
+
+                        <h2>How to calculate biweekly take-home pay</h2>
+
+                        <p>
+                            A simple starting point is to divide annual gross pay by 26. Taxes and deductions are then
+                            applied to estimate your actual biweekly paycheck.
+                        </p>
+                    </div>
+
+                    <div class="content-grid">
+                        <article class="content-block">
+                            <h3>1. Start with annual income</h3>
+
+                            <p>
+                                Enter your annual gross salary before taxes, retirement contributions, insurance, or
+                                other payroll deductions.
+                            </p>
+                        </article>
+
+                        <article class="content-block">
+                            <h3>2. Divide by 26</h3>
+
+                            <p>
+                                For a standard biweekly schedule, annual gross pay is divided by 26 to estimate gross
+                                pay for each paycheck.
+                            </p>
+                        </article>
+
+                        <article class="content-block">
+                            <h3>3. Estimate payroll taxes</h3>
+
+                            <p>
+                                Federal income tax, Social Security, Medicare, and applicable state taxes are estimated
+                                using the calculator's 2026 tax rules.
+                            </p>
+                        </article>
+
+                        <article class="content-block">
+                            <h3>4. Subtract deductions</h3>
+
+                            <p>Pre-tax and post-tax deductions can change your final take-home amount.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Salary examples -->
+
+            <section class="content-section">
+                <div class="container">
+                    <div class="section-heading">
+                        <p class="eyebrow">EXAMPLES</p>
+
+                        <h2>Biweekly paycheck examples</h2>
+
+                        <p>These examples show gross biweekly pay before taxes and deductions.</p>
+                    </div>
+
+                    <table class="example-table">
+                        <thead>
+                            <tr>
+                                <th>Annual salary</th>
+
+                                <th>Biweekly gross pay</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>$50,000</td>
+
+                                <td>$1,923.08</td>
+                            </tr>
+
+                            <tr>
+                                <td>$60,000</td>
+
+                                <td>$2,307.69</td>
+                            </tr>
+
+                            <tr>
+                                <td>$75,000</td>
+
+                                <td>$2,884.62</td>
+                            </tr>
+
+                            <tr>
+                                <td>$80,000</td>
+
+                                <td>$3,076.92</td>
+                            </tr>
+
+                            <tr>
+                                <td>$100,000</td>
+
+                                <td>$3,846.15</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Biweekly vs semimonthly -->
+
+            <section class="content-section">
+                <div class="container">
+                    <div class="section-heading">
+                        <p class="eyebrow">PAY SCHEDULES</p>
+
+                        <h2>Biweekly vs. semimonthly pay</h2>
+
+                        <p>
+                            The two schedules are different even though both commonly result in two paychecks during
+                            most months.
+                        </p>
+                    </div>
+
+                    <div class="content-grid">
+                        <article class="content-block">
+                            <h3>Biweekly</h3>
+
+                            <p>
+                                Paid every two weeks. A standard schedule has 26 paychecks per year and two months with
+                                three paychecks.
+                            </p>
+                        </article>
+
+                        <article class="content-block">
+                            <h3>Semimonthly</h3>
+
+                            <p>
+                                Paid twice each month. This results in 24 paychecks per year, usually on fixed calendar
+                                dates such as the 15th and last day of the month.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+
+            <section class="content-section" id="faq">
+                <div class="container">
+                    <div class="section-heading">
+                        <p class="eyebrow">FAQ</p>
+
+                        <h2>Biweekly paycheck calculator FAQ</h2>
+                    </div>
+
+                    <div class="faq-list">
+                        <details class="faq-item">
+                            <summary>How many biweekly paychecks are there in a year?</summary>
+
+                            <p>
+                                A standard biweekly schedule has 26 paychecks per year because employees are paid every
+                                two weeks.
+                            </p>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>How is a biweekly paycheck calculated?</summary>
+
+                            <p>
+                                Annual gross income is divided by 26 to estimate gross biweekly pay. Estimated federal
+                                tax, Social Security, Medicare, state tax, and deductions are then subtracted.
+                            </p>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>How much is $75,000 a year paid biweekly?</summary>
+
+                            <p>
+                                A $75,000 annual salary equals approximately $2,884.62 in gross pay per biweekly
+                                paycheck before taxes and deductions.
+                            </p>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>Are biweekly and semimonthly pay the same?</summary>
+
+                            <p>
+                                No. Biweekly employees generally receive 26 paychecks per year, while semimonthly
+                                employees receive 24.
+                            </p>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>Why do some months have three biweekly paychecks?</summary>
+
+                            <p>
+                                There are 26 biweekly pay periods in a year. Since most months contain two paychecks,
+                                two months will normally contain a third paycheck depending on the employer's payroll
+                                calendar.
+                            </p>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Methodology -->
+
+            <section class="content-section">
+                <div class="container">
+                    <div class="section-heading">
+                        <p class="eyebrow">METHODOLOGY</p>
+
+                        <h2>About this calculator</h2>
+
+                        <p>
+                            PaycheckMint uses centralized 2026 tax rules and payroll calculation logic to estimate
+                            biweekly take-home pay.
+                        </p>
+                    </div>
+
+                    <div class="content-block">
+                        <p>
+                            The calculator estimates federal income tax, Social Security, Medicare, applicable state
+                            tax, and user-entered payroll deductions. The estimate is intended for planning and
+                            educational purposes. Actual payroll withholding can differ based on Form W-4 elections,
+                            employer payroll systems, state and local taxes, year-to-date wages, benefits, credits, and
+                            other circumstances.
+                        </p>
+
+                        <div class="disclaimer">
+                            <strong>Important:</strong>
+                            This calculator provides an estimate and is not tax, payroll, legal, or financial advice.
+                            For official federal withholding information, refer to current IRS publications and your
+                            employer's payroll documentation.
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container footer-inner">
+                <div class="footer-copy">© 2026 PaycheckMint. Free paycheck calculators.</div>
+
+                <nav class="footer-links" aria-label="Footer navigation">
+                    <a href="/"> Calculator </a>
+
+                    <a href="/hourly-paycheck-calculator/"> Hourly Paycheck </a>
+
+                    <a href="/weekly-paycheck-calculator/"> Weekly Paycheck </a>
+
+                    <a href="/biweekly-paycheck-calculator/"> Biweekly Paycheck </a>
+
+                    <a href="/overtime-pay-calculator/"> Overtime </a>
+
+                    <a href="/paycheck-tax-calculator/"> Paycheck Tax </a>
+
+                    <a href="/privacy-policy/"> Privacy </a>
+
+                    <a href="/terms/"> Terms </a>
+
+                    <a href="/contact/"> Contact </a>
+                </nav>
             </div>
-        </section>
+        </footer>
 
-    </main>
+        <script>
+            (function () {
+                "use strict";
 
+                const $ = (id) => document.getElementById(id);
 
-    <footer class="site-footer">
+                function number(id, fallback = 0) {
+                    const element = $(id);
 
-        <div class="container footer-inner">
+                    if (!element) {
+                        return fallback;
+                    }
 
-            <div class="footer-copy">
-                © 2026 PaycheckMint. Free paycheck calculators.
-            </div>
+                    const value = parseFloat(element.value);
 
-            <nav class="footer-links" aria-label="Footer navigation">
-
-                <a href="/">
-                    Calculator
-                </a>
-
-                <a href="/hourly-paycheck-calculator/">
-                    Hourly Paycheck
-                </a>
-
-                <a href="/weekly-paycheck-calculator/">
-                    Weekly Paycheck
-                </a>
-
-                <a href="/biweekly-paycheck-calculator/">
-                    Biweekly Paycheck
-                </a>
-
-                <a href="/overtime-pay-calculator/">
-                    Overtime
-                </a>
-
-                <a href="/paycheck-tax-calculator/">
-                    Paycheck Tax
-                </a>
-
-                <a href="/privacy-policy/">
-                    Privacy
-                </a>
-
-                <a href="/terms/">
-                    Terms
-                </a>
-
-                <a href="/contact/">
-                    Contact
-                </a>
-
-            </nav>
-
-        </div>
-
-    </footer>
-
-
-    <script>
-        (function () {
-            "use strict";
-
-            const $ = (id) => document.getElementById(id);
-
-            function number(id, fallback = 0) {
-                const element = $(id);
-
-                if (!element) {
-                    return fallback;
+                    return Number.isFinite(value) ? Math.max(0, value) : fallback;
                 }
 
-                const value = parseFloat(element.value);
-
-                return Number.isFinite(value)
-                    ? Math.max(0, value)
-                    : fallback;
-            }
-
-            function money(value) {
-                return new Intl.NumberFormat("en-US", {
-                    style: "currency",
-                    currency: "USD",
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2
-                }).format(Number(value) || 0);
-            }
-
-            function setText(id, value) {
-                const element = $(id);
-
-                if (element) {
-                    element.textContent = value;
-                }
-            }
-
-            function annualToBiweekly(value) {
-                return (Number(value) || 0) / 26;
-            }
-
-            function calculate() {
-
-                if (
-                    !window.PaycheckMintTax ||
-                    typeof window.PaycheckMintTax.calculate !== "function"
-                ) {
-                    console.error(
-                        "PaycheckMintTax engine was not loaded."
-                    );
-                    return;
+                function money(value) {
+                    return new Intl.NumberFormat("en-US", {
+                        style: "currency",
+                        currency: "USD",
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                    }).format(Number(value) || 0);
                 }
 
-                const annualGross =
-                    number("grossPayInput");
-
-                const dependents =
-                    Math.floor(
-                        number("dependents")
-                    );
-
-                const inputs = {
-
-                    annualGross,
-
-                    frequency: "biweekly",
-
-                    state:
-                        $("state")?.value || "none",
-
-                    filing:
-                        $("filing")?.value || "single",
-
-                    dependents,
-
-                    pretax: {
-                        retirement401k:
-                            number("retirement401k"),
-
-                        healthInsurance:
-                            number("healthInsurance"),
-
-                        hsa:
-                            number("hsa"),
-
-                        fsa:
-                            number("fsa"),
-
-                        other:
-                            number("otherPretax")
-                    },
-
-                    posttax: {
-                        roth401k:
-                            number("roth401k"),
-
-                        loanRepayment:
-                            number("loanRepayment"),
-
-                        garnishments:
-                            number("garnishments"),
-
-                        other:
-                            number("otherPosttax")
-                    },
-
-                    extraFederal:
-                        number("extraFederal"),
-
-                    extraState:
-                        number("extraState"),
-
-                    additionalMedicare:
-                        number("additionalMedicare"),
-
-                    otherAdjustments: 0,
-
-                    overtimeDeduction: 0
-                };
-
-                let result;
-
-                try {
-
-                    result =
-                        window.PaycheckMintTax.calculate(
-                            inputs
-                        );
-
-                } catch (error) {
-
-                    console.error(
-                        "Biweekly calculator error:",
-                        error
-                    );
-
-                    return;
-                }
-
-                const gross =
-                    Number(result?.gross?.annual) || annualGross;
-
-                const federal =
-                    Number(result?.federal?.tax) || 0;
-
-                const socialSecurity =
-                    Number(result?.fica?.socialSecurity) || 0;
-
-                const medicare =
-                    Number(result?.fica?.medicare) || 0;
-
-                const additionalMedicare =
-                    Number(result?.fica?.additionalMedicare) || 0;
-
-                const fica =
-                    Number(result?.fica?.total) ||
-                    (
-                        socialSecurity +
-                        medicare +
-                        additionalMedicare
-                    );
-
-                const stateTax =
-                    Number(result?.state?.tax) || 0;
-
-                const totalTaxes =
-                    Number(result?.taxes?.total) ||
-                    (
-                        federal +
-                        fica +
-                        stateTax
-                    );
-
-                const pretax =
-                    Number(result?.deductions?.pretax) || 0;
-
-                const posttax =
-                    Number(result?.deductions?.posttax) || 0;
-
-                const deductions =
-                    pretax + posttax;
-
-                const annualNet =
-                    Number(result?.net?.annual) ||
-                    Math.max(
-                        0,
-                        gross -
-                        totalTaxes -
-                        deductions
-                    );
-
-                const biweeklyNet =
-                    annualToBiweekly(
-                        annualNet
-                    );
-
-                setText(
-                    "resultPeriod",
-                    "Estimated biweekly take-home pay"
-                );
-
-                setText(
-                    "takeHome",
-                    money(biweeklyNet)
-                );
-
-                setText(
-                    "chartNet",
-                    money(biweeklyNet)
-                );
-
-                setText(
-                    "legendNet",
-                    money(biweeklyNet)
-                );
-
-                setText(
-                    "legendFederal",
-                    money(annualToBiweekly(federal))
-                );
-
-                setText(
-                    "legendFica",
-                    money(annualToBiweekly(fica))
-                );
-
-                setText(
-                    "legendState",
-                    money(annualToBiweekly(stateTax))
-                );
-
-                setText(
-                    "grossResult",
-                    money(
-                        annualToBiweekly(gross)
-                    )
-                );
-
-                setText(
-                    "federalTax",
-                    money(
-                        annualToBiweekly(federal)
-                    )
-                );
-
-                setText(
-                    "socialSecurity",
-                    money(
-                        annualToBiweekly(
-                            socialSecurity
-                        )
-                    )
-                );
-
-                setText(
-                    "medicare",
-                    money(
-                        annualToBiweekly(
-                            medicare +
-                            additionalMedicare
-                        )
-                    )
-                );
-
-                setText(
-                    "stateTax",
-                    money(
-                        annualToBiweekly(stateTax)
-                    )
-                );
-
-                setText(
-                    "totalTaxes",
-                    money(
-                        annualToBiweekly(totalTaxes)
-                    )
-                );
-
-                /*
-                 * Keep the chart based on annual values so the
-                 * percentages remain accurate.
-                 */
-
-                const net =
-                    Math.max(0, annualNet);
-
-                const federalAmount =
-                    Math.max(0, federal);
-
-                const ficaAmount =
-                    Math.max(0, fica);
-
-                const stateAmount =
-                    Math.max(0, stateTax);
-
-                const deductionAmount =
-                    Math.max(0, deductions);
-
-                const total =
-                    net +
-                    federalAmount +
-                    ficaAmount +
-                    stateAmount +
-                    deductionAmount;
-
-                if (total > 0) {
-
-                    const netPercent =
-                        net / total * 100;
-
-                    const federalPercent =
-                        federalAmount / total * 100;
-
-                    const ficaPercent =
-                        ficaAmount / total * 100;
-
-                    const statePercent =
-                        stateAmount / total * 100;
-
-                    const federalEnd =
-                        netPercent +
-                        federalPercent;
-
-                    const ficaEnd =
-                        federalEnd +
-                        ficaPercent;
-
-                    const stateEnd =
-                        ficaEnd +
-                        statePercent;
-
-                    const chart =
-                        $("paycheckChart");
-
-                    if (chart) {
-
-                        chart.style.background =
-                            "conic-gradient(" +
-
-                            "var(--chart-net) 0% " +
-                            netPercent + "%, " +
-
-                            "var(--chart-federal) " +
-                            netPercent + "% " +
-                            federalEnd + "%, " +
-
-                            "var(--chart-fica) " +
-                            federalEnd + "% " +
-                            ficaEnd + "%, " +
-
-                            "var(--chart-state) " +
-                            ficaEnd + "% " +
-                            stateEnd + "%, " +
-
-                            "var(--chart-deductions) " +
-                            stateEnd + "% 100%" +
-
-                            ")";
+                function setText(id, value) {
+                    const element = $(id);
+
+                    if (element) {
+                        element.textContent = value;
                     }
                 }
 
-                /*
-                 * Pay-period summary.
-                 */
+                function annualToBiweekly(value) {
+                    return (Number(value) || 0) / 26;
+                }
 
-                setText(
-                    "weeklyPay",
-                    money(
-                        Number(result?.net?.weekly) ||
-                        annualNet / 52
-                    )
-                );
+                function calculate() {
+                    if (!window.PaycheckMintTax || typeof window.PaycheckMintTax.calculate !== "function") {
+                        console.error("PaycheckMintTax engine was not loaded.");
+                        return;
+                    }
 
-                setText(
-                    "biweeklyPay",
-                    money(
-                        annualNet / 26
-                    )
-                );
+                    const annualGross = number("grossPayInput");
 
-                setText(
-                    "semimonthlyPay",
-                    money(
-                        Number(result?.net?.semimonthly) ||
-                        annualNet / 24
-                    )
-                );
+                    const dependents = Math.floor(number("dependents"));
 
-                setText(
-                    "monthlyPay",
-                    money(
-                        Number(result?.net?.monthly) ||
-                        annualNet / 12
-                    )
-                );
+                    const inputs = {
+                        annualGross,
 
-                window.paycheckMintBiweeklyResult = {
-                    ...result,
+                        frequency: "biweekly",
 
-                    annualGross: gross,
+                        state: $("state")?.value || "none",
 
-                    biweeklyGross:
-                        gross / 26,
+                        filing: $("filing")?.value || "single",
 
-                    biweeklyNet,
+                        dependents,
 
-                    annualFederalTax:
-                        federal,
+                        pretax: {
+                            retirement401k: number("retirement401k"),
 
-                    annualFica:
-                        fica,
+                            healthInsurance: number("healthInsurance"),
 
-                    annualStateTax:
-                        stateTax,
+                            hsa: number("hsa"),
 
-                    annualDeductions:
-                        deductions
-                };
-            }
+                            fsa: number("fsa"),
 
+                            other: number("otherPretax"),
+                        },
 
-            const calculateButton =
-                $("calculate");
+                        posttax: {
+                            roth401k: number("roth401k"),
 
-            if (calculateButton) {
+                            loanRepayment: number("loanRepayment"),
 
-                calculateButton.addEventListener(
-                    "click",
-                    calculate
-                );
-            }
+                            garnishments: number("garnishments"),
 
+                            other: number("otherPosttax"),
+                        },
 
-            const fields =
-                document.querySelectorAll(
+                        extraFederal: number("extraFederal"),
+
+                        extraState: number("extraState"),
+
+                        additionalMedicare: number("additionalMedicare"),
+
+                        otherAdjustments: 0,
+
+                        overtimeDeduction: 0,
+                    };
+
+                    let result;
+
+                    try {
+                        result = window.PaycheckMintTax.calculate(inputs);
+                    } catch (error) {
+                        console.error("Biweekly calculator error:", error);
+
+                        return;
+                    }
+
+                    const gross = Number(result?.gross?.annual) || annualGross;
+
+                    const federal = Number(result?.federal?.tax) || 0;
+
+                    const socialSecurity = Number(result?.fica?.socialSecurity) || 0;
+
+                    const medicare = Number(result?.fica?.medicare) || 0;
+
+                    const additionalMedicare = Number(result?.fica?.additionalMedicare) || 0;
+
+                    const fica = Number(result?.fica?.total) || socialSecurity + medicare + additionalMedicare;
+
+                    const stateTax = Number(result?.state?.tax) || 0;
+
+                    const totalTaxes = Number(result?.taxes?.total) || federal + fica + stateTax;
+
+                    const pretax = Number(result?.deductions?.pretax) || 0;
+
+                    const posttax = Number(result?.deductions?.posttax) || 0;
+
+                    const deductions = pretax + posttax;
+
+                    const annualNet = Number(result?.net?.annual) || Math.max(0, gross - totalTaxes - deductions);
+
+                    const biweeklyNet = annualToBiweekly(annualNet);
+
+                    setText("resultPeriod", "Estimated biweekly take-home pay");
+
+                    setText("takeHome", money(biweeklyNet));
+
+                    setText("chartNet", money(biweeklyNet));
+
+                    setText("legendNet", money(biweeklyNet));
+
+                    setText("legendFederal", money(annualToBiweekly(federal)));
+
+                    setText("legendFica", money(annualToBiweekly(fica)));
+
+                    setText("legendState", money(annualToBiweekly(stateTax)));
+
+                    setText("grossResult", money(annualToBiweekly(gross)));
+
+                    setText("federalTax", money(annualToBiweekly(federal)));
+
+                    setText("socialSecurity", money(annualToBiweekly(socialSecurity)));
+
+                    setText("medicare", money(annualToBiweekly(medicare + additionalMedicare)));
+
+                    setText("stateTax", money(annualToBiweekly(stateTax)));
+
+                    setText("totalTaxes", money(annualToBiweekly(totalTaxes)));
+
+                    /*
+                     * Keep the chart based on annual values so the
+                     * percentages remain accurate.
+                     */
+
+                    const net = Math.max(0, annualNet);
+
+                    const federalAmount = Math.max(0, federal);
+
+                    const ficaAmount = Math.max(0, fica);
+
+                    const stateAmount = Math.max(0, stateTax);
+
+                    const deductionAmount = Math.max(0, deductions);
+
+                    const total = net + federalAmount + ficaAmount + stateAmount + deductionAmount;
+
+                    if (total > 0) {
+                        const netPercent = (net / total) * 100;
+
+                        const federalPercent = (federalAmount / total) * 100;
+
+                        const ficaPercent = (ficaAmount / total) * 100;
+
+                        const statePercent = (stateAmount / total) * 100;
+
+                        const federalEnd = netPercent + federalPercent;
+
+                        const ficaEnd = federalEnd + ficaPercent;
+
+                        const stateEnd = ficaEnd + statePercent;
+
+                        const chart = $("paycheckChart");
+
+                        if (chart) {
+                            chart.style.background =
+                                "conic-gradient(" +
+                                "var(--chart-net) 0% " +
+                                netPercent +
+                                "%, " +
+                                "var(--chart-federal) " +
+                                netPercent +
+                                "% " +
+                                federalEnd +
+                                "%, " +
+                                "var(--chart-fica) " +
+                                federalEnd +
+                                "% " +
+                                ficaEnd +
+                                "%, " +
+                                "var(--chart-state) " +
+                                ficaEnd +
+                                "% " +
+                                stateEnd +
+                                "%, " +
+                                "var(--chart-deductions) " +
+                                stateEnd +
+                                "% 100%" +
+                                ")";
+                        }
+                    }
+
+                    /*
+                     * Pay-period summary.
+                     */
+
+                    setText("weeklyPay", money(Number(result?.net?.weekly) || annualNet / 52));
+
+                    setText("biweeklyPay", money(annualNet / 26));
+
+                    setText("semimonthlyPay", money(Number(result?.net?.semimonthly) || annualNet / 24));
+
+                    setText("monthlyPay", money(Number(result?.net?.monthly) || annualNet / 12));
+
+                    window.paycheckMintBiweeklyResult = {
+                        ...result,
+
+                        annualGross: gross,
+
+                        biweeklyGross: gross / 26,
+
+                        biweeklyNet,
+
+                        annualFederalTax: federal,
+
+                        annualFica: fica,
+
+                        annualStateTax: stateTax,
+
+                        annualDeductions: deductions,
+                    };
+                }
+
+                const calculateButton = $("calculate");
+
+                if (calculateButton) {
+                    calculateButton.addEventListener("click", calculate);
+                }
+
+                const fields = document.querySelectorAll(
                     "#grossPayInput, " +
-                    "#state, " +
-                    "#filing, " +
-                    "#dependents, " +
-                    "#retirement401k, " +
-                    "#healthInsurance, " +
-                    "#hsa, " +
-                    "#fsa, " +
-                    "#extraFederal, " +
-                    "#extraState, " +
-                    "#additionalMedicare, " +
-                    "#otherPretax, " +
-                    "#roth401k, " +
-                    "#loanRepayment, " +
-                    "#garnishments, " +
-                    "#otherPosttax"
+                        "#state, " +
+                        "#filing, " +
+                        "#dependents, " +
+                        "#retirement401k, " +
+                        "#healthInsurance, " +
+                        "#hsa, " +
+                        "#fsa, " +
+                        "#extraFederal, " +
+                        "#extraState, " +
+                        "#additionalMedicare, " +
+                        "#otherPretax, " +
+                        "#roth401k, " +
+                        "#loanRepayment, " +
+                        "#garnishments, " +
+                        "#otherPosttax"
                 );
 
-            fields.forEach((field) => {
+                fields.forEach((field) => {
+                    field.addEventListener("input", calculate);
 
-                field.addEventListener(
-                    "input",
-                    calculate
-                );
+                    field.addEventListener("change", calculate);
+                });
 
-                field.addEventListener(
-                    "change",
-                    calculate
-                );
+                function init() {
+                    calculate();
+                }
 
-            });
-
-
-            function init() {
-                calculate();
-            }
-
-
-            if (
-                document.readyState === "loading"
-            ) {
-
-                document.addEventListener(
-                    "DOMContentLoaded",
-                    init
-                );
-
-            } else {
-
-                init();
-
-            }
-
-        })();
-    </script>
-
-</body>
-
+                if (document.readyState === "loading") {
+                    document.addEventListener("DOMContentLoaded", init);
+                } else {
+                    init();
+                }
+            })();
+        </script>
+    </body>
 </html>
