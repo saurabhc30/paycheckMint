@@ -1,0 +1,2243 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>How to Read a Paystub: Gross Pay, Taxes, Deductions & YTD | PaycheckMint</title>
+
+        <meta
+            name="description"
+            content="Learn how to read a paystub step by step. Understand gross pay, taxable wages, taxes, deductions, net pay, YTD totals, pay periods, overtime, and common paystub abbreviations."
+        />
+
+        <meta
+            name="keywords"
+            content="how to read a paystub, how to read a paycheck stub, paystub explained, paycheck stub explained, gross pay, net pay, YTD paystub, paystub deductions, taxable wages"
+        />
+
+        <link rel="canonical" href="https://paymintcheck.vercel.app/how-to-read-a-paystub/" />
+
+        <meta name="robots" content="index, follow" />
+
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="How to Read a Paystub: Gross Pay, Taxes, Deductions & YTD" />
+        <meta
+            property="og:description"
+            content="A practical guide to understanding every important part of your paycheck stub, including earnings, taxes, deductions, YTD totals, and net pay."
+        />
+        <meta property="og:url" content="https://paymintcheck.vercel.app/how-to-read-a-paystub/" />
+        <meta property="og:site_name" content="PaycheckMint" />
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="How to Read a Paystub" />
+        <meta
+            name="twitter:description"
+            content="Understand gross pay, taxes, deductions, YTD totals, taxable wages, and net pay on your paycheck stub."
+        />
+
+        <style>
+            :root {
+                --bg: #f6f5f1;
+                --surface: #ffffff;
+                --surface-soft: #faf9f6;
+
+                --ink: #191919;
+                --muted: #74736f;
+                --muted-light: #999791;
+
+                --line: #deddd8;
+                --line-dark: #cbc9c3;
+
+                --accent: #5954d9;
+                --accent-dark: #4843c4;
+                --accent-soft: #efefff;
+
+                --success: #24734a;
+                --warning: #9a6a00;
+
+                --radius: 16px;
+                --max-width: 1080px;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                margin: 0;
+                background: var(--bg);
+                color: var(--ink);
+                font-family:
+                    Inter,
+                    ui-sans-serif,
+                    system-ui,
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    sans-serif;
+                line-height: 1.7;
+            }
+
+            a {
+                color: var(--accent);
+            }
+
+            img {
+                max-width: 100%;
+            }
+
+            .container {
+                width: min(calc(100% - 32px), var(--max-width));
+                margin: 0 auto;
+            }
+
+            /* =========================
+           HEADER
+        ========================= */
+
+            .site-header {
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                background: rgba(246, 245, 241, 0.95);
+                border-bottom: 1px solid var(--line);
+                backdrop-filter: blur(12px);
+            }
+
+            .header-inner {
+                min-height: 68px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 24px;
+                position: relative;
+            }
+
+            .logo {
+                display: inline-flex;
+                align-items: center;
+                text-decoration: none;
+                color: var(--ink);
+                font-size: 21px;
+                font-weight: 800;
+                letter-spacing: -0.5px;
+                white-space: nowrap;
+            }
+
+            .mobile-menu-toggle {
+                display: none;
+                width: 42px;
+                height: 42px;
+                border: 1px solid var(--line);
+                background: var(--surface);
+                border-radius: 10px;
+                padding: 0;
+                cursor: pointer;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .mobile-menu-toggle span {
+                display: block;
+                width: 18px;
+                height: 2px;
+                background: var(--ink);
+                border-radius: 2px;
+                transition: 0.2s ease;
+            }
+
+            .mobile-menu-toggle.open span:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+
+            .mobile-menu-toggle.open span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-toggle.open span:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+
+            .main-nav {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+
+            .main-nav > a,
+            .nav-dropdown-toggle {
+                text-decoration: none;
+                color: #565550;
+                font-size: 14px;
+                font-weight: 600;
+                padding: 9px 11px;
+                border-radius: 9px;
+            }
+
+            .main-nav > a:hover,
+            .nav-dropdown-toggle:hover {
+                color: var(--accent);
+                background: var(--accent-soft);
+            }
+
+            .nav-dropdown {
+                position: relative;
+            }
+
+            .nav-dropdown-toggle {
+                border: 0;
+                background: transparent;
+                cursor: pointer;
+                font: inherit;
+            }
+
+            .nav-dropdown-menu {
+                display: none;
+                position: absolute;
+                top: calc(100% + 8px);
+                right: 0;
+                min-width: 220px;
+                padding: 7px;
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 12px;
+                box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+            }
+
+            .nav-dropdown.open .nav-dropdown-menu {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .nav-dropdown-menu a {
+                padding: 9px 10px;
+                border-radius: 8px;
+                text-decoration: none;
+                color: #565550;
+                font-size: 13px;
+            }
+
+            .nav-dropdown-menu a:hover {
+                background: var(--accent-soft);
+                color: var(--accent);
+            }
+
+            /* =========================
+           HERO
+        ========================= */
+
+            .hero {
+                padding: 72px 0 46px;
+            }
+
+            .hero-inner {
+                max-width: 850px;
+            }
+
+            .eyebrow {
+                display: inline-flex;
+                align-items: center;
+                padding: 6px 10px;
+                background: var(--accent-soft);
+                color: var(--accent-dark);
+                border-radius: 999px;
+                font-size: 12px;
+                font-weight: 800;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+            }
+
+            h1 {
+                margin: 16px 0 18px;
+                font-size: clamp(36px, 6vw, 58px);
+                line-height: 1.05;
+                letter-spacing: -2.4px;
+                max-width: 850px;
+            }
+
+            .hero-lead {
+                margin: 0;
+                max-width: 760px;
+                color: var(--muted);
+                font-size: 18px;
+                line-height: 1.7;
+            }
+
+            .hero-actions {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-top: 26px;
+            }
+
+            .btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 44px;
+                padding: 10px 16px;
+                border-radius: 10px;
+                text-decoration: none;
+                font-size: 14px;
+                font-weight: 750;
+                border: 1px solid var(--line-dark);
+            }
+
+            .btn-primary {
+                background: var(--accent);
+                color: #fff;
+                border-color: var(--accent);
+            }
+
+            .btn-primary:hover {
+                background: var(--accent-dark);
+            }
+
+            .btn-secondary {
+                background: var(--surface);
+                color: var(--ink);
+            }
+
+            /* =========================
+           LAYOUT
+        ========================= */
+
+            .content-layout {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) 280px;
+                gap: 26px;
+                align-items: start;
+                padding-bottom: 70px;
+            }
+
+            .article {
+                min-width: 0;
+            }
+
+            .article-section {
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: var(--radius);
+                padding: 30px;
+                margin-bottom: 20px;
+            }
+
+            .article-section h2 {
+                margin: 0 0 14px;
+                font-size: 27px;
+                line-height: 1.25;
+                letter-spacing: -0.7px;
+            }
+
+            .article-section h3 {
+                margin: 26px 0 9px;
+                font-size: 19px;
+                line-height: 1.35;
+            }
+
+            .article-section p {
+                margin: 0 0 15px;
+            }
+
+            .article-section p:last-child {
+                margin-bottom: 0;
+            }
+
+            .article-section ul,
+            .article-section ol {
+                padding-left: 22px;
+            }
+
+            .article-section li {
+                margin-bottom: 8px;
+            }
+
+            .muted {
+                color: var(--muted);
+            }
+
+            /* =========================
+           QUICK ANSWER
+        ========================= */
+
+            .quick-answer {
+                background: var(--accent-soft);
+                border: 1px solid #dcdcff;
+                border-radius: 14px;
+                padding: 22px;
+                margin-bottom: 22px;
+            }
+
+            .quick-answer strong {
+                display: block;
+                margin-bottom: 6px;
+                color: var(--accent-dark);
+            }
+
+            /* =========================
+           SAMPLE PAYSTUB
+        ========================= */
+
+            .paystub-wrap {
+                overflow-x: auto;
+                margin: 22px 0;
+            }
+
+            .paystub {
+                min-width: 650px;
+                border: 1px solid var(--line-dark);
+                border-radius: 14px;
+                overflow: hidden;
+                background: #fff;
+            }
+
+            .paystub-header {
+                display: grid;
+                grid-template-columns: 1.5fr 1fr 1fr;
+                background: #f1f0ec;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .paystub-cell {
+                padding: 12px 14px;
+                border-right: 1px solid var(--line);
+                font-size: 13px;
+            }
+
+            .paystub-cell:last-child {
+                border-right: 0;
+            }
+
+            .paystub-label {
+                display: block;
+                color: var(--muted);
+                font-size: 10px;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+                margin-bottom: 3px;
+            }
+
+            .paystub-row {
+                display: grid;
+                grid-template-columns: 1.7fr 0.8fr 0.8fr 0.8fr;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .paystub-row:last-child {
+                border-bottom: 0;
+            }
+
+            .paystub-row > div {
+                padding: 11px 14px;
+                border-right: 1px solid var(--line);
+                font-size: 13px;
+            }
+
+            .paystub-row > div:last-child {
+                border-right: 0;
+            }
+
+            .paystub-title {
+                padding: 13px 14px;
+                background: var(--surface-soft);
+                border-bottom: 1px solid var(--line);
+                font-size: 12px;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+            }
+
+            .highlight-row {
+                background: #f4f3ff;
+                font-weight: 750;
+            }
+
+            .sample-note {
+                color: var(--muted);
+                font-size: 13px;
+                margin-top: 10px;
+            }
+
+            /* =========================
+           INFO GRID
+        ========================= */
+
+            .info-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+                margin-top: 20px;
+            }
+
+            .info-card {
+                padding: 17px;
+                background: var(--surface-soft);
+                border: 1px solid var(--line);
+                border-radius: 12px;
+            }
+
+            .info-card strong {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .info-card span {
+                color: var(--muted);
+                font-size: 14px;
+            }
+
+            /* =========================
+           FORMULA
+        ========================= */
+
+            .formula {
+                padding: 19px;
+                margin: 20px 0;
+                background: #191919;
+                color: #fff;
+                border-radius: 13px;
+                text-align: center;
+                font-weight: 750;
+                line-height: 1.7;
+            }
+
+            .formula small {
+                display: block;
+                color: #c8c8c8;
+                font-weight: 500;
+                margin-top: 5px;
+            }
+
+            /* =========================
+           TABLE
+        ========================= */
+
+            .table-scroll {
+                overflow-x: auto;
+                margin: 18px 0;
+            }
+
+            table {
+                width: 100%;
+                min-width: 580px;
+                border-collapse: collapse;
+                font-size: 14px;
+            }
+
+            th,
+            td {
+                padding: 12px 13px;
+                text-align: left;
+                border-bottom: 1px solid var(--line);
+            }
+
+            th {
+                background: var(--surface-soft);
+                font-size: 12px;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+            }
+
+            /* =========================
+           CALLOUT
+        ========================= */
+
+            .callout {
+                border-left: 4px solid var(--accent);
+                background: var(--surface-soft);
+                padding: 17px 18px;
+                margin: 20px 0;
+                border-radius: 0 10px 10px 0;
+            }
+
+            .callout strong {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .warning {
+                border-left-color: var(--warning);
+            }
+
+            /* =========================
+           SIDEBAR
+        ========================= */
+
+            .sidebar {
+                position: sticky;
+                top: 88px;
+            }
+
+            .toc {
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 14px;
+                padding: 18px;
+            }
+
+            .toc-title {
+                font-size: 13px;
+                font-weight: 800;
+                margin-bottom: 10px;
+            }
+
+            .toc a {
+                display: block;
+                color: #5d5b56;
+                text-decoration: none;
+                padding: 6px 0;
+                font-size: 13px;
+                line-height: 1.4;
+            }
+
+            .toc a:hover {
+                color: var(--accent);
+            }
+
+            .sidebar-card {
+                margin-top: 14px;
+                padding: 18px;
+                background: var(--accent-soft);
+                border: 1px solid #dcdcff;
+                border-radius: 14px;
+            }
+
+            .sidebar-card strong {
+                display: block;
+                margin-bottom: 7px;
+            }
+
+            .sidebar-card p {
+                margin: 0 0 12px;
+                color: var(--muted);
+                font-size: 13px;
+            }
+
+            /* =========================
+           FAQ
+        ========================= */
+
+            .faq-item {
+                border-top: 1px solid var(--line);
+            }
+
+            .faq-item:first-child {
+                border-top: 0;
+            }
+
+            .faq-question {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 15px;
+                padding: 17px 0;
+                background: transparent;
+                border: 0;
+                color: var(--ink);
+                text-align: left;
+                font: inherit;
+                font-weight: 750;
+                cursor: pointer;
+            }
+
+            .faq-icon {
+                color: var(--accent);
+                font-size: 20px;
+                flex: 0 0 auto;
+            }
+
+            .faq-answer {
+                display: none;
+                padding: 0 0 17px;
+                color: var(--muted);
+            }
+
+            .faq-item.open .faq-answer {
+                display: block;
+            }
+
+            /* =========================
+           CTA
+        ========================= */
+
+            .dark-cta {
+                background: #191919;
+                color: #fff;
+                border-radius: var(--radius);
+                padding: 32px;
+                margin-top: 20px;
+            }
+
+            .dark-cta h2 {
+                margin: 0 0 10px;
+                font-size: 28px;
+                letter-spacing: -0.7px;
+            }
+
+            .dark-cta p {
+                color: #c8c8c8;
+                margin: 0 0 20px;
+            }
+
+            .dark-cta .btn {
+                background: #fff;
+                color: #191919;
+                border-color: #fff;
+            }
+
+            /* =========================
+           FOOTER
+        ========================= */
+
+            .site-footer {
+                border-top: 1px solid var(--line);
+                background: #efeee9;
+            }
+
+            .footer-inner {
+                padding: 46px 0 24px;
+            }
+
+            .footer-grid {
+                display: grid;
+                grid-template-columns: 1.5fr 1fr 1fr;
+                gap: 30px;
+            }
+
+            .footer-brand {
+                font-size: 19px;
+                font-weight: 800;
+            }
+
+            .footer-description {
+                max-width: 400px;
+                color: var(--muted);
+                font-size: 14px;
+            }
+
+            .footer-column {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 7px;
+            }
+
+            .footer-column h3 {
+                margin: 0 0 5px;
+                font-size: 13px;
+            }
+
+            .footer-column a {
+                color: var(--muted);
+                text-decoration: none;
+                font-size: 13px;
+            }
+
+            .footer-column a:hover {
+                color: var(--accent);
+            }
+
+            .footer-bottom {
+                display: flex;
+                justify-content: space-between;
+                gap: 20px;
+                border-top: 1px solid var(--line);
+                margin-top: 30px;
+                padding-top: 18px;
+                color: var(--muted-light);
+                font-size: 12px;
+            }
+
+            /* =========================
+           RESPONSIVE
+        ========================= */
+
+            @media (max-width: 900px) {
+                .content-layout {
+                    grid-template-columns: 1fr;
+                }
+
+                .sidebar {
+                    position: static;
+                    order: -1;
+                }
+
+                .toc {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 4px 15px;
+                }
+
+                .toc-title {
+                    grid-column: 1 / -1;
+                }
+            }
+
+            @media (max-width: 700px) {
+                .header-inner {
+                    min-height: 62px;
+                }
+
+                .mobile-menu-toggle {
+                    display: flex;
+                }
+
+                .main-nav {
+                    display: none;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: calc(100% + 8px);
+                    padding: 9px;
+                    background: var(--surface);
+                    border: 1px solid var(--line);
+                    border-radius: 13px;
+                    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+                    flex-direction: column;
+                    align-items: stretch;
+                    gap: 3px;
+                }
+
+                .main-nav.mobile-open {
+                    display: flex;
+                }
+
+                .main-nav > a,
+                .nav-dropdown-toggle {
+                    width: 100%;
+                    text-align: left;
+                    padding: 11px 12px;
+                }
+
+                .nav-dropdown-menu {
+                    position: static;
+                    min-width: 0;
+                    box-shadow: none;
+                    border: 0;
+                    border-top: 1px solid var(--line);
+                    border-radius: 0;
+                    margin-top: 4px;
+                    padding: 5px 0 0 10px;
+                }
+
+                .nav-dropdown.open .nav-dropdown-menu {
+                    display: flex;
+                }
+
+                .hero {
+                    padding: 50px 0 32px;
+                }
+
+                h1 {
+                    letter-spacing: -1.7px;
+                }
+
+                .hero-lead {
+                    font-size: 16px;
+                }
+
+                .article-section {
+                    padding: 22px;
+                }
+
+                .article-section h2 {
+                    font-size: 24px;
+                }
+
+                .info-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .toc {
+                    display: block;
+                }
+
+                .toc a {
+                    padding: 7px 0;
+                }
+
+                .footer-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+
+                .footer-grid > div:first-child {
+                    grid-column: 1 / -1;
+                }
+
+                .footer-bottom {
+                    flex-direction: column;
+                    gap: 5px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .container {
+                    width: min(calc(100% - 22px), var(--max-width));
+                }
+
+                h1 {
+                    font-size: 35px;
+                }
+
+                .article-section {
+                    padding: 18px;
+                    border-radius: 13px;
+                }
+
+                .dark-cta {
+                    padding: 23px;
+                }
+
+                .footer-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .footer-grid > div:first-child {
+                    grid-column: auto;
+                }
+            }
+        </style>
+
+        <!-- Article structured data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": "How to Read a Paystub: Gross Pay, Taxes, Deductions & YTD",
+                "description": "A practical guide to understanding gross pay, taxable wages, taxes, deductions, YTD totals, and net pay on a paycheck stub.",
+                "author": {
+                    "@type": "Organization",
+                    "name": "PaycheckMint"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "PaycheckMint"
+                },
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://paymintcheck.vercel.app/how-to-read-a-paystub/"
+                }
+            }
+        </script>
+
+        <!-- FAQ structured data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "What is a paystub?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "A paystub is a statement that shows how your pay was calculated, including earnings, taxes, deductions, net pay, and often year-to-date totals."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What is gross pay on a paystub?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Gross pay is the amount earned before taxes and other deductions are subtracted. It can include regular wages, overtime, bonuses, commissions, and other earnings."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What does YTD mean on a paystub?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "YTD means year-to-date. It shows the cumulative amount earned, withheld, or deducted from the beginning of the year through the current paycheck."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What is net pay on a paystub?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Net pay is the amount left after applicable taxes and deductions are taken from your earnings. It is commonly called take-home pay."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Why is taxable income different from gross pay?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Taxable wages can differ from gross pay because certain deductions or benefits may reduce the wages subject to particular taxes. The exact treatment depends on the type of deduction and the tax involved."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What should I check on my paystub?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Check your pay period, pay date, hours, rates, earnings, taxes, deductions, taxable wages when shown, YTD totals, and final net pay."
+                        }
+                    }
+                ]
+            }
+        </script>
+    </head>
+
+    <body>
+        <header class="site-header">
+            <div class="container header-inner">
+                <a class="logo" href="/" aria-label="PaycheckMint home"> PaycheckMint </a>
+
+                <button
+                    class="mobile-menu-toggle"
+                    type="button"
+                    aria-label="Open navigation"
+                    aria-expanded="false"
+                    aria-controls="main-navigation"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+                    <a href="/">Home</a>
+
+                    <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+
+                    <a href="/income/"> Income </a>
+
+                    <div class="nav-dropdown">
+                        <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+                            Finance
+                            <span class="dropdown-arrow">▾</span>
+                        </button>
+
+                        <div class="nav-dropdown-menu">
+                            <a href="/finance/"> Finance Overview </a>
+
+                            <a href="/finance/taxes/"> Taxes </a>
+
+                            <a href="/finance/budgeting/"> Budgeting &amp; Saving </a>
+
+                            <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+
+                            <a href="/finance/investing/"> Investing &amp; Retirement </a>
+
+                            <a href="/finance/insurance/"> Insurance </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- HERO -->
+
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-inner">
+                        <span class="eyebrow"> Paycheck Guide </span>
+
+                        <h1>How to Read a Paystub</h1>
+
+                        <p class="hero-lead">
+                            A paystub shows more than your paycheck amount. Learn how to understand your pay period,
+                            gross pay, earnings, taxes, pre-tax and post-tax deductions, year-to-date totals, and net
+                            pay.
+                        </p>
+
+                        <div class="hero-actions">
+                            <a class="btn btn-primary" href="/paycheck-tax-calculator/"> Calculate Take-Home Pay </a>
+
+                            <a class="btn btn-secondary" href="#sample-paystub"> See a Sample Paystub </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="container">
+                <div class="content-layout">
+                    <article class="article">
+                        <!-- QUICK ANSWER -->
+
+                        <section class="article-section">
+                            <div class="quick-answer">
+                                <strong> Quick answer </strong>
+
+                                <div>
+                                    To read a paystub, start with the pay period and pay date. Then review your
+                                    earnings, gross pay, taxable wages if shown, tax withholdings, other deductions, YTD
+                                    totals, and finally your net pay. Net pay is the amount actually paid to you.
+                                </div>
+                            </div>
+
+                            <p>
+                                Paystub layouts differ between employers and payroll systems, so your statement may not
+                                use exactly the same labels or sections shown in this guide. The underlying information
+                                is usually similar: how much you earned, what was withheld or deducted, and how much you
+                                received.
+                            </p>
+                        </section>
+
+                        <!-- SAMPLE -->
+
+                        <section class="article-section" id="sample-paystub">
+                            <h2>Example of a Paystub</h2>
+
+                            <p>
+                                The easiest way to learn how to read a paycheck stub is to see how the major numbers fit
+                                together. The example below is fictional and is simplified for educational purposes.
+                            </p>
+
+                            <div class="paystub-wrap">
+                                <div class="paystub">
+                                    <div class="paystub-header">
+                                        <div class="paystub-cell">
+                                            <span class="paystub-label"> Employee </span>
+                                            Jordan Example
+                                        </div>
+
+                                        <div class="paystub-cell">
+                                            <span class="paystub-label"> Pay Period </span>
+                                            Sep 1 – Sep 15
+                                        </div>
+
+                                        <div class="paystub-cell">
+                                            <span class="paystub-label"> Pay Date </span>
+                                            Sep 20
+                                        </div>
+                                    </div>
+
+                                    <div class="paystub-title">Earnings</div>
+
+                                    <div class="paystub-row">
+                                        <div>Regular Pay</div>
+
+                                        <div>80 hrs</div>
+
+                                        <div>$25.00</div>
+
+                                        <div>$2,000.00</div>
+                                    </div>
+
+                                    <div class="paystub-row">
+                                        <div>Overtime</div>
+
+                                        <div>4 hrs</div>
+
+                                        <div>$37.50</div>
+
+                                        <div>$150.00</div>
+                                    </div>
+
+                                    <div class="paystub-row highlight-row">
+                                        <div>Gross Pay</div>
+
+                                        <div>—</div>
+
+                                        <div>—</div>
+
+                                        <div>$2,150.00</div>
+                                    </div>
+
+                                    <div class="paystub-title">Taxes &amp; Deductions</div>
+
+                                    <div class="paystub-row">
+                                        <div>Federal Income Tax</div>
+
+                                        <div>—</div>
+
+                                        <div>—</div>
+
+                                        <div>-$210.00</div>
+                                    </div>
+
+                                    <div class="paystub-row">
+                                        <div>Social Security</div>
+
+                                        <div>—</div>
+
+                                        <div>—</div>
+
+                                        <div>-$133.30</div>
+                                    </div>
+
+                                    <div class="paystub-row">
+                                        <div>Medicare</div>
+
+                                        <div>—</div>
+
+                                        <div>—</div>
+
+                                        <div>-$31.18</div>
+                                    </div>
+
+                                    <div class="paystub-row">
+                                        <div>Health Insurance</div>
+
+                                        <div>—</div>
+
+                                        <div>—</div>
+
+                                        <div>-$90.00</div>
+                                    </div>
+
+                                    <div class="paystub-row highlight-row">
+                                        <div>Net Pay</div>
+
+                                        <div>—</div>
+
+                                        <div>—</div>
+
+                                        <div>$1,685.52</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="sample-note">
+                                Example figures are illustrative only. Actual taxes and deductions depend on your
+                                earnings, withholding information, location, benefits, and other circumstances.
+                            </p>
+                        </section>
+
+                        <!-- STEP BY STEP -->
+
+                        <section class="article-section" id="step-by-step">
+                            <h2>How to Read a Paystub Step by Step</h2>
+
+                            <p>
+                                You do not need to understand every abbreviation immediately. Read your paystub from top
+                                to bottom and connect each section to the final net-pay number.
+                            </p>
+
+                            <ol>
+                                <li>
+                                    <strong>Check your personal and employer information.</strong>
+                                    Make sure your name and other identifying information are correct.
+                                </li>
+
+                                <li>
+                                    <strong>Check the pay period and pay date.</strong>
+                                    Confirm which dates the paycheck covers and when the payment was issued.
+                                </li>
+
+                                <li>
+                                    <strong>Review your earnings.</strong>
+                                    Check regular hours, overtime, pay rates, bonuses, commissions, vacation pay, or
+                                    other earnings.
+                                </li>
+
+                                <li>
+                                    <strong>Find gross pay.</strong>
+                                    This is the total earnings before the applicable taxes and deductions are removed.
+                                </li>
+
+                                <li>
+                                    <strong>Review taxes.</strong>
+                                    Look for federal income tax, Social Security, Medicare, and applicable state or
+                                    local taxes.
+                                </li>
+
+                                <li>
+                                    <strong>Review other deductions.</strong>
+                                    These may include health insurance, retirement contributions, flexible spending
+                                    accounts, garnishments, or other deductions.
+                                </li>
+
+                                <li>
+                                    <strong>Check YTD totals.</strong>
+                                    Compare the cumulative numbers with previous paystubs when appropriate.
+                                </li>
+
+                                <li>
+                                    <strong>Confirm net pay.</strong>
+                                    This should correspond to the amount actually paid through your paycheck or direct
+                                    deposit.
+                                </li>
+                            </ol>
+                        </section>
+
+                        <!-- HEADER -->
+
+                        <section class="article-section" id="header">
+                            <h2>1. Check the Paystub Header</h2>
+
+                            <p>
+                                The top portion of a paystub commonly identifies the employee, employer, pay period,
+                                payment date, and sometimes a check number or employee ID.
+                            </p>
+
+                            <div class="info-grid">
+                                <div class="info-card">
+                                    <strong>Employee information</strong>
+                                    <span> Your name and, depending on the employer, address or employee ID. </span>
+                                </div>
+
+                                <div class="info-card">
+                                    <strong>Employer information</strong>
+                                    <span> Company, department, location, or payroll information. </span>
+                                </div>
+
+                                <div class="info-card">
+                                    <strong>Pay period</strong>
+                                    <span> The dates covered by the earnings on the statement. </span>
+                                </div>
+
+                                <div class="info-card">
+                                    <strong>Pay date</strong>
+                                    <span> The date the payment is issued or becomes available. </span>
+                                </div>
+                            </div>
+
+                            <div class="callout">
+                                <strong>Pay period is not always the same as pay date.</strong>
+                                The pay period tells you when the work or earnings were calculated. The pay date tells
+                                you when the payment is issued.
+                            </div>
+                        </section>
+
+                        <!-- EARNINGS -->
+
+                        <section class="article-section" id="earnings">
+                            <h2>2. Understand Your Earnings</h2>
+
+                            <p>
+                                The earnings section explains how your gross pay was generated. What appears here
+                                depends on whether you are paid hourly, salaried, or receive other types of
+                                compensation.
+                            </p>
+
+                            <h3>Hourly employees</h3>
+
+                            <p>
+                                An hourly paystub may show the number of hours worked, the hourly rate, and the
+                                resulting earnings.
+                            </p>
+
+                            <div class="formula">
+                                Hours Worked × Hourly Rate = Regular Earnings
+                                <small> Overtime or other pay may be calculated separately. </small>
+                            </div>
+
+                            <h3>Salaried employees</h3>
+
+                            <p>
+                                A salaried employee may see a salary amount allocated to the current pay period rather
+                                than a simple hours-times-rate calculation.
+                            </p>
+
+                            <h3>Other earnings</h3>
+
+                            <p>
+                                Depending on your job and employer, the earnings section may include overtime, bonuses,
+                                commissions, holiday pay, vacation pay, sick pay, shift differentials, retroactive pay,
+                                or other compensation.
+                            </p>
+                        </section>
+
+                        <!-- GROSS -->
+
+                        <section class="article-section" id="gross-pay">
+                            <h2>3. Find Your Gross Pay</h2>
+
+                            <p>
+                                <strong>Gross pay</strong> is the amount you earned before applicable taxes and other
+                                deductions are taken out.
+                            </p>
+
+                            <p>
+                                It may include regular wages as well as overtime, bonuses, commissions, or other
+                                compensation. The exact items included depend on your pay and payroll system.
+                            </p>
+
+                            <div class="callout">
+                                <strong>Important:</strong>
+                                Gross pay is not the same as take-home pay. Your bank account normally receives the
+                                net-pay amount, not your gross-pay amount.
+                            </div>
+                        </section>
+
+                        <!-- TAXABLE WAGES -->
+
+                        <section class="article-section" id="taxable-wages">
+                            <h2>4. Understand Taxable Wages</h2>
+
+                            <p>
+                                Some paystubs show one or more taxable-wage amounts in addition to gross pay. These
+                                numbers can be different because certain deductions or benefits may receive different
+                                tax treatment.
+                            </p>
+
+                            <p>
+                                For example, a qualifying pre-tax benefit may reduce the wages subject to a particular
+                                income tax while not necessarily changing the wages subject to every payroll tax.
+                            </p>
+
+                            <p>
+                                That is why you should not assume that one number on a paystub is the taxable amount for
+                                every tax.
+                            </p>
+
+                            <div class="callout">
+                                <strong>Look for the tax-specific wage base.</strong>
+                                If your paystub lists federal taxable wages, Social Security wages, or Medicare wages
+                                separately, each figure may be used for a different payroll calculation.
+                            </div>
+
+                            <p>
+                                This distinction is one reason gross pay, taxable income, and take-home pay should not
+                                be treated as interchangeable terms.
+                            </p>
+                        </section>
+
+                        <!-- TAXES -->
+
+                        <section class="article-section" id="taxes">
+                            <h2>5. Read the Tax Withholdings</h2>
+
+                            <p>
+                                Taxes are commonly listed as separate lines on a paystub. The exact taxes shown depend
+                                on your location and circumstances.
+                            </p>
+
+                            <div class="table-scroll">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Paystub item</th>
+                                            <th>What it generally means</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>Federal income tax</td>
+                                            <td>
+                                                Federal income tax withheld from your pay based on applicable
+                                                withholding information and rules.
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Social Security</td>
+                                            <td>Employee payroll tax that helps fund Social Security.</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Medicare</td>
+                                            <td>Employee payroll tax associated with Medicare.</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>State income tax</td>
+                                            <td>State income-tax withholding where applicable.</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Local tax</td>
+                                            <td>City, county, or other local tax where applicable.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p>
+                                Federal income tax withholding is different from Social Security and Medicare
+                                withholding. Seeing several separate tax lines does not mean the same tax is being
+                                charged multiple times.
+                            </p>
+                        </section>
+
+                        <!-- DEDUCTIONS -->
+
+                        <section class="article-section" id="deductions">
+                            <h2>6. Understand Paystub Deductions</h2>
+
+                            <p>
+                                Deductions are amounts taken from your earnings for taxes, benefits, retirement
+                                contributions, insurance, or other purposes. Not every deduction has the same tax
+                                treatment.
+                            </p>
+
+                            <h3>Pre-tax deductions</h3>
+
+                            <p>
+                                Certain qualifying deductions are taken on a pre-tax basis. Depending on the deduction
+                                and the tax involved, this can reduce the amount of wages subject to particular taxes.
+                            </p>
+
+                            <p>
+                                Examples can include certain employer health plans, retirement contributions, and
+                                eligible flexible spending arrangements.
+                            </p>
+
+                            <h3>After-tax deductions</h3>
+
+                            <p>
+                                After-tax deductions are generally taken after the applicable taxes have been
+                                calculated.
+                            </p>
+
+                            <p>
+                                Depending on the employer and plan, examples can include certain Roth retirement
+                                contributions, insurance premiums, union dues, charitable contributions, or wage
+                                garnishments.
+                            </p>
+
+                            <div class="callout">
+                                <strong>Do not assume every benefit is pre-tax.</strong>
+                                The tax treatment depends on the specific benefit, payroll arrangement, and applicable
+                                rules.
+                            </div>
+                        </section>
+
+                        <!-- YTD -->
+
+                        <section class="article-section" id="ytd">
+                            <h2>7. What Does YTD Mean on a Paystub?</h2>
+
+                            <p>
+                                <strong>YTD</strong> means <strong>year-to-date</strong>. It represents cumulative
+                                amounts from the beginning of the year through the current paycheck.
+                            </p>
+
+                            <p>Your paystub may show current-period and YTD amounts side by side.</p>
+
+                            <div class="table-scroll">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Current</th>
+                                            <th>YTD</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>Gross pay</td>
+                                            <td>$2,150</td>
+                                            <td>$38,700</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Federal tax</td>
+                                            <td>$210</td>
+                                            <td>$3,780</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Social Security</td>
+                                            <td>$133.30</td>
+                                            <td>$2,399.40</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Medicare</td>
+                                            <td>$31.18</td>
+                                            <td>$561.24</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Net pay</td>
+                                            <td>$1,685.52</td>
+                                            <td>$30,339.36</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p>
+                                The current column describes this particular paycheck. The YTD column accumulates
+                                amounts across the year.
+                            </p>
+                        </section>
+
+                        <!-- NET PAY -->
+
+                        <section class="article-section" id="net-pay">
+                            <h2>8. Find Your Net Pay</h2>
+
+                            <p>
+                                <strong>Net pay</strong> is commonly called take-home pay. It is the amount remaining
+                                after the applicable taxes and deductions are subtracted from your earnings.
+                            </p>
+
+                            <div class="formula">
+                                Gross Pay − Taxes − Deductions = Net Pay
+                                <small>
+                                    Actual payroll calculations can be more detailed depending on taxable wages and
+                                    deduction treatment.
+                                </small>
+                            </div>
+
+                            <p>
+                                If you receive direct deposit, the net-pay amount may be split between multiple bank
+                                accounts depending on your direct-deposit instructions.
+                            </p>
+
+                            <p>
+                                For budgeting purposes, net pay is generally the figure that matters most because it
+                                represents the amount actually available from that paycheck.
+                            </p>
+                        </section>
+
+                        <!-- EMPLOYER BENEFITS -->
+
+                        <section class="article-section" id="benefits">
+                            <h2>9. Check Employer-Paid Benefits</h2>
+
+                            <p>
+                                Some paystubs display benefits paid partly or entirely by your employer. These amounts
+                                can represent part of your compensation even though they do not necessarily reduce the
+                                amount deposited into your bank account.
+                            </p>
+
+                            <p>
+                                Depending on the employer, a paystub may show items such as employer retirement
+                                contributions, health insurance costs, or employer-paid life insurance.
+                            </p>
+
+                            <div class="callout">
+                                <strong>Employer-paid does not automatically mean take-home pay.</strong>
+                                These amounts may be useful for understanding your total compensation, but they are
+                                different from the net-pay amount.
+                            </div>
+                        </section>
+
+                        <!-- ABBREVIATIONS -->
+
+                        <section class="article-section" id="abbreviations">
+                            <h2>Common Paystub Abbreviations</h2>
+
+                            <p>
+                                Payroll systems often use abbreviations to keep paystub layouts compact. Here are some
+                                common examples.
+                            </p>
+
+                            <div class="table-scroll">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Abbreviation</th>
+                                            <th>Meaning</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>YTD</td>
+                                            <td>Year-to-date</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>FIT / FITW</td>
+                                            <td>Federal income tax withholding</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>FICA</td>
+                                            <td>Social Security and Medicare payroll taxes</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>OASDI</td>
+                                            <td>Social Security component of FICA</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>MED / Medicare</td>
+                                            <td>Medicare payroll tax</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>SIT / SWT</td>
+                                            <td>State income tax or state withholding</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>OT</td>
+                                            <td>Overtime</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>GP / Gross</td>
+                                            <td>Gross pay</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>NP / Net</td>
+                                            <td>Net pay</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p class="muted">
+                                Abbreviations vary between employers and payroll providers, so your paystub may use
+                                different labels.
+                            </p>
+                        </section>
+
+                        <!-- CALCULATION -->
+
+                        <section class="article-section" id="calculation">
+                            <h2>How Does a Paystub Calculate Take-Home Pay?</h2>
+
+                            <p>
+                                The exact payroll calculation varies by employee, but the general process can be
+                                understood as a sequence.
+                            </p>
+
+                            <div class="info-grid">
+                                <div class="info-card">
+                                    <strong>1. Earnings</strong>
+                                    <span> Regular pay, overtime, bonuses and other compensation. </span>
+                                </div>
+
+                                <div class="info-card">
+                                    <strong>2. Gross pay</strong>
+                                    <span> Total earnings before applicable taxes and deductions. </span>
+                                </div>
+
+                                <div class="info-card">
+                                    <strong>3. Taxable wages</strong>
+                                    <span> Wage amounts used for particular tax calculations. </span>
+                                </div>
+
+                                <div class="info-card">
+                                    <strong>4. Withholdings</strong>
+                                    <span> Federal, state, local and payroll taxes where applicable. </span>
+                                </div>
+
+                                <div class="info-card">
+                                    <strong>5. Other deductions</strong>
+                                    <span> Benefits, retirement, insurance and other deductions. </span>
+                                </div>
+
+                                <div class="info-card">
+                                    <strong>6. Net pay</strong>
+                                    <span> The amount actually paid to the employee. </span>
+                                </div>
+                            </div>
+
+                            <div class="formula">Earnings → Gross Pay → Tax Calculations → Deductions → Net Pay</div>
+                        </section>
+
+                        <!-- ERROR CHECK -->
+
+                        <section class="article-section" id="errors">
+                            <h2>What Should You Check on Every Paystub?</h2>
+
+                            <p>
+                                Reviewing your paystub can help you catch payroll mistakes before they become difficult
+                                to trace.
+                            </p>
+
+                            <ul>
+                                <li><strong>Hours:</strong> Do the regular and overtime hours match your records?</li>
+
+                                <li><strong>Pay rate:</strong> Is your hourly rate or salary amount correct?</li>
+
+                                <li>
+                                    <strong>Overtime:</strong> If you worked overtime, is the additional pay included?
+                                </li>
+
+                                <li>
+                                    <strong>Bonuses and commissions:</strong> Were expected additional earnings
+                                    included?
+                                </li>
+
+                                <li>
+                                    <strong>Benefits:</strong> Are health insurance and other benefit deductions what
+                                    you expected?
+                                </li>
+
+                                <li>
+                                    <strong>Retirement:</strong> Does the contribution match your selected amount or
+                                    percentage?
+                                </li>
+
+                                <li>
+                                    <strong>Taxes:</strong> Are the withholding lines present and consistent with your
+                                    circumstances?
+                                </li>
+
+                                <li>
+                                    <strong>YTD totals:</strong> Do cumulative amounts make sense compared with previous
+                                    paystubs?
+                                </li>
+
+                                <li>
+                                    <strong>Net pay:</strong> Does the final amount match the amount actually deposited
+                                    or paid?
+                                </li>
+                            </ul>
+                        </section>
+
+                        <!-- WHAT TO DO -->
+
+                        <section class="article-section">
+                            <h2>What to Do if Your Paystub Looks Wrong</h2>
+
+                            <p>
+                                If something does not match your records, first compare the current paystub with
+                                previous statements and your time or earnings records.
+                            </p>
+
+                            <ol>
+                                <li>Identify the specific number that appears incorrect.</li>
+
+                                <li>Compare it with your previous paystub or time records.</li>
+
+                                <li>
+                                    Check whether a recent change in pay, benefits, tax withholding, or deductions
+                                    explains the difference.
+                                </li>
+
+                                <li>
+                                    Contact your employer's payroll or HR department if the discrepancy remains
+                                    unexplained.
+                                </li>
+
+                                <li>Keep copies of relevant records in case the issue needs additional follow-up.</li>
+                            </ol>
+
+                            <div class="callout warning">
+                                <strong>Do not ignore repeated discrepancies.</strong>
+                                Small errors can affect multiple pay periods, so unexplained differences are worth
+                                investigating promptly.
+                            </div>
+                        </section>
+
+                        <!-- USES -->
+
+                        <section class="article-section" id="uses">
+                            <h2>Why Keep Your Paystubs?</h2>
+
+                            <p>
+                                Paystubs can be useful beyond checking whether your paycheck is correct. They provide a
+                                record of earnings and deductions during the year.
+                            </p>
+
+                            <div class="info-grid">
+                                <div class="info-card">
+                                    <strong>Budgeting</strong>
+                                    <span> Use net pay to understand the amount available from each paycheck. </span>
+                                </div>
+
+                                <div class="info-card">
+                                    <strong>Income verification</strong>
+                                    <span>
+                                        Paystubs may be requested when verifying employment income for certain
+                                        applications.
+                                    </span>
+                                </div>
+
+                                <div class="info-card">
+                                    <strong>Tax records</strong>
+                                    <span>
+                                        YTD earnings and withholding information can help you monitor payroll tax
+                                        withholding.
+                                    </span>
+                                </div>
+
+                                <div class="info-card">
+                                    <strong>Payroll disputes</strong>
+                                    <span>
+                                        Previous paystubs can help compare hours, earnings, deductions and YTD amounts.
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="callout warning">
+                                <strong>Protect your personal information.</strong>
+                                Paystubs can contain sensitive information such as employee identifiers, earnings,
+                                deductions and tax information. Avoid posting an unredacted paystub publicly.
+                            </div>
+                        </section>
+
+                        <!-- CALCULATORS -->
+
+                        <section class="article-section">
+                            <h2>PaycheckMint Paycheck Calculators</h2>
+
+                            <p>
+                                Once you understand your paystub, you can use PaycheckMint's calculators to estimate
+                                different parts of your paycheck.
+                            </p>
+
+                            <div class="info-grid">
+                                <div class="info-card">
+                                    <strong>
+                                        <a href="/paycheck-tax-calculator/"> Paycheck Tax Calculator </a>
+                                    </strong>
+                                    <span> Estimate paycheck taxes and take-home pay. </span>
+                                </div>
+
+                                <div class="info-card">
+                                    <strong>
+                                        <a href="/take-home-pay-calculator/"> Take-Home Pay Calculator </a>
+                                    </strong>
+                                    <span> Estimate how much of your earnings you may actually receive. </span>
+                                </div>
+
+                                <div class="info-card">
+                                    <strong>
+                                        <a href="/hourly-paycheck-calculator/"> Hourly Paycheck Calculator </a>
+                                    </strong>
+                                    <span> Estimate pay from an hourly wage and pay frequency. </span>
+                                </div>
+
+                                <div class="info-card">
+                                    <strong>
+                                        <a href="/salary-paycheck-calculator/"> Salary Paycheck Calculator </a>
+                                    </strong>
+                                    <span> Estimate paycheck amounts from an annual salary. </span>
+                                </div>
+
+                                <div class="info-card">
+                                    <strong>
+                                        <a href="/overtime-pay-calculator/"> Overtime Pay Calculator </a>
+                                    </strong>
+                                    <span> Estimate additional pay from overtime hours. </span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- FAQ -->
+
+                        <section class="article-section" id="faq">
+                            <h2>How to Read a Paystub: FAQs</h2>
+
+                            <div class="faq-item open">
+                                <button class="faq-question" type="button">
+                                    <span> What is a paystub? </span>
+
+                                    <span class="faq-icon"> − </span>
+                                </button>
+
+                                <div class="faq-answer">
+                                    A paystub is a statement that explains how your paycheck was calculated. It commonly
+                                    shows earnings, taxes, deductions, net pay, and year-to-date totals.
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question" type="button">
+                                    <span> What is gross pay on a paystub? </span>
+
+                                    <span class="faq-icon"> + </span>
+                                </button>
+
+                                <div class="faq-answer">
+                                    Gross pay is the amount earned before applicable taxes and other deductions are
+                                    subtracted. It can include regular wages, overtime, bonuses, commissions, and other
+                                    compensation.
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question" type="button">
+                                    <span> What does YTD mean on a paystub? </span>
+
+                                    <span class="faq-icon"> + </span>
+                                </button>
+
+                                <div class="faq-answer">
+                                    YTD means year-to-date. It represents the cumulative amount from the beginning of
+                                    the year through the current paycheck.
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question" type="button">
+                                    <span> What is net pay? </span>
+
+                                    <span class="faq-icon"> + </span>
+                                </button>
+
+                                <div class="faq-answer">
+                                    Net pay is the amount remaining after applicable taxes and deductions are subtracted
+                                    from earnings. It is commonly called take-home pay.
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question" type="button">
+                                    <span> Why is taxable income different from gross pay? </span>
+
+                                    <span class="faq-icon"> + </span>
+                                </button>
+
+                                <div class="faq-answer">
+                                    Taxable wages can differ from gross pay because certain deductions and benefits can
+                                    receive different tax treatment. A paystub may show different wage bases for
+                                    different taxes.
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question" type="button">
+                                    <span> What should I check on my paystub? </span>
+
+                                    <span class="faq-icon"> + </span>
+                                </button>
+
+                                <div class="faq-answer">
+                                    Check your pay period, pay date, hours, pay rates, earnings, taxes, deductions,
+                                    taxable wages when shown, YTD totals, and final net pay.
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question" type="button">
+                                    <span> Can a paystub be different from my bank deposit? </span>
+
+                                    <span class="faq-icon"> + </span>
+                                </button>
+
+                                <div class="faq-answer">
+                                    Your paystub may show a net-pay amount that is then distributed through direct
+                                    deposit according to your payroll instructions. If the amount deposited appears
+                                    inconsistent with the paystub, check whether your payment was split between accounts
+                                    or contact payroll.
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- CTA -->
+
+                        <section class="dark-cta">
+                            <h2>Want to estimate your paycheck?</h2>
+
+                            <p>
+                                Use PaycheckMint to estimate taxes, deductions and take-home pay before comparing your
+                                estimate with an actual paystub.
+                            </p>
+
+                            <a class="btn" href="/paycheck-tax-calculator/"> Open Paycheck Calculator </a>
+                        </section>
+
+                        <section class="article-section" style="margin-top: 20px">
+                            <p class="muted" style="font-size: 13px">
+                                <strong>Disclaimer:</strong>
+                                PaycheckMint provides general educational information and paycheck estimates. Actual
+                                payroll calculations can vary by employer, tax withholding elections, benefits,
+                                deductions, location, and applicable federal, state, and local rules. This page is not
+                                tax, legal, accounting, or financial advice.
+                            </p>
+                        </section>
+                    </article>
+
+                    <!-- SIDEBAR -->
+
+                    <aside class="sidebar">
+                        <div class="toc">
+                            <div class="toc-title">On this page</div>
+
+                            <a href="#sample-paystub"> Sample paystub </a>
+
+                            <a href="#step-by-step"> Step-by-step guide </a>
+
+                            <a href="#header"> Paystub header </a>
+
+                            <a href="#earnings"> Earnings </a>
+
+                            <a href="#gross-pay"> Gross pay </a>
+
+                            <a href="#taxable-wages"> Taxable wages </a>
+
+                            <a href="#taxes"> Taxes </a>
+
+                            <a href="#deductions"> Deductions </a>
+
+                            <a href="#ytd"> YTD totals </a>
+
+                            <a href="#net-pay"> Net pay </a>
+
+                            <a href="#abbreviations"> Abbreviations </a>
+
+                            <a href="#errors"> Check for errors </a>
+
+                            <a href="#faq"> FAQs </a>
+                        </div>
+
+                        <div class="sidebar-card">
+                            <strong> Estimate your take-home pay </strong>
+
+                            <p>Compare an estimated paycheck with the numbers you see on your actual paystub.</p>
+
+                            <a class="btn btn-primary" href="/paycheck-tax-calculator/" style="width: 100%">
+                                Paycheck Calculator
+                            </a>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-inner">
+                    <div class="footer-grid">
+                        <div>
+                            <div class="footer-brand">PaycheckMint</div>
+
+                            <p class="footer-description">
+                                Free paycheck and income calculators to help you estimate take-home pay, taxes, salary,
+                                hourly wages, and overtime.
+                            </p>
+                        </div>
+
+                        <div class="footer-column">
+                            <h3>Calculators</h3>
+
+                            <a href="/take-home-pay-calculator/"> Take-Home Pay </a>
+
+                            <a href="/salary-paycheck-calculator/"> Salary Paycheck </a>
+
+                            <a href="/hourly-paycheck-calculator/"> Hourly Paycheck </a>
+
+                            <a href="/paycheck-tax-calculator/"> Paycheck Tax </a>
+
+                            <a href="/overtime-pay-calculator/"> Overtime Pay </a>
+                        </div>
+
+                        <div class="footer-column">
+                            <h3>PaycheckMint</h3>
+
+                            <a href="/"> Home </a>
+
+                            <a href="/about/"> About </a>
+
+                            <a href="/faq/"> FAQ </a>
+
+                            <a href="/contact/"> Contact </a>
+
+                            <a href="/privacy-policy/"> Privacy </a>
+
+                            <a href="/terms/"> Terms </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-bottom">
+                        <span> © 2026 PaycheckMint. Free online paycheck tools. </span>
+
+                        <span> Estimates are for informational purposes. </span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const header = document.querySelector(".site-header");
+
+                if (!header) return;
+
+                const menuToggle = header.querySelector(".mobile-menu-toggle");
+
+                const mainNav = header.querySelector(".main-nav");
+
+                const dropdown = header.querySelector(".nav-dropdown");
+
+                const dropdownToggle = header.querySelector(".nav-dropdown-toggle");
+
+                function closeMenu() {
+                    if (mainNav) {
+                        mainNav.classList.remove("mobile-open");
+                    }
+
+                    if (menuToggle) {
+                        menuToggle.classList.remove("open");
+
+                        menuToggle.setAttribute("aria-expanded", "false");
+
+                        menuToggle.setAttribute("aria-label", "Open navigation");
+                    }
+                }
+
+                function closeDropdown() {
+                    if (dropdown) {
+                        dropdown.classList.remove("open");
+                    }
+
+                    if (dropdownToggle) {
+                        dropdownToggle.setAttribute("aria-expanded", "false");
+                    }
+                }
+
+                if (menuToggle && mainNav) {
+                    menuToggle.addEventListener("click", function (event) {
+                        event.stopPropagation();
+
+                        const open = mainNav.classList.toggle("mobile-open");
+
+                        menuToggle.classList.toggle("open", open);
+
+                        menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+
+                        menuToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+                    });
+                }
+
+                if (dropdown && dropdownToggle) {
+                    dropdownToggle.addEventListener("click", function (event) {
+                        event.stopPropagation();
+
+                        const open = dropdown.classList.toggle("open");
+
+                        dropdownToggle.setAttribute("aria-expanded", open ? "true" : "false");
+                    });
+                }
+
+                document.addEventListener("click", function (event) {
+                    if (!header.contains(event.target)) {
+                        closeMenu();
+                        closeDropdown();
+                    }
+                });
+
+                if (mainNav) {
+                    mainNav.querySelectorAll("a").forEach(function (link) {
+                        link.addEventListener("click", function () {
+                            closeMenu();
+                            closeDropdown();
+                        });
+                    });
+                }
+
+                window.addEventListener("resize", function () {
+                    if (window.innerWidth > 700) {
+                        closeMenu();
+                        closeDropdown();
+                    }
+                });
+
+                /* FAQ */
+
+                document.querySelectorAll(".faq-question").forEach(function (button) {
+                    button.addEventListener("click", function () {
+                        const item = button.closest(".faq-item");
+
+                        const icon = button.querySelector(".faq-icon");
+
+                        const isOpen = item.classList.toggle("open");
+
+                        if (icon) {
+                            icon.textContent = isOpen ? "−" : "+";
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

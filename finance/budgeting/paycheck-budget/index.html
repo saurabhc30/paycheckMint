@@ -1,0 +1,1996 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Paycheck Budgeting: How to Budget Every Paycheck | PaycheckMint</title>
+
+        <meta
+            name="description"
+            content="Learn how paycheck budgeting works, how to plan bills around each paycheck, handle biweekly pay, save money, manage debt, and build a practical paycheck budget."
+        />
+
+        <meta
+            name="keywords"
+            content="paycheck budgeting, paycheck budget, how to budget each paycheck, budget every paycheck, paycheck budget calculator, biweekly paycheck budget, budgeting by paycheck"
+        />
+
+        <link rel="canonical" href="https://paycheckmint.vercel.app/finance/budgeting/paycheck-budget/" />
+
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Paycheck Budgeting: How to Budget Every Paycheck | PaycheckMint" />
+        <meta
+            property="og:description"
+            content="A practical guide to budgeting around your paycheck, including biweekly pay, savings, bills, debt, and irregular income."
+        />
+        <meta property="og:url" content="https://paycheckmint.vercel.app/finance/budgeting/paycheck-budget/" />
+        <meta property="og:site_name" content="PaycheckMint" />
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Paycheck Budgeting: How to Budget Every Paycheck | PaycheckMint" />
+        <meta
+            name="twitter:description"
+            content="Learn how to create a paycheck budget and plan your bills, savings and spending around each payday."
+        />
+
+        <style>
+            :root {
+                --bg: #f6f5f1;
+                --surface: #ffffff;
+                --surface-soft: #faf9f6;
+
+                --ink: #191919;
+                --muted: #74736f;
+                --muted-light: #999791;
+
+                --line: #deddd8;
+                --line-dark: #cbc9c3;
+
+                --accent: #5954d9;
+                --accent-dark: #4843c2;
+                --accent-soft: #eeedff;
+
+                --success: #18794e;
+                --danger: #b42318;
+
+                --shadow: 0 8px 25px rgba(20, 20, 20, 0.06);
+
+                --radius: 16px;
+                --container: 1180px;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                margin: 0;
+                background: var(--bg);
+                color: var(--ink);
+                font-family:
+                    Inter,
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    Roboto,
+                    Arial,
+                    sans-serif;
+                line-height: 1.7;
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            img {
+                max-width: 100%;
+                display: block;
+            }
+
+            .container {
+                width: min(calc(100% - 40px), var(--container));
+                margin: 0 auto;
+            }
+
+            /* =========================
+           HEADER
+        ========================= */
+
+            .site-header {
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                background: var(--bg);
+                border-bottom: 1px solid var(--line);
+            }
+
+            .header-inner {
+                min-height: 72px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 25px;
+            }
+
+            .logo {
+                font-size: 23px;
+                font-weight: 800;
+                letter-spacing: -0.5px;
+                white-space: nowrap;
+            }
+
+            .logo span {
+                color: var(--accent);
+            }
+
+            .main-nav {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+
+            .main-nav > a,
+            .dropdown-toggle {
+                border: 0;
+                background: transparent;
+                color: var(--ink);
+                padding: 10px 13px;
+                border-radius: 9px;
+                font: inherit;
+                font-size: 14px;
+                cursor: pointer;
+            }
+
+            .main-nav > a:hover,
+            .dropdown-toggle:hover {
+                background: var(--surface);
+            }
+
+            .nav-dropdown {
+                position: relative;
+            }
+
+            .dropdown-menu {
+                display: none;
+                position: absolute;
+                right: 0;
+                top: calc(100% + 8px);
+                min-width: 220px;
+                padding: 8px;
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 12px;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-dropdown:hover .dropdown-menu,
+            .nav-dropdown.open .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-menu a {
+                display: block;
+                padding: 9px 11px;
+                border-radius: 8px;
+                font-size: 14px;
+            }
+
+            .dropdown-menu a:hover {
+                background: var(--accent-soft);
+                color: var(--accent-dark);
+            }
+
+            .mobile-menu-toggle {
+                display: none;
+                width: 42px;
+                height: 42px;
+                border: 1px solid var(--line);
+                border-radius: 10px;
+                background: var(--surface);
+                cursor: pointer;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .mobile-menu-toggle span {
+                width: 20px;
+                height: 2px;
+                background: var(--ink);
+                display: block;
+            }
+
+            /* =========================
+           HERO
+        ========================= */
+
+            .hero {
+                padding: 65px 0 45px;
+            }
+
+            .hero-inner {
+                max-width: 850px;
+            }
+
+            .eyebrow {
+                display: inline-flex;
+                align-items: center;
+                background: var(--accent-soft);
+                color: var(--accent-dark);
+                border-radius: 999px;
+                padding: 6px 12px;
+                font-size: 12px;
+                font-weight: 700;
+                margin-bottom: 17px;
+            }
+
+            h1 {
+                margin: 0 0 18px;
+                max-width: 850px;
+                font-size: clamp(38px, 5vw, 60px);
+                line-height: 1.08;
+                letter-spacing: -2.5px;
+            }
+
+            .hero-description {
+                max-width: 780px;
+                margin: 0;
+                color: var(--muted);
+                font-size: 18px;
+            }
+
+            .breadcrumbs {
+                margin-top: 20px;
+                color: var(--muted-light);
+                font-size: 13px;
+            }
+
+            .breadcrumbs a {
+                color: var(--accent-dark);
+            }
+
+            /* =========================
+           MAIN ARTICLE LAYOUT
+        ========================= */
+
+            .article-layout {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) 300px;
+                gap: 42px;
+                align-items: start;
+                padding-bottom: 70px;
+            }
+
+            article {
+                min-width: 0;
+            }
+
+            .article-card {
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: var(--radius);
+                padding: clamp(24px, 4vw, 45px);
+                box-shadow: var(--shadow);
+            }
+
+            .article-card h2 {
+                margin: 38px 0 15px;
+                font-size: 29px;
+                line-height: 1.25;
+                letter-spacing: -0.7px;
+                scroll-margin-top: 100px;
+            }
+
+            .article-card h3 {
+                margin: 28px 0 10px;
+                font-size: 21px;
+                line-height: 1.35;
+            }
+
+            .article-card p {
+                margin: 0 0 17px;
+                color: #363532;
+            }
+
+            .article-card ul,
+            .article-card ol {
+                margin: 10px 0 22px;
+                padding-left: 23px;
+            }
+
+            .article-card li {
+                margin-bottom: 9px;
+                color: #363532;
+            }
+
+            .article-card strong {
+                color: var(--ink);
+            }
+
+            .article-card a {
+                color: var(--accent-dark);
+                font-weight: 600;
+            }
+
+            /* =========================
+           SIDEBAR
+        ========================= */
+
+            .article-sidebar {
+                position: sticky;
+                top: 92px;
+            }
+
+            .sidebar-card {
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 14px;
+                padding: 20px;
+                margin-bottom: 18px;
+                box-shadow: var(--shadow);
+            }
+
+            .sidebar-card h3 {
+                margin: 0 0 8px;
+                font-size: 17px;
+                line-height: 1.3;
+            }
+
+            .sidebar-card p {
+                margin: 0 0 15px;
+                color: var(--muted);
+                font-size: 14px;
+                line-height: 1.55;
+            }
+
+            .sidebar-button {
+                display: block;
+                text-align: center;
+                padding: 10px 14px;
+                background: var(--accent);
+                color: #fff !important;
+                border-radius: 9px;
+                font-size: 14px;
+                font-weight: 700;
+            }
+
+            .sidebar-button:hover {
+                background: var(--accent-dark);
+            }
+
+            .toc-title {
+                margin-bottom: 10px !important;
+            }
+
+            .toc a {
+                display: block;
+                padding: 6px 0;
+                color: var(--muted);
+                font-size: 13px;
+                line-height: 1.4;
+            }
+
+            .toc a:hover {
+                color: var(--accent-dark);
+            }
+
+            /* =========================
+           CALCULATOR
+        ========================= */
+
+            .calculator-section {
+                margin: 0 0 35px;
+                padding: 28px;
+                background: var(--surface-soft);
+                border: 1px solid var(--line);
+                border-radius: 14px;
+            }
+
+            .calculator-section h2 {
+                margin-top: 0;
+            }
+
+            .calculator-intro {
+                color: var(--muted);
+                margin-bottom: 24px;
+            }
+
+            .calculator-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 16px;
+            }
+
+            .field {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .field.full {
+                grid-column: 1 / -1;
+            }
+
+            .field label {
+                font-size: 13px;
+                font-weight: 700;
+            }
+
+            .field input,
+            .field select {
+                width: 100%;
+                height: 45px;
+                border: 1px solid var(--line-dark);
+                border-radius: 9px;
+                background: var(--surface);
+                color: var(--ink);
+                padding: 0 12px;
+                font: inherit;
+                outline: none;
+            }
+
+            .field input:focus,
+            .field select:focus {
+                border-color: var(--accent);
+                box-shadow: 0 0 0 3px var(--accent-soft);
+            }
+
+            .expense-heading {
+                grid-column: 1 / -1;
+                margin-top: 10px;
+                padding-bottom: 8px;
+                border-bottom: 1px solid var(--line);
+                font-size: 16px;
+                font-weight: 800;
+            }
+
+            .calculate-button {
+                width: 100%;
+                margin-top: 20px;
+                border: 0;
+                border-radius: 10px;
+                background: var(--accent);
+                color: #fff;
+                min-height: 48px;
+                font-size: 15px;
+                font-weight: 800;
+                cursor: pointer;
+            }
+
+            .calculate-button:hover {
+                background: var(--accent-dark);
+            }
+
+            .calculator-results {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+                margin-top: 22px;
+            }
+
+            .result-box {
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 10px;
+                padding: 15px;
+            }
+
+            .result-label {
+                color: var(--muted);
+                font-size: 12px;
+                margin-bottom: 4px;
+            }
+
+            .result-value {
+                font-size: 21px;
+                font-weight: 800;
+                letter-spacing: -0.4px;
+            }
+
+            .status {
+                grid-column: 1 / -1;
+                padding: 14px;
+                border-radius: 10px;
+                font-size: 14px;
+                font-weight: 700;
+                background: var(--accent-soft);
+                color: var(--accent-dark);
+            }
+
+            .status.good {
+                background: #eaf7ef;
+                color: var(--success);
+            }
+
+            .status.bad {
+                background: #fff0ef;
+                color: var(--danger);
+            }
+
+            /* =========================
+           HIGHLIGHT BOXES
+        ========================= */
+
+            .quick-answer {
+                padding: 20px;
+                background: var(--accent-soft);
+                border-left: 4px solid var(--accent);
+                border-radius: 10px;
+                margin: 20px 0 30px;
+            }
+
+            .quick-answer strong {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .info-box {
+                padding: 20px;
+                border: 1px solid var(--line);
+                border-radius: 11px;
+                background: var(--surface-soft);
+                margin: 22px 0;
+            }
+
+            .formula {
+                padding: 17px;
+                text-align: center;
+                background: var(--ink);
+                color: #fff;
+                border-radius: 10px;
+                margin: 22px 0;
+                font-weight: 700;
+            }
+
+            /* =========================
+           TABLE
+        ========================= */
+
+            .table-wrap {
+                width: 100%;
+                overflow-x: auto;
+                margin: 22px 0;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                min-width: 570px;
+                background: var(--surface);
+            }
+
+            th,
+            td {
+                padding: 12px 13px;
+                text-align: left;
+                border-bottom: 1px solid var(--line);
+                font-size: 14px;
+            }
+
+            th {
+                background: var(--surface-soft);
+                font-weight: 800;
+            }
+
+            /* =========================
+           FAQ
+        ========================= */
+
+            .faq-item {
+                border-top: 1px solid var(--line);
+            }
+
+            .faq-question {
+                width: 100%;
+                border: 0;
+                background: transparent;
+                padding: 18px 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                text-align: left;
+                font: inherit;
+                font-weight: 750;
+                color: var(--ink);
+                cursor: pointer;
+            }
+
+            .faq-question span:last-child {
+                font-size: 22px;
+                color: var(--muted);
+            }
+
+            .faq-answer {
+                display: none;
+                padding: 0 0 17px;
+                color: var(--muted);
+            }
+
+            .faq-item.open .faq-answer {
+                display: block;
+            }
+
+            /* =========================
+           CTA
+        ========================= */
+
+            .cta {
+                margin-top: 40px;
+                padding: 28px;
+                border-radius: 14px;
+                background: var(--accent-soft);
+                border: 1px solid #dcd9ff;
+            }
+
+            .cta h2 {
+                margin-top: 0;
+            }
+
+            .cta-button {
+                display: inline-block;
+                margin-top: 5px;
+                padding: 11px 17px;
+                background: var(--accent);
+                color: #fff !important;
+                border-radius: 9px;
+                font-size: 14px;
+                font-weight: 800;
+            }
+
+            /* =========================
+           DISCLAIMER
+        ========================= */
+
+            .disclaimer {
+                margin-top: 28px;
+                padding: 17px;
+                border: 1px solid var(--line);
+                border-radius: 10px;
+                color: var(--muted);
+                font-size: 13px;
+                background: var(--surface-soft);
+            }
+
+            /* =========================
+           FOOTER
+        ========================= */
+
+            footer {
+                background: var(--bg);
+                border-top: 1px solid var(--line);
+            }
+
+            .footer-inner {
+                padding: 35px 0;
+                display: grid;
+                grid-template-columns: 1.4fr 1fr 1fr;
+                gap: 35px;
+            }
+
+            .footer-brand {
+                font-weight: 800;
+                font-size: 20px;
+                margin-bottom: 8px;
+            }
+
+            .footer-brand span {
+                color: var(--accent);
+            }
+
+            .footer-text {
+                color: var(--muted);
+                font-size: 13px;
+                max-width: 360px;
+            }
+
+            .footer-column h4 {
+                margin: 0 0 10px;
+                font-size: 14px;
+            }
+
+            .footer-column a {
+                display: block;
+                color: var(--muted);
+                font-size: 13px;
+                margin-bottom: 6px;
+            }
+
+            .footer-column a:hover {
+                color: var(--accent-dark);
+            }
+
+            .footer-bottom {
+                border-top: 1px solid var(--line);
+                padding: 18px 0;
+                color: var(--muted);
+                font-size: 12px;
+            }
+
+            /* =========================
+           MOBILE
+        ========================= */
+
+            @media (max-width: 850px) {
+                .container {
+                    width: min(calc(100% - 28px), var(--container));
+                }
+
+                .header-inner {
+                    min-height: 64px;
+                }
+
+                .mobile-menu-toggle {
+                    display: flex;
+                }
+
+                .main-nav {
+                    display: none;
+                    position: absolute;
+                    top: 64px;
+                    left: 14px;
+                    right: 14px;
+                    padding: 10px;
+                    flex-direction: column;
+                    align-items: stretch;
+                    background: var(--surface);
+                    border: 1px solid var(--line);
+                    border-radius: 12px;
+                    box-shadow: var(--shadow);
+                }
+
+                .main-nav.open {
+                    display: flex;
+                }
+
+                .main-nav > a,
+                .dropdown-toggle {
+                    width: 100%;
+                    text-align: left;
+                    padding: 12px;
+                }
+
+                .nav-dropdown {
+                    width: 100%;
+                }
+
+                .dropdown-menu {
+                    position: static;
+                    width: 100%;
+                    box-shadow: none;
+                    border: 0;
+                    padding: 0 0 5px 10px;
+                }
+
+                .nav-dropdown.open .dropdown-menu {
+                    display: block;
+                }
+
+                .article-layout {
+                    grid-template-columns: 1fr;
+                    gap: 25px;
+                }
+
+                .article-sidebar {
+                    position: static;
+                    order: 2;
+                }
+
+                article {
+                    order: 1;
+                }
+
+                .sidebar-card {
+                    margin-bottom: 15px;
+                }
+
+                .hero {
+                    padding: 42px 0 30px;
+                }
+
+                h1 {
+                    font-size: clamp(36px, 10vw, 48px);
+                    letter-spacing: -1.8px;
+                }
+
+                .hero-description {
+                    font-size: 16px;
+                }
+
+                .article-card {
+                    padding: 22px;
+                }
+
+                .article-card h2 {
+                    font-size: 25px;
+                }
+
+                .calculator-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .field.full {
+                    grid-column: auto;
+                }
+
+                .calculator-results {
+                    grid-template-columns: 1fr;
+                }
+
+                .status {
+                    grid-column: auto;
+                }
+
+                .footer-inner {
+                    grid-template-columns: 1fr;
+                    gap: 24px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .container {
+                    width: min(calc(100% - 22px), var(--container));
+                }
+
+                .hero {
+                    padding-top: 35px;
+                }
+
+                h1 {
+                    font-size: 35px;
+                }
+
+                .article-card {
+                    padding: 18px;
+                    border-radius: 12px;
+                }
+
+                .calculator-section {
+                    padding: 18px;
+                }
+
+                .sidebar-card {
+                    padding: 17px;
+                }
+            }
+        </style>
+
+        <!-- Article Schema -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": "Paycheck Budgeting: How to Budget Every Paycheck",
+                "description": "A practical guide to paycheck budgeting, including pay frequency, bills, savings, debt and irregular income.",
+                "author": {
+                    "@type": "Organization",
+                    "name": "PaycheckMint"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "PaycheckMint"
+                },
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://paycheckmint.vercel.app/finance/budgeting/paycheck-budget/"
+                }
+            }
+        </script>
+
+        <!-- Breadcrumb Schema -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://paycheckmint.vercel.app/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Finance",
+                        "item": "https://paycheckmint.vercel.app/finance/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Budgeting",
+                        "item": "https://paycheckmint.vercel.app/finance/budgeting/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 4,
+                        "name": "Paycheck Budgeting",
+                        "item": "https://paycheckmint.vercel.app/finance/budgeting/paycheck-budget/"
+                    }
+                ]
+            }
+        </script>
+
+        <!-- FAQ Schema -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "What is paycheck budgeting?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Paycheck budgeting is a method of planning your income, bills, savings, debt payments and spending around the dates you receive each paycheck."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How do I budget every paycheck?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Start with your take-home pay, list bills and expenses due before your next paycheck, set aside money for savings and debt, and assign the remaining amount to flexible spending."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How do I budget with biweekly pay?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "For biweekly pay, build your regular budget around two paychecks per month and decide in advance how to use the two additional paychecks that occur in some calendar years."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Should savings be included in a paycheck budget?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. Savings can be treated as a planned budget category so money is set aside before it is spent."
+                        }
+                    }
+                ]
+            }
+        </script>
+    </head>
+
+    <body>
+        <header class="site-header">
+            <div class="container header-inner">
+                <a href="/" class="logo"> Paycheck<span>Mint</span> </a>
+
+                <button
+                    class="mobile-menu-toggle"
+                    id="mobileMenuToggle"
+                    aria-label="Open navigation"
+                    aria-expanded="false"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <nav class="main-nav" id="mainNav">
+                    <a href="/">Home</a>
+
+                    <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+
+                    <a href="/income/"> Income </a>
+
+                    <div class="nav-dropdown" id="financeDropdown">
+                        <button class="dropdown-toggle" id="financeToggle" aria-expanded="false">Finance ▾</button>
+
+                        <div class="dropdown-menu">
+                            <a href="/finance/"> Finance Overview </a>
+
+                            <a href="/finance/taxes/"> Taxes </a>
+
+                            <a href="/finance/budgeting/"> Budgeting </a>
+
+                            <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+
+                            <a href="/finance/investing/"> Investing </a>
+
+                            <a href="/finance/insurance/"> Insurance </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- HERO -->
+
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-inner">
+                        <div class="eyebrow">Budgeting Guide</div>
+
+                        <h1>Paycheck Budgeting: How to Budget Every Paycheck</h1>
+
+                        <p class="hero-description">
+                            Learn how to organize bills, savings, debt payments and everyday spending around the money
+                            you actually receive from each paycheck.
+                        </p>
+
+                        <div class="breadcrumbs">
+                            <a href="/">Home</a>
+                            &nbsp; / &nbsp;
+                            <a href="/finance/">Finance</a>
+                            &nbsp; / &nbsp;
+                            <a href="/finance/budgeting/">Budgeting</a>
+                            &nbsp; / &nbsp; Paycheck Budgeting
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ARTICLE LEFT / SIDEBAR RIGHT -->
+
+            <div class="container article-layout">
+                <!-- =========================
+             ARTICLE
+        ========================= -->
+
+                <article>
+                    <div class="article-card">
+                        <div class="quick-answer">
+                            <strong>Quick answer</strong>
+
+                            Paycheck budgeting means planning your money around each payday instead of looking only at
+                            your monthly income. You start with take-home pay, account for bills due before your next
+                            paycheck, set aside savings and debt payments, and then plan the money available for
+                            flexible spending.
+                        </div>
+
+                        <!-- CALCULATOR -->
+
+                        <section class="calculator-section" id="calculator">
+                            <h2>Paycheck Budget Calculator</h2>
+
+                            <p class="calculator-intro">
+                                Enter your take-home pay and monthly expenses to estimate how much of each paycheck can
+                                be reserved for your budget.
+                            </p>
+
+                            <div class="calculator-grid">
+                                <div class="field">
+                                    <label for="paycheckAmount"> Take-Home Pay Per Paycheck </label>
+
+                                    <input type="number" id="paycheckAmount" value="2000" min="0" step="0.01" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="payFrequency"> Pay Frequency </label>
+
+                                    <select id="payFrequency">
+                                        <option value="weekly">Weekly</option>
+
+                                        <option value="biweekly" selected>Biweekly</option>
+
+                                        <option value="semimonthly">Semimonthly</option>
+
+                                        <option value="monthly">Monthly</option>
+                                    </select>
+                                </div>
+
+                                <div class="expense-heading">Monthly Budget Categories</div>
+
+                                <div class="field">
+                                    <label for="housing"> Housing </label>
+
+                                    <input type="number" id="housing" value="1500" min="0" step="0.01" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="utilities"> Utilities &amp; Phone </label>
+
+                                    <input type="number" id="utilities" value="250" min="0" step="0.01" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="transportation"> Transportation </label>
+
+                                    <input type="number" id="transportation" value="300" min="0" step="0.01" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="insurance"> Insurance </label>
+
+                                    <input type="number" id="insurance" value="150" min="0" step="0.01" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="debt"> Debt Payments </label>
+
+                                    <input type="number" id="debt" value="200" min="0" step="0.01" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="food"> Food &amp; Groceries </label>
+
+                                    <input type="number" id="food" value="400" min="0" step="0.01" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="savings"> Savings </label>
+
+                                    <input type="number" id="savings" value="300" min="0" step="0.01" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="other"> Other Spending </label>
+
+                                    <input type="number" id="other" value="200" min="0" step="0.01" />
+                                </div>
+                            </div>
+
+                            <button class="calculate-button" id="calculateBudget" type="button">
+                                Calculate My Paycheck Budget
+                            </button>
+
+                            <div class="calculator-results">
+                                <div class="result-box">
+                                    <div class="result-label">Estimated Annual Take-Home</div>
+
+                                    <div class="result-value" id="annualIncome">$52,000</div>
+                                </div>
+
+                                <div class="result-box">
+                                    <div class="result-label">Monthly Income Equivalent</div>
+
+                                    <div class="result-value" id="monthlyIncome">$4,333</div>
+                                </div>
+
+                                <div class="result-box">
+                                    <div class="result-label">Monthly Planned Expenses</div>
+
+                                    <div class="result-value" id="monthlyExpenses">$3,300</div>
+                                </div>
+
+                                <div class="result-box">
+                                    <div class="result-label">Reserve Per Paycheck</div>
+
+                                    <div class="result-value" id="perPaycheck">$1,523</div>
+                                </div>
+
+                                <div class="status" id="budgetStatus">
+                                    Your planned expenses are within your estimated income.
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- WHAT IS PAYCHECK BUDGETING -->
+
+                        <h2 id="what-is-paycheck-budgeting">What Is Paycheck Budgeting?</h2>
+
+                        <p>
+                            Paycheck budgeting is a way to manage money based on when you receive your income. Instead
+                            of treating your monthly income as one large amount, you divide your financial plan around
+                            individual paychecks.
+                        </p>
+
+                        <p>
+                            This can make it easier to know which paycheck will cover rent, utilities, groceries, debt
+                            payments, savings and other expenses.
+                        </p>
+
+                        <p>
+                            The method can be particularly useful when your bills have different due dates or your pay
+                            schedule is weekly, biweekly or semimonthly.
+                        </p>
+
+                        <!-- WHY -->
+
+                        <h2 id="why-paycheck-budgeting">Why Budget by Paycheck?</h2>
+
+                        <p>
+                            A monthly budget tells you how much you expect to earn and spend during a month. A paycheck
+                            budget adds another layer: it helps you decide <strong>when</strong> that money will be
+                            available.
+                        </p>
+
+                        <p>
+                            For example, if your rent is due on the first of the month, you may want to reserve part of
+                            the previous paycheck for that bill instead of waiting until the due date.
+                        </p>
+
+                        <div class="info-box">
+                            <strong> The main idea: </strong>
+
+                            <p>Give each paycheck a job before the money gets spent.</p>
+                        </div>
+
+                        <!-- HOW -->
+
+                        <h2 id="how-to-budget">How to Budget Every Paycheck</h2>
+
+                        <p>A paycheck budget can be built in several simple steps.</p>
+
+                        <ol>
+                            <li>
+                                <strong>Start with take-home pay.</strong>
+                                Use the amount that actually reaches your bank account.
+                            </li>
+
+                            <li>
+                                <strong>List bills due before the next paycheck.</strong>
+                                Include rent, utilities, subscriptions, insurance and minimum debt payments.
+                            </li>
+
+                            <li>
+                                <strong>Set aside savings.</strong>
+                                Treat savings as a planned category rather than waiting to see what remains.
+                            </li>
+
+                            <li>
+                                <strong>Plan variable expenses.</strong>
+                                Budget for groceries, transportation and other flexible spending.
+                            </li>
+
+                            <li>
+                                <strong>Assign the remaining money.</strong>
+                                Give remaining funds a purpose, such as additional debt payments, savings or
+                                discretionary spending.
+                            </li>
+
+                            <li>
+                                <strong>Review your actual spending.</strong>
+                                Compare your plan with what you actually spent and adjust future paychecks.
+                            </li>
+                        </ol>
+
+                        <!-- TAKE HOME -->
+
+                        <h2 id="take-home-pay">Start With Take-Home Pay</h2>
+
+                        <p>
+                            Your paycheck budget should generally start with the money available to you after payroll
+                            deductions rather than your gross salary.
+                        </p>
+
+                        <p>
+                            Gross pay is the amount earned before deductions. Take-home pay is the amount you actually
+                            receive after taxes and other deductions.
+                        </p>
+
+                        <p>
+                            If you need to estimate your paycheck after taxes, you can use the
+                            <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+                            on PaycheckMint.
+                        </p>
+
+                        <!-- BIWEEKLY -->
+
+                        <h2 id="biweekly-budget">How to Budget With Biweekly Pay</h2>
+
+                        <p>
+                            Biweekly employees receive 26 paychecks during a typical year. Because there are 26 pay
+                            periods rather than exactly 24, some months contain three paychecks.
+                        </p>
+
+                        <p>
+                            A practical approach is to build your normal monthly budget around two regular biweekly
+                            paychecks. Then decide in advance how additional paychecks will be used when they occur.
+                        </p>
+
+                        <div class="formula">Biweekly annual take-home pay = paycheck × 26</div>
+
+                        <p>
+                            For example, someone receiving $2,000 every two weeks has approximately $52,000 in annual
+                            take-home pay before considering any changes in pay.
+                        </p>
+
+                        <!-- THIRD PAYCHECK -->
+
+                        <h2 id="third-paycheck">What Should You Do With a Third Paycheck?</h2>
+
+                        <p>
+                            A third paycheck in a month can provide additional room in your annual budget. It does not
+                            necessarily need to be treated as regular spending money.
+                        </p>
+
+                        <p>Possible uses include:</p>
+
+                        <ul>
+                            <li>Building an emergency fund</li>
+
+                            <li>Paying down high-interest debt</li>
+
+                            <li>Funding a sinking fund</li>
+
+                            <li>Saving for a large upcoming expense</li>
+
+                            <li>Adding to retirement savings</li>
+
+                            <li>Covering irregular annual expenses</li>
+                        </ul>
+
+                        <p>The best use depends on your own financial priorities and upcoming obligations.</p>
+
+                        <!-- PAY FREQUENCY -->
+
+                        <h2 id="pay-frequency">Budgeting by Pay Frequency</h2>
+
+                        <p>Your budgeting process can change depending on how often you receive a paycheck.</p>
+
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Pay Frequency</th>
+                                        <th>Typical Paychecks/Year</th>
+                                        <th>Budgeting Consideration</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>Weekly</td>
+                                        <td>52</td>
+                                        <td>Smaller, more frequent budget cycles</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Biweekly</td>
+                                        <td>26</td>
+                                        <td>Some months have three paychecks</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Semimonthly</td>
+                                        <td>24</td>
+                                        <td>Usually two paychecks every month</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Monthly</td>
+                                        <td>12</td>
+                                        <td>Each paycheck generally covers the month</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- IRREGULAR INCOME -->
+
+                        <h2 id="irregular-income">How to Budget With Irregular Income</h2>
+
+                        <p>
+                            Budgeting can be more difficult when your paycheck changes from week to week or month to
+                            month.
+                        </p>
+
+                        <p>
+                            One approach is to build your essential budget around a conservative income estimate. Extra
+                            income can then be directed toward savings, debt payments or other planned goals.
+                        </p>
+
+                        <h3>Create a minimum-income budget</h3>
+
+                        <p>
+                            Estimate an amount you can reasonably expect during a lower-income period. Use that amount
+                            to cover essential expenses first.
+                        </p>
+
+                        <h3>Separate irregular expenses</h3>
+
+                        <p>
+                            Expenses such as annual insurance premiums, vehicle repairs, holidays and memberships can be
+                            easier to manage when you save toward them throughout the year.
+                        </p>
+
+                        <!-- SINKING FUNDS -->
+
+                        <h2 id="sinking-funds">Use Sinking Funds for Irregular Expenses</h2>
+
+                        <p>
+                            A sinking fund is money set aside gradually for an expense that you expect to occur in the
+                            future.
+                        </p>
+
+                        <p>
+                            For example, if you expect a $600 annual expense, you could plan to reserve approximately
+                            $50 per month.
+                        </p>
+
+                        <div class="formula">Sinking fund contribution = expected expense ÷ months until expense</div>
+
+                        <p>
+                            Adding these contributions to your paycheck budget can make large periodic expenses less
+                            disruptive.
+                        </p>
+
+                        <!-- MONTH AHEAD -->
+
+                        <h2 id="month-ahead">Getting a Month Ahead</h2>
+
+                        <p>
+                            Some people eventually work toward having enough savings to cover next month's expenses with
+                            money already received.
+                        </p>
+
+                        <p>This can reduce the pressure of matching every bill to a specific upcoming paycheck.</p>
+
+                        <p>
+                            You do not need to reach this point immediately. It can be built gradually by saving part of
+                            extra paychecks, bonuses, refunds or other available income.
+                        </p>
+
+                        <!-- PAYCHECK VS MONTHLY -->
+
+                        <h2 id="paycheck-vs-monthly">Paycheck Budget vs. Monthly Budget</h2>
+
+                        <p>
+                            A monthly budget and paycheck budget do not have to compete with each other. They can work
+                            together.
+                        </p>
+
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Monthly Budget</th>
+                                        <th>Paycheck Budget</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>Looks at the entire month</td>
+                                        <td>Looks at individual paydays</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Useful for total income and expenses</td>
+                                        <td>Useful for timing bills and cash flow</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Shows monthly spending limits</td>
+                                        <td>Shows what each paycheck needs to cover</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Good for long-term planning</td>
+                                        <td>Good for short-term cash management</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- SAVINGS -->
+
+                        <h2 id="saving">Include Savings in Your Paycheck Budget</h2>
+
+                        <p>
+                            Savings can be included directly in your paycheck plan. Instead of treating savings as
+                            whatever remains at the end of the month, create a specific amount or percentage for your
+                            savings goal.
+                        </p>
+
+                        <p>Common savings categories include:</p>
+
+                        <ul>
+                            <li>Emergency fund</li>
+
+                            <li>Short-term savings</li>
+
+                            <li>Retirement</li>
+
+                            <li>Home expenses</li>
+
+                            <li>Vehicle expenses</li>
+
+                            <li>Travel</li>
+
+                            <li>Annual bills</li>
+                        </ul>
+
+                        <!-- DEBT -->
+
+                        <h2 id="debt">Budgeting for Debt Payments</h2>
+
+                        <p>
+                            Minimum debt payments should generally be included as fixed or required expenses in your
+                            paycheck budget.
+                        </p>
+
+                        <p>
+                            If your budget has additional room, you may choose to allocate extra money toward debt
+                            according to your own repayment strategy.
+                        </p>
+
+                        <p>
+                            The important part is to include required payments before deciding how much money is
+                            available for discretionary spending.
+                        </p>
+
+                        <!-- COMMON MISTAKES -->
+
+                        <h2 id="mistakes">Common Paycheck Budgeting Mistakes</h2>
+
+                        <h3>Using gross pay instead of take-home pay</h3>
+
+                        <p>
+                            Your budget should reflect money you can actually use. Starting with gross pay can make the
+                            available spending amount look larger than it really is.
+                        </p>
+
+                        <h3>Forgetting annual expenses</h3>
+
+                        <p>
+                            Car registration, insurance, holidays and other annual expenses can create unexpected
+                            pressure if they are not included in your plan.
+                        </p>
+
+                        <h3>Ignoring paycheck timing</h3>
+
+                        <p>
+                            Having enough income for the month does not necessarily mean every bill can be paid from the
+                            same paycheck. Due dates matter.
+                        </p>
+
+                        <h3>Making the budget too restrictive</h3>
+
+                        <p>
+                            A budget should be practical enough to use consistently. Leaving some room for flexible
+                            spending can make the plan easier to maintain.
+                        </p>
+
+                        <!-- FORMULA -->
+
+                        <h2 id="formula">Paycheck Budget Formula</h2>
+
+                        <p>A simple paycheck budget can be represented as:</p>
+
+                        <div class="formula">Available Paycheck Money = Take-Home Pay − Planned Allocations</div>
+
+                        <p>
+                            Planned allocations can include bills, savings, debt payments, groceries, transportation and
+                            other expenses.
+                        </p>
+
+                        <!-- EXAMPLE -->
+
+                        <h2 id="example">Paycheck Budget Example</h2>
+
+                        <p>Suppose you receive $2,000 every two weeks.</p>
+
+                        <p>Your approximate annual take-home pay would be:</p>
+
+                        <div class="formula">$2,000 × 26 = $52,000</div>
+
+                        <p>Your average monthly equivalent would be approximately:</p>
+
+                        <div class="formula">$52,000 ÷ 12 = $4,333</div>
+
+                        <p>
+                            You could then plan regular monthly expenses while reserving part of each paycheck for those
+                            expenses.
+                        </p>
+
+                        <p>
+                            The exact amount to reserve from each paycheck depends on your expenses, pay schedule and
+                            budgeting method.
+                        </p>
+
+                        <!-- CTA -->
+
+                        <div class="cta">
+                            <h2>Build Your Budget Around Your Paycheck</h2>
+
+                            <p>
+                                Use the PaycheckMint calculator above to estimate how much of each paycheck needs to be
+                                reserved for your monthly financial plan.
+                            </p>
+
+                            <a href="/take-home-pay-calculator/" class="cta-button"> Calculate Your Take-Home Pay </a>
+                        </div>
+
+                        <!-- FAQ -->
+
+                        <h2 id="faq">Paycheck Budgeting FAQs</h2>
+
+                        <div class="faq">
+                            <div class="faq-item">
+                                <button class="faq-question" type="button">
+                                    <span> What is paycheck budgeting? </span>
+
+                                    <span>+</span>
+                                </button>
+
+                                <div class="faq-answer">
+                                    Paycheck budgeting is a method of planning income, bills, savings, debt payments and
+                                    spending around each paycheck you receive.
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question" type="button">
+                                    <span> How do I budget every paycheck? </span>
+
+                                    <span>+</span>
+                                </button>
+
+                                <div class="faq-answer">
+                                    Start with take-home pay, identify bills due before your next payday, reserve money
+                                    for savings and debt, and assign the remaining money to planned spending categories.
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question" type="button">
+                                    <span> How do I budget with biweekly pay? </span>
+
+                                    <span>+</span>
+                                </button>
+
+                                <div class="faq-answer">
+                                    Build your regular monthly budget around two biweekly paychecks and plan ahead for
+                                    the additional two paychecks that occur during a typical 26-paycheck year.
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question" type="button">
+                                    <span> Should savings be included in a paycheck budget? </span>
+
+                                    <span>+</span>
+                                </button>
+
+                                <div class="faq-answer">
+                                    Yes. Savings can be treated as a planned budget category so money is reserved before
+                                    it is used for other spending.
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question" type="button">
+                                    <span> Is paycheck budgeting better than a monthly budget? </span>
+
+                                    <span>+</span>
+                                </button>
+
+                                <div class="faq-answer">
+                                    They serve different purposes. A monthly budget provides an overall view of income
+                                    and expenses, while paycheck budgeting focuses on the timing of income and bills.
+                                    Many people can use both.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="disclaimer">
+                            <strong>Disclaimer:</strong>
+                            PaycheckMint provides educational information and calculator estimates for general planning
+                            purposes. Actual income, taxes, deductions, expenses and financial results can vary. This
+                            page is not financial, tax or legal advice.
+                        </div>
+                    </div>
+                </article>
+
+                <!-- =========================
+             RIGHT SIDEBAR
+        ========================= -->
+
+                <aside class="article-sidebar">
+                    <div class="sidebar-card">
+                        <h3>Paycheck Budget Calculator</h3>
+
+                        <p>Plan bills, savings and spending around every paycheck.</p>
+
+                        <a href="#calculator" class="sidebar-button"> Use Calculator </a>
+                    </div>
+
+                    <div class="sidebar-card toc">
+                        <h3 class="toc-title">On This Page</h3>
+
+                        <a href="#what-is-paycheck-budgeting"> What Is Paycheck Budgeting? </a>
+
+                        <a href="#why-paycheck-budgeting"> Why Budget by Paycheck? </a>
+
+                        <a href="#how-to-budget"> How to Budget Every Paycheck </a>
+
+                        <a href="#take-home-pay"> Start With Take-Home Pay </a>
+
+                        <a href="#biweekly-budget"> Biweekly Pay </a>
+
+                        <a href="#third-paycheck"> Third Paycheck </a>
+
+                        <a href="#pay-frequency"> Pay Frequency </a>
+
+                        <a href="#irregular-income"> Irregular Income </a>
+
+                        <a href="#sinking-funds"> Sinking Funds </a>
+
+                        <a href="#month-ahead"> Getting a Month Ahead </a>
+
+                        <a href="#paycheck-vs-monthly"> Paycheck vs Monthly Budget </a>
+
+                        <a href="#saving"> Savings </a>
+
+                        <a href="#debt"> Debt Payments </a>
+
+                        <a href="#mistakes"> Common Mistakes </a>
+
+                        <a href="#example"> Example </a>
+
+                        <a href="#faq"> FAQs </a>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>More Budgeting Guides</h3>
+
+                        <p>Explore more practical budgeting topics on PaycheckMint.</p>
+
+                        <a href="/finance/budgeting/" class="sidebar-button"> Budgeting Guide </a>
+                    </div>
+                </aside>
+            </div>
+        </main>
+
+        <!-- =========================
+     FOOTER
+========================= -->
+
+        <footer>
+            <div class="container">
+                <div class="footer-inner">
+                    <div>
+                        <div class="footer-brand">Paycheck<span>Mint</span></div>
+
+                        <p class="footer-text">
+                            PaycheckMint provides calculators, guides and practical financial information to help people
+                            understand income, taxes, budgeting and personal finance.
+                        </p>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Calculators</h4>
+
+                        <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+
+                        <a href="/hourly-paycheck-calculator/"> Hourly Paycheck Calculator </a>
+
+                        <a href="/salary-paycheck-calculator/"> Salary Paycheck Calculator </a>
+
+                        <a href="/overtime-pay-calculator/"> Overtime Pay Calculator </a>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Finance</h4>
+
+                        <a href="/finance/"> Finance Overview </a>
+
+                        <a href="/finance/taxes/"> Taxes </a>
+
+                        <a href="/finance/budgeting/"> Budgeting </a>
+
+                        <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+
+                        <a href="/finance/investing/"> Investing </a>
+
+                        <a href="/finance/insurance/"> Insurance </a>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    © 2026 PaycheckMint. All rights reserved. &nbsp; · &nbsp;
+
+                    <a href="/about/"> About </a>
+
+                    &nbsp; · &nbsp;
+
+                    <a href="/contact/"> Contact </a>
+
+                    &nbsp; · &nbsp;
+
+                    <a href="/privacy-policy/"> Privacy </a>
+
+                    &nbsp; · &nbsp;
+
+                    <a href="/terms/"> Terms </a>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            /* =========================
+       MOBILE NAVIGATION
+    ========================= */
+
+            const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+
+            const mainNav = document.getElementById("mainNav");
+
+            const financeDropdown = document.getElementById("financeDropdown");
+
+            const financeToggle = document.getElementById("financeToggle");
+
+            mobileMenuToggle.addEventListener("click", function () {
+                const isOpen = mainNav.classList.toggle("open");
+
+                mobileMenuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            });
+
+            financeToggle.addEventListener("click", function (event) {
+                event.stopPropagation();
+
+                const isOpen = financeDropdown.classList.toggle("open");
+
+                financeToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            });
+
+            document.addEventListener("click", function (event) {
+                if (!financeDropdown.contains(event.target)) {
+                    financeDropdown.classList.remove("open");
+
+                    financeToggle.setAttribute("aria-expanded", "false");
+                }
+            });
+
+            document.querySelectorAll(".main-nav a").forEach(function (link) {
+                link.addEventListener("click", function () {
+                    mainNav.classList.remove("open");
+
+                    mobileMenuToggle.setAttribute("aria-expanded", "false");
+                });
+            });
+
+            /* =========================
+       PAYCHECK BUDGET CALCULATOR
+    ========================= */
+
+            const paycheckAmount = document.getElementById("paycheckAmount");
+
+            const payFrequency = document.getElementById("payFrequency");
+
+            const calculateBudget = document.getElementById("calculateBudget");
+
+            const annualIncome = document.getElementById("annualIncome");
+
+            const monthlyIncome = document.getElementById("monthlyIncome");
+
+            const monthlyExpenses = document.getElementById("monthlyExpenses");
+
+            const perPaycheck = document.getElementById("perPaycheck");
+
+            const budgetStatus = document.getElementById("budgetStatus");
+
+            const expenseIds = [
+                "housing",
+                "utilities",
+                "transportation",
+                "insurance",
+                "debt",
+                "food",
+                "savings",
+                "other",
+            ];
+
+            function getNumber(id) {
+                const element = document.getElementById(id);
+
+                const value = parseFloat(element.value);
+
+                return Number.isFinite(value) && value > 0 ? value : 0;
+            }
+
+            function formatMoney(value) {
+                return new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                    maximumFractionDigits: 0,
+                }).format(value);
+            }
+
+            function calculatePaycheckBudget() {
+                const paycheck = getNumber("paycheckAmount");
+
+                const frequency = payFrequency.value;
+
+                let annualPaychecks;
+
+                switch (frequency) {
+                    case "weekly":
+                        annualPaychecks = 52;
+                        break;
+
+                    case "biweekly":
+                        annualPaychecks = 26;
+                        break;
+
+                    case "semimonthly":
+                        annualPaychecks = 24;
+                        break;
+
+                    case "monthly":
+                        annualPaychecks = 12;
+                        break;
+
+                    default:
+                        annualPaychecks = 26;
+                }
+
+                const annual = paycheck * annualPaychecks;
+
+                const monthly = annual / 12;
+
+                let expenses = 0;
+
+                expenseIds.forEach(function (id) {
+                    expenses += getNumber(id);
+                });
+
+                const paycheckReserve = frequency === "monthly" ? expenses : (expenses * 12) / annualPaychecks;
+
+                const remaining = monthly - expenses;
+
+                annualIncome.textContent = formatMoney(annual);
+
+                monthlyIncome.textContent = formatMoney(monthly);
+
+                monthlyExpenses.textContent = formatMoney(expenses);
+
+                perPaycheck.textContent = formatMoney(paycheckReserve);
+
+                budgetStatus.classList.remove("good", "bad");
+
+                if (remaining >= 0) {
+                    budgetStatus.classList.add("good");
+
+                    budgetStatus.textContent =
+                        "Your planned monthly expenses are within your estimated monthly take-home income. Remaining amount: " +
+                        formatMoney(remaining) +
+                        ".";
+                } else {
+                    budgetStatus.classList.add("bad");
+
+                    budgetStatus.textContent =
+                        "Your planned monthly expenses are higher than your estimated monthly take-home income by " +
+                        formatMoney(Math.abs(remaining)) +
+                        ". Consider reviewing your categories.";
+                }
+            }
+
+            calculateBudget.addEventListener("click", calculatePaycheckBudget);
+
+            [
+                paycheckAmount,
+                payFrequency,
+                ...expenseIds.map(function (id) {
+                    return document.getElementById(id);
+                }),
+            ].forEach(function (element) {
+                element.addEventListener("input", calculatePaycheckBudget);
+
+                element.addEventListener("change", calculatePaycheckBudget);
+            });
+
+            calculatePaycheckBudget();
+
+            /* =========================
+       FAQ
+    ========================= */
+
+            document.querySelectorAll(".faq-question").forEach(function (button) {
+                button.addEventListener("click", function () {
+                    const item = button.closest(".faq-item");
+
+                    const isOpen = item.classList.toggle("open");
+
+                    const icon = button.querySelector("span:last-child");
+
+                    icon.textContent = isOpen ? "−" : "+";
+                });
+            });
+        </script>
+    </body>
+</html>

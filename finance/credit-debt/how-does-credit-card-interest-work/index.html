@@ -1,0 +1,1879 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>How Does Credit Card Interest Work? APR, Rates & Examples | PaycheckMint</title>
+
+    <meta name="description"
+        content="Learn how credit card interest works, how APR becomes a daily rate, how average daily balance affects interest, when interest starts, and how to reduce credit card interest." />
+
+    <meta name="keywords"
+        content="how does credit card interest work, credit card interest, credit card APR, how credit card APR works, how is credit card interest calculated, average daily balance, credit card interest calculation" />
+
+    <link rel="canonical"
+        href="https://paycheckmint.vercel.app/finance/credit-debt/how-does-credit-card-interest-work/" />
+
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="How Does Credit Card Interest Work? APR, Rates & Examples | PaycheckMint" />
+    <meta property="og:description"
+        content="Understand credit card APR, daily interest, average daily balance, grace periods, minimum payments, and practical ways to reduce interest charges." />
+    <meta property="og:url"
+        content="https://paycheckmint.vercel.app/finance/credit-debt/how-does-credit-card-interest-work/" />
+    <meta property="og:site_name" content="PaycheckMint" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="How Does Credit Card Interest Work? | PaycheckMint" />
+    <meta name="twitter:description"
+        content="Learn how credit card interest is calculated, when it starts accruing, and how APR and average daily balance affect your cost." />
+
+    <style>
+        :root {
+            --bg: #f6f5f1;
+            --surface: #ffffff;
+            --surface-soft: #faf9f6;
+
+            --ink: #191919;
+            --muted: #74736f;
+            --muted-light: #999791;
+
+            --line: #deddd8;
+            --line-dark: #cbc9c3;
+
+            --accent: #5954d9;
+            --accent-dark: #4843c2;
+            --accent-soft: #eeedff;
+
+            --success: #287a51;
+            --warning: #9a6910;
+
+            --shadow: 0 12px 35px rgba(20, 20, 20, 0.06);
+            --radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(246, 245, 241, 0.96);
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(12px);
+        }
+
+        .header-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            min-height: 72px;
+            padding: 0 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            flex: 0 0 auto;
+            font-size: 1.42rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            white-space: nowrap;
+        }
+
+        .brand span {
+            color: var(--accent);
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .main-nav>a,
+        .nav-dropdown>button {
+            border: 0;
+            background: transparent;
+            color: var(--ink);
+            font: inherit;
+            font-size: 0.93rem;
+            font-weight: 650;
+            padding: 10px 12px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .main-nav>a:hover,
+        .nav-dropdown>button:hover {
+            background: var(--surface);
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown>button {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-dropdown>button::after {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-right: 1.5px solid currentColor;
+            border-bottom: 1.5px solid currentColor;
+            transform: rotate(45deg) translateY(-2px);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            min-width: 220px;
+            padding: 8px;
+
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 13px;
+            box-shadow: var(--shadow);
+
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-5px);
+            transition: 0.18s ease;
+        }
+
+        .nav-dropdown:hover .dropdown-menu,
+        .nav-dropdown.open .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 12px;
+            border-radius: 9px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--accent-soft);
+            color: var(--accent-dark);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: var(--surface);
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 19px;
+            height: 2px;
+            border-radius: 10px;
+            background: var(--ink);
+        }
+
+        .page-wrap {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 46px 22px 70px;
+        }
+
+        .breadcrumb {
+            margin-bottom: 18px;
+            color: var(--muted);
+            font-size: 0.84rem;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-dark);
+            font-weight: 650;
+        }
+
+        .hero {
+            margin-bottom: 34px;
+            max-width: 900px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 10px;
+            margin-bottom: 12px;
+
+            background: var(--accent-soft);
+            color: var(--accent-dark);
+            border-radius: 999px;
+
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.2;
+            letter-spacing: -0.035em;
+        }
+
+        h1 {
+            max-width: 900px;
+            margin: 0 0 16px;
+            font-size: clamp(2.25rem, 5vw, 4rem);
+        }
+
+        .hero-intro {
+            max-width: 800px;
+            margin: 0;
+            color: var(--muted);
+            font-size: 1.1rem;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 300px;
+            gap: 32px;
+            align-items: start;
+        }
+
+        article {
+            min-width: 0;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: clamp(24px, 4vw, 44px);
+        }
+
+        article h2 {
+            margin: 44px 0 16px;
+            font-size: clamp(1.55rem, 3vw, 2.05rem);
+        }
+
+        article h3 {
+            margin: 30px 0 11px;
+            font-size: 1.2rem;
+        }
+
+        article p {
+            margin: 0 0 17px;
+            color: #393936;
+        }
+
+        article ul,
+        article ol {
+            margin: 10px 0 22px;
+            padding-left: 23px;
+            color: #393936;
+        }
+
+        article li {
+            margin-bottom: 9px;
+        }
+
+        .quick-answer {
+            padding: 21px 22px;
+            margin-bottom: 30px;
+            border: 1px solid #d8d6ff;
+            background: var(--accent-soft);
+            border-radius: 14px;
+        }
+
+        .quick-answer strong {
+            color: var(--accent-dark);
+        }
+
+        .quick-answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .fact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 25px 0 32px;
+        }
+
+        .fact {
+            padding: 17px;
+            background: var(--surface-soft);
+            border: 1px solid var(--line);
+            border-radius: 13px;
+        }
+
+        .fact strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 1rem;
+        }
+
+        .fact span {
+            color: var(--muted);
+            font-size: 0.87rem;
+        }
+
+        .formula {
+            margin: 20px 0 24px;
+            padding: 19px 20px;
+            background: #191919;
+            color: white;
+            border-radius: 13px;
+            overflow-x: auto;
+        }
+
+        .formula-label {
+            display: block;
+            margin-bottom: 7px;
+            color: #c9c7c1;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .formula code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+
+        .step-list {
+            counter-reset: steps;
+            list-style: none;
+            padding: 0;
+        }
+
+        .step-list li {
+            counter-increment: steps;
+            position: relative;
+            padding: 0 0 22px 55px;
+            margin-bottom: 18px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .step-list li:last-child {
+            border-bottom: 0;
+        }
+
+        .step-list li::before {
+            content: counter(steps);
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            width: 36px;
+            height: 36px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+
+            font-weight: 800;
+            font-size: 0.9rem;
+        }
+
+        .step-list strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .comparison {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0 28px;
+            font-size: 0.93rem;
+        }
+
+        .comparison th,
+        .comparison td {
+            padding: 13px 14px;
+            text-align: left;
+            vertical-align: top;
+            border: 1px solid var(--line);
+        }
+
+        .comparison th {
+            background: var(--surface-soft);
+            font-weight: 750;
+        }
+
+        .example-box {
+            padding: 23px;
+            margin: 22px 0;
+            background: var(--surface-soft);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+        }
+
+        .example-box h3 {
+            margin-top: 0;
+        }
+
+        .highlight {
+            padding: 17px 19px;
+            margin: 20px 0;
+            border-left: 4px solid var(--accent);
+            background: var(--surface-soft);
+        }
+
+        .warning-box {
+            padding: 18px 19px;
+            margin: 22px 0;
+            border: 1px solid #eadcb7;
+            border-left: 4px solid var(--warning);
+            background: #fffaf0;
+            border-radius: 10px;
+        }
+
+        .checklist {
+            display: grid;
+            gap: 10px;
+            margin: 20px 0 26px;
+        }
+
+        .checklist div {
+            padding: 13px 15px;
+            background: var(--surface-soft);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+        }
+
+        .checklist div::before {
+            content: "✓";
+            margin-right: 9px;
+            color: var(--success);
+            font-weight: 900;
+        }
+
+        .faq-item {
+            padding: 19px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .faq-item:last-child {
+            border-bottom: 0;
+        }
+
+        .faq-item h3 {
+            margin: 0 0 8px;
+            font-size: 1.05rem;
+            letter-spacing: -0.01em;
+        }
+
+        .faq-item p {
+            margin-bottom: 0;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .related-link {
+            display: block;
+            padding: 16px;
+            border: 1px solid var(--line);
+            background: var(--surface-soft);
+            border-radius: 12px;
+            transition: 0.18s ease;
+        }
+
+        .related-link:hover {
+            border-color: #c9c7ff;
+            background: var(--accent-soft);
+            transform: translateY(-1px);
+        }
+
+        .related-link strong {
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .related-link span {
+            color: var(--muted);
+            font-size: 0.84rem;
+        }
+
+        .sources {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid var(--line);
+        }
+
+        .sources p {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .disclaimer {
+            margin-top: 24px;
+            padding: 17px;
+            border-radius: 11px;
+            background: #f3f2ee;
+            color: var(--muted);
+            font-size: 0.84rem;
+        }
+
+        aside {
+            position: sticky;
+            top: 94px;
+            align-self: start;
+        }
+
+        .sidebar-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 20px;
+        }
+
+        .sidebar-card+.sidebar-card {
+            margin-top: 15px;
+        }
+
+        .sidebar-card h2 {
+            margin: 0 0 13px;
+            font-size: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .toc {
+            position: static;
+        }
+
+        .toc a {
+            display: block;
+            padding: 7px 0;
+            color: var(--muted);
+            font-size: 0.87rem;
+            line-height: 1.4;
+        }
+
+        .toc a:hover {
+            color: var(--accent-dark);
+        }
+
+        .sidebar-links a {
+            display: block;
+            padding: 9px 0;
+            border-bottom: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.87rem;
+        }
+
+        .sidebar-links a:last-child {
+            border-bottom: 0;
+        }
+
+        .sidebar-links a:hover {
+            color: var(--accent-dark);
+        }
+
+        .site-footer {
+            background: var(--bg);
+            border-top: 1px solid var(--line);
+        }
+
+        .footer-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 48px 22px 28px;
+
+            display: grid;
+            grid-template-columns: 1.7fr 1fr 1fr 1fr;
+            gap: 32px;
+        }
+
+        .footer-brand .brand {
+            display: inline-block;
+            margin-bottom: 11px;
+        }
+
+        .footer-brand p {
+            max-width: 390px;
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-column h3 {
+            margin: 0 0 12px;
+            font-size: 0.9rem;
+        }
+
+        .footer-column a {
+            display: block;
+            width: fit-content;
+            margin-bottom: 8px;
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent-dark);
+        }
+
+        .footer-bottom {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 18px 22px 28px;
+
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+
+            border-top: 1px solid var(--line);
+            color: var(--muted-light);
+            font-size: 0.8rem;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+        }
+
+        @media (max-width: 900px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .main-nav {
+                position: absolute;
+                left: 14px;
+                right: 14px;
+                top: calc(100% + 8px);
+
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 4px;
+
+                padding: 10px;
+
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 14px;
+                box-shadow: var(--shadow);
+            }
+
+            .main-nav.menu-open {
+                display: flex;
+            }
+
+            .main-nav>a,
+            .nav-dropdown>button {
+                width: 100%;
+                text-align: left;
+                padding: 12px 13px;
+            }
+
+            .nav-dropdown {
+                width: 100%;
+            }
+
+            .nav-dropdown>button {
+                justify-content: space-between;
+            }
+
+            .dropdown-menu {
+                position: static;
+                display: none;
+                width: 100%;
+                min-width: 0;
+                margin-top: 3px;
+
+                border: 0;
+                box-shadow: none;
+                background: var(--surface-soft);
+
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+            }
+
+            .nav-dropdown.open .dropdown-menu {
+                display: block;
+            }
+
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            aside {
+                position: static;
+                top: auto;
+            }
+
+            .sidebar-card {
+                position: static;
+            }
+
+            .fact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1.5fr 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .page-wrap {
+                padding: 30px 14px 50px;
+            }
+
+            .header-inner {
+                padding: 0 14px;
+                min-height: 66px;
+            }
+
+            h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero-intro {
+                font-size: 1rem;
+            }
+
+            article {
+                padding: 22px 18px;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison {
+                display: block;
+                overflow-x: auto;
+                white-space: normal;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+                padding-top: 36px;
+            }
+
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+
+            <a class="brand" href="/"> Paycheck<span>Mint</span> </a>
+
+            <button class="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"
+                aria-controls="main-navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+                <a href="/">Home</a>
+
+                <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+
+                <a href="/income/"> Income </a>
+
+                <div class="nav-dropdown">
+                    <button type="button" aria-expanded="false" aria-haspopup="true">Finance</button>
+
+                    <div class="dropdown-menu">
+                        <a href="/finance/">Finance Overview</a>
+                        <a href="/finance/taxes/">Taxes</a>
+                        <a href="/finance/budgeting/">Budgeting</a>
+                        <a href="/finance/credit-debt/">Credit &amp; Debt</a>
+                        <a href="/finance/investing/">Investing</a>
+                        <a href="/finance/insurance/">Insurance</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+    </header>
+
+    <main class="page-wrap">
+
+        <div class="breadcrumb">
+            <a href="/">Home</a>
+            <span> / </span>
+            <a href="/finance/">Finance</a>
+            <span> / </span>
+            <a href="/finance/credit-debt/">Credit &amp; Debt</a>
+            <span> / </span>
+            Credit Card Interest
+        </div>
+
+        <section class="hero">
+            <div class="eyebrow">Credit &amp; Debt Guide</div>
+
+            <h1>How Does Credit Card Interest Work?</h1>
+
+            <p class="hero-intro">
+                Credit card interest is the cost of carrying a balance. Learn how APR, daily interest, average daily
+                balance, grace periods and minimum payments work—and how your payment timing can affect the amount
+                of interest you pay.
+            </p>
+        </section>
+
+        <div class="layout">
+            <article>
+                <div class="quick-answer">
+                    <p>
+                        <strong>Quick answer:</strong>
+                        Credit card interest is usually based on your card's annual percentage rate (APR), converted
+                        into a periodic rate and applied to your balance according to the method described in your
+                        card agreement. Many cards calculate interest using an average daily balance and a daily
+                        periodic rate. If you carry a balance, interest can compound, increasing the amount you owe
+                        over time.
+                    </p>
+
+                    <p>
+                        If your card offers a grace period on purchases, paying the full statement balance by the
+                        due date can generally allow you to avoid interest on those purchases. Cash advances and
+                        some balance transfers can have different interest rules.
+                    </p>
+                </div>
+
+                <div class="fact-grid">
+                    <div class="fact">
+                        <strong>APR</strong>
+                        <span>The annual rate used to express the cost of borrowing.</span>
+                    </div>
+
+                    <div class="fact">
+                        <strong>Daily rate</strong>
+                        <span>Often calculated by dividing APR by 365, although terms can vary.</span>
+                    </div>
+
+                    <div class="fact">
+                        <strong>Average balance</strong>
+                        <span>One common method uses your balances throughout the billing cycle.</span>
+                    </div>
+                </div>
+
+                <h2 id="what-is-interest">What Is Credit Card Interest?</h2>
+
+                <p>
+                    When you use a credit card, the card issuer is extending credit to you. If you do not repay the
+                    applicable balance according to the card's terms, the issuer can charge interest.
+                </p>
+
+                <p>
+                    Credit card interest is commonly expressed as an
+                    <strong>annual percentage rate, or APR</strong>. Unlike a simple annual loan calculation, credit
+                    card interest is often calculated periodically—frequently each day—and then reflected on your
+                    statement.
+                </p>
+
+                <p>
+                    Your card may have different APRs for different transaction types. For example, purchase APR,
+                    balance-transfer APR and cash advance APR can be different. Your cardholder agreement is the
+                    place to find the rates and terms that apply to your account.
+                </p>
+
+                <h2 id="apr">What Is APR on a Credit Card?</h2>
+
+                <p>
+                    APR is the annual percentage rate associated with borrowing on your credit card. It gives you a
+                    standardized way to understand the annualized interest rate, although your actual interest
+                    charge for a billing period depends on your balance, the number of days in the cycle and your
+                    card's calculation method.
+                </p>
+
+                <p>
+                    For many credit cards, the purchase interest rate and APR are closely related. However, a single
+                    card can have multiple APRs depending on the type of transaction.
+                </p>
+
+                <table class="comparison">
+                    <thead>
+                        <tr>
+                            <th>Term</th>
+                            <th>What it means</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>APR</strong></td>
+                            <td>The annualized rate used to express the cost of borrowing.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Daily periodic rate</strong></td>
+                            <td>A periodic rate used to calculate interest for individual days when applicable.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Billing cycle</strong></td>
+                            <td>The period covered by a credit card statement.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Interest charge</strong></td>
+                            <td>The finance charge added when interest accrues under your card's terms.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2 id="calculation">How Is Credit Card Interest Calculated?</h2>
+
+                <p>
+                    Many credit card issuers use a daily periodic rate and an average daily balance to calculate
+                    interest. The exact calculation can vary by issuer and card, so your cardholder agreement should
+                    be treated as the final source for your account.
+                </p>
+
+                <p>A simplified version of the commonly used calculation is:</p>
+
+                <div class="formula">
+                    <span class="formula-label">Simplified formula</span>
+                    <code>Interest ≈ Average Daily Balance × Daily Periodic Rate × Days in Billing Cycle</code>
+                </div>
+
+                <h3>Step 1: Find your APR</h3>
+
+                <p>
+                    Your purchase APR can usually be found on your credit card statement, account information or
+                    cardholder agreement.
+                </p>
+
+                <h3>Step 2: Convert the APR into a daily rate</h3>
+
+                <p>If your issuer uses 365 days for the calculation, a simplified daily-rate calculation is:</p>
+
+                <div class="formula">
+                    <span class="formula-label">Daily periodic rate</span>
+                    <code>APR ÷ 365</code>
+                </div>
+
+                <p>
+                    For example, a 24% APR divided by 365 produces a daily rate of about 0.06575%, or 0.0006575 in
+                    decimal form.
+                </p>
+
+                <p>
+                    Some issuers may use 360 instead of 365, so don't assume that every credit card uses exactly the
+                    same calculation.
+                </p>
+
+                <h3>Step 3: Determine the average daily balance</h3>
+
+                <p>
+                    With the average daily balance method, the issuer considers your balance for each day of the
+                    billing cycle and calculates an average.
+                </p>
+
+                <div class="formula">
+                    <span class="formula-label">Average daily balance</span>
+                    <code>Sum of daily balances ÷ Number of days in billing cycle</code>
+                </div>
+
+                <p>
+                    Purchases, payments, credits and other transactions can change your balance during the billing
+                    cycle, which can change the average used in the interest calculation.
+                </p>
+
+                <h3>Step 4: Apply the rate to the balance</h3>
+
+                <p>
+                    The daily rate is then applied to the applicable balance. Depending on the card's terms,
+                    interest can be compounded, meaning previously accrued interest can become part of the balance
+                    used for subsequent calculations.
+                </p>
+
+                <h2 id="example">Credit Card Interest Example</h2>
+
+                <div class="example-box">
+                    <h3>Example: $1,000 balance at 24% APR</h3>
+
+                    <p>
+                        Suppose you carry a $1,000 balance and your card has a 24% APR. For a simplified example
+                        using a 365-day calculation:
+                    </p>
+
+                    <ul>
+                        <li>APR: 24%</li>
+                        <li>Daily rate: 24% ÷ 365 ≈ 0.06575%</li>
+                        <li>Balance: $1,000</li>
+                        <li>Billing cycle: 30 days</li>
+                    </ul>
+
+                    <p>The approximate interest for the period would be:</p>
+
+                    <div class="formula">
+                        <code>$1,000 × 0.0006575 × 30 ≈ $19.73</code>
+                    </div>
+
+                    <p>
+                        This is a simplified illustration, not a statement of what a particular issuer will charge.
+                        Actual interest can differ because of daily balance changes, compounding, transaction
+                        timing, fees, the issuer's calculation method and the specific terms of the card.
+                    </p>
+                </div>
+
+                <h2 id="daily">Why Credit Card Interest Can Compound Daily</h2>
+
+                <p>
+                    Credit card interest can accrue daily. When interest is added to the account balance, that
+                    larger balance can affect the following day's calculation.
+                </p>
+
+                <p>
+                    This is one reason carrying a high-interest balance for a long period can become expensive. Even
+                    if the daily increase looks small, repeated charges can accumulate over weeks and months.
+                </p>
+
+                <div class="highlight">
+                    <strong>Important:</strong>
+                    APR is an annualized rate, but that does not mean your issuer waits until the end of the year to
+                    calculate interest. Credit card interest is commonly calculated periodically, often daily,
+                    according to the card's terms.
+                </div>
+
+                <h2 id="grace-period">What Is a Credit Card Grace Period?</h2>
+
+                <p>
+                    A grace period is a period during which you may be able to avoid interest on new purchases by
+                    paying the required balance in full by the due date.
+                </p>
+
+                <p>
+                    Grace-period rules vary by card and transaction type. You should review your card agreement to
+                    determine whether your card has a grace period and exactly how it works.
+                </p>
+
+                <p>
+                    A common mistake is assuming that making the minimum payment means you will avoid interest. A
+                    minimum payment generally keeps the account from becoming delinquent when paid on time, but it
+                    does not necessarily prevent interest from accruing on a carried balance.
+                </p>
+
+                <h2 id="when-interest-starts">When Does Credit Card Interest Start?</h2>
+
+                <p>
+                    For purchases on a card with a grace period, interest may be avoided when you pay the applicable
+                    statement balance in full by the due date.
+                </p>
+
+                <p>
+                    If you carry a balance, interest can accrue according to your card's terms. Other transaction
+                    types may have different rules.
+                </p>
+
+                <table class="comparison">
+                    <thead>
+                        <tr>
+                            <th>Transaction</th>
+                            <th>What to watch for</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Purchases</strong></td>
+                            <td>
+                                A grace period may allow interest to be avoided when the required statement balance
+                                is paid in full.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cash advances</strong></td>
+                            <td>
+                                Interest commonly begins accruing immediately rather than receiving the same
+                                purchase grace-period treatment.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Balance transfers</strong></td>
+                            <td>Interest rules and promotional terms can differ from purchase transactions.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Promotional APR</strong></td>
+                            <td>
+                                A temporary introductory rate can end on a specified date, after which the standard
+                                rate may apply.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="warning-box">
+                    <strong>Read the terms before assuming a transaction is interest-free.</strong>
+                    Cash advances, balance transfers and promotional offers can have different rates, fees and
+                    interest rules from ordinary purchases.
+                </div>
+
+                <h2 id="minimum-payment">Does Paying the Minimum Avoid Interest?</h2>
+
+                <p>
+                    Usually, no. Paying at least the minimum payment by the due date can help keep your account
+                    current, but if you do not pay the applicable balance in full, interest may continue to accrue
+                    under your card's terms.
+                </p>
+
+                <p>
+                    Minimum payments can also make repayment take much longer. When a significant portion of a
+                    payment goes toward interest rather than reducing principal, the balance can decline slowly.
+                </p>
+
+                <p>
+                    If you are carrying a balance, paying more than the minimum generally reduces the balance faster
+                    and can reduce the interest paid over time.
+                </p>
+
+                <h2 id="payment-timing">How Payment Timing Can Affect Interest</h2>
+
+                <p>Payment timing can matter because some interest calculations depend on daily balances.</p>
+
+                <p>
+                    Consider two people who each owe $2,000. If one makes an additional payment earlier in the
+                    billing cycle, the balance may be lower for more days than if the same payment were made near
+                    the end of the cycle.
+                </p>
+
+                <p>
+                    The exact effect depends on the issuer's calculation method, transaction posting dates and the
+                    terms of the account.
+                </p>
+
+                <div class="highlight">
+                    <strong>Practical takeaway:</strong>
+                    If you are already carrying a balance, an earlier additional payment can reduce the balance
+                    sooner. Check your issuer's terms to understand how payments are applied and how interest is
+                    calculated.
+                </div>
+
+                <h2 id="types-apr">Different Types of Credit Card APR</h2>
+
+                <p>
+                    A credit card can have more than one APR. The applicable rate depends on the type of transaction
+                    and the terms of the card.
+                </p>
+
+                <table class="comparison">
+                    <thead>
+                        <tr>
+                            <th>APR type</th>
+                            <th>What it generally applies to</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Purchase APR</strong></td>
+                            <td>
+                                Interest associated with purchases when a balance is carried under the card's terms.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Balance transfer APR</strong></td>
+                            <td>Interest rate associated with transferred balances.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cash advance APR</strong></td>
+                            <td>
+                                Rate applied to eligible cash advances. These transactions can have different
+                                interest rules and fees.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Promotional APR</strong></td>
+                            <td>
+                                A temporary rate offered for a specified period, such as an introductory 0% APR
+                                offer.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Penalty APR</strong></td>
+                            <td>
+                                A potentially higher rate that may apply in certain circumstances described in the
+                                card agreement.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2 id="minimum-vs-full">Minimum Payment vs. Full Statement Balance</h2>
+
+                <table class="comparison">
+                    <thead>
+                        <tr>
+                            <th>Payment</th>
+                            <th>What it generally does</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Minimum payment</strong></td>
+                            <td>
+                                Helps keep the account current when paid by the due date, but usually does not
+                                eliminate interest on a carried balance.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>More than the minimum</strong></td>
+                            <td>Reduces the outstanding balance faster than making only the minimum payment.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Full statement balance</strong></td>
+                            <td>
+                                For cards offering a purchase grace period, paying the full statement balance by the
+                                due date can generally avoid interest on eligible new purchases.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2 id="reduce-interest">How to Reduce Credit Card Interest</h2>
+
+                <p>If interest is making it difficult to reduce your balance, several practical steps can help.</p>
+
+                <ol class="step-list">
+                    <li>
+                        <strong>Pay the statement balance in full when possible.</strong>
+                        If your card offers a grace period for purchases, paying the applicable statement balance by
+                        the due date can help you avoid purchase interest.
+                    </li>
+
+                    <li>
+                        <strong>Pay more than the minimum.</strong>
+                        Additional payments reduce the balance faster, which can reduce future interest charges.
+                    </li>
+
+                    <li>
+                        <strong>Stop adding new debt while paying down the balance.</strong>
+                        Continuing to make new purchases while trying to repay an existing balance can slow your
+                        progress.
+                    </li>
+
+                    <li>
+                        <strong>Review your APRs.</strong>
+                        Check whether your card has separate purchase, balance transfer or cash advance rates.
+                    </li>
+
+                    <li>
+                        <strong>Consider whether a lower-rate option fits your situation.</strong>
+                        Depending on your circumstances, a lower-interest card, balance transfer or consolidation
+                        option may reduce the cost of carrying debt. Compare fees, promotional periods, eligibility
+                        requirements and the rate that applies after any introductory period.
+                    </li>
+
+                    <li>
+                        <strong>Contact the issuer if repayment is becoming difficult.</strong>
+                        Some issuers may have hardship or payment-assistance options. Ask what terms would apply
+                        before accepting an arrangement.
+                    </li>
+                </ol>
+
+                <h2 id="common-mistakes">Common Credit Card Interest Mistakes</h2>
+
+                <div class="checklist">
+                    <div>Assuming the minimum payment prevents interest</div>
+
+                    <div>Confusing the statement balance with the current balance</div>
+
+                    <div>Ignoring the difference between purchase APR and cash advance APR</div>
+
+                    <div>Forgetting when a promotional APR expires</div>
+
+                    <div>Assuming every credit card uses exactly the same interest calculation</div>
+
+                    <div>Continuing to add purchases while trying to pay down a revolving balance</div>
+
+                    <div>Looking only at the monthly payment instead of the total cost of borrowing</div>
+                </div>
+
+                <h2 id="interest-vs-fees">Interest vs. Credit Card Fees</h2>
+
+                <p>
+                    Interest is not the same thing as a credit card fee. Interest is the cost associated with
+                    carrying a balance under the card's terms. Fees can be charged for other reasons, such as
+                    certain balance transfers, cash advances, late payments or foreign transactions, depending on
+                    the card.
+                </p>
+
+                <p>
+                    When comparing the cost of a credit card, look beyond the advertised APR and review the complete
+                    fee schedule and account terms.
+                </p>
+
+                <h2 id="credit-score">Does Credit Card Interest Affect Your Credit Score?</h2>
+
+                <p>
+                    The interest charge itself is not generally a separate credit score factor. However, the way you
+                    manage the account can affect information reported to credit bureaus.
+                </p>
+
+                <p>
+                    For example, missed payments can hurt your credit history, and a high balance relative to your
+                    credit limit can affect credit utilization. Carrying a balance does not automatically mean your
+                    credit score will be damaged, but high balances and missed payments can create credit-related
+                    consequences.
+                </p>
+
+                <h2 id="read-statement">How to Find Your Credit Card Interest Charge</h2>
+
+                <p>
+                    Your monthly statement normally provides information that can help you understand the interest
+                    charged during the billing period.
+                </p>
+
+                <p>Look for:</p>
+
+                <ul>
+                    <li>Your APR or APRs</li>
+                    <li>The statement balance</li>
+                    <li>The minimum payment</li>
+                    <li>The payment due date</li>
+                    <li>Interest charges or finance charges</li>
+                    <li>The billing period</li>
+                    <li>Any promotional APR information</li>
+                    <li>The terms describing how interest is calculated</li>
+                </ul>
+
+                <p>
+                    If a statement does not make the calculation clear, your cardholder agreement or issuer's
+                    customer-service team can provide the applicable calculation method.
+                </p>
+
+                <h2 id="strategy">A Simple Credit Card Interest Strategy</h2>
+
+                <p>
+                    If you are trying to stop interest from growing your balance, use this sequence as a starting
+                    point:
+                </p>
+
+                <ol>
+                    <li>List every credit card balance.</li>
+                    <li>Record each card's APR, minimum payment and due date.</li>
+                    <li>Stop missing minimum payments.</li>
+                    <li>Avoid unnecessary new purchases on cards carrying balances.</li>
+                    <li>Direct extra money toward the balance you are prioritizing.</li>
+                    <li>Continue making at least the required minimums on other accounts.</li>
+                    <li>Review your progress each billing cycle.</li>
+                </ol>
+
+                <p>
+                    For a broader debt-repayment plan, see
+                    <a href="/finance/credit-debt/how-to-pay-off-debt/"
+                        style="color: var(--accent-dark); font-weight: 700">
+                        How to Pay Off Debt </a>.
+                </p>
+
+                <h2 id="faq">Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <h3>How does credit card interest work?</h3>
+                    <p>
+                        Credit card interest is the cost of carrying a balance under the card's terms. The issuer
+                        generally uses the card's APR and a periodic calculation method to determine the interest
+                        charge. Many cards use daily calculations and an average daily balance.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How is credit card interest calculated?</h3>
+                    <p>
+                        A common simplified calculation is average daily balance multiplied by the daily periodic
+                        rate and the number of days in the billing cycle. The exact method can vary by issuer and
+                        card.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What is a 24% APR on a $1,000 balance?</h3>
+                    <p>
+                        A simplified 365-day calculation produces a daily rate of about 0.06575%. If the balance
+                        remained $1,000 for 30 days, the approximate interest would be $19.73 before accounting for
+                        the issuer's exact calculation method and compounding.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Does credit card interest compound daily?</h3>
+                    <p>
+                        Many credit cards calculate and compound interest daily, but the exact method depends on the
+                        issuer and card terms. Check your card agreement for the calculation method that applies to
+                        your account.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>When does credit card interest start?</h3>
+                    <p>
+                        The answer depends on the transaction and your card's terms. Eligible purchases may receive
+                        a grace period, while cash advances and some balance transfers can have different interest
+                        rules.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Does paying the minimum payment stop interest?</h3>
+                    <p>
+                        Usually not. The minimum payment can keep your account current when paid on time, but paying
+                        only the minimum generally does not eliminate interest on a revolving balance.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Can I avoid credit card interest?</h3>
+                    <p>
+                        If your card provides a purchase grace period, paying the applicable statement balance in
+                        full by the due date can generally help you avoid interest on eligible purchases. Other
+                        transactions may have different rules.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Does paying my credit card early reduce interest?</h3>
+                    <p>
+                        If your issuer calculates interest using daily balances, reducing your balance earlier can
+                        reduce the balance used for subsequent days. The exact effect depends on your issuer's
+                        calculation and payment-posting rules.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Is APR the same as the daily interest rate?</h3>
+                    <p>
+                        No. APR is an annualized rate. A daily periodic rate is a periodic rate used for daily
+                        calculations. A common simplified conversion is APR divided by 365, although some issuers
+                        may use a different divisor.
+                    </p>
+                </div>
+
+                <h2 id="related">Related Credit &amp; Debt Guides</h2>
+
+                <div class="related-grid">
+                    <a class="related-link" href="/finance/credit-debt/what-is-a-credit-score/">
+                        <strong>What Is a Credit Score?</strong>
+                        <span>Learn what credit scores measure and why they matter.</span>
+                    </a>
+
+                    <a class="related-link" href="/finance/credit-debt/how-credit-scores-work/">
+                        <strong>How Credit Scores Work</strong>
+                        <span>Understand the major factors used in credit scoring.</span>
+                    </a>
+
+                    <a class="related-link" href="/finance/credit-debt/what-is-a-credit-report/">
+                        <strong>What Is a Credit Report?</strong>
+                        <span>Learn what information appears on your credit report.</span>
+                    </a>
+
+                    <a class="related-link" href="/finance/credit-debt/how-to-pay-off-debt/">
+                        <strong>How to Pay Off Debt</strong>
+                        <span>Compare practical debt repayment strategies.</span>
+                    </a>
+
+                    <a class="related-link" href="/finance/credit-debt/get-out-of-credit-card-debt/">
+                        <strong>Get Out of Credit Card Debt</strong>
+                        <span>Explore practical steps for reducing revolving debt.</span>
+                    </a>
+
+                    <a class="related-link" href="/finance/credit-debt/credit-utilization/">
+                        <strong>Credit Utilization</strong>
+                        <span>Understand balances, limits and credit utilization.</span>
+                    </a>
+                </div>
+
+                <div class="sources">
+                    <h2>Sources Used for This Guide</h2>
+
+                    <p>
+                        This educational guide was informed by consumer and financial education resources from
+                        Capital One, Santander Bank, Navy Federal Credit Union, Chase and Experian.
+                    </p>
+
+                    <p>
+                        Because credit card interest calculations and transaction terms can differ between issuers,
+                        always use your own card agreement and statement for account-specific information.
+                    </p>
+                </div>
+
+                <div class="disclaimer">
+                    <strong>Educational disclaimer:</strong>
+                    PaycheckMint provides general educational information and does not provide individualized
+                    financial, legal or credit advice. Credit card rates, fees, grace periods and interest
+                    calculations vary by issuer and account. Review your card agreement and contact your issuer for
+                    information specific to your account.
+                </div>
+            </article>
+
+            <aside>
+                <div class="sidebar-card">
+                    <h2>On This Page</h2>
+
+                    <nav class="toc">
+                        <a href="#what-is-interest">What Is Credit Card Interest?</a>
+                        <a href="#apr">What Is APR?</a>
+                        <a href="#calculation">How Interest Is Calculated</a>
+                        <a href="#example">Interest Example</a>
+                        <a href="#daily">Daily Compounding</a>
+                        <a href="#grace-period">Grace Period</a>
+                        <a href="#when-interest-starts">When Interest Starts</a>
+                        <a href="#minimum-payment">Minimum Payments</a>
+                        <a href="#payment-timing">Payment Timing</a>
+                        <a href="#types-apr">Types of APR</a>
+                        <a href="#reduce-interest">Reduce Interest</a>
+                        <a href="#common-mistakes">Common Mistakes</a>
+                        <a href="#credit-score">Credit Score</a>
+                        <a href="#faq">FAQs</a>
+                    </nav>
+                </div>
+
+                <div class="sidebar-card">
+                    <h2>Credit &amp; Debt</h2>
+
+                    <div class="sidebar-links">
+                        <a href="/finance/credit-debt/"> Credit &amp; Debt Overview </a>
+
+                        <a href="/finance/credit-debt/what-is-a-credit-score/"> What Is a Credit Score? </a>
+
+                        <a href="/finance/credit-debt/how-to-improve-credit-score/">
+                            How to Improve Your Credit Score
+                        </a>
+
+                        <a href="/finance/credit-debt/how-to-build-credit/"> How to Build Credit </a>
+
+                        <a href="/finance/credit-debt/what-is-a-credit-report/"> What Is a Credit Report? </a>
+
+                        <a href="/finance/credit-debt/credit-utilization/"> Credit Utilization </a>
+
+                        <a href="/finance/credit-debt/debt-to-income-ratio/"> Debt-to-Income Ratio </a>
+
+                        <a href="/finance/credit-debt/how-to-pay-off-debt/"> How to Pay Off Debt </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a class="brand" href="/"> Paycheck<span>Mint</span> </a>
+
+                <p>
+                    Simple tools and guides to help you understand your paycheck, income, taxes, budgeting, debt,
+                    and investing.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Tools</h3>
+
+                <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+
+                <a href="/hourly-paycheck-calculator/"> Hourly Paycheck Calculator </a>
+
+                <a href="/salary-paycheck-calculator/"> Salary Paycheck Calculator </a>
+
+                <a href="/overtime-pay-calculator/"> Overtime Calculator </a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Finance</h3>
+
+                <a href="/finance/"> Finance Overview </a>
+
+                <a href="/finance/taxes/"> Taxes </a>
+
+                <a href="/finance/budgeting/"> Budgeting </a>
+
+                <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+
+                <a href="/finance/investing/"> Investing </a>
+
+                <a href="/finance/insurance/"> Insurance </a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Company</h3>
+
+                <a href="/about/">About</a>
+                <a href="/contact/">Contact</a>
+                <a href="/privacy-policy/">Privacy Policy</a>
+                <a href="/terms/">Terms</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 PaycheckMint. All rights reserved.</p>
+
+            <p>Information on this site is for educational purposes and is not individualized financial advice.</p>
+        </div>
+
+    </footer>
+
+    <script>
+        (function () {
+            const toggle = document.querySelector(".mobile-menu-toggle");
+            const nav = document.querySelector(".main-nav");
+            const dropdown = document.querySelector(".nav-dropdown");
+            const dropdownButton = dropdown ? dropdown.querySelector("button") : null;
+
+            if (!toggle || !nav) return;
+
+            function closeDropdown() {
+                if (dropdown) {
+                    dropdown.classList.remove("open");
+
+                    if (dropdownButton) {
+                        dropdownButton.setAttribute("aria-expanded", "false");
+                    }
+                }
+            }
+
+            function closeMenu() {
+                nav.classList.remove("menu-open");
+                toggle.setAttribute("aria-expanded", "false");
+                toggle.setAttribute("aria-label", "Open navigation menu");
+                closeDropdown();
+            }
+
+            toggle.addEventListener("click", function (event) {
+                event.stopPropagation();
+
+                const isOpen = nav.classList.toggle("menu-open");
+
+                toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+
+                toggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+
+                if (!isOpen) {
+                    closeDropdown();
+                }
+            });
+
+            if (dropdown && dropdownButton) {
+                dropdownButton.addEventListener("click", function (event) {
+                    event.stopPropagation();
+
+                    const isOpen = dropdown.classList.toggle("open");
+
+                    dropdownButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                });
+            }
+
+            nav.querySelectorAll("a").forEach(function (link) {
+                link.addEventListener("click", function () {
+                    closeMenu();
+                });
+            });
+
+            document.addEventListener("click", function (event) {
+                if (
+                    nav.classList.contains("menu-open") &&
+                    !nav.contains(event.target) &&
+                    !toggle.contains(event.target)
+                ) {
+                    closeMenu();
+                }
+            });
+
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closeMenu();
+                }
+            });
+
+            window.addEventListener("resize", function () {
+                if (window.innerWidth > 900) {
+                    nav.classList.remove("menu-open");
+                    toggle.setAttribute("aria-expanded", "false");
+                    toggle.setAttribute("aria-label", "Open navigation menu");
+                    closeDropdown();
+                }
+            });
+        })();
+    </script>
+
+    <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": "How Does Credit Card Interest Work? APR, Rates & Examples",
+                "description": "Learn how credit card interest works, how APR becomes a daily rate, how average daily balance affects interest, when interest starts, and how to reduce credit card interest.",
+                "url": "https://paycheckmint.vercel.app/finance/credit-debt/how-does-credit-card-interest-work/",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://paycheckmint.vercel.app/finance/credit-debt/how-does-credit-card-interest-work/"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "PaycheckMint",
+                    "url": "https://paycheckmint.vercel.app/"
+                },
+                "author": {
+                    "@type": "Organization",
+                    "name": "PaycheckMint"
+                },
+                "datePublished": "2026-09-22",
+                "dateModified": "2026-09-22"
+            }
+        </script>
+
+    <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://paycheckmint.vercel.app/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Finance",
+                        "item": "https://paycheckmint.vercel.app/finance/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Credit & Debt",
+                        "item": "https://paycheckmint.vercel.app/finance/credit-debt/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 4,
+                        "name": "How Does Credit Card Interest Work?",
+                        "item": "https://paycheckmint.vercel.app/finance/credit-debt/how-does-credit-card-interest-work/"
+                    }
+                ]
+            }
+        </script>
+
+    <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "How does credit card interest work?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Credit card interest is the cost of carrying a balance under the card's terms. The issuer generally uses the card's APR and a periodic calculation method to determine the interest charge. Many cards use daily calculations and an average daily balance."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How is credit card interest calculated?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "A common simplified calculation is average daily balance multiplied by the daily periodic rate and the number of days in the billing cycle. The exact method can vary by issuer and card."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Does credit card interest compound daily?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Many credit cards calculate and compound interest daily, but the exact method depends on the issuer and card terms."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Does paying the minimum payment stop interest?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Usually not. The minimum payment can keep an account current when paid on time, but paying only the minimum generally does not eliminate interest on a revolving balance."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can I avoid credit card interest?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "If a card provides a purchase grace period, paying the applicable statement balance in full by the due date can generally help avoid interest on eligible purchases. Other transactions may have different rules."
+                        }
+                    }
+                ]
+            }
+        </script>
+</body>
+
+</html>

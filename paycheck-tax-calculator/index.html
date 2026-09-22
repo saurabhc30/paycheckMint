@@ -1,1852 +1,2167 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-
-    <title>Paycheck Tax Calculator 2026 | Estimate Payroll Taxes | PaycheckMint</title>
-
-    <meta name="description"
-        content="Use PaycheckMint's 2026 paycheck tax calculator to estimate federal income tax, Social Security, Medicare, state tax, total payroll taxes, and take-home pay.">
-
-    <meta name="robots" content="index, follow, max-image-preview:large">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <meta name="author" content="PaycheckMint">
-    <meta name="theme-color" content="#5954d9">
-
-    <link rel="canonical" href="/paycheck-tax-calculator/">
-    <link rel="icon" href="/icon.ico">
-
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Paycheck Tax Calculator 2026 | PaycheckMint">
-    <meta property="og:description"
-        content="Estimate federal income tax, FICA, state tax, total payroll taxes, and take-home pay.">
-    <meta property="og:url" content="/paycheck-tax-calculator/">
-    <meta property="og:site_name" content="PaycheckMint">
-
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Paycheck Tax Calculator 2026 | PaycheckMint">
-    <meta name="twitter:description" content="Estimate your 2026 paycheck taxes and take-home pay.">
-
-    <style>
-        :root {
-            --bg: #f6f5f1;
-            --surface: #ffffff;
-            --surface-soft: #faf9f6;
-
-            --ink: #191919;
-            --muted: #74736f;
-            --muted-light: #999791;
-
-            --line: #deddd8;
-            --line-dark: #cbc9c3;
-
-            --accent: #5954d9;
-            --accent-dark: #4843c4;
-            --accent-soft: #eeecff;
-
-            --chart-net: #5954d9;
-            --chart-federal: #e7a23b;
-            --chart-fica: #e06c5d;
-            --chart-state: #72a86f;
-
-            --radius: 14px;
-            --shadow: 0 8px 30px rgba(20, 20, 20, .06);
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            background: var(--bg);
-            color: var(--ink);
-            font-family:
-                Inter,
-                ui-sans-serif,
-                system-ui,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                sans-serif;
-            line-height: 1.55;
-        }
-
-        button,
-        input,
-        select {
-            font: inherit;
-        }
-
-        a {
-            color: inherit;
-        }
-
-        .site-header {
-            width: min(1100px, calc(100% - 32px));
-            margin: 0 auto;
-            padding: 20px 0;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .brand {
-            color: var(--ink);
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 800;
-            letter-spacing: -.03em;
-        }
-
-        .nav {
-            display: flex;
-            align-items: center;
-            gap: 22px;
-        }
-
-        .nav a {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: .86rem;
-            font-weight: 600;
-        }
-
-        .nav a:hover {
-            color: var(--accent);
-        }
-
-        .page {
-            width: min(1100px, calc(100% - 32px));
-            margin: 0 auto;
-        }
-
-        .hero {
-            max-width: 760px;
-            margin: 48px auto 34px;
-            text-align: center;
-        }
-
-        .eyebrow {
-            margin: 0 0 9px;
-            color: var(--accent);
-            font-size: .72rem;
-            font-weight: 800;
-            letter-spacing: .11em;
-        }
-
-        .hero h1 {
-            margin: 0;
-            font-size: clamp(2rem, 5vw, 3.25rem);
-            line-height: 1.08;
-            letter-spacing: -.055em;
-        }
-
-        .hero p {
-            max-width: 660px;
-            margin: 16px auto 0;
-            color: var(--muted);
-            font-size: .98rem;
-        }
-
-        .calculator {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(320px, .82fr);
-            gap: 18px;
-            align-items: start;
-            margin-bottom: 70px;
-        }
-
-        .panel {
-            min-width: 0;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
-
-        .form-panel {
-            padding: 24px;
-        }
-
-        .result-panel {
-            padding: 24px;
-            position: sticky;
-            top: 18px;
-        }
-
-        .panel-title {
-            margin: 0 0 20px;
-            font-size: 1rem;
-            letter-spacing: -.02em;
-        }
-
-        .field {
-            margin-bottom: 16px;
-        }
-
-        .field:last-child {
-            margin-bottom: 0;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 7px;
-            font-size: .78rem;
-            font-weight: 700;
-        }
-
-        .input-wrap {
-            position: relative;
-        }
-
-        .prefix {
-            position: absolute;
-            left: 13px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--muted);
-            font-size: .92rem;
-            pointer-events: none;
-        }
-
-        input,
-        select {
-            width: 100%;
-            min-height: 46px;
-
-            border: 1px solid var(--line-dark);
-            border-radius: 10px;
-
-            background: var(--surface);
-            color: var(--ink);
-
-            padding: 10px 12px;
-            outline: none;
-
-            transition:
-                border-color .15s ease,
-                box-shadow .15s ease;
-        }
-
-        .has-prefix input {
-            padding-left: 30px;
-        }
-
-        input:focus,
-        select:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px var(--accent-soft);
-        }
-
-        .two-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .section-label {
-            margin: 27px 0 12px;
-            padding-top: 20px;
-            border-top: 1px solid var(--line);
-
-            font-size: .73rem;
-            font-weight: 800;
-            color: var(--muted);
-            letter-spacing: .09em;
-            text-transform: uppercase;
-        }
-
-        .advanced-options {
-            margin-top: 18px;
-            border-top: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
-        }
-
-        .advanced-options summary {
-            cursor: pointer;
-            padding: 15px 0;
-
-            color: var(--ink);
-            font-size: .82rem;
-            font-weight: 750;
-
-            list-style: none;
-        }
-
-        .advanced-options summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .advanced-options summary::after {
-            content: "+";
-            float: right;
-            color: var(--accent);
-            font-size: 1rem;
-        }
-
-        .advanced-options[open] summary::after {
-            content: "−";
-        }
-
-        .advanced-content {
-            padding-bottom: 16px;
-        }
-
-        .calculate-btn {
-            width: 100%;
-            min-height: 50px;
-            margin-top: 22px;
-
-            border: 0;
-            border-radius: 10px;
-
-            background: var(--accent);
-            color: white;
-
-            cursor: pointer;
-
-            font-size: .92rem;
-            font-weight: 800;
-
-            transition:
-                background .15s ease,
-                transform .15s ease;
-        }
-
-        .calculate-btn:hover {
-            background: var(--accent-dark);
-        }
-
-        .calculate-btn:active {
-            transform: translateY(1px);
-        }
-
-        .result-kicker {
-            margin: 0;
-            color: var(--muted);
-            font-size: .76rem;
-            font-weight: 700;
-        }
-
-        .take-home {
-            margin: 4px 0 0;
-
-            font-size: clamp(2rem, 5vw, 2.7rem);
-            line-height: 1.1;
-            letter-spacing: -.05em;
-        }
-
-        .result-period {
-            margin: 5px 0 22px;
-            color: var(--muted);
-            font-size: .78rem;
-        }
-
-        .tax-rate-box {
-            margin-bottom: 20px;
-            padding: 14px 15px;
-
-            background: var(--accent-soft);
-            border: 1px solid #dedaff;
-            border-radius: 10px;
-        }
-
-        .tax-rate-label {
-            color: var(--muted);
-            font-size: .73rem;
-            font-weight: 700;
-        }
-
-        .tax-rate-value {
-            margin-top: 2px;
-            color: var(--accent);
-            font-size: 1.25rem;
-            font-weight: 800;
-            letter-spacing: -.03em;
-        }
-
-        .chart-wrap {
-            display: grid;
-            place-items: center;
-            margin: 10px 0 22px;
-        }
-
-        .chart {
-            width: 220px;
-            height: 220px;
-
-            position: relative;
-
-            border-radius: 50%;
-
-            background:
-                conic-gradient(var(--chart-net) 0% 60%,
-                    var(--chart-federal) 60% 76%,
-                    var(--chart-fica) 76% 90%,
-                    var(--chart-state) 90% 100%);
-        }
-
-        .chart-center {
-            position: absolute;
-            inset: 28%;
-
-            display: grid;
-            place-items: center;
-
-            text-align: center;
-
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 50%;
-        }
-
-        .chart-center small {
-            display: block;
-            color: var(--muted);
-            font-size: .67rem;
-            font-weight: 700;
-        }
-
-        .chart-center strong {
-            display: block;
-            margin-top: 2px;
-            font-size: 1rem;
-            letter-spacing: -.03em;
-        }
-
-        .legend {
-            display: grid;
-            gap: 8px;
-            margin-bottom: 24px;
-        }
-
-        .legend-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-
-            font-size: .78rem;
-        }
-
-        .legend-label {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--muted);
-        }
-
-        .dot {
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            flex: 0 0 auto;
-        }
-
-        .dot.net {
-            background: var(--chart-net);
-        }
-
-        .dot.federal {
-            background: var(--chart-federal);
-        }
-
-        .dot.fica {
-            background: var(--chart-fica);
-        }
-
-        .dot.state {
-            background: var(--chart-state);
-        }
-
-        .legend-value {
-            font-weight: 750;
-        }
-
-        .breakdown {
-            border-top: 1px solid var(--line);
-            padding-top: 15px;
-        }
-
-        .breakdown-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-
-            padding: 8px 0;
-
-            font-size: .82rem;
-        }
-
-        .breakdown-row span:first-child {
-            color: var(--muted);
-        }
-
-        .breakdown-row strong {
-            font-weight: 750;
-        }
-
-        .tax-total {
-            margin-top: 8px;
-            padding-top: 11px;
-            border-top: 1px solid var(--line);
-        }
-
-        .summary {
-            margin-top: 18px;
-            padding-top: 16px;
-            border-top: 1px solid var(--line);
-        }
-
-        .summary-title {
-            margin: 0 0 9px;
-
-            font-size: .76rem;
-            font-weight: 800;
-            color: var(--muted);
-
-            text-transform: uppercase;
-            letter-spacing: .08em;
-        }
-
-        .summary-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 7px 18px;
-        }
-
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 8px;
-
-            font-size: .77rem;
-        }
-
-        .summary-row span {
-            color: var(--muted);
-        }
-
-        .content-section {
-            width: min(900px, 100%);
-            margin: 0 auto 68px;
-        }
-
-        .content-section h2 {
-            margin: 0 0 13px;
-
-            font-size: clamp(1.45rem, 4vw, 2rem);
-            line-height: 1.2;
-            letter-spacing: -.035em;
-        }
-
-        .content-section h3 {
-            margin: 25px 0 7px;
-            font-size: 1rem;
-            letter-spacing: -.015em;
-        }
-
-        .content-section p,
-        .content-section li {
-            color: var(--muted);
-            font-size: .91rem;
-        }
-
-        .content-section ul {
-            padding-left: 20px;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .info-card {
-            padding: 17px;
-
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 12px;
-        }
-
-        .info-card strong {
-            display: block;
-            margin-bottom: 6px;
-            font-size: .85rem;
-        }
-
-        .info-card span {
-            color: var(--muted);
-            font-size: .77rem;
-        }
-
-        .example-box,
-        .notice-box {
-            margin-top: 18px;
-            padding: 20px;
-
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 12px;
-        }
-
-        .example-box strong {
-            display: block;
-            margin-bottom: 7px;
-        }
-
-        .example-box p,
-        .notice-box p {
-            margin: 0;
-        }
-
-        .faq-list {
-            display: grid;
-            gap: 9px;
-        }
-
-        .faq-list details {
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 10px;
-            padding: 0 15px;
-        }
-
-        .faq-list summary {
-            cursor: pointer;
-            padding: 14px 0;
-
-            font-size: .85rem;
-            font-weight: 750;
-        }
-
-        .faq-list p {
-            margin: 0 0 15px;
-            font-size: .82rem;
-        }
-
-        .ad-space {
-            min-height: 90px;
-            width: min(900px, 100%);
-            margin: 0 auto 65px;
-
-            display: grid;
-            place-items: center;
-
-            border: 1px dashed var(--line-dark);
-            border-radius: 10px;
-
-            color: var(--muted-light);
-            font-size: .7rem;
-        }
-
-        footer {
-            border-top: 1px solid var(--line);
-            margin-top: 30px;
-            padding: 30px 16px;
-
-            text-align: center;
-
-            color: var(--muted);
-            font-size: .76rem;
-        }
-
-        footer p {
-            margin: 0 0 10px;
-        }
-
-        footer a {
-            color: var(--muted);
-            text-decoration: none;
-            margin: 0 7px;
-        }
-
-        footer a:hover {
-            color: var(--accent);
-        }
-
-        @media (max-width: 850px) {
-            .calculator {
-                grid-template-columns: 1fr;
+    <head>
+        <meta charset="UTF-8" />
+
+        <title>Paycheck Tax Calculator 2026 | Estimate Payroll Taxes | PaycheckMint</title>
+
+        <meta
+            name="description"
+            content="Use PaycheckMint's 2026 paycheck tax calculator to estimate federal income tax, Social Security, Medicare, state tax, total payroll taxes, and take-home pay."
+        />
+
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <meta name="author" content="PaycheckMint" />
+        <meta name="theme-color" content="#5954d9" />
+
+        <link rel="canonical" href="https://paycheckmint.vercel.app/paycheck-tax-calculator/" />
+        <link rel="icon" href="/icon.ico" />
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Paycheck Tax Calculator 2026 | PaycheckMint" />
+        <meta
+            property="og:description"
+            content="Estimate federal income tax, FICA, state tax, total payroll taxes, and take-home pay."
+        />
+        <meta property="og:url" content="https://paycheckmint.vercel.app/paycheck-tax-calculator/" />
+        <meta property="og:site_name" content="PaycheckMint" />
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Paycheck Tax Calculator 2026 | PaycheckMint" />
+        <meta name="twitter:description" content="Estimate your 2026 paycheck taxes and take-home pay." />
+
+        <!-- WebSite Schema -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "PaycheckMint",
+                "url": "https://paycheckmint.vercel.app/"
+            }
+        </script>
+
+        <!-- WebApplication Schema -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebApplication",
+                "name": "Paycheck Tax Calculator",
+                "applicationCategory": "FinanceApplication",
+                "operatingSystem": "Web",
+                "description": "A 2026 paycheck tax calculator for estimating federal income tax, FICA, state tax, total payroll taxes, and take-home pay.",
+                "url": "https://paycheckmint.vercel.app/paycheck-tax-calculator/"
+            }
+        </script>
+
+        <!-- FAQ Schema -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "What is a paycheck tax calculator?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "A paycheck tax calculator estimates the taxes that may be withheld from a paycheck, including federal income tax, Social Security, Medicare, and state income tax."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How much tax is taken from a paycheck?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "The amount depends on your income, filing status, pay frequency, state, deductions, withholding settings, and other circumstances. PaycheckMint provides an estimate based on the information entered."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What taxes are taken out of a paycheck?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Common employee payroll taxes include federal income tax, Social Security tax, Medicare tax, and in many states state income tax."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Does this calculator show exact payroll withholding?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "No. This calculator provides an estimate. Actual withholding depends on your Form W-4, employer payroll system, state and local rules, benefits, year-to-date wages, and other factors."
+                        }
+                    }
+                ]
+            }
+        </script>
+
+        <style>
+            :root {
+                --bg: #f6f5f1;
+                --surface: #ffffff;
+                --surface-soft: #faf9f6;
+
+                --ink: #191919;
+                --muted: #74736f;
+                --muted-light: #999791;
+
+                --line: #deddd8;
+                --line-dark: #cbc9c3;
+
+                --accent: #5954d9;
+                --accent-dark: #4843c4;
+                --accent-soft: #eeecff;
+
+                --chart-net: #5954d9;
+                --chart-federal: #e7a23b;
+                --chart-fica: #e06c5d;
+                --chart-state: #72a86f;
+                --chart-deductions: #aaa9a3;
+
+                --radius-sm: 8px;
+                --radius-md: 10px;
+                --radius: 14px;
+
+                --shadow: 0 8px 30px rgba(20, 20, 20, 0.06);
+
+                --content-width: 1120px;
             }
 
-            .result-panel {
-                position: static;
+            * {
+                box-sizing: border-box;
             }
 
-            .info-grid {
-                grid-template-columns: 1fr 1fr;
+            html {
+                scroll-behavior: smooth;
             }
-        }
 
-        @media (max-width: 600px) {
-
-            .site-header,
-            .page {
-                width: calc(100% - 24px);
+            body {
+                margin: 0;
+                min-width: 320px;
+                background: var(--bg);
+                color: var(--ink);
+                font-family:
+                    Inter,
+                    ui-sans-serif,
+                    system-ui,
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    sans-serif;
+                line-height: 1.55;
+                overflow-x: hidden;
             }
+
+            button,
+            input,
+            select {
+                font: inherit;
+            }
+
+            button {
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            a {
+                color: inherit;
+            }
+
+            .container {
+                width: min(var(--content-width), calc(100% - 32px));
+                margin-inline: auto;
+            }
+
+            /* =========================================================
+           HEADER
+        ========================================================= */
 
             .site-header {
-                padding: 16px 0;
+                position: relative;
+                z-index: 1000;
+                width: 100%;
+                background: var(--surface);
+                border-bottom: 1px solid var(--line);
             }
 
-            .nav {
-                gap: 11px;
+            .header-inner {
+                min-height: 64px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 16px;
             }
 
-            .nav a {
-                font-size: .75rem;
+            .logo {
+                display: inline-flex;
+                align-items: center;
+                flex: 0 0 auto;
+
+                color: var(--ink);
+                font-size: 1.25rem;
+                font-weight: 800;
+                line-height: 1;
+                text-decoration: none;
+                white-space: nowrap;
+            }
+
+            .logo:hover {
+                color: var(--accent);
+            }
+
+            /* =========================================================
+           DESKTOP NAV
+        ========================================================= */
+
+            .main-nav {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                gap: 5px;
+            }
+
+            .main-nav > a,
+            .nav-dropdown-toggle {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+
+                min-height: 40px;
+                padding: 7px 10px;
+
+                border: 0;
+                border-radius: var(--radius-sm);
+
+                background: transparent;
+                color: var(--ink);
+
+                font-size: 0.92rem;
+                font-weight: 600;
+
+                text-decoration: none;
+                white-space: nowrap;
+
+                cursor: pointer;
+                touch-action: manipulation;
+            }
+
+            .main-nav > a:hover,
+            .nav-dropdown-toggle:hover {
+                background: var(--surface-soft);
+                color: var(--accent);
+            }
+
+            /* =========================================================
+           FINANCE DROPDOWN
+        ========================================================= */
+
+            .nav-dropdown {
+                position: relative;
+            }
+
+            .nav-dropdown-toggle {
+                gap: 6px;
+            }
+
+            .dropdown-arrow {
+                display: inline-block;
+                font-size: 11px;
+                line-height: 1;
+                transition: transform 0.2s ease;
+            }
+
+            .nav-dropdown.open .dropdown-arrow {
+                transform: rotate(180deg);
+            }
+
+            .nav-dropdown-menu {
+                position: absolute;
+                top: calc(100% + 6px);
+                right: 0;
+
+                z-index: 2000;
+
+                width: 235px;
+                padding: 7px;
+
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: var(--radius-md);
+
+                box-shadow: var(--shadow);
+
+                display: none;
+            }
+
+            .nav-dropdown.open .nav-dropdown-menu {
+                display: block;
+            }
+
+            .nav-dropdown-menu a {
+                display: block;
+                padding: 10px 12px;
+
+                border-radius: var(--radius-sm);
+
+                color: var(--ink);
+
+                font-size: 13px;
+                font-weight: 500;
+
+                text-decoration: none;
+            }
+
+            .nav-dropdown-menu a:hover {
+                background: var(--surface-soft);
+                color: var(--accent);
+            }
+
+            /* =========================================================
+           MOBILE MENU BUTTON
+        ========================================================= */
+
+            .mobile-menu-toggle {
+                display: none !important;
+
+                width: 42px;
+                height: 42px;
+                min-width: 42px;
+                min-height: 42px;
+
+                flex: 0 0 42px;
+
+                padding: 8px;
+
+                border: 1px solid var(--line-dark);
+                border-radius: var(--radius-sm);
+
+                background: var(--surface);
+                color: var(--ink);
+
+                cursor: pointer;
+
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+
+                position: relative;
+                z-index: 3000;
+
+                visibility: visible;
+                opacity: 1;
+                touch-action: manipulation;
+            }
+
+            .mobile-menu-toggle:hover {
+                border-color: var(--accent);
+                background: var(--accent-soft);
+            }
+
+            .mobile-menu-toggle span {
+                display: block;
+
+                width: 20px;
+                height: 2px;
+
+                margin: 3px 0;
+
+                background: var(--ink);
+                border-radius: 2px;
+
+                transition:
+                    transform 0.2s ease,
+                    opacity 0.2s ease;
+            }
+
+            .mobile-menu-toggle.open span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .mobile-menu-toggle.open span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-toggle.open span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            /* =========================================================
+           PAGE
+        ========================================================= */
+
+            .page {
+                width: min(1100px, calc(100% - 32px));
+                margin-inline: auto;
             }
 
             .hero {
-                margin: 34px auto 28px;
+                max-width: 760px;
+                margin: 48px auto 34px;
+                text-align: center;
+            }
+
+            .eyebrow {
+                margin: 0 0 9px;
+                color: var(--accent);
+                font-size: 0.72rem;
+                font-weight: 800;
+                letter-spacing: 0.11em;
             }
 
             .hero h1 {
-                font-size: 2rem;
+                margin: 0;
+                font-size: clamp(2rem, 5vw, 3.25rem);
+                line-height: 1.08;
+                letter-spacing: -0.055em;
             }
 
-            .hero p {
-                font-size: .88rem;
+            .hero p:not(.eyebrow) {
+                max-width: 660px;
+                margin: 16px auto 0;
+                color: var(--muted);
+                font-size: 0.98rem;
             }
 
-            .form-panel,
+            /* =========================================================
+           CALCULATOR
+        ========================================================= */
+
+            .calculator {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
+                gap: 18px;
+                align-items: start;
+                margin-bottom: 70px;
+            }
+
+            .panel {
+                min-width: 0;
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: var(--radius);
+                box-shadow: var(--shadow);
+            }
+
+            .form-panel {
+                padding: 24px;
+            }
+
             .result-panel {
-                padding: 18px;
+                position: sticky;
+                top: 18px;
+                padding: 24px;
+            }
+
+            .panel-title {
+                margin: 0 0 20px;
+                font-size: 1rem;
+                letter-spacing: -0.02em;
+            }
+
+            .field {
+                margin-bottom: 16px;
+            }
+
+            .field:last-child {
+                margin-bottom: 0;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 7px;
+                font-size: 0.78rem;
+                font-weight: 700;
+            }
+
+            .input-wrap {
+                position: relative;
+            }
+
+            .prefix {
+                position: absolute;
+                left: 13px;
+                top: 50%;
+                transform: translateY(-50%);
+
+                color: var(--muted);
+                font-size: 0.92rem;
+
+                pointer-events: none;
+            }
+
+            input,
+            select {
+                width: 100%;
+                min-height: 46px;
+
+                border: 1px solid var(--line-dark);
+                border-radius: 10px;
+
+                background: var(--surface);
+                color: var(--ink);
+
+                padding: 10px 12px;
+                outline: none;
+
+                transition:
+                    border-color 0.15s ease,
+                    box-shadow 0.15s ease;
+            }
+
+            .has-prefix input {
+                padding-left: 30px;
+            }
+
+            input:focus,
+            select:focus {
+                border-color: var(--accent);
+                box-shadow: 0 0 0 3px var(--accent-soft);
             }
 
             .two-col {
-                grid-template-columns: 1fr;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
             }
 
-            .info-grid {
-                grid-template-columns: 1fr;
+            .section-label {
+                margin: 27px 0 12px;
+                padding-top: 20px;
+
+                border-top: 1px solid var(--line);
+
+                font-size: 0.73rem;
+                font-weight: 800;
+                color: var(--muted);
+                letter-spacing: 0.09em;
+                text-transform: uppercase;
             }
 
-            .chart {
-                width: 190px;
-                height: 190px;
+            /* =========================================================
+           ADVANCED OPTIONS
+        ========================================================= */
+
+            .advanced-options {
+                margin-top: 18px;
+                border-top: 1px solid var(--line);
+                border-bottom: 1px solid var(--line);
             }
 
-            .content-section {
-                margin-bottom: 50px;
+            .advanced-options summary {
+                cursor: pointer;
+                padding: 15px 0;
+
+                color: var(--ink);
+                font-size: 0.82rem;
+                font-weight: 750;
+
+                list-style: none;
+                user-select: none;
             }
-        }
 
-        @media (max-width: 430px) {
-
-            .nav a:nth-child(3),
-            .nav a:nth-child(4) {
+            .advanced-options summary::-webkit-details-marker {
                 display: none;
             }
 
-            .hero {
-                margin-top: 28px;
+            .advanced-options summary::after {
+                content: "+";
+                float: right;
+
+                color: var(--accent);
+                font-size: 1rem;
             }
 
-            .hero h1 {
-                font-size: 1.75rem;
+            .advanced-options[open] summary::after {
+                content: "−";
             }
 
-            .hero p {
-                font-size: .84rem;
+            .advanced-content {
+                padding-bottom: 16px;
+            }
+
+            /* =========================================================
+           BUTTON
+        ========================================================= */
+
+            .calculate-btn {
+                width: 100%;
+                min-height: 50px;
+                margin-top: 22px;
+
+                border: 0;
+                border-radius: 10px;
+
+                background: var(--accent);
+                color: #ffffff;
+
+                cursor: pointer;
+
+                font-size: 0.92rem;
+                font-weight: 800;
+
+                transition:
+                    background 0.15s ease,
+                    transform 0.15s ease;
+            }
+
+            .calculate-btn:hover {
+                background: var(--accent-dark);
+            }
+
+            .calculate-btn:active {
+                transform: translateY(1px);
+            }
+
+            /* =========================================================
+           RESULT
+        ========================================================= */
+
+            .result-kicker {
+                margin: 0;
+                color: var(--muted);
+                font-size: 0.76rem;
+                font-weight: 700;
             }
 
             .take-home {
-                font-size: 2rem;
+                margin: 4px 0 0;
+
+                font-size: clamp(2rem, 5vw, 2.7rem);
+                line-height: 1.1;
+                letter-spacing: -0.05em;
             }
 
-            .summary-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 350px) {
-            .site-header {
-                align-items: flex-start;
+            .result-period {
+                margin: 5px 0 22px;
+                color: var(--muted);
+                font-size: 0.78rem;
             }
 
-            .nav {
-                gap: 8px;
+            .tax-rate-box {
+                margin-bottom: 20px;
+                padding: 14px 15px;
+
+                background: var(--accent-soft);
+                border: 1px solid #dedaff;
+                border-radius: 10px;
             }
 
-            .nav a:nth-child(2) {
-                display: none;
+            .tax-rate-label {
+                color: var(--muted);
+                font-size: 0.73rem;
+                font-weight: 700;
             }
 
-            .form-panel,
-            .result-panel {
-                padding: 15px;
+            .tax-rate-value {
+                margin-top: 2px;
+
+                color: var(--accent);
+                font-size: 1.25rem;
+                font-weight: 800;
+                letter-spacing: -0.03em;
+            }
+
+            /* =========================================================
+           CHART
+        ========================================================= */
+
+            .chart-wrap {
+                display: grid;
+                place-items: center;
+                margin: 10px 0 22px;
             }
 
             .chart {
-                width: 175px;
-                height: 175px;
+                width: 220px;
+                height: 220px;
+
+                position: relative;
+
+                border-radius: 50%;
+
+                background: conic-gradient(
+                    var(--chart-net) 0% 60%,
+                    var(--chart-federal) 60% 76%,
+                    var(--chart-fica) 76% 90%,
+                    var(--chart-state) 90% 100%
+                );
             }
-        }
-    </style>
-
-    <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "PaycheckMint",
-    "url": "/"
-  }
-  </script>
-
-    <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Paycheck Tax Calculator",
-    "applicationCategory": "FinanceApplication",
-    "operatingSystem": "Web",
-    "description": "A 2026 paycheck tax calculator for estimating federal income tax, FICA, state tax, total payroll taxes, and take-home pay.",
-    "url": "/paycheck-tax-calculator/"
-  }
-  </script>
-
-    <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is a paycheck tax calculator?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A paycheck tax calculator estimates the taxes that may be withheld from a paycheck, including federal income tax, Social Security, Medicare, and state income tax."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How much tax is taken from a paycheck?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The amount depends on your income, filing status, pay frequency, state, deductions, withholding settings, and other circumstances. PaycheckMint provides an estimate based on the information entered."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What taxes are taken out of a paycheck?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Common employee payroll taxes include federal income tax, Social Security tax, Medicare tax, and in many states state income tax."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does this calculator show exact payroll withholding?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. This calculator provides an estimate. Actual withholding depends on your Form W-4, employer payroll system, state and local rules, benefits, year-to-date wages, and other factors."
-        }
-      }
-    ]
-  }
-  </script>
-</head>
-
-<body>
-
-    <header class="site-header">
-        <a class="brand" href="/">PaycheckMint</a>
-
-        <nav class="nav" aria-label="Main navigation">
-            <a href="/">Calculator</a>
-            <a href="/#how-it-works">How it works</a>
-            <a href="/#faq">FAQ</a>
-            <a href="/about/">About</a>
-        </nav>
-    </header>
-
-    <main class="page">
-
-        <section class="hero">
-            <p class="eyebrow">2026 PAYCHECK TAX CALCULATOR</p>
-
-            <h1>See how much tax comes out of your paycheck.</h1>
-
-            <p>
-                Estimate federal income tax, Social Security, Medicare, state tax,
-                total payroll taxes, and your remaining take-home pay.
-            </p>
-        </section>
-
-        <section class="calculator" aria-label="Paycheck tax calculator">
-
-            <div class="panel form-panel">
-
-                <h2 class="panel-title">Paycheck details</h2>
-
-                <div class="field">
-                    <label for="grossPayInput">Gross annual pay</label>
-
-                    <div class="input-wrap has-prefix">
-                        <span class="prefix">$</span>
-
-                        <input id="grossPayInput" type="number" min="0" step="100" value="75000" inputmode="decimal"
-                            autocomplete="off">
-                    </div>
-                </div>
-
-                <div class="two-col">
-
-                    <div class="field">
-                        <label for="frequency">Pay frequency</label>
-
-                        <select id="frequency">
-                            <option value="52">Weekly</option>
-                            <option value="26" selected>Biweekly</option>
-                            <option value="24">Semimonthly</option>
-                            <option value="12">Monthly</option>
-                            <option value="4">Quarterly</option>
-                            <option value="2">Semiannually</option>
-                            <option value="1">Annually</option>
-                        </select>
-                    </div>
-
-                    <div class="field">
-                        <label for="state">State</label>
-
-                        <select id="state">
-                            <option value="none">No state tax</option>
-                            <option value="al">Alabama</option>
-                            <option value="az">Arizona</option>
-                            <option value="ca">California</option>
-                            <option value="co">Colorado</option>
-                            <option value="fl">Florida</option>
-                            <option value="ga">Georgia</option>
-                            <option value="il">Illinois</option>
-                            <option value="ma">Massachusetts</option>
-                            <option value="mi">Michigan</option>
-                            <option value="nc">North Carolina</option>
-                            <option value="nj">New Jersey</option>
-                            <option value="ny">New York</option>
-                            <option value="oh">Ohio</option>
-                            <option value="or">Oregon</option>
-                            <option value="pa">Pennsylvania</option>
-                            <option value="tn">Tennessee</option>
-                            <option value="tx">Texas</option>
-                            <option value="va">Virginia</option>
-                            <option value="wa">Washington</option>
-                            <option value="other">Other state</option>
-                        </select>
-                    </div>
-
-                </div>
-
-                <div class="two-col">
-
-                    <div class="field">
-                        <label for="filing">Filing status</label>
-
-                        <select id="filing">
-                            <option value="single">Single</option>
-                            <option value="married">Married filing jointly</option>
-                            <option value="hoh">Head of household</option>
-                        </select>
-                    </div>
-
-                    <div class="field">
-                        <label for="dependents">Dependents</label>
-
-                        <input id="dependents" type="number" min="0" max="20" value="0" inputmode="numeric">
-                    </div>
-
-                </div>
-
-                <div class="section-label">Pre-tax deductions</div>
-
-                <div class="two-col">
-
-                    <div class="field">
-                        <label for="retirement401k">401(k)</label>
-
-                        <div class="input-wrap has-prefix">
-                            <span class="prefix">$</span>
-                            <input id="retirement401k" type="number" min="0" step="25" value="0">
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label for="healthInsurance">Health insurance</label>
-
-                        <div class="input-wrap has-prefix">
-                            <span class="prefix">$</span>
-                            <input id="healthInsurance" type="number" min="0" step="25" value="0">
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label for="hsa">HSA</label>
-
-                        <div class="input-wrap has-prefix">
-                            <span class="prefix">$</span>
-                            <input id="hsa" type="number" min="0" step="25" value="0">
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label for="fsa">FSA</label>
-
-                        <div class="input-wrap has-prefix">
-                            <span class="prefix">$</span>
-                            <input id="fsa" type="number" min="0" step="25" value="0">
-                        </div>
-                    </div>
-
-                </div>
-
-                <details class="advanced-options">
-
-                    <summary>Advanced tax options</summary>
-
-                    <div class="advanced-content">
-
-                        <div class="two-col">
-
-                            <div class="field">
-                                <label for="extraFederal">
-                                    Extra federal withholding
-                                </label>
-
-                                <div class="input-wrap has-prefix">
-                                    <span class="prefix">$</span>
-                                    <input id="extraFederal" type="number" min="0" step="10" value="0">
-                                </div>
-                            </div>
-
-                            <div class="field">
-                                <label for="extraState">
-                                    Extra state withholding
-                                </label>
-
-                                <div class="input-wrap has-prefix">
-                                    <span class="prefix">$</span>
-                                    <input id="extraState" type="number" min="0" step="10" value="0">
-                                </div>
-                            </div>
-
-                            <div class="field">
-                                <label for="additionalMedicare">
-                                    Additional Medicare tax
-                                </label>
-
-                                <div class="input-wrap has-prefix">
-                                    <span class="prefix">$</span>
-                                    <input id="additionalMedicare" type="number" min="0" step="10" value="0">
-                                </div>
-                            </div>
-
-                            <div class="field">
-                                <label for="otherPretax">
-                                    Other pre-tax deductions
-                                </label>
-
-                                <div class="input-wrap has-prefix">
-                                    <span class="prefix">$</span>
-                                    <input id="otherPretax" type="number" min="0" step="10" value="0">
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </details>
-
-                <div class="section-label">Post-tax deductions</div>
-
-                <div class="two-col">
-
-                    <div class="field">
-                        <label for="roth401k">Roth 401(k)</label>
-
-                        <div class="input-wrap has-prefix">
-                            <span class="prefix">$</span>
-                            <input id="roth401k" type="number" min="0" step="25" value="0">
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label for="loanRepayment">Loan repayment</label>
-
-                        <div class="input-wrap has-prefix">
-                            <span class="prefix">$</span>
-                            <input id="loanRepayment" type="number" min="0" step="25" value="0">
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label for="garnishments">Garnishments</label>
-
-                        <div class="input-wrap has-prefix">
-                            <span class="prefix">$</span>
-                            <input id="garnishments" type="number" min="0" step="25" value="0">
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label for="otherPosttax">Other post-tax deductions</label>
-
-                        <div class="input-wrap has-prefix">
-                            <span class="prefix">$</span>
-                            <input id="otherPosttax" type="number" min="0" step="25" value="0">
-                        </div>
-                    </div>
-
-                </div>
-
-                <button class="calculate-btn" id="calculate" type="button">
-                    Calculate paycheck taxes
+
+            .chart-center {
+                position: absolute;
+                inset: 28%;
+
+                display: grid;
+                place-items: center;
+
+                text-align: center;
+
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 50%;
+            }
+
+            .chart-center small {
+                display: block;
+                color: var(--muted);
+                font-size: 0.67rem;
+                font-weight: 700;
+            }
+
+            .chart-center strong {
+                display: block;
+                margin-top: 2px;
+
+                font-size: 1rem;
+                letter-spacing: -0.03em;
+            }
+
+            /* =========================================================
+           LEGEND
+        ========================================================= */
+
+            .legend {
+                display: grid;
+                gap: 8px;
+                margin-bottom: 24px;
+            }
+
+            .legend-row {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+
+                font-size: 0.78rem;
+            }
+
+            .legend-label {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                color: var(--muted);
+            }
+
+            .dot {
+                width: 9px;
+                height: 9px;
+
+                border-radius: 50%;
+                flex: 0 0 auto;
+            }
+
+            .dot.net {
+                background: var(--chart-net);
+            }
+
+            .dot.federal {
+                background: var(--chart-federal);
+            }
+
+            .dot.fica {
+                background: var(--chart-fica);
+            }
+
+            .dot.state {
+                background: var(--chart-state);
+            }
+
+            .legend-value {
+                font-weight: 750;
+            }
+
+            /* =========================================================
+           BREAKDOWN
+        ========================================================= */
+
+            .breakdown {
+                padding-top: 15px;
+                border-top: 1px solid var(--line);
+            }
+
+            .breakdown-row {
+                display: flex;
+                justify-content: space-between;
+                gap: 15px;
+
+                padding: 8px 0;
+
+                font-size: 0.82rem;
+            }
+
+            .breakdown-row span:first-child {
+                color: var(--muted);
+            }
+
+            .breakdown-row strong {
+                font-weight: 750;
+            }
+
+            .tax-total {
+                margin-top: 8px;
+                padding-top: 11px;
+                border-top: 1px solid var(--line);
+            }
+
+            /* =========================================================
+           SUMMARY
+        ========================================================= */
+
+            .summary {
+                margin-top: 18px;
+                padding-top: 16px;
+                border-top: 1px solid var(--line);
+            }
+
+            .summary-title {
+                margin: 0 0 9px;
+
+                font-size: 0.76rem;
+                font-weight: 800;
+                color: var(--muted);
+
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+            }
+
+            .summary-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 7px 18px;
+            }
+
+            .summary-row {
+                display: flex;
+                justify-content: space-between;
+                gap: 8px;
+
+                font-size: 0.77rem;
+            }
+
+            .summary-row span {
+                color: var(--muted);
+            }
+
+            /* =========================================================
+           CONTENT
+        ========================================================= */
+
+            .content-section {
+                width: min(900px, 100%);
+                margin: 0 auto 68px;
+            }
+
+            .content-section h2 {
+                margin: 0 0 13px;
+
+                font-size: clamp(1.45rem, 4vw, 2rem);
+                line-height: 1.2;
+                letter-spacing: -0.035em;
+            }
+
+            .content-section h3 {
+                margin: 25px 0 7px;
+
+                font-size: 1rem;
+                letter-spacing: -0.015em;
+            }
+
+            .content-section p,
+            .content-section li {
+                color: var(--muted);
+                font-size: 0.91rem;
+            }
+
+            .content-section ul {
+                padding-left: 20px;
+            }
+
+            /* =========================================================
+           INFO CARDS
+        ========================================================= */
+
+            .info-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 12px;
+                margin-top: 20px;
+            }
+
+            .info-card {
+                padding: 17px;
+
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 12px;
+            }
+
+            .info-card strong {
+                display: block;
+                margin-bottom: 6px;
+                font-size: 0.85rem;
+            }
+
+            .info-card span {
+                color: var(--muted);
+                font-size: 0.77rem;
+            }
+
+            /* =========================================================
+           EXAMPLES / NOTICES
+        ========================================================= */
+
+            .example-box,
+            .notice-box {
+                margin-top: 18px;
+                padding: 20px;
+
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 12px;
+            }
+
+            .example-box strong {
+                display: block;
+                margin-bottom: 7px;
+            }
+
+            .example-box p,
+            .notice-box p {
+                margin: 0;
+            }
+
+            /* =========================================================
+           FAQ
+        ========================================================= */
+
+            .faq-list {
+                display: grid;
+                gap: 9px;
+            }
+
+            .faq-list details {
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 10px;
+                padding: 0 15px;
+            }
+
+            .faq-list summary {
+                cursor: pointer;
+                padding: 14px 0;
+
+                font-size: 0.85rem;
+                font-weight: 750;
+            }
+
+            .faq-list p {
+                margin: 0 0 15px;
+                font-size: 0.82rem;
+            }
+
+            /* =========================================================
+           AD SPACE
+        ========================================================= */
+
+            .ad-space {
+                min-height: 90px;
+                width: min(900px, 100%);
+                margin: 0 auto 65px;
+
+                display: grid;
+                place-items: center;
+
+                border: 1px dashed var(--line-dark);
+                border-radius: 10px;
+
+                color: var(--muted-light);
+                font-size: 0.7rem;
+            }
+
+            /* =========================================================
+           FOOTER
+        ========================================================= */
+
+            footer {
+                border-top: 1px solid var(--line);
+                margin-top: 30px;
+                padding: 30px 16px;
+
+                text-align: center;
+
+                color: var(--muted);
+                font-size: 0.76rem;
+            }
+
+            footer p {
+                margin: 0 0 10px;
+            }
+
+            footer a {
+                display: inline-block;
+                color: var(--muted);
+                text-decoration: none;
+                margin: 3px 7px;
+            }
+
+            footer a:hover {
+                color: var(--accent);
+            }
+
+            /* =========================================================
+           TABLET
+        ========================================================= */
+
+            @media (max-width: 850px) {
+                .calculator {
+                    grid-template-columns: 1fr;
+                }
+
+                .result-panel {
+                    position: static;
+                }
+
+                .info-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+
+            /* =========================================================
+           MOBILE NAVIGATION
+        ========================================================= */
+
+            @media (max-width: 760px) {
+                .container {
+                    width: calc(100% - 24px);
+                }
+
+                .site-header {
+                    z-index: 5000;
+                }
+
+                .header-inner {
+                    min-height: 62px;
+                }
+
+                /*
+             * IMPORTANT:
+             * Force hamburger to display on mobile.
+             */
+                .mobile-menu-toggle {
+                    display: inline-flex !important;
+                    visibility: visible !important;
+                    opacity: 1 !important;
+                }
+
+                .main-nav {
+                    display: none;
+
+                    position: absolute;
+                    top: calc(100% + 1px);
+                    left: 12px;
+                    right: 12px;
+
+                    z-index: 4000;
+
+                    flex-direction: column;
+                    align-items: stretch;
+                    justify-content: flex-start;
+
+                    gap: 3px;
+
+                    padding: 8px;
+
+                    background: var(--surface);
+                    border: 1px solid var(--line);
+                    border-radius: 12px;
+
+                    box-shadow: 0 12px 30px rgba(20, 20, 20, 0.1);
+                }
+
+                .main-nav.mobile-open {
+                    display: flex;
+                }
+
+                .main-nav > a,
+                .nav-dropdown-toggle {
+                    width: 100%;
+                    min-height: 44px;
+
+                    justify-content: flex-start;
+
+                    padding: 10px 12px;
+
+                    font-size: 0.9rem;
+                }
+
+                .nav-dropdown {
+                    width: 100%;
+                }
+
+                .nav-dropdown-toggle {
+                    justify-content: space-between;
+                }
+
+                .nav-dropdown-menu {
+                    position: static;
+
+                    width: 100%;
+
+                    margin-top: 3px;
+                    padding: 4px;
+
+                    border: 0;
+                    border-radius: 8px;
+
+                    background: var(--surface-soft);
+                    box-shadow: none;
+                }
+
+                .nav-dropdown-menu a {
+                    padding: 10px 12px;
+                    font-size: 0.82rem;
+                }
+
+                .page {
+                    width: calc(100% - 24px);
+                }
+
+                .hero {
+                    margin: 34px auto 28px;
+                }
+
+                .hero h1 {
+                    font-size: 2rem;
+                }
+
+                .hero p:not(.eyebrow) {
+                    font-size: 0.88rem;
+                }
+
+                .form-panel,
+                .result-panel {
+                    padding: 18px;
+                }
+
+                .chart {
+                    width: 190px;
+                    height: 190px;
+                }
+
+                .content-section {
+                    margin-bottom: 50px;
+                }
+            }
+
+            /* =========================================================
+           SMALL MOBILE
+        ========================================================= */
+
+            @media (max-width: 600px) {
+                .two-col {
+                    grid-template-columns: 1fr;
+                }
+
+                .info-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .summary-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+
+                .content-section p,
+                .content-section li {
+                    font-size: 0.88rem;
+                }
+            }
+
+            @media (max-width: 430px) {
+                .container,
+                .page {
+                    width: calc(100% - 20px);
+                }
+
+                .hero {
+                    margin-top: 28px;
+                }
+
+                .hero h1 {
+                    font-size: 1.75rem;
+                }
+
+                .hero p:not(.eyebrow) {
+                    font-size: 0.84rem;
+                }
+
+                .take-home {
+                    font-size: 2rem;
+                }
+
+                .summary-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .chart {
+                    width: 175px;
+                    height: 175px;
+                }
+
+                .form-panel,
+                .result-panel {
+                    padding: 15px;
+                }
+            }
+
+            @media (max-width: 350px) {
+                .mobile-menu-toggle {
+                    width: 40px;
+                    height: 40px;
+                    min-width: 40px;
+                    flex-basis: 40px;
+                }
+
+                .logo {
+                    font-size: 1.1rem;
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                html {
+                    scroll-behavior: auto;
+                }
+
+                *,
+                *::before,
+                *::after {
+                    transition-duration: 0.01ms !important;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <header class="site-header">
+            <div class="container header-inner">
+                <a class="logo" href="/" aria-label="PaycheckMint home"> PaycheckMint </a>
+
+                <button
+                    class="mobile-menu-toggle"
+                    id="mobileMenuToggle"
+                    type="button"
+                    aria-label="Open navigation"
+                    aria-expanded="false"
+                    aria-controls="main-navigation"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
 
+                <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+                    <a href="/">Home</a>
+
+                    <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+
+                    <a href="/income/"> Income </a>
+
+                    <div class="nav-dropdown">
+                        <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+                            <span>Finance</span>
+                            <span class="dropdown-arrow" aria-hidden="true">▾</span>
+                        </button>
+
+                        <div class="nav-dropdown-menu">
+                            <a href="/finance/"> Finance Overview </a>
+
+                            <a href="/finance/taxes/"> Taxes </a>
+
+                            <a href="/finance/budgeting/"> Budgeting &amp; Saving </a>
+
+                            <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+
+                            <a href="/finance/investing/"> Investing &amp; Retirement </a>
+
+                            <a href="/finance/insurance/"> Insurance </a>
+                        </div>
+                    </div>
+                </nav>
             </div>
+        </header>
 
-            <aside class="panel result-panel">
+        <main class="page">
+            <!-- HERO -->
 
-                <p class="result-kicker">
-                    Estimated take-home
+            <section class="hero">
+                <p class="eyebrow">2026 PAYCHECK TAX CALCULATOR</p>
+
+                <h1>See how much tax comes out of your paycheck.</h1>
+
+                <p>
+                    Estimate federal income tax, Social Security, Medicare, state tax, total payroll taxes, and your
+                    remaining take-home pay.
                 </p>
+            </section>
 
-                <div class="take-home" id="takeHome">
-                    $0
-                </div>
+            <!-- CALCULATOR -->
 
-                <p class="result-period" id="resultPeriod">
-                    Every 2 weeks
-                </p>
+            <section class="calculator" aria-label="Paycheck tax calculator">
+                <!-- FORM -->
 
-                <div class="tax-rate-box">
+                <div class="panel form-panel">
+                    <h2 class="panel-title">Paycheck details</h2>
 
-                    <div class="tax-rate-label">
-                        Effective tax rate
+                    <div class="field">
+                        <label for="grossPayInput"> Gross annual pay </label>
+
+                        <div class="input-wrap has-prefix">
+                            <span class="prefix">$</span>
+
+                            <input
+                                id="grossPayInput"
+                                type="number"
+                                min="0"
+                                step="100"
+                                value="75000"
+                                inputmode="decimal"
+                                autocomplete="off"
+                            />
+                        </div>
                     </div>
 
-                    <div class="tax-rate-value" id="effectiveRate">
-                        0%
+                    <div class="two-col">
+                        <div class="field">
+                            <label for="frequency"> Pay frequency </label>
+
+                            <select id="frequency">
+                                <option value="52">Weekly</option>
+
+                                <option value="26" selected>Biweekly</option>
+
+                                <option value="24">Semimonthly</option>
+
+                                <option value="12">Monthly</option>
+
+                                <option value="4">Quarterly</option>
+
+                                <option value="2">Semiannually</option>
+
+                                <option value="1">Annually</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="state"> State </label>
+
+                            <select id="state">
+                                <option value="none">No state tax</option>
+
+                                <option value="al">Alabama</option>
+                                <option value="az">Arizona</option>
+                                <option value="ca">California</option>
+                                <option value="co">Colorado</option>
+                                <option value="fl">Florida</option>
+                                <option value="ga">Georgia</option>
+                                <option value="il">Illinois</option>
+                                <option value="ma">Massachusetts</option>
+                                <option value="mi">Michigan</option>
+                                <option value="nc">North Carolina</option>
+                                <option value="nj">New Jersey</option>
+                                <option value="ny">New York</option>
+                                <option value="oh">Ohio</option>
+                                <option value="or">Oregon</option>
+                                <option value="pa">Pennsylvania</option>
+                                <option value="tn">Tennessee</option>
+                                <option value="tx">Texas</option>
+                                <option value="va">Virginia</option>
+                                <option value="wa">Washington</option>
+                                <option value="other">Other state</option>
+                            </select>
+                        </div>
                     </div>
 
+                    <div class="two-col">
+                        <div class="field">
+                            <label for="filing"> Filing status </label>
+
+                            <select id="filing">
+                                <option value="single">Single</option>
+
+                                <option value="married">Married filing jointly</option>
+
+                                <option value="hoh">Head of household</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="dependents"> Dependents </label>
+
+                            <input id="dependents" type="number" min="0" max="20" value="0" inputmode="numeric" />
+                        </div>
+                    </div>
+
+                    <!-- PRE-TAX -->
+
+                    <div class="section-label">Pre-tax deductions</div>
+
+                    <div class="two-col">
+                        <div class="field">
+                            <label for="retirement401k"> 401(k) </label>
+
+                            <div class="input-wrap has-prefix">
+                                <span class="prefix">$</span>
+
+                                <input id="retirement401k" type="number" min="0" step="25" value="0" />
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="healthInsurance"> Health insurance </label>
+
+                            <div class="input-wrap has-prefix">
+                                <span class="prefix">$</span>
+
+                                <input id="healthInsurance" type="number" min="0" step="25" value="0" />
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="hsa"> HSA </label>
+
+                            <div class="input-wrap has-prefix">
+                                <span class="prefix">$</span>
+
+                                <input id="hsa" type="number" min="0" step="25" value="0" />
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="fsa"> FSA </label>
+
+                            <div class="input-wrap has-prefix">
+                                <span class="prefix">$</span>
+
+                                <input id="fsa" type="number" min="0" step="25" value="0" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ADVANCED -->
+
+                    <details class="advanced-options">
+                        <summary>Advanced tax options</summary>
+
+                        <div class="advanced-content">
+                            <div class="two-col">
+                                <div class="field">
+                                    <label for="extraFederal"> Extra federal withholding </label>
+
+                                    <div class="input-wrap has-prefix">
+                                        <span class="prefix">$</span>
+
+                                        <input id="extraFederal" type="number" min="0" step="10" value="0" />
+                                    </div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="extraState"> Extra state withholding </label>
+
+                                    <div class="input-wrap has-prefix">
+                                        <span class="prefix">$</span>
+
+                                        <input id="extraState" type="number" min="0" step="10" value="0" />
+                                    </div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="additionalMedicare"> Additional Medicare tax </label>
+
+                                    <div class="input-wrap has-prefix">
+                                        <span class="prefix">$</span>
+
+                                        <input id="additionalMedicare" type="number" min="0" step="10" value="0" />
+                                    </div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="otherPretax"> Other pre-tax deductions </label>
+
+                                    <div class="input-wrap has-prefix">
+                                        <span class="prefix">$</span>
+
+                                        <input id="otherPretax" type="number" min="0" step="10" value="0" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- POST-TAX -->
+
+                    <div class="section-label">Post-tax deductions</div>
+
+                    <div class="two-col">
+                        <div class="field">
+                            <label for="roth401k"> Roth 401(k) </label>
+
+                            <div class="input-wrap has-prefix">
+                                <span class="prefix">$</span>
+
+                                <input id="roth401k" type="number" min="0" step="25" value="0" />
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="loanRepayment"> Loan repayment </label>
+
+                            <div class="input-wrap has-prefix">
+                                <span class="prefix">$</span>
+
+                                <input id="loanRepayment" type="number" min="0" step="25" value="0" />
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="garnishments"> Garnishments </label>
+
+                            <div class="input-wrap has-prefix">
+                                <span class="prefix">$</span>
+
+                                <input id="garnishments" type="number" min="0" step="25" value="0" />
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="otherPosttax"> Other post-tax deductions </label>
+
+                            <div class="input-wrap has-prefix">
+                                <span class="prefix">$</span>
+
+                                <input id="otherPosttax" type="number" min="0" step="25" value="0" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="calculate-btn" id="calculate" type="button">Calculate paycheck taxes</button>
                 </div>
 
-                <div class="chart-wrap">
+                <!-- RESULTS -->
 
-                    <div class="chart" id="paycheckChart">
+                <aside class="panel result-panel">
+                    <p class="result-kicker">Estimated take-home</p>
 
-                        <div class="chart-center">
+                    <div class="take-home" id="takeHome">$0.00</div>
 
-                            <div>
-                                <small>Net pay</small>
-                                <strong id="chartNet">$0</strong>
+                    <p class="result-period" id="resultPeriod">Every 2 weeks</p>
+
+                    <div class="tax-rate-box">
+                        <div class="tax-rate-label">Effective tax rate</div>
+
+                        <div class="tax-rate-value" id="effectiveRate">0.00%</div>
+                    </div>
+
+                    <!-- CHART -->
+
+                    <div class="chart-wrap">
+                        <div class="chart" id="paycheckChart" role="img" aria-label="Paycheck tax breakdown chart">
+                            <div class="chart-center">
+                                <div>
+                                    <small> Net pay </small>
+
+                                    <strong id="chartNet"> $0.00 </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LEGEND -->
+
+                    <div class="legend">
+                        <div class="legend-row">
+                            <span class="legend-label">
+                                <span class="dot net"></span>
+                                Take-home
+                            </span>
+
+                            <span class="legend-value" id="legendNet"> $0.00 </span>
+                        </div>
+
+                        <div class="legend-row">
+                            <span class="legend-label">
+                                <span class="dot federal"></span>
+                                Federal tax
+                            </span>
+
+                            <span class="legend-value" id="legendFederal"> $0.00 </span>
+                        </div>
+
+                        <div class="legend-row">
+                            <span class="legend-label">
+                                <span class="dot fica"></span>
+                                FICA
+                            </span>
+
+                            <span class="legend-value" id="legendFica"> $0.00 </span>
+                        </div>
+
+                        <div class="legend-row">
+                            <span class="legend-label">
+                                <span class="dot state"></span>
+                                State tax
+                            </span>
+
+                            <span class="legend-value" id="legendState"> $0.00 </span>
+                        </div>
+                    </div>
+
+                    <!-- BREAKDOWN -->
+
+                    <div class="breakdown">
+                        <div class="breakdown-row">
+                            <span>Gross pay</span>
+                            <strong id="grossResult">$0.00</strong>
+                        </div>
+
+                        <div class="breakdown-row">
+                            <span>Federal income tax</span>
+                            <strong id="federalTax">$0.00</strong>
+                        </div>
+
+                        <div class="breakdown-row">
+                            <span>Social Security</span>
+                            <strong id="socialSecurity">$0.00</strong>
+                        </div>
+
+                        <div class="breakdown-row">
+                            <span>Medicare</span>
+                            <strong id="medicare">$0.00</strong>
+                        </div>
+
+                        <div class="breakdown-row">
+                            <span>State tax</span>
+                            <strong id="stateTax">$0.00</strong>
+                        </div>
+
+                        <div class="breakdown-row tax-total">
+                            <span>Total taxes</span>
+                            <strong id="totalTaxes">$0.00</strong>
+                        </div>
+                    </div>
+
+                    <!-- SUMMARY -->
+
+                    <div class="summary">
+                        <p class="summary-title">Estimated take-home</p>
+
+                        <div class="summary-grid">
+                            <div class="summary-row">
+                                <span>Weekly</span>
+                                <strong id="weeklyPay">$0.00</strong>
                             </div>
 
+                            <div class="summary-row">
+                                <span>Biweekly</span>
+                                <strong id="biweeklyPay">$0.00</strong>
+                            </div>
+
+                            <div class="summary-row">
+                                <span>Semimonthly</span>
+                                <strong id="semimonthlyPay">$0.00</strong>
+                            </div>
+
+                            <div class="summary-row">
+                                <span>Monthly</span>
+                                <strong id="monthlyPay">$0.00</strong>
+                            </div>
+
+                            <div class="summary-row">
+                                <span>Annual</span>
+                                <strong id="annualPay">$0.00</strong>
+                            </div>
                         </div>
-
                     </div>
+                </aside>
+            </section>
 
-                </div>
+            <!-- AD -->
 
-                <div class="legend">
+            <div class="ad-space" aria-label="Advertisement">Advertisement</div>
 
-                    <div class="legend-row">
-                        <span class="legend-label">
-                            <span class="dot net"></span>
-                            Take-home
-                        </span>
+            <!-- HOW IT WORKS -->
 
-                        <span class="legend-value" id="legendNet">
-                            $0
-                        </span>
-                    </div>
+            <section class="content-section" id="how-it-works">
+                <p class="eyebrow">HOW IT WORKS</p>
 
-                    <div class="legend-row">
-                        <span class="legend-label">
-                            <span class="dot federal"></span>
-                            Federal tax
-                        </span>
-
-                        <span class="legend-value" id="legendFederal">
-                            $0
-                        </span>
-                    </div>
-
-                    <div class="legend-row">
-                        <span class="legend-label">
-                            <span class="dot fica"></span>
-                            FICA
-                        </span>
-
-                        <span class="legend-value" id="legendFica">
-                            $0
-                        </span>
-                    </div>
-
-                    <div class="legend-row">
-                        <span class="legend-label">
-                            <span class="dot state"></span>
-                            State tax
-                        </span>
-
-                        <span class="legend-value" id="legendState">
-                            $0
-                        </span>
-                    </div>
-
-                </div>
-
-                <div class="breakdown">
-
-                    <div class="breakdown-row">
-                        <span>Gross pay</span>
-                        <strong id="grossResult">$0</strong>
-                    </div>
-
-                    <div class="breakdown-row">
-                        <span>Federal income tax</span>
-                        <strong id="federalTax">$0</strong>
-                    </div>
-
-                    <div class="breakdown-row">
-                        <span>Social Security</span>
-                        <strong id="socialSecurity">$0</strong>
-                    </div>
-
-                    <div class="breakdown-row">
-                        <span>Medicare</span>
-                        <strong id="medicare">$0</strong>
-                    </div>
-
-                    <div class="breakdown-row">
-                        <span>State tax</span>
-                        <strong id="stateTax">$0</strong>
-                    </div>
-
-                    <div class="breakdown-row tax-total">
-                        <span>Total taxes</span>
-                        <strong id="totalTaxes">$0</strong>
-                    </div>
-
-                </div>
-
-                <div class="summary">
-
-                    <p class="summary-title">
-                        Estimated take-home
-                    </p>
-
-                    <div class="summary-grid">
-
-                        <div class="summary-row">
-                            <span>Weekly</span>
-                            <strong id="weeklyPay">$0</strong>
-                        </div>
-
-                        <div class="summary-row">
-                            <span>Biweekly</span>
-                            <strong id="biweeklyPay">$0</strong>
-                        </div>
-
-                        <div class="summary-row">
-                            <span>Semimonthly</span>
-                            <strong id="semimonthlyPay">$0</strong>
-                        </div>
-
-                        <div class="summary-row">
-                            <span>Monthly</span>
-                            <strong id="monthlyPay">$0</strong>
-                        </div>
-
-                        <div class="summary-row">
-                            <span>Annual</span>
-                            <strong id="annualPay">$0</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </aside>
-
-        </section>
-
-        <div class="ad-space" aria-label="Advertisement">
-            Advertisement
-        </div>
-
-        <section class="content-section" id="how-it-works">
-
-            <p class="eyebrow">HOW IT WORKS</p>
-
-            <h2>
-                What taxes are taken out of a paycheck?
-            </h2>
-
-            <p>
-                Employees commonly see several types of taxes withheld from their
-                paychecks. The largest categories are federal income tax, Social
-                Security, Medicare, and, in many states, state income tax.
-            </p>
-
-            <div class="info-grid">
-
-                <div class="info-card">
-                    <strong>Federal income tax</strong>
-                    <span>
-                        Federal withholding based on taxable income and filing status.
-                    </span>
-                </div>
-
-                <div class="info-card">
-                    <strong>Social Security</strong>
-                    <span>
-                        Employee payroll tax generally applied up to the annual wage base.
-                    </span>
-                </div>
-
-                <div class="info-card">
-                    <strong>Medicare</strong>
-                    <span>
-                        Employee Medicare payroll tax generally has no wage cap.
-                    </span>
-                </div>
-
-                <div class="info-card">
-                    <strong>State tax</strong>
-                    <span>
-                        State income tax depends on where you work and applicable rules.
-                    </span>
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="content-section">
-
-            <p class="eyebrow">TAX BREAKDOWN</p>
-
-            <h2>
-                How much tax is taken from a paycheck?
-            </h2>
-
-            <p>
-                There is no single percentage that applies to every paycheck.
-                Your tax amount depends on your income, filing status, state,
-                deductions, withholding elections, and other factors.
-            </p>
-
-            <p>
-                The effective tax rate shown by PaycheckMint represents estimated
-                federal income tax, Social Security, Medicare, and state tax as a
-                percentage of gross annual pay.
-            </p>
-
-            <div class="example-box">
-
-                <strong>
-                    Example: $75,000 annual salary
-                </strong>
+                <h2>What taxes are taken out of a paycheck?</h2>
 
                 <p>
-                    A worker earning $75,000 may have federal income tax, Social Security,
-                    Medicare, and possibly state income tax withheld from their paychecks.
-                    The exact amounts depend on the worker's circumstances.
+                    Employees commonly see several types of taxes withheld from their paychecks. The largest categories
+                    are federal income tax, Social Security, Medicare, and, in many states, state income tax.
                 </p>
 
-            </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <strong>Federal income tax</strong>
+                        <span> Federal withholding based on taxable income and filing status. </span>
+                    </div>
 
-        </section>
+                    <div class="info-card">
+                        <strong>Social Security</strong>
+                        <span> Employee payroll tax generally applied up to the annual wage base. </span>
+                    </div>
 
-        <section class="content-section">
+                    <div class="info-card">
+                        <strong>Medicare</strong>
+                        <span> Employee Medicare payroll tax generally has no wage cap. </span>
+                    </div>
 
-            <p class="eyebrow">FEDERAL TAX</p>
+                    <div class="info-card">
+                        <strong>State tax</strong>
+                        <span> State income tax depends on where you work and applicable rules. </span>
+                    </div>
+                </div>
+            </section>
 
-            <h2>
-                Federal income tax on your paycheck
-            </h2>
+            <!-- TAX BREAKDOWN -->
 
-            <p>
-                Federal income tax uses progressive tax rates. This means that different
-                portions of taxable income can be taxed at different rates rather than
-                the entire salary being taxed at one rate.
-            </p>
+            <section class="content-section">
+                <p class="eyebrow">TAX BREAKDOWN</p>
 
-            <p>
-                Your filing status and deductions affect taxable income. PaycheckMint
-                uses a simplified 2026 federal estimate to provide an easy-to-understand
-                result.
-            </p>
-
-            <h3>
-                Standard deduction
-            </h3>
-
-            <p>
-                The standard deduction can reduce the amount of income subject to
-                federal income tax. The amount depends on your filing status.
-            </p>
-
-        </section>
-
-        <section class="content-section">
-
-            <p class="eyebrow">FICA TAX</p>
-
-            <h2>
-                Social Security and Medicare taxes
-            </h2>
-
-            <h3>
-                Social Security tax
-            </h3>
-
-            <p>
-                Employees generally pay 6.2% Social Security tax on covered wages up
-                to the annual Social Security wage base.
-            </p>
-
-            <h3>
-                Medicare tax
-            </h3>
-
-            <p>
-                Employees generally pay 1.45% Medicare tax on covered wages. Higher
-                earners may also be subject to the Additional Medicare Tax.
-            </p>
-
-            <p>
-                These payroll taxes are separate from federal income tax and are
-                commonly grouped together as FICA taxes.
-            </p>
-
-        </section>
-
-        <section class="content-section">
-
-            <p class="eyebrow">STATE TAX</p>
-
-            <h2>
-                State income tax on a paycheck
-            </h2>
-
-            <p>
-                State income tax varies widely across the United States. Some states
-                do not impose a broad individual income tax, while others have state
-                income tax systems with multiple rates and deductions.
-            </p>
-
-            <p>
-                PaycheckMint uses simplified state estimates on this calculator.
-                Actual state withholding may differ because state payroll calculations
-                can include brackets, exemptions, local taxes, credits, and other rules.
-            </p>
-
-        </section>
-
-        <section class="content-section">
-
-            <p class="eyebrow">EFFECTIVE TAX RATE</p>
-
-            <h2>
-                What is an effective tax rate?
-            </h2>
-
-            <p>
-                Your effective tax rate is the total estimated tax divided by your
-                gross income. It gives you a simple way to understand what percentage
-                of your earnings is going toward the taxes included in the estimate.
-            </p>
-
-            <div class="example-box">
-
-                <strong>
-                    Simple example
-                </strong>
+                <h2>How much tax is taken from a paycheck?</h2>
 
                 <p>
-                    If your gross annual income is $80,000 and the taxes included in the
-                    estimate total $16,000, your effective tax rate would be 20%.
+                    There is no single percentage that applies to every paycheck. Your tax amount depends on your
+                    income, filing status, state, deductions, withholding elections, and other factors.
                 </p>
-
-            </div>
-
-        </section>
-
-        <section class="content-section">
-
-            <p class="eyebrow">METHODOLOGY</p>
-
-            <h2>
-                How PaycheckMint estimates paycheck taxes
-            </h2>
-
-            <p>
-                The calculator annualizes your gross pay and estimates federal income
-                tax, Social Security, Medicare, and state tax. The estimated annual
-                amounts are then divided by your selected pay frequency.
-            </p>
-
-            <p>
-                Pre-tax deductions entered into the calculator can reduce the estimated
-                taxable income. Post-tax deductions affect take-home pay but do not
-                directly reduce the estimated federal taxable income in this simplified
-                model.
-            </p>
-
-            <div class="notice-box">
 
                 <p>
-                    <strong>Important:</strong>
-                    This calculator provides an educational estimate rather than an
-                    official payroll withholding calculation. Actual withholding can
-                    differ because of Form W-4 elections, employer payroll systems,
-                    state and local rules, benefits, year-to-date wages, tax credits,
-                    and other circumstances.
+                    The effective tax rate shown by PaycheckMint represents estimated federal income tax, Social
+                    Security, Medicare, and state tax as a percentage of gross annual pay.
                 </p>
 
+                <div class="example-box">
+                    <strong> Example: $75,000 annual salary </strong>
+
+                    <p>
+                        A worker earning $75,000 may have federal income tax, Social Security, Medicare, and possibly
+                        state income tax withheld from their paychecks. The exact amounts depend on the worker's
+                        circumstances.
+                    </p>
+                </div>
+            </section>
+
+            <!-- FEDERAL TAX -->
+
+            <section class="content-section">
+                <p class="eyebrow">FEDERAL TAX</p>
+
+                <h2>Federal income tax on your paycheck</h2>
+
+                <p>
+                    Federal income tax uses progressive tax rates. This means that different portions of taxable income
+                    can be taxed at different rates rather than the entire salary being taxed at one rate.
+                </p>
+
+                <p>
+                    Your filing status and deductions affect taxable income. PaycheckMint uses a simplified 2026 federal
+                    estimate to provide an easy-to-understand result.
+                </p>
+
+                <h3>Standard deduction</h3>
+
+                <p>
+                    The standard deduction can reduce the amount of income subject to federal income tax. The amount
+                    depends on your filing status.
+                </p>
+            </section>
+
+            <!-- FICA -->
+
+            <section class="content-section">
+                <p class="eyebrow">FICA TAX</p>
+
+                <h2>Social Security and Medicare taxes</h2>
+
+                <h3>Social Security tax</h3>
+
+                <p>
+                    Employees generally pay 6.2% Social Security tax on covered wages up to the annual Social Security
+                    wage base.
+                </p>
+
+                <h3>Medicare tax</h3>
+
+                <p>
+                    Employees generally pay 1.45% Medicare tax on covered wages. Higher earners may also be subject to
+                    the Additional Medicare Tax.
+                </p>
+
+                <p>
+                    These payroll taxes are separate from federal income tax and are commonly grouped together as FICA
+                    taxes.
+                </p>
+            </section>
+
+            <!-- STATE TAX -->
+
+            <section class="content-section">
+                <p class="eyebrow">STATE TAX</p>
+
+                <h2>State income tax on a paycheck</h2>
+
+                <p>
+                    State income tax varies widely across the United States. Some states do not impose a broad
+                    individual income tax, while others have state income tax systems with multiple rates and
+                    deductions.
+                </p>
+
+                <p>
+                    PaycheckMint uses simplified state estimates on this calculator. Actual state withholding may differ
+                    because state payroll calculations can include brackets, exemptions, local taxes, credits, and other
+                    rules.
+                </p>
+            </section>
+
+            <!-- EFFECTIVE RATE -->
+
+            <section class="content-section">
+                <p class="eyebrow">EFFECTIVE TAX RATE</p>
+
+                <h2>What is an effective tax rate?</h2>
+
+                <p>
+                    Your effective tax rate is the total estimated tax divided by your gross income. It gives you a
+                    simple way to understand what percentage of your earnings is going toward the taxes included in the
+                    estimate.
+                </p>
+
+                <div class="example-box">
+                    <strong> Simple example </strong>
+
+                    <p>
+                        If your gross annual income is $80,000 and the taxes included in the estimate total $16,000,
+                        your effective tax rate would be 20%.
+                    </p>
+                </div>
+            </section>
+
+            <!-- METHODOLOGY -->
+
+            <section class="content-section">
+                <p class="eyebrow">METHODOLOGY</p>
+
+                <h2>How PaycheckMint estimates paycheck taxes</h2>
+
+                <p>
+                    The calculator annualizes your gross pay and estimates federal income tax, Social Security,
+                    Medicare, and state tax. The estimated annual amounts are then divided by your selected pay
+                    frequency.
+                </p>
+
+                <p>
+                    Pre-tax deductions entered into the calculator can reduce the estimated taxable income. Post-tax
+                    deductions affect take-home pay but do not directly reduce the estimated federal taxable income in
+                    this simplified model.
+                </p>
+
+                <div class="notice-box">
+                    <p>
+                        <strong>Important:</strong>
+                        This calculator provides an educational estimate rather than an official payroll withholding
+                        calculation. Actual withholding can differ because of Form W-4 elections, employer payroll
+                        systems, state and local rules, benefits, year-to-date wages, tax credits, and other
+                        circumstances.
+                    </p>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+
+            <section class="content-section" id="faq">
+                <p class="eyebrow">FAQ</p>
+
+                <h2>Paycheck tax calculator questions</h2>
+
+                <div class="faq-list">
+                    <details>
+                        <summary>What is a paycheck tax calculator?</summary>
+
+                        <p>
+                            A paycheck tax calculator estimates the taxes that may be withheld from your paycheck,
+                            including federal income tax, Social Security, Medicare, and state income tax.
+                        </p>
+                    </details>
+
+                    <details>
+                        <summary>How much tax is taken out of a paycheck?</summary>
+
+                        <p>
+                            It depends on your income, filing status, pay frequency, state, deductions, withholding
+                            elections, and other circumstances.
+                        </p>
+                    </details>
+
+                    <details>
+                        <summary>What taxes are normally taken from a paycheck?</summary>
+
+                        <p>
+                            Common employee payroll taxes include federal income tax, Social Security, Medicare, and
+                            state income tax where applicable.
+                        </p>
+                    </details>
+
+                    <details>
+                        <summary>Does this calculator show exact withholding?</summary>
+
+                        <p>
+                            No. PaycheckMint provides an estimate. Actual payroll withholding depends on your Form W-4,
+                            employer payroll system, state and local rules, deductions, benefits, and other factors.
+                        </p>
+                    </details>
+
+                    <details>
+                        <summary>What is the difference between tax rate and effective tax rate?</summary>
+
+                        <p>
+                            A marginal tax rate applies to a particular portion of taxable income. An effective tax rate
+                            represents total estimated taxes as a percentage of total gross income.
+                        </p>
+                    </details>
+                </div>
+            </section>
+
+            <!-- DISCLAIMER -->
+
+            <section class="content-section">
+                <p class="eyebrow">DISCLAIMER</p>
+
+                <h2>Paycheck tax calculator limitations</h2>
+
+                <p>
+                    PaycheckMint provides general educational estimates and does not provide tax, legal, accounting, or
+                    financial advice.
+                </p>
+
+                <p>
+                    Tax laws and payroll rules can change. For official withholding calculations, consult current IRS
+                    guidance, applicable state guidance, or your employer's payroll department.
+                </p>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+
+        <footer>
+            <p>© 2026 PaycheckMint. Free paycheck and salary calculators.</p>
+
+            <div>
+                <a href="/">Calculator</a>
+                <a href="/about/">About</a>
+                <a href="/privacy-policy/">Privacy</a>
+                <a href="/terms/">Terms</a>
+                <a href="/contact/">Contact</a>
             </div>
+        </footer>
 
-        </section>
+        <!-- TAX ENGINE -->
 
-        <section class="content-section" id="faq">
+        <script src="/tax-rules-2026.js"></script>
+        <script src="/tax-engine.js"></script>
 
-            <p class="eyebrow">FAQ</p>
+        <!-- CALCULATOR + NAVIGATION -->
 
-            <h2>
-                Paycheck tax calculator questions
-            </h2>
+        <script>
+            (function () {
+                "use strict";
 
-            <div class="faq-list">
+                /* =========================================================
+       HELPERS
+    ========================================================= */
 
-                <details>
-                    <summary>
-                        What is a paycheck tax calculator?
-                    </summary>
+                const $ = (id) => document.getElementById(id);
 
-                    <p>
-                        A paycheck tax calculator estimates the taxes that may be withheld
-                        from your paycheck, including federal income tax, Social Security,
-                        Medicare, and state income tax.
-                    </p>
-                </details>
-
-                <details>
-                    <summary>
-                        How much tax is taken out of a paycheck?
-                    </summary>
-
-                    <p>
-                        It depends on your income, filing status, pay frequency, state,
-                        deductions, withholding elections, and other circumstances.
-                    </p>
-                </details>
-
-                <details>
-                    <summary>
-                        What taxes are normally taken from a paycheck?
-                    </summary>
-
-                    <p>
-                        Common employee payroll taxes include federal income tax, Social
-                        Security, Medicare, and state income tax where applicable.
-                    </p>
-                </details>
-
-                <details>
-                    <summary>
-                        Does this calculator show exact withholding?
-                    </summary>
-
-                    <p>
-                        No. PaycheckMint provides an estimate. Actual payroll withholding
-                        depends on your Form W-4, employer payroll system, state and local
-                        rules, deductions, benefits, and other factors.
-                    </p>
-                </details>
-
-                <details>
-                    <summary>
-                        What is the difference between tax rate and effective tax rate?
-                    </summary>
-
-                    <p>
-                        A marginal tax rate applies to a particular portion of taxable
-                        income. An effective tax rate represents total estimated taxes as
-                        a percentage of total gross income.
-                    </p>
-                </details>
-
-            </div>
-
-        </section>
-
-        <section class="content-section">
-
-            <p class="eyebrow">DISCLAIMER</p>
-
-            <h2>
-                Paycheck tax calculator limitations
-            </h2>
-
-            <p>
-                PaycheckMint provides general educational estimates and does not
-                provide tax, legal, accounting, or financial advice.
-            </p>
-
-            <p>
-                Tax laws and payroll rules can change. For official withholding
-                calculations, consult current IRS guidance, applicable state guidance,
-                or your employer's payroll department.
-            </p>
-
-        </section>
-
-    </main>
-
-    <footer>
-
-        <p>
-            © 2026 PaycheckMint. Free paycheck and salary calculators.
-        </p>
-
-        <div>
-            <a href="/">Calculator</a>
-            <a href="/about/">About</a>
-            <a href="/privacy-policy/">Privacy</a>
-            <a href="/terms/">Terms</a>
-            <a href="/contact/">Contact</a>
-        </div>
-
-    </footer>
-
-    <script src="/tax-rules-2026.js"></script>
-    <script src="/tax-engine.js"></script>
-
-    <script>
-        (function () {
-            "use strict";
-
-            const $ = (id) => document.getElementById(id);
-
-            function money(value) {
-                return new Intl.NumberFormat("en-US", {
-                    style: "currency",
-                    currency: "USD",
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2
-                }).format(Number(value) || 0);
-            }
-
-            function number(id, fallback = 0) {
-                const el = $(id);
-
-                if (!el) {
-                    return fallback;
+                function money(value) {
+                    return new Intl.NumberFormat("en-US", {
+                        style: "currency",
+                        currency: "USD",
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                    }).format(Number(value) || 0);
                 }
 
-                const parsed = parseFloat(el.value);
+                function number(id, fallback = 0) {
+                    const el = $(id);
 
-                return Number.isFinite(parsed)
-                    ? Math.max(0, parsed)
-                    : fallback;
-            }
+                    if (!el) {
+                        return fallback;
+                    }
 
-            function value(id, fallback = "") {
-                const el = $(id);
+                    const parsed = parseFloat(el.value);
 
-                return el ? el.value : fallback;
-            }
-
-            function setText(id, text) {
-                const el = $(id);
-
-                if (el) {
-                    el.textContent = text;
-                }
-            }
-
-            /*
-             * HTML uses numeric frequency values.
-             * tax-engine.js uses frequency names.
-             */
-            function getFrequency() {
-                const frequency = value("frequency", "26");
-
-                const map = {
-                    "52": "weekly",
-                    "26": "biweekly",
-                    "24": "semimonthly",
-                    "12": "monthly",
-                    "4": "quarterly",
-                    "2": "semiannually",
-                    "1": "annually"
-                };
-
-                return map[frequency] || "biweekly";
-            }
-
-            function getPayPeriods(frequency) {
-                const periods = {
-                    weekly: 52,
-                    biweekly: 26,
-                    semimonthly: 24,
-                    monthly: 12,
-                    quarterly: 4,
-                    semiannually: 2,
-                    annually: 1
-                };
-
-                return periods[frequency] || 26;
-            }
-
-            function getFrequencyLabel(frequency) {
-                const labels = {
-                    weekly: "Weekly",
-                    biweekly: "Biweekly",
-                    semimonthly: "Semimonthly",
-                    monthly: "Monthly",
-                    quarterly: "Quarterly",
-                    semiannually: "Semiannually",
-                    annually: "Annual"
-                };
-
-                return labels[frequency] || "Biweekly";
-            }
-
-            function getInputs() {
-                return {
-                    annualGross: number("grossPayInput"),
-
-                    state: value("state", "none"),
-
-                    filing: value("filing", "single"),
-
-                    dependents: number("dependents"),
-
-                    frequency: getFrequency(),
-
-                    pretax: {
-                        retirement401k: number("retirement401k"),
-                        healthInsurance: number("healthInsurance"),
-                        hsa: number("hsa"),
-                        fsa: number("fsa"),
-                        other: number("otherPretax")
-                    },
-
-                    posttax: {
-                        roth401k: number("roth401k"),
-                        loanRepayment: number("loanRepayment"),
-                        garnishments: number("garnishments"),
-                        other: number("otherPosttax")
-                    },
-
-                    extraFederal: number("extraFederal"),
-                    extraState: number("extraState"),
-                    additionalMedicare: number("additionalMedicare"),
-
-                    otherAdjustments: 0,
-                    overtimeDeduction: 0
-                };
-            }
-
-            /*
-             * Convert annual values to the selected paycheck period.
-             */
-            function periodValue(annualValue, frequency) {
-                const periods = getPayPeriods(frequency);
-
-                return (Number(annualValue) || 0) / periods;
-            }
-
-            function updateChart(result) {
-                const chart = $("paycheckChart");
-
-                if (!chart) {
-                    return;
+                    return Number.isFinite(parsed) ? Math.max(0, parsed) : fallback;
                 }
 
-                const net =
-                    Math.max(
-                        0,
-                        Number(result.net?.annual) || 0
-                    );
+                function value(id, fallback = "") {
+                    const el = $(id);
 
-                const federal =
-                    Math.max(
-                        0,
-                        Number(result.federal?.tax) || 0
-                    );
-
-                const fica =
-                    Math.max(
-                        0,
-                        Number(result.fica?.total) || 0
-                    );
-
-                const state =
-                    Math.max(
-                        0,
-                        Number(result.state?.tax) || 0
-                    );
-
-                const deductions =
-                    Math.max(
-                        0,
-                        Number(result.deductions?.total) || 0
-                    );
-
-                const total =
-                    net +
-                    federal +
-                    fica +
-                    state +
-                    deductions;
-
-                if (total <= 0) {
-                    chart.style.background =
-                        "conic-gradient(#5954d9 0 100%)";
-
-                    setText("chartNet", money(0));
-                    setText("legendNet", money(0));
-                    setText("legendFederal", money(0));
-                    setText("legendFica", money(0));
-                    setText("legendState", money(0));
-
-                    return;
+                    return el ? el.value : fallback;
                 }
 
-                const netPct =
-                    (net / total) * 100;
+                function setText(id, text) {
+                    const el = $(id);
 
-                const federalPct =
-                    (federal / total) * 100;
+                    if (el) {
+                        el.textContent = text;
+                    }
+                }
 
-                const ficaPct =
-                    (fica / total) * 100;
+                /* =========================================================
+       FREQUENCY
+    ========================================================= */
 
-                const statePct =
-                    (state / total) * 100;
+                function getFrequency() {
+                    const frequency = value("frequency", "26");
 
-                const netEnd = netPct;
-                const federalEnd = netEnd + federalPct;
-                const ficaEnd = federalEnd + ficaPct;
-                const stateEnd = ficaEnd + statePct;
+                    const map = {
+                        52: "weekly",
+                        26: "biweekly",
+                        24: "semimonthly",
+                        12: "monthly",
+                        4: "quarterly",
+                        2: "semiannually",
+                        1: "annually",
+                    };
 
-                chart.style.background = `
+                    return map[frequency] || "biweekly";
+                }
+
+                function getPayPeriods(frequency) {
+                    const periods = {
+                        weekly: 52,
+                        biweekly: 26,
+                        semimonthly: 24,
+                        monthly: 12,
+                        quarterly: 4,
+                        semiannually: 2,
+                        annually: 1,
+                    };
+
+                    return periods[frequency] || 26;
+                }
+
+                function getFrequencyLabel(frequency) {
+                    const labels = {
+                        weekly: "Weekly",
+                        biweekly: "Biweekly",
+                        semimonthly: "Semimonthly",
+                        monthly: "Monthly",
+                        quarterly: "Quarterly",
+                        semiannually: "Semiannually",
+                        annually: "Annual",
+                    };
+
+                    return labels[frequency] || "Biweekly";
+                }
+
+                /* =========================================================
+       INPUTS
+    ========================================================= */
+
+                function getInputs() {
+                    return {
+                        annualGross: number("grossPayInput"),
+
+                        state: value("state", "none"),
+
+                        filing: value("filing", "single"),
+
+                        dependents: number("dependents"),
+
+                        frequency: getFrequency(),
+
+                        pretax: {
+                            retirement401k: number("retirement401k"),
+                            healthInsurance: number("healthInsurance"),
+                            hsa: number("hsa"),
+                            fsa: number("fsa"),
+                            other: number("otherPretax"),
+                        },
+
+                        posttax: {
+                            roth401k: number("roth401k"),
+                            loanRepayment: number("loanRepayment"),
+                            garnishments: number("garnishments"),
+                            other: number("otherPosttax"),
+                        },
+
+                        extraFederal: number("extraFederal"),
+                        extraState: number("extraState"),
+                        additionalMedicare: number("additionalMedicare"),
+
+                        otherAdjustments: 0,
+                        overtimeDeduction: 0,
+                    };
+                }
+
+                /* =========================================================
+       PERIOD CONVERSION
+    ========================================================= */
+
+                function periodValue(annualValue, frequency) {
+                    const periods = getPayPeriods(frequency);
+
+                    return (Number(annualValue) || 0) / periods;
+                }
+
+                /* =========================================================
+       CHART
+    ========================================================= */
+
+                function updateChart(result) {
+                    const chart = $("paycheckChart");
+
+                    if (!chart) {
+                        return;
+                    }
+
+                    const net = Math.max(0, Number(result.net?.annual) || 0);
+
+                    const federal = Math.max(0, Number(result.federal?.tax) || 0);
+
+                    const fica = Math.max(0, Number(result.fica?.total) || 0);
+
+                    const state = Math.max(0, Number(result.state?.tax) || 0);
+
+                    const deductions = Math.max(0, Number(result.deductions?.total) || 0);
+
+                    const total = net + federal + fica + state + deductions;
+
+                    if (total <= 0) {
+                        chart.style.background = "conic-gradient(#5954d9 0 100%)";
+
+                        setText("chartNet", money(0));
+                        setText("legendNet", money(0));
+                        setText("legendFederal", money(0));
+                        setText("legendFica", money(0));
+                        setText("legendState", money(0));
+
+                        return;
+                    }
+
+                    const netPct = (net / total) * 100;
+                    const federalPct = (federal / total) * 100;
+                    const ficaPct = (fica / total) * 100;
+                    const statePct = (state / total) * 100;
+
+                    const netEnd = netPct;
+                    const federalEnd = netEnd + federalPct;
+                    const ficaEnd = federalEnd + ficaPct;
+                    const stateEnd = ficaEnd + statePct;
+
+                    chart.style.background = `
             conic-gradient(
                 #5954d9 0 ${netEnd}%,
                 #e7a23b ${netEnd}% ${federalEnd}%,
@@ -1856,309 +2171,310 @@
             )
         `;
 
-                setText("chartNet", money(net));
-                setText("legendNet", money(net));
-                setText("legendFederal", money(federal));
-                setText("legendFica", money(fica));
-                setText("legendState", money(state));
-            }
-
-            function updateBreakdown(result, frequency) {
-                /*
-                 * The engine returns annual tax amounts.
-                 *
-                 * This page shows paycheck-level results,
-                 * so convert each annual amount to the
-                 * selected pay period.
-                 */
-
-                const gross =
-                    periodValue(
-                        result.gross?.annual,
-                        frequency
-                    );
-
-                const federal =
-                    periodValue(
-                        result.federal?.tax,
-                        frequency
-                    );
-
-                const socialSecurity =
-                    periodValue(
-                        result.fica?.socialSecurity,
-                        frequency
-                    );
-
-                const medicare =
-                    periodValue(
-                        (
-                            Number(result.fica?.medicare) || 0
-                        ) +
-                        (
-                            Number(result.fica?.additionalMedicare) || 0
-                        ),
-                        frequency
-                    );
-
-                const state =
-                    periodValue(
-                        result.state?.tax,
-                        frequency
-                    );
-
-                const totalTaxes =
-                    periodValue(
-                        result.taxes?.total,
-                        frequency
-                    );
-
-                setText(
-                    "grossResult",
-                    money(gross)
-                );
-
-                setText(
-                    "federalTax",
-                    money(federal)
-                );
-
-                setText(
-                    "socialSecurity",
-                    money(socialSecurity)
-                );
-
-                setText(
-                    "medicare",
-                    money(medicare)
-                );
-
-                setText(
-                    "stateTax",
-                    money(state)
-                );
-
-                setText(
-                    "totalTaxes",
-                    money(totalTaxes)
-                );
-            }
-
-            function updatePaySummary(result) {
-                setText(
-                    "weeklyPay",
-                    money(result.net?.weekly)
-                );
-
-                setText(
-                    "biweeklyPay",
-                    money(result.net?.biweekly)
-                );
-
-                setText(
-                    "semimonthlyPay",
-                    money(result.net?.semimonthly)
-                );
-
-                setText(
-                    "monthlyPay",
-                    money(result.net?.monthly)
-                );
-
-                setText(
-                    "annualPay",
-                    money(result.net?.annual)
-                );
-            }
-
-            function resetResults() {
-                const zeroFields = [
-                    "takeHome",
-                    "chartNet",
-                    "legendNet",
-                    "legendFederal",
-                    "legendFica",
-                    "legendState",
-                    "grossResult",
-                    "federalTax",
-                    "socialSecurity",
-                    "medicare",
-                    "stateTax",
-                    "totalTaxes",
-                    "weeklyPay",
-                    "biweeklyPay",
-                    "semimonthlyPay",
-                    "monthlyPay",
-                    "annualPay"
-                ];
-
-                zeroFields.forEach((id) => {
-                    setText(id, money(0));
-                });
-
-                setText(
-                    "resultPeriod",
-                    "Estimated take-home pay"
-                );
-
-                setText(
-                    "effectiveRate",
-                    "0.00%"
-                );
-
-                const chart = $("paycheckChart");
-
-                if (chart) {
-                    chart.style.background =
-                        "conic-gradient(#5954d9 0 100%)";
-                }
-            }
-
-            function calculate() {
-                if (!window.PaycheckMintTax) {
-                    console.error(
-                        "PaycheckMintTax is not loaded."
-                    );
-
-                    return;
+                    setText("chartNet", money(net));
+                    setText("legendNet", money(net));
+                    setText("legendFederal", money(federal));
+                    setText("legendFica", money(fica));
+                    setText("legendState", money(state));
                 }
 
-                const inputs = getInputs();
+                /* =========================================================
+       BREAKDOWN
+    ========================================================= */
 
-                if (inputs.annualGross <= 0) {
-                    resetResults();
-                    return;
+                function updateBreakdown(result, frequency) {
+                    const gross = periodValue(result.gross?.annual, frequency);
+
+                    const federal = periodValue(result.federal?.tax, frequency);
+
+                    const socialSecurity = periodValue(result.fica?.socialSecurity, frequency);
+
+                    const medicare = periodValue(
+                        (Number(result.fica?.medicare) || 0) + (Number(result.fica?.additionalMedicare) || 0),
+                        frequency
+                    );
+
+                    const state = periodValue(result.state?.tax, frequency);
+
+                    const totalTaxes = periodValue(result.taxes?.total, frequency);
+
+                    setText("grossResult", money(gross));
+                    setText("federalTax", money(federal));
+                    setText("socialSecurity", money(socialSecurity));
+                    setText("medicare", money(medicare));
+                    setText("stateTax", money(state));
+                    setText("totalTaxes", money(totalTaxes));
                 }
 
-                let result;
+                /* =========================================================
+       PAY SUMMARY
+    ========================================================= */
 
-                try {
-                    result =
-                        window.PaycheckMintTax.calculate(
-                            inputs
-                        );
-                } catch (error) {
-                    console.error(
-                        "PaycheckMint tax calculation failed:",
-                        error
-                    );
+                function updatePaySummary(result) {
+                    setText("weeklyPay", money(result.net?.weekly));
 
-                    return;
+                    setText("biweeklyPay", money(result.net?.biweekly));
+
+                    setText("semimonthlyPay", money(result.net?.semimonthly));
+
+                    setText("monthlyPay", money(result.net?.monthly));
+
+                    setText("annualPay", money(result.net?.annual));
                 }
 
-                const frequency =
-                    inputs.frequency;
+                /* =========================================================
+       RESET
+    ========================================================= */
 
-                /*
-                 * Main result
-                 */
-                setText(
-                    "takeHome",
-                    money(result.net?.period)
-                );
+                function resetResults() {
+                    const zeroFields = [
+                        "takeHome",
+                        "chartNet",
+                        "legendNet",
+                        "legendFederal",
+                        "legendFica",
+                        "legendState",
+                        "grossResult",
+                        "federalTax",
+                        "socialSecurity",
+                        "medicare",
+                        "stateTax",
+                        "totalTaxes",
+                        "weeklyPay",
+                        "biweeklyPay",
+                        "semimonthlyPay",
+                        "monthlyPay",
+                        "annualPay",
+                    ];
 
-                setText(
-                    "resultPeriod",
-                    `${getFrequencyLabel(frequency)} estimated take-home pay`
-                );
+                    zeroFields.forEach((id) => {
+                        setText(id, money(0));
+                    });
 
-                /*
-                 * Effective annual tax rate
-                 */
-                setText(
-                    "effectiveRate",
-                    `${Number(
-                        result.effectiveTaxRate || 0
-                    ).toFixed(2)}%`
-                );
+                    setText("resultPeriod", "Estimated take-home pay");
 
-                /*
-                 * Paycheck-level breakdown
-                 */
-                updateBreakdown(
-                    result,
-                    frequency
-                );
+                    setText("effectiveRate", "0.00%");
 
-                /*
-                 * Annual chart
-                 */
-                updateChart(result);
+                    const chart = $("paycheckChart");
 
-                /*
-                 * Take-home summary
-                 */
-                updatePaySummary(result);
-
-                /*
-                 * Make result available globally
-                 */
-                window.paycheckMintTaxResult =
-                    result;
-            }
-
-            function bindEvents() {
-                const button = $("calculate");
-
-                if (button) {
-                    button.addEventListener(
-                        "click",
-                        calculate
-                    );
+                    if (chart) {
+                        chart.style.background = "conic-gradient(#5954d9 0 100%)";
+                    }
                 }
 
-                const fields =
-                    document.querySelectorAll(
-                        "#grossPayInput, " +
-                        "#frequency, " +
-                        "#state, " +
-                        "#filing, " +
-                        "#dependents, " +
-                        "#retirement401k, " +
-                        "#healthInsurance, " +
-                        "#hsa, " +
-                        "#fsa, " +
-                        "#otherPretax, " +
-                        "#extraFederal, " +
-                        "#extraState, " +
-                        "#additionalMedicare, " +
-                        "#roth401k, " +
-                        "#loanRepayment, " +
-                        "#garnishments, " +
-                        "#otherPosttax"
+                /* =========================================================
+       CALCULATE
+    ========================================================= */
+
+                function calculate() {
+                    if (!window.PaycheckMintTax) {
+                        console.error("PaycheckMintTax is not loaded. Check tax-engine.js.");
+                        return;
+                    }
+
+                    const inputs = getInputs();
+
+                    if (inputs.annualGross <= 0) {
+                        resetResults();
+                        return;
+                    }
+
+                    let result;
+
+                    try {
+                        result = window.PaycheckMintTax.calculate(inputs);
+                    } catch (error) {
+                        console.error("PaycheckMint tax calculation failed:", error);
+                        return;
+                    }
+
+                    const frequency = inputs.frequency;
+
+                    setText("takeHome", money(result.net?.period));
+
+                    setText("resultPeriod", `${getFrequencyLabel(frequency)} estimated take-home pay`);
+
+                    setText("effectiveRate", `${Number(result.effectiveTaxRate || 0).toFixed(2)}%`);
+
+                    updateBreakdown(result, frequency);
+
+                    updateChart(result);
+
+                    updatePaySummary(result);
+
+                    window.paycheckMintTaxResult = result;
+                }
+
+                /* =========================================================
+       CALCULATOR EVENTS
+    ========================================================= */
+
+                function bindCalculatorEvents() {
+                    const button = $("calculate");
+
+                    if (button) {
+                        button.addEventListener("click", calculate);
+                    }
+
+                    const fields = document.querySelectorAll(
+                        [
+                            "#grossPayInput",
+                            "#frequency",
+                            "#state",
+                            "#filing",
+                            "#dependents",
+                            "#retirement401k",
+                            "#healthInsurance",
+                            "#hsa",
+                            "#fsa",
+                            "#otherPretax",
+                            "#extraFederal",
+                            "#extraState",
+                            "#additionalMedicare",
+                            "#roth401k",
+                            "#loanRepayment",
+                            "#garnishments",
+                            "#otherPosttax",
+                        ].join(", ")
                     );
 
-                fields.forEach((field) => {
-                    field.addEventListener(
-                        "input",
-                        calculate
-                    );
+                    fields.forEach((field) => {
+                        field.addEventListener("input", calculate);
 
-                    field.addEventListener(
-                        "change",
-                        calculate
-                    );
-                });
-            }
+                        field.addEventListener("change", calculate);
+                    });
+                }
 
-            function init() {
-                bindEvents();
-                calculate();
-            }
+                /* =========================================================
+       MOBILE NAVIGATION
+    ========================================================= */
 
-            if (
-                document.readyState === "loading"
-            ) {
-                document.addEventListener(
-                    "DOMContentLoaded",
-                    init
-                );
-            } else {
-                init();
-            }
+                function initNavigation() {
+                    const menuToggle = $("mobileMenuToggle");
 
-        })();
-    </script>
-</body>
+                    const mainNav = $("main-navigation");
 
+                    const dropdown = document.querySelector(".nav-dropdown");
+
+                    const dropdownToggle = document.querySelector(".nav-dropdown-toggle");
+
+                    if (!menuToggle || !mainNav) {
+                        return;
+                    }
+
+                    function closeDropdown() {
+                        if (dropdown) {
+                            dropdown.classList.remove("open");
+                        }
+
+                        if (dropdownToggle) {
+                            dropdownToggle.setAttribute("aria-expanded", "false");
+                        }
+                    }
+
+                    function closeMenu() {
+                        mainNav.classList.remove("mobile-open");
+
+                        menuToggle.classList.remove("open");
+
+                        menuToggle.setAttribute("aria-expanded", "false");
+
+                        menuToggle.setAttribute("aria-label", "Open navigation");
+
+                        closeDropdown();
+                    }
+
+                    function openMenu() {
+                        mainNav.classList.add("mobile-open");
+
+                        menuToggle.classList.add("open");
+
+                        menuToggle.setAttribute("aria-expanded", "true");
+
+                        menuToggle.setAttribute("aria-label", "Close navigation");
+                    }
+
+                    /* Hamburger */
+
+                    menuToggle.addEventListener("click", function (event) {
+                        event.stopPropagation();
+
+                        const isOpen = mainNav.classList.contains("mobile-open");
+
+                        if (isOpen) {
+                            closeMenu();
+                        } else {
+                            openMenu();
+                        }
+                    });
+
+                    /* Finance dropdown */
+
+                    if (dropdown && dropdownToggle) {
+                        dropdownToggle.addEventListener("click", function (event) {
+                            event.stopPropagation();
+
+                            const isOpen = dropdown.classList.toggle("open");
+
+                            dropdownToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                        });
+                    }
+
+                    /* Keep clicks inside menu from closing it */
+
+                    mainNav.addEventListener("click", function (event) {
+                        event.stopPropagation();
+                    });
+
+                    /* Close after selecting a navigation link */
+
+                    mainNav.querySelectorAll("a").forEach((link) => {
+                        link.addEventListener("click", function () {
+                            closeMenu();
+                        });
+                    });
+
+                    /* Close outside */
+
+                    document.addEventListener("click", function (event) {
+                        if (!event.target.closest(".site-header")) {
+                            closeMenu();
+                        }
+                    });
+
+                    /* Escape key */
+
+                    document.addEventListener("keydown", function (event) {
+                        if (event.key === "Escape") {
+                            closeMenu();
+                        }
+                    });
+
+                    /* Reset menu when returning to desktop */
+
+                    window.addEventListener("resize", function () {
+                        if (window.innerWidth > 760) {
+                            closeMenu();
+                        }
+                    });
+                }
+
+                /* =========================================================
+       INITIALIZE
+    ========================================================= */
+
+                function init() {
+                    bindCalculatorEvents();
+                    initNavigation();
+                    calculate();
+                }
+
+                if (document.readyState === "loading") {
+                    document.addEventListener("DOMContentLoaded", init);
+                } else {
+                    init();
+                }
+            })();
+        </script>
+    </body>
 </html>

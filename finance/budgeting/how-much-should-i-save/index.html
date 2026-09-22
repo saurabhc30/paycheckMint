@@ -1,0 +1,1832 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+
+        <title>How Much Should I Save Each Month? Savings Calculator | PaycheckMint</title>
+
+        <meta
+            name="description"
+            content="How much should you save each month? Learn common savings guidelines, calculate your monthly savings rate, plan for emergencies and financial goals, and see realistic examples."
+        />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="canonical" href="https://paycheckmint.vercel.app/finance/budgeting/how-much-should-i-save/" />
+
+        <meta name="robots" content="index, follow" />
+
+        <style>
+            :root {
+                --bg: #f6f5f1;
+                --surface: #ffffff;
+                --surface-soft: #faf9f6;
+
+                --ink: #191919;
+                --muted: #74736f;
+                --muted-light: #999791;
+
+                --line: #deddd8;
+                --line-dark: #cbc9c3;
+
+                --accent: #5954d9;
+                --accent-dark: #4843c2;
+
+                --success: #247a52;
+                --warning: #a66a00;
+                --danger: #b43d3d;
+
+                --shadow: 0 8px 25px rgba(25, 25, 25, 0.06);
+
+                --radius: 14px;
+                --max-width: 1180px;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                margin: 0;
+                background: var(--bg);
+                color: var(--ink);
+                font-family:
+                    Inter,
+                    system-ui,
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    sans-serif;
+                line-height: 1.7;
+                overflow-x: hidden;
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            img {
+                max-width: 100%;
+            }
+
+            .container {
+                width: min(calc(100% - 40px), var(--max-width));
+                margin: 0 auto;
+            }
+
+            /* HEADER */
+
+            .site-header {
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                background: rgba(246, 245, 241, 0.96);
+                border-bottom: 1px solid var(--line);
+                backdrop-filter: blur(10px);
+            }
+
+            .header-inner {
+                min-height: 70px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 25px;
+            }
+
+            .logo {
+                font-size: 22px;
+                font-weight: 800;
+                letter-spacing: -0.5px;
+                white-space: nowrap;
+            }
+
+            .logo span {
+                color: var(--accent);
+            }
+
+            .main-nav {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+
+            .main-nav > a,
+            .nav-dropdown > button {
+                border: 0;
+                background: transparent;
+                padding: 10px 12px;
+                color: var(--ink);
+                font: inherit;
+                font-size: 14px;
+                font-weight: 600;
+                border-radius: 9px;
+                cursor: pointer;
+            }
+
+            .main-nav > a:hover,
+            .nav-dropdown > button:hover {
+                background: var(--surface);
+            }
+
+            .nav-dropdown {
+                position: relative;
+            }
+
+            .nav-dropdown-menu {
+                display: none;
+                position: absolute;
+                top: calc(100% + 7px);
+                right: 0;
+                min-width: 215px;
+                padding: 8px;
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 12px;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-dropdown:hover .nav-dropdown-menu,
+            .nav-dropdown:focus-within .nav-dropdown-menu {
+                display: block;
+            }
+
+            .nav-dropdown-menu a {
+                display: block;
+                padding: 9px 11px;
+                border-radius: 8px;
+                font-size: 14px;
+            }
+
+            .nav-dropdown-menu a:hover {
+                background: var(--surface-soft);
+            }
+
+            .mobile-menu-toggle {
+                display: none;
+                width: 42px;
+                height: 42px;
+                border: 1px solid var(--line);
+                border-radius: 10px;
+                background: var(--surface);
+                cursor: pointer;
+                padding: 8px;
+            }
+
+            .mobile-menu-toggle span {
+                display: block;
+                width: 100%;
+                height: 2px;
+                margin: 5px 0;
+                background: var(--ink);
+                border-radius: 3px;
+            }
+
+            /* HERO */
+
+            .hero {
+                padding: 75px 0 50px;
+            }
+
+            .hero-grid {
+                display: grid;
+                grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+                gap: 50px;
+                align-items: center;
+            }
+
+            .eyebrow {
+                display: inline-flex;
+                align-items: center;
+                padding: 6px 11px;
+                border: 1px solid var(--line);
+                border-radius: 999px;
+                background: var(--surface);
+                color: var(--accent);
+                font-size: 12px;
+                font-weight: 800;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+            }
+
+            h1 {
+                margin: 17px 0 16px;
+                font-size: clamp(38px, 5vw, 62px);
+                line-height: 1.08;
+                letter-spacing: -2.2px;
+            }
+
+            .hero p {
+                max-width: 720px;
+                margin: 0;
+                color: var(--muted);
+                font-size: 18px;
+            }
+
+            .hero-answer {
+                margin-top: 25px;
+                padding: 18px 20px;
+                border-left: 4px solid var(--accent);
+                background: var(--surface);
+                border-radius: 0 12px 12px 0;
+            }
+
+            .hero-answer strong {
+                display: block;
+                margin-bottom: 3px;
+            }
+
+            /* CALCULATOR */
+
+            .calculator-card {
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 18px;
+                padding: 24px;
+                box-shadow: var(--shadow);
+            }
+
+            .calculator-card h2 {
+                margin: 0 0 5px;
+                font-size: 22px;
+                line-height: 1.25;
+            }
+
+            .calculator-card > p {
+                margin: 0 0 20px;
+                color: var(--muted);
+                font-size: 14px;
+            }
+
+            .form-group {
+                margin-bottom: 15px;
+            }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 6px;
+                font-size: 13px;
+                font-weight: 700;
+            }
+
+            .form-group input,
+            .form-group select {
+                width: 100%;
+                height: 44px;
+                padding: 0 12px;
+                border: 1px solid var(--line-dark);
+                border-radius: 9px;
+                background: #fff;
+                color: var(--ink);
+                font: inherit;
+                outline: none;
+            }
+
+            .form-group input:focus,
+            .form-group select:focus {
+                border-color: var(--accent);
+                box-shadow: 0 0 0 3px rgba(89, 84, 217, 0.1);
+            }
+
+            .calc-button {
+                width: 100%;
+                min-height: 46px;
+                border: 0;
+                border-radius: 10px;
+                background: var(--accent);
+                color: #fff;
+                font: inherit;
+                font-weight: 800;
+                cursor: pointer;
+            }
+
+            .calc-button:hover {
+                background: var(--accent-dark);
+            }
+
+            .calculator-results {
+                display: none;
+                margin-top: 20px;
+                padding-top: 20px;
+                border-top: 1px solid var(--line);
+            }
+
+            .result-main {
+                padding: 17px;
+                background: var(--surface-soft);
+                border-radius: 12px;
+                text-align: center;
+            }
+
+            .result-main span {
+                display: block;
+                color: var(--muted);
+                font-size: 12px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+            }
+
+            .result-main strong {
+                display: block;
+                margin-top: 4px;
+                font-size: 30px;
+                line-height: 1.1;
+            }
+
+            .result-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 9px;
+                margin-top: 10px;
+            }
+
+            .result-item {
+                padding: 12px;
+                border: 1px solid var(--line);
+                border-radius: 10px;
+            }
+
+            .result-item span {
+                display: block;
+                color: var(--muted);
+                font-size: 11px;
+            }
+
+            .result-item strong {
+                display: block;
+                margin-top: 2px;
+                font-size: 16px;
+            }
+
+            .calc-note {
+                margin-top: 12px;
+                color: var(--muted);
+                font-size: 12px;
+                line-height: 1.5;
+            }
+
+            /* MAIN CONTENT */
+
+            .article-section {
+                padding: 35px 0 70px;
+            }
+
+            .article-layout {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) 280px;
+                gap: 40px;
+                align-items: start;
+            }
+
+            article {
+                min-width: 0;
+            }
+
+            article h2 {
+                margin: 48px 0 14px;
+                font-size: 30px;
+                line-height: 1.25;
+                letter-spacing: -0.7px;
+                scroll-margin-top: 95px;
+            }
+
+            article h3 {
+                margin: 30px 0 10px;
+                font-size: 21px;
+                line-height: 1.35;
+            }
+
+            article p {
+                margin: 0 0 16px;
+                color: #3f3e3a;
+            }
+
+            article ul,
+            article ol {
+                padding-left: 23px;
+                color: #3f3e3a;
+            }
+
+            article li {
+                margin-bottom: 8px;
+            }
+
+            .intro-box {
+                padding: 22px;
+                border: 1px solid var(--line);
+                border-radius: 14px;
+                background: var(--surface);
+            }
+
+            .tip-box {
+                margin: 25px 0;
+                padding: 20px;
+                border-radius: 13px;
+                background: var(--surface);
+                border: 1px solid var(--line);
+            }
+
+            .tip-box strong {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .table-wrap {
+                overflow-x: auto;
+                margin: 22px 0;
+                border: 1px solid var(--line);
+                border-radius: 12px;
+                background: var(--surface);
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                min-width: 620px;
+            }
+
+            th,
+            td {
+                padding: 13px 15px;
+                border-bottom: 1px solid var(--line);
+                text-align: left;
+                vertical-align: top;
+            }
+
+            th {
+                background: var(--surface-soft);
+                font-size: 13px;
+            }
+
+            td {
+                color: #45443f;
+                font-size: 14px;
+            }
+
+            tr:last-child td {
+                border-bottom: 0;
+            }
+
+            .formula {
+                margin: 22px 0;
+                padding: 18px 20px;
+                border-radius: 12px;
+                background: #fff;
+                border: 1px solid var(--line);
+                font-weight: 700;
+                text-align: center;
+            }
+
+            .example-budget {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+                margin: 22px 0;
+            }
+
+            .example-card {
+                padding: 18px;
+                border: 1px solid var(--line);
+                border-radius: 13px;
+                background: var(--surface);
+            }
+
+            .example-card h3 {
+                margin-top: 0;
+                font-size: 18px;
+            }
+
+            .example-row {
+                display: flex;
+                justify-content: space-between;
+                gap: 20px;
+                padding: 7px 0;
+                border-bottom: 1px solid var(--line);
+                font-size: 14px;
+            }
+
+            .example-row:last-child {
+                border-bottom: 0;
+                font-weight: 800;
+            }
+
+            /* SIDEBAR */
+
+            .article-sidebar {
+                position: sticky;
+                top: 95px;
+            }
+
+            .sidebar-calculator,
+            .toc,
+            .related-box {
+                margin-bottom: 20px;
+                padding: 18px;
+                border: 1px solid var(--line);
+                border-radius: 14px;
+                background: var(--surface);
+                box-shadow: var(--shadow);
+            }
+
+            .sidebar-calculator h3,
+            .toc h3,
+            .related-box h3 {
+                margin: 0 0 9px;
+                font-size: 17px;
+            }
+
+            .sidebar-calculator p {
+                margin: 0 0 14px;
+                color: var(--muted);
+                font-size: 13px;
+            }
+
+            .sidebar-link {
+                display: inline-flex;
+                justify-content: center;
+                width: 100%;
+                padding: 10px 13px;
+                border-radius: 9px;
+                background: var(--accent);
+                color: #fff;
+                font-size: 13px;
+                font-weight: 800;
+            }
+
+            .toc {
+                position: static;
+            }
+
+            .toc a,
+            .related-box a {
+                display: block;
+                padding: 6px 0;
+                color: #55534e;
+                font-size: 13px;
+            }
+
+            .toc a:hover,
+            .related-box a:hover {
+                color: var(--accent);
+            }
+
+            /* FAQ */
+
+            .faq-item {
+                margin-bottom: 10px;
+                border: 1px solid var(--line);
+                border-radius: 11px;
+                background: var(--surface);
+                overflow: hidden;
+            }
+
+            .faq-question {
+                width: 100%;
+                padding: 15px 17px;
+                border: 0;
+                background: transparent;
+                color: var(--ink);
+                text-align: left;
+                font: inherit;
+                font-weight: 750;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                gap: 15px;
+            }
+
+            .faq-answer {
+                display: none;
+                padding: 0 17px 16px;
+                color: var(--muted);
+                font-size: 14px;
+            }
+
+            .faq-item.open .faq-answer {
+                display: block;
+            }
+
+            /* CTA */
+
+            .bottom-cta {
+                margin-top: 50px;
+                padding: 30px;
+                border-radius: 16px;
+                background: var(--surface);
+                border: 1px solid var(--line);
+                text-align: center;
+            }
+
+            .bottom-cta h2 {
+                margin-top: 0;
+            }
+
+            .bottom-cta a {
+                display: inline-flex;
+                margin-top: 8px;
+                padding: 11px 18px;
+                border-radius: 9px;
+                background: var(--accent);
+                color: #fff;
+                font-weight: 800;
+                font-size: 14px;
+            }
+
+            /* FOOTER */
+
+            footer {
+                margin-top: 20px;
+                padding: 45px 0 25px;
+                background: var(--bg);
+                border-top: 1px solid var(--line);
+            }
+
+            .footer-grid {
+                display: grid;
+                grid-template-columns: 1.4fr repeat(3, 1fr);
+                gap: 35px;
+            }
+
+            .footer-brand p {
+                max-width: 330px;
+                color: var(--muted);
+                font-size: 13px;
+            }
+
+            footer h3 {
+                margin: 0 0 11px;
+                font-size: 14px;
+            }
+
+            footer a {
+                display: block;
+                margin-bottom: 7px;
+                color: var(--muted);
+                font-size: 13px;
+            }
+
+            footer a:hover {
+                color: var(--accent);
+            }
+
+            .footer-bottom {
+                margin-top: 30px;
+                padding-top: 18px;
+                border-top: 1px solid var(--line);
+                color: var(--muted-light);
+                font-size: 12px;
+                text-align: center;
+            }
+
+            /* RESPONSIVE */
+
+            @media (max-width: 900px) {
+                .hero-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .hero {
+                    padding-top: 55px;
+                }
+
+                .article-layout {
+                    grid-template-columns: 1fr;
+                    gap: 25px;
+                }
+
+                article {
+                    order: 1;
+                }
+
+                .article-sidebar {
+                    position: static;
+                    order: 2;
+                }
+
+                .footer-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+
+            @media (max-width: 760px) {
+                .container {
+                    width: min(calc(100% - 28px), var(--max-width));
+                }
+
+                .header-inner {
+                    min-height: 62px;
+                }
+
+                .mobile-menu-toggle {
+                    display: block;
+                }
+
+                .main-nav {
+                    display: none;
+                    position: absolute;
+                    top: 62px;
+                    left: 0;
+                    right: 0;
+                    padding: 10px 14px 15px;
+                    background: var(--bg);
+                    border-bottom: 1px solid var(--line);
+                    box-shadow: var(--shadow);
+                    flex-direction: column;
+                    align-items: stretch;
+                    gap: 3px;
+                }
+
+                .main-nav.menu-open {
+                    display: flex;
+                }
+
+                .main-nav > a,
+                .nav-dropdown > button {
+                    width: 100%;
+                    padding: 12px;
+                    text-align: left;
+                }
+
+                .nav-dropdown {
+                    width: 100%;
+                }
+
+                .nav-dropdown-menu {
+                    position: static;
+                    display: none;
+                    width: 100%;
+                    min-width: 0;
+                    padding: 4px;
+                    margin-top: 2px;
+                    box-shadow: none;
+                    border: 1px solid var(--line);
+                }
+
+                .nav-dropdown.open .nav-dropdown-menu {
+                    display: block;
+                }
+
+                .nav-dropdown:hover .nav-dropdown-menu {
+                    display: none;
+                }
+
+                .nav-dropdown.open:hover .nav-dropdown-menu {
+                    display: block;
+                }
+
+                h1 {
+                    font-size: 39px;
+                }
+
+                .hero p {
+                    font-size: 16px;
+                }
+
+                article h2 {
+                    font-size: 26px;
+                }
+
+                .example-budget {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            @media (max-width: 520px) {
+                .footer-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .result-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .calculator-card {
+                    padding: 18px;
+                }
+
+                .hero {
+                    padding-bottom: 30px;
+                }
+            }
+        </style>
+
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": "How Much Should I Save Each Month?",
+                "description": "A practical guide to monthly savings, savings rates, emergency funds and financial goals.",
+                "author": {
+                    "@type": "Organization",
+                    "name": "PaycheckMint"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "PaycheckMint"
+                },
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://paycheckmint.vercel.app/finance/budgeting/how-much-should-i-save/"
+                }
+            }
+        </script>
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://paycheckmint.vercel.app/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Budgeting",
+                        "item": "https://paycheckmint.vercel.app/finance/budgeting/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "How Much Should I Save Each Month?",
+                        "item": "https://paycheckmint.vercel.app/finance/budgeting/how-much-should-i-save/"
+                    }
+                ]
+            }
+        </script>
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "How much should I save each month?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "There is no single savings amount that works for everyone. A common guideline is around 10% to 20% of income, but your income, expenses, debt, emergency fund, retirement goals and other priorities should determine what is realistic."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Is saving 20% of my income a good goal?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Saving 20% can be a useful budgeting guideline, but it is not a requirement. Some households may be able to save more, while others may need to start with a smaller amount."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How much should I save from each paycheck?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Divide your monthly savings target by the number of paychecks you normally receive each month, then adjust for your actual pay schedule and cash flow."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How much should I have in an emergency fund?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "A commonly used target is three to six months of essential expenses, although the appropriate amount depends on your income stability, household situation and financial obligations."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What if I cannot save 20%?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Start with an amount you can maintain consistently. Even a small recurring contribution can help establish a savings habit, and you can increase the amount as your income or expenses change."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Should I save for emergencies or retirement first?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "The order depends on your circumstances. Many people first build some accessible emergency savings while also considering available employer retirement matches and then increasing longer-term retirement and other goal-based savings."
+                        }
+                    }
+                ]
+            }
+        </script>
+    </head>
+
+    <body>
+        <header class="site-header">
+            <div class="container header-inner">
+                <a href="/" class="logo"> Paycheck<span>Mint</span> </a>
+
+                <button
+                    class="mobile-menu-toggle"
+                    id="mobileMenuToggle"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    type="button"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <nav class="main-nav" id="mainNav">
+                    <a href="/">Home</a>
+
+                    <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+
+                    <a href="/income/"> Income </a>
+
+                    <div class="nav-dropdown" id="financeDropdown">
+                        <button type="button" id="financeButton" aria-expanded="false">Finance ▾</button>
+
+                        <div class="nav-dropdown-menu">
+                            <a href="/finance/"> Finance Overview </a>
+
+                            <a href="/finance/taxes/"> Taxes </a>
+
+                            <a href="/finance/budgeting/"> Budgeting </a>
+
+                            <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+
+                            <a href="/finance/investing/"> Investing </a>
+
+                            <a href="/finance/insurance/"> Insurance </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- HERO -->
+
+            <section class="hero">
+                <div class="container hero-grid">
+                    <div>
+                        <span class="eyebrow"> Budgeting &amp; Savings </span>
+
+                        <h1>How Much Should I Save Each Month?</h1>
+
+                        <p>
+                            Find a realistic monthly savings target based on your income, expenses, financial goals and
+                            timeline. Use the calculator to estimate your savings rate and see how different monthly
+                            amounts add up over time.
+                        </p>
+
+                        <div class="hero-answer">
+                            <strong>Quick answer</strong>
+                            There is no single savings amount that is right for everyone. A common guideline is to save
+                            around 10% to 20% of income, but your actual target should fit your budget and financial
+                            goals.
+                        </div>
+                    </div>
+
+                    <!-- CALCULATOR -->
+
+                    <div class="calculator-card" id="savings-calculator">
+                        <h2>Monthly Savings Calculator</h2>
+
+                        <p>Estimate a savings target and see how much you could save over a year.</p>
+
+                        <div class="form-group">
+                            <label for="monthlyIncome"> Monthly take-home income </label>
+
+                            <input id="monthlyIncome" type="number" min="0" step="50" placeholder="5000" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="monthlyExpenses"> Monthly essential expenses </label>
+
+                            <input id="monthlyExpenses" type="number" min="0" step="50" placeholder="3500" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="currentSavings"> Current monthly savings </label>
+
+                            <input id="currentSavings" type="number" min="0" step="10" placeholder="500" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="targetRate"> Target savings rate </label>
+
+                            <select id="targetRate">
+                                <option value="0.10">10%</option>
+                                <option value="0.15">15%</option>
+                                <option value="0.20" selected>20%</option>
+                                <option value="0.25">25%</option>
+                                <option value="0.30">30%</option>
+                            </select>
+                        </div>
+
+                        <button class="calc-button" id="calculateSavings" type="button">Calculate Savings</button>
+
+                        <div class="calculator-results" id="calculatorResults">
+                            <div class="result-main">
+                                <span>Suggested monthly target</span>
+                                <strong id="targetAmount">$0</strong>
+                            </div>
+
+                            <div class="result-grid">
+                                <div class="result-item">
+                                    <span>Current savings rate</span>
+                                    <strong id="currentRate">0%</strong>
+                                </div>
+
+                                <div class="result-item">
+                                    <span>Target savings rate</span>
+                                    <strong id="displayTargetRate">20%</strong>
+                                </div>
+
+                                <div class="result-item">
+                                    <span>Annual savings at target</span>
+                                    <strong id="annualTarget">$0</strong>
+                                </div>
+
+                                <div class="result-item">
+                                    <span>Amount above expenses</span>
+                                    <strong id="availableAmount">$0</strong>
+                                </div>
+                            </div>
+
+                            <div class="calc-note" id="calculatorMessage">
+                                This calculation is a planning estimate, not a recommendation for your specific
+                                financial situation.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ARTICLE -->
+
+            <section class="article-section">
+                <div class="container article-layout">
+                    <article>
+                        <div class="intro-box">
+                            <strong> The short version: </strong>
+
+                            <p style="margin-top: 8px; margin-bottom: 0">
+                                How much you should save each month depends on what you are saving for, how much you
+                                earn, what you spend, your debt obligations and how quickly you need to reach your
+                                goals. A percentage such as 10%, 15% or 20% can provide a starting point, but it should
+                                not replace an actual budget.
+                            </p>
+                        </div>
+
+                        <h2 id="how-much">How Much Should You Save Each Month?</h2>
+
+                        <p>
+                            A common starting point is to save somewhere around 10% to 20% of your income. However,
+                            there is no universal percentage that works for every household.
+                        </p>
+
+                        <p>
+                            Someone with low fixed expenses may be able to save much more than 20%. Someone dealing with
+                            high housing costs, childcare, healthcare bills, debt or an irregular income may need to
+                            start with a smaller amount.
+                        </p>
+
+                        <p>
+                            The more useful question is not simply "What percentage should I save?" It is "What amount
+                            can I save consistently while still covering my needs and working toward my financial
+                            goals?"
+                        </p>
+
+                        <div class="tip-box">
+                            <strong> A practical starting point </strong>
+
+                            If you do not currently have a savings target, try calculating 10%, 15% and 20% of your
+                            monthly take-home pay. Compare each amount with your actual budget and choose a target you
+                            can maintain.
+                        </div>
+
+                        <h2 id="savings-rate">What Is a Savings Rate?</h2>
+
+                        <p>Your savings rate is the percentage of income you set aside instead of spending.</p>
+
+                        <div class="formula">Savings Rate = Monthly Savings ÷ Monthly Income × 100</div>
+
+                        <p>
+                            For example, if your monthly take-home income is $5,000 and you save $750, your savings rate
+                            is 15%.
+                        </p>
+
+                        <p>
+                            Tracking your savings rate can make it easier to measure progress even when your income
+                            changes.
+                        </p>
+
+                        <h2 id="examples">How Much Is 10%, 15%, or 20% of Your Income?</h2>
+
+                        <p>A percentage becomes easier to understand when you convert it into actual dollars.</p>
+
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Monthly income</th>
+                                        <th>10%</th>
+                                        <th>15%</th>
+                                        <th>20%</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>$2,500</td>
+                                        <td>$250</td>
+                                        <td>$375</td>
+                                        <td>$500</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>$3,000</td>
+                                        <td>$300</td>
+                                        <td>$450</td>
+                                        <td>$600</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>$4,000</td>
+                                        <td>$400</td>
+                                        <td>$600</td>
+                                        <td>$800</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>$5,000</td>
+                                        <td>$500</td>
+                                        <td>$750</td>
+                                        <td>$1,000</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>$6,000</td>
+                                        <td>$600</td>
+                                        <td>$900</td>
+                                        <td>$1,200</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>$8,000</td>
+                                        <td>$800</td>
+                                        <td>$1,200</td>
+                                        <td>$1,600</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>$10,000</td>
+                                        <td>$1,000</td>
+                                        <td>$1,500</td>
+                                        <td>$2,000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <p>
+                            These percentages are examples rather than required savings levels. Your budget may support
+                            a different percentage.
+                        </p>
+
+                        <h2 id="what-to-save-for">What Should You Be Saving For?</h2>
+
+                        <p>
+                            Your monthly savings target becomes easier to determine when you divide it into specific
+                            goals.
+                        </p>
+
+                        <h3>Emergency savings</h3>
+
+                        <p>
+                            Emergency savings can help cover unexpected expenses or a temporary loss of income. A
+                            commonly used long-term target is several months of essential expenses.
+                        </p>
+
+                        <h3>Retirement</h3>
+
+                        <p>
+                            Retirement savings are designed for a much longer time horizon. Workplace retirement plans,
+                            IRAs and other retirement accounts can be part of this goal.
+                        </p>
+
+                        <h3>Short-term goals</h3>
+
+                        <p>
+                            You may also save for a car, home down payment, vacation, education, insurance deductible,
+                            annual bills or major repairs.
+                        </p>
+
+                        <h3>Sinking funds</h3>
+
+                        <p>A sinking fund spreads a known future expense across multiple months.</p>
+
+                        <div class="formula">Monthly Sinking-Fund Amount = Goal Amount ÷ Months Until the Goal</div>
+
+                        <p>
+                            For example, a $1,200 expense that is 12 months away would require $100 per month if you
+                            were starting from $0 and ignoring interest.
+                        </p>
+
+                        <h2 id="emergency">How Much Should You Save for an Emergency Fund?</h2>
+
+                        <p>
+                            A frequently used emergency-fund target is three to six months of essential expenses. Some
+                            households may choose a different amount depending on income stability, employment situation
+                            and financial responsibilities.
+                        </p>
+
+                        <p>
+                            Focus on essential expenses rather than every purchase you normally make. Housing, basic
+                            utilities, groceries, transportation, insurance, healthcare and required debt payments may
+                            be included when estimating a minimum emergency budget.
+                        </p>
+
+                        <div class="tip-box">
+                            <strong> Example </strong>
+
+                            If your essential monthly expenses are $3,000, a three-month emergency fund would be $9,000
+                            and a six-month target would be $18,000.
+                        </div>
+
+                        <h2 id="goal-based">A Better Way to Calculate Your Savings Target</h2>
+
+                        <p>A percentage is convenient, but goal-based savings can be more precise.</p>
+
+                        <ol>
+                            <li>List your major savings goals.</li>
+                            <li>Write down the amount required for each goal.</li>
+                            <li>Choose a target date.</li>
+                            <li>Calculate the monthly amount needed.</li>
+                            <li>Add your monthly goal amounts together.</li>
+                            <li>Compare the result with your actual budget.</li>
+                        </ol>
+
+                        <p>
+                            If the required amount is too high, you can change the goal amount, extend the timeline,
+                            reduce expenses or look for additional income.
+                        </p>
+
+                        <h2 id="example">Example: Saving $1,000 Per Month</h2>
+
+                        <p>
+                            Suppose someone takes home $5,000 per month and wants to save $1,000. That would produce a
+                            20% savings rate.
+                        </p>
+
+                        <div class="example-budget">
+                            <div class="example-card">
+                                <h3>Monthly cash flow</h3>
+
+                                <div class="example-row">
+                                    <span>Take-home income</span>
+                                    <strong>$5,000</strong>
+                                </div>
+
+                                <div class="example-row">
+                                    <span>Essential expenses</span>
+                                    <strong>$3,200</strong>
+                                </div>
+
+                                <div class="example-row">
+                                    <span>Other spending</span>
+                                    <strong>$800</strong>
+                                </div>
+
+                                <div class="example-row">
+                                    <span>Savings</span>
+                                    <strong>$1,000</strong>
+                                </div>
+                            </div>
+
+                            <div class="example-card">
+                                <h3>Possible savings allocation</h3>
+
+                                <div class="example-row">
+                                    <span>Emergency fund</span>
+                                    <strong>$300</strong>
+                                </div>
+
+                                <div class="example-row">
+                                    <span>Retirement</span>
+                                    <strong>$400</strong>
+                                </div>
+
+                                <div class="example-row">
+                                    <span>Short-term goals</span>
+                                    <strong>$200</strong>
+                                </div>
+
+                                <div class="example-row">
+                                    <span>Sinking funds</span>
+                                    <strong>$100</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p>
+                            This is only an example. Your savings categories and amounts should reflect your own
+                            priorities.
+                        </p>
+
+                        <h2 id="50-30-20">How the 50/30/20 Rule Relates to Saving</h2>
+
+                        <p>
+                            The 50/30/20 budgeting framework is one commonly used guideline. It allocates roughly 50% of
+                            take-home income to needs, 30% to wants and 20% to savings and debt payments.
+                        </p>
+
+                        <p>
+                            It can be useful as a starting framework, but it is not a requirement. Housing costs and
+                            other essential expenses vary significantly between households and locations.
+                        </p>
+
+                        <p>
+                            If 20% is not currently possible, you can start with a smaller amount and increase your
+                            savings rate when your budget allows.
+                        </p>
+
+                        <a href="/finance/budgeting/50-30-20-rule/" style="color: var(--accent); font-weight: 800">
+                            Read the PaycheckMint 50/30/20 Budget Guide →
+                        </a>
+
+                        <h2 id="if-cant">What If You Cannot Save 20%?</h2>
+
+                        <p>Not being able to save 20% does not mean you should give up on saving altogether.</p>
+
+                        <p>Start with an amount that does not cause you to miss essential bills or rely on new debt.</p>
+
+                        <p>
+                            For example, saving $25 per week is about $1,300 over a year before considering interest. A
+                            smaller recurring contribution can also help establish a habit that you can increase later.
+                        </p>
+
+                        <h3>Ways to increase your savings later</h3>
+
+                        <ul>
+                            <li>Increase savings after a pay raise.</li>
+                            <li>Automate part of each paycheck.</li>
+                            <li>Review recurring subscriptions.</li>
+                            <li>Reduce flexible spending categories.</li>
+                            <li>Use part of a tax refund or bonus for a goal.</li>
+                            <li>Redirect a paid-off debt payment toward savings.</li>
+                            <li>Increase retirement contributions gradually.</li>
+                        </ul>
+
+                        <h2 id="paycheck">How Much Should You Save From Each Paycheck?</h2>
+
+                        <p>If you prefer paycheck budgeting, convert your monthly target into a per-paycheck amount.</p>
+
+                        <p>
+                            For example, a $600 monthly savings goal could be divided across your normal pay schedule.
+                            The exact amount depends on whether you are paid weekly, biweekly, semimonthly or monthly.
+                        </p>
+
+                        <p>
+                            If you receive three biweekly paychecks in some months, you can decide whether the
+                            additional paycheck will fund savings, debt repayment, upcoming expenses or another
+                            financial goal.
+                        </p>
+
+                        <a href="/finance/budgeting/paycheck-budget/" style="color: var(--accent); font-weight: 800">
+                            Learn more about paycheck budgeting →
+                        </a>
+
+                        <h2 id="automate">Should You Automate Your Savings?</h2>
+
+                        <p>
+                            Automating savings can make consistency easier because the transfer happens without
+                            requiring a separate decision every time you receive income.
+                        </p>
+
+                        <p>
+                            You can schedule recurring transfers to an appropriate savings or investment account,
+                            depending on the purpose of the money.
+                        </p>
+
+                        <p>
+                            Before automating a large amount, make sure the transfer fits your cash flow and does not
+                            create overdrafts or leave too little available for required expenses.
+                        </p>
+
+                        <h2 id="too-much">Can You Save Too Much?</h2>
+
+                        <p>Saving more is not automatically better if it causes problems elsewhere in your finances.</p>
+
+                        <p>
+                            For example, putting too much money into an account that has restrictions or penalties for
+                            early withdrawals may create a problem if you need the money for an emergency. Similarly,
+                            aggressively saving while taking on expensive new debt can work against your broader
+                            financial plan.
+                        </p>
+
+                        <p>
+                            A balanced savings plan should account for current needs, emergency reserves, debt
+                            obligations, long-term goals and reasonable spending.
+                        </p>
+
+                        <h2 id="monthly-budget">How Savings Fits Into a Monthly Budget</h2>
+
+                        <p>A monthly budget helps you determine how much is actually available to save.</p>
+
+                        <div class="formula">
+                            Monthly Income − Monthly Expenses − Planned Spending = Potential Savings
+                        </div>
+
+                        <p>
+                            If the result is consistently negative, increasing the savings percentage may not be
+                            realistic yet. Instead, review expenses, income and financial priorities.
+                        </p>
+
+                        <a href="/finance/budgeting/monthly-budget/" style="color: var(--accent); font-weight: 800">
+                            Build a monthly budget with PaycheckMint →
+                        </a>
+
+                        <h2 id="steps">7 Steps to Build a Monthly Savings Plan</h2>
+
+                        <ol>
+                            <li>Calculate your reliable monthly take-home income.</li>
+
+                            <li>List essential monthly expenses.</li>
+
+                            <li>Add variable and discretionary spending.</li>
+
+                            <li>List your short-, medium- and long-term savings goals.</li>
+
+                            <li>Calculate the monthly amount required for each goal.</li>
+
+                            <li>Choose a savings amount that fits your actual cash flow.</li>
+
+                            <li>
+                                Review your savings rate regularly and adjust it when your income or expenses change.
+                            </li>
+                        </ol>
+
+                        <h2 id="faq">Frequently Asked Questions</h2>
+
+                        <div class="faq-item">
+                            <button class="faq-question" type="button">
+                                <span>How much should I save each month?</span>
+                                <span>+</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                There is no universal amount. A common guideline is around 10% to 20% of income, but the
+                                right target depends on your income, expenses, debt, emergency fund and financial goals.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" type="button">
+                                <span>Is saving 20% of my income a good goal?</span>
+                                <span>+</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                Twenty percent can be a useful planning benchmark, but it is not a requirement. If 20%
+                                is not realistic, starting with a smaller amount and increasing it over time can still
+                                build a consistent savings habit.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" type="button">
+                                <span>How much should I save from each paycheck?</span>
+                                <span>+</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                Start with your monthly savings target and divide it according to your pay schedule. For
+                                example, a monthly target can be spread across weekly, biweekly or semimonthly
+                                paychecks.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" type="button">
+                                <span>How much should I have in an emergency fund?</span>
+                                <span>+</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                A commonly used target is three to six months of essential expenses. Your appropriate
+                                target may differ depending on income stability, household needs and financial
+                                obligations.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" type="button">
+                                <span>What if I cannot save 20%?</span>
+                                <span>+</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                Start with an amount you can consistently afford. Even a smaller recurring contribution
+                                can help you build savings, and you can increase it as your financial situation
+                                improves.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" type="button">
+                                <span>Should savings be based on gross or take-home pay?</span>
+                                <span>+</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                For a household budgeting calculation, take-home pay is often easier to use because it
+                                represents the money available after payroll withholding. Retirement savings rates may
+                                be measured differently because workplace contributions can be made from gross pay.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" type="button">
+                                <span>Can I save for multiple goals at the same time?</span>
+                                <span>+</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                Yes. You can divide monthly savings between emergency savings, retirement, short-term
+                                purchases, sinking funds and other goals. If you cannot fund everything, prioritize the
+                                goals that matter most to your current situation.
+                            </div>
+                        </div>
+
+                        <div class="tip-box">
+                            <strong> Important </strong>
+
+                            PaycheckMint provides general educational information and planning tools. Savings targets
+                            are not personalized financial advice. Your appropriate savings amount can depend on your
+                            income, expenses, debt, taxes, employer benefits, financial goals and other circumstances.
+                        </div>
+
+                        <div class="bottom-cta">
+                            <h2>Ready to Build Your Budget?</h2>
+
+                            <p>
+                                See how your income, expenses and savings goals fit together with PaycheckMint's
+                                budgeting resources.
+                            </p>
+
+                            <a href="/finance/budgeting/"> Explore Budgeting Guides </a>
+                        </div>
+                    </article>
+
+                    <!-- SIDEBAR -->
+
+                    <aside class="article-sidebar">
+                        <div class="sidebar-calculator">
+                            <h3>Savings Calculator</h3>
+
+                            <p>Estimate your monthly savings target based on a percentage of income.</p>
+
+                            <a class="sidebar-link" href="#savings-calculator"> Use Calculator </a>
+                        </div>
+
+                        <div class="toc">
+                            <h3>On This Page</h3>
+
+                            <a href="#how-much"> How Much Should You Save? </a>
+
+                            <a href="#savings-rate"> Savings Rate </a>
+
+                            <a href="#examples"> Savings Examples </a>
+
+                            <a href="#what-to-save-for"> What to Save For </a>
+
+                            <a href="#emergency"> Emergency Fund </a>
+
+                            <a href="#goal-based"> Goal-Based Savings </a>
+
+                            <a href="#50-30-20"> 50/30/20 Rule </a>
+
+                            <a href="#if-cant"> If You Cannot Save 20% </a>
+
+                            <a href="#paycheck"> Saving From Each Paycheck </a>
+
+                            <a href="#automate"> Automating Savings </a>
+
+                            <a href="#monthly-budget"> Monthly Budget </a>
+
+                            <a href="#faq"> FAQ </a>
+                        </div>
+
+                        <div class="related-box">
+                            <h3>Related Guides</h3>
+
+                            <a href="/finance/budgeting/"> Budgeting Guide </a>
+
+                            <a href="/finance/budgeting/monthly-budget/"> Monthly Budget </a>
+
+                            <a href="/finance/budgeting/50-30-20-rule/"> 50/30/20 Budget Rule </a>
+
+                            <a href="/finance/budgeting/paycheck-budget/"> Paycheck Budgeting </a>
+
+                            <a href="/finance/budgeting/sinking-funds/"> Sinking Funds </a>
+
+                            <a href="/finance/budgeting/emergency-fund/"> Emergency Fund </a>
+                        </div>
+                    </aside>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="/" class="logo"> Paycheck<span>Mint</span> </a>
+
+                        <p>
+                            PaycheckMint provides calculators, guides and educational resources to help you understand
+                            income, taxes, budgeting, saving and personal finance.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Finance</h3>
+
+                        <a href="/finance/"> Finance Overview </a>
+
+                        <a href="/finance/taxes/"> Taxes </a>
+
+                        <a href="/finance/budgeting/"> Budgeting </a>
+
+                        <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+
+                        <a href="/finance/investing/"> Investing </a>
+                    </div>
+
+                    <div>
+                        <h3>Calculators</h3>
+
+                        <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+
+                        <a href="/hourly-paycheck-calculator/"> Hourly Paycheck Calculator </a>
+
+                        <a href="/salary-paycheck-calculator/"> Salary Paycheck Calculator </a>
+
+                        <a href="/overtime-pay-calculator/"> Overtime Calculator </a>
+                    </div>
+
+                    <div>
+                        <h3>Company</h3>
+
+                        <a href="/about/"> About </a>
+
+                        <a href="/contact/"> Contact </a>
+
+                        <a href="/privacy-policy/"> Privacy </a>
+
+                        <a href="/terms/"> Terms </a>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    © 2026 PaycheckMint. Educational information only. Calculators provide estimates and should not be
+                    considered financial advice.
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            /* MOBILE NAVIGATION */
+
+            const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+
+            const mainNav = document.getElementById("mainNav");
+
+            const financeDropdown = document.getElementById("financeDropdown");
+
+            const financeButton = document.getElementById("financeButton");
+
+            mobileMenuToggle.addEventListener("click", function () {
+                const isOpen = mainNav.classList.toggle("menu-open");
+
+                mobileMenuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            });
+
+            financeButton.addEventListener("click", function (event) {
+                event.stopPropagation();
+
+                const isOpen = financeDropdown.classList.toggle("open");
+
+                financeButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            });
+
+            document.querySelectorAll(".main-nav > a").forEach(function (link) {
+                link.addEventListener("click", function () {
+                    mainNav.classList.remove("menu-open");
+
+                    mobileMenuToggle.setAttribute("aria-expanded", "false");
+
+                    financeDropdown.classList.remove("open");
+
+                    financeButton.setAttribute("aria-expanded", "false");
+                });
+            });
+
+            /* CALCULATOR */
+
+            const calculateSavings = document.getElementById("calculateSavings");
+
+            calculateSavings.addEventListener("click", function () {
+                const income = Number(document.getElementById("monthlyIncome").value) || 0;
+
+                const expenses = Number(document.getElementById("monthlyExpenses").value) || 0;
+
+                const currentSavings = Number(document.getElementById("currentSavings").value) || 0;
+
+                const targetRate = Number(document.getElementById("targetRate").value) || 0.2;
+
+                if (income <= 0) {
+                    alert("Please enter your monthly take-home income.");
+                    return;
+                }
+
+                const targetAmount = income * targetRate;
+
+                const annualTarget = targetAmount * 12;
+
+                const currentRate = (currentSavings / income) * 100;
+
+                const availableAmount = income - expenses;
+
+                const targetAmountFormatted = targetAmount.toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                    maximumFractionDigits: 0,
+                });
+
+                const annualTargetFormatted = annualTarget.toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                    maximumFractionDigits: 0,
+                });
+
+                const availableFormatted = availableAmount.toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                    maximumFractionDigits: 0,
+                });
+
+                document.getElementById("targetAmount").textContent = targetAmountFormatted;
+
+                document.getElementById("currentRate").textContent = currentRate.toFixed(1) + "%";
+
+                document.getElementById("displayTargetRate").textContent = (targetRate * 100).toFixed(0) + "%";
+
+                document.getElementById("annualTarget").textContent = annualTargetFormatted;
+
+                document.getElementById("availableAmount").textContent = availableFormatted;
+
+                const message = document.getElementById("calculatorMessage");
+
+                if (availableAmount < targetAmount) {
+                    message.textContent =
+                        "Your target savings amount is higher than the amount left after the essential expenses entered above. Consider adjusting the target, expenses, timeline or income rather than forcing an amount that does not fit your cash flow.";
+                } else if (currentSavings >= targetAmount) {
+                    message.textContent =
+                        "Your current monthly savings already meets or exceeds the selected target rate. You can use the difference for another financial goal or increase your target if it fits your overall plan.";
+                } else {
+                    const additional = targetAmount - currentSavings;
+
+                    message.textContent =
+                        "To reach the selected target, you would need to save about " +
+                        additional.toLocaleString("en-US", {
+                            style: "currency",
+                            currency: "USD",
+                            maximumFractionDigits: 0,
+                        }) +
+                        " more per month than your current savings amount.";
+                }
+
+                document.getElementById("calculatorResults").style.display = "block";
+            });
+
+            /* FAQ */
+
+            document.querySelectorAll(".faq-question").forEach(function (button) {
+                button.addEventListener("click", function () {
+                    const item = button.closest(".faq-item");
+
+                    const isOpen = item.classList.toggle("open");
+
+                    button.querySelector("span:last-child").textContent = isOpen ? "−" : "+";
+                });
+            });
+        </script>
+    </body>
+</html>

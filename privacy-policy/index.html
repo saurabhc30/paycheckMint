@@ -23,16 +23,44 @@
 <body>
 
     <header class="site-header">
-        <div class="header-inner">
+        <div class="container header-inner">
+            <a class="logo" href="/" aria-label="PaycheckMint home"> PaycheckMint </a>
 
-            <a href="/" class="logo">PaycheckMint</a>
+            <button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"
+                aria-controls="main-navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-            <nav class="nav">
-                <a href="/">Calculator</a>
-                <a href="/#how-it-works">How it works</a>
-                <a href="/#faq">FAQ</a>
+            <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+                <a href="/">Home</a>
+
+                <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+
+                <a href="/income/"> Income </a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+                        Finance
+                        <span class="dropdown-arrow">▾</span>
+                    </button>
+
+                    <div class="nav-dropdown-menu">
+                        <a href="/finance/"> Finance Overview </a>
+
+                        <a href="/finance/taxes/"> Taxes </a>
+
+                        <a href="/finance/budgeting/"> Budgeting &amp; Saving </a>
+
+                        <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+
+                        <a href="/finance/investing/"> Investing &amp; Retirement </a>
+
+                        <a href="/finance/insurance/"> Insurance </a>
+                    </div>
+                </div>
             </nav>
-
         </div>
     </header>
 
@@ -300,12 +328,84 @@
         </p>
 
         <div class="footer-links">
-            <a href="/privacy-policy/">Privacy Policy</a>
+            <a href="/about/">About</a>
             <a href="/terms/">Terms</a>
             <a href="/contact/">Contact</a>
         </div>
 
     </footer>
+
+    <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const menuToggle = document.querySelector(".mobile-menu-toggle");
+
+                const mainNav = document.querySelector(".main-nav");
+
+                const dropdown = document.querySelector(".nav-dropdown");
+
+                const dropdownToggle = document.querySelector(".nav-dropdown-toggle");
+
+                /* Mobile menu */
+
+                if (menuToggle && mainNav) {
+                    menuToggle.addEventListener("click", function (event) {
+                        event.stopPropagation();
+
+                        const isOpen = mainNav.classList.toggle("mobile-open");
+
+                        menuToggle.classList.toggle("open", isOpen);
+
+                        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+
+                        menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+                    });
+                }
+
+                /* Finance dropdown */
+
+                if (dropdown && dropdownToggle) {
+                    dropdownToggle.addEventListener("click", function (event) {
+                        event.stopPropagation();
+
+                        const isOpen = dropdown.classList.toggle("open");
+
+                        dropdownToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    });
+                }
+
+                /* Close when clicking outside */
+
+                document.addEventListener("click", function () {
+                    if (mainNav) {
+                        mainNav.classList.remove("mobile-open");
+                    }
+
+                    if (menuToggle) {
+                        menuToggle.classList.remove("open");
+
+                        menuToggle.setAttribute("aria-expanded", "false");
+
+                        menuToggle.setAttribute("aria-label", "Open navigation");
+                    }
+
+                    if (dropdown) {
+                        dropdown.classList.remove("open");
+                    }
+
+                    if (dropdownToggle) {
+                        dropdownToggle.setAttribute("aria-expanded", "false");
+                    }
+                });
+
+                /* Don't close menu when clicking inside it */
+
+                if (mainNav) {
+                    mainNav.addEventListener("click", function (event) {
+                        event.stopPropagation();
+                    });
+                }
+            });
+        </script>
 
 </body>
 

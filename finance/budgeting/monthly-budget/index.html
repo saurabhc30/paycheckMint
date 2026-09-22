@@ -1,0 +1,2453 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Monthly Budget: How to Create a Monthly Budget | PaycheckMint</title>
+
+        <meta
+            name="description"
+            content="Learn how to create a monthly budget, organize income and expenses, plan savings and debt payments, track spending, and use a monthly budget calculator."
+        />
+
+        <meta
+            name="keywords"
+            content="monthly budget, monthly budget planner, monthly budget calculator, how to make a monthly budget, monthly expenses, monthly budget categories, monthly budgeting"
+        />
+
+        <meta name="robots" content="index, follow" />
+
+        <link rel="canonical" href="https://paycheckmint.vercel.app/finance/budgeting/monthly-budget/" />
+
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Monthly Budget: How to Create a Monthly Budget | PaycheckMint" />
+        <meta
+            property="og:description"
+            content="Create a realistic monthly budget with income, expenses, savings, debt and a practical monthly budget calculator."
+        />
+        <meta property="og:url" content="https://paycheckmint.vercel.app/finance/budgeting/monthly-budget/" />
+        <meta property="og:site_name" content="PaycheckMint" />
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Monthly Budget: How to Create a Monthly Budget | PaycheckMint" />
+        <meta
+            name="twitter:description"
+            content="Learn how to build and manage a monthly budget with a practical calculator."
+        />
+
+        <style>
+            :root {
+                --bg: #f6f5f1;
+                --surface: #ffffff;
+                --surface-soft: #faf9f6;
+
+                --ink: #191919;
+                --muted: #74736f;
+                --muted-light: #999791;
+
+                --line: #deddd8;
+                --line-dark: #cbc9c3;
+
+                --accent: #5954d9;
+                --accent-dark: #4843c4;
+
+                --success: #247a45;
+                --danger: #b43d3d;
+
+                --shadow: 0 10px 30px rgba(25, 25, 25, 0.06);
+
+                --radius: 16px;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                margin: 0;
+                background: var(--bg);
+                color: var(--ink);
+                font-family:
+                    Inter,
+                    system-ui,
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    sans-serif;
+                line-height: 1.65;
+            }
+
+            a {
+                color: inherit;
+            }
+
+            button,
+            input {
+                font: inherit;
+            }
+
+            .container {
+                width: min(1160px, calc(100% - 36px));
+                margin: 0 auto;
+            }
+
+            /* ========================================
+           HEADER
+        ======================================== */
+
+            .site-header {
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                background: rgba(246, 245, 241, 0.96);
+                border-bottom: 1px solid var(--line);
+                backdrop-filter: blur(10px);
+            }
+
+            .header-inner {
+                min-height: 70px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 25px;
+            }
+
+            .logo {
+                text-decoration: none;
+                font-size: 22px;
+                font-weight: 800;
+                letter-spacing: -0.5px;
+                white-space: nowrap;
+            }
+
+            .logo span {
+                color: var(--accent);
+            }
+
+            .main-nav {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+
+            .main-nav > a,
+            .dropdown-toggle {
+                border: 0;
+                background: transparent;
+                text-decoration: none;
+                color: var(--ink);
+                font-size: 14px;
+                font-weight: 650;
+                padding: 10px 12px;
+                border-radius: 9px;
+                cursor: pointer;
+            }
+
+            .main-nav > a:hover,
+            .dropdown-toggle:hover {
+                background: var(--surface);
+            }
+
+            .nav-dropdown {
+                position: relative;
+            }
+
+            .dropdown-menu {
+                display: none;
+                position: absolute;
+                right: 0;
+                top: calc(100% + 7px);
+                width: 225px;
+                padding: 8px;
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 13px;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-dropdown:hover .dropdown-menu,
+            .nav-dropdown.open .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-menu a {
+                display: block;
+                padding: 9px 11px;
+                text-decoration: none;
+                border-radius: 8px;
+                font-size: 14px;
+            }
+
+            .dropdown-menu a:hover {
+                background: var(--surface-soft);
+            }
+
+            .mobile-menu-toggle {
+                display: none;
+                width: 42px;
+                height: 42px;
+                border: 1px solid var(--line);
+                background: var(--surface);
+                color: var(--ink);
+                border-radius: 10px;
+                cursor: pointer;
+                font-size: 21px;
+                line-height: 1;
+            }
+
+            /* ========================================
+           HERO
+        ======================================== */
+
+            .hero {
+                padding: 68px 0 38px;
+            }
+
+            .hero-inner {
+                max-width: 850px;
+            }
+
+            .eyebrow {
+                display: inline-flex;
+                align-items: center;
+                padding: 6px 11px;
+                margin-bottom: 17px;
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 999px;
+                color: var(--muted);
+                font-size: 12px;
+                font-weight: 750;
+                letter-spacing: 0.2px;
+            }
+
+            h1 {
+                margin: 0 0 18px;
+                font-size: clamp(38px, 5vw, 58px);
+                line-height: 1.05;
+                letter-spacing: -2.3px;
+            }
+
+            .hero-description {
+                max-width: 790px;
+                margin: 0;
+                color: var(--muted);
+                font-size: 18px;
+            }
+
+            /* ========================================
+           ARTICLE LAYOUT
+        ======================================== */
+
+            .article-layout {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) 285px;
+                gap: 42px;
+                align-items: start;
+                padding: 20px 0 75px;
+            }
+
+            article {
+                min-width: 0;
+            }
+
+            .article-card {
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: var(--radius);
+                box-shadow: var(--shadow);
+                padding: clamp(24px, 4vw, 44px);
+            }
+
+            .article-card h2 {
+                margin: 45px 0 14px;
+                font-size: 29px;
+                line-height: 1.2;
+                letter-spacing: -0.7px;
+                scroll-margin-top: 95px;
+            }
+
+            .article-card h3 {
+                margin: 27px 0 9px;
+                font-size: 20px;
+                line-height: 1.3;
+                scroll-margin-top: 95px;
+            }
+
+            .article-card p {
+                margin: 0 0 17px;
+                color: #45443f;
+            }
+
+            .article-card ul,
+            .article-card ol {
+                padding-left: 23px;
+                color: #45443f;
+            }
+
+            .article-card li {
+                margin: 8px 0;
+            }
+
+            .article-card a {
+                color: var(--accent);
+                text-decoration: none;
+                font-weight: 650;
+            }
+
+            .article-card a:hover {
+                text-decoration: underline;
+            }
+
+            /* ========================================
+           QUICK ANSWER
+        ======================================== */
+
+            .quick-answer {
+                padding: 20px 21px;
+                margin-bottom: 30px;
+                background: var(--surface-soft);
+                border: 1px solid var(--line);
+                border-left: 4px solid var(--accent);
+                border-radius: 12px;
+            }
+
+            .quick-answer strong {
+                display: block;
+                margin-bottom: 6px;
+                color: var(--ink);
+            }
+
+            .quick-answer p {
+                margin: 0;
+            }
+
+            /* ========================================
+           CALCULATOR
+        ======================================== */
+
+            .calculator-section {
+                margin: 35px 0;
+                padding: 27px;
+                background: var(--surface-soft);
+                border: 1px solid var(--line);
+                border-radius: 15px;
+            }
+
+            .calculator-section h2 {
+                margin-top: 0;
+            }
+
+            .calculator-intro {
+                color: var(--muted);
+            }
+
+            .calculator-category {
+                margin-top: 25px;
+            }
+
+            .calculator-category-title {
+                margin: 0 0 12px;
+                padding-bottom: 8px;
+                border-bottom: 1px solid var(--line);
+                font-size: 17px;
+            }
+
+            .calculator-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 13px;
+            }
+
+            .field {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .field label {
+                font-size: 13px;
+                font-weight: 750;
+            }
+
+            .field input {
+                width: 100%;
+                padding: 11px 12px;
+                background: var(--surface);
+                color: var(--ink);
+                border: 1px solid var(--line-dark);
+                border-radius: 9px;
+                outline: none;
+            }
+
+            .field input:focus {
+                border-color: var(--accent);
+                box-shadow: 0 0 0 3px rgba(89, 84, 217, 0.1);
+            }
+
+            .full-field {
+                grid-column: 1 / -1;
+            }
+
+            .calculate-button {
+                width: 100%;
+                margin-top: 24px;
+                padding: 13px 18px;
+                border: 0;
+                border-radius: 10px;
+                background: var(--accent);
+                color: #fff;
+                font-size: 15px;
+                font-weight: 800;
+                cursor: pointer;
+            }
+
+            .calculate-button:hover {
+                background: var(--accent-dark);
+            }
+
+            .budget-results {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 10px;
+                margin-top: 20px;
+            }
+
+            .result-box {
+                padding: 15px;
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 11px;
+            }
+
+            .result-label {
+                display: block;
+                margin-bottom: 3px;
+                color: var(--muted);
+                font-size: 12px;
+            }
+
+            .result-value {
+                font-size: 19px;
+                font-weight: 800;
+            }
+
+            .result-status {
+                grid-column: 1 / -1;
+                padding: 13px;
+                border-radius: 10px;
+                text-align: center;
+                font-size: 14px;
+                font-weight: 700;
+            }
+
+            .status-positive {
+                background: #edf8f1;
+                color: var(--success);
+            }
+
+            .status-warning {
+                background: #fff0f0;
+                color: var(--danger);
+            }
+
+            /* ========================================
+           CATEGORY CARDS
+        ======================================== */
+
+            .category-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
+                margin: 22px 0;
+            }
+
+            .category-card {
+                padding: 19px;
+                background: var(--surface-soft);
+                border: 1px solid var(--line);
+                border-radius: 13px;
+            }
+
+            .category-card h3 {
+                margin: 0 0 7px;
+                font-size: 17px;
+            }
+
+            .category-card p {
+                margin: 0;
+                font-size: 14px;
+            }
+
+            /* ========================================
+           EXAMPLE
+        ======================================== */
+
+            .example-box {
+                margin: 25px 0;
+                padding: 24px;
+                background: var(--surface-soft);
+                border: 1px solid var(--line);
+                border-radius: 14px;
+            }
+
+            .example-title {
+                margin-bottom: 12px;
+                font-weight: 800;
+            }
+
+            .example-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0 28px;
+            }
+
+            .example-row {
+                display: flex;
+                justify-content: space-between;
+                gap: 15px;
+                padding: 8px 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .example-row span {
+                color: var(--muted);
+            }
+
+            /* ========================================
+           FORMULA
+        ======================================== */
+
+            .formula {
+                margin: 22px 0;
+                padding: 19px;
+                background: #f3f2ff;
+                border: 1px solid #dedcff;
+                border-radius: 12px;
+                text-align: center;
+                font-weight: 800;
+            }
+
+            /* ========================================
+           SIDEBAR
+        ======================================== */
+
+            .article-sidebar {
+                position: sticky;
+                top: 94px;
+            }
+
+            .sidebar-box {
+                margin-bottom: 17px;
+                padding: 19px;
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 14px;
+                box-shadow: var(--shadow);
+            }
+
+            .sidebar-box h3 {
+                margin: 0 0 10px;
+                font-size: 17px;
+                line-height: 1.3;
+            }
+
+            .sidebar-box p {
+                margin: 0 0 15px;
+                color: var(--muted);
+                font-size: 13px;
+                line-height: 1.55;
+            }
+
+            .sidebar-button {
+                display: block;
+                padding: 10px 13px;
+                background: var(--accent);
+                color: #fff !important;
+                border-radius: 9px;
+                text-align: center;
+                text-decoration: none !important;
+                font-size: 13px;
+                font-weight: 750;
+            }
+
+            .sidebar-button:hover {
+                background: var(--accent-dark);
+            }
+
+            .toc a,
+            .related-links a {
+                display: block;
+                padding: 6px 0;
+                color: var(--muted);
+                text-decoration: none;
+                font-size: 13px;
+                font-weight: 500;
+            }
+
+            .toc a:hover,
+            .related-links a:hover {
+                color: var(--accent);
+                text-decoration: none;
+            }
+
+            /* ========================================
+           INFO BOX
+        ======================================== */
+
+            .info-box {
+                margin: 25px 0;
+                padding: 20px;
+                background: var(--surface-soft);
+                border: 1px solid var(--line);
+                border-radius: 12px;
+            }
+
+            .info-box strong {
+                display: block;
+                margin-bottom: 7px;
+            }
+
+            /* ========================================
+           FAQ
+        ======================================== */
+
+            .faq-item {
+                border-top: 1px solid var(--line);
+            }
+
+            .faq-question {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 20px;
+                padding: 17px 0;
+                border: 0;
+                background: transparent;
+                color: var(--ink);
+                text-align: left;
+                font-size: 15px;
+                font-weight: 750;
+                cursor: pointer;
+            }
+
+            .faq-question span:last-child {
+                flex: 0 0 auto;
+                font-size: 21px;
+                line-height: 1;
+                transition: transform 0.2s ease;
+            }
+
+            .faq-answer {
+                display: none;
+                padding: 0 0 17px;
+                color: var(--muted);
+                font-size: 14px;
+            }
+
+            .faq-item.open .faq-answer {
+                display: block;
+            }
+
+            .faq-item.open .faq-question span:last-child {
+                transform: rotate(45deg);
+            }
+
+            /* ========================================
+           CTA
+        ======================================== */
+
+            .article-cta {
+                margin-top: 38px;
+                padding: 25px;
+                background: #f3f2ff;
+                border: 1px solid #dedcff;
+                border-radius: 14px;
+            }
+
+            .article-cta h3 {
+                margin-top: 0;
+            }
+
+            .article-cta p {
+                margin-bottom: 15px;
+            }
+
+            .cta-button {
+                display: inline-block;
+                padding: 11px 16px;
+                background: var(--accent);
+                color: #fff !important;
+                border-radius: 9px;
+                text-decoration: none !important;
+                font-size: 14px;
+                font-weight: 750;
+            }
+
+            /* ========================================
+           DISCLAIMER
+        ======================================== */
+
+            .disclaimer {
+                margin-top: 30px;
+                padding: 17px;
+                background: var(--surface-soft);
+                border: 1px solid var(--line);
+                border-radius: 11px;
+                color: var(--muted);
+                font-size: 13px;
+            }
+
+            /* ========================================
+           FOOTER
+           SAME BACKGROUND AS PAGE
+        ======================================== */
+
+            .site-footer {
+                background: var(--bg);
+                border-top: 1px solid var(--line);
+                padding: 48px 0 25px;
+            }
+
+            .footer-grid {
+                display: grid;
+                grid-template-columns: 1.5fr 1fr 1fr 1fr;
+                gap: 40px;
+            }
+
+            .footer-brand {
+                max-width: 330px;
+            }
+
+            .footer-logo {
+                display: inline-block;
+                margin-bottom: 12px;
+                text-decoration: none;
+                font-size: 23px;
+                font-weight: 800;
+                letter-spacing: -0.5px;
+            }
+
+            .footer-logo span {
+                color: var(--accent);
+            }
+
+            .footer-description {
+                margin: 0;
+                color: var(--muted);
+                font-size: 13px;
+                line-height: 1.65;
+            }
+
+            .footer-column h3 {
+                margin: 0 0 13px;
+                font-size: 14px;
+            }
+
+            .footer-column a {
+                display: block;
+                width: fit-content;
+                margin: 7px 0;
+                color: var(--muted);
+                text-decoration: none;
+                font-size: 13px;
+            }
+
+            .footer-column a:hover {
+                color: var(--accent);
+            }
+
+            .footer-bottom {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 20px;
+                margin-top: 38px;
+                padding-top: 20px;
+                border-top: 1px solid var(--line);
+            }
+
+            .footer-bottom p {
+                margin: 0;
+                color: var(--muted-light);
+                font-size: 12px;
+            }
+
+            /* ========================================
+           RESPONSIVE
+        ======================================== */
+
+            @media (max-width: 900px) {
+                .article-layout {
+                    grid-template-columns: minmax(0, 1fr) 255px;
+                    gap: 25px;
+                }
+
+                .footer-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                .budget-results {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @media (max-width: 800px) {
+                .mobile-menu-toggle {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .main-nav {
+                    display: none;
+                    position: absolute;
+                    left: 14px;
+                    right: 14px;
+                    top: 70px;
+                    flex-direction: column;
+                    align-items: stretch;
+                    gap: 3px;
+                    padding: 10px;
+                    background: var(--surface);
+                    border: 1px solid var(--line);
+                    border-radius: 13px;
+                    box-shadow: var(--shadow);
+                }
+
+                .main-nav.open {
+                    display: flex;
+                }
+
+                .main-nav > a,
+                .dropdown-toggle {
+                    width: 100%;
+                    text-align: left;
+                }
+
+                .nav-dropdown {
+                    width: 100%;
+                }
+
+                .dropdown-menu {
+                    position: static;
+                    width: 100%;
+                    margin-top: 3px;
+                    box-shadow: none;
+                    border-radius: 9px;
+                }
+
+                .nav-dropdown:hover .dropdown-menu {
+                    display: none;
+                }
+
+                .nav-dropdown.open .dropdown-menu {
+                    display: block;
+                }
+
+                .article-layout {
+                    grid-template-columns: 1fr;
+                    gap: 25px;
+                }
+
+                article {
+                    order: 1;
+                }
+
+                .article-sidebar {
+                    position: static;
+                    order: 2;
+                }
+
+                .hero {
+                    padding-top: 48px;
+                }
+
+                .hero-description {
+                    font-size: 16px;
+                }
+
+                .calculator-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .full-field {
+                    grid-column: auto;
+                }
+
+                .category-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            @media (max-width: 560px) {
+                .container {
+                    width: min(100% - 28px, 720px);
+                }
+
+                h1 {
+                    font-size: 38px;
+                }
+
+                .article-card {
+                    padding: 21px;
+                }
+
+                .article-card h2 {
+                    font-size: 26px;
+                }
+
+                .calculator-section {
+                    padding: 19px;
+                }
+
+                .budget-results {
+                    grid-template-columns: 1fr 1fr;
+                }
+
+                .result-value {
+                    font-size: 17px;
+                }
+
+                .example-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .footer-grid {
+                    grid-template-columns: 1fr;
+                    gap: 28px;
+                }
+
+                .footer-bottom {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+            }
+        </style>
+
+        <!-- Article Schema -->
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": "Monthly Budget: How to Create a Monthly Budget",
+                "description": "Learn how to create a monthly budget, organize income and expenses, plan savings and debt payments, and track spending.",
+                "author": {
+                    "@type": "Organization",
+                    "name": "PaycheckMint"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "PaycheckMint"
+                },
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://paycheckmint.vercel.app/finance/budgeting/monthly-budget/"
+                }
+            }
+        </script>
+
+        <!-- Breadcrumb Schema -->
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://paycheckmint.vercel.app/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Budgeting",
+                        "item": "https://paycheckmint.vercel.app/finance/budgeting/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Monthly Budget",
+                        "item": "https://paycheckmint.vercel.app/finance/budgeting/monthly-budget/"
+                    }
+                ]
+            }
+        </script>
+
+        <!-- FAQ Schema -->
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "What is a monthly budget?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "A monthly budget is a plan that estimates your monthly income and assigns money to expenses, savings, debt payments and other financial priorities."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What should be included in a monthly budget?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "A monthly budget can include housing, utilities, food, transportation, insurance, health care, debt payments, savings, education, personal spending, entertainment and other recurring or irregular expenses."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Should savings be included in a monthly budget?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. Savings can be included as a planned monthly allocation alongside expenses and debt payments."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How do I calculate my monthly budget?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Add your monthly take-home income and planned expenses. Subtract total planned expenses from monthly income to determine the amount remaining."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How often should I update my monthly budget?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Review your spending during the month and compare your actual results with your plan at the end of the month. Update the next month's budget when income, expenses or goals change."
+                        }
+                    }
+                ]
+            }
+        </script>
+    </head>
+
+    <body>
+        <!-- ========================================
+     HEADER
+======================================== -->
+
+        <header class="site-header">
+            <div class="container header-inner">
+                <a href="/" class="logo"> Paycheck<span>Mint</span> </a>
+
+                <button
+                    type="button"
+                    class="mobile-menu-toggle"
+                    id="mobileMenuToggle"
+                    aria-label="Open navigation"
+                    aria-expanded="false"
+                >
+                    ☰
+                </button>
+
+                <nav class="main-nav" id="mainNav">
+                    <a href="/"> Home </a>
+
+                    <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+
+                    <a href="/income/"> Income </a>
+
+                    <div class="nav-dropdown" id="financeDropdown">
+                        <button type="button" class="dropdown-toggle" id="financeToggle" aria-expanded="false">
+                            Finance ▾
+                        </button>
+
+                        <div class="dropdown-menu">
+                            <a href="/finance/"> Finance Overview </a>
+
+                            <a href="/finance/taxes/"> Taxes </a>
+
+                            <a href="/finance/budgeting/"> Budgeting </a>
+
+                            <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+
+                            <a href="/finance/investing/"> Investing </a>
+
+                            <a href="/finance/insurance/"> Insurance </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <!-- ========================================
+     MAIN
+======================================== -->
+
+        <main>
+            <!-- HERO -->
+
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-inner">
+                        <div class="eyebrow">MONTHLY BUDGETING</div>
+
+                        <h1>Monthly Budget</h1>
+
+                        <p class="hero-description">
+                            Create a realistic monthly budget by organizing your income, bills, everyday expenses,
+                            savings and debt payments in one simple plan.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="container">
+                <div class="article-layout">
+                    <!-- ========================================
+                 ARTICLE
+            ======================================== -->
+
+                    <article>
+                        <div class="article-card">
+                            <!-- QUICK ANSWER -->
+
+                            <div class="quick-answer">
+                                <strong> What is a monthly budget? </strong>
+
+                                <p>
+                                    A monthly budget is a plan for how you will use the money you expect to receive
+                                    during a month. It organizes income into categories such as housing, food,
+                                    transportation, insurance, debt, savings and personal spending.
+                                </p>
+                            </div>
+
+                            <p>
+                                A monthly budget gives you a clearer picture of where your money is going. Instead of
+                                looking at individual bills or purchases separately, you can see your income and major
+                                spending categories together.
+                            </p>
+
+                            <p>
+                                A useful monthly budget does not need to be identical every month. Income, utility
+                                bills, groceries, transportation, medical expenses and other costs can change. The goal
+                                is to create a plan, compare it with actual spending and make adjustments when
+                                necessary.
+                            </p>
+
+                            <!-- WHAT IS -->
+
+                            <h2 id="what-is-monthly-budget">What Is a Monthly Budget?</h2>
+
+                            <p>
+                                A monthly budget is a spending and savings plan covering one month. It starts with the
+                                money available to you and assigns that money to different financial categories.
+                            </p>
+
+                            <div class="formula">Monthly Income − Monthly Expenses = Money Remaining</div>
+
+                            <p>
+                                Your budget can also include savings and investing as planned allocations. This helps
+                                you see how much money is available after your regular commitments.
+                            </p>
+
+                            <!-- WHY -->
+
+                            <h2 id="why-monthly-budget">Why Use a Monthly Budget?</h2>
+
+                            <p>
+                                A monthly budget can help you understand your cash flow and identify areas where your
+                                actual spending differs from your plan.
+                            </p>
+
+                            <ul>
+                                <li>See where your money is going.</li>
+
+                                <li>Plan upcoming bills.</li>
+
+                                <li>Set aside money for savings.</li>
+
+                                <li>Include debt payments in your plan.</li>
+
+                                <li>Prepare for irregular expenses.</li>
+
+                                <li>Identify categories where spending can change.</li>
+
+                                <li>Compare planned spending with actual spending.</li>
+                            </ul>
+
+                            <!-- CALCULATOR -->
+
+                            <section class="calculator-section" id="calculator">
+                                <h2>Monthly Budget Calculator</h2>
+
+                                <p class="calculator-intro">
+                                    Enter your estimated monthly take-home income and expenses. The calculator totals
+                                    your planned spending and shows the amount remaining.
+                                </p>
+
+                                <!-- INCOME -->
+
+                                <div class="calculator-category">
+                                    <h3 class="calculator-category-title">Monthly Income</h3>
+
+                                    <div class="calculator-grid">
+                                        <div class="field full-field">
+                                            <label for="income"> Monthly Take-Home Income </label>
+
+                                            <input type="number" id="income" min="0" step="0.01" placeholder="5000" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- HOUSING -->
+
+                                <div class="calculator-category">
+                                    <h3 class="calculator-category-title">Housing &amp; Utilities</h3>
+
+                                    <div class="calculator-grid">
+                                        <div class="field">
+                                            <label for="housing"> Rent or Mortgage </label>
+
+                                            <input type="number" id="housing" min="0" step="0.01" placeholder="1500" />
+                                        </div>
+
+                                        <div class="field">
+                                            <label for="utilities"> Utilities </label>
+
+                                            <input type="number" id="utilities" min="0" step="0.01" placeholder="200" />
+                                        </div>
+
+                                        <div class="field">
+                                            <label for="phoneInternet"> Phone &amp; Internet </label>
+
+                                            <input
+                                                type="number"
+                                                id="phoneInternet"
+                                                min="0"
+                                                step="0.01"
+                                                placeholder="120"
+                                            />
+                                        </div>
+
+                                        <div class="field">
+                                            <label for="homeOther"> Other Housing </label>
+
+                                            <input type="number" id="homeOther" min="0" step="0.01" placeholder="100" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- FOOD -->
+
+                                <div class="calculator-category">
+                                    <h3 class="calculator-category-title">Food</h3>
+
+                                    <div class="calculator-grid">
+                                        <div class="field">
+                                            <label for="groceries"> Groceries </label>
+
+                                            <input type="number" id="groceries" min="0" step="0.01" placeholder="500" />
+                                        </div>
+
+                                        <div class="field">
+                                            <label for="dining"> Dining Out </label>
+
+                                            <input type="number" id="dining" min="0" step="0.01" placeholder="200" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- TRANSPORTATION -->
+
+                                <div class="calculator-category">
+                                    <h3 class="calculator-category-title">Transportation</h3>
+
+                                    <div class="calculator-grid">
+                                        <div class="field">
+                                            <label for="carPayment"> Car Payment </label>
+
+                                            <input
+                                                type="number"
+                                                id="carPayment"
+                                                min="0"
+                                                step="0.01"
+                                                placeholder="400"
+                                            />
+                                        </div>
+
+                                        <div class="field">
+                                            <label for="carInsurance"> Auto Insurance </label>
+
+                                            <input
+                                                type="number"
+                                                id="carInsurance"
+                                                min="0"
+                                                step="0.01"
+                                                placeholder="150"
+                                            />
+                                        </div>
+
+                                        <div class="field">
+                                            <label for="fuel"> Fuel </label>
+
+                                            <input type="number" id="fuel" min="0" step="0.01" placeholder="180" />
+                                        </div>
+
+                                        <div class="field">
+                                            <label for="transportOther"> Other Transportation </label>
+
+                                            <input
+                                                type="number"
+                                                id="transportOther"
+                                                min="0"
+                                                step="0.01"
+                                                placeholder="50"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- HEALTH -->
+
+                                <div class="calculator-category">
+                                    <h3 class="calculator-category-title">Health &amp; Insurance</h3>
+
+                                    <div class="calculator-grid">
+                                        <div class="field">
+                                            <label for="healthInsurance"> Health Insurance </label>
+
+                                            <input
+                                                type="number"
+                                                id="healthInsurance"
+                                                min="0"
+                                                step="0.01"
+                                                placeholder="250"
+                                            />
+                                        </div>
+
+                                        <div class="field">
+                                            <label for="medical"> Medical &amp; Dental </label>
+
+                                            <input type="number" id="medical" min="0" step="0.01" placeholder="75" />
+                                        </div>
+
+                                        <div class="field">
+                                            <label for="lifeInsurance"> Life Insurance </label>
+
+                                            <input
+                                                type="number"
+                                                id="lifeInsurance"
+                                                min="0"
+                                                step="0.01"
+                                                placeholder="50"
+                                            />
+                                        </div>
+
+                                        <div class="field">
+                                            <label for="insuranceOther"> Other Insurance </label>
+
+                                            <input
+                                                type="number"
+                                                id="insuranceOther"
+                                                min="0"
+                                                step="0.01"
+                                                placeholder="50"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- DEBT -->
+
+                                <div class="calculator-category">
+                                    <h3 class="calculator-category-title">Debt Payments</h3>
+
+                                    <div class="calculator-grid">
+                                        <div class="field">
+                                            <label for="studentLoans"> Student Loans </label>
+
+                                            <input
+                                                type="number"
+                                                id="studentLoans"
+                                                min="0"
+                                                step="0.01"
+                                                placeholder="200"
+                                            />
+                                        </div>
+
+                                        <div class="field">
+                                            <label for="creditCards"> Credit Cards </label>
+
+                                            <input
+                                                type="number"
+                                                id="creditCards"
+                                                min="0"
+                                                step="0.01"
+                                                placeholder="150"
+                                            />
+                                        </div>
+
+                                        <div class="field">
+                                            <label for="otherDebt"> Other Debt </label>
+
+                                            <input type="number" id="otherDebt" min="0" step="0.01" placeholder="100" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SAVINGS -->
+
+                                <div class="calculator-category">
+                                    <h3 class="calculator-category-title">Savings &amp; Investing</h3>
+
+                                    <div class="calculator-grid">
+                                        <div class="field">
+                                            <label for="emergencySavings"> Emergency Savings </label>
+
+                                            <input
+                                                type="number"
+                                                id="emergencySavings"
+                                                min="0"
+                                                step="0.01"
+                                                placeholder="300"
+                                            />
+                                        </div>
+
+                                        <div class="field">
+                                            <label for="retirement"> Retirement / Investing </label>
+
+                                            <input
+                                                type="number"
+                                                id="retirement"
+                                                min="0"
+                                                step="0.01"
+                                                placeholder="300"
+                                            />
+                                        </div>
+
+                                        <div class="field">
+                                            <label for="goalSavings"> Other Savings Goals </label>
+
+                                            <input
+                                                type="number"
+                                                id="goalSavings"
+                                                min="0"
+                                                step="0.01"
+                                                placeholder="150"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- PERSONAL -->
+
+                                <div class="calculator-category">
+                                    <h3 class="calculator-category-title">Personal &amp; Lifestyle</h3>
+
+                                    <div class="calculator-grid">
+                                        <div class="field">
+                                            <label for="entertainment"> Entertainment </label>
+
+                                            <input
+                                                type="number"
+                                                id="entertainment"
+                                                min="0"
+                                                step="0.01"
+                                                placeholder="100"
+                                            />
+                                        </div>
+
+                                        <div class="field">
+                                            <label for="clothing"> Clothing </label>
+
+                                            <input type="number" id="clothing" min="0" step="0.01" placeholder="75" />
+                                        </div>
+
+                                        <div class="field">
+                                            <label for="personalCare"> Personal Care </label>
+
+                                            <input
+                                                type="number"
+                                                id="personalCare"
+                                                min="0"
+                                                step="0.01"
+                                                placeholder="75"
+                                            />
+                                        </div>
+
+                                        <div class="field">
+                                            <label for="subscriptions"> Subscriptions </label>
+
+                                            <input
+                                                type="number"
+                                                id="subscriptions"
+                                                min="0"
+                                                step="0.01"
+                                                placeholder="50"
+                                            />
+                                        </div>
+
+                                        <div class="field">
+                                            <label for="other"> Other Expenses </label>
+
+                                            <input type="number" id="other" min="0" step="0.01" placeholder="100" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="button" class="calculate-button" id="calculateBudget">
+                                    Calculate Monthly Budget
+                                </button>
+
+                                <div class="budget-results" aria-live="polite">
+                                    <div class="result-box">
+                                        <span class="result-label"> Monthly Income </span>
+
+                                        <span class="result-value" id="totalIncome"> $0 </span>
+                                    </div>
+
+                                    <div class="result-box">
+                                        <span class="result-label"> Planned Expenses </span>
+
+                                        <span class="result-value" id="totalExpenses"> $0 </span>
+                                    </div>
+
+                                    <div class="result-box">
+                                        <span class="result-label"> Money Remaining </span>
+
+                                        <span class="result-value" id="moneyRemaining"> $0 </span>
+                                    </div>
+
+                                    <div class="result-box">
+                                        <span class="result-label"> Savings Rate </span>
+
+                                        <span class="result-value" id="savingsRate"> 0% </span>
+                                    </div>
+
+                                    <div class="result-status status-positive" id="budgetStatus">
+                                        Enter your income and expenses to calculate your monthly budget.
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- CATEGORIES -->
+
+                            <h2 id="categories">Monthly Budget Categories</h2>
+
+                            <p>
+                                The categories in a monthly budget should reflect your actual household spending. You do
+                                not have to use every possible category, and some people may need additional categories.
+                            </p>
+
+                            <div class="category-grid">
+                                <div class="category-card">
+                                    <h3>Housing</h3>
+
+                                    <p>
+                                        Rent or mortgage, property-related costs, renters or homeowners insurance and
+                                        other housing expenses.
+                                    </p>
+                                </div>
+
+                                <div class="category-card">
+                                    <h3>Utilities</h3>
+
+                                    <p>
+                                        Electricity, natural gas, water, internet, phone and other household services.
+                                    </p>
+                                </div>
+
+                                <div class="category-card">
+                                    <h3>Food</h3>
+
+                                    <p>Groceries, restaurants, takeout and other food purchases.</p>
+                                </div>
+
+                                <div class="category-card">
+                                    <h3>Transportation</h3>
+
+                                    <p>
+                                        Car payments, fuel, insurance, maintenance, parking and public transportation.
+                                    </p>
+                                </div>
+
+                                <div class="category-card">
+                                    <h3>Health Care</h3>
+
+                                    <p>
+                                        Health insurance, medical expenses, dental costs, prescriptions and other
+                                        health-related spending.
+                                    </p>
+                                </div>
+
+                                <div class="category-card">
+                                    <h3>Debt</h3>
+
+                                    <p>Credit cards, student loans, auto loans and other required debt payments.</p>
+                                </div>
+
+                                <div class="category-card">
+                                    <h3>Savings</h3>
+
+                                    <p>Emergency savings, short-term goals, retirement and other planned savings.</p>
+                                </div>
+
+                                <div class="category-card">
+                                    <h3>Personal &amp; Entertainment</h3>
+
+                                    <p>
+                                        Clothing, personal care, hobbies, subscriptions, entertainment and other
+                                        discretionary costs.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- FIXED VARIABLE -->
+
+                            <h2 id="fixed-variable">Fixed vs. Variable Monthly Expenses</h2>
+
+                            <p>
+                                Separating fixed and variable expenses can make your monthly budget easier to
+                                understand.
+                            </p>
+
+                            <h3>Fixed Expenses</h3>
+
+                            <p>
+                                Fixed expenses are generally predictable and may stay relatively similar from month to
+                                month.
+                            </p>
+
+                            <ul>
+                                <li>Rent or mortgage</li>
+                                <li>Car payment</li>
+                                <li>Insurance premiums</li>
+                                <li>Minimum debt payments</li>
+                                <li>Some subscriptions</li>
+                            </ul>
+
+                            <h3>Variable Expenses</h3>
+
+                            <p>Variable expenses can change depending on usage, purchases or circumstances.</p>
+
+                            <ul>
+                                <li>Groceries</li>
+                                <li>Gas</li>
+                                <li>Utilities</li>
+                                <li>Dining out</li>
+                                <li>Entertainment</li>
+                                <li>Clothing</li>
+                                <li>Home maintenance</li>
+                            </ul>
+
+                            <!-- IRREGULAR -->
+
+                            <h2 id="irregular-expenses">Don't Forget Irregular Expenses</h2>
+
+                            <p>
+                                Some costs do not arrive every month but still need to be part of your overall financial
+                                plan.
+                            </p>
+
+                            <ul>
+                                <li>Car repairs</li>
+                                <li>Home repairs</li>
+                                <li>Holiday gifts</li>
+                                <li>Annual insurance bills</li>
+                                <li>Property taxes</li>
+                                <li>Travel</li>
+                                <li>School expenses</li>
+                                <li>Annual memberships</li>
+                                <li>Medical expenses</li>
+                            </ul>
+
+                            <p>
+                                One simple method is to estimate an annual cost and divide it by 12. You can then
+                                reserve that amount each month for the future expense.
+                            </p>
+
+                            <div class="info-box">
+                                <strong> Example: </strong>
+
+                                <p>
+                                    If you expect to spend $1,200 on holiday gifts during the year, setting aside $100
+                                    per month creates a planned category instead of waiting for the expense to arrive.
+                                </p>
+                            </div>
+
+                            <!-- EXAMPLE -->
+
+                            <h2 id="example">Example Monthly Budget</h2>
+
+                            <p>
+                                Consider a household with $5,000 in monthly take-home income. The following is an
+                                illustration of how the money could be organized.
+                            </p>
+
+                            <div class="example-box">
+                                <div class="example-title">Example: $5,000 Monthly Take-Home Income</div>
+
+                                <div class="example-grid">
+                                    <div class="example-row">
+                                        <span>Housing</span>
+                                        <strong>$1,500</strong>
+                                    </div>
+
+                                    <div class="example-row">
+                                        <span>Utilities &amp; Phone</span>
+                                        <strong>$320</strong>
+                                    </div>
+
+                                    <div class="example-row">
+                                        <span>Food</span>
+                                        <strong>$650</strong>
+                                    </div>
+
+                                    <div class="example-row">
+                                        <span>Transportation</span>
+                                        <strong>$600</strong>
+                                    </div>
+
+                                    <div class="example-row">
+                                        <span>Insurance &amp; Health</span>
+                                        <strong>$400</strong>
+                                    </div>
+
+                                    <div class="example-row">
+                                        <span>Debt</span>
+                                        <strong>$300</strong>
+                                    </div>
+
+                                    <div class="example-row">
+                                        <span>Savings</span>
+                                        <strong>$600</strong>
+                                    </div>
+
+                                    <div class="example-row">
+                                        <span>Entertainment</span>
+                                        <strong>$200</strong>
+                                    </div>
+
+                                    <div class="example-row">
+                                        <span>Personal &amp; Other</span>
+                                        <strong>$250</strong>
+                                    </div>
+
+                                    <div class="example-row">
+                                        <span>Remaining</span>
+                                        <strong>$180</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p>
+                                This is only an example. Your actual monthly budget will depend on your household,
+                                location, income, housing costs, debt, financial goals and spending habits.
+                            </p>
+
+                            <!-- TAKE HOME -->
+
+                            <h2 id="income">What Income Should You Use for a Monthly Budget?</h2>
+
+                            <p>
+                                For a household spending budget, start with money actually available to spend rather
+                                than simply using your annual salary.
+                            </p>
+
+                            <p>
+                                For employees, this generally means using take-home pay after payroll deductions. Other
+                                reliable income sources may also be included.
+                            </p>
+
+                            <p>
+                                If you are paid weekly, biweekly or semimonthly, convert your income carefully rather
+                                than assuming every month has the same number of paychecks.
+                            </p>
+
+                            <p>
+                                For variable income, consider using a conservative estimate and adjusting the budget
+                                when actual income is known.
+                            </p>
+
+                            <!-- PAY FREQUENCY -->
+
+                            <h2 id="pay-frequency">Monthly Budget vs. Paycheck Budget</h2>
+
+                            <p>
+                                A monthly budget organizes your overall financial plan for the month. A paycheck budget
+                                focuses on when money actually arrives.
+                            </p>
+
+                            <p>
+                                Combining the two can be useful. Your monthly budget can define your total spending
+                                limits, while your paycheck plan can determine when to set money aside for bills and
+                                goals.
+                            </p>
+
+                            <p>
+                                See the
+                                <a href="/finance/budgeting/paycheck-budget/"> Paycheck Budgeting guide </a>
+                                for more information.
+                            </p>
+
+                            <!-- SAVINGS -->
+
+                            <h2 id="savings">How to Include Savings in a Monthly Budget</h2>
+
+                            <p>
+                                Savings can be treated as a planned part of your monthly allocation rather than whatever
+                                happens to remain after spending.
+                            </p>
+
+                            <p>Common savings goals include:</p>
+
+                            <ul>
+                                <li>Emergency fund</li>
+                                <li>Short-term purchases</li>
+                                <li>Travel</li>
+                                <li>Home expenses</li>
+                                <li>Vehicle expenses</li>
+                                <li>Education</li>
+                                <li>Retirement</li>
+                                <li>Other financial goals</li>
+                            </ul>
+
+                            <!-- DEBT -->
+
+                            <h2 id="debt">How to Include Debt in a Monthly Budget</h2>
+
+                            <p>
+                                Include required debt payments in your monthly plan. This may include credit cards,
+                                student loans, auto loans and personal loans.
+                            </p>
+
+                            <p>
+                                After required payments are accounted for, your available cash flow can help determine
+                                whether additional debt payments fit into your plan.
+                            </p>
+
+                            <!-- BUDGET BALANCE -->
+
+                            <h2 id="balance">What If Your Monthly Budget Does Not Balance?</h2>
+
+                            <p>
+                                If your planned expenses are greater than your monthly income, your budget has a
+                                shortfall.
+                            </p>
+
+                            <p>Start by reviewing your categories rather than immediately making arbitrary cuts.</p>
+
+                            <ul>
+                                <li>Check for forgotten or duplicated expenses.</li>
+
+                                <li>Review subscriptions and recurring charges.</li>
+
+                                <li>Examine dining and entertainment spending.</li>
+
+                                <li>Review transportation costs.</li>
+
+                                <li>Check whether irregular expenses are included.</li>
+
+                                <li>Verify your income estimate.</li>
+
+                                <li>Consider whether additional income is realistic.</li>
+                            </ul>
+
+                            <p>
+                                If essential expenses already exceed available income, the solution may require looking
+                                at larger recurring costs or income rather than only small discretionary purchases.
+                            </p>
+
+                            <!-- TRACKING -->
+
+                            <h2 id="tracking">How to Track a Monthly Budget</h2>
+
+                            <p>A budget is a plan, while tracking shows what actually happened.</p>
+
+                            <p>
+                                During the month, record purchases and payments in the appropriate categories. At the
+                                end of the month, compare actual spending with your planned amounts.
+                            </p>
+
+                            <ol>
+                                <li>Record income.</li>
+
+                                <li>Record expenses.</li>
+
+                                <li>Categorize transactions.</li>
+
+                                <li>Compare actual spending with planned spending.</li>
+
+                                <li>Identify categories that changed significantly.</li>
+
+                                <li>Update next month's budget.</li>
+                            </ol>
+
+                            <!-- REVIEW -->
+
+                            <h2 id="review">How Often Should You Review Your Monthly Budget?</h2>
+
+                            <p>
+                                Check your budget throughout the month if you are actively trying to control spending.
+                                At minimum, review the completed month before creating the next month's plan.
+                            </p>
+
+                            <p>
+                                You should also update your budget when something important changes, such as a new job,
+                                raise, rent change, new debt payment, insurance change or major household expense.
+                            </p>
+
+                            <!-- 50/30/20 -->
+
+                            <h2 id="50-30-20">Monthly Budget and the 50/30/20 Rule</h2>
+
+                            <p>
+                                The 50/30/20 rule is one way to organize a budget by grouping after-tax income into
+                                needs, wants and savings or debt payments.
+                            </p>
+
+                            <p>
+                                It can be useful as a starting framework, but actual expenses vary significantly between
+                                households. A detailed monthly budget allows you to see your own categories rather than
+                                relying only on broad percentages.
+                            </p>
+
+                            <p>
+                                Read the
+                                <a href="/finance/budgeting/50-30-20-rule/"> 50/30/20 Budget Rule guide </a>
+                                to learn more.
+                            </p>
+
+                            <!-- ZERO BASED -->
+
+                            <h2 id="zero-based">Monthly Budget and Zero-Based Budgeting</h2>
+
+                            <p>
+                                Zero-based budgeting gives planned income a specific purpose through expenses, savings,
+                                debt payments or other allocations.
+                            </p>
+
+                            <p>
+                                A monthly budget can be simple and flexible, while a zero-based budget generally
+                                provides a more detailed allocation of available income.
+                            </p>
+
+                            <p>
+                                Learn more in the
+                                <a href="/finance/budgeting/zero-based-budget/"> Zero-Based Budgeting guide </a>.
+                            </p>
+
+                            <!-- COMMON MISTAKES -->
+
+                            <h2 id="mistakes">Common Monthly Budget Mistakes</h2>
+
+                            <h3>Forgetting irregular expenses</h3>
+
+                            <p>
+                                Annual bills, repairs, gifts and other occasional expenses can disrupt a budget when
+                                they are ignored.
+                            </p>
+
+                            <h3>Using unrealistic numbers</h3>
+
+                            <p>
+                                A budget based on spending amounts that are far below your actual behavior may be
+                                difficult to maintain.
+                            </p>
+
+                            <h3>Leaving out savings</h3>
+
+                            <p>
+                                If savings are important to your goals, include them as a planned category rather than
+                                relying entirely on whatever remains at the end of the month.
+                            </p>
+
+                            <h3>Not reviewing actual spending</h3>
+
+                            <p>
+                                Your budget is an estimate. Comparing it with actual transactions helps make future
+                                budgets more realistic.
+                            </p>
+
+                            <!-- SIMPLE PROCESS -->
+
+                            <h2 id="simple-process">A Simple Monthly Budget Process</h2>
+
+                            <ol>
+                                <li>Calculate monthly take-home income.</li>
+
+                                <li>List housing and essential bills.</li>
+
+                                <li>Add food and transportation.</li>
+
+                                <li>Add insurance and health costs.</li>
+
+                                <li>Add debt payments.</li>
+
+                                <li>Plan savings and investing.</li>
+
+                                <li>Add personal and discretionary spending.</li>
+
+                                <li>Account for irregular expenses.</li>
+
+                                <li>Compare planned expenses with income.</li>
+
+                                <li>Track actual spending and update the next month.</li>
+                            </ol>
+
+                            <!-- CTA -->
+
+                            <div class="article-cta">
+                                <h3>Build Your Monthly Budget</h3>
+
+                                <p>
+                                    Use the PaycheckMint Monthly Budget Calculator to organize your income, expenses,
+                                    savings and debt payments.
+                                </p>
+
+                                <a href="#calculator" class="cta-button"> Use Monthly Budget Calculator </a>
+                            </div>
+
+                            <!-- FAQ -->
+
+                            <h2 id="faq">Frequently Asked Questions</h2>
+
+                            <div class="faq-item">
+                                <button type="button" class="faq-question">
+                                    <span> What is a monthly budget? </span>
+
+                                    <span> + </span>
+                                </button>
+
+                                <div class="faq-answer">
+                                    A monthly budget is a plan that estimates your monthly income and assigns money to
+                                    expenses, savings, debt payments and other financial priorities.
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button type="button" class="faq-question">
+                                    <span> What should be included in a monthly budget? </span>
+
+                                    <span> + </span>
+                                </button>
+
+                                <div class="faq-answer">
+                                    Common categories include housing, utilities, food, transportation, insurance,
+                                    health care, debt payments, savings, education, personal spending, entertainment and
+                                    other recurring or irregular expenses.
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button type="button" class="faq-question">
+                                    <span> Should savings be included in a monthly budget? </span>
+
+                                    <span> + </span>
+                                </button>
+
+                                <div class="faq-answer">
+                                    Yes. Savings can be included as a planned monthly allocation alongside expenses and
+                                    debt payments.
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button type="button" class="faq-question">
+                                    <span> How do I calculate my monthly budget? </span>
+
+                                    <span> + </span>
+                                </button>
+
+                                <div class="faq-answer">
+                                    Add your monthly take-home income and planned expenses. Subtract total planned
+                                    expenses from monthly income to determine the amount remaining.
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button type="button" class="faq-question">
+                                    <span> How often should I update my monthly budget? </span>
+
+                                    <span> + </span>
+                                </button>
+
+                                <div class="faq-answer">
+                                    Review spending during the month and compare your actual results with your plan at
+                                    the end of the month. Update the next month's budget whenever income, expenses or
+                                    financial goals change.
+                                </div>
+                            </div>
+
+                            <!-- RELATED -->
+
+                            <h2 id="related">Related Budgeting Guides</h2>
+
+                            <ul>
+                                <li>
+                                    <a href="/finance/budgeting/"> Budgeting Guide </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/budgeting/how-to-make-a-budget/"> How to Make a Budget </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/budgeting/50-30-20-rule/"> 50/30/20 Budget Rule </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/budgeting/zero-based-budget/"> Zero-Based Budgeting </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/budgeting/paycheck-budget/"> Paycheck Budgeting </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/budgeting/envelope-budget/"> Envelope Budgeting </a>
+                                </li>
+                            </ul>
+
+                            <!-- DISCLAIMER -->
+
+                            <div class="disclaimer">
+                                <strong>Disclaimer:</strong>
+                                PaycheckMint provides general financial education and budgeting tools. Calculator
+                                results are estimates for educational purposes and are not personalized financial, tax
+                                or legal advice. Your actual income, expenses and financial circumstances may differ.
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ========================================
+                 SIDEBAR
+            ======================================== -->
+
+                    <aside class="article-sidebar">
+                        <div class="sidebar-box">
+                            <h3>Monthly Budget Calculator</h3>
+
+                            <p>
+                                Organize your income, housing, food, transportation, debt, savings and other monthly
+                                expenses.
+                            </p>
+
+                            <a href="#calculator" class="sidebar-button"> Use Calculator </a>
+                        </div>
+
+                        <div class="sidebar-box toc">
+                            <h3>On This Page</h3>
+
+                            <a href="#what-is-monthly-budget"> What Is a Monthly Budget? </a>
+
+                            <a href="#why-monthly-budget"> Why Use a Monthly Budget? </a>
+
+                            <a href="#calculator"> Monthly Budget Calculator </a>
+
+                            <a href="#categories"> Budget Categories </a>
+
+                            <a href="#fixed-variable"> Fixed vs. Variable </a>
+
+                            <a href="#irregular-expenses"> Irregular Expenses </a>
+
+                            <a href="#example"> Example Budget </a>
+
+                            <a href="#income"> Monthly Income </a>
+
+                            <a href="#pay-frequency"> Paycheck Budget </a>
+
+                            <a href="#savings"> Savings </a>
+
+                            <a href="#debt"> Debt </a>
+
+                            <a href="#balance"> Budget Doesn't Balance </a>
+
+                            <a href="#tracking"> Tracking </a>
+
+                            <a href="#review"> Monthly Review </a>
+
+                            <a href="#mistakes"> Common Mistakes </a>
+
+                            <a href="#faq"> FAQ </a>
+                        </div>
+
+                        <div class="sidebar-box related-links">
+                            <h3>More Budgeting Guides</h3>
+
+                            <a href="/finance/budgeting/"> Budgeting Guide </a>
+
+                            <a href="/finance/budgeting/how-to-make-a-budget/"> How to Make a Budget </a>
+
+                            <a href="/finance/budgeting/50-30-20-rule/"> 50/30/20 Budget </a>
+
+                            <a href="/finance/budgeting/zero-based-budget/"> Zero-Based Budget </a>
+
+                            <a href="/finance/budgeting/paycheck-budget/"> Paycheck Budget </a>
+
+                            <a href="/finance/budgeting/envelope-budget/"> Envelope Budget </a>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </main>
+
+        <!-- ========================================
+     FOOTER
+     SAME BACKGROUND AS PAGE
+======================================== -->
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="/" class="footer-logo"> Paycheck<span>Mint</span> </a>
+
+                        <p class="footer-description">
+                            Simple U.S. personal finance tools, calculators and guides to help you understand your
+                            paycheck, budget and money.
+                        </p>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Calculators</h3>
+
+                        <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+
+                        <a href="/hourly-paycheck-calculator/"> Hourly Paycheck Calculator </a>
+
+                        <a href="/salary-paycheck-calculator/"> Salary Paycheck Calculator </a>
+
+                        <a href="/overtime-pay-calculator/"> Overtime Pay Calculator </a>
+
+                        <a href="/paycheck-tax-calculator/"> Paycheck Tax Calculator </a>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Finance</h3>
+
+                        <a href="/finance/"> Finance Overview </a>
+
+                        <a href="/finance/taxes/"> Taxes </a>
+
+                        <a href="/finance/budgeting/"> Budgeting </a>
+
+                        <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+
+                        <a href="/finance/investing/"> Investing </a>
+
+                        <a href="/finance/insurance/"> Insurance </a>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>PaycheckMint</h3>
+
+                        <a href="/about/"> About </a>
+
+                        <a href="/contact/"> Contact </a>
+
+                        <a href="/privacy-policy/"> Privacy </a>
+
+                        <a href="/terms/"> Terms </a>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>
+                        © 2026 PaycheckMint. Information and calculator results are estimates for educational purposes
+                        and should not be considered financial, tax or legal advice.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            /* ========================================
+       MOBILE NAVIGATION
+    ======================================== */
+
+            const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+
+            const mainNav = document.getElementById("mainNav");
+
+            const financeDropdown = document.getElementById("financeDropdown");
+
+            const financeToggle = document.getElementById("financeToggle");
+
+            mobileMenuToggle.addEventListener("click", function () {
+                const isOpen = mainNav.classList.toggle("open");
+
+                mobileMenuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            });
+
+            financeToggle.addEventListener("click", function (event) {
+                event.preventDefault();
+
+                const isOpen = financeDropdown.classList.toggle("open");
+
+                financeToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            });
+
+            document.addEventListener("click", function (event) {
+                if (
+                    window.innerWidth <= 800 &&
+                    !mainNav.contains(event.target) &&
+                    !mobileMenuToggle.contains(event.target)
+                ) {
+                    mainNav.classList.remove("open");
+
+                    financeDropdown.classList.remove("open");
+
+                    mobileMenuToggle.setAttribute("aria-expanded", "false");
+
+                    financeToggle.setAttribute("aria-expanded", "false");
+                }
+            });
+
+            /* ========================================
+       MONTHLY BUDGET CALCULATOR
+    ======================================== */
+
+            const expenseFields = [
+                "housing",
+                "utilities",
+                "phoneInternet",
+                "homeOther",
+
+                "groceries",
+                "dining",
+
+                "carPayment",
+                "carInsurance",
+                "fuel",
+                "transportOther",
+
+                "healthInsurance",
+                "medical",
+                "lifeInsurance",
+                "insuranceOther",
+
+                "studentLoans",
+                "creditCards",
+                "otherDebt",
+
+                "emergencySavings",
+                "retirement",
+                "goalSavings",
+
+                "entertainment",
+                "clothing",
+                "personalCare",
+                "subscriptions",
+                "other",
+            ];
+
+            const savingsFields = ["emergencySavings", "retirement", "goalSavings"];
+
+            function getValue(id) {
+                const element = document.getElementById(id);
+
+                if (!element) {
+                    return 0;
+                }
+
+                const value = parseFloat(element.value);
+
+                if (!Number.isFinite(value) || value < 0) {
+                    return 0;
+                }
+
+                return value;
+            }
+
+            function formatMoney(number) {
+                return new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                    maximumFractionDigits: 0,
+                }).format(number);
+            }
+
+            function calculateBudget() {
+                const income = getValue("income");
+
+                let totalExpenses = 0;
+
+                expenseFields.forEach(function (field) {
+                    totalExpenses += getValue(field);
+                });
+
+                let totalSavings = 0;
+
+                savingsFields.forEach(function (field) {
+                    totalSavings += getValue(field);
+                });
+
+                const remaining = income - totalExpenses;
+
+                const savingsRate = income > 0 ? (totalSavings / income) * 100 : 0;
+
+                document.getElementById("totalIncome").textContent = formatMoney(income);
+
+                document.getElementById("totalExpenses").textContent = formatMoney(totalExpenses);
+
+                document.getElementById("moneyRemaining").textContent = formatMoney(remaining);
+
+                document.getElementById("savingsRate").textContent = savingsRate.toFixed(1) + "%";
+
+                const status = document.getElementById("budgetStatus");
+
+                status.classList.remove("status-positive", "status-warning");
+
+                if (income <= 0) {
+                    status.textContent = "Enter your monthly take-home income to calculate your budget.";
+
+                    status.classList.add("status-positive");
+
+                    return;
+                }
+
+                if (remaining >= 0) {
+                    status.textContent =
+                        "Your planned monthly budget is within your income. " +
+                        formatMoney(remaining) +
+                        " remains after the categories entered.";
+
+                    status.classList.add("status-positive");
+                } else {
+                    status.textContent =
+                        "Your planned expenses are " +
+                        formatMoney(Math.abs(remaining)) +
+                        " higher than your monthly income. Review your categories.";
+
+                    status.classList.add("status-warning");
+                }
+            }
+
+            document.getElementById("calculateBudget").addEventListener("click", calculateBudget);
+
+            document.querySelectorAll(".calculator-section input").forEach(function (input) {
+                input.addEventListener("input", calculateBudget);
+            });
+
+            /* ========================================
+       FAQ ACCORDION
+    ======================================== */
+
+            document.querySelectorAll(".faq-question").forEach(function (button) {
+                button.addEventListener("click", function () {
+                    const item = button.closest(".faq-item");
+
+                    item.classList.toggle("open");
+                });
+            });
+        </script>
+    </body>
+</html>
+

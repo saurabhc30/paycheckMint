@@ -1,0 +1,2456 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Zero-Based Budgeting: How It Works, Examples & Calculator | PaycheckMint</title>
+
+    <meta name="description"
+        content="Learn how zero-based budgeting works, how to create a zero-based budget, see a $5,000 example, plan irregular expenses, and use the PaycheckMint zero-based budget calculator." />
+
+    <meta name="keywords"
+        content="zero-based budgeting, zero based budget, zero-based budget calculator, how to make a zero-based budget, zero-based budgeting example, zero-based budget method" />
+
+    <meta name="robots" content="index, follow" />
+
+    <link rel="canonical" href="https://paycheckmint.vercel.app/finance/budgeting/zero-based-budget/" />
+
+    <meta property="og:type" content="article" />
+
+    <meta property="og:title" content="Zero-Based Budgeting: How It Works, Examples & Calculator" />
+
+    <meta property="og:description"
+        content="Learn how zero-based budgeting works and give every dollar of your take-home income a specific job." />
+
+    <meta property="og:url" content="https://paycheckmint.vercel.app/finance/budgeting/zero-based-budget/" />
+
+    <meta name="twitter:card" content="summary" />
+
+    <meta name="twitter:title" content="Zero-Based Budgeting | PaycheckMint" />
+
+    <meta name="twitter:description"
+        content="Learn how to create a zero-based budget with examples, practical tips and a free calculator." />
+
+    <style>
+        :root {
+            --bg: #f6f5f1;
+            --surface: #ffffff;
+            --surface-soft: #faf9f6;
+
+            --ink: #191919;
+            --muted: #74736f;
+            --muted-light: #999791;
+
+            --line: #deddd8;
+            --line-dark: #cbc9c3;
+
+            --accent: #5954d9;
+            --accent-dark: #4843c0;
+            --accent-soft: #eeedff;
+
+            --success: #247a4d;
+            --success-soft: #edf8f1;
+
+            --danger: #b64747;
+            --danger-soft: #fff0f0;
+
+            --warning: #9a6b00;
+            --warning-soft: #fff8df;
+
+            --shadow: 0 10px 30px rgba(25, 25, 25, 0.06);
+
+            --max-width: 1120px;
+            --radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            line-height: 1.65;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        .container {
+            width: min(var(--max-width), calc(100% - 32px));
+
+            margin: 0 auto;
+        }
+
+        /* =====================================
+           HEADER
+        ===================================== */
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(255, 255, 255, 0.96);
+
+            border-bottom: 1px solid var(--line);
+
+            backdrop-filter: blur(12px);
+        }
+
+        .header-inner {
+            min-height: 68px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 24px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 9px;
+
+            font-size: 21px;
+            font-weight: 800;
+
+            letter-spacing: -0.4px;
+
+            flex-shrink: 0;
+        }
+
+        .brand-mark {
+            width: 31px;
+            height: 31px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 9px;
+
+            background: var(--accent);
+            color: white;
+
+            font-size: 15px;
+            font-weight: 800;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .main-nav>a,
+        .nav-dropdown>button {
+            border: 0;
+
+            background: transparent;
+
+            padding: 10px 12px;
+
+            color: #3d3c39;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            border-radius: 9px;
+
+            cursor: pointer;
+        }
+
+        .main-nav>a:hover,
+        .nav-dropdown>button:hover {
+            background: var(--surface-soft);
+            color: var(--accent);
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+
+            top: calc(100% + 8px);
+            right: 0;
+
+            min-width: 220px;
+
+            padding: 8px;
+
+            background: var(--surface);
+
+            border: 1px solid var(--line);
+
+            border-radius: 12px;
+
+            box-shadow: var(--shadow);
+
+            display: none;
+        }
+
+        .nav-dropdown.open .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+
+            padding: 9px 11px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            color: #41403d;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--accent-soft);
+            color: var(--accent-dark);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+
+            width: 42px;
+            height: 42px;
+
+            border: 1px solid var(--line);
+
+            background: white;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            font-size: 21px;
+        }
+
+        /* =====================================
+           HERO
+        ===================================== */
+
+        .hero {
+            padding: 65px 0 42px;
+        }
+
+        .hero-grid {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.15fr) minmax(320px, 0.85fr);
+
+            gap: 48px;
+
+            align-items: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+
+            padding: 6px 10px;
+
+            border-radius: 999px;
+
+            background: var(--accent-soft);
+
+            color: var(--accent-dark);
+
+            font-size: 12px;
+            font-weight: 800;
+
+            letter-spacing: 0.03em;
+
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 14px 0 18px;
+
+            font-size: clamp(36px, 5vw, 56px);
+
+            line-height: 1.05;
+
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            max-width: 700px;
+
+            margin: 0;
+
+            color: var(--muted);
+
+            font-size: 18px;
+        }
+
+        .hero-card {
+            padding: 28px;
+
+            background: var(--surface);
+
+            border: 1px solid var(--line);
+
+            border-radius: 20px;
+
+            box-shadow: var(--shadow);
+        }
+
+        .hero-card h2 {
+            margin: 0 0 7px;
+
+            font-size: 22px;
+        }
+
+        .hero-card p {
+            margin-bottom: 22px;
+
+            font-size: 14px;
+        }
+
+        .zero-equation {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            padding: 20px;
+
+            background: var(--surface-soft);
+
+            border: 1px solid var(--line);
+
+            border-radius: 14px;
+
+            font-weight: 800;
+        }
+
+        .zero-equation span {
+            color: var(--accent);
+        }
+
+        /* =====================================
+           CALCULATOR
+        ===================================== */
+
+        .calculator-section {
+            padding: 18px 0 60px;
+        }
+
+        .calculator {
+            overflow: hidden;
+
+            background: var(--surface);
+
+            border: 1px solid var(--line);
+
+            border-radius: 22px;
+
+            box-shadow: var(--shadow);
+        }
+
+        .calculator-header {
+            padding: 28px 30px;
+
+            background: var(--surface-soft);
+
+            border-bottom: 1px solid var(--line);
+        }
+
+        .calculator-header h2 {
+            margin: 0 0 5px;
+
+            font-size: 27px;
+        }
+
+        .calculator-header p {
+            margin: 0;
+
+            color: var(--muted);
+
+            font-size: 14px;
+        }
+
+        .calculator-body {
+            padding: 30px;
+        }
+
+        .income-input {
+            max-width: 470px;
+        }
+
+        .input-label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 14px;
+            font-weight: 750;
+        }
+
+        .input-wrap {
+            position: relative;
+        }
+
+        .input-wrap span {
+            position: absolute;
+
+            left: 15px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: var(--muted);
+
+            font-weight: 700;
+        }
+
+        .input-wrap input {
+            width: 100%;
+
+            padding: 14px 15px 14px 34px;
+
+            border: 1px solid var(--line-dark);
+
+            border-radius: 11px;
+
+            background: white;
+
+            color: var(--ink);
+
+            outline: none;
+
+            font-size: 17px;
+        }
+
+        .input-wrap input:focus {
+            border-color: var(--accent);
+
+            box-shadow: 0 0 0 3px var(--accent-soft);
+        }
+
+        .budget-status {
+            margin-top: 22px;
+
+            padding: 18px;
+
+            border-radius: 13px;
+
+            border: 1px solid var(--line);
+
+            background: var(--surface-soft);
+        }
+
+        .budget-status-row {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+        }
+
+        .status-label {
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+        .status-value {
+            font-size: 22px;
+
+            font-weight: 800;
+        }
+
+        .status-message {
+            margin-top: 5px;
+
+            font-size: 13px;
+
+            color: var(--muted);
+        }
+
+        .calculator-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 14px;
+
+            margin-top: 25px;
+        }
+
+        .budget-card {
+            padding: 20px;
+
+            border: 1px solid var(--line);
+
+            border-radius: 15px;
+
+            background: white;
+        }
+
+        .budget-card h3 {
+            margin: 0 0 3px;
+
+            font-size: 17px;
+        }
+
+        .budget-card .amount {
+            font-size: 28px;
+
+            font-weight: 800;
+
+            letter-spacing: -0.7px;
+        }
+
+        .budget-card p {
+            margin: 7px 0 0;
+
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+        .calculator-note {
+            margin: 20px 0 0;
+
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+        /* =====================================
+           ARTICLE
+        ===================================== */
+
+        .content-section {
+            padding: 50px 0;
+        }
+
+        .content-layout {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr) 280px;
+
+            gap: 45px;
+
+            align-items: start;
+        }
+
+        .article {
+            min-width: 0;
+        }
+
+        .article h2 {
+            margin: 42px 0 14px;
+
+            font-size: 31px;
+
+            line-height: 1.2;
+
+            letter-spacing: -0.7px;
+        }
+
+        .article h2:first-child {
+            margin-top: 0;
+        }
+
+        .article h3 {
+            margin: 28px 0 9px;
+
+            font-size: 21px;
+        }
+
+        .article p {
+            margin: 0 0 17px;
+
+            color: #4d4c48;
+        }
+
+        .article ul,
+        .article ol {
+            padding-left: 23px;
+
+            color: #4d4c48;
+        }
+
+        .article li {
+            margin: 7px 0;
+        }
+
+        .highlight {
+            margin: 25px 0;
+
+            padding: 20px;
+
+            border-left: 4px solid var(--accent);
+
+            background: var(--accent-soft);
+
+            border-radius: 10px;
+        }
+
+        .highlight p {
+            margin: 0;
+        }
+
+        .step-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 13px;
+
+            margin: 25px 0;
+        }
+
+        .step-card {
+            padding: 20px;
+
+            background: white;
+
+            border: 1px solid var(--line);
+
+            border-radius: 14px;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+
+            display: grid;
+            place-items: center;
+
+            margin-bottom: 10px;
+
+            background: var(--accent-soft);
+
+            color: var(--accent-dark);
+
+            border-radius: 9px;
+
+            font-size: 13px;
+
+            font-weight: 800;
+        }
+
+        .step-card h3 {
+            margin: 0 0 6px;
+
+            font-size: 17px;
+        }
+
+        .step-card p {
+            margin: 0;
+
+            font-size: 14px;
+        }
+
+        .example-table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            margin: 22px 0;
+
+            background: white;
+
+            border: 1px solid var(--line);
+
+            border-radius: 12px;
+
+            overflow: hidden;
+        }
+
+        .example-table th,
+        .example-table td {
+            padding: 12px 14px;
+
+            text-align: left;
+
+            border-bottom: 1px solid var(--line);
+        }
+
+        .example-table th {
+            background: var(--surface-soft);
+
+            font-size: 13px;
+        }
+
+        .example-table td {
+            font-size: 14px;
+        }
+
+        .example-table tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .example-total td {
+            font-weight: 800;
+        }
+
+        .check-list {
+            list-style: none;
+
+            padding-left: 0 !important;
+        }
+
+        .check-list li {
+            position: relative;
+
+            padding-left: 28px;
+        }
+
+        .check-list li::before {
+            content: "✓";
+
+            position: absolute;
+
+            left: 0;
+
+            color: var(--success);
+
+            font-weight: 800;
+        }
+
+        /* =====================================
+           TOC
+        ===================================== */
+
+        .toc {
+            position: sticky;
+
+            top: 90px;
+
+            padding: 20px;
+
+            background: var(--surface);
+
+            border: 1px solid var(--line);
+
+            border-radius: 14px;
+        }
+
+        .toc strong {
+            display: block;
+
+            margin-bottom: 10px;
+        }
+
+        .toc a {
+            display: block;
+
+            padding: 5px 0;
+
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+        .toc a:hover {
+            color: var(--accent);
+        }
+
+        /* =====================================
+           COMPARISON
+        ===================================== */
+
+        .comparison-table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            margin: 22px 0;
+
+            background: white;
+
+            border: 1px solid var(--line);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 13px;
+
+            border-bottom: 1px solid var(--line);
+
+            text-align: left;
+
+            vertical-align: top;
+        }
+
+        .comparison-table th {
+            background: var(--surface-soft);
+
+            font-size: 14px;
+        }
+
+        .comparison-table td {
+            font-size: 14px;
+
+            color: #4d4c48;
+        }
+
+        /* =====================================
+           PROS / CONS
+        ===================================== */
+
+        .pros-cons {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 15px;
+
+            margin: 25px 0;
+        }
+
+        .pros,
+        .cons {
+            padding: 21px;
+
+            background: white;
+
+            border: 1px solid var(--line);
+
+            border-radius: 14px;
+        }
+
+        .pros h3 {
+            color: var(--success);
+        }
+
+        .cons h3 {
+            color: var(--danger);
+        }
+
+        .pros h3,
+        .cons h3 {
+            margin-top: 0;
+        }
+
+        /* =====================================
+           CTA
+        ===================================== */
+
+        .cta {
+            margin: 55px 0;
+
+            padding: 35px;
+
+            background: var(--accent);
+
+            color: white;
+
+            border-radius: 20px;
+
+            text-align: center;
+        }
+
+        .cta h2 {
+            margin: 0 0 9px;
+
+            font-size: 29px;
+        }
+
+        .cta p {
+            max-width: 650px;
+
+            margin: 0 auto 22px;
+
+            color: rgba(255, 255, 255, 0.87);
+        }
+
+        .cta a {
+            display: inline-flex;
+
+            padding: 11px 18px;
+
+            background: white;
+
+            color: var(--accent-dark);
+
+            border-radius: 10px;
+
+            font-size: 14px;
+
+            font-weight: 800;
+        }
+
+        /* =====================================
+           FAQ
+        ===================================== */
+
+        .faq-section {
+            padding: 55px 0;
+
+            background: var(--surface);
+
+            border-top: 1px solid var(--line);
+
+            border-bottom: 1px solid var(--line);
+        }
+
+        .section-title {
+            margin: 0 0 26px;
+
+            font-size: 31px;
+
+            letter-spacing: -0.6px;
+        }
+
+        .faq {
+            border-top: 1px solid var(--line);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .faq-question {
+            width: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 18px 0;
+
+            border: 0;
+
+            background: transparent;
+
+            text-align: left;
+
+            color: var(--ink);
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .faq-question span:last-child {
+            color: var(--muted);
+
+            font-size: 22px;
+        }
+
+        .faq-answer {
+            display: none;
+
+            padding: 0 0 18px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+        /* =====================================
+           FOOTER
+        ===================================== */
+
+        footer {
+            padding: 42px 0 25px;
+            border-top: 1px solid var(--line);
+            background: var(--surface-soft);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        .footer-brand {
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .footer-description {
+            max-width: 360px;
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .footer-col h3 {
+            margin: 0 0 10px;
+            font-size: 14px;
+        }
+
+        .footer-col a {
+            display: block;
+            padding: 4px 0;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            margin-top: 35px;
+            padding-top: 18px;
+            border-top: 1px solid #3a3a3a;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* =====================================
+           RESPONSIVE
+        ===================================== */
+
+        @media (max-width: 850px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                position: absolute;
+
+                left: 12px;
+                right: 12px;
+
+                top: calc(100% + 8px);
+
+                display: none;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                padding: 10px;
+
+                background: white;
+
+                border: 1px solid var(--line);
+
+                border-radius: 14px;
+
+                box-shadow: var(--shadow);
+            }
+
+            .main-nav.open {
+                display: flex;
+            }
+
+            .main-nav>a,
+            .nav-dropdown>button {
+                width: 100%;
+
+                text-align: left;
+
+                padding: 12px;
+            }
+
+            .nav-dropdown {
+                width: 100%;
+            }
+
+            .dropdown-menu {
+                position: static;
+
+                width: 100%;
+
+                min-width: 0;
+
+                margin-top: 3px;
+
+                border: 0;
+
+                box-shadow: none;
+
+                background: var(--surface-soft);
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .toc {
+                position: static;
+
+                order: -1;
+            }
+
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .container {
+                width: min(100% - 24px, var(--max-width));
+            }
+
+            .hero {
+                padding: 42px 0 30px;
+            }
+
+            h1 {
+                font-size: 38px;
+
+                letter-spacing: -1.4px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .calculator-header,
+            .calculator-body {
+                padding: 22px 18px;
+            }
+
+            .step-grid,
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+
+            .example-table,
+            .comparison-table {
+                display: block;
+
+                overflow-x: auto;
+
+                white-space: nowrap;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta {
+                padding: 28px 20px;
+            }
+        }
+    </style>
+
+    <!-- FAQ STRUCTURED DATA -->
+
+    <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "What is zero-based budgeting?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Zero-based budgeting is a budgeting method where your expected income minus all planned spending, saving, and debt payments equals zero. Every dollar is assigned a specific purpose."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Does zero-based budgeting mean you spend all your money?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "No. Zero-based budgeting does not mean spending everything you earn. Savings, retirement contributions, emergency funds, and extra debt payments can each receive a specific allocation."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How do I make a zero-based budget?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Start with your expected monthly income, list your fixed and variable expenses, add savings and debt goals, assign an amount to every category, and adjust the plan until income minus planned allocations equals zero."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What happens if my zero-based budget does not equal zero?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "If money remains unassigned, give it a purpose such as savings, debt repayment, investing, or a planned expense. If planned expenses exceed income, reduce spending or adjust your allocations until the budget balances."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can I use zero-based budgeting with irregular income?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. Irregular-income households can use a conservative income estimate, such as a lower typical month, and direct income above the budgeted amount toward savings, debt, future expenses, or other priorities."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What is the difference between zero-based budgeting and 50/30/20?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "The 50/30/20 method uses broad percentage targets for needs, wants, and savings or debt. Zero-based budgeting assigns specific dollar amounts to individual categories and adjusts those amounts to match the household's actual income and priorities."
+                        }
+                    }
+                ]
+            }
+        </script>
+
+    <!-- BREADCRUMB STRUCTURED DATA -->
+
+    <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://paycheckmint.vercel.app/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Finance",
+                        "item": "https://paycheckmint.vercel.app/finance/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Budgeting",
+                        "item": "https://paycheckmint.vercel.app/finance/budgeting/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 4,
+                        "name": "Zero-Based Budgeting",
+                        "item": "https://paycheckmint.vercel.app/finance/budgeting/zero-based-budget/"
+                    }
+                ]
+            }
+        </script>
+
+    <!-- ARTICLE STRUCTURED DATA -->
+
+    <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": "Zero-Based Budgeting: How It Works, Examples & Calculator",
+                "description": "A practical guide to zero-based budgeting with examples, steps, irregular-income guidance and a working calculator.",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "PaycheckMint"
+                },
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://paycheckmint.vercel.app/finance/budgeting/zero-based-budget/"
+                }
+            }
+        </script>
+</head>
+
+<body>
+    <!-- =====================================
+     HEADER
+===================================== -->
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="/" aria-label="PaycheckMint home">
+                <span>PaycheckMint</span>
+            </a>
+
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation" aria-expanded="false"
+                type="button">
+                ☰
+            </button>
+
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+                <a href="/"> Home </a>
+
+                <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+
+                <a href="/income/"> Income </a>
+
+                <div class="nav-dropdown" id="financeDropdown">
+                    <button type="button" id="financeButton" aria-expanded="false">Finance ▾</button>
+
+                    <div class="dropdown-menu">
+                        <a href="/finance/"> Finance Overview </a>
+
+                        <a href="/finance/taxes/"> Taxes </a>
+
+                        <a href="/finance/budgeting/"> Budgeting </a>
+
+                        <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+
+                        <a href="/finance/investing/"> Investing </a>
+
+                        <a href="/finance/insurance/"> Insurance </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- =====================================
+     HERO
+===================================== -->
+
+        <section class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <span class="eyebrow"> Budgeting Guide </span>
+
+                    <h1>Zero-Based Budgeting: How It Works, Examples &amp; Calculator</h1>
+
+                    <p>
+                        Zero-based budgeting gives every dollar of your take-home income a specific job. Learn how
+                        to build one, plan for irregular expenses, handle variable income and balance your budget to
+                        zero.
+                    </p>
+                </div>
+
+                <div class="hero-card">
+                    <h2>The zero-based idea</h2>
+
+                    <p>
+                        Your income is fully assigned to spending, saving, debt repayment and other planned
+                        financial goals.
+                    </p>
+
+                    <div class="zero-equation">
+                        <strong> Income </strong>
+
+                        <span> − </span>
+
+                        <strong> Allocations </strong>
+
+                        <span> = </span>
+
+                        <strong> $0 </strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================
+     CALCULATOR
+===================================== -->
+
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator">
+                    <div class="calculator-header">
+                        <h2>Zero-Based Budget Calculator</h2>
+
+                        <p>
+                            Enter your monthly take-home income and planned expenses. The calculator shows whether
+                            your allocations balance to zero.
+                        </p>
+                    </div>
+
+                    <div class="calculator-body">
+                        <div class="income-input">
+                            <label class="input-label" for="monthlyIncome"> Monthly take-home income </label>
+
+                            <div class="input-wrap">
+                                <span> $ </span>
+
+                                <input id="monthlyIncome" type="number" min="0" step="100" value="5000"
+                                    inputmode="decimal" aria-label="Monthly take-home income" />
+                            </div>
+                        </div>
+
+                        <div class="calculator-grid">
+                            <div class="budget-card">
+                                <h3>Housing</h3>
+
+                                <div class="input-wrap">
+                                    <span>$</span>
+
+                                    <input class="budget-input" id="housing" type="number" min="0" value="1500"
+                                        inputmode="decimal" />
+                                </div>
+
+                                <p>Rent or mortgage and related housing costs.</p>
+                            </div>
+
+                            <div class="budget-card">
+                                <h3>Food</h3>
+
+                                <div class="input-wrap">
+                                    <span>$</span>
+
+                                    <input class="budget-input" id="food" type="number" min="0" value="600"
+                                        inputmode="decimal" />
+                                </div>
+
+                                <p>Groceries, dining and planned food spending.</p>
+                            </div>
+
+                            <div class="budget-card">
+                                <h3>Transportation</h3>
+
+                                <div class="input-wrap">
+                                    <span>$</span>
+
+                                    <input class="budget-input" id="transportation" type="number" min="0" value="350"
+                                        inputmode="decimal" />
+                                </div>
+
+                                <p>Car costs, fuel, public transportation and parking.</p>
+                            </div>
+
+                            <div class="budget-card">
+                                <h3>Utilities</h3>
+
+                                <div class="input-wrap">
+                                    <span>$</span>
+
+                                    <input class="budget-input" id="utilities" type="number" min="0" value="250"
+                                        inputmode="decimal" />
+                                </div>
+
+                                <p>Electricity, water, internet and other utilities.</p>
+                            </div>
+
+                            <div class="budget-card">
+                                <h3>Insurance</h3>
+
+                                <div class="input-wrap">
+                                    <span>$</span>
+
+                                    <input class="budget-input" id="insurance" type="number" min="0" value="250"
+                                        inputmode="decimal" />
+                                </div>
+
+                                <p>Planned insurance premiums and coverage.</p>
+                            </div>
+
+                            <div class="budget-card">
+                                <h3>Debt Payments</h3>
+
+                                <div class="input-wrap">
+                                    <span>$</span>
+
+                                    <input class="budget-input" id="debt" type="number" min="0" value="500"
+                                        inputmode="decimal" />
+                                </div>
+
+                                <p>Minimum or planned additional debt payments.</p>
+                            </div>
+
+                            <div class="budget-card">
+                                <h3>Savings</h3>
+
+                                <div class="input-wrap">
+                                    <span>$</span>
+
+                                    <input class="budget-input" id="savings" type="number" min="0" value="700"
+                                        inputmode="decimal" />
+                                </div>
+
+                                <p>Emergency savings, retirement or investments.</p>
+                            </div>
+
+                            <div class="budget-card">
+                                <h3>Fun &amp; Personal</h3>
+
+                                <div class="input-wrap">
+                                    <span>$</span>
+
+                                    <input class="budget-input" id="fun" type="number" min="0" value="300"
+                                        inputmode="decimal" />
+                                </div>
+
+                                <p>Entertainment, hobbies and discretionary spending.</p>
+                            </div>
+
+                            <div class="budget-card">
+                                <h3>Other Goals</h3>
+
+                                <div class="input-wrap">
+                                    <span>$</span>
+
+                                    <input class="budget-input" id="other" type="number" min="0" value="550"
+                                        inputmode="decimal" />
+                                </div>
+
+                                <p>Sinking funds, gifts, travel or other priorities.</p>
+                            </div>
+                        </div>
+
+                        <div class="budget-status">
+                            <div class="budget-status-row">
+                                <div>
+                                    <div class="status-label">Unassigned amount</div>
+
+                                    <div class="status-value" id="remainingAmount">$0</div>
+                                </div>
+                            </div>
+
+                            <div class="status-message" id="statusMessage">
+                                Your budget is balanced. Every dollar has a job.
+                            </div>
+                        </div>
+
+                        <p class="calculator-note">
+                            This calculator is a planning tool. Actual expenses, income and financial priorities
+                            vary by household.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================
+     ARTICLE
+===================================== -->
+
+        <section class="content-section">
+            <div class="container content-layout">
+                <article class="article">
+                    <h2 id="what-is">What Is Zero-Based Budgeting?</h2>
+
+                    <p>
+                        Zero-based budgeting is a budgeting method where you assign your expected income to specific
+                        expenses, savings goals, debt payments and other priorities until the amount left unassigned
+                        is zero.
+                    </p>
+
+                    <p>
+                        The key idea is not that you should literally spend every dollar. Instead, every dollar
+                        should have a planned destination. That destination could be a monthly bill, emergency
+                        savings, retirement, additional debt repayment, a sinking fund or discretionary spending.
+                    </p>
+
+                    <div class="highlight">
+                        <p>
+                            <strong> Zero does not mean zero savings. </strong>
+                            If you put $700 into savings and $300 toward a future vacation, those dollars have been
+                            assigned jobs just like your rent or groceries.
+                        </p>
+                    </div>
+
+                    <h2 id="how">How Does a Zero-Based Budget Work?</h2>
+
+                    <p>
+                        Start with the income you expect to have available for the month. Then list the expenses and
+                        financial goals you expect to fund. Assign dollar amounts to those categories until your
+                        income minus all planned allocations equals zero.
+                    </p>
+
+                    <div class="step-grid">
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+
+                            <h3>Start with income</h3>
+
+                            <p>Add your expected take-home pay and other reliable income for the month.</p>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+
+                            <h3>List expenses</h3>
+
+                            <p>
+                                Include housing, food, transportation, utilities, insurance, debt and other
+                                spending.
+                            </p>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+
+                            <h3>Add financial goals</h3>
+
+                            <p>
+                                Budget for emergency savings, retirement, investments, sinking funds and debt goals.
+                            </p>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number">4</div>
+
+                            <h3>Give every dollar a job</h3>
+
+                            <p>Continue assigning money until there is no unplanned income remaining.</p>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number">5</div>
+
+                            <h3>Track spending</h3>
+
+                            <p>Compare your actual spending with the amounts you planned.</p>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number">6</div>
+
+                            <h3>Adjust when necessary</h3>
+
+                            <p>Move money between categories when real-life expenses change during the month.</p>
+                        </div>
+                    </div>
+
+                    <h2 id="example">Zero-Based Budget Example: $5,000 a Month</h2>
+
+                    <p>
+                        Suppose your household has $5,000 in monthly take-home income. Instead of leaving some money
+                        unassigned, you create a plan for the full amount.
+                    </p>
+
+                    <table class="example-table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+
+                                <th>Planned Amount</th>
+
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Housing</td>
+
+                                <td>$1,500</td>
+
+                                <td>Rent or mortgage</td>
+                            </tr>
+
+                            <tr>
+                                <td>Food</td>
+
+                                <td>$600</td>
+
+                                <td>Groceries and dining</td>
+                            </tr>
+
+                            <tr>
+                                <td>Transportation</td>
+
+                                <td>$350</td>
+
+                                <td>Fuel, car and transportation</td>
+                            </tr>
+
+                            <tr>
+                                <td>Utilities</td>
+
+                                <td>$250</td>
+
+                                <td>Household utilities</td>
+                            </tr>
+
+                            <tr>
+                                <td>Insurance</td>
+
+                                <td>$250</td>
+
+                                <td>Insurance premiums</td>
+                            </tr>
+
+                            <tr>
+                                <td>Debt</td>
+
+                                <td>$500</td>
+
+                                <td>Planned debt payments</td>
+                            </tr>
+
+                            <tr>
+                                <td>Savings</td>
+
+                                <td>$700</td>
+
+                                <td>Emergency fund or other savings</td>
+                            </tr>
+
+                            <tr>
+                                <td>Fun &amp; Personal</td>
+
+                                <td>$300</td>
+
+                                <td>Discretionary spending</td>
+                            </tr>
+
+                            <tr>
+                                <td>Other Goals</td>
+
+                                <td>$550</td>
+
+                                <td>Sinking funds and future expenses</td>
+                            </tr>
+
+                            <tr class="example-total">
+                                <td>Total</td>
+
+                                <td>$5,000</td>
+
+                                <td>$5,000 − $5,000 = $0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>
+                        The categories can be completely different for another household. The point is that the
+                        entire $5,000 has a purpose before the month gets underway.
+                    </p>
+
+                    <h2 id="steps">How to Create a Zero-Based Budget</h2>
+
+                    <h3>1. Calculate your available income</h3>
+
+                    <p>
+                        Begin with the income you expect to have available. For employees, this can generally start
+                        with take-home pay. You can also include other dependable income sources.
+                    </p>
+
+                    <p>
+                        If you are paid weekly or biweekly, convert your expected income into a monthly planning
+                        amount. If your income varies, use a conservative estimate rather than assuming your best
+                        month will repeat.
+                    </p>
+
+                    <h3>2. Review your recent spending</h3>
+
+                    <p>
+                        Look through recent bank and credit-card transactions to identify recurring bills, variable
+                        spending and expenses you may have forgotten.
+                    </p>
+
+                    <p>
+                        Reviewing several months can help reveal expenses that do not happen every month but still
+                        need to be funded.
+                    </p>
+
+                    <h3>3. List fixed expenses</h3>
+
+                    <p>
+                        Fixed expenses are bills that are relatively predictable, such as rent, mortgage payments,
+                        insurance premiums, subscriptions and some debt payments.
+                    </p>
+
+                    <h3>4. Estimate variable expenses</h3>
+
+                    <p>
+                        Variable expenses can change from month to month. Groceries, fuel, dining, entertainment and
+                        household purchases are common examples.
+                    </p>
+
+                    <h3>5. Add savings and financial goals</h3>
+
+                    <p>
+                        Savings should be an intentional part of the budget rather than whatever happens to remain
+                        after spending. You can create separate allocations for an emergency fund, retirement,
+                        investments and future purchases.
+                    </p>
+
+                    <h3>6. Plan for expenses that happen later</h3>
+
+                    <p>
+                        One of the easiest ways to disrupt a zero-based budget is to forget about annual or
+                        occasional expenses. Create sinking funds for costs such as holidays, insurance renewals,
+                        gifts, car maintenance, travel, property expenses or school costs.
+                    </p>
+
+                    <h3>7. Adjust until the balance is zero</h3>
+
+                    <p>Add your planned allocations together and compare them with income.</p>
+
+                    <div class="highlight">
+                        <p>
+                            <strong> Income − planned allocations = $0 </strong>
+                        </p>
+
+                        <p>
+                            If the result is positive, some money still needs a job. If the result is negative, your
+                            planned spending is greater than your available income.
+                        </p>
+                    </div>
+
+                    <h2 id="irregular">How to Handle Irregular Expenses</h2>
+
+                    <p>
+                        A zero-based budget works best when you account for expenses before they arrive. This is
+                        especially important for costs that occur only a few times a year.
+                    </p>
+
+                    <p>A sinking fund can help spread an irregular expense across several months.</p>
+
+                    <p>
+                        For example, if you expect a $600 car maintenance bill over the next year, you could set
+                        aside $50 per month. When the expense arrives, the money is already part of your plan.
+                    </p>
+
+                    <table class="example-table">
+                        <thead>
+                            <tr>
+                                <th>Future Expense</th>
+
+                                <th>Expected Cost</th>
+
+                                <th>Months to Save</th>
+
+                                <th>Monthly Amount</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Car maintenance</td>
+
+                                <td>$600</td>
+
+                                <td>12</td>
+
+                                <td>$50</td>
+                            </tr>
+
+                            <tr>
+                                <td>Holiday gifts</td>
+
+                                <td>$1,200</td>
+
+                                <td>12</td>
+
+                                <td>$100</td>
+                            </tr>
+
+                            <tr>
+                                <td>Annual insurance</td>
+
+                                <td>$1,200</td>
+
+                                <td>12</td>
+
+                                <td>$100</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h2 id="irregular-income">Zero-Based Budgeting With Irregular Income</h2>
+
+                    <p>
+                        Zero-based budgeting can be more difficult when your income changes significantly from month
+                        to month. Freelancers, contractors, commission workers and people with changing work
+                        schedules may not know the exact amount they will receive.
+                    </p>
+
+                    <p>
+                        One approach is to build the core budget around a conservative income estimate. For example,
+                        you might use a lower typical month rather than your highest recent month.
+                    </p>
+
+                    <p>
+                        When income exceeds the amount used in the budget, you can assign the additional money to
+                        priorities such as emergency savings, debt repayment, future expenses or other goals.
+                    </p>
+
+                    <h2 id="overspending">What If You Overspend in One Category?</h2>
+
+                    <p>
+                        A zero-based budget is a plan, not a promise that every estimate will be perfect. Real
+                        expenses change.
+                    </p>
+
+                    <p>
+                        If groceries cost more than expected, for example, you can review the rest of the budget and
+                        move money from another category rather than pretending the original plan still works.
+                    </p>
+
+                    <p>
+                        The important part is updating the plan instead of allowing spending to continue without
+                        being reflected in your budget.
+                    </p>
+
+                    <h2 id="pros-cons">Advantages and Disadvantages of Zero-Based Budgeting</h2>
+
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h3>Advantages</h3>
+
+                            <ul class="check-list">
+                                <li>Makes planned spending more intentional.</li>
+
+                                <li>Shows where your income is going.</li>
+
+                                <li>Can help prioritize savings and debt goals.</li>
+
+                                <li>Can adapt to changing monthly priorities.</li>
+
+                                <li>Makes room for discretionary spending without leaving it unplanned.</li>
+                            </ul>
+                        </div>
+
+                        <div class="cons">
+                            <h3>Disadvantages</h3>
+
+                            <ul>
+                                <li>Requires more planning than simple percentage budgeting.</li>
+
+                                <li>Tracking transactions takes time.</li>
+
+                                <li>Irregular expenses can cause problems if they are not planned.</li>
+
+                                <li>Variable income can make monthly planning harder.</li>
+
+                                <li>Detailed categories may feel overwhelming when you're starting.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h2 id="vs-503020">Zero-Based Budgeting vs. 50/30/20</h2>
+
+                    <p>Both methods can help organize your money, but they approach budgeting differently.</p>
+
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Zero-Based Budgeting</th>
+
+                                <th>50/30/20 Budget</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Assigns specific dollar amounts to categories.</td>
+
+                                <td>Uses broad percentage targets.</td>
+                            </tr>
+
+                            <tr>
+                                <td>Can be customized around individual goals.</td>
+
+                                <td>Provides a simple starting framework.</td>
+                            </tr>
+
+                            <tr>
+                                <td>Every dollar is intentionally allocated.</td>
+
+                                <td>Income is broadly divided between needs, wants and savings/debt.</td>
+                            </tr>
+
+                            <tr>
+                                <td>Requires more tracking and planning.</td>
+
+                                <td>Usually requires less detailed planning.</td>
+                            </tr>
+
+                            <tr>
+                                <td>Useful when you want detailed control.</td>
+
+                                <td>Useful when you want a simple spending framework.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>
+                        You can also combine the concepts. For example, you could use 50/30/20 as a high-level check
+                        while using zero-based budgeting to decide exactly where each dollar goes.
+                    </p>
+
+                    <h2 id="traditional">Zero-Based vs. Traditional Budgeting</h2>
+
+                    <p>
+                        Traditional budgeting may begin with last month's or last year's spending and make
+                        adjustments. A zero-based approach instead asks you to actively decide what each category
+                        should receive for the upcoming period.
+                    </p>
+
+                    <p>
+                        For a household, that means an expense that existed last month does not automatically get
+                        the same amount this month. You review your current income, expenses and goals and make a
+                        new allocation.
+                    </p>
+
+                    <h2 id="mistakes">Common Zero-Based Budgeting Mistakes</h2>
+
+                    <ul class="check-list">
+                        <li>Forgetting annual and irregular expenses.</li>
+
+                        <li>Budgeting based on an unusually high income month.</li>
+
+                        <li>Leaving leftover money unassigned.</li>
+
+                        <li>Creating too many categories.</li>
+
+                        <li>Ignoring small recurring subscriptions.</li>
+
+                        <li>Treating the original budget as unchangeable.</li>
+
+                        <li>Forgetting to budget for savings.</li>
+
+                        <li>Failing to track actual transactions.</li>
+                    </ul>
+
+                    <h2 id="tips">Tips for Making Zero-Based Budgeting Easier</h2>
+
+                    <ul class="check-list">
+                        <li>Start with a small number of useful categories.</li>
+
+                        <li>Review the previous few months before setting targets.</li>
+
+                        <li>Create sinking funds for predictable irregular costs.</li>
+
+                        <li>Automate recurring savings when appropriate.</li>
+
+                        <li>Review your budget before the month begins.</li>
+
+                        <li>Track actual spending during the month.</li>
+
+                        <li>Adjust categories when real expenses change.</li>
+
+                        <li>
+                            Give unexpected extra income a purpose instead of treating it as automatically available
+                            spending.
+                        </li>
+                    </ul>
+
+                    <h2 id="right">Is Zero-Based Budgeting Right for You?</h2>
+
+                    <p>
+                        Zero-based budgeting can be useful if you want a detailed view of your money and prefer to
+                        decide in advance how your income will be used.
+                    </p>
+
+                    <p>
+                        It may require more effort than a simple percentage method because you need to create
+                        categories, estimate expenses and track actual spending.
+                    </p>
+
+                    <p>
+                        If your income or expenses change frequently, the method can still work, but your budget may
+                        need more frequent adjustments.
+                    </p>
+
+                    <div class="cta">
+                        <h2>Know Your Take-Home Pay First</h2>
+
+                        <p>
+                            A zero-based budget starts with the money you actually have available. Use
+                            PaycheckMint's paycheck calculator to estimate your take-home pay after taxes and
+                            deductions.
+                        </p>
+
+                        <a href="/paycheck-tax-calculator/"> Calculate Your Paycheck </a>
+                    </div>
+                </article>
+
+                <!-- =====================================
+             TABLE OF CONTENTS
+        ===================================== -->
+
+                <aside class="toc">
+                    <strong> On this page </strong>
+
+                    <a href="#what-is"> What Is Zero-Based Budgeting? </a>
+
+                    <a href="#how"> How Does It Work? </a>
+
+                    <a href="#example"> $5,000 Example </a>
+
+                    <a href="#steps"> How to Create One </a>
+
+                    <a href="#irregular"> Irregular Expenses </a>
+
+                    <a href="#irregular-income"> Irregular Income </a>
+
+                    <a href="#overspending"> Overspending </a>
+
+                    <a href="#pros-cons"> Pros &amp; Cons </a>
+
+                    <a href="#vs-503020"> vs. 50/30/20 </a>
+
+                    <a href="#traditional"> vs. Traditional Budgeting </a>
+
+                    <a href="#mistakes"> Common Mistakes </a>
+
+                    <a href="#tips"> Practical Tips </a>
+
+                    <a href="#right"> Is It Right for You? </a>
+                </aside>
+            </div>
+        </section>
+
+        <!-- =====================================
+     FAQ
+===================================== -->
+
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Zero-Based Budgeting FAQ</h2>
+
+                <div class="faq">
+                    <div class="faq-item">
+                        <button class="faq-question" type="button">
+                            <span> What is zero-based budgeting? </span>
+
+                            <span> + </span>
+                        </button>
+
+                        <div class="faq-answer">
+                            Zero-based budgeting is a method where expected income minus planned spending, saving
+                            and debt payments equals zero. Every dollar receives a specific purpose.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" type="button">
+                            <span> Does zero-based budgeting mean spending all your money? </span>
+
+                            <span> + </span>
+                        </button>
+
+                        <div class="faq-answer">
+                            No. The goal is to assign every dollar a job. Savings, retirement contributions,
+                            emergency funds, investments and debt payments can all receive planned allocations.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" type="button">
+                            <span> How do I make a zero-based budget? </span>
+
+                            <span> + </span>
+                        </button>
+
+                        <div class="faq-answer">
+                            Start with your expected income, list your expenses, add savings and financial goals,
+                            assign dollar amounts to each category and adjust the plan until your income minus
+                            allocations equals zero.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" type="button">
+                            <span> What if my zero-based budget doesn't equal zero? </span>
+
+                            <span> + </span>
+                        </button>
+
+                        <div class="faq-answer">
+                            If money is left over, assign it to a useful category such as savings, debt repayment or
+                            a planned future expense. If the budget is negative, reduce planned spending or change
+                            your allocations.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" type="button">
+                            <span> Can I use zero-based budgeting with irregular income? </span>
+
+                            <span> + </span>
+                        </button>
+
+                        <div class="faq-answer">
+                            Yes. A conservative income estimate can be used for the core budget. Income above that
+                            amount can then be assigned to savings, debt, future expenses or other priorities.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" type="button">
+                            <span> How is zero-based budgeting different from 50/30/20? </span>
+
+                            <span> + </span>
+                        </button>
+
+                        <div class="faq-answer">
+                            The 50/30/20 method uses broad percentage targets, while zero-based budgeting assigns
+                            specific dollar amounts to individual categories and adjusts those allocations to fit
+                            your actual income and goals.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" type="button">
+                            <span> Should savings be included in a zero-based budget? </span>
+
+                            <span> + </span>
+                        </button>
+
+                        <div class="faq-answer">
+                            Yes. Savings can be assigned a specific amount just like any other budget category. This
+                            can include emergency savings, retirement, investing or future purchases.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =====================================
+     FOOTER
+===================================== -->
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">PaycheckMint</div>
+
+                    <p class="footer-description">
+                        Simple U.S. personal finance tools, calculators and guides to help you understand your
+                        paycheck, budget and money.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Calculators</h3>
+
+                    <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+
+                    <a href="/hourly-paycheck-calculator/"> Hourly Paycheck Calculator </a>
+
+                    <a href="/salary-paycheck-calculator/"> Salary Paycheck Calculator </a>
+
+                    <a href="/overtime-pay-calculator/"> Overtime Calculator </a>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Finance</h3>
+
+                    <a href="/income/"> Income </a>
+
+                    <a href="/finance/taxes/"> Taxes </a>
+
+                    <a href="/finance/budgeting/"> Budgeting </a>
+
+                    <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+                </div>
+
+                <div class="footer-col">
+                    <h3>PaycheckMint</h3>
+
+                    <a href="/about/"> About </a>
+
+                    <a href="/contact/"> Contact </a>
+
+                    <a href="/privacy-policy/"> Privacy </a>
+
+                    <a href="/terms/"> Terms </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                © 2026 PaycheckMint. Information and calculator results are estimates for educational purposes and
+                should not be considered financial, tax or legal advice.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* =====================================
+   ZERO-BASED BUDGET CALCULATOR
+===================================== */
+
+        const incomeInput = document.getElementById("monthlyIncome");
+
+        const budgetInputs = document.querySelectorAll(".budget-input");
+
+        const remainingAmount = document.getElementById("remainingAmount");
+
+        const statusMessage = document.getElementById("statusMessage");
+
+        const budgetFields = [
+            "housing",
+            "food",
+            "transportation",
+            "utilities",
+            "insurance",
+            "debt",
+            "savings",
+            "fun",
+            "other",
+        ];
+
+        function money(value) {
+            return new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+                maximumFractionDigits: 0,
+            }).format(value);
+        }
+
+        function numberValue(element) {
+            const value = parseFloat(element.value);
+
+            if (!Number.isFinite(value) || value < 0) {
+                return 0;
+            }
+
+            return value;
+        }
+
+        function calculateZeroBudget() {
+            const income = numberValue(incomeInput);
+
+            let allocated = 0;
+
+            budgetFields.forEach(function (id) {
+                const input = document.getElementById(id);
+
+                allocated += numberValue(input);
+            });
+
+            const remaining = income - allocated;
+
+            remainingAmount.textContent = money(Math.abs(remaining));
+
+            if (Math.abs(remaining) < 0.01) {
+                remainingAmount.style.color = "var(--success)";
+
+                statusMessage.textContent = "Your budget is balanced. Every dollar has a job.";
+
+                statusMessage.style.color = "var(--success)";
+            } else if (remaining > 0) {
+                remainingAmount.style.color = "var(--warning)";
+
+                statusMessage.textContent =
+                    money(remaining) +
+                    " is still unassigned. Consider giving it a job such as savings, debt repayment or a planned future expense.";
+
+                statusMessage.style.color = "var(--warning)";
+            } else {
+                remainingAmount.style.color = "var(--danger)";
+
+                statusMessage.textContent =
+                    "Your planned allocations exceed income by " +
+                    money(Math.abs(remaining)) +
+                    ". Reduce or reassign some categories.";
+
+                statusMessage.style.color = "var(--danger)";
+            }
+        }
+
+        incomeInput.addEventListener("input", calculateZeroBudget);
+
+        budgetInputs.forEach(function (input) {
+            input.addEventListener("input", calculateZeroBudget);
+        });
+
+        calculateZeroBudget();
+
+        /* =====================================
+   MOBILE NAVIGATION
+===================================== */
+
+        const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+
+        const mainNav = document.getElementById("mainNav");
+
+        mobileMenuToggle.addEventListener("click", function () {
+            const isOpen = mainNav.classList.toggle("open");
+
+            mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+
+            mobileMenuToggle.textContent = isOpen ? "✕" : "☰";
+        });
+
+        /* =====================================
+   FINANCE DROPDOWN
+===================================== */
+
+        const financeDropdown = document.getElementById("financeDropdown");
+
+        const financeButton = document.getElementById("financeButton");
+
+        financeButton.addEventListener("click", function (event) {
+            event.stopPropagation();
+
+            const isOpen = financeDropdown.classList.toggle("open");
+
+            financeButton.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        document.addEventListener("click", function (event) {
+            if (!financeDropdown.contains(event.target)) {
+                financeDropdown.classList.remove("open");
+
+                financeButton.setAttribute("aria-expanded", "false");
+            }
+        });
+
+        /* =====================================
+   FAQ
+===================================== */
+
+        document.querySelectorAll(".faq-question").forEach(function (button) {
+            button.addEventListener("click", function () {
+                const item = button.closest(".faq-item");
+
+                const isOpen = item.classList.toggle("open");
+
+                const icon = button.querySelector("span:last-child");
+
+                icon.textContent = isOpen ? "−" : "+";
+            });
+        });
+
+        /* =====================================
+   CLOSE MOBILE NAV AFTER LINK
+===================================== */
+
+        document.querySelectorAll(".main-nav a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                mainNav.classList.remove("open");
+
+                mobileMenuToggle.setAttribute("aria-expanded", "false");
+
+                mobileMenuToggle.textContent = "☰";
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,2104 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+    <title>Debt-to-Income Ratio (DTI): Formula, Calculator &amp; Examples | PaycheckMint</title>
+
+    <meta name="description"
+        content="Learn what debt-to-income ratio means, how to calculate DTI, what counts as debt, front-end vs. back-end DTI, and how lenders use DTI when evaluating credit." />
+
+    <meta name="keywords"
+        content="debt-to-income ratio, DTI ratio, what is debt-to-income ratio, how to calculate DTI, debt to income ratio calculator, DTI formula, good debt-to-income ratio, front-end DTI, back-end DTI" />
+
+    <link rel="canonical" href="https://paycheckmint.vercel.app/finance/credit-debt/debt-to-income-ratio/" />
+
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Debt-to-Income Ratio (DTI): Formula, Calculator &amp; Examples | PaycheckMint" />
+    <meta property="og:description"
+        content="Understand debt-to-income ratio, how to calculate DTI, what counts as debt, front-end vs. back-end DTI, and how lenders use the ratio." />
+    <meta property="og:url" content="https://paycheckmint.vercel.app/finance/credit-debt/debt-to-income-ratio/" />
+    <meta property="og:site_name" content="PaycheckMint" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title"
+        content="Debt-to-Income Ratio (DTI): Formula, Calculator &amp; Examples | PaycheckMint" />
+    <meta name="twitter:description"
+        content="Learn how to calculate your debt-to-income ratio and understand what your DTI means for borrowing." />
+
+    <style>
+        :root {
+            --bg: #f6f5f1;
+            --surface: #ffffff;
+            --surface-soft: #faf9f6;
+
+            --ink: #191919;
+            --muted: #74736f;
+            --muted-light: #999791;
+
+            --line: #deddd8;
+            --line-dark: #cbc9c3;
+
+            --accent: #5954d9;
+            --accent-dark: #4843c2;
+            --accent-soft: #eeedff;
+
+            --success: #287a51;
+            --warning: #9a6910;
+
+            --shadow: 0 12px 35px rgba(20, 20, 20, 0.06);
+            --radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(246, 245, 241, 0.96);
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(12px);
+        }
+
+        .header-inner {
+            max-width: 1180px;
+            min-height: 72px;
+            margin: 0 auto;
+            padding: 0 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            flex: 0 0 auto;
+            font-size: 1.42rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            white-space: nowrap;
+        }
+
+        .brand span {
+            color: var(--accent);
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .main-nav>a,
+        .nav-dropdown>button {
+            border: 0;
+            background: transparent;
+            color: var(--ink);
+            font: inherit;
+            font-size: 0.93rem;
+            font-weight: 650;
+            padding: 10px 12px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .main-nav>a:hover,
+        .nav-dropdown>button:hover {
+            background: var(--surface);
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown>button {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-dropdown>button::after {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-right: 1.5px solid currentColor;
+            border-bottom: 1.5px solid currentColor;
+            transform: rotate(45deg) translateY(-2px);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+
+            min-width: 220px;
+            padding: 8px;
+
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 13px;
+            box-shadow: var(--shadow);
+
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-5px);
+            transition: 0.18s ease;
+        }
+
+        .nav-dropdown:hover .dropdown-menu,
+        .nav-dropdown.open .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 12px;
+            border-radius: 9px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--accent-soft);
+            color: var(--accent-dark);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            width: 42px;
+            height: 42px;
+
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: var(--surface);
+
+            cursor: pointer;
+
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 19px;
+            height: 2px;
+            border-radius: 10px;
+            background: var(--ink);
+        }
+
+        .page-wrap {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 46px 22px 70px;
+        }
+
+        .breadcrumb {
+            margin-bottom: 18px;
+            color: var(--muted);
+            font-size: 0.84rem;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-dark);
+            font-weight: 650;
+        }
+
+        .hero {
+            max-width: 900px;
+            margin-bottom: 34px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+
+            margin-bottom: 12px;
+            padding: 6px 10px;
+
+            background: var(--accent-soft);
+            color: var(--accent-dark);
+            border-radius: 999px;
+
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.2;
+            letter-spacing: -0.035em;
+        }
+
+        h1 {
+            max-width: 900px;
+            margin: 0 0 16px;
+            font-size: clamp(2.25rem, 5vw, 4rem);
+        }
+
+        .hero-intro {
+            max-width: 820px;
+            margin: 0;
+            color: var(--muted);
+            font-size: 1.1rem;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 300px;
+            gap: 32px;
+            align-items: start;
+        }
+
+        article {
+            min-width: 0;
+            padding: clamp(24px, 4vw, 44px);
+
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        article h2 {
+            margin: 44px 0 16px;
+            font-size: clamp(1.55rem, 3vw, 2.05rem);
+        }
+
+        article h3 {
+            margin: 30px 0 11px;
+            font-size: 1.2rem;
+        }
+
+        article p {
+            margin: 0 0 17px;
+            color: #393936;
+        }
+
+        article ul,
+        article ol {
+            margin: 10px 0 22px;
+            padding-left: 23px;
+            color: #393936;
+        }
+
+        article li {
+            margin-bottom: 9px;
+        }
+
+        .quick-answer {
+            margin-bottom: 30px;
+            padding: 21px 22px;
+
+            background: var(--accent-soft);
+            border: 1px solid #d8d6ff;
+            border-radius: 14px;
+        }
+
+        .quick-answer strong {
+            color: var(--accent-dark);
+        }
+
+        .quick-answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .fact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 25px 0 32px;
+        }
+
+        .fact {
+            padding: 17px;
+
+            background: var(--surface-soft);
+            border: 1px solid var(--line);
+            border-radius: 13px;
+        }
+
+        .fact strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 1rem;
+        }
+
+        .fact span {
+            color: var(--muted);
+            font-size: 0.87rem;
+        }
+
+        .formula {
+            margin: 20px 0 25px;
+            padding: 20px;
+
+            background: #191919;
+            color: white;
+            border-radius: 13px;
+
+            overflow-x: auto;
+        }
+
+        .formula-label {
+            display: block;
+            margin-bottom: 7px;
+            color: #c9c7c1;
+
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .formula code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+
+        .example-box {
+            margin: 22px 0;
+            padding: 23px;
+
+            background: var(--surface-soft);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+        }
+
+        .example-box h3 {
+            margin-top: 0;
+        }
+
+        .comparison {
+            width: 100%;
+            margin: 20px 0 28px;
+            border-collapse: collapse;
+            font-size: 0.93rem;
+        }
+
+        .comparison th,
+        .comparison td {
+            padding: 13px 14px;
+            text-align: left;
+            vertical-align: top;
+            border: 1px solid var(--line);
+        }
+
+        .comparison th {
+            background: var(--surface-soft);
+            font-weight: 750;
+        }
+
+        .highlight {
+            margin: 20px 0;
+            padding: 17px 19px;
+
+            border-left: 4px solid var(--accent);
+            background: var(--surface-soft);
+        }
+
+        .warning-box {
+            margin: 22px 0;
+            padding: 18px 19px;
+
+            background: #fffaf0;
+            border: 1px solid #eadcb7;
+            border-left: 4px solid var(--warning);
+            border-radius: 10px;
+        }
+
+        .dti-meter {
+            margin: 25px 0 28px;
+            padding: 21px;
+
+            background: var(--surface-soft);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+        }
+
+        .meter-row {
+            display: grid;
+            grid-template-columns: 110px 1fr 70px;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .meter-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .meter-label {
+            font-size: 0.86rem;
+            font-weight: 700;
+        }
+
+        .meter-track {
+            height: 10px;
+            overflow: hidden;
+            background: #e5e3de;
+            border-radius: 999px;
+        }
+
+        .meter-fill {
+            height: 100%;
+            border-radius: inherit;
+            background: var(--accent);
+        }
+
+        .meter-value {
+            color: var(--muted);
+            font-size: 0.84rem;
+            text-align: right;
+        }
+
+        .step-list {
+            counter-reset: steps;
+            list-style: none;
+            padding: 0;
+        }
+
+        .step-list li {
+            position: relative;
+            counter-increment: steps;
+
+            margin-bottom: 18px;
+            padding: 0 0 22px 55px;
+
+            border-bottom: 1px solid var(--line);
+        }
+
+        .step-list li:last-child {
+            border-bottom: 0;
+        }
+
+        .step-list li::before {
+            content: counter(steps);
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 36px;
+            height: 36px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+
+            font-size: 0.9rem;
+            font-weight: 800;
+        }
+
+        .step-list strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .checklist {
+            display: grid;
+            gap: 10px;
+            margin: 20px 0 26px;
+        }
+
+        .checklist div {
+            padding: 13px 15px;
+
+            background: var(--surface-soft);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+        }
+
+        .checklist div::before {
+            content: "✓";
+            margin-right: 9px;
+            color: var(--success);
+            font-weight: 900;
+        }
+
+        .faq-item {
+            padding: 19px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .faq-item:last-child {
+            border-bottom: 0;
+        }
+
+        .faq-item h3 {
+            margin: 0 0 8px;
+            font-size: 1.05rem;
+            letter-spacing: -0.01em;
+        }
+
+        .faq-item p {
+            margin-bottom: 0;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .related-link {
+            display: block;
+            padding: 16px;
+
+            background: var(--surface-soft);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+
+            transition: 0.18s ease;
+        }
+
+        .related-link:hover {
+            background: var(--accent-soft);
+            border-color: #c9c7ff;
+            transform: translateY(-1px);
+        }
+
+        .related-link strong {
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .related-link span {
+            color: var(--muted);
+            font-size: 0.84rem;
+        }
+
+        .sources {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid var(--line);
+        }
+
+        .sources p {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .disclaimer {
+            margin-top: 24px;
+            padding: 17px;
+
+            background: #f3f2ee;
+            border-radius: 11px;
+
+            color: var(--muted);
+            font-size: 0.84rem;
+        }
+
+        aside {
+            position: sticky;
+            top: 94px;
+            align-self: start;
+        }
+
+        .sidebar-card {
+            padding: 20px;
+
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .sidebar-card+.sidebar-card {
+            margin-top: 15px;
+        }
+
+        .sidebar-card h2 {
+            margin: 0 0 13px;
+            font-size: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .toc {
+            position: static;
+        }
+
+        .toc a {
+            display: block;
+            padding: 7px 0;
+
+            color: var(--muted);
+            font-size: 0.87rem;
+            line-height: 1.4;
+        }
+
+        .toc a:hover {
+            color: var(--accent-dark);
+        }
+
+        .sidebar-links a {
+            display: block;
+            padding: 9px 0;
+
+            border-bottom: 1px solid var(--line);
+            color: var(--muted);
+
+            font-size: 0.87rem;
+        }
+
+        .sidebar-links a:last-child {
+            border-bottom: 0;
+        }
+
+        .sidebar-links a:hover {
+            color: var(--accent-dark);
+        }
+
+        .site-footer {
+            background: var(--bg);
+            border-top: 1px solid var(--line);
+        }
+
+        .footer-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 48px 22px 28px;
+
+            display: grid;
+            grid-template-columns: 1.7fr 1fr 1fr 1fr;
+            gap: 32px;
+        }
+
+        .footer-brand .brand {
+            display: inline-block;
+            margin-bottom: 11px;
+        }
+
+        .footer-brand p {
+            max-width: 390px;
+            margin: 0;
+
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-column h3 {
+            margin: 0 0 12px;
+            font-size: 0.9rem;
+        }
+
+        .footer-column a {
+            display: block;
+            width: fit-content;
+            margin-bottom: 8px;
+
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent-dark);
+        }
+
+        .footer-bottom {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 18px 22px 28px;
+
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+
+            border-top: 1px solid var(--line);
+
+            color: var(--muted-light);
+            font-size: 0.8rem;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+        }
+
+        @media (max-width: 900px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .main-nav {
+                position: absolute;
+                top: calc(100% + 8px);
+                left: 14px;
+                right: 14px;
+
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 4px;
+
+                padding: 10px;
+
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 14px;
+                box-shadow: var(--shadow);
+            }
+
+            .main-nav.menu-open {
+                display: flex;
+            }
+
+            .main-nav>a,
+            .nav-dropdown>button {
+                width: 100%;
+                padding: 12px 13px;
+                text-align: left;
+            }
+
+            .nav-dropdown {
+                width: 100%;
+            }
+
+            .nav-dropdown>button {
+                justify-content: space-between;
+            }
+
+            .dropdown-menu {
+                position: static;
+
+                display: none;
+                width: 100%;
+                min-width: 0;
+                margin-top: 3px;
+
+                background: var(--surface-soft);
+                border: 0;
+                box-shadow: none;
+
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+            }
+
+            .nav-dropdown.open .dropdown-menu {
+                display: block;
+            }
+
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            aside {
+                position: static;
+                top: auto;
+            }
+
+            .sidebar-card {
+                position: static;
+            }
+
+            .fact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1.5fr 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .page-wrap {
+                padding: 30px 14px 50px;
+            }
+
+            .header-inner {
+                min-height: 66px;
+                padding: 0 14px;
+            }
+
+            h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero-intro {
+                font-size: 1rem;
+            }
+
+            article {
+                padding: 22px 18px;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison {
+                display: block;
+                overflow-x: auto;
+            }
+
+            .meter-row {
+                grid-template-columns: 90px 1fr 55px;
+                gap: 8px;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+                padding-top: 36px;
+            }
+
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+
+            <a class="brand" href="/"> Paycheck<span>Mint</span> </a>
+
+            <button class="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"
+                aria-controls="main-navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+                <a href="/">Home</a>
+
+                <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+
+                <a href="/income/"> Income </a>
+
+                <div class="nav-dropdown">
+                    <button type="button" aria-expanded="false" aria-haspopup="true">Finance</button>
+
+                    <div class="dropdown-menu">
+                        <a href="/finance/">Finance Overview</a>
+                        <a href="/finance/taxes/">Taxes</a>
+                        <a href="/finance/budgeting/">Budgeting</a>
+                        <a href="/finance/credit-debt/">Credit &amp; Debt</a>
+                        <a href="/finance/investing/">Investing</a>
+                        <a href="/finance/insurance/">Insurance</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+    </header>
+
+    <main class="page-wrap">
+
+        <div class="breadcrumb">
+            <a href="/">Home</a>
+            <span> / </span>
+            <a href="/finance/">Finance</a>
+            <span> / </span>
+            <a href="/finance/credit-debt/">Credit &amp; Debt</a>
+            <span> / </span>
+            Debt-to-Income Ratio
+        </div>
+
+        <section class="hero">
+            <div class="eyebrow">Credit &amp; Debt Guide</div>
+
+            <h1>Debt-to-Income Ratio (DTI): Formula, Examples &amp; What It Means</h1>
+
+            <p class="hero-intro">
+                Your debt-to-income ratio compares your monthly debt payments with your gross monthly income. Learn
+                how to calculate DTI, what payments are generally included, the difference between front-end and
+                back-end DTI, and how lenders may use the ratio.
+            </p>
+        </section>
+
+        <div class="layout">
+            <article>
+                <div class="quick-answer">
+                    <p>
+                        <strong>Quick answer:</strong>
+                        Debt-to-income ratio (DTI) is the percentage of your gross monthly income that goes toward
+                        monthly debt payments. To calculate it, add your qualifying monthly debt payments, divide
+                        the total by your gross monthly income, and multiply by 100.
+                    </p>
+
+                    <div class="formula">
+                        <span class="formula-label">DTI formula</span>
+                        <code>DTI = (Total Monthly Debt Payments ÷ Gross Monthly Income) × 100</code>
+                    </div>
+
+                    <p>
+                        For example, $2,000 in monthly debt payments divided by $5,000 in gross monthly income
+                        produces a DTI of 40%. Lenders can use DTI as one part of a credit or loan application, but
+                        requirements vary by lender and loan type.
+                    </p>
+                </div>
+
+                <div class="fact-grid">
+                    <div class="fact">
+                        <strong>Uses gross income</strong>
+                        <span> DTI generally uses income before taxes and other deductions. </span>
+                    </div>
+
+                    <div class="fact">
+                        <strong>Expressed as a %</strong>
+                        <span>
+                            A 40% DTI means $0.40 of each $1 of gross monthly income goes toward included debt
+                            payments.
+                        </span>
+                    </div>
+
+                    <div class="fact">
+                        <strong>Rules vary</strong>
+                        <span> There is no single DTI limit that applies to every lender and every loan. </span>
+                    </div>
+                </div>
+
+                <h2 id="what-is-dti">What Is Debt-to-Income Ratio?</h2>
+
+                <p>
+                    Debt-to-income ratio, commonly called <strong>DTI</strong>, is a percentage that compares your
+                    monthly debt obligations with your gross monthly income.
+                </p>
+
+                <p>
+                    Lenders can use DTI to help evaluate whether you have enough income relative to your existing
+                    monthly obligations to take on another payment. It is one factor among others that can be
+                    considered during a credit application.
+                </p>
+
+                <p>
+                    DTI can also be useful even when you are not applying for a loan. Calculating it can give you a
+                    clearer picture of how much of your income is already committed to debt payments.
+                </p>
+
+                <div class="highlight">
+                    <strong>Important:</strong>
+                    DTI is not the same as your credit score. A credit score is calculated from information in your
+                    credit history using a scoring model, while DTI compares monthly debt payments with income.
+                </div>
+
+                <h2 id="formula">Debt-to-Income Ratio Formula</h2>
+
+                <p>The basic DTI formula is:</p>
+
+                <div class="formula">
+                    <span class="formula-label">Debt-to-income ratio</span>
+                    <code>DTI = (Monthly Debt Payments ÷ Gross Monthly Income) × 100</code>
+                </div>
+
+                <p>
+                    The most important part is making sure the two numbers are measured consistently. DTI generally
+                    compares
+                    <strong>monthly</strong> debt payments with <strong>gross monthly</strong> income.
+                </p>
+
+                <h3>Example</h3>
+
+                <div class="example-box">
+                    <h3>$2,000 of debt payments and $5,000 of gross income</h3>
+
+                    <p>
+                        Suppose your monthly qualifying debt payments total $2,000 and your gross monthly income is
+                        $5,000.
+                    </p>
+
+                    <div class="formula">
+                        <code>($2,000 ÷ $5,000) × 100 = 40%</code>
+                    </div>
+
+                    <p>Your DTI would be <strong>40%</strong>.</p>
+                </div>
+
+                <h2 id="how-to-calculate">How to Calculate Your DTI Step by Step</h2>
+
+                <ol class="step-list">
+                    <li>
+                        <strong>Calculate your gross monthly income.</strong>
+                        Start with income before federal and state taxes, retirement contributions, health insurance
+                        and other payroll deductions.
+                    </li>
+
+                    <li>
+                        <strong>List your monthly debt payments.</strong>
+                        Add the payments that are included under the DTI method relevant to the lender or loan
+                        you're considering.
+                    </li>
+
+                    <li>
+                        <strong>Add the monthly debt payments together.</strong>
+                        Your total might include a mortgage or rent obligation, auto loans, student loans, credit
+                        card payments and other recurring debt obligations, depending on the calculation.
+                    </li>
+
+                    <li>
+                        <strong>Divide debt payments by gross monthly income.</strong>
+                        This produces a decimal.
+                    </li>
+
+                    <li>
+                        <strong>Multiply by 100.</strong>
+                        The result is your DTI percentage.
+                    </li>
+                </ol>
+
+                <h2 id="income">What Income Is Used for DTI?</h2>
+
+                <p>
+                    DTI generally uses <strong>gross monthly income</strong>, which is income before taxes and other
+                    deductions.
+                </p>
+
+                <p>If you receive a salary, a simple starting point is to divide annual gross salary by 12.</p>
+
+                <div class="formula">
+                    <span class="formula-label">Monthly income from salary</span>
+                    <code>Annual Gross Salary ÷ 12 = Gross Monthly Income</code>
+                </div>
+
+                <div class="example-box">
+                    <h3>Salary example</h3>
+
+                    <p>If your annual gross salary is $72,000:</p>
+
+                    <div class="formula">
+                        <code>$72,000 ÷ 12 = $6,000 gross monthly income</code>
+                    </div>
+
+                    <p>If your qualifying monthly debt payments are $1,800:</p>
+
+                    <div class="formula">
+                        <code>($1,800 ÷ $6,000) × 100 = 30%</code>
+                    </div>
+
+                    <p>Your DTI would be 30%.</p>
+                </div>
+
+                <p>
+                    People with hourly, commission, bonus, self-employment or multiple income sources may need
+                    additional documentation or calculations when applying for credit. A lender may use rules
+                    specific to the loan program when determining qualifying income.
+                </p>
+
+                <h2 id="debts">What Counts as Debt in DTI?</h2>
+
+                <p>
+                    The exact debts included can vary depending on the lender and type of loan. Common monthly
+                    obligations considered in DTI calculations can include:
+                </p>
+
+                <table class="comparison">
+                    <thead>
+                        <tr>
+                            <th>Payment</th>
+                            <th>Commonly considered?</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Mortgage payment</td>
+                            <td>Generally included when applicable.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Auto loan</td>
+                            <td>Generally included.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Student loan</td>
+                            <td>Generally included, subject to lender rules.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Credit card payment</td>
+                            <td>Generally included; the applicable monthly payment may depend on lender rules.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Personal loan</td>
+                            <td>Generally included.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Child support or alimony</td>
+                            <td>May be included depending on the lender and applicable underwriting rules.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Utilities</td>
+                            <td>Generally not included in a standard consumer DTI calculation.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Groceries</td>
+                            <td>Generally not included.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Entertainment</td>
+                            <td>Generally not included.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    This table is a general guide, not a universal underwriting rule. A lender can use its own
+                    definitions and loan-program requirements.
+                </p>
+
+                <h2 id="front-back">Front-End DTI vs. Back-End DTI</h2>
+
+                <p>
+                    You may encounter two DTI measurements, especially when researching mortgages:
+                    <strong>front-end DTI</strong> and <strong>back-end DTI</strong>.
+                </p>
+
+                <table class="comparison">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>What it measures</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong>Front-end DTI</strong>
+                            </td>
+                            <td>Housing-related costs as a percentage of gross monthly income.</td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <strong>Back-end DTI</strong>
+                            </td>
+                            <td>Broader monthly debt obligations as a percentage of gross monthly income.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    For mortgage applications, housing costs can include more than the principal and interest
+                    portion of a mortgage. Depending on the loan calculation, property taxes, homeowners insurance,
+                    mortgage insurance, association dues and other housing-related obligations may be considered.
+                </p>
+
+                <p>
+                    Back-end DTI generally looks at the broader set of recurring debt obligations. When people
+                    discuss DTI without specifying a type, they are often referring to the broader back-end ratio.
+                </p>
+
+                <h2 id="good-dti">What Is a Good Debt-to-Income Ratio?</h2>
+
+                <p>
+                    There is no single DTI percentage that guarantees approval or represents a universal cutoff for
+                    every loan. Lenders and loan programs can use different standards.
+                </p>
+
+                <p>
+                    In general, a lower DTI means a smaller share of gross income is committed to debt payments.
+                    Lenders may view that as relevant when assessing the ability to handle an additional obligation.
+                </p>
+
+                <div class="dti-meter">
+                    <div class="meter-row">
+                        <div class="meter-label">20%</div>
+                        <div class="meter-track">
+                            <div class="meter-fill" style="width: 20%"></div>
+                        </div>
+                        <div class="meter-value">Example</div>
+                    </div>
+
+                    <div class="meter-row">
+                        <div class="meter-label">30%</div>
+                        <div class="meter-track">
+                            <div class="meter-fill" style="width: 30%"></div>
+                        </div>
+                        <div class="meter-value">Example</div>
+                    </div>
+
+                    <div class="meter-row">
+                        <div class="meter-label">40%</div>
+                        <div class="meter-track">
+                            <div class="meter-fill" style="width: 40%"></div>
+                        </div>
+                        <div class="meter-value">Example</div>
+                    </div>
+
+                    <div class="meter-row">
+                        <div class="meter-label">50%</div>
+                        <div class="meter-track">
+                            <div class="meter-fill" style="width: 50%"></div>
+                        </div>
+                        <div class="meter-value">Example</div>
+                    </div>
+                </div>
+
+                <p>
+                    These percentages are illustrations rather than approval categories. For example, Wells Fargo
+                    currently describes 35% or less as a range it views favorably in its own educational DTI
+                    guidance, while also noting that lenders may have additional eligibility requirements. Other
+                    lenders and loan programs can use different thresholds.
+                </p>
+
+                <div class="warning-box">
+                    <strong>Do not treat a DTI percentage as a guaranteed approval rule.</strong>
+                    Mortgage, auto, personal-loan and credit-card underwriting can use different requirements. The
+                    lender and specific loan program determine the applicable criteria.
+                </div>
+
+                <h2 id="lenders">How Do Lenders Use DTI?</h2>
+
+                <p>
+                    DTI helps a lender compare your existing monthly obligations with your income. It can provide
+                    information about how much of your gross income is already committed to debt payments.
+                </p>
+
+                <p>
+                    A lender may consider DTI alongside other information, such as your credit history, credit
+                    score, income stability, assets, loan amount, collateral and the characteristics of the loan
+                    being requested.
+                </p>
+
+                <p>DTI therefore should not be viewed as a standalone measure of creditworthiness.</p>
+
+                <h2 id="dti-vs-credit">DTI vs. Credit Score</h2>
+
+                <table class="comparison">
+                    <thead>
+                        <tr>
+                            <th>DTI</th>
+                            <th>Credit score</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Compares monthly debt payments with gross monthly income.</td>
+                            <td>
+                                A numerical score generated from credit-report information using a scoring model.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Primarily reflects the relationship between debt obligations and income.</td>
+                            <td>Reflects credit-history information used by a particular scoring model.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Can change when income or monthly debt obligations change.</td>
+                            <td>Can change as information on your credit reports changes.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Not generally displayed as a standard number on your credit report.</td>
+                            <td>Can be calculated from information in your credit report.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2 id="dti-credit-utilization">DTI vs. Credit Utilization</h2>
+
+                <p>DTI and credit utilization are also different measurements.</p>
+
+                <p>
+                    <strong>DTI</strong> compares monthly debt payments with gross income.
+                    <strong>Credit utilization</strong> compares revolving credit balances with available credit
+                    limits.
+                </p>
+
+                <div class="formula">
+                    <span class="formula-label">Credit utilization example</span>
+                    <code>$2,000 credit card balance ÷ $10,000 credit limit = 20%</code>
+                </div>
+
+                <p>
+                    Someone can therefore have a relatively low DTI but high credit utilization, or a relatively
+                    high DTI while maintaining lower utilization on individual credit cards.
+                </p>
+
+                <h2 id="lower-dti">How to Lower Your Debt-to-Income Ratio</h2>
+
+                <p>
+                    Your DTI can generally improve in two broad ways: reducing the monthly debt payments included in
+                    the calculation or increasing qualifying gross income.
+                </p>
+
+                <ol class="step-list">
+                    <li>
+                        <strong>Pay down debt.</strong>
+                        Reducing a debt balance can eventually reduce the required monthly payment, depending on the
+                        account.
+                    </li>
+
+                    <li>
+                        <strong>Avoid taking on unnecessary new debt.</strong>
+                        A new monthly payment can increase the numerator in your DTI calculation.
+                    </li>
+
+                    <li>
+                        <strong>Review recurring debt obligations.</strong>
+                        Make a complete list of your monthly payments so you know exactly what is affecting your
+                        ratio.
+                    </li>
+
+                    <li>
+                        <strong>Increase income when possible.</strong>
+                        A higher qualifying gross monthly income can reduce DTI if your monthly debt payments remain
+                        unchanged.
+                    </li>
+
+                    <li>
+                        <strong>Consider refinancing or consolidation carefully.</strong>
+                        A different loan may change your monthly payment, but it can also change the interest rate,
+                        fees, repayment period and total cost of borrowing.
+                    </li>
+
+                    <li>
+                        <strong>Check the lender's calculation.</strong>
+                        If you are preparing for a loan application, ask which income sources and debt payments the
+                        lender will include.
+                    </li>
+                </ol>
+
+                <h2 id="increase-income">How Increasing Income Changes DTI</h2>
+
+                <p>
+                    Increasing gross monthly income can lower your DTI when your monthly debt payments stay
+                    unchanged.
+                </p>
+
+                <div class="example-box">
+                    <h3>Same debt, different income</h3>
+
+                    <p>Suppose your monthly debt payments are $2,000.</p>
+
+                    <p>At $5,000 gross monthly income:</p>
+
+                    <div class="formula">
+                        <code>$2,000 ÷ $5,000 × 100 = 40%</code>
+                    </div>
+
+                    <p>At $6,000 gross monthly income:</p>
+
+                    <div class="formula">
+                        <code>$2,000 ÷ $6,000 × 100 ≈ 33.3%</code>
+                    </div>
+
+                    <p>The debt payments did not change, but the ratio decreased because gross income increased.</p>
+                </div>
+
+                <h2 id="reduce-debt">How Paying Down Debt Changes DTI</h2>
+
+                <p>
+                    Paying down debt can improve DTI, but the effect depends on which debt is reduced and how the
+                    lender calculates the monthly obligation.
+                </p>
+
+                <p>
+                    For example, completely paying off a loan can eliminate its required monthly payment from a DTI
+                    calculation. Making an extra payment toward a revolving credit card may reduce the balance
+                    without immediately changing the minimum payment used by a particular lender.
+                </p>
+
+                <p>
+                    If you're preparing for a specific application, ask the lender how it treats recently paid-down
+                    or closed accounts.
+                </p>
+
+                <h2 id="mortgage">DTI and Mortgage Applications</h2>
+
+                <p>
+                    DTI is particularly relevant to mortgage underwriting because lenders need to evaluate whether
+                    the proposed housing payment fits with the borrower's existing obligations.
+                </p>
+
+                <p>
+                    Mortgage calculations can distinguish between housing-related DTI and total debt obligations.
+                    Different mortgage programs can also have different underwriting requirements.
+                </p>
+
+                <p>
+                    The CFPB explains that different loan products and lenders can have different DTI limits.
+                    Federal mortgage rules also do not establish one universal DTI threshold for every transaction;
+                    underwriting requirements depend on the applicable rules and lender.
+                </p>
+
+                <h2 id="new-debt">How a New Loan Can Affect Your DTI</h2>
+
+                <p>
+                    When you apply for a loan, the lender may calculate your DTI using existing obligations plus the
+                    proposed new payment.
+                </p>
+
+                <div class="example-box">
+                    <h3>Example with a proposed new payment</h3>
+
+                    <p>Imagine you currently have:</p>
+
+                    <ul>
+                        <li>$1,200 mortgage payment</li>
+                        <li>$350 auto loan</li>
+                        <li>$150 student loan</li>
+                        <li>$100 credit card payment</li>
+                    </ul>
+
+                    <p>Your current monthly debt payments are $1,800.</p>
+
+                    <p>
+                        If a proposed loan would add another $300 monthly payment, the lender could potentially
+                        evaluate $2,100 of monthly obligations, depending on the applicable underwriting method.
+                    </p>
+
+                    <p>With $6,000 of gross monthly income:</p>
+
+                    <div class="formula">
+                        <code>$2,100 ÷ $6,000 × 100 = 35%</code>
+                    </div>
+                </div>
+
+                <h2 id="mistakes">Common DTI Calculation Mistakes</h2>
+
+                <div class="checklist">
+                    <div>Using take-home pay instead of gross income</div>
+
+                    <div>Mixing annual income with monthly debt payments</div>
+
+                    <div>Forgetting an existing loan payment</div>
+
+                    <div>Assuming every lender includes the exact same debts</div>
+
+                    <div>Treating DTI as the same thing as credit utilization</div>
+
+                    <div>Assuming a specific DTI percentage guarantees loan approval</div>
+
+                    <div>Ignoring a proposed new payment when estimating future DTI</div>
+                </div>
+
+                <h2 id="self-employed">DTI for Self-Employed Borrowers</h2>
+
+                <p>
+                    Self-employed borrowers can face additional income-documentation requirements. The income amount
+                    used for underwriting may not simply equal gross business revenue.
+                </p>
+
+                <p>
+                    A lender can review tax returns, financial statements and other documentation according to its
+                    underwriting rules. If you are self-employed and preparing for a loan, ask the lender how it
+                    will calculate qualifying income before estimating your DTI.
+                </p>
+
+                <h2 id="why-it-matters">Why Your DTI Matters Even If You're Not Borrowing</h2>
+
+                <p>
+                    DTI can be useful as a personal financial measurement because it shows how much of your gross
+                    income is already committed to recurring debt payments.
+                </p>
+
+                <p>
+                    For example, if your income increases but your debt payments remain unchanged, your DTI can
+                    fall. If you take on a new auto loan or personal loan, your DTI can rise.
+                </p>
+
+                <p>
+                    Tracking the ratio over time can therefore help you see how borrowing and income changes affect
+                    your overall debt burden.
+                </p>
+
+                <h2 id="quick-check">Quick DTI Check</h2>
+
+                <div class="example-box">
+                    <h3>Use these three numbers</h3>
+
+                    <ol>
+                        <li>Your gross monthly income</li>
+                        <li>Your total qualifying monthly debt payments</li>
+                        <li>Your resulting DTI percentage</li>
+                    </ol>
+
+                    <div class="formula">
+                        <code>Monthly Debt ÷ Gross Monthly Income × 100 = DTI</code>
+                    </div>
+
+                    <p>
+                        If you are preparing for a particular loan, compare your personal calculation with the
+                        lender's definition of qualifying income and debt.
+                    </p>
+                </div>
+
+                <h2 id="faq">Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <h3>What is a debt-to-income ratio?</h3>
+
+                    <p>
+                        DTI is the percentage of your gross monthly income that goes toward monthly debt payments.
+                        It is calculated by dividing monthly debt obligations by gross monthly income and
+                        multiplying by 100.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How do I calculate my DTI?</h3>
+
+                    <p>
+                        Add your qualifying monthly debt payments, divide that amount by your gross monthly income,
+                        and multiply the result by 100. For example, $2,000 of debt payments divided by $5,000 of
+                        gross monthly income equals 40%.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Does DTI use gross or net income?</h3>
+
+                    <p>
+                        Standard DTI calculations generally use gross monthly income, meaning income before taxes
+                        and other deductions. Specific lender underwriting rules can differ.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Is a 30% DTI good?</h3>
+
+                    <p>
+                        A 30% DTI means that 30% of gross monthly income is going toward the debt payments included
+                        in the calculation. Whether that meets a lender's requirements depends on the lender, loan
+                        type and other application factors.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Is a 40% DTI too high?</h3>
+
+                    <p>
+                        There is no universal answer. A 40% DTI means 40% of gross monthly income is committed to
+                        included debt payments. Some lenders or loan programs may permit a ratio at that level,
+                        while others may have different requirements.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What is the difference between front-end and back-end DTI?</h3>
+
+                    <p>
+                        Front-end DTI focuses on housing-related costs, while back-end DTI generally considers a
+                        broader set of monthly debt obligations. Mortgage lenders may consider both.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Does rent count toward DTI?</h3>
+
+                    <p>
+                        It can, depending on the lender and calculation being used. Housing costs are commonly
+                        relevant when evaluating housing affordability and mortgage applications. Ask the lender
+                        which housing payment definition applies to your situation.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Does DTI affect my credit score?</h3>
+
+                    <p>
+                        DTI itself is not generally a component of standard credit scoring models. However, high
+                        debt obligations can make it harder to keep up with payments, and missed payments can affect
+                        your credit history.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Does credit utilization affect DTI?</h3>
+
+                    <p>
+                        They measure different things. Credit utilization compares revolving balances with credit
+                        limits, while DTI compares monthly debt payments with gross monthly income.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Can I lower my DTI by increasing my income?</h3>
+
+                    <p>
+                        Yes. If your monthly debt payments remain unchanged, a higher qualifying gross monthly
+                        income lowers the ratio. Whether a particular type of income qualifies for underwriting
+                        depends on the lender's rules.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Can paying off a loan lower my DTI?</h3>
+
+                    <p>
+                        It can if paying off the loan removes its monthly payment from the calculation. The exact
+                        treatment of recently paid debts can depend on the lender and loan program.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Do utilities count in DTI?</h3>
+
+                    <p>
+                        Utilities are generally not included in standard DTI calculations used for many consumer
+                        loans. Lenders can have different underwriting rules, so verify the requirements for your
+                        specific application.
+                    </p>
+                </div>
+
+                <h2 id="related">Related Credit &amp; Debt Guides</h2>
+
+                <div class="related-grid">
+                    <a class="related-link" href="/finance/credit-debt/">
+                        <strong>Credit &amp; Debt Overview</strong>
+                        <span> Explore PaycheckMint's credit and debt guides. </span>
+                    </a>
+
+                    <a class="related-link" href="/finance/credit-debt/what-is-a-credit-score/">
+                        <strong>What Is a Credit Score?</strong>
+                        <span> Learn what credit scores measure and why they matter. </span>
+                    </a>
+
+                    <a class="related-link" href="/finance/credit-debt/how-credit-scores-work/">
+                        <strong>How Credit Scores Work</strong>
+                        <span> Understand the factors behind credit scoring. </span>
+                    </a>
+
+                    <a class="related-link" href="/finance/credit-debt/what-is-a-credit-report/">
+                        <strong>What Is a Credit Report?</strong>
+                        <span> Learn what appears on your credit reports. </span>
+                    </a>
+
+                    <a class="related-link" href="/finance/credit-debt/credit-utilization/">
+                        <strong>Credit Utilization</strong>
+                        <span> Understand balances, limits and utilization. </span>
+                    </a>
+
+                    <a class="related-link" href="/finance/credit-debt/how-to-pay-off-debt/">
+                        <strong>How to Pay Off Debt</strong>
+                        <span> Learn about practical debt repayment strategies. </span>
+                    </a>
+                </div>
+
+                <div class="sources">
+                    <h2>Sources Used for This Guide</h2>
+
+                    <p>
+                        This educational guide was informed by consumer-finance resources from the Consumer
+                        Financial Protection Bureau, Wells Fargo, U.S. Bank, Sallie Mae, Bankrate and Experian.
+                    </p>
+
+                    <p>
+                        DTI definitions and underwriting calculations can vary by lender, loan type and
+                        circumstances. For a specific application, use the lender's current requirements.
+                    </p>
+                </div>
+
+                <div class="disclaimer">
+                    <strong>Educational disclaimer:</strong>
+                    PaycheckMint provides general educational information and does not provide individualized
+                    financial, lending or credit advice. DTI requirements vary by lender and loan program. A DTI
+                    calculation on this page is an educational estimate and does not guarantee loan approval, terms
+                    or eligibility.
+                </div>
+            </article>
+
+            <aside>
+                <div class="sidebar-card">
+                    <h2>On This Page</h2>
+
+                    <nav class="toc">
+                        <a href="#what-is-dti"> What Is DTI? </a>
+
+                        <a href="#formula"> DTI Formula </a>
+
+                        <a href="#how-to-calculate"> How to Calculate DTI </a>
+
+                        <a href="#income"> Income Used </a>
+
+                        <a href="#debts"> What Counts as Debt </a>
+
+                        <a href="#front-back"> Front-End vs. Back-End </a>
+
+                        <a href="#good-dti"> What Is a Good DTI? </a>
+
+                        <a href="#lenders"> How Lenders Use DTI </a>
+
+                        <a href="#dti-vs-credit"> DTI vs. Credit Score </a>
+
+                        <a href="#lower-dti"> How to Lower DTI </a>
+
+                        <a href="#mortgage"> DTI and Mortgages </a>
+
+                        <a href="#mistakes"> Common Mistakes </a>
+
+                        <a href="#faq"> FAQs </a>
+                    </nav>
+                </div>
+
+                <div class="sidebar-card">
+                    <h2>Credit &amp; Debt</h2>
+
+                    <div class="sidebar-links">
+                        <a href="/finance/credit-debt/"> Credit &amp; Debt Overview </a>
+
+                        <a href="/finance/credit-debt/what-is-a-credit-score/"> What Is a Credit Score? </a>
+
+                        <a href="/finance/credit-debt/how-to-improve-credit-score/">
+                            How to Improve Your Credit Score
+                        </a>
+
+                        <a href="/finance/credit-debt/how-credit-scores-work/"> How Credit Scores Work </a>
+
+                        <a href="/finance/credit-debt/how-to-build-credit/"> How to Build Credit </a>
+
+                        <a href="/finance/credit-debt/what-is-a-credit-report/"> What Is a Credit Report? </a>
+
+                        <a href="/finance/credit-debt/credit-utilization/"> Credit Utilization </a>
+
+                        <a href="/finance/credit-debt/how-does-credit-card-interest-work/">
+                            Credit Card Interest
+                        </a>
+
+                        <a href="/finance/credit-debt/how-to-pay-off-debt/"> How to Pay Off Debt </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a class="brand" href="/"> Paycheck<span>Mint</span> </a>
+
+                <p>
+                    Simple tools and guides to help you understand your paycheck, income, taxes, budgeting, debt,
+                    and investing.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Tools</h3>
+
+                <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+
+                <a href="/hourly-paycheck-calculator/"> Hourly Paycheck Calculator </a>
+
+                <a href="/salary-paycheck-calculator/"> Salary Paycheck Calculator </a>
+
+                <a href="/overtime-pay-calculator/"> Overtime Calculator </a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Finance</h3>
+
+                <a href="/finance/"> Finance Overview </a>
+
+                <a href="/finance/taxes/"> Taxes </a>
+
+                <a href="/finance/budgeting/"> Budgeting </a>
+
+                <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+
+                <a href="/finance/investing/"> Investing </a>
+
+                <a href="/finance/insurance/"> Insurance </a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Company</h3>
+
+                <a href="/about/"> About </a>
+
+                <a href="/contact/"> Contact </a>
+
+                <a href="/privacy-policy/"> Privacy Policy </a>
+
+                <a href="/terms/"> Terms </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 PaycheckMint. All rights reserved.</p>
+
+            <p>Information on this site is for educational purposes and is not individualized financial advice.</p>
+        </div>
+
+    </footer>
+
+    <script>
+        (function () {
+            const toggle = document.querySelector(".mobile-menu-toggle");
+            const nav = document.querySelector(".main-nav");
+            const dropdown = document.querySelector(".nav-dropdown");
+            const dropdownButton = dropdown ? dropdown.querySelector("button") : null;
+
+            if (!toggle || !nav) return;
+
+            function closeDropdown() {
+                if (!dropdown) return;
+
+                dropdown.classList.remove("open");
+
+                if (dropdownButton) {
+                    dropdownButton.setAttribute("aria-expanded", "false");
+                }
+            }
+
+            function closeMenu() {
+                nav.classList.remove("menu-open");
+
+                toggle.setAttribute("aria-expanded", "false");
+
+                toggle.setAttribute("aria-label", "Open navigation menu");
+
+                closeDropdown();
+            }
+
+            toggle.addEventListener("click", function (event) {
+                event.stopPropagation();
+
+                const isOpen = nav.classList.toggle("menu-open");
+
+                toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+
+                toggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+
+                if (!isOpen) {
+                    closeDropdown();
+                }
+            });
+
+            if (dropdown && dropdownButton) {
+                dropdownButton.addEventListener("click", function (event) {
+                    event.stopPropagation();
+
+                    const isOpen = dropdown.classList.toggle("open");
+
+                    dropdownButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                });
+            }
+
+            nav.querySelectorAll("a").forEach(function (link) {
+                link.addEventListener("click", function () {
+                    closeMenu();
+                });
+            });
+
+            document.addEventListener("click", function (event) {
+                if (
+                    nav.classList.contains("menu-open") &&
+                    !nav.contains(event.target) &&
+                    !toggle.contains(event.target)
+                ) {
+                    closeMenu();
+                }
+            });
+
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closeMenu();
+                }
+            });
+
+            window.addEventListener("resize", function () {
+                if (window.innerWidth > 900) {
+                    nav.classList.remove("menu-open");
+
+                    toggle.setAttribute("aria-expanded", "false");
+
+                    toggle.setAttribute("aria-label", "Open navigation menu");
+
+                    closeDropdown();
+                }
+            });
+        })();
+    </script>
+
+    <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": "Debt-to-Income Ratio (DTI): Formula, Examples & What It Means",
+                "description": "Learn what debt-to-income ratio means, how to calculate DTI, what counts as debt, front-end vs. back-end DTI, and how lenders use DTI when evaluating credit.",
+                "url": "https://paycheckmint.vercel.app/finance/credit-debt/debt-to-income-ratio/",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://paycheckmint.vercel.app/finance/credit-debt/debt-to-income-ratio/"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "PaycheckMint",
+                    "url": "https://paycheckmint.vercel.app/"
+                },
+                "author": {
+                    "@type": "Organization",
+                    "name": "PaycheckMint"
+                },
+                "datePublished": "2026-09-22",
+                "dateModified": "2026-09-22"
+            }
+        </script>
+
+    <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://paycheckmint.vercel.app/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Finance",
+                        "item": "https://paycheckmint.vercel.app/finance/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Credit & Debt",
+                        "item": "https://paycheckmint.vercel.app/finance/credit-debt/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 4,
+                        "name": "Debt-to-Income Ratio",
+                        "item": "https://paycheckmint.vercel.app/finance/credit-debt/debt-to-income-ratio/"
+                    }
+                ]
+            }
+        </script>
+
+    <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "What is a debt-to-income ratio?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Debt-to-income ratio, or DTI, is the percentage of gross monthly income that goes toward monthly debt payments. It is calculated by dividing qualifying monthly debt payments by gross monthly income and multiplying by 100."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How do I calculate my DTI?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Add your qualifying monthly debt payments, divide that amount by your gross monthly income, and multiply the result by 100. For example, $2,000 of debt payments divided by $5,000 of gross monthly income equals 40%."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Does DTI use gross or net income?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Standard DTI calculations generally use gross monthly income, meaning income before taxes and other deductions. Specific lender underwriting rules can differ."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Is a 30% DTI good?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "A 30% DTI means that 30% of gross monthly income is going toward the debt payments included in the calculation. Whether it meets a lender's requirements depends on the lender, loan type and other application factors."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What is the difference between front-end and back-end DTI?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Front-end DTI focuses on housing-related costs, while back-end DTI generally considers a broader set of monthly debt obligations. Mortgage lenders may consider both."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Does DTI affect my credit score?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "DTI itself is not generally a component of standard credit scoring models. However, high debt obligations can make it harder to keep up with payments, and missed payments can affect your credit history."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can I lower my DTI by increasing my income?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. If monthly debt payments remain unchanged, a higher qualifying gross monthly income lowers the DTI ratio. Whether a particular type of income qualifies for underwriting depends on the lender's rules."
+                        }
+                    }
+                ]
+            }
+        </script>
+</body>
+
+</html>

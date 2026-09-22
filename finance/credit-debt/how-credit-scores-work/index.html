@@ -1,0 +1,2174 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+
+
+    <title>How Credit Scores Work: Factors, Models &amp; Scoring | PaycheckMint</title>
+
+    <meta name="description"
+        content="Learn how credit scores work in the U.S., including how credit reports are used, FICO and VantageScore models, payment history, credit utilization, inquiries, credit mix, and why scores differ." />
+
+    <meta name="keywords"
+        content="how credit scores work, how does a credit score work, credit score calculation, how credit scores are calculated, FICO vs VantageScore, credit score factors, credit scoring models" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="canonical" href="https://paycheckmint.vercel.app/finance/credit-debt/how-credit-scores-work/" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="How Credit Scores Work: Factors, Models &amp; Scoring" />
+    <meta property="og:description"
+        content="Understand how credit scores are calculated, what factors affect them, why scores differ, and how FICO and VantageScore work." />
+    <meta property="og:url" content="https://paycheckmint.vercel.app/finance/credit-debt/how-credit-scores-work/" />
+    <meta property="og:site_name" content="PaycheckMint" />
+
+    <style>
+        :root {
+            --bg: #f6f5f1;
+            --surface: #ffffff;
+            --surface-soft: #faf9f6;
+
+            --ink: #191919;
+            --muted: #74736f;
+            --muted-light: #999791;
+
+            --line: #deddd8;
+            --line-dark: #cbc9c3;
+
+            --accent: #5954d9;
+            --accent-dark: #4843c4;
+            --accent-soft: #eeedff;
+
+            --success: #23784a;
+
+            --shadow: 0 12px 35px rgba(25, 25, 25, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =========================
+       HEADER
+    ========================= */
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(246, 245, 241, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .header-inner {
+            width: min(1180px, calc(100% - 32px));
+            min-height: 72px;
+            margin: 0 auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 28px;
+        }
+
+        .brand {
+            display: inline-block;
+
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.8px;
+
+            white-space: nowrap;
+        }
+
+        .brand span {
+            color: var(--accent);
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .main-nav>a,
+        .nav-dropdown>button {
+            border: 0;
+            background: transparent;
+
+            color: var(--ink);
+            font: inherit;
+
+            font-size: 14px;
+            font-weight: 650;
+
+            padding: 10px 12px;
+
+            border-radius: 9px;
+            cursor: pointer;
+        }
+
+        .main-nav>a:hover,
+        .nav-dropdown>button:hover {
+            background: var(--surface);
+            color: var(--accent);
+        }
+
+        /* =========================
+       FINANCE DROPDOWN
+    ========================= */
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown-menu {
+            position: absolute;
+
+            top: calc(100% + 8px);
+            right: 0;
+
+            width: 220px;
+
+            padding: 8px;
+
+            background: var(--surface);
+
+            border: 1px solid var(--line);
+            border-radius: 12px;
+
+            box-shadow: var(--shadow);
+
+            display: none;
+        }
+
+        .nav-dropdown.open .nav-dropdown-menu {
+            display: block;
+        }
+
+        .nav-dropdown-menu a {
+            display: block;
+
+            padding: 9px 11px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+        }
+
+        .nav-dropdown-menu a:hover {
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+
+        /* =========================
+       MOBILE MENU
+    ========================= */
+
+        .mobile-menu-toggle {
+            display: none;
+
+            border: 1px solid var(--line-dark);
+
+            background: var(--surface);
+
+            border-radius: 9px;
+
+            padding: 9px 11px;
+
+            cursor: pointer;
+
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        /* =========================
+       PAGE
+    ========================= */
+
+        .page-wrap {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .hero {
+            padding: 64px 0 34px;
+            max-width: 850px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+
+            padding: 6px 10px;
+
+            border-radius: 999px;
+
+            background: var(--accent-soft);
+
+            color: var(--accent-dark);
+
+            font-size: 12px;
+            font-weight: 800;
+
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            margin: 16px 0 14px;
+
+            font-size: clamp(34px, 5vw, 54px);
+
+            line-height: 1.08;
+
+            letter-spacing: -1.8px;
+        }
+
+        .hero p {
+            margin: 0;
+
+            max-width: 760px;
+
+            color: var(--muted);
+
+            font-size: 18px;
+        }
+
+        /* =========================
+       ARTICLE + SIDEBAR
+    ========================= */
+
+        .content-grid {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr) 300px;
+
+            gap: 42px;
+
+            align-items: start;
+
+            padding-bottom: 70px;
+        }
+
+        article {
+            min-width: 0;
+
+            background: var(--surface);
+
+            border: 1px solid var(--line);
+            border-radius: 18px;
+
+            padding: clamp(24px, 4vw, 42px);
+
+            box-shadow: var(--shadow);
+        }
+
+        article h2 {
+            margin: 42px 0 14px;
+
+            font-size: 29px;
+
+            line-height: 1.2;
+
+            letter-spacing: -0.7px;
+        }
+
+        article h3 {
+            margin: 28px 0 10px;
+
+            font-size: 21px;
+
+            line-height: 1.3;
+        }
+
+        article h2:first-child {
+            margin-top: 0;
+        }
+
+        article p {
+            margin: 0 0 16px;
+        }
+
+        article ul,
+        article ol {
+            padding-left: 23px;
+        }
+
+        article li {
+            margin: 8px 0;
+        }
+
+        /* =========================
+       QUICK ANSWER
+    ========================= */
+
+        .quick-answer {
+            margin: 0 0 30px;
+
+            padding: 22px;
+
+            background: var(--accent-soft);
+
+            border: 1px solid #dcd9ff;
+
+            border-radius: 14px;
+        }
+
+        .quick-answer strong {
+            display: block;
+
+            margin-bottom: 6px;
+
+            color: var(--accent-dark);
+
+            font-size: 14px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.04em;
+        }
+
+        /* =========================
+       FACT GRID
+    ========================= */
+
+        .fact-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 12px;
+
+            margin: 25px 0 35px;
+        }
+
+        .fact-card {
+            padding: 18px;
+
+            border: 1px solid var(--line);
+
+            background: var(--surface-soft);
+
+            border-radius: 12px;
+        }
+
+        .fact-card strong {
+            display: block;
+
+            margin-bottom: 4px;
+
+            font-size: 18px;
+        }
+
+        .fact-card span {
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+        /* =========================
+       INFO CARDS
+    ========================= */
+
+        .info-card {
+            margin: 24px 0;
+
+            padding: 22px;
+
+            background: var(--surface-soft);
+
+            border: 1px solid var(--line);
+
+            border-radius: 14px;
+        }
+
+        .info-card h3 {
+            margin-top: 0;
+        }
+
+        .tip-box {
+            margin: 24px 0;
+
+            padding: 19px 21px;
+
+            border: 1px solid #d6e8dc;
+
+            background: #f3faf5;
+
+            border-radius: 12px;
+        }
+
+        .warning-box {
+            margin: 24px 0;
+
+            padding: 19px 21px;
+
+            border: 1px solid #eadfc8;
+
+            background: #fffaf0;
+
+            border-radius: 12px;
+        }
+
+        /* =========================
+       FACTOR CARDS
+    ========================= */
+
+        .factor {
+            margin: 22px 0;
+
+            padding: 22px;
+
+            border: 1px solid var(--line);
+
+            border-radius: 14px;
+
+            background: var(--surface-soft);
+        }
+
+        .factor-header {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-bottom: 8px;
+        }
+
+        .factor-number {
+            display: inline-flex;
+
+            width: 34px;
+            height: 34px;
+
+            align-items: center;
+            justify-content: center;
+
+            flex: 0 0 34px;
+
+            border-radius: 50%;
+
+            background: var(--accent);
+
+            color: #fff;
+
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .factor h3 {
+            margin: 0;
+
+            flex: 1;
+        }
+
+        .factor-label {
+            padding: 5px 9px;
+
+            background: var(--accent-soft);
+
+            color: var(--accent-dark);
+
+            border-radius: 999px;
+
+            font-size: 12px;
+            font-weight: 750;
+
+            white-space: nowrap;
+        }
+
+        /* =========================
+       TABLE
+    ========================= */
+
+        .table-wrap {
+            width: 100%;
+
+            overflow-x: auto;
+
+            margin: 22px 0 30px;
+        }
+
+        .comparison-table {
+            width: 100%;
+
+            min-width: 620px;
+
+            border-collapse: collapse;
+
+            font-size: 14px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 13px;
+
+            border: 1px solid var(--line);
+
+            text-align: left;
+
+            vertical-align: top;
+        }
+
+        .comparison-table th {
+            background: var(--surface-soft);
+
+            font-weight: 750;
+        }
+
+        /* =========================
+       MODEL COMPARISON
+    ========================= */
+
+        .model-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 16px;
+
+            margin: 25px 0 30px;
+        }
+
+        .model-card {
+            padding: 22px;
+
+            background: var(--surface-soft);
+
+            border: 1px solid var(--line);
+
+            border-radius: 14px;
+        }
+
+        .model-card h3 {
+            margin-top: 0;
+        }
+
+        .model-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* =========================
+       FLOW DIAGRAM
+    ========================= */
+
+        .score-flow {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 12px;
+
+            margin: 25px 0 32px;
+        }
+
+        .flow-item {
+            position: relative;
+
+            padding: 20px 16px;
+
+            background: var(--surface-soft);
+
+            border: 1px solid var(--line);
+
+            border-radius: 13px;
+
+            text-align: center;
+        }
+
+        .flow-item strong {
+            display: block;
+
+            margin-bottom: 5px;
+
+            font-size: 16px;
+        }
+
+        .flow-item span {
+            display: block;
+
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+        /* =========================
+       RELATED LINKS
+    ========================= */
+
+        .related-links {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 10px;
+
+            margin-top: 20px;
+        }
+
+        .related-links a {
+            padding: 13px;
+
+            border: 1px solid var(--line);
+
+            border-radius: 10px;
+
+            background: var(--surface-soft);
+
+            color: var(--accent-dark);
+
+            font-size: 14px;
+
+            font-weight: 650;
+        }
+
+        .related-links a:hover {
+            border-color: var(--accent);
+
+            color: var(--accent);
+        }
+
+        /* =========================
+       SIDEBAR
+    ========================= */
+
+        /*
+     * IMPORTANT:
+     *
+     * The entire sidebar is sticky.
+     * The TOC is NOT independently sticky.
+     *
+     * This prevents sidebar cards from moving behind
+     * the table of contents.
+     */
+
+        aside {
+            min-width: 0;
+
+            position: sticky;
+
+            top: 94px;
+
+            align-self: start;
+        }
+
+        .toc {
+            position: static;
+
+            background: var(--surface);
+
+            border: 1px solid var(--line);
+
+            border-radius: 16px;
+
+            padding: 20px;
+        }
+
+        .toc h3 {
+            margin: 0 0 12px;
+
+            font-size: 16px;
+        }
+
+        .toc a {
+            display: block;
+
+            padding: 6px 0;
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 1.4;
+        }
+
+        .toc a:hover {
+            color: var(--accent);
+        }
+
+        .sidebar-card {
+            margin-top: 16px;
+
+            padding: 20px;
+
+            background: var(--surface);
+
+            border: 1px solid var(--line);
+
+            border-radius: 16px;
+        }
+
+        .sidebar-card h3 {
+            margin: 0 0 10px;
+
+            font-size: 16px;
+        }
+
+        .sidebar-card a {
+            display: block;
+
+            padding: 7px 0;
+
+            color: var(--accent-dark);
+
+            font-size: 14px;
+        }
+
+        .sidebar-card a:hover {
+            color: var(--accent);
+        }
+
+        /* =========================
+       FAQ
+    ========================= */
+
+        .faq {
+            border-top: 1px solid var(--line);
+        }
+
+        .faq details {
+            border-bottom: 1px solid var(--line);
+
+            padding: 15px 0;
+        }
+
+        .faq summary {
+            cursor: pointer;
+
+            font-weight: 700;
+        }
+
+        .faq p {
+            margin: 10px 0 0;
+
+            color: var(--muted);
+        }
+
+        /* =========================
+       DISCLAIMER
+    ========================= */
+
+        .disclaimer {
+            margin-top: 35px;
+
+            padding-top: 20px;
+
+            border-top: 1px solid var(--line);
+
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+        /* =========================
+       FOOTER
+    ========================= */
+
+        .site-footer {
+            background: var(--bg);
+
+            border-top: 1px solid var(--line);
+        }
+
+        .footer-inner {
+            width: min(1180px, calc(100% - 32px));
+
+            margin: 0 auto;
+
+            padding: 48px 0 25px;
+
+            display: grid;
+
+            grid-template-columns: 1.7fr 1fr 1fr 1fr;
+
+            gap: 30px;
+        }
+
+        .footer-brand {
+            max-width: 390px;
+        }
+
+        .footer-brand p,
+        .footer-column a {
+            color: var(--muted);
+
+            font-size: 14px;
+        }
+
+        .footer-brand p {
+            margin-top: 12px;
+        }
+
+        .footer-column h3 {
+            margin: 0 0 12px;
+
+            font-size: 14px;
+        }
+
+        .footer-column a {
+            display: block;
+
+            padding: 4px 0;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            width: min(1180px, calc(100% - 32px));
+
+            margin: 0 auto;
+
+            padding: 18px 0 25px;
+
+            border-top: 1px solid var(--line);
+
+            color: var(--muted);
+
+            font-size: 12px;
+        }
+
+        /* =========================
+       RESPONSIVE
+    ========================= */
+
+        @media (max-width: 900px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                position: absolute;
+
+                top: 72px;
+
+                left: 16px;
+                right: 16px;
+
+                display: none;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                padding: 10px;
+
+                background: var(--surface);
+
+                border: 1px solid var(--line);
+
+                border-radius: 14px;
+
+                box-shadow: var(--shadow);
+            }
+
+            .main-nav.menu-open {
+                display: flex;
+            }
+
+            .main-nav>a,
+            .nav-dropdown>button {
+                width: 100%;
+
+                text-align: left;
+            }
+
+            .nav-dropdown-menu {
+                position: static;
+
+                width: 100%;
+
+                margin-top: 4px;
+
+                padding: 4px 0 4px 12px;
+
+                border: 0;
+
+                box-shadow: none;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+
+                gap: 28px;
+            }
+
+            /*
+         * Disable sticky behavior on mobile.
+         */
+
+            aside {
+                position: static;
+
+                top: auto;
+
+                width: 100%;
+            }
+
+            .toc {
+                position: static;
+
+                top: auto;
+            }
+
+            .sidebar-card {
+                position: static;
+
+                margin-top: 16px;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1.5fr 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .fact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .model-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .score-flow {
+                grid-template-columns: 1fr;
+            }
+
+            .related-links {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .hero {
+                padding-top: 42px;
+            }
+
+            .hero h1 {
+                font-size: 37px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .header-inner {
+                min-height: 66px;
+            }
+
+            .main-nav {
+                top: 66px;
+
+                left: 11px;
+                right: 11px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            article h2 {
+                font-size: 25px;
+            }
+
+            article h3 {
+                font-size: 19px;
+            }
+
+            .factor-header {
+                align-items: flex-start;
+
+                flex-wrap: wrap;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 420px) {
+
+            .header-inner,
+            .page-wrap,
+            .footer-inner,
+            .footer-bottom {
+                width: min(100% - 22px, 1180px);
+            }
+
+            article {
+                padding: 21px;
+            }
+
+            .hero {
+                padding-top: 34px;
+            }
+
+            .hero h1 {
+                font-size: 31px;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="site-header">
+
+        <div class="header-inner">
+            <a class="brand" href="/"> Paycheck<span>Mint</span> </a>
+
+            <button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"
+                aria-controls="main-navigation">
+                ☰
+            </button>
+
+            <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+                <a href="/">Home</a>
+
+                <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+
+                <a href="/income/"> Income </a>
+
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-expanded="false">Finance ▾</button>
+
+                    <div class="nav-dropdown-menu">
+                        <a href="/finance/"> Finance Overview </a>
+
+                        <a href="/finance/taxes/"> Taxes </a>
+
+                        <a href="/finance/budgeting/"> Budgeting </a>
+
+                        <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+
+                        <a href="/finance/investing/"> Investing </a>
+
+                        <a href="/finance/insurance/"> Insurance </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+    </header>
+
+    <main>
+
+        <div class="page-wrap">
+            <section class="hero">
+                <span class="eyebrow"> Credit &amp; Debt </span>
+
+                <h1>How Credit Scores Work</h1>
+
+                <p>
+                    Understand how credit scores are calculated, what information goes into them, how FICO and
+                    VantageScore differ, why you can have multiple scores, and what can cause your score to change.
+                </p>
+            </section>
+
+            <div class="content-grid">
+                <article>
+                    <div class="quick-answer">
+                        <strong> Quick answer </strong>
+
+                        A credit score is calculated by applying a scoring model to information in a credit report.
+                        The model looks at patterns such as payment history, balances and credit utilization, credit
+                        history, new credit activity and, depending on the model, credit mix and other information.
+                        Different models, credit reports and reporting dates can produce different scores.
+                    </div>
+
+                    <div class="fact-grid">
+                        <div class="fact-card">
+                            <strong> 300–850 </strong>
+
+                            <span> Many commonly used U.S. consumer credit scores fall within this range. </span>
+                        </div>
+
+                        <div class="fact-card">
+                            <strong> Multiple scores </strong>
+
+                            <span>
+                                You can have different scores because models and credit-report data can differ.
+                            </span>
+                        </div>
+
+                        <div class="fact-card">
+                            <strong> Credit reports </strong>
+
+                            <span> Credit scores generally use information from consumer credit reports. </span>
+                        </div>
+                    </div>
+
+                    <h2 id="process">How Do Credit Scores Work?</h2>
+
+                    <p>
+                        Think of a credit score as the output of a calculation. Your credit report contains
+                        information about your credit accounts and payment history. A credit scoring model analyzes
+                        that information and produces a numerical score.
+                    </p>
+
+                    <div class="score-flow">
+                        <div class="flow-item">
+                            <strong> 1. Credit activity </strong>
+
+                            <span> Accounts, balances, payments and inquiries generate information. </span>
+                        </div>
+
+                        <div class="flow-item">
+                            <strong> 2. Credit report </strong>
+
+                            <span>
+                                Credit-reporting companies collect and maintain information from data furnishers.
+                            </span>
+                        </div>
+
+                        <div class="flow-item">
+                            <strong> 3. Scoring model </strong>
+
+                            <span> A scoring model analyzes the report and produces a score. </span>
+                        </div>
+                    </div>
+
+                    <p>
+                        The important distinction is that a credit bureau does not simply decide your score. Credit
+                        reporting companies maintain credit-report information, while scoring companies develop
+                        models that use that information to calculate scores.
+                    </p>
+
+                    <h2 id="report">What Information Goes Into a Credit Score?</h2>
+
+                    <p>
+                        Credit scoring models generally use information contained in a consumer credit report. The
+                        exact information and weighting depend on the particular scoring model.
+                    </p>
+
+                    <p>
+                        Common information includes payment history, balances, credit limits, account age, types of
+                        accounts, collections, public records where applicable, and recent applications or
+                        inquiries.
+                    </p>
+
+                    <div class="info-card">
+                        <h3>Credit score vs. credit report</h3>
+
+                        <p>
+                            A <strong>credit report</strong> is a detailed record of credit-related information. A
+                            <strong>credit score</strong> is a numerical calculation based on information in a
+                            report using a particular scoring model.
+                        </p>
+                    </div>
+
+                    <h2 id="factors">The Main Factors That Affect Credit Scores</h2>
+
+                    <p>
+                        There is no single universal formula for every credit score. However, several categories
+                        appear repeatedly across major scoring systems.
+                    </p>
+
+                    <div class="factor">
+                        <div class="factor-header">
+                            <span class="factor-number"> 1 </span>
+
+                            <h3>Payment History</h3>
+
+                            <span class="factor-label"> Major factor </span>
+                        </div>
+
+                        <p>
+                            Payment history looks at whether you have paid credit obligations as agreed. Late
+                            payments, defaults, collections and other negative payment information can affect
+                            scores.
+                        </p>
+
+                        <p>
+                            For FICO Score models, payment history is generally the largest category in the commonly
+                            published FICO Score factor framework.
+                        </p>
+
+                        <div class="tip-box">
+                            <strong> What this means: </strong>
+
+                            Consistently paying accounts on time can help establish positive credit history. Missing
+                            payments can have the opposite effect.
+                        </div>
+                    </div>
+
+                    <div class="factor">
+                        <div class="factor-header">
+                            <span class="factor-number"> 2 </span>
+
+                            <h3>Amounts Owed and Credit Utilization</h3>
+
+                            <span class="factor-label"> Major factor </span>
+                        </div>
+
+                        <p>
+                            Scoring models can consider how much debt you have and how your revolving balances
+                            compare with your available credit.
+                        </p>
+
+                        <p>Credit utilization is especially relevant to revolving accounts such as credit cards.</p>
+
+                        <div class="info-card">
+                            <h3>Credit utilization formula</h3>
+
+                            <p>
+                                Credit utilization = total revolving balances ÷ total revolving credit limits × 100
+                            </p>
+
+                            <p>
+                                For example, $1,500 in credit card balances against $6,000 in total credit limits
+                                equals 25% overall utilization.
+                            </p>
+                        </div>
+
+                        <p>
+                            Lower utilization is generally favorable, but there is no single percentage that
+                            guarantees a particular score.
+                        </p>
+                    </div>
+
+                    <div class="factor">
+                        <div class="factor-header">
+                            <span class="factor-number"> 3 </span>
+
+                            <h3>Length of Credit History</h3>
+
+                            <span class="factor-label"> History </span>
+                        </div>
+
+                        <p>
+                            Credit scoring models can consider the age of your accounts and how long you have been
+                            using credit.
+                        </p>
+
+                        <p>
+                            Depending on the model, factors can include the age of your oldest account, newest
+                            account and the average age of accounts.
+                        </p>
+
+                        <p>
+                            A longer credit history can provide more information about how you have managed credit
+                            over time.
+                        </p>
+                    </div>
+
+                    <div class="factor">
+                        <div class="factor-header">
+                            <span class="factor-number"> 4 </span>
+
+                            <h3>New Credit and Hard Inquiries</h3>
+
+                            <span class="factor-label"> Recent activity </span>
+                        </div>
+
+                        <p>
+                            Applying for credit can generate a hard inquiry when a lender reviews your credit report
+                            for a credit application.
+                        </p>
+
+                        <p>
+                            A single hard inquiry generally has a relatively small effect on a score, but multiple
+                            recent applications can be more significant depending on the scoring model and the rest
+                            of your credit profile.
+                        </p>
+
+                        <p>
+                            Some scoring models also have special treatment for multiple inquiries associated with
+                            rate shopping for certain types of loans.
+                        </p>
+                    </div>
+
+                    <div class="factor">
+                        <div class="factor-header">
+                            <span class="factor-number"> 5 </span>
+
+                            <h3>Credit Mix</h3>
+
+                            <span class="factor-label"> Model dependent </span>
+                        </div>
+
+                        <p>
+                            Some scoring models consider the types of credit accounts in your profile. These can
+                            include revolving credit cards and installment accounts such as auto, student or
+                            mortgage loans.
+                        </p>
+
+                        <p>
+                            Credit mix can contribute to a FICO Score, but you generally should not open accounts
+                            you do not need just to create a particular mix of credit.
+                        </p>
+                    </div>
+
+                    <h2 id="fico">How FICO Scores Work</h2>
+
+                    <p>
+                        FICO is a credit-scoring company whose models are used by lenders and other businesses. FICO
+                        scores are calculated from information in a consumer credit report.
+                    </p>
+
+                    <p>
+                        A commonly discussed FICO Score framework uses five broad categories: payment history,
+                        amounts owed, length of credit history, new credit and credit mix.
+                    </p>
+
+                    <div class="table-wrap">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>FICO Score category</th>
+
+                                    <th>Commonly published FICO Score 8 weighting</th>
+
+                                    <th>What it generally considers</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>Payment history</td>
+
+                                    <td>35%</td>
+
+                                    <td>
+                                        Whether accounts have been paid as agreed and negative payment information.
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Amounts owed</td>
+
+                                    <td>30%</td>
+
+                                    <td>Debt levels, balances and revolving credit utilization.</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Length of credit history</td>
+
+                                    <td>15%</td>
+
+                                    <td>The age and history of credit accounts.</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Credit mix</td>
+
+                                    <td>10%</td>
+
+                                    <td>Different types of credit accounts.</td>
+                                </tr>
+
+                                <tr>
+                                    <td>New credit</td>
+
+                                    <td>10%</td>
+
+                                    <td>Recent applications, inquiries and newly opened accounts.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong> Important: </strong>
+
+                        These percentages describe the commonly published FICO Score 8 framework. They should not be
+                        treated as a universal formula for every FICO score, VantageScore or lender-specific model.
+                        The exact effect of an item depends on the scoring model and your credit profile.
+                    </div>
+
+                    <h2 id="vantage">How VantageScore Works</h2>
+
+                    <p>
+                        VantageScore is another major U.S. credit scoring system. It was developed by the three
+                        nationwide credit reporting companies: Equifax, Experian and TransUnion.
+                    </p>
+
+                    <p>
+                        VantageScore models use information from credit reports but do not use exactly the same
+                        calculation as FICO. That is one reason a consumer can see a different FICO Score and
+                        VantageScore even when the underlying credit information is similar.
+                    </p>
+
+                    <p>
+                        VantageScore models can consider payment history, age and type of credit, credit
+                        utilization, balances, recent credit activity and other credit-report information. The
+                        relative importance of these factors differs from the FICO framework.
+                    </p>
+
+                    <div class="model-grid">
+                        <div class="model-card">
+                            <h3>FICO Score</h3>
+
+                            <p>
+                                FICO provides multiple scoring models, including base scores and industry-specific
+                                versions.
+                            </p>
+
+                            <p>Different FICO versions can be designed for different lending situations.</p>
+                        </div>
+
+                        <div class="model-card">
+                            <h3>VantageScore</h3>
+
+                            <p>
+                                VantageScore provides another family of credit scoring models used with information
+                                from consumer credit reports.
+                            </p>
+
+                            <p>Its models can evaluate credit information differently from FICO.</p>
+                        </div>
+                    </div>
+
+                    <h2 id="different">Why Do I Have Different Credit Scores?</h2>
+
+                    <p>
+                        Having different credit scores does not necessarily mean one of them is wrong. Your score
+                        can differ because the underlying data, scoring model or timing is different.
+                    </p>
+
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Reason</th>
+
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Different scoring model</td>
+
+                                <td>
+                                    A FICO model and a VantageScore model can calculate different numbers from
+                                    similar information.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Different credit bureau</td>
+
+                                <td>One report may contain information that another report does not yet show.</td>
+                            </tr>
+
+                            <tr>
+                                <td>Different model version</td>
+
+                                <td>A lender may use a newer or industry-specific scoring model.</td>
+                            </tr>
+
+                            <tr>
+                                <td>Different reporting date</td>
+
+                                <td>A recently reported balance or payment may appear at different times.</td>
+                            </tr>
+
+                            <tr>
+                                <td>Different lending purpose</td>
+
+                                <td>
+                                    Mortgage, auto and credit-card applications may use different scoring models.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h2 id="updates">When Does a Credit Score Update?</h2>
+
+                    <p>
+                        Credit scores do not necessarily update on one universal monthly date. Creditors can report
+                        information to credit reporting companies at different times.
+                    </p>
+
+                    <p>
+                        When the information in a credit report changes, a score calculated using that report can
+                        also change. For example, a newly reported credit card balance can affect the utilization
+                        information used by a scoring model.
+                    </p>
+
+                    <div class="tip-box">
+                        <strong> Example: </strong>
+
+                        Suppose your credit card balance is $3,000 on a $5,000 limit. If you pay the balance down to
+                        $1,000 and the lower balance is subsequently reported, a scoring model may calculate a
+                        different score using the updated information.
+                    </div>
+
+                    <p>
+                        The exact timing depends on when your creditor reports the information and when a score is
+                        generated.
+                    </p>
+
+                    <h2 id="inquiries">How Credit Inquiries Work</h2>
+
+                    <p>
+                        Credit inquiries are requests to access your credit report. They are generally divided into
+                        two broad categories:
+                        <strong>soft inquiries</strong> and <strong>hard inquiries</strong>.
+                    </p>
+
+                    <div class="model-grid">
+                        <div class="model-card">
+                            <h3>Soft inquiry</h3>
+
+                            <p>
+                                Checking your own credit report or score is generally a soft inquiry. Soft inquiries
+                                do not generally affect your credit score.
+                            </p>
+                        </div>
+
+                        <div class="model-card">
+                            <h3>Hard inquiry</h3>
+
+                            <p>
+                                A lender may perform a hard inquiry when you apply for credit. Hard inquiries can
+                                affect some credit scores.
+                            </p>
+                        </div>
+                    </div>
+
+                    <p>
+                        The treatment of inquiries varies by scoring model. Some models also account for
+                        rate-shopping behavior for certain installment loans.
+                    </p>
+
+                    <h2 id="not-affect">What Does Not Directly Determine Your Credit Score?</h2>
+
+                    <p>
+                        Credit scores are based on specific information used by a scoring model. They are not a
+                        general measure of your entire financial life.
+                    </p>
+
+                    <p>
+                        For example, your income and savings balance are not generally components of traditional
+                        credit scoring models. Someone can have a high income and poor credit, or a modest income
+                        and strong credit history.
+                    </p>
+
+                    <p>
+                        Personal characteristics such as race, gender and marital status are also not used in
+                        traditional credit score calculations.
+                    </p>
+
+                    <div class="warning-box">
+                        <strong> Credit score is not the same as financial health. </strong>
+
+                        Your score primarily describes credit risk according to a particular model. It does not tell
+                        a lender everything about your income, savings, investments, spending habits or overall
+                        financial situation.
+                    </div>
+
+                    <h2 id="improve">How Understanding Credit Scores Can Help</h2>
+
+                    <p>
+                        Understanding the scoring process makes it easier to focus on actions that can actually
+                        affect your credit profile.
+                    </p>
+
+                    <ol>
+                        <li>Pay credit obligations on time.</li>
+
+                        <li>Keep revolving balances manageable.</li>
+
+                        <li>Review your credit reports for inaccurate information.</li>
+
+                        <li>Avoid unnecessary credit applications.</li>
+
+                        <li>Maintain accounts responsibly over time.</li>
+
+                        <li>Do not open accounts solely to create a particular credit mix.</li>
+                    </ol>
+
+                    <p>
+                        These habits are more useful than trying to predict exactly how many points a single action
+                        will add. Credit scoring models evaluate your overall credit profile, and the same action
+                        can have different effects for different consumers.
+                    </p>
+
+                    <h2 id="example">Example: How a Credit Score Can Change</h2>
+
+                    <p>
+                        Imagine someone has several credit cards with a combined $10,000 credit limit and $7,000 in
+                        revolving balances. Their overall utilization is 70%.
+                    </p>
+
+                    <p>If that person pays the balances down to $2,500, their utilization falls to 25%.</p>
+
+                    <div class="info-card">
+                        <h3>Before</h3>
+
+                        <p>$7,000 ÷ $10,000 = <strong>70% utilization</strong></p>
+
+                        <h3>After</h3>
+
+                        <p>$2,500 ÷ $10,000 = <strong>25% utilization</strong></p>
+                    </div>
+
+                    <p>
+                        If the lower balances are reported to the credit bureaus, the scoring model will have
+                        different utilization information to evaluate. The exact score change cannot be predicted
+                        from utilization alone because the model also considers the rest of the credit profile.
+                    </p>
+
+                    <h2 id="important">Important Things to Remember</h2>
+
+                    <ul>
+                        <li>There is no single universal credit score.</li>
+
+                        <li>Different scoring models can produce different scores.</li>
+
+                        <li>Different credit reports can contain different information.</li>
+
+                        <li>Many commonly used consumer scores range from 300 to 850.</li>
+
+                        <li>
+                            Payment history and amounts owed are important factors in commonly used scoring models.
+                        </li>
+
+                        <li>Lower credit utilization is generally favorable.</li>
+
+                        <li>Hard inquiries can affect some scores.</li>
+
+                        <li>Checking your own credit generally does not lower your score.</li>
+
+                        <li>Credit scores can change when the information used to calculate them changes.</li>
+
+                        <li>A credit score is only one part of a lender's decision.</li>
+                    </ul>
+
+                    <h2 id="related">Related Credit &amp; Debt Guides</h2>
+
+                    <div class="related-links">
+                        <a href="/finance/credit-debt/"> Credit &amp; Debt Overview </a>
+
+                        <a href="/finance/credit-debt/what-is-a-credit-score/"> What Is a Credit Score? </a>
+
+                        <a href="/finance/credit-debt/how-to-improve-credit-score/">
+                            How to Improve Your Credit Score
+                        </a>
+
+                        <a href="/finance/credit-debt/how-to-build-credit/"> How to Build Credit </a>
+
+                        <a href="/finance/credit-debt/what-is-a-credit-report/"> What Is a Credit Report? </a>
+
+                        <a href="/finance/credit-debt/credit-utilization/"> Credit Utilization </a>
+
+                        <a href="/finance/credit-debt/how-does-credit-card-interest-work/">
+                            How Credit Card Interest Works
+                        </a>
+
+                        <a href="/finance/credit-debt/debt-to-income-ratio/"> Debt-to-Income Ratio </a>
+
+                        <a href="/finance/credit-debt/how-to-pay-off-debt/"> How to Pay Off Debt </a>
+                    </div>
+
+                    <h2 id="faq">Frequently Asked Questions</h2>
+
+                    <div class="faq">
+                        <details>
+                            <summary>How are credit scores calculated?</summary>
+
+                            <p>
+                                Credit scores are calculated by applying a specific scoring model to information in
+                                a credit report. The model evaluates factors such as payment history, balances,
+                                credit utilization, account history and recent credit activity, depending on the
+                                model.
+                            </p>
+                        </details>
+
+                        <details>
+                            <summary>What are the main factors in a credit score?</summary>
+
+                            <p>
+                                Major scoring models consider factors such as payment history, amounts owed or
+                                credit utilization, length of credit history, new credit and, depending on the
+                                model, credit mix.
+                            </p>
+                        </details>
+
+                        <details>
+                            <summary>Why are my FICO Score and VantageScore different?</summary>
+
+                            <p>
+                                FICO and VantageScore use different scoring models. Differences can also result from
+                                the credit report being analyzed, the model version and when the information was
+                                reported.
+                            </p>
+                        </details>
+
+                        <details>
+                            <summary>How often does a credit score change?</summary>
+
+                            <p>
+                                A score can change whenever the information used by the scoring model changes and a
+                                new score is generated. Creditors report information at different times, so there is
+                                no single universal monthly update date.
+                            </p>
+                        </details>
+
+                        <details>
+                            <summary>Does paying a credit card balance change your score?</summary>
+
+                            <p>
+                                It can. Paying down a revolving balance can reduce reported credit utilization. If
+                                the lower balance is reported and used by a scoring model, the resulting score may
+                                change.
+                            </p>
+                        </details>
+
+                        <details>
+                            <summary>Does checking my credit score hurt my credit?</summary>
+
+                            <p>
+                                Checking your own credit score generally does not hurt your credit because consumer
+                                self-checks are generally treated as soft inquiries.
+                            </p>
+                        </details>
+
+                        <details>
+                            <summary>Is there only one credit score?</summary>
+
+                            <p>
+                                No. You can have multiple credit scores because lenders may use different scoring
+                                models, credit reporting companies may have different information, and different
+                                model versions may be used for different lending purposes.
+                            </p>
+                        </details>
+
+                        <details>
+                            <summary>Is a credit score the same as a credit report?</summary>
+
+                            <p>
+                                No. A credit report contains detailed information about your credit history, while a
+                                credit score is a numerical calculation based on information in a credit report.
+                            </p>
+                        </details>
+                    </div>
+
+                    <div class="disclaimer">
+                        <strong> Disclaimer: </strong>
+
+                        This article is for educational purposes only and is not financial, legal, credit-repair or
+                        lending advice. Credit scoring models, lender requirements and credit-reporting practices
+                        vary. PaycheckMint does not guarantee a specific credit score, score increase or approval
+                        for any financial product.
+                    </div>
+                </article>
+
+                <!-- =========================
+             SIDEBAR
+        ========================== -->
+
+                <aside>
+                    <div class="toc">
+                        <h3>On This Page</h3>
+
+                        <a href="#process"> How Credit Scores Work </a>
+
+                        <a href="#report"> Information Used </a>
+
+                        <a href="#factors"> Credit Score Factors </a>
+
+                        <a href="#fico"> How FICO Scores Work </a>
+
+                        <a href="#vantage"> How VantageScore Works </a>
+
+                        <a href="#different"> Why Scores Differ </a>
+
+                        <a href="#updates"> When Scores Update </a>
+
+                        <a href="#inquiries"> Credit Inquiries </a>
+
+                        <a href="#not-affect"> What Doesn't Determine Your Score </a>
+
+                        <a href="#improve"> How to Use This Information </a>
+
+                        <a href="#faq"> FAQs </a>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Credit &amp; Debt</h3>
+
+                        <a href="/finance/credit-debt/"> Credit &amp; Debt Overview </a>
+
+                        <a href="/finance/credit-debt/what-is-a-credit-score/"> What Is a Credit Score? </a>
+
+                        <a href="/finance/credit-debt/how-to-improve-credit-score/">
+                            How to Improve Credit Score
+                        </a>
+
+                        <a href="/finance/credit-debt/how-to-build-credit/"> How to Build Credit </a>
+
+                        <a href="/finance/credit-debt/what-is-a-credit-report/"> What Is a Credit Report? </a>
+
+                        <a href="/finance/credit-debt/credit-utilization/"> Credit Utilization </a>
+
+                        <a href="/finance/credit-debt/how-to-pay-off-debt/"> How to Pay Off Debt </a>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>PaycheckMint Tools</h3>
+
+                        <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+
+                        <a href="/hourly-paycheck-calculator/"> Hourly Paycheck Calculator </a>
+
+                        <a href="/salary-paycheck-calculator/"> Salary Paycheck Calculator </a>
+
+                        <a href="/overtime-pay-calculator/"> Overtime Pay Calculator </a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a class="brand" href="/"> Paycheck<span>Mint</span> </a>
+
+                <p>
+                    Simple tools and guides to help you understand your paycheck, income, taxes, budgeting, debt,
+                    and investing.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Tools</h3>
+
+                <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+
+                <a href="/hourly-paycheck-calculator/"> Hourly Paycheck Calculator </a>
+
+                <a href="/salary-paycheck-calculator/"> Salary Paycheck Calculator </a>
+
+                <a href="/overtime-pay-calculator/"> Overtime Calculator </a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Finance</h3>
+
+                <a href="/finance/"> Finance Overview </a>
+
+                <a href="/finance/taxes/"> Taxes </a>
+
+                <a href="/finance/budgeting/"> Budgeting </a>
+
+                <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+
+                <a href="/finance/investing/"> Investing </a>
+
+                <a href="/finance/insurance/"> Insurance </a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Company</h3>
+
+                <a href="/about/"> About </a>
+
+                <a href="/contact/"> Contact </a>
+
+                <a href="/privacy-policy/"> Privacy Policy </a>
+
+                <a href="/terms/"> Terms </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 PaycheckMint. All rights reserved. Educational content only; not financial, tax, legal, or
+            investment advice.
+        </div>
+
+    </footer>
+
+    <script>
+        (function () {
+            const menuButton = document.querySelector(".mobile-menu-toggle");
+
+            const nav = document.querySelector(".main-nav");
+
+            const dropdown = document.querySelector(".nav-dropdown");
+
+            const dropdownButton = document.querySelector(".nav-dropdown-toggle");
+
+            /* =========================
+   MOBILE MENU
+========================= */
+
+            if (menuButton && nav) {
+                menuButton.addEventListener("click", function (event) {
+                    event.stopPropagation();
+
+                    const isOpen = nav.classList.toggle("menu-open");
+
+                    menuButton.setAttribute("aria-expanded", String(isOpen));
+                });
+            }
+
+            /* =========================
+   FINANCE DROPDOWN
+========================= */
+
+            if (dropdown && dropdownButton) {
+                dropdownButton.addEventListener("click", function (event) {
+                    event.stopPropagation();
+
+                    const isOpen = dropdown.classList.toggle("open");
+
+                    dropdownButton.setAttribute("aria-expanded", String(isOpen));
+                });
+            }
+
+            /* =========================
+   OUTSIDE CLICK
+========================= */
+
+            document.addEventListener("click", function (event) {
+                if (dropdown && !dropdown.contains(event.target)) {
+                    dropdown.classList.remove("open");
+
+                    if (dropdownButton) {
+                        dropdownButton.setAttribute("aria-expanded", "false");
+                    }
+                }
+
+                if (
+                    nav &&
+                    menuButton &&
+                    nav.classList.contains("menu-open") &&
+                    !nav.contains(event.target) &&
+                    !menuButton.contains(event.target)
+                ) {
+                    nav.classList.remove("menu-open");
+
+                    menuButton.setAttribute("aria-expanded", "false");
+                }
+            });
+
+            /* =========================
+   ESCAPE
+========================= */
+
+            document.addEventListener("keydown", function (event) {
+                if (event.key !== "Escape") {
+                    return;
+                }
+
+                if (dropdown) {
+                    dropdown.classList.remove("open");
+                }
+
+                if (dropdownButton) {
+                    dropdownButton.setAttribute("aria-expanded", "false");
+                }
+
+                if (nav) {
+                    nav.classList.remove("menu-open");
+                }
+
+                if (menuButton) {
+                    menuButton.setAttribute("aria-expanded", "false");
+                }
+            });
+
+            /* =========================
+   CLOSE AFTER NAVIGATION
+========================= */
+
+            document.querySelectorAll(".main-nav a").forEach(function (link) {
+                link.addEventListener("click", function () {
+                    if (nav) {
+                        nav.classList.remove("menu-open");
+                    }
+
+                    if (menuButton) {
+                        menuButton.setAttribute("aria-expanded", "false");
+                    }
+                });
+            });
+        })();
+    </script>
+
+    <!-- =========================
+     ARTICLE SCHEMA
+========================= -->
+
+    <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": "How Credit Scores Work: Factors, Models & Scoring",
+                "description": "Understand how credit scores are calculated, what factors affect them, why scores differ, and how FICO and VantageScore work.",
+                "url": "https://paycheckmint.vercel.app/finance/credit-debt/how-credit-scores-work/",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "PaycheckMint",
+                    "url": "https://paycheckmint.vercel.app/"
+                },
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://paycheckmint.vercel.app/finance/credit-debt/how-credit-scores-work/"
+                }
+            }
+        </script>
+
+    <!-- =========================
+     BREADCRUMB SCHEMA
+========================= -->
+
+    <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://paycheckmint.vercel.app/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Credit & Debt",
+                        "item": "https://paycheckmint.vercel.app/finance/credit-debt/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "How Credit Scores Work",
+                        "item": "https://paycheckmint.vercel.app/finance/credit-debt/how-credit-scores-work/"
+                    }
+                ]
+            }
+        </script>
+
+    <!-- =========================
+     FAQ SCHEMA
+========================= -->
+
+    <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "How are credit scores calculated?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Credit scores are calculated by applying a specific scoring model to information in a credit report. The model can evaluate payment history, balances, credit utilization, account history and recent credit activity, depending on the model."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What are the main factors in a credit score?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Major scoring models consider factors such as payment history, amounts owed or credit utilization, length of credit history, new credit and, depending on the model, credit mix."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Why are my FICO Score and VantageScore different?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "FICO and VantageScore use different scoring models. Differences can also result from the credit report being analyzed, the model version and when information was reported."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How often does a credit score change?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "A score can change when information used by the scoring model changes and a new score is generated. Creditors report information at different times, so there is no single universal monthly update date."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Does paying a credit card balance change your score?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "It can. Paying down a revolving balance can reduce reported credit utilization. If the lower balance is reported and used by a scoring model, the resulting score may change."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Does checking my credit score hurt my credit?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Checking your own credit score generally does not hurt your credit because consumer self-checks are generally treated as soft inquiries."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Is there only one credit score?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "No. You can have multiple credit scores because lenders may use different scoring models, credit reporting companies may have different information, and different model versions may be used for different lending purposes."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Is a credit score the same as a credit report?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "No. A credit report contains detailed information about your credit history, while a credit score is a numerical calculation based on information in a credit report."
+                        }
+                    }
+                ]
+            }
+        </script>
+</body>
+
+</html>

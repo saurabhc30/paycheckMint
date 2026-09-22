@@ -1,0 +1,2082 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <title>Family Budget: How to Create a Family Budget & Examples | PaycheckMint</title>
+
+    <meta name="description"
+        content="Learn how to create a family budget, organize household income and expenses, plan for kids and irregular costs, reduce overspending, and build savings goals." />
+
+    <meta name="keywords"
+        content="family budget, family budgeting, how to create a family budget, family budget calculator, household budget, family budget planner, budget for a family, monthly family budget, family expenses" />
+
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://paycheckmint.vercel.app/finance/budgeting/family-budget/" />
+
+    <meta property="og:title" content="Family Budget: How to Create a Family Budget & Examples | PaycheckMint" />
+    <meta property="og:description"
+        content="Create a practical family budget with household income, everyday expenses, savings goals, debt payments and irregular family costs." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://paycheckmint.vercel.app/finance/budgeting/family-budget/" />
+
+    <style>
+        :root {
+            --bg: #f6f5f1;
+            --surface: #ffffff;
+            --surface-soft: #faf9f6;
+
+            --ink: #191919;
+            --muted: #74736f;
+            --muted-light: #999791;
+
+            --line: #deddd8;
+            --line-dark: #cbc9c3;
+
+            --accent: #5954d9;
+            --accent-dark: #4843c5;
+            --accent-soft: #eeedff;
+
+            --success: #237a4b;
+            --danger: #b43b3b;
+
+            --radius: 16px;
+            --shadow: 0 8px 30px rgba(25, 25, 25, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+            line-height: 1.7;
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            white-space: nowrap;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--accent-dark);
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        /* NAVBAR */
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(246, 245, 241, 0.96);
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(12px);
+        }
+
+        .nav-container {
+            max-width: 1180px;
+            margin: auto;
+            padding: 0 22px;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .brand {
+            color: var(--ink);
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            white-space: nowrap;
+        }
+
+        .brand span {
+            color: var(--accent);
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .main-nav>a,
+        .dropdown-toggle {
+            border: 0;
+            background: transparent;
+            color: var(--ink);
+            padding: 10px 13px;
+            border-radius: 10px;
+            font-size: 0.94rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .main-nav>a:hover,
+        .dropdown-toggle:hover {
+            background: var(--surface);
+            color: var(--accent);
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            width: 230px;
+            padding: 8px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+            display: none;
+        }
+
+        .nav-dropdown:hover .dropdown-menu,
+        .nav-dropdown.open .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 12px;
+            border-radius: 9px;
+            color: var(--ink);
+            font-size: 0.92rem;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            border: 1px solid var(--line);
+            background: var(--surface);
+            border-radius: 10px;
+            width: 42px;
+            height: 42px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        /* LAYOUT */
+
+        .page-wrap {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 48px 22px 70px;
+        }
+
+        .breadcrumbs {
+            font-size: 0.86rem;
+            color: var(--muted);
+            margin-bottom: 22px;
+        }
+
+        .breadcrumbs a {
+            color: var(--muted);
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--accent);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 310px;
+            gap: 42px;
+            align-items: start;
+        }
+
+        article {
+            min-width: 0;
+        }
+
+        .article-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 42px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 12px;
+            color: var(--accent);
+            background: var(--accent-soft);
+            padding: 5px 10px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0 0 16px;
+            font-size: clamp(2.15rem, 4vw, 3.3rem);
+            line-height: 1.1;
+            letter-spacing: -0.045em;
+        }
+
+        .lead {
+            margin: 0 0 28px;
+            color: #55534f;
+            font-size: 1.12rem;
+            line-height: 1.75;
+        }
+
+        h2 {
+            margin: 48px 0 16px;
+            font-size: 1.65rem;
+            line-height: 1.25;
+            letter-spacing: -0.025em;
+        }
+
+        h3 {
+            margin: 28px 0 10px;
+            font-size: 1.15rem;
+        }
+
+        p {
+            margin: 0 0 17px;
+        }
+
+        ul,
+        ol {
+            margin: 0 0 20px;
+            padding-left: 23px;
+        }
+
+        li {
+            margin: 7px 0;
+        }
+
+        .quick-answer {
+            margin: 28px 0;
+            padding: 22px;
+            background: var(--surface-soft);
+            border: 1px solid var(--line);
+            border-left: 4px solid var(--accent);
+            border-radius: 12px;
+        }
+
+        .quick-answer strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin: 25px 0;
+        }
+
+        .info-card {
+            background: var(--surface-soft);
+            border: 1px solid var(--line);
+            border-radius: 13px;
+            padding: 20px;
+        }
+
+        .info-card strong {
+            display: block;
+            margin-bottom: 7px;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+            margin: 22px 0 28px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 13px 14px;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+        }
+
+        th {
+            background: var(--surface-soft);
+            font-size: 0.88rem;
+        }
+
+        tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .formula {
+            margin: 22px 0;
+            padding: 20px;
+            text-align: center;
+            background: var(--accent-soft);
+            border-radius: 12px;
+            font-weight: 800;
+            color: #37327f;
+        }
+
+        .callout {
+            margin: 28px 0;
+            padding: 22px;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: var(--surface-soft);
+        }
+
+        .callout strong {
+            display: block;
+            margin-bottom: 7px;
+        }
+
+        /* CALCULATOR */
+
+        .calculator {
+            margin: 42px 0;
+            padding: 28px;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: var(--surface-soft);
+        }
+
+        .calculator-header h2 {
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .calculator-header p {
+            color: var(--muted);
+        }
+
+        .calc-section {
+            margin-top: 25px;
+            padding-top: 22px;
+            border-top: 1px solid var(--line);
+        }
+
+        .calc-section h3 {
+            margin-top: 0;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .field label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .field input {
+            width: 100%;
+            padding: 11px 12px;
+            border: 1px solid var(--line-dark);
+            border-radius: 10px;
+            background: var(--surface);
+            color: var(--ink);
+            outline: none;
+        }
+
+        .field input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(89, 84, 217, 0.12);
+        }
+
+        .calc-button {
+            width: 100%;
+            margin-top: 22px;
+            padding: 13px 18px;
+            border: 0;
+            border-radius: 11px;
+            background: var(--accent);
+            color: #fff;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .calc-button:hover {
+            background: var(--accent-dark);
+        }
+
+        .results {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 22px;
+        }
+
+        .result-card {
+            padding: 17px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+        }
+
+        .result-card span {
+            display: block;
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        .result-card strong {
+            display: block;
+            margin-top: 3px;
+            font-size: 1.3rem;
+        }
+
+        .result-wide {
+            grid-column: 1 / -1;
+        }
+
+        .status {
+            margin-top: 14px;
+            padding: 14px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 800;
+        }
+
+        .status.good {
+            color: var(--success);
+            background: #edf8f1;
+        }
+
+        .status.bad {
+            color: var(--danger);
+            background: #fff0f0;
+        }
+
+        .status.neutral {
+            color: #5e5a27;
+            background: #faf8df;
+        }
+
+        .calc-note {
+            margin-top: 14px;
+            color: var(--muted);
+            font-size: 0.78rem;
+            line-height: 1.55;
+        }
+
+        /* SIDEBAR */
+
+        .sidebar {
+            position: sticky;
+            top: 95px;
+        }
+
+        .side-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 15px;
+            padding: 21px;
+            margin-bottom: 18px;
+        }
+
+        .side-card h3 {
+            margin-top: 0;
+            margin-bottom: 13px;
+        }
+
+        .toc a,
+        .related a {
+            display: block;
+            padding: 7px 0;
+            color: var(--muted);
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .toc a:last-child,
+        .related a:last-child {
+            border-bottom: 0;
+        }
+
+        .toc a:hover,
+        .related a:hover {
+            color: var(--accent);
+        }
+
+        .side-cta {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+
+        .side-cta h3,
+        .side-cta p {
+            color: #fff;
+        }
+
+        .side-cta a {
+            display: inline-block;
+            margin-top: 6px;
+            padding: 9px 13px;
+            background: #fff;
+            color: var(--accent-dark);
+            border-radius: 9px;
+            font-weight: 800;
+            font-size: 0.88rem;
+        }
+
+        /* FAQ */
+
+        .faq {
+            margin-top: 16px;
+        }
+
+        details {
+            background: var(--surface-soft);
+            border: 1px solid var(--line);
+            border-radius: 11px;
+            margin-bottom: 10px;
+            padding: 15px 17px;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 750;
+        }
+
+        details p {
+            margin: 12px 0 0;
+            color: #55534f;
+        }
+
+        .disclaimer {
+            margin-top: 35px;
+            padding-top: 22px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: var(--bg);
+            border-top: 1px solid var(--line);
+        }
+
+        .footer-inner {
+            max-width: 1180px;
+            margin: auto;
+            padding: 42px 22px 28px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        .footer-brand {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand span {
+            color: var(--accent);
+        }
+
+        .footer-description {
+            color: var(--muted);
+            max-width: 370px;
+            font-size: 0.9rem;
+        }
+
+        .footer-col h3 {
+            margin: 0 0 10px;
+            font-size: 0.9rem;
+        }
+
+        .footer-col a {
+            display: block;
+            color: var(--muted);
+            padding: 4px 0;
+            font-size: 0.87rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 12px;
+                right: 12px;
+                padding: 10px;
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 14px;
+                box-shadow: var(--shadow);
+                flex-direction: column;
+                align-items: stretch;
+                max-height: calc(100vh - 85px);
+                overflow-y: auto;
+            }
+
+            .main-nav.menu-open {
+                display: flex;
+            }
+
+            .main-nav>a,
+            .dropdown-toggle {
+                width: 100%;
+                text-align: left;
+                padding: 12px;
+            }
+
+            .nav-dropdown {
+                width: 100%;
+            }
+
+            .dropdown-menu {
+                position: static;
+                width: 100%;
+                margin-top: 3px;
+                border: 0;
+                box-shadow: none;
+                background: var(--surface-soft);
+            }
+
+            .nav-dropdown.open .dropdown-menu {
+                display: block;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .article-card {
+                padding: 28px 21px;
+            }
+
+            .page-wrap {
+                padding-top: 30px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 560px) {
+            .nav-container {
+                padding: 0 15px;
+            }
+
+            .page-wrap {
+                padding-left: 13px;
+                padding-right: 13px;
+            }
+
+            .article-card {
+                border-radius: 13px;
+                padding: 24px 17px;
+            }
+
+            .info-grid,
+            .calc-grid,
+            .results {
+                grid-template-columns: 1fr;
+            }
+
+            .result-wide {
+                grid-column: auto;
+            }
+
+            .calculator {
+                padding: 21px 16px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": "Family Budget: How to Create a Family Budget & Examples",
+                "description": "Learn how to create a family budget, organize household income and expenses, plan for kids and irregular costs, reduce overspending, and build savings goals.",
+                "author": {
+                    "@type": "Organization",
+                    "name": "PaycheckMint"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "PaycheckMint",
+                    "url": "https://paycheckmint.vercel.app"
+                },
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://paycheckmint.vercel.app/finance/budgeting/family-budget/"
+                }
+            }
+        </script>
+
+    <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://paycheckmint.vercel.app/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Finance",
+                        "item": "https://paycheckmint.vercel.app/finance/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Budgeting",
+                        "item": "https://paycheckmint.vercel.app/finance/budgeting/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 4,
+                        "name": "Family Budget",
+                        "item": "https://paycheckmint.vercel.app/finance/budgeting/family-budget/"
+                    }
+                ]
+            }
+        </script>
+
+    <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "How do you create a family budget?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Start with household take-home income, list fixed and variable expenses, include debt and savings goals, account for irregular costs, and compare planned spending with income. Review the budget regularly and adjust it as family circumstances change."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What should be included in a family budget?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "A family budget can include housing, utilities, groceries, transportation, insurance, healthcare, childcare, debt payments, subscriptions, personal spending, entertainment, savings, investing, and irregular expenses."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How much should a family save each month?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "There is no single savings percentage that works for every family. The appropriate amount depends on income, essential expenses, debt, emergency savings, retirement goals and other priorities."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Should children be involved in family budgeting?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Children can be involved in age-appropriate ways, such as discussing spending priorities, comparing prices, planning family activities or learning how saving works. The level of involvement can depend on age and family circumstances."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What if our family budget is negative?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "A negative budget means planned expenses exceed planned income. Review variable spending first, then look at larger recurring costs, debt payments and available income. The goal is to create a realistic plan rather than simply cutting every discretionary expense."
+                        }
+                    }
+                ]
+            }
+        </script>
+
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="nav-container">
+
+            <a class="brand" href="/">Paycheck<span>Mint</span></a>
+
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Open menu"
+                aria-expanded="false" aria-controls="mainNav">
+                ☰
+            </button>
+
+            <nav class="main-nav" id="mainNav">
+                <a href="/">Home</a>
+
+                <a href="/paycheck-tax-calculator/">Paycheck Calculator</a>
+
+                <a href="/income/">Income</a>
+
+                <div class="nav-dropdown" id="financeDropdown">
+                    <button class="dropdown-toggle" type="button" id="financeToggle" aria-expanded="false"
+                        aria-haspopup="true">
+                        Finance ▾
+                    </button>
+
+                    <div class="dropdown-menu">
+                        <a href="/finance/">Finance Overview</a>
+                        <a href="/finance/taxes/">Taxes</a>
+                        <a href="/finance/budgeting/">Budgeting</a>
+                        <a href="/finance/credit-debt/">Credit &amp; Debt</a>
+                        <a href="/finance/investing/">Investing</a>
+                        <a href="/finance/insurance/">Insurance</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+    </header>
+
+    <main class="page-wrap">
+
+        <div class="breadcrumbs">
+            <a href="/">Home</a>
+            <span> / </span>
+            <a href="/finance/">Finance</a>
+            <span> / </span>
+            <a href="/finance/budgeting/">Budgeting</a>
+            <span> / </span>
+            Family Budget
+        </div>
+
+        <div class="content-grid">
+            <article>
+                <div class="article-card">
+                    <span class="eyebrow">Family Budgeting</span>
+
+                    <h1>Family Budget: How to Create a Family Budget &amp; Examples</h1>
+
+                    <p class="lead">
+                        A family budget gives your household a plan for where money comes from, where it goes, and
+                        what you're working toward. Learn how to build a realistic monthly family budget for
+                        housing, groceries, transportation, childcare, debt, savings, and everyday spending.
+                    </p>
+
+                    <div class="quick-answer">
+                        <strong>What is a family budget?</strong>
+                        A family budget is a household spending plan that compares total take-home income with
+                        regular expenses, flexible spending, debt payments, savings and other financial goals. The
+                        goal is not to create a perfect budget, but to give your family a clear plan that can be
+                        adjusted as income and expenses change.
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <strong>Start with take-home income</strong>
+                            Use the money your household actually has available after payroll deductions and other
+                            automatic withholdings.
+                        </div>
+
+                        <div class="info-card">
+                            <strong>Track real spending</strong>
+                            Review bank and credit-card transactions instead of relying only on estimates.
+                        </div>
+
+                        <div class="info-card">
+                            <strong>Plan for irregular costs</strong>
+                            Include expenses such as school costs, holidays, car repairs, activities and annual
+                            bills.
+                        </div>
+
+                        <div class="info-card">
+                            <strong>Review together</strong>
+                            A family budget works better when the people affected by it understand the plan and its
+                            priorities.
+                        </div>
+                    </div>
+
+                    <h2 id="calculator">Family Budget Calculator</h2>
+
+                    <p>
+                        Use this simple calculator to estimate how much your family plans to spend each month. Enter
+                        household take-home income and your expected expenses. You can change the categories to
+                        match your household.
+                    </p>
+
+                    <div class="calculator">
+                        <div class="calculator-header">
+                            <h2>Monthly Family Budget Calculator</h2>
+                            <p>
+                                Enter monthly amounts. Leave a field at $0 if the category doesn't apply to your
+                                family.
+                            </p>
+                        </div>
+
+                        <div class="calc-section">
+                            <h3>Household Income</h3>
+
+                            <div class="calc-grid">
+                                <div class="field">
+                                    <label for="income1">Income 1 — Take-Home Pay</label>
+                                    <input id="income1" type="number" min="0" step="0.01" value="0" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="income2">Income 2 — Take-Home Pay</label>
+                                    <input id="income2" type="number" min="0" step="0.01" value="0" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="otherIncome">Other Monthly Income</label>
+                                    <input id="otherIncome" type="number" min="0" step="0.01" value="0" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calc-section">
+                            <h3>Essential Family Expenses</h3>
+
+                            <div class="calc-grid">
+                                <div class="field">
+                                    <label for="housing">Housing</label>
+                                    <input id="housing" type="number" min="0" step="0.01" value="0" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="utilities">Utilities</label>
+                                    <input id="utilities" type="number" min="0" step="0.01" value="0" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="groceries">Groceries</label>
+                                    <input id="groceries" type="number" min="0" step="0.01" value="0" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="transportation">Transportation</label>
+                                    <input id="transportation" type="number" min="0" step="0.01" value="0" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="insurance">Insurance</label>
+                                    <input id="insurance" type="number" min="0" step="0.01" value="0" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="healthcare">Healthcare</label>
+                                    <input id="healthcare" type="number" min="0" step="0.01" value="0" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="childcare">Childcare / Family</label>
+                                    <input id="childcare" type="number" min="0" step="0.01" value="0" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="debt">Debt Payments</label>
+                                    <input id="debt" type="number" min="0" step="0.01" value="0" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calc-section">
+                            <h3>Other Monthly Spending &amp; Goals</h3>
+
+                            <div class="calc-grid">
+                                <div class="field">
+                                    <label for="subscriptions">Subscriptions</label>
+                                    <input id="subscriptions" type="number" min="0" step="0.01" value="0" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="personal">Personal Spending</label>
+                                    <input id="personal" type="number" min="0" step="0.01" value="0" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="dining">Dining &amp; Entertainment</label>
+                                    <input id="dining" type="number" min="0" step="0.01" value="0" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="shopping">Shopping</label>
+                                    <input id="shopping" type="number" min="0" step="0.01" value="0" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="activities">Kids / Family Activities</label>
+                                    <input id="activities" type="number" min="0" step="0.01" value="0" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="savings">Savings &amp; Investing</label>
+                                    <input id="savings" type="number" min="0" step="0.01" value="0" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="irregular">Irregular Expenses Fund</label>
+                                    <input id="irregular" type="number" min="0" step="0.01" value="0" />
+                                </div>
+
+                                <div class="field">
+                                    <label for="other">Other Expenses</label>
+                                    <input id="other" type="number" min="0" step="0.01" value="0" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="calc-button" id="calculateBudget" type="button">
+                            Calculate Family Budget
+                        </button>
+
+                        <div class="results">
+                            <div class="result-card">
+                                <span>Monthly Household Income</span>
+                                <strong id="resultIncome">$0</strong>
+                            </div>
+
+                            <div class="result-card">
+                                <span>Total Planned Outflow</span>
+                                <strong id="resultExpenses">$0</strong>
+                            </div>
+
+                            <div class="result-card">
+                                <span>Essential Expenses</span>
+                                <strong id="resultEssentials">$0</strong>
+                            </div>
+
+                            <div class="result-card">
+                                <span>Savings &amp; Investing</span>
+                                <strong id="resultSavings">$0</strong>
+                            </div>
+
+                            <div class="result-card result-wide">
+                                <span>Money Remaining</span>
+                                <strong id="resultRemaining">$0</strong>
+                            </div>
+                        </div>
+
+                        <div class="status neutral" id="budgetStatus">
+                            Enter your household amounts and calculate your budget.
+                        </div>
+
+                        <p class="calc-note">
+                            This calculator is an educational planning tool. It does not connect to your bank
+                            accounts and does not provide personalized financial, tax or investment advice.
+                        </p>
+                    </div>
+
+                    <h2 id="what-is-family-budget">What Is a Family Budget?</h2>
+
+                    <p>
+                        A family budget is a plan for managing money across an entire household. Instead of looking
+                        only at one person's spending, it considers household income, shared expenses, children's
+                        costs, debt, savings and family priorities together.
+                    </p>
+
+                    <p>
+                        A monthly budget is often a practical starting point because many household bills are
+                        monthly. However, a good family budget should also account for expenses that happen less
+                        frequently, such as annual insurance premiums, school expenses, holidays, vehicle repairs,
+                        memberships and family trips.
+                    </p>
+
+                    <div class="formula">Household Income − Planned Household Outflow = Money Remaining</div>
+
+                    <p>
+                        The amount remaining can be assigned to additional savings, extra debt payments, future
+                        expenses, investing, or flexible spending depending on your family's priorities.
+                    </p>
+
+                    <h2 id="why-family-budget">Why Create a Family Budget?</h2>
+
+                    <p>
+                        A family budget can make household cash flow easier to understand. It can also give family
+                        members a shared view of priorities instead of having everyone make spending decisions
+                        independently.
+                    </p>
+
+                    <ul>
+                        <li>See how much money the household has available.</li>
+                        <li>Understand where family income is being spent.</li>
+                        <li>Plan for housing, food, transportation and other essentials.</li>
+                        <li>Prepare for children's and dependents' expenses.</li>
+                        <li>Set aside money for irregular and annual expenses.</li>
+                        <li>Make room for emergency savings and other financial goals.</li>
+                        <li>Identify recurring expenses that may no longer be useful.</li>
+                        <li>Create a shared plan for debt payments.</li>
+                    </ul>
+
+                    <h2 id="how-to-create">How to Create a Family Budget</h2>
+
+                    <h3>1. Calculate Your Household Take-Home Income</h3>
+
+                    <p>
+                        Start with the income your family actually receives. For employees, this is generally the
+                        amount shown as net pay or take-home pay after payroll deductions.
+                    </p>
+
+                    <p>
+                        If two adults contribute income, add both amounts. If your household receives freelance
+                        income, commissions, bonuses or other irregular income, decide whether to include an average
+                        amount or budget those payments separately.
+                    </p>
+
+                    <p>
+                        If you need to estimate your paycheck after taxes and deductions, you can use the
+                        <a href="/paycheck-tax-calculator/">Paycheck Calculator</a>.
+                    </p>
+
+                    <h3>2. List Your Fixed Expenses</h3>
+
+                    <p>
+                        Fixed expenses are costs that generally stay the same or change very little from month to
+                        month. Examples can include:
+                    </p>
+
+                    <ul>
+                        <li>Rent or mortgage</li>
+                        <li>Car payments</li>
+                        <li>Insurance premiums</li>
+                        <li>Childcare payments</li>
+                        <li>Minimum debt payments</li>
+                        <li>Subscription services</li>
+                        <li>School or recurring activity fees</li>
+                    </ul>
+
+                    <p>
+                        Fixed does not necessarily mean permanent. Review these expenses periodically, especially
+                        when contracts, loans or household circumstances change.
+                    </p>
+
+                    <h3>3. Estimate Variable Expenses</h3>
+
+                    <p>
+                        Variable expenses can change from month to month. Common examples include groceries,
+                        gasoline, utilities, clothing, entertainment, dining out and household purchases.
+                    </p>
+
+                    <p>
+                        If you're unsure what to budget, look at the last three to six months of transactions. An
+                        average can give you a starting point, but adjust it when you know an upcoming month will be
+                        different.
+                    </p>
+
+                    <h3>4. Include Savings and Financial Goals</h3>
+
+                    <p>
+                        Savings should not necessarily be treated as whatever happens to be left at the end of the
+                        month. If your household has a specific goal, include it in the spending plan.
+                    </p>
+
+                    <p>Possible goals include:</p>
+
+                    <ul>
+                        <li>Emergency savings</li>
+                        <li>Retirement contributions</li>
+                        <li>College or education savings</li>
+                        <li>Vacation savings</li>
+                        <li>Home repairs</li>
+                        <li>Vehicle replacement</li>
+                        <li>Extra debt payments</li>
+                        <li>Large upcoming purchases</li>
+                    </ul>
+
+                    <h3>5. Plan for Irregular Family Expenses</h3>
+
+                    <p>
+                        One of the easiest ways for a monthly budget to fail is to ignore expenses that don't happen
+                        every month.
+                    </p>
+
+                    <p>
+                        Consider costs such as holidays, birthdays, school supplies, annual memberships, car
+                        maintenance, home repairs, medical expenses and family travel.
+                    </p>
+
+                    <p>
+                        A sinking fund can help. If you expect a $1,200 expense in 12 months, setting aside about
+                        $100 per month would fully fund it, assuming the money is available and the expense estimate
+                        remains accurate.
+                    </p>
+
+                    <h2 id="categories">Family Budget Categories</h2>
+
+                    <p>
+                        There is no universal list of categories that every family must use. Start with categories
+                        that match your actual household spending.
+                    </p>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Examples</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>Housing</td>
+                                    <td>Rent, mortgage, property taxes, maintenance</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Utilities</td>
+                                    <td>Electricity, gas, water, internet, phone</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Food</td>
+                                    <td>Groceries, household food, dining out</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Transportation</td>
+                                    <td>Car payments, fuel, maintenance, public transportation</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Insurance</td>
+                                    <td>Health, auto, home, renters and other coverage</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Children</td>
+                                    <td>Childcare, school supplies, activities, clothing</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Debt</td>
+                                    <td>Credit cards, student loans, personal loans and other payments</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Savings</td>
+                                    <td>Emergency fund, retirement, education and other goals</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Flexible spending</td>
+                                    <td>Entertainment, hobbies, shopping, travel and personal spending</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="family-example">Family Budget Example</h2>
+
+                    <p>
+                        Imagine a household with $7,500 in monthly take-home income. The family could create a
+                        starting plan such as the following:
+                    </p>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Monthly Amount</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>Housing</td>
+                                    <td>$2,100</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Utilities</td>
+                                    <td>$350</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Groceries</td>
+                                    <td>$800</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Transportation</td>
+                                    <td>$650</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Insurance &amp; Healthcare</td>
+                                    <td>$500</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Childcare &amp; Activities</td>
+                                    <td>$700</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Debt Payments</td>
+                                    <td>$500</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Family &amp; Personal Spending</td>
+                                    <td>$400</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Savings &amp; Investing</td>
+                                    <td>$900</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Irregular Expense Fund</td>
+                                    <td>$300</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Total Planned Outflow</th>
+                                    <th>$7,200</th>
+                                </tr>
+
+                                <tr>
+                                    <th>Income Remaining</th>
+                                    <th>$300</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>
+                        This is only an example. A different family might spend considerably more or less on
+                        housing, childcare, transportation, debt or other categories. The useful part is seeing
+                        whether the household's plan matches its actual income and priorities.
+                    </p>
+
+                    <h2 id="kids">Budgeting for Children and Family Expenses</h2>
+
+                    <p>
+                        Children can make household expenses less predictable. Costs may include childcare, school
+                        supplies, clothing, sports, camps, activities, medical expenses, technology and
+                        transportation.
+                    </p>
+
+                    <p>
+                        Rather than creating dozens of small categories, you can group related expenses into a
+                        family or children category and create separate sinking funds for larger predictable
+                        expenses.
+                    </p>
+
+                    <h3>Examples of family sinking funds</h3>
+
+                    <ul>
+                        <li>Back-to-school expenses</li>
+                        <li>Holiday and birthday spending</li>
+                        <li>Summer camps</li>
+                        <li>Sports and extracurricular activities</li>
+                        <li>Family travel</li>
+                        <li>Vehicle maintenance</li>
+                        <li>Home repairs</li>
+                        <li>Medical expenses not covered by insurance</li>
+                    </ul>
+
+                    <h2 id="needs-wants">Separate Needs From Wants</h2>
+
+                    <p>
+                        A family budget becomes easier to adjust when you know which expenses are essential and
+                        which are flexible.
+                    </p>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Usually Essential</th>
+                                    <th>Often Flexible</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>Housing</td>
+                                    <td>Dining out</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Basic utilities</td>
+                                    <td>Entertainment</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Groceries</td>
+                                    <td>Nonessential shopping</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Required transportation</td>
+                                    <td>Hobbies</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Insurance</td>
+                                    <td>Travel</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Required childcare</td>
+                                    <td>Optional subscriptions</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>
+                        The distinction is not always absolute. For example, transportation may be essential for one
+                        household but optional for another. An expense's priority depends on the family's
+                        circumstances.
+                    </p>
+
+                    <p>
+                        For a deeper look at this distinction, see
+                        <a href="/finance/budgeting/needs-vs-wants/">Needs vs. Wants</a>.
+                    </p>
+
+                    <h2 id="budget-methods">Which Budgeting Method Should a Family Use?</h2>
+
+                    <p>
+                        Families can use different budgeting systems. There is no requirement to follow one specific
+                        percentage or method.
+                    </p>
+
+                    <h3>50/30/20 Budget</h3>
+
+                    <p>
+                        The 50/30/20 approach divides after-tax income into broad groups for needs, wants, and
+                        savings or debt goals. It can be a useful framework, but actual family costs may make those
+                        percentages difficult to follow.
+                    </p>
+
+                    <p>
+                        Learn more in the
+                        <a href="/finance/budgeting/50-30-20-rule/">50/30/20 Budget Guide</a>.
+                    </p>
+
+                    <h3>Zero-Based Budget</h3>
+
+                    <p>
+                        Zero-based budgeting assigns every dollar of expected income to a planned category so that
+                        income minus planned allocations reaches zero. This can be useful for families that prefer
+                        detailed planning.
+                    </p>
+
+                    <p>
+                        See the
+                        <a href="/finance/budgeting/zero-based-budget/">Zero-Based Budgeting Guide</a>.
+                    </p>
+
+                    <h3>Paycheck Budgeting</h3>
+
+                    <p>
+                        Instead of planning only by calendar month, paycheck budgeting assigns incoming money to
+                        expenses based on when each paycheck arrives. This can be helpful when bill due dates and
+                        paydays don't line up.
+                    </p>
+
+                    <p>
+                        Read the
+                        <a href="/finance/budgeting/paycheck-budget/">Paycheck Budgeting Guide</a>.
+                    </p>
+
+                    <h2 id="separate-accounts">Can a Family Budget Work With Separate Accounts?</h2>
+
+                    <p>Yes. A family budget does not require everyone in the household to use one bank account.</p>
+
+                    <p>
+                        Some households use joint accounts for shared bills and savings while keeping separate
+                        accounts for personal spending. Others combine most finances. The important part is that the
+                        household's shared expenses and goals are accounted for somewhere in the overall plan.
+                    </p>
+
+                    <p>
+                        If your family uses separate accounts, decide in advance who is responsible for each shared
+                        expense and when the money will be transferred or deposited.
+                    </p>
+
+                    <h2 id="unequal-income">Family Budgeting With Unequal Incomes</h2>
+
+                    <p>
+                        Families do not necessarily have equal incomes. If one adult earns considerably more than
+                        another, a simple 50/50 contribution toward shared expenses may produce very different
+                        effects on each person's remaining cash.
+                    </p>
+
+                    <p>
+                        One possible approach is to contribute toward shared expenses in proportion to household
+                        income. Another is to pool income and pay shared costs from the household total.
+                    </p>
+
+                    <p>
+                        Neither approach is automatically right for every household. Choose a system that both
+                        adults understand and agree to, and review it when income or responsibilities change.
+                    </p>
+
+                    <h2 id="debt">Include Debt in the Family Budget</h2>
+
+                    <p>
+                        List each household debt separately so you know the required monthly payments and can see
+                        which balances may be priorities for additional payments.
+                    </p>
+
+                    <p>Useful information to track includes:</p>
+
+                    <ul>
+                        <li>Current balance</li>
+                        <li>Minimum monthly payment</li>
+                        <li>Interest rate</li>
+                        <li>Due date</li>
+                        <li>Whether the debt is shared or individually held</li>
+                    </ul>
+
+                    <p>
+                        Make minimum payments part of the normal monthly budget. If you want to make extra payments,
+                        create a separate goal so the additional amount is intentional rather than accidental.
+                    </p>
+
+                    <h2 id="family-meeting">Have a Regular Family Money Check-In</h2>
+
+                    <p>
+                        A budget is a plan, not a document that needs to remain unchanged. Household income, bills,
+                        children, jobs and financial goals can all change.
+                    </p>
+
+                    <p>Set aside time regularly to review the budget. A short meeting can cover:</p>
+
+                    <ul>
+                        <li>What did we actually spend?</li>
+                        <li>Were any categories higher than expected?</li>
+                        <li>Are upcoming expenses different from last month?</li>
+                        <li>Are savings goals still realistic?</li>
+                        <li>Did any new recurring expense appear?</li>
+                        <li>Do we need to adjust spending or income assumptions?</li>
+                        <li>What large expenses are coming in the next few months?</li>
+                    </ul>
+
+                    <p>
+                        Keeping the discussion focused on the plan rather than blaming an individual can make budget
+                        reviews more productive.
+                    </p>
+
+                    <h2 id="mistakes">Common Family Budget Mistakes</h2>
+
+                    <h3>Ignoring irregular expenses</h3>
+
+                    <p>
+                        A budget can look balanced until an annual bill, car repair or school expense appears. Add
+                        predictable irregular expenses to monthly planning.
+                    </p>
+
+                    <h3>Using unrealistic spending targets</h3>
+
+                    <p>
+                        A budget that is too restrictive may be difficult to maintain. Start with actual spending,
+                        then make changes that are realistic for your household.
+                    </p>
+
+                    <h3>Forgetting personal spending</h3>
+
+                    <p>
+                        If every dollar is assigned to bills and family obligations, there may be no room for
+                        individual spending. Including reasonable personal spending can make the plan easier to live
+                        with.
+                    </p>
+
+                    <h3>Budgeting with gross income</h3>
+
+                    <p>
+                        For a household spending plan, take-home pay is generally more useful than gross pay because
+                        it represents the money available after payroll deductions.
+                    </p>
+
+                    <h3>Never updating the budget</h3>
+
+                    <p>
+                        A family budget should change when your household changes. Revisit it after a job change,
+                        move, new child, major debt change, large purchase, significant income change or other major
+                        event.
+                    </p>
+
+                    <h2 id="simple-process">A Simple Family Budget Routine</h2>
+
+                    <p>If a detailed budget feels overwhelming, start with a simple monthly routine:</p>
+
+                    <ol>
+                        <li>Calculate total household take-home income.</li>
+                        <li>List essential monthly bills.</li>
+                        <li>Estimate variable spending.</li>
+                        <li>List debt payments.</li>
+                        <li>Add savings and financial goals.</li>
+                        <li>Set aside money for irregular expenses.</li>
+                        <li>Compare planned outflow with income.</li>
+                        <li>Review actual spending during the month.</li>
+                        <li>Adjust the next month's plan.</li>
+                    </ol>
+
+                    <p>
+                        Once the basic system works, you can add more detail with a
+                        <a href="/finance/budgeting/monthly-budget/">monthly budget</a>,
+                        <a href="/finance/budgeting/envelope-budget/">envelope budgeting</a>, or another system that
+                        fits your household.
+                    </p>
+
+                    <h2 id="faq">Family Budget FAQ</h2>
+
+                    <div class="faq">
+                        <details>
+                            <summary>How do you create a family budget?</summary>
+                            <p>
+                                Start with household take-home income, list fixed and variable expenses, include
+                                debt and savings goals, account for irregular expenses, and compare total planned
+                                outflow with income. Review the plan regularly and adjust it as circumstances
+                                change.
+                            </p>
+                        </details>
+
+                        <details>
+                            <summary>What should be included in a family budget?</summary>
+                            <p>
+                                Common categories include housing, utilities, groceries, transportation, insurance,
+                                healthcare, childcare, debt, subscriptions, personal spending, entertainment,
+                                savings, investing and irregular expenses.
+                            </p>
+                        </details>
+
+                        <details>
+                            <summary>How much should a family save each month?</summary>
+                            <p>
+                                There is no single savings amount that works for every family. Your target depends
+                                on income, essential expenses, debt, emergency savings, retirement goals and other
+                                priorities.
+                            </p>
+                        </details>
+
+                        <details>
+                            <summary>Should children be involved in family budgeting?</summary>
+                            <p>
+                                Children can participate in age-appropriate ways. For example, parents can involve
+                                them in planning family activities, comparing prices, discussing saving goals or
+                                making spending choices.
+                            </p>
+                        </details>
+
+                        <details>
+                            <summary>What if our family budget is negative?</summary>
+                            <p>
+                                A negative budget means planned outflow is greater than planned income. Review
+                                flexible spending, recurring expenses, debt payments and possible ways to increase
+                                available income. The goal is to build a realistic plan rather than simply eliminate
+                                every discretionary expense.
+                            </p>
+                        </details>
+                    </div>
+
+                    <div class="callout">
+                        <strong>Next step</strong>
+                        If you're building your household budget from your paychecks, start with the
+                        <a href="/paycheck-tax-calculator/">Paycheck Calculator</a>
+                        to estimate take-home pay, then bring that number into your monthly family budget.
+                    </div>
+
+                    <div class="disclaimer">
+                        <strong>Disclaimer:</strong>
+                        PaycheckMint provides general educational information and budgeting tools. Calculator
+                        results are estimates and should not be considered financial, tax, legal or investment
+                        advice. Your actual household income and expenses may differ.
+                    </div>
+                </div>
+            </article>
+
+            <aside class="sidebar">
+                <div class="side-card side-cta">
+                    <h3>Build Your Family Budget</h3>
+
+                    <p>Enter your household income and expenses to see your planned monthly cash flow.</p>
+
+                    <a href="#calculator">Use Calculator</a>
+                </div>
+
+                <div class="side-card">
+                    <h3>On This Page</h3>
+
+                    <div class="toc">
+                        <a href="#calculator">Family Budget Calculator</a>
+                        <a href="#what-is-family-budget">What Is a Family Budget?</a>
+                        <a href="#why-family-budget">Why Create One?</a>
+                        <a href="#how-to-create">How to Create One</a>
+                        <a href="#categories">Budget Categories</a>
+                        <a href="#family-example">Example</a>
+                        <a href="#kids">Budgeting for Children</a>
+                        <a href="#needs-wants">Needs vs. Wants</a>
+                        <a href="#budget-methods">Budgeting Methods</a>
+                        <a href="#debt">Debt</a>
+                        <a href="#mistakes">Common Mistakes</a>
+                        <a href="#faq">FAQ</a>
+                    </div>
+                </div>
+
+                <div class="side-card">
+                    <h3>Related Budgeting Guides</h3>
+
+                    <div class="related">
+                        <a href="/finance/budgeting/">Budgeting Guide</a>
+                        <a href="/finance/budgeting/monthly-budget/">Monthly Budget</a>
+                        <a href="/finance/budgeting/paycheck-budget/">Paycheck Budgeting</a>
+                        <a href="/finance/budgeting/50-30-20-rule/">50/30/20 Budget</a>
+                        <a href="/finance/budgeting/zero-based-budget/">Zero-Based Budget</a>
+                        <a href="/finance/budgeting/envelope-budget/">Envelope Budget</a>
+                        <a href="/finance/budgeting/needs-vs-wants/">Needs vs. Wants</a>
+                        <a href="/finance/budgeting/budgeting-for-couples/">Budgeting for Couples</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+    </main>
+
+    <footer>
+
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand"><a href="/" class="logo"> Paycheck<span>Mint</span> </a>
+                    </div>
+
+                    <p class="footer-description">
+                        Simple U.S. personal finance calculators, guides and tools to help you understand your
+                        income, taxes, budgeting and everyday finances.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Calculators</h3>
+                    <a href="/paycheck-tax-calculator/">Paycheck Calculator</a>
+                    <a href="/hourly-paycheck-calculator/">Hourly Paycheck Calculator</a>
+                    <a href="/salary-paycheck-calculator/">Salary Paycheck Calculator</a>
+                    <a href="/overtime-pay-calculator/">Overtime Calculator</a>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Finance</h3>
+                    <a href="/finance/">Finance Overview</a>
+                    <a href="/finance/taxes/">Taxes</a>
+                    <a href="/finance/budgeting/">Budgeting</a>
+                    <a href="/finance/credit-debt/">Credit &amp; Debt</a>
+                    <a href="/finance/investing/">Investing</a>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Company</h3>
+                    <a href="/about/">About</a>
+                    <a href="/contact/">Contact</a>
+                    <a href="/privacy-policy/">Privacy</a>
+                    <a href="/terms/">Terms</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© 2026 PaycheckMint. All rights reserved.</span>
+                <span>For educational and informational purposes.</span>
+            </div>
+        </div>
+
+    </footer>
+
+    <script>
+        (function () {
+            const menuToggle = document.getElementById("mobileMenuToggle");
+            const mainNav = document.getElementById("mainNav");
+            const financeDropdown = document.getElementById("financeDropdown");
+            const financeToggle = document.getElementById("financeToggle");
+
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener("click", function () {
+                    const open = mainNav.classList.toggle("menu-open");
+
+                    menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+                    menuToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+                });
+            }
+
+            if (financeToggle && financeDropdown) {
+                financeToggle.addEventListener("click", function (event) {
+                    event.stopPropagation();
+
+                    const open = financeDropdown.classList.toggle("open");
+
+                    financeToggle.setAttribute("aria-expanded", open ? "true" : "false");
+                });
+            }
+
+            document.addEventListener("click", function (event) {
+                if (financeDropdown && !financeDropdown.contains(event.target)) {
+                    financeDropdown.classList.remove("open");
+
+                    if (financeToggle) {
+                        financeToggle.setAttribute("aria-expanded", "false");
+                    }
+                }
+            });
+
+            document.querySelectorAll(".main-nav a").forEach(function (link) {
+                link.addEventListener("click", function () {
+                    if (mainNav) {
+                        mainNav.classList.remove("menu-open");
+                    }
+
+                    if (menuToggle) {
+                        menuToggle.setAttribute("aria-expanded", "false");
+                        menuToggle.setAttribute("aria-label", "Open menu");
+                    }
+                });
+            });
+
+            window.addEventListener("resize", function () {
+                if (window.innerWidth > 850) {
+                    if (mainNav) {
+                        mainNav.classList.remove("menu-open");
+                    }
+
+                    if (financeDropdown) {
+                        financeDropdown.classList.remove("open");
+                    }
+
+                    if (menuToggle) {
+                        menuToggle.setAttribute("aria-expanded", "false");
+                        menuToggle.setAttribute("aria-label", "Open menu");
+                    }
+
+                    if (financeToggle) {
+                        financeToggle.setAttribute("aria-expanded", "false");
+                    }
+                }
+            });
+        })();
+
+        /* FAMILY BUDGET CALCULATOR */
+
+        (function () {
+            const fields = [
+                "income1",
+                "income2",
+                "otherIncome",
+
+                "housing",
+                "utilities",
+                "groceries",
+                "transportation",
+                "insurance",
+                "healthcare",
+                "childcare",
+                "debt",
+
+                "subscriptions",
+                "personal",
+                "dining",
+                "shopping",
+                "activities",
+                "savings",
+                "irregular",
+                "other",
+            ];
+
+            function getValue(id) {
+                const input = document.getElementById(id);
+
+                if (!input) return 0;
+
+                const value = parseFloat(input.value);
+
+                return Number.isFinite(value) && value > 0 ? value : 0;
+            }
+
+            function money(value) {
+                return new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                    maximumFractionDigits: 0,
+                }).format(value);
+            }
+
+            function calculate() {
+                const income = getValue("income1") + getValue("income2") + getValue("otherIncome");
+
+                const essentials =
+                    getValue("housing") +
+                    getValue("utilities") +
+                    getValue("groceries") +
+                    getValue("transportation") +
+                    getValue("insurance") +
+                    getValue("healthcare") +
+                    getValue("childcare") +
+                    getValue("debt");
+
+                const savings = getValue("savings");
+
+                const otherExpenses =
+                    getValue("subscriptions") +
+                    getValue("personal") +
+                    getValue("dining") +
+                    getValue("shopping") +
+                    getValue("activities") +
+                    getValue("irregular") +
+                    getValue("other");
+
+                const totalExpenses = essentials + savings + otherExpenses;
+
+                const remaining = income - totalExpenses;
+
+                document.getElementById("resultIncome").textContent = money(income);
+
+                document.getElementById("resultExpenses").textContent = money(totalExpenses);
+
+                document.getElementById("resultEssentials").textContent = money(essentials);
+
+                document.getElementById("resultSavings").textContent = money(savings);
+
+                document.getElementById("resultRemaining").textContent = money(remaining);
+
+                const status = document.getElementById("budgetStatus");
+
+                status.classList.remove("good", "bad", "neutral");
+
+                if (income <= 0) {
+                    status.classList.add("neutral");
+
+                    status.textContent = "Enter at least one source of household income.";
+                } else if (remaining > 0) {
+                    status.classList.add("good");
+
+                    status.textContent =
+                        "Your plan has " + money(remaining) + " remaining after planned expenses and savings.";
+                } else if (remaining === 0) {
+                    status.classList.add("neutral");
+
+                    status.textContent = "Your planned income and outflow are balanced.";
+                } else {
+                    status.classList.add("bad");
+
+                    status.textContent =
+                        "Your planned outflow is " +
+                        money(Math.abs(remaining)) +
+                        " higher than your household income.";
+                }
+            }
+
+            const button = document.getElementById("calculateBudget");
+
+            if (button) {
+                button.addEventListener("click", calculate);
+            }
+
+            fields.forEach(function (id) {
+                const input = document.getElementById(id);
+
+                if (input) {
+                    input.addEventListener("keydown", function (event) {
+                        if (event.key === "Enter") {
+                            calculate();
+                        }
+                    });
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>

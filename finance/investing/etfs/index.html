@@ -1,0 +1,2082 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>ETFs: What They Are, How They Work & How to Invest | PaycheckMint</title>
+
+        <meta
+            name="description"
+            content="Learn what ETFs are, how exchange-traded funds work, ETF types, costs, risks, dividends, NAV, ETF vs mutual funds, and how to buy ETFs through a brokerage account."
+        />
+
+        <meta
+            name="keywords"
+            content="ETFs, what is an ETF, exchange traded funds, how ETFs work, ETF investing, ETF vs mutual fund, ETF fees, ETF risks, how to buy ETFs, ETF investing for beginners"
+        />
+
+        <meta name="robots" content="index, follow" />
+
+        <link rel="canonical" href="https://paycheckmint.vercel.app/finance/investing/etfs/" />
+
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="ETFs: What They Are, How They Work & How to Invest | PaycheckMint" />
+        <meta
+            property="og:description"
+            content="Learn how ETFs work, how they differ from mutual funds and stocks, ETF costs, risks, types, dividends, NAV, and how to buy ETFs."
+        />
+        <meta property="og:url" content="https://paycheckmint.vercel.app/finance/investing/etfs/" />
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="ETFs: What They Are, How They Work & How to Invest | PaycheckMint" />
+        <meta
+            name="twitter:description"
+            content="A beginner-friendly guide to exchange-traded funds, including ETF types, costs, risks, trading and investing basics."
+        />
+
+        <style>
+            :root {
+                --bg: #f6f5f1;
+                --surface: #ffffff;
+                --surface-soft: #faf9f6;
+
+                --ink: #191919;
+                --muted: #74736f;
+                --muted-light: #999791;
+
+                --line: #deddd8;
+                --line-dark: #cbc9c3;
+
+                --accent: #5954d9;
+                --accent-dark: #4843c0;
+                --accent-soft: #eeedff;
+
+                --success: #247a4d;
+                --danger: #b64747;
+
+                --shadow: 0 10px 30px rgba(25, 25, 25, 0.06);
+
+                --radius: 16px;
+                --max-width: 1120px;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                margin: 0;
+                background: var(--bg);
+                color: var(--ink);
+                font-family:
+                    Inter,
+                    ui-sans-serif,
+                    system-ui,
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    sans-serif;
+                line-height: 1.65;
+            }
+
+            body.menu-open {
+                overflow: hidden;
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            button,
+            input {
+                font: inherit;
+            }
+
+            .container {
+                width: min(var(--max-width), calc(100% - 32px));
+                margin: 0 auto;
+            }
+
+            /* =========================
+       HEADER
+    ========================= */
+
+            .site-header {
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                background: rgba(255, 255, 255, 0.97);
+                border-bottom: 1px solid var(--line);
+                backdrop-filter: blur(12px);
+            }
+
+            .header-inner {
+                min-height: 68px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 24px;
+            }
+
+            .brand {
+                display: inline-block;
+                color: var(--ink);
+                font-size: 24px;
+                font-weight: 800;
+                letter-spacing: -0.8px;
+                white-space: nowrap;
+            }
+
+            .brand span {
+                color: var(--accent);
+            }
+
+            .main-nav {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+            }
+
+            .main-nav > a,
+            .nav-dropdown > button {
+                border: 0;
+                background: transparent;
+                padding: 10px 12px;
+                color: #3d3c39;
+                font-size: 14px;
+                font-weight: 600;
+                border-radius: 9px;
+                cursor: pointer;
+            }
+
+            .main-nav > a:hover,
+            .nav-dropdown > button:hover {
+                background: var(--surface-soft);
+                color: var(--accent);
+            }
+
+            .nav-dropdown {
+                position: relative;
+            }
+
+            .dropdown-menu {
+                position: absolute;
+                top: calc(100% + 8px);
+                right: 0;
+                min-width: 225px;
+                padding: 8px;
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 12px;
+                box-shadow: var(--shadow);
+                display: none;
+            }
+
+            .nav-dropdown.open .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-menu a {
+                display: block;
+                padding: 9px 11px;
+                border-radius: 8px;
+                color: #41403d;
+                font-size: 14px;
+            }
+
+            .dropdown-menu a:hover {
+                background: var(--accent-soft);
+                color: var(--accent-dark);
+            }
+
+            .mobile-menu-toggle {
+                display: none;
+                width: 42px;
+                height: 42px;
+                border: 1px solid var(--line);
+                background: white;
+                border-radius: 10px;
+                cursor: pointer;
+                font-size: 21px;
+                color: var(--ink);
+            }
+
+            .mobile-menu-toggle:hover {
+                background: var(--surface-soft);
+            }
+
+            /* =========================
+       HERO
+    ========================= */
+
+            .hero {
+                padding: 64px 0 42px;
+            }
+
+            .hero-grid {
+                display: grid;
+                grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+                gap: 48px;
+                align-items: center;
+            }
+
+            .eyebrow {
+                display: inline-flex;
+                padding: 6px 10px;
+                border-radius: 999px;
+                background: var(--accent-soft);
+                color: var(--accent-dark);
+                font-size: 12px;
+                font-weight: 800;
+                letter-spacing: 0.03em;
+                text-transform: uppercase;
+            }
+
+            h1 {
+                margin: 14px 0 18px;
+                font-size: clamp(36px, 5vw, 58px);
+                line-height: 1.05;
+                letter-spacing: -2px;
+            }
+
+            .hero p {
+                margin: 0;
+                max-width: 700px;
+                color: var(--muted);
+                font-size: 18px;
+            }
+
+            .hero-card {
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 20px;
+                padding: 26px;
+                box-shadow: var(--shadow);
+            }
+
+            .hero-card h2 {
+                margin: 0 0 8px;
+                font-size: 21px;
+            }
+
+            .hero-card p {
+                margin-bottom: 20px;
+                font-size: 14px;
+            }
+
+            .etf-points {
+                display: grid;
+                gap: 10px;
+            }
+
+            .etf-point {
+                padding: 14px;
+                border: 1px solid var(--line);
+                border-radius: 12px;
+                background: var(--surface-soft);
+            }
+
+            .etf-point strong {
+                display: block;
+                margin-bottom: 2px;
+                font-size: 15px;
+            }
+
+            .etf-point span {
+                color: var(--muted);
+                font-size: 13px;
+            }
+
+            /* =========================
+       CONTENT
+    ========================= */
+
+            .content-section {
+                padding: 40px 0 65px;
+            }
+
+            .content-layout {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) 280px;
+                gap: 45px;
+                align-items: start;
+            }
+
+            .article {
+                min-width: 0;
+            }
+
+            .article h2 {
+                margin: 42px 0 14px;
+                font-size: 31px;
+                line-height: 1.2;
+                letter-spacing: -0.7px;
+            }
+
+            .article h2:first-child {
+                margin-top: 0;
+            }
+
+            .article h3 {
+                margin: 28px 0 9px;
+                font-size: 21px;
+                line-height: 1.3;
+            }
+
+            .article p {
+                margin: 0 0 17px;
+                color: #4d4c48;
+            }
+
+            .article ul,
+            .article ol {
+                padding-left: 23px;
+                color: #4d4c48;
+            }
+
+            .article li {
+                margin: 7px 0;
+            }
+
+            .highlight {
+                padding: 20px;
+                margin: 25px 0;
+                border-left: 4px solid var(--accent);
+                background: var(--accent-soft);
+                border-radius: 10px;
+            }
+
+            .highlight p {
+                margin: 0;
+            }
+
+            .definition-box {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 13px;
+                margin: 24px 0;
+            }
+
+            .definition-box > div {
+                padding: 20px;
+                border: 1px solid var(--line);
+                border-radius: 14px;
+                background: white;
+            }
+
+            .definition-box strong {
+                display: block;
+                margin-bottom: 5px;
+                font-size: 19px;
+            }
+
+            .definition-box span {
+                color: var(--muted);
+                font-size: 13px;
+            }
+
+            .info-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
+                margin: 22px 0;
+            }
+
+            .info-card {
+                padding: 20px;
+                background: white;
+                border: 1px solid var(--line);
+                border-radius: 14px;
+            }
+
+            .info-card h3 {
+                margin: 0 0 7px;
+                font-size: 18px;
+            }
+
+            .info-card p {
+                margin: 0;
+                font-size: 14px;
+            }
+
+            .comparison-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 22px 0;
+                background: white;
+                border: 1px solid var(--line);
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 13px 14px;
+                text-align: left;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .comparison-table th {
+                background: var(--surface-soft);
+                font-size: 13px;
+            }
+
+            .comparison-table td {
+                font-size: 14px;
+                vertical-align: top;
+            }
+
+            .comparison-table tr:last-child td {
+                border-bottom: 0;
+            }
+
+            .check-list {
+                list-style: none;
+                padding-left: 0 !important;
+            }
+
+            .check-list li {
+                position: relative;
+                padding-left: 28px;
+            }
+
+            .check-list li::before {
+                content: "✓";
+                position: absolute;
+                left: 0;
+                top: 0;
+                color: var(--success);
+                font-weight: 800;
+            }
+
+            .warning-box {
+                padding: 20px;
+                margin: 24px 0;
+                border: 1px solid #ead3d3;
+                background: #fff8f8;
+                border-radius: 12px;
+            }
+
+            .warning-box strong {
+                display: block;
+                margin-bottom: 5px;
+                color: var(--danger);
+            }
+
+            .formula-box {
+                padding: 22px;
+                margin: 24px 0;
+                border: 1px solid var(--line);
+                border-radius: 14px;
+                background: white;
+            }
+
+            .formula-box strong {
+                font-size: 18px;
+            }
+
+            /* =========================
+       SIDEBAR
+    ========================= */
+
+            .sidebar {
+                position: sticky;
+                top: 90px;
+                display: grid;
+                gap: 16px;
+            }
+
+            .sidebar-card {
+                padding: 20px;
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 14px;
+            }
+
+            .sidebar-card h3 {
+                margin: 0 0 11px;
+                font-size: 15px;
+            }
+
+            .sidebar-card p {
+                margin: 0 0 14px;
+                color: var(--muted);
+                font-size: 13px;
+            }
+
+            .sidebar-links a {
+                display: block;
+                padding: 6px 0;
+                color: var(--muted);
+                font-size: 13px;
+            }
+
+            .sidebar-links a:hover {
+                color: var(--accent);
+            }
+
+            .sidebar-cta {
+                background: var(--accent);
+                color: white;
+                border-color: var(--accent);
+            }
+
+            .sidebar-cta p {
+                color: rgba(255, 255, 255, 0.82);
+            }
+
+            .sidebar-cta a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 10px 14px;
+                border-radius: 9px;
+                background: white;
+                color: var(--accent-dark);
+                font-size: 13px;
+                font-weight: 800;
+            }
+
+            /* =========================
+       CTA
+    ========================= */
+
+            .cta {
+                margin: 50px 0 0;
+                padding: 35px;
+                background: var(--accent);
+                color: white;
+                border-radius: 20px;
+                text-align: center;
+            }
+
+            .cta h2 {
+                margin: 0 0 9px;
+                font-size: 29px;
+            }
+
+            .cta p {
+                max-width: 650px;
+                margin: 0 auto 22px;
+                color: rgba(255, 255, 255, 0.86);
+            }
+
+            .cta a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 11px 18px;
+                border-radius: 10px;
+                background: white;
+                color: var(--accent-dark);
+                font-size: 14px;
+                font-weight: 800;
+            }
+
+            /* =========================
+       FAQ
+    ========================= */
+
+            .faq-section {
+                padding: 55px 0;
+                background: var(--surface);
+                border-top: 1px solid var(--line);
+                border-bottom: 1px solid var(--line);
+            }
+
+            .section-title {
+                margin: 0 0 26px;
+                font-size: 31px;
+                letter-spacing: -0.6px;
+            }
+
+            .faq {
+                border-top: 1px solid var(--line);
+            }
+
+            .faq-item {
+                border-bottom: 1px solid var(--line);
+            }
+
+            .faq-question {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 20px;
+                border: 0;
+                background: transparent;
+                padding: 18px 0;
+                text-align: left;
+                color: var(--ink);
+                font: inherit;
+                font-weight: 700;
+                cursor: pointer;
+            }
+
+            .faq-question span:last-child {
+                color: var(--muted);
+                font-size: 22px;
+            }
+
+            .faq-answer {
+                display: none;
+                padding: 0 0 18px;
+                color: var(--muted);
+                font-size: 14px;
+            }
+
+            .faq-item.open .faq-answer {
+                display: block;
+            }
+
+            /* =========================
+       FOOTER
+    ========================= */
+
+            footer {
+                padding: 42px 0 25px;
+                border-top: 1px solid var(--line);
+                background: var(--bg);
+            }
+
+            .footer-grid {
+                display: grid;
+                grid-template-columns: 1.5fr 1fr 1fr 1fr;
+                gap: 30px;
+            }
+
+            .footer-description {
+                max-width: 360px;
+                margin-top: 10px;
+                color: var(--muted);
+                font-size: 13px;
+            }
+
+            .footer-col h3 {
+                margin: 0 0 10px;
+                font-size: 14px;
+            }
+
+            .footer-col a {
+                display: block;
+                padding: 4px 0;
+                color: var(--muted);
+                font-size: 13px;
+            }
+
+            .footer-col a:hover {
+                color: var(--accent);
+            }
+
+            .footer-bottom {
+                margin-top: 35px;
+                padding-top: 18px;
+                border-top: 1px solid var(--line);
+                color: var(--muted-light);
+                font-size: 12px;
+            }
+
+            /* =========================
+       RESPONSIVE
+    ========================= */
+
+            @media (max-width: 900px) {
+                .mobile-menu-toggle {
+                    display: grid;
+                    place-items: center;
+                }
+
+                .main-nav {
+                    position: absolute;
+                    left: 12px;
+                    right: 12px;
+                    top: calc(100% + 8px);
+                    display: none;
+                    flex-direction: column;
+                    align-items: stretch;
+                    padding: 10px;
+                    background: white;
+                    border: 1px solid var(--line);
+                    border-radius: 14px;
+                    box-shadow: var(--shadow);
+                    max-height: calc(100vh - 90px);
+                    overflow-y: auto;
+                }
+
+                .main-nav.open {
+                    display: flex;
+                }
+
+                .main-nav > a,
+                .nav-dropdown > button {
+                    width: 100%;
+                    text-align: left;
+                    padding: 12px;
+                }
+
+                .nav-dropdown {
+                    width: 100%;
+                }
+
+                .dropdown-menu {
+                    position: static;
+                    width: 100%;
+                    min-width: 0;
+                    margin-top: 3px;
+                    border: 0;
+                    box-shadow: none;
+                    background: var(--surface-soft);
+                }
+
+                .hero-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .content-layout {
+                    grid-template-columns: 1fr;
+                }
+
+                .sidebar {
+                    position: static;
+                    order: -1;
+                }
+
+                .info-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .footer-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+
+            @media (max-width: 600px) {
+                .container {
+                    width: min(100% - 24px, var(--max-width));
+                }
+
+                .hero {
+                    padding: 42px 0 30px;
+                }
+
+                h1 {
+                    font-size: 38px;
+                    letter-spacing: -1.4px;
+                }
+
+                .hero p {
+                    font-size: 16px;
+                }
+
+                .definition-box {
+                    grid-template-columns: 1fr;
+                }
+
+                .comparison-table {
+                    display: block;
+                    overflow-x: auto;
+                    white-space: nowrap;
+                }
+
+                .footer-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .cta {
+                    padding: 28px 20px;
+                }
+
+                .article h2 {
+                    font-size: 27px;
+                }
+            }
+        </style>
+
+        <!-- FAQ Schema -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "What is an ETF?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "An ETF, or exchange-traded fund, is an investment fund whose shares trade on a securities exchange. An ETF can hold stocks, bonds, or other assets and gives investors an ownership interest in the fund's portfolio."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How do ETFs work?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "ETFs pool investor money into a portfolio of securities or other assets. Investors generally buy and sell ETF shares through a brokerage account on an exchange during market hours."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Are ETFs the same as stocks?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "No. ETF shares trade on exchanges like stocks, but an ETF generally represents an interest in a portfolio of investments rather than ownership of a single company."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Are ETFs the same as mutual funds?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "ETFs and mutual funds can both hold diversified portfolios, but their trading structures differ. ETF shares trade throughout the day on exchanges, while mutual fund transactions are generally priced at the next calculated net asset value."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can you lose money investing in ETFs?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. ETF values can decline, and investors can lose some or all of the money invested depending on the fund and market conditions. Diversification does not eliminate investment risk."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Do ETFs pay dividends?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Some ETFs distribute income generated by the securities they hold. Depending on the fund, distributions can include dividends, interest or capital gains."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What are ETF expense ratios?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "An ETF expense ratio represents the fund's ongoing operating expenses expressed as a percentage of fund assets. These costs are deducted from the fund's assets and can reduce investor returns over time."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How do I buy an ETF?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Investors generally buy and sell ETF shares through a brokerage account. Before investing, review the ETF's objective, holdings, fees, risks, trading characteristics and other information in its prospectus and related documents."
+                        }
+                    }
+                ]
+            }
+        </script>
+
+        <!-- Breadcrumb Schema -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://paycheckmint.vercel.app/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Finance",
+                        "item": "https://paycheckmint.vercel.app/finance/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Investing",
+                        "item": "https://paycheckmint.vercel.app/finance/investing/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 4,
+                        "name": "ETFs",
+                        "item": "https://paycheckmint.vercel.app/finance/investing/etfs/"
+                    }
+                ]
+            }
+        </script>
+
+        <!-- Article Schema -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": "ETFs: What They Are, How They Work & How to Invest",
+                "description": "A beginner-friendly guide to exchange-traded funds, including how ETFs work, ETF types, costs, risks, trading, dividends and ETF investing basics.",
+                "author": {
+                    "@type": "Organization",
+                    "name": "PaycheckMint"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "PaycheckMint"
+                },
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://paycheckmint.vercel.app/finance/investing/etfs/"
+                }
+            }
+        </script>
+        
+    </head>
+
+    <body>
+        
+        <!-- =========================
+     HEADER
+========================= -->
+
+        <header class="site-header">
+            <div class="container header-inner">
+                <a class="brand" href="/"> Paycheck<span>Mint</span> </a>
+
+                <button
+                    class="mobile-menu-toggle"
+                    id="mobileMenuToggle"
+                    type="button"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="mainNav"
+                >
+                    ☰
+                </button>
+
+                <nav class="main-nav" id="mainNav">
+                    <a href="/">Home</a>
+
+                    <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+
+                    <a href="/income/"> Income </a>
+
+                    <div class="nav-dropdown" id="financeDropdown">
+                        <button type="button" id="financeButton" aria-expanded="false" aria-controls="financeMenu">
+                            Finance <span aria-hidden="true">▾</span>
+                        </button>
+
+                        <div class="dropdown-menu" id="financeMenu">
+                            <a href="/finance/"> Finance Overview </a>
+
+                            <a href="/finance/taxes/"> Taxes </a>
+
+                            <a href="/finance/budgeting/"> Budgeting </a>
+
+                            <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+
+                            <a href="/finance/investing/"> Investing </a>
+
+                            <a href="/finance/insurance/"> Insurance </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- =========================
+         HERO
+    ========================= -->
+
+            <section class="hero">
+                <div class="container hero-grid">
+                    <div>
+                        <span class="eyebrow"> Investing Guide </span>
+
+                        <h1>ETFs: What They Are, How They Work &amp; How to Invest</h1>
+
+                        <p>
+                            Exchange-traded funds, or ETFs, let investors buy shares in a fund that can hold a
+                            collection of stocks, bonds or other assets. Learn how ETFs work, how they differ from
+                            stocks and mutual funds, what they cost, and what to consider before investing.
+                        </p>
+                    </div>
+
+                    <div class="hero-card">
+                        <h2>ETF basics</h2>
+
+                        <p>
+                            An ETF combines a portfolio of investments with the ability to trade fund shares on an
+                            exchange during the trading day.
+                        </p>
+
+                        <div class="etf-points">
+                            <div class="etf-point">
+                                <strong>Fund</strong>
+                                <span>Holds a portfolio of securities or other assets.</span>
+                            </div>
+
+                            <div class="etf-point">
+                                <strong>Exchange-traded</strong>
+                                <span>Shares generally trade throughout the market day.</span>
+                            </div>
+
+                            <div class="etf-point">
+                                <strong>Diversification</strong>
+                                <span>Many ETFs provide exposure to multiple investments in one fund.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =========================
+         ARTICLE
+    ========================= -->
+
+            <section class="content-section">
+                <div class="container content-layout">
+                    <article class="article">
+                        <h2 id="what-is">What Is an ETF?</h2>
+
+                        <p>
+                            ETF stands for <strong>exchange-traded fund</strong>. An ETF is an investment fund that
+                            pools money from investors and uses that money to hold a portfolio of investments.
+                        </p>
+
+                        <p>
+                            Depending on the fund, an ETF may hold stocks, bonds, short-term money-market instruments,
+                            commodities or other investments. Each ETF share represents an investor's portion of the
+                            fund's portfolio.
+                        </p>
+
+                        <p>
+                            The "exchange-traded" part of the name refers to how ETF shares are bought and sold. Unlike
+                            traditional mutual fund transactions, ETF shares generally trade on securities exchanges
+                            throughout the trading day.
+                        </p>
+
+                        <div class="highlight">
+                            <p>
+                                <strong>Simple definition:</strong>
+                                An ETF is a fund that holds a portfolio of investments while its shares trade on an
+                                exchange similarly to shares of individual stocks.
+                            </p>
+                        </div>
+
+                        <h2 id="how-it-works">How Do ETFs Work?</h2>
+
+                        <p>
+                            An ETF pools money from many investors and uses it to purchase the investments specified by
+                            the fund's strategy.
+                        </p>
+
+                        <p>
+                            For example, an ETF could be designed to provide exposure to a broad group of U.S.
+                            companies, a particular industry, government bonds, corporate bonds or international
+                            markets.
+                        </p>
+
+                        <p>
+                            Investors generally purchase ETF shares through a brokerage account. The shares trade on an
+                            exchange, and their market price can change throughout the trading day.
+                        </p>
+
+                        <p>
+                            Large financial institutions known as authorized participants play an important role in the
+                            ETF creation and redemption process. They generally transact directly with the ETF in large
+                            blocks of shares, helping the market price remain relatively close to the fund's net asset
+                            value.
+                        </p>
+
+                        <h2 id="etf-vs-stock">ETF vs. Stock</h2>
+
+                        <p>
+                            ETF shares and individual stocks can both trade on an exchange, but they represent different
+                            types of investments.
+                        </p>
+
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>ETF</th>
+                                    <th>Individual Stock</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>What you own</td>
+                                    <td>An interest in a fund portfolio</td>
+                                    <td>An ownership interest in one company</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Diversification</td>
+                                    <td>May hold many investments</td>
+                                    <td>Usually concentrated in one company</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Trading</td>
+                                    <td>Generally trades throughout the day</td>
+                                    <td>Generally trades throughout the day</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Company-specific risk</td>
+                                    <td>Can be spread across multiple holdings</td>
+                                    <td>More directly exposed to one company</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p>
+                            Diversification varies significantly among ETFs. A broad fund can hold many securities,
+                            while a narrowly focused ETF may concentrate on a particular industry, asset class,
+                            geographic region or even a single security.
+                        </p>
+
+                        <h2 id="etf-vs-mutual">ETF vs. Mutual Fund</h2>
+
+                        <p>
+                            ETFs and mutual funds can both pool investor money into portfolios of stocks, bonds or other
+                            assets. One of the major differences is how their shares are traded and priced.
+                        </p>
+
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>ETFs</th>
+                                    <th>Mutual Funds</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>Trading</td>
+                                    <td>Generally traded throughout the trading day</td>
+                                    <td>Transactions generally occur at the next calculated NAV</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Market price</td>
+                                    <td>Can change throughout the day</td>
+                                    <td>Generally priced once per business day</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Exchange trading</td>
+                                    <td>Yes</td>
+                                    <td>Not in the same exchange-traded structure</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Portfolio</td>
+                                    <td>Can hold stocks, bonds and other assets</td>
+                                    <td>Can hold stocks, bonds and other assets</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p>
+                            Neither structure automatically makes an investment appropriate for every investor. The
+                            fund's objective, holdings, costs, risks and the investor's circumstances all matter.
+                        </p>
+
+                        <h2 id="types">Types of ETFs</h2>
+
+                        <p>
+                            ETFs come in many forms. The investment strategy and underlying holdings can be very
+                            different from one ETF to another.
+                        </p>
+
+                        <div class="info-grid">
+                            <div class="info-card">
+                                <h3>Stock ETFs</h3>
+                                <p>
+                                    Hold stocks and may provide exposure to broad markets, company sizes, investment
+                                    styles or specific segments of the stock market.
+                                </p>
+                            </div>
+
+                            <div class="info-card">
+                                <h3>Bond ETFs</h3>
+                                <p>
+                                    Hold bonds or other fixed-income securities and can focus on government, corporate,
+                                    municipal or other bond markets.
+                                </p>
+                            </div>
+
+                            <div class="info-card">
+                                <h3>Sector ETFs</h3>
+                                <p>
+                                    Concentrate on a particular industry or economic sector, such as technology,
+                                    healthcare or energy.
+                                </p>
+                            </div>
+
+                            <div class="info-card">
+                                <h3>International ETFs</h3>
+                                <p>
+                                    Invest in securities from markets outside the United States or across multiple
+                                    countries.
+                                </p>
+                            </div>
+
+                            <div class="info-card">
+                                <h3>Commodity ETFs</h3>
+                                <p>
+                                    Seek exposure to commodities or commodity-related investments. Their structures and
+                                    risks can differ significantly.
+                                </p>
+                            </div>
+
+                            <div class="info-card">
+                                <h3>Targeted ETFs</h3>
+                                <p>
+                                    May focus on a particular theme, strategy, market segment or investment objective.
+                                </p>
+                            </div>
+                        </div>
+
+                        <h2 id="index">Index ETFs</h2>
+
+                        <p>
+                            Many ETFs are designed to track an index. An index ETF generally attempts to achieve
+                            approximately the performance of its chosen index before fees and expenses.
+                        </p>
+
+                        <p>
+                            Instead of relying on a manager to continuously select individual securities with the goal
+                            of outperforming an index, an index ETF generally follows a defined portfolio methodology.
+                        </p>
+
+                        <p>
+                            Index ETFs can therefore provide exposure to many securities through a single investment.
+                            However, an index ETF can still fall in value when the investments in its underlying index
+                            decline.
+                        </p>
+
+                        <p>
+                            Learn more about this approach in our
+                            <a href="/finance/investing/index-funds/" style="color: var(--accent); font-weight: 700">
+                                index funds guide </a
+                            >.
+                        </p>
+
+                        <h2 id="active">Actively Managed ETFs</h2>
+
+                        <p>Not every ETF tracks an index. Some ETFs are actively managed.</p>
+
+                        <p>
+                            An actively managed ETF has a portfolio manager or management team making investment
+                            decisions according to the fund's stated strategy rather than simply attempting to replicate
+                            an index.
+                        </p>
+
+                        <p>
+                            Active ETFs can have different objectives, holdings, turnover and costs from index-based
+                            ETFs. Investors should review the fund's prospectus and other available information to
+                            understand the strategy.
+                        </p>
+
+                        <h2 id="diversification">ETF Diversification</h2>
+
+                        <p>
+                            One reason investors use ETFs is the ability to gain exposure to multiple investments
+                            through one fund.
+                        </p>
+
+                        <p>
+                            For example, an ETF could hold shares of hundreds of companies rather than requiring an
+                            investor to purchase each company's stock individually.
+                        </p>
+
+                        <div class="highlight">
+                            <p>
+                                <strong>Diversification does not eliminate risk.</strong>
+                                A narrowly focused ETF may have substantial exposure to one sector, country, asset class
+                                or strategy. Always review what the fund actually owns rather than assuming every ETF is
+                                broadly diversified.
+                            </p>
+                        </div>
+
+                        <h2 id="price-nav">ETF Price vs. NAV</h2>
+
+                        <p>
+                            Two important concepts when evaluating ETFs are <strong>market price</strong> and
+                            <strong>net asset value (NAV)</strong>.
+                        </p>
+
+                        <p>
+                            NAV represents the value of the fund's underlying assets, after liabilities, on a per-share
+                            basis. The ETF's market price is the price at which its shares trade on an exchange.
+                        </p>
+
+                        <p>
+                            The market price can be higher or lower than NAV. The difference is commonly described as a
+                            premium or discount to NAV.
+                        </p>
+
+                        <p>
+                            During periods of market volatility, the relationship between an ETF's market price and NAV
+                            can change.
+                        </p>
+
+                        <h2 id="costs">How Much Do ETFs Cost?</h2>
+
+                        <p>ETFs have expenses, and those costs can affect long-term investment results.</p>
+
+                        <h3>Expense ratio</h3>
+
+                        <p>
+                            The expense ratio represents the fund's ongoing operating expenses as a percentage of
+                            assets. These expenses are generally deducted from the fund's assets rather than being
+                            presented as a separate bill to the investor.
+                        </p>
+
+                        <h3>Bid-ask spread</h3>
+
+                        <p>
+                            The bid is the price a buyer is willing to pay, while the ask is the price at which a seller
+                            is willing to sell. The difference between them is the bid-ask spread.
+                        </p>
+
+                        <h3>Brokerage costs</h3>
+
+                        <p>
+                            Depending on the brokerage and transaction, investors may encounter trading commissions or
+                            other account-related costs. Check the brokerage's current fee schedule.
+                        </p>
+
+                        <h3>Premiums and discounts</h3>
+
+                        <p>Investors can also receive a price above or below an ETF's NAV when trading shares.</p>
+
+                        <div class="warning-box">
+                            <strong>Costs matter over time</strong>
+                            <p>
+                                A fund with a lower expense ratio is not automatically appropriate for every investor.
+                                Compare the total costs, investment strategy, holdings, risks and services associated
+                                with an investment.
+                            </p>
+                        </div>
+
+                        <h2 id="dividends">Do ETFs Pay Dividends?</h2>
+
+                        <p>Some ETFs distribute income generated by the securities they hold.</p>
+
+                        <p>
+                            For example, a stock ETF may receive dividends from companies in its portfolio. A bond ETF
+                            may receive interest from bonds it owns.
+                        </p>
+
+                        <p>
+                            Depending on the fund and circumstances, investors may also receive capital gains
+                            distributions.
+                        </p>
+
+                        <p>
+                            Distribution policies vary by ETF, so investors should review the fund's documentation
+                            before assuming when or how much an ETF will distribute.
+                        </p>
+
+                        <h2 id="taxes">ETF Taxes</h2>
+
+                        <p>
+                            Taxes depend on the type of account, the ETF, the distributions received and the investor's
+                            individual tax situation.
+                        </p>
+
+                        <p>
+                            In a taxable brokerage account, dividends and capital gains distributions may create taxable
+                            income. Selling an ETF for more than its tax basis can also create a capital gain.
+                        </p>
+
+                        <p>
+                            ETFs can sometimes be more tax-efficient than mutual funds because of differences in their
+                            structures, but tax treatment varies and is not guaranteed to be the same for every fund.
+                        </p>
+
+                        <p>
+                            Retirement accounts have different tax rules. Consider your account type separately from the
+                            investment itself.
+                        </p>
+
+                        <h2 id="risks">ETF Risks</h2>
+
+                        <p>ETFs are investments and are not guaranteed to increase in value.</p>
+
+                        <ul class="check-list">
+                            <li>
+                                <strong>Market risk:</strong>
+                                The value of the ETF can decline when its underlying investments decline.
+                            </li>
+
+                            <li>
+                                <strong>Concentration risk:</strong>
+                                Narrow ETFs can have significant exposure to one industry, country or strategy.
+                            </li>
+
+                            <li>
+                                <strong>Interest-rate risk:</strong>
+                                Bond ETFs can be affected by changes in interest rates.
+                            </li>
+
+                            <li>
+                                <strong>Liquidity risk:</strong>
+                                Some ETFs may trade less actively than others.
+                            </li>
+
+                            <li>
+                                <strong>Tracking risk:</strong>
+                                An index ETF may not perfectly match the performance of its target index.
+                            </li>
+
+                            <li>
+                                <strong>Currency and international risk:</strong>
+                                International investments can be affected by currency movements and country-specific
+                                conditions.
+                            </li>
+
+                            <li>
+                                <strong>Strategy risk:</strong>
+                                Specialized, leveraged or inverse ETFs can have significantly different risks from broad
+                                market ETFs.
+                            </li>
+                        </ul>
+
+                        <h2 id="leveraged">Leveraged and Inverse ETFs</h2>
+
+                        <p>
+                            Some ETFs use strategies designed to produce leveraged or inverse exposure to an index or
+                            other benchmark.
+                        </p>
+
+                        <p>
+                            These products can behave very differently from a traditional broad-market ETF, particularly
+                            over periods longer than one trading day.
+                        </p>
+
+                        <p>
+                            Investors should understand the fund's objective, methodology, compounding effects, costs
+                            and risks before considering these products.
+                        </p>
+
+                        <h2 id="how-to-buy">How to Buy ETFs</h2>
+
+                        <p>ETF shares are generally purchased and sold through a brokerage account.</p>
+
+                        <ol>
+                            <li>
+                                <strong>Determine your goal.</strong>
+                                Understand why the investment is being considered and what role it would have in your
+                                portfolio.
+                            </li>
+
+                            <li>
+                                <strong>Choose an account.</strong>
+                                This could be a taxable brokerage account or an eligible retirement account.
+                            </li>
+
+                            <li>
+                                <strong>Research the ETF.</strong>
+                                Review its objective, holdings, fees, risks and historical information.
+                            </li>
+
+                            <li>
+                                <strong>Read the fund documents.</strong>
+                                Review the prospectus and other available shareholder information.
+                            </li>
+
+                            <li>
+                                <strong>Check the trading details.</strong>
+                                Look at the ticker symbol, market price, bid-ask spread and order type.
+                            </li>
+
+                            <li>
+                                <strong>Place the trade.</strong>
+                                Submit the order through your brokerage account.
+                            </li>
+
+                            <li>
+                                <strong>Monitor your portfolio.</strong>
+                                Periodically review whether the investment continues to fit your goals and allocation.
+                            </li>
+                        </ol>
+
+                        <h2 id="orders">ETF Order Types</h2>
+
+                        <h3>Market order</h3>
+
+                        <p>
+                            A market order generally seeks execution at the best available market price. The execution
+                            price may differ from the price you saw when entering the order.
+                        </p>
+
+                        <h3>Limit order</h3>
+
+                        <p>
+                            A limit order specifies the maximum price you are willing to pay when buying or the minimum
+                            price you are willing to accept when selling. A limit order may not execute if the market
+                            does not reach the specified price.
+                        </p>
+
+                        <p>Investors should understand the mechanics and risks of an order type before using it.</p>
+
+                        <h2 id="research">What to Check Before Buying an ETF</h2>
+
+                        <ul class="check-list">
+                            <li>Fund objective and investment strategy</li>
+
+                            <li>Underlying holdings</li>
+
+                            <li>Expense ratio</li>
+
+                            <li>Bid-ask spread</li>
+
+                            <li>Assets and trading activity</li>
+
+                            <li>Historical performance</li>
+
+                            <li>Investment risks</li>
+
+                            <li>Dividend or distribution policy</li>
+
+                            <li>Tax considerations</li>
+
+                            <li>Prospectus and shareholder information</li>
+                        </ul>
+
+                        <h2 id="example">Simple ETF Example</h2>
+
+                        <p>
+                            Imagine an investor has $1,000 available for an investment and chooses an ETF priced at $100
+                            per share.
+                        </p>
+
+                        <p>
+                            If the brokerage allows whole-share purchases only, $1,000 could purchase 10 shares before
+                            considering trading costs or price changes.
+                        </p>
+
+                        <p>
+                            If the ETF's market price later rises, the value of those shares could increase. If the
+                            ETF's market price falls, the investment could lose value.
+                        </p>
+
+                        <div class="highlight">
+                            <p>
+                                <strong>Important:</strong>
+                                This example is only an illustration of how ETF share purchases work. It is not a
+                                forecast or recommendation and does not account for taxes, fees, price changes or
+                                fractional-share availability.
+                            </p>
+                        </div>
+
+                        <h2 id="beginner">ETFs for Beginners</h2>
+
+                        <p>
+                            A beginner researching ETFs can start by understanding the fund before focusing on its
+                            recent performance.
+                        </p>
+
+                        <p>Important questions include:</p>
+
+                        <ul>
+                            <li>What does the ETF invest in?</li>
+
+                            <li>What index or strategy does it follow?</li>
+
+                            <li>How diversified is the portfolio?</li>
+
+                            <li>What are the ongoing expenses?</li>
+
+                            <li>How actively does the ETF trade?</li>
+
+                            <li>What risks could affect the investment?</li>
+
+                            <li>Does the ETF fit the role you want it to play in your portfolio?</li>
+                        </ul>
+
+                        <p>
+                            Avoid choosing an ETF solely because it recently had strong performance. Past performance
+                            does not guarantee future results.
+                        </p>
+
+                        <h2 id="mistakes">Common ETF Investing Mistakes</h2>
+
+                        <ul>
+                            <li>Assuming every ETF is broadly diversified.</li>
+
+                            <li>Looking only at the expense ratio.</li>
+
+                            <li>Ignoring bid-ask spreads.</li>
+
+                            <li>Buying an ETF without understanding what it holds.</li>
+
+                            <li>Confusing an ETF with a guaranteed investment.</li>
+
+                            <li>Ignoring tax consequences in taxable accounts.</li>
+
+                            <li>Focusing entirely on recent performance.</li>
+
+                            <li>Using leveraged or inverse ETFs without understanding their structure.</li>
+
+                            <li>Assuming every ETF behaves like a broad-market index fund.</li>
+                        </ul>
+
+                        <h2 id="checklist">ETF Investing Checklist</h2>
+
+                        <div class="definition-box">
+                            <div>
+                                <strong>1</strong>
+                                <span>Understand the ETF's objective.</span>
+                            </div>
+
+                            <div>
+                                <strong>2</strong>
+                                <span>Review holdings and diversification.</span>
+                            </div>
+
+                            <div>
+                                <strong>3</strong>
+                                <span>Compare costs and trading characteristics.</span>
+                            </div>
+                        </div>
+
+                        <p>
+                            Before investing, read the ETF's prospectus and available shareholder information. Make sure
+                            you understand what the fund owns, how it is managed, what it costs and what could cause it
+                            to lose value.
+                        </p>
+
+                        <h2 id="bottom-line">Understanding ETFs</h2>
+
+                        <p>
+                            ETFs combine a pooled investment portfolio with exchange trading. They can provide exposure
+                            to stocks, bonds and other assets through a single fund, but ETFs differ substantially in
+                            their strategies, costs and risks.
+                        </p>
+
+                        <p>
+                            Understanding the fund's objective, holdings, expenses, trading characteristics and risks
+                            can help you evaluate whether a particular ETF fits your financial plan.
+                        </p>
+
+                        <!-- CTA -->
+
+                        <div class="cta">
+                            <h2>Continue Learning About Investing</h2>
+
+                            <p>
+                                Explore PaycheckMint's investing guides to learn about stocks, index funds, retirement
+                                accounts and compound growth.
+                            </p>
+
+                            <a href="/finance/investing/"> Explore Investing Guides </a>
+                        </div>
+                    </article>
+
+                    <!-- =========================
+                 SIDEBAR
+            ========================= -->
+
+                    <aside class="sidebar">
+                        <div class="sidebar-card sidebar-cta">
+                            <h3>Start With Your Paycheck</h3>
+
+                            <p>Estimate your take-home pay before planning your budget and investing goals.</p>
+
+                            <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+                        </div>
+
+                        <div class="sidebar-card">
+                            <h3>On This Page</h3>
+
+                            <div class="sidebar-links">
+                                <a href="#what-is">What Is an ETF?</a>
+
+                                <a href="#how-it-works">How ETFs Work</a>
+
+                                <a href="#etf-vs-stock">ETF vs. Stock</a>
+
+                                <a href="#etf-vs-mutual">ETF vs. Mutual Fund</a>
+
+                                <a href="#types">Types of ETFs</a>
+
+                                <a href="#index">Index ETFs</a>
+
+                                <a href="#diversification">Diversification</a>
+
+                                <a href="#price-nav">Price vs. NAV</a>
+
+                                <a href="#costs">ETF Costs</a>
+
+                                <a href="#dividends">Dividends</a>
+
+                                <a href="#taxes">ETF Taxes</a>
+
+                                <a href="#risks">ETF Risks</a>
+
+                                <a href="#how-to-buy">How to Buy ETFs</a>
+
+                                <a href="#orders">Order Types</a>
+
+                                <a href="#research">What to Check</a>
+
+                                <a href="#mistakes">Common Mistakes</a>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-card">
+                            <h3>Investing Resources</h3>
+
+                            <div class="sidebar-links">
+                                <a href="/finance/investing/"> Investing Overview </a>
+
+                                <a href="/finance/investing/investing-for-beginners/"> Investing for Beginners </a>
+
+                                <a href="/finance/investing/stocks/"> Stocks </a>
+
+                                <a href="/finance/investing/index-funds/"> Index Funds </a>
+
+                                <a href="/finance/investing/how-to-invest-in-stocks/"> How to Invest in Stocks </a>
+
+                                <a href="/finance/investing/compound-interest-calculator/">
+                                    Compound Interest Calculator
+                                </a>
+
+                                <a href="/finance/investing/401k/"> 401(k) Guide </a>
+
+                                <a href="/finance/investing/roth-ira-vs-traditional-ira/">
+                                    Roth IRA vs. Traditional IRA
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-card">
+                            <h3>Budgeting Resources</h3>
+
+                            <div class="sidebar-links">
+                                <a href="/finance/budgeting/"> Budgeting Guide </a>
+
+                                <a href="/finance/budgeting/50-30-20-rule/"> 50/30/20 Budget Rule </a>
+
+                                <a href="/finance/budgeting/monthly-budget/"> Monthly Budget </a>
+
+                                <a href="/finance/budgeting/emergency-fund/"> Emergency Fund </a>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </section>
+
+            <!-- =========================
+         FAQ
+    ========================= -->
+
+            <section class="faq-section">
+                <div class="container">
+                    <h2 class="section-title">ETF FAQ</h2>
+
+                    <div class="faq">
+                        <div class="faq-item">
+                            <button class="faq-question" type="button" aria-expanded="false">
+                                <span> What is an ETF? </span>
+
+                                <span aria-hidden="true">+</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                An ETF, or exchange-traded fund, is an investment fund whose shares trade on a
+                                securities exchange. ETFs can hold stocks, bonds or other assets.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" type="button" aria-expanded="false">
+                                <span> How do ETFs work? </span>
+
+                                <span aria-hidden="true">+</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                ETFs pool investor money into a portfolio of investments. Investors generally buy and
+                                sell ETF shares through brokerage accounts on an exchange.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" type="button" aria-expanded="false">
+                                <span> Are ETFs the same as stocks? </span>
+
+                                <span aria-hidden="true">+</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                No. ETFs trade like stocks, but an ETF generally represents an interest in a portfolio
+                                of investments rather than ownership of one company.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" type="button" aria-expanded="false">
+                                <span> Are ETFs the same as mutual funds? </span>
+
+                                <span aria-hidden="true">+</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                ETFs and mutual funds can both hold diversified portfolios, but ETF shares generally
+                                trade throughout the day on exchanges while mutual fund transactions are generally
+                                priced at the next calculated NAV.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" type="button" aria-expanded="false">
+                                <span> Can you lose money with ETFs? </span>
+
+                                <span aria-hidden="true">+</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                Yes. ETF values can decline, and investors can lose some or all of the money invested.
+                                Diversification can reduce some risks but does not eliminate investment risk.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" type="button" aria-expanded="false">
+                                <span> Do ETFs pay dividends? </span>
+
+                                <span aria-hidden="true">+</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                Some ETFs distribute income generated by the investments they hold. Depending on the
+                                fund, distributions can include dividends, interest or capital gains.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" type="button" aria-expanded="false">
+                                <span> What is an ETF expense ratio? </span>
+
+                                <span aria-hidden="true">+</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                An expense ratio represents an ETF's ongoing operating expenses as a percentage of fund
+                                assets. These expenses are deducted from the fund's assets and can reduce returns over
+                                time.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" type="button" aria-expanded="false">
+                                <span> How do I buy an ETF? </span>
+
+                                <span aria-hidden="true">+</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                Investors generally purchase ETF shares through a brokerage account. Before investing,
+                                review the ETF's objective, holdings, costs, risks, prospectus and other available fund
+                                information.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- =========================
+     FOOTER
+========================= -->
+
+        <footer>
+            <div class="container">
+                <div class="footer-grid">
+                    <div>
+                        <a class="brand" href="/"> Paycheck<span>Mint</span> </a>
+
+                        <p class="footer-description">
+                            Simple U.S. personal finance tools, calculators and guides to help you understand your
+                            paycheck, budget and money.
+                        </p>
+                    </div>
+
+                    <div class="footer-col">
+                        <h3>Calculators</h3>
+
+                        <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+
+                        <a href="/hourly-paycheck-calculator/"> Hourly Paycheck Calculator </a>
+
+                        <a href="/salary-paycheck-calculator/"> Salary Paycheck Calculator </a>
+
+                        <a href="/overtime-pay-calculator/"> Overtime Calculator </a>
+                    </div>
+
+                    <div class="footer-col">
+                        <h3>Finance</h3>
+
+                        <a href="/income/"> Income </a>
+
+                        <a href="/finance/taxes/"> Taxes </a>
+
+                        <a href="/finance/budgeting/"> Budgeting </a>
+
+                        <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+
+                        <a href="/finance/investing/"> Investing </a>
+                    </div>
+
+                    <div class="footer-col">
+                        <h3>PaycheckMint</h3>
+
+                        <a href="/about/"> About </a>
+
+                        <a href="/contact/"> Contact </a>
+
+                        <a href="/privacy-policy/"> Privacy </a>
+
+                        <a href="/terms/"> Terms </a>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    © 2026 PaycheckMint. Information is provided for educational purposes and should not be considered
+                    financial, investment, tax or legal advice.
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            /* =========================
+       MOBILE NAVIGATION
+    ========================= */
+
+            const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+
+            const mainNav = document.getElementById("mainNav");
+
+            const financeDropdown = document.getElementById("financeDropdown");
+
+            const financeButton = document.getElementById("financeButton");
+
+            function closeFinanceDropdown() {
+                financeDropdown.classList.remove("open");
+                financeButton.setAttribute("aria-expanded", "false");
+            }
+
+            function closeMobileMenu() {
+                mainNav.classList.remove("open");
+                mobileMenuToggle.setAttribute("aria-expanded", "false");
+                mobileMenuToggle.setAttribute("aria-label", "Open navigation menu");
+                mobileMenuToggle.textContent = "☰";
+
+                closeFinanceDropdown();
+
+                document.body.classList.remove("menu-open");
+            }
+
+            mobileMenuToggle.addEventListener("click", function (event) {
+                event.stopPropagation();
+
+                const isOpen = mainNav.classList.toggle("open");
+
+                mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+
+                mobileMenuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+
+                mobileMenuToggle.textContent = isOpen ? "✕" : "☰";
+
+                document.body.classList.toggle("menu-open", isOpen);
+            });
+
+            /* =========================
+       FINANCE DROPDOWN
+    ========================= */
+
+            financeButton.addEventListener("click", function (event) {
+                event.stopPropagation();
+
+                const isOpen = financeDropdown.classList.toggle("open");
+
+                financeButton.setAttribute("aria-expanded", String(isOpen));
+            });
+
+            /* =========================
+       CLOSE WHEN CLICKING OUTSIDE
+    ========================= */
+
+            document.addEventListener("click", function (event) {
+                if (!mainNav.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+                    closeMobileMenu();
+                }
+            });
+
+            /* =========================
+       NAVIGATION LINKS
+    ========================= */
+
+            document.querySelectorAll(".main-nav a").forEach(function (link) {
+                link.addEventListener("click", function () {
+                    closeMobileMenu();
+                });
+            });
+
+            /* =========================
+       ESC KEY
+    ========================= */
+
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closeMobileMenu();
+                }
+            });
+
+            /* =========================
+       FAQ
+    ========================= */
+
+            document.querySelectorAll(".faq-question").forEach(function (button) {
+                button.addEventListener("click", function () {
+                    const item = button.closest(".faq-item");
+
+                    const isOpen = item.classList.toggle("open");
+
+                    button.setAttribute("aria-expanded", String(isOpen));
+
+                    const icon = button.querySelector("span:last-child");
+
+                    icon.textContent = isOpen ? "−" : "+";
+                });
+            });
+
+            /* =========================
+       RESIZE SAFETY
+    ========================= */
+
+            window.addEventListener("resize", function () {
+                if (window.innerWidth > 900) {
+                    mainNav.classList.remove("open");
+                    mobileMenuToggle.setAttribute("aria-expanded", "false");
+
+                    mobileMenuToggle.setAttribute("aria-label", "Open navigation menu");
+
+                    mobileMenuToggle.textContent = "☰";
+
+                    document.body.classList.remove("menu-open");
+                }
+            });
+        </script>
+        
+    </body>
+</html>
