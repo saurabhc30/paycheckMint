@@ -26,7 +26,7 @@ const path = require("path");
    CONFIG
 ------------------------------------------------------------------------ */
 
-const BASE_URL = (process.env.BASE_URL || "https://paymintcheck.vercel.app").replace(/\/$/, "");
+const BASE_URL = (process.env.BASE_URL || "https://paymintcheck.com").replace(/\/$/, "");
 
 const ROOT = __dirname;
 

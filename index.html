@@ -1,1994 +1,3894 @@
 <!doctype html>
-
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="google-site-verification" content="8yQ33aFpMoSYtjT4ZoYkUbbboYLkuMKB64Pq01gd3Z4" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Paycheck Calculator 2026: Estimate Take-Home Pay | PaycheckMint</title>
-
-    <meta name="google-site-verification" content="S26vcJu4eb6u1nLBRHOf-skMz1imYUICX-EBFoSs64A" />
-    <meta name="google-adsense-account" content="ca-pub-5238086737098690" />
+    <title>PaycheckMint | Personal Finance Tools & Guides</title>
 
     <meta name="description"
-        content="Use PaycheckMint's 2026 paycheck calculator to estimate take-home pay from salary or hourly wages. Understand federal tax, FICA, state tax, deductions, pay frequency, and your paycheck breakdown." />
+        content="PaycheckMint provides practical U.S. personal finance calculators and guides for paychecks, income, budgeting, saving, taxes, debt, and more.">
 
-    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="robots" content="index, follow, max-image-preview:large">
 
-    <meta name="theme-color" content="#5954d9" />
-
-    <link rel="canonical" href="https://paycheckmint.com/" />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Paycheck Calculator 2026 | PaycheckMint" />
-    <meta property="og:description"
-        content="Estimate 2026 take-home pay and understand how taxes, deductions, salary, hourly wages, and pay frequency affect your paycheck." />
-    <meta property="og:site_name" content="PaycheckMint" />
-    <meta property="og:url" content="https://paycheckmint.com/" />
-
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Paycheck Calculator 2026 | PaycheckMint" />
-    <meta name="twitter:description"
-        content="Estimate your 2026 take-home pay and understand your paycheck deductions." />
+    <link rel="canonical" href="https://paycheckmint.com/">
 
     <link rel="icon" href="/icon.ico" />
 
-    <link rel="stylesheet" href="style.css" />
+    <meta property="og:type" content="website">
 
-    <!-- WebSite Schema -->
-    <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "WebSite",
-                "name": "PaycheckMint",
-                "url": "https://paycheckmint.com/",
-                "description": "Paycheck calculators and practical U.S. personal finance guides."
+    <meta property="og:url" content="https://paycheckmint.com/">
+
+    <meta property="og:title" content="PaycheckMint | Personal Finance Tools & Guides">
+
+    <meta property="og:description"
+        content="Practical U.S. personal finance tools and guides for paychecks, income, taxes, budgeting, debt, and saving.">
+
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=85">
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title" content="PaycheckMint | Personal Finance Tools & Guides">
+
+    <meta name="twitter:description" content="Practical U.S. personal finance tools and guides.">
+
+    <meta name="twitter:image"
+        content="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=85">
+
+    <style>
+        /* =========================================================
+           PAYCHECKMINT HOMEPAGE
+           Page-specific styles only.
+           Global styles remain in /style.css
+        ========================================================== */
+
+        :root {
+            --home-primary: #176B5B;
+            --home-primary-dark: #0F5145;
+            --home-accent: #C9922E;
+            --home-bg: #F7F8F6;
+            --home-surface: #FFFFFF;
+            --home-soft: #EEF5F2;
+            --home-text: #17201D;
+            --home-muted: #5F6B66;
+            --home-border: #DDE3DF;
+            --home-shadow: 0 12px 32px rgba(23, 32, 29, .08);
+            --home-radius: 16px;
+
+            /* Backgrounds */
+            --page-bg: #F7F8F6;
+            --surface: #FFFFFF;
+            --surface-soft: #EEF5F2;
+
+            /* Text */
+            --text: #17201D;
+            --text-secondary: #5F6B66;
+            --text-muted: #87918C;
+
+            /* Borders */
+            --border: #DDE3DF;
+            --border-strong: #CBD5D0;
+
+            /* Status */
+            --success: #21855A;
+            --warning: #B7791F;
+            --danger: #B94A48;
+
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+            line-height: 1.6;
+        }
+
+        .page {
+            width: min(1160px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        /* =========================================================
+           HEADER
+        ========================================================== */
+
+        .pm-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, .97);
+            border-bottom: 1px solid var(--home-border);
+            backdrop-filter: blur(12px);
+        }
+
+        .pm-header-inner {
+            width: min(1200px, calc(100% - 40px));
+            height: 68px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .pm-brand {
+            flex: 0 0 auto;
+            text-decoration: none;
+            color: var(--home-primary);
+            font-size: 24px;
+            line-height: 1;
+            font-weight: 800;
+            letter-spacing: -0.7px;
+        }
+
+        .pm-brand span {
+            color: var(--home-accent);
+        }
+
+        .pm-desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex: 1;
+        }
+
+        .pm-nav-link,
+        .pm-nav-dropdown-button {
+            border: 0;
+            background: transparent;
+            color: var(--home-text);
+            text-decoration: none;
+            font: inherit;
+            font-size: 14px;
+            font-weight: 650;
+            padding: 10px 13px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
+        .pm-nav-link:hover,
+        .pm-nav-dropdown-button:hover {
+            background: var(--home-soft);
+            color: var(--home-primary);
+        }
+
+        .pm-chevron {
+            width: 14px;
+            height: 14px;
+            transition: transform .2s ease;
+        }
+
+        .pm-nav-dropdown {
+            position: relative;
+        }
+
+        .pm-nav-dropdown.open .pm-chevron {
+            transform: rotate(180deg);
+        }
+
+        .pm-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 0;
+            width: 260px;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid var(--home-border);
+            border-radius: 12px;
+            box-shadow: var(--home-shadow);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-5px);
+            transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+        }
+
+        .pm-nav-dropdown.open .pm-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .pm-dropdown-label {
+            display: block;
+            padding: 8px 10px 6px;
+            color: #87918C;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .pm-dropdown-menu a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            color: var(--home-text);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .pm-dropdown-menu a:hover {
+            background: var(--home-soft);
+            color: var(--home-primary);
+        }
+
+        .pm-nav-spacer {
+            flex: 1;
+        }
+
+        .pm-search-button {
+            width: 40px;
+            height: 40px;
+            border: 1px solid transparent;
+            border-radius: 50%;
+            background: transparent;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--home-text);
+            cursor: pointer;
+        }
+
+        .pm-search-button:hover {
+            background: var(--home-soft);
+            color: var(--home-primary);
+        }
+
+        .pm-search-button svg {
+            width: 19px;
+            height: 19px;
+        }
+
+        .pm-header-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+            padding: 0 16px;
+            border-radius: 9px;
+            background: var(--home-primary);
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 750;
+            white-space: nowrap;
+            transition: background .2s ease, transform .2s ease;
+        }
+
+        .pm-header-cta:hover {
+            background: var(--home-primary-dark);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        .pm-mobile-toggle {
+            display: none;
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--home-border);
+            border-radius: 9px;
+            background: #fff;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex: 0 0 auto;
+        }
+
+        .pm-mobile-toggle svg {
+            width: 21px;
+            height: 21px;
+        }
+
+        /* =========================================================
+           SEARCH PANEL
+        ========================================================== */
+
+        .pm-search-panel {
+            display: none;
+            border-top: 1px solid var(--home-border);
+            background: #fff;
+            box-shadow: 0 10px 25px rgba(23, 32, 29, .06);
+        }
+
+        .pm-search-panel.open {
+            display: block;
+        }
+
+        .pm-search-inner {
+            width: min(900px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 14px 0 16px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .pm-search-field {
+            position: relative;
+            flex: 1;
+        }
+
+        .pm-search-field svg {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            color: var(--home-muted);
+            pointer-events: none;
+        }
+
+        .pm-search-input {
+            width: 100%;
+            height: 48px;
+            padding: 0 48px;
+            border: 1px solid var(--home-border);
+            border-radius: 10px;
+            outline: none;
+            background: var(--home-bg);
+            color: var(--home-text);
+            font: inherit;
+            font-size: 15px;
+        }
+
+        .pm-search-input:focus {
+            border-color: var(--home-primary);
+            box-shadow: 0 0 0 3px rgba(23, 107, 91, .1);
+        }
+
+        .pm-search-close {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 34px;
+            height: 34px;
+            border: 0;
+            border-radius: 7px;
+            background: transparent;
+            cursor: pointer;
+            color: var(--home-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pm-search-close:hover {
+            background: var(--home-border);
+            color: var(--home-text);
+        }
+
+        .pm-search-results {
+            width: min(900px, calc(100% - 40px));
+            margin: -4px auto 14px;
+            display: none;
+        }
+
+        .pm-search-results.visible {
+            display: block;
+        }
+
+        .pm-search-result {
+            display: block;
+            padding: 12px 14px;
+            border: 1px solid var(--home-border);
+            border-radius: 9px;
+            margin-top: 8px;
+            background: #fff;
+            color: var(--home-text);
+            text-decoration: none;
+        }
+
+        .pm-search-result:hover {
+            border-color: var(--home-primary);
+            background: var(--home-soft);
+        }
+
+        .pm-search-result strong {
+            display: block;
+            margin-bottom: 3px;
+            font-size: 14px;
+        }
+
+        .pm-search-result span {
+            color: var(--home-muted);
+            font-size: 12px;
+        }
+
+        .pm-search-empty {
+            padding: 14px;
+            color: var(--home-muted);
+            font-size: 14px;
+        }
+
+        /* =========================================================
+           MOBILE NAV
+        ========================================================== */
+
+        .pm-mobile-nav {
+            display: none;
+            border-top: 1px solid var(--home-border);
+            background: #fff;
+            max-height: calc(100vh - 68px);
+            overflow-y: auto;
+        }
+
+        .pm-mobile-nav.open {
+            display: block;
+        }
+
+        .pm-mobile-nav-inner {
+            width: min(1200px, calc(100% - 36px));
+            margin: 0 auto;
+            padding: 10px 0 20px;
+        }
+
+        .pm-mobile-nav a,
+        .pm-mobile-finance-button {
+            width: 100%;
+            min-height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 12px;
+            border: 0;
+            border-radius: 8px;
+            background: transparent;
+            color: var(--home-text);
+            text-decoration: none;
+            font: inherit;
+            font-size: 15px;
+            font-weight: 650;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .pm-mobile-nav a:hover,
+        .pm-mobile-finance-button:hover {
+            background: var(--home-soft);
+        }
+
+        .pm-mobile-finance-links {
+            display: none;
+            padding: 4px 0 8px 12px;
+        }
+
+        .pm-mobile-finance-links.open {
+            display: block;
+        }
+
+        .pm-mobile-finance-links a {
+            min-height: 40px;
+            font-size: 14px;
+            font-weight: 550;
+            color: var(--home-muted);
+        }
+
+        .pm-mobile-search-row {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .pm-mobile-search-row button {
+            flex: 1;
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================== */
+
+        .pm-hero {
+            padding: 66px 0 72px;
+            background:
+                radial-gradient(circle at 85% 20%, rgba(201, 146, 46, .10), transparent 30%),
+                linear-gradient(180deg, #fff 0%, var(--home-bg) 100%);
+        }
+
+        .pm-hero-grid {
+            width: min(1200px, calc(100% - 40px));
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(0, 1.04fr) minmax(360px, .96fr);
+            gap: 60px;
+            align-items: center;
+        }
+
+        .pm-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            color: var(--home-primary);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+        }
+
+        .pm-eyebrow-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--home-accent);
+        }
+
+        .pm-hero h1 {
+            max-width: 680px;
+            margin: 0;
+            color: var(--home-text);
+            font-size: clamp(40px, 5vw, 64px);
+            line-height: 1.02;
+            letter-spacing: -2.6px;
+        }
+
+        .pm-hero-text {
+            max-width: 650px;
+            margin: 22px 0 0;
+            color: var(--home-muted);
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .pm-hero-actions {
+            display: flex !important;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .pm-button-primary,
+        .pm-button-secondary {
+            min-height: 46px;
+            padding: 0 19px;
+            border-radius: 9px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 750;
+            transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+        }
+
+        .pm-button-primary {
+            background: var(--home-primary);
+            color: #fff;
+        }
+
+        .pm-button-primary:hover {
+            background: var(--home-primary-dark);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(23, 107, 91, .18);
+        }
+
+        .pm-button-secondary {
+            background: #fff;
+            border: 1px solid var(--home-border);
+            color: var(--home-text);
+        }
+
+        .pm-button-secondary:hover {
+            border-color: var(--home-primary);
+            color: var(--home-primary);
+            transform: translateY(-2px);
+        }
+
+        .pm-hero-trust {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 24px;
+            margin-top: 28px;
+        }
+
+        .pm-trust-item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: var(--home-muted);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .pm-check {
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--home-soft);
+            color: var(--home-primary);
+            font-size: 11px;
+            font-weight: 900;
+        }
+
+        .pm-hero-visual {
+            position: relative;
+        }
+
+        .pm-hero-image {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 22px;
+            display: block;
+            box-shadow: var(--home-shadow);
+        }
+
+        .pm-hero-card {
+            position: absolute;
+            left: -28px;
+            bottom: 28px;
+            width: 245px;
+            padding: 18px;
+            border: 1px solid rgba(221, 227, 223, .9);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, .96);
+            box-shadow: var(--home-shadow);
+            backdrop-filter: blur(10px);
+        }
+
+        .pm-hero-card-label {
+            color: var(--home-muted);
+            font-size: 12px;
+            font-weight: 650;
+        }
+
+        .pm-hero-card-value {
+            margin-top: 5px;
+            color: var(--home-text);
+            font-size: 25px;
+            font-weight: 800;
+            letter-spacing: -.8px;
+        }
+
+        .pm-hero-card-note {
+            margin-top: 4px;
+            color: var(--home-primary);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* =========================================================
+           GENERAL SECTIONS
+        ========================================================== */
+
+        .pm-section {
+            padding: 72px 0;
+        }
+
+        .pm-section-soft {
+            background: var(--home-soft);
+        }
+
+        .pm-container {
+            width: min(1200px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        .pm-section-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 25px;
+        }
+
+        .pm-section-kicker {
+            margin: 0 0 6px;
+            color: var(--home-primary);
+            font-size: 12px;
+            font-weight: 850;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .pm-section-title {
+            margin: 0;
+            color: var(--home-text);
+            font-size: clamp(27px, 3vw, 38px);
+            line-height: 1.12;
+            letter-spacing: -1.2px;
+        }
+
+        .pm-section-description {
+            max-width: 580px;
+            margin: 8px 0 0;
+            color: var(--home-muted);
+            line-height: 1.65;
+            font-size: 15px;
+        }
+
+        .pm-view-all {
+            flex: 0 0 auto;
+            color: var(--home-primary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 750;
+        }
+
+        .pm-view-all:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================================================
+           QUICK START CARDS
+        ========================================================== */
+
+        .pm-start-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .pm-start-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            min-height: 142px;
+            padding: 20px;
+            border: 1px solid var(--home-border);
+            border-radius: 14px;
+            background: #fff;
+            color: var(--home-text);
+            text-decoration: none;
+            transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+        }
+
+        .pm-start-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(23, 107, 91, .3);
+            box-shadow: var(--home-shadow);
+        }
+
+        .pm-start-icon {
+            width: 44px;
+            height: 44px;
+            flex: 0 0 44px;
+            border-radius: 11px;
+            background: var(--home-soft);
+            color: var(--home-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pm-start-icon svg {
+            width: 21px;
+            height: 21px;
+        }
+
+        .pm-start-title {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 800;
+        }
+
+        .pm-start-description {
+            margin: 6px 0 0;
+            color: var(--home-muted);
+            font-size: 13px;
+            line-height: 1.55;
+        }
+
+        /* =========================================================
+           CAROUSEL FRAME
+        ========================================================== */
+
+        .pm-carousel {
+            position: relative;
+        }
+
+        .pm-carousel-window {
+            overflow: hidden;
+        }
+
+        .pm-carousel-track {
+            display: flex;
+            gap: 18px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 4px 2px 12px;
+        }
+
+        .pm-carousel-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .pm-carousel-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .pm-carousel-arrows {
+            display: flex;
+            gap: 8px;
+        }
+
+        .pm-carousel-arrow {
+            width: 40px !important;
+            height: 40px !important;
+            border: 1px solid var(--home-border);
+            border-radius: 50%;
+            background: #fff;
+            color: var(--home-text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all .18s ease;
+        }
+
+        .pm-carousel-arrow:hover:not(:disabled) {
+            background: var(--home-primary);
+            border-color: var(--home-primary);
+            color: #fff;
+        }
+
+        .pm-carousel-arrow:disabled {
+            opacity: .35;
+            cursor: default;
+        }
+
+        .pm-carousel-arrow svg {
+            width: 17px !important;
+            height: 17px !important;
+        }
+
+        .pm-carousel-dots {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            flex: 1;
+        }
+
+        .pm-carousel-dot {
+            width: 7px;
+            height: 7px;
+            padding: 0;
+            border: 0;
+            border-radius: 50%;
+            background: #CBD5D0;
+            cursor: pointer;
+            transition: width .2s ease, background .2s ease;
+        }
+
+        .pm-carousel-dot.active {
+            width: 22px;
+            border-radius: 10px;
+            background: var(--home-primary);
+        }
+
+        /* =========================================================
+           TOOLS CAROUSEL - UNIQUE DESIGN
+        ========================================================== */
+
+        .pm-tools-track .pm-tool-card {
+            flex: 0 0 340px;
+            scroll-snap-align: start;
+        }
+
+        .pm-tool-card {
+            min-height: 255px;
+            padding: 24px;
+            border: 1px solid var(--home-border);
+            border-radius: 17px;
+            background: #fff;
+            text-decoration: none;
+            color: var(--home-text);
+            display: flex;
+            flex-direction: column;
+            transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+        }
+
+        .pm-tool-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(23, 107, 91, .3);
+            box-shadow: var(--home-shadow);
+        }
+
+        .pm-tool-card.featured {
+            background: var(--home-primary);
+            color: #fff;
+            border-color: var(--home-primary);
+        }
+
+        .pm-tool-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--home-soft);
+            color: var(--home-primary);
+        }
+
+        .pm-tool-card.featured .pm-tool-icon {
+            background: rgba(255, 255, 255, .13);
+            color: #fff;
+        }
+
+        .pm-tool-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .pm-tool-badge {
+            display: inline-flex;
+            align-self: flex-start;
+            margin-top: 17px;
+            padding: 5px 8px;
+            border-radius: 20px;
+            background: rgba(201, 146, 46, .13);
+            color: var(--home-accent);
+            font-size: 10px;
+            font-weight: 850;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+        }
+
+        .pm-tool-card.featured .pm-tool-badge {
+            background: rgba(255, 255, 255, .14);
+            color: #fff;
+        }
+
+        .pm-tool-card h3 {
+            margin: 10px 0 0;
+            font-size: 20px;
+            line-height: 1.2;
+        }
+
+        .pm-tool-card p {
+            margin: 8px 0 0;
+            color: var(--home-muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .pm-tool-card.featured p {
+            color: rgba(255, 255, 255, .76);
+        }
+
+        .pm-tool-link {
+            margin-top: auto;
+            padding-top: 18px;
+            color: var(--home-primary);
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .pm-tool-card.featured .pm-tool-link {
+            color: #fff;
+        }
+
+        /* =========================================================
+           TOPICS CAROUSEL - DIFFERENT DESIGN
+        ========================================================== */
+
+        .pm-topics-track {
+            gap: 14px;
+        }
+
+        .pm-topics-track .pm-topic-card {
+            flex: 0 0 245px;
+            scroll-snap-align: start;
+        }
+
+        .pm-topic-card {
+            position: relative;
+            min-height: 285px;
+            overflow: hidden;
+            border-radius: 16px;
+            background: #fff;
+            border: 1px solid var(--home-border);
+            text-decoration: none;
+            color: #fff;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .pm-topic-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--home-shadow);
+        }
+
+        .pm-topic-card img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .pm-topic-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg,
+                    rgba(0, 0, 0, .02) 25%,
+                    rgba(0, 0, 0, .76) 100%);
+        }
+
+        .pm-topic-content {
+            position: absolute;
+            z-index: 2;
+            left: 18px;
+            right: 18px;
+            bottom: 17px;
+        }
+
+        .pm-topic-number {
+            display: block;
+            margin-bottom: 7px;
+            color: rgba(255, 255, 255, .7);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .08em;
+        }
+
+        .pm-topic-content h3 {
+            margin: 0;
+            font-size: 21px;
+            line-height: 1.1;
+        }
+
+        .pm-topic-content p {
+            margin: 6px 0 0;
+            color: rgba(255, 255, 255, .8);
+            font-size: 12px;
+            line-height: 1.45;
+        }
+
+        /* =========================================================
+           GUIDES CAROUSEL - EDITORIAL DESIGN
+        ========================================================== */
+
+        .pm-guides-track .pm-guide-card {
+            flex: 0 0 365px;
+            scroll-snap-align: start;
+        }
+
+        .pm-guide-card {
+            overflow: hidden;
+            border: 1px solid var(--home-border);
+            border-radius: 16px;
+            background: #fff;
+            text-decoration: none;
+            color: var(--home-text);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .pm-guide-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--home-shadow);
+        }
+
+        .pm-guide-image {
+            width: 100%;
+            height: 205px;
+            display: block;
+            object-fit: cover;
+        }
+
+        .pm-guide-body {
+            padding: 19px;
+        }
+
+        .pm-guide-category {
+            color: var(--home-primary);
+            font-size: 10px;
+            font-weight: 850;
+            letter-spacing: .09em;
+            text-transform: uppercase;
+        }
+
+        .pm-guide-body h3 {
+            margin: 8px 0 7px;
+            font-size: 20px;
+            line-height: 1.2;
+        }
+
+        .pm-guide-body p {
+            margin: 0;
+            color: var(--home-muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* =========================================================
+           BASICS
+        ========================================================== */
+
+        .pm-basics {
+            display: grid;
+            grid-template-columns: .85fr 1.15fr;
+            gap: 55px;
+            align-items: start;
+        }
+
+        .pm-basics-intro h2 {
+            margin: 0;
+            color: var(--home-text);
+            font-size: 35px;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .pm-basics-intro p {
+            margin: 15px 0 0;
+            color: var(--home-muted);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .pm-basics-list {
+            border-top: 1px solid var(--home-border);
+        }
+
+        .pm-basic-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            min-height: 76px;
+            border-bottom: 1px solid var(--home-border);
+            text-decoration: none;
+            color: var(--home-text);
+        }
+
+        .pm-basic-row:hover {
+            color: var(--home-primary);
+        }
+
+        .pm-basic-icon {
+            width: 38px;
+            height: 38px;
+            flex: 0 0 38px;
+            border-radius: 9px;
+            background: var(--home-soft);
+            color: var(--home-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pm-basic-icon svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .pm-basic-content {
+            flex: 1;
+        }
+
+        .pm-basic-content strong {
+            display: block;
+            font-size: 14px;
+        }
+
+        .pm-basic-content span {
+            display: block;
+            margin-top: 3px;
+            color: var(--home-muted);
+            font-size: 12px;
+        }
+
+        .pm-basic-arrow {
+            color: var(--home-muted);
+        }
+
+        /* =========================================================
+           TRUST
+        ========================================================== */
+
+        .pm-trust-section {
+            padding: 60px 0;
+            border-top: 1px solid var(--home-border);
+            border-bottom: 1px solid var(--home-border);
+            background: #fff;
+        }
+
+        .pm-trust-heading {
+            max-width: 670px;
+            margin: 0 auto 30px;
+            text-align: center;
+        }
+
+        .pm-trust-heading h2 {
+            margin: 0;
+            font-size: 30px;
+            letter-spacing: -1px;
+        }
+
+        .pm-trust-heading p {
+            margin: 9px 0 0;
+            color: var(--home-muted);
+            line-height: 1.6;
+        }
+
+        .pm-trust-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .pm-trust-card {
+            padding: 22px;
+            border: 1px solid var(--home-border);
+            border-radius: 14px;
+            background: var(--home-bg);
+            text-align: center;
+        }
+
+        .pm-feature-icon {
+            width: 45px;
+            height: 45px;
+            margin: 0 auto 12px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--home-soft);
+            color: var(--home-primary);
+        }
+
+        .pm-feature-icon svg {
+            width: 21px;
+            height: 21px;
+        }
+
+        .pm-trust-card h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .pm-trust-card p {
+            margin: 7px 0 0;
+            color: var(--home-muted);
+            font-size: 13px;
+            line-height: 1.55;
+        }
+
+        /* =========================================================
+           CTA
+        ========================================================== */
+
+        .pm-final-cta {
+            padding: 70px 0;
+        }
+
+        .pm-final-box {
+            position: relative;
+            overflow: hidden;
+            padding: 50px;
+            border-radius: 22px;
+            background: var(--home-primary);
+            color: #fff;
+        }
+
+        .pm-final-box::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            right: -100px;
+            top: -130px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, .14);
+        }
+
+        .pm-final-box h2 {
+            position: relative;
+            z-index: 2;
+            max-width: 650px;
+            margin: 0;
+            font-size: clamp(30px, 4vw, 45px);
+            line-height: 1.08;
+            letter-spacing: -1.3px;
+        }
+
+        .pm-final-box p {
+            position: relative;
+            z-index: 2;
+            max-width: 620px;
+            margin: 14px 0 0;
+            color: rgba(255, 255, 255, .78);
+            line-height: 1.65;
+        }
+
+        .pm-final-actions {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .pm-final-actions .pm-button-primary {
+            background: #fff;
+            color: var(--home-primary);
+        }
+
+        .pm-final-actions .pm-button-primary:hover {
+            background: #f4f6f4;
+            color: var(--home-primary);
+        }
+
+        .pm-final-actions .pm-button-secondary {
+            border-color: rgba(255, 255, 255, .3);
+            background: transparent;
+            color: #fff;
+        }
+
+        .pm-final-actions .pm-button-secondary:hover {
+            border-color: #fff;
+            color: #fff;
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================== */
+
+        .pm-footer {
+            border-top: 1px solid var(--home-border);
+            background: var(--home-bg);
+        }
+
+        .pm-footer-main {
+            width: min(1200px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 52px 0 42px;
+            display: grid;
+            grid-template-columns: 1.35fr repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .pm-footer-brand {
+            color: var(--home-primary);
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -.7px;
+        }
+
+        .pm-footer-brand span {
+            color: var(--home-accent);
+        }
+
+        .pm-footer-description {
+            max-width: 300px;
+            margin: 13px 0 0;
+            color: var(--home-muted);
+            font-size: 13px;
+            line-height: 1.65;
+        }
+
+        .pm-footer-column h3 {
+            margin: 0 0 13px;
+            color: var(--home-text);
+            font-size: 13px;
+        }
+
+        .pm-footer-column a {
+            display: block;
+            width: fit-content;
+            margin: 8px 0;
+            color: var(--home-muted);
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .pm-footer-column a:hover {
+            color: var(--home-primary);
+        }
+
+        .pm-footer-bottom {
+            width: min(1200px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 18px 0;
+            border-top: 1px solid var(--home-border);
+            color: var(--home-muted);
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================== */
+
+        @media (max-width: 1050px) {
+            .pm-desktop-nav {
+                gap: 0;
             }
-        </script>
 
-    <!-- WebApplication Schema -->
-    <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "WebApplication",
-                "name": "PaycheckMint Paycheck Calculator",
-                "url": "https://paycheckmint.com/",
-                "applicationCategory": "FinanceApplication",
-                "operatingSystem": "Web",
-                "description": "Estimate 2026 take-home pay from salary or hourly income after estimated taxes and deductions.",
-                "offers": {
-                    "@type": "Offer",
-                    "price": "0",
-                    "priceCurrency": "USD"
-                }
+            .pm-nav-link,
+            .pm-nav-dropdown-button {
+                padding-left: 9px;
+                padding-right: 9px;
             }
-        </script>
 
-    <!-- Organization Schema -->
-    <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "Organization",
-                "name": "PaycheckMint",
-                "url": "https://paycheckmint.com/"
+            .pm-header-cta {
+                padding: 0 12px;
             }
-        </script>
 
-    <!-- FAQ Schema -->
-    <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": [
-                    {
-                        "@type": "Question",
-                        "name": "What does a paycheck calculator calculate?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "A paycheck calculator estimates gross pay, federal income tax, Social Security, Medicare, state taxes, deductions, and the amount remaining as take-home pay."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "How is take-home pay calculated?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Take-home pay starts with gross wages and subtracts applicable taxes and deductions. The exact calculation depends on income, pay frequency, filing information, state, benefits, retirement contributions, and other payroll details."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "What is the difference between gross pay and take-home pay?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Gross pay is earnings before taxes and deductions. Take-home pay is the amount remaining after applicable taxes and deductions are withheld."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "How much is Social Security tax in 2026?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "For 2026, the employee Social Security tax rate is 6.2% on covered wages up to the annual Social Security wage base."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "How much is Medicare tax in 2026?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "The employee Medicare tax rate is 1.45% on covered wages, with no Social Security-style annual wage cap. Additional Medicare Tax may also apply to wages above the applicable employer withholding threshold."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Why is my actual paycheck different from the calculator?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Actual paychecks can differ because employers use payroll-specific withholding methods, your W-4 information, state and local rules, year-to-date wages, benefits, deductions, and other payroll details."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Can I calculate an hourly paycheck?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Yes. PaycheckMint lets hourly workers enter an hourly rate, regular hours, overtime hours, pay frequency, state, filing information, and deductions."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Are paycheck calculator results exact?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "No. PaycheckMint provides planning estimates. Your employer's payroll system and your individual tax and benefit information determine your actual paycheck."
-                        }
-                    }
-                ]
+            .pm-hero-grid {
+                gap: 35px;
             }
-        </script>
+        }
 
+        @media (max-width: 900px) {
+
+            .pm-header-inner {
+                width: min(100% - 28px, 1200px);
+                height: 64px;
+                gap: 10px;
+            }
+
+            .pm-desktop-nav,
+            .pm-header-cta {
+                display: none;
+            }
+
+            .pm-nav-spacer {
+                display: block;
+            }
+
+            .pm-mobile-toggle {
+                display: inline-flex;
+            }
+
+            .pm-search-button {
+                margin-left: auto;
+            }
+
+            .pm-brand {
+                font-size: 22px;
+            }
+
+            .pm-hero {
+                padding: 48px 0 55px;
+            }
+
+            .pm-hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pm-hero-image {
+                height: 360px;
+            }
+
+            .pm-hero-card {
+                left: 18px;
+                bottom: 18px;
+            }
+
+            .pm-start-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pm-basics {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .pm-footer-main {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .pm-container,
+            .pm-footer-main,
+            .pm-footer-bottom {
+                width: min(100% - 32px, 1200px);
+            }
+
+            .pm-section {
+                padding: 52px 0;
+            }
+
+            .pm-section-head {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .pm-start-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pm-tools-track .pm-tool-card {
+                flex-basis: min(84vw, 340px);
+            }
+
+            .pm-topics-track .pm-topic-card {
+                flex-basis: min(70vw, 280px);
+            }
+
+            .pm-guides-track .pm-guide-card {
+                flex-basis: min(88vw, 365px);
+            }
+
+            .pm-carousel-controls {
+                margin-top: 5px;
+            }
+
+            .pm-hero h1 {
+                font-size: 42px;
+                letter-spacing: -1.8px;
+            }
+
+            .pm-hero-text {
+                font-size: 16px;
+            }
+
+            .pm-hero-image {
+                height: 300px;
+            }
+
+            .pm-hero-card {
+                width: 210px;
+                padding: 15px;
+            }
+
+            .pm-trust-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pm-final-box {
+                padding: 34px 25px;
+            }
+
+            .pm-footer-main {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px 22px;
+            }
+
+            .pm-footer-bottom {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .pm-search-inner,
+            .pm-search-results {
+                width: calc(100% - 24px);
+            }
+
+            .pm-mobile-nav-inner {
+                width: calc(100% - 24px);
+            }
+
+            .pm-hero-grid {
+                width: calc(100% - 28px);
+            }
+
+            .pm-hero {
+                padding-top: 38px;
+            }
+
+            .pm-hero h1 {
+                font-size: 37px;
+            }
+
+            .pm-hero-actions {
+                flex-direction: column;
+            }
+
+            .pm-button-primary,
+            .pm-button-secondary {
+                width: 100%;
+            }
+
+            .pm-hero-trust {
+                flex-direction: column;
+                gap: 9px;
+            }
+
+            .pm-carousel-arrow {
+                width: 38px !important;
+                height: 38px !important;
+            }
+
+            .pm-carousel-dots {
+                gap: 5px;
+            }
+
+            .pm-final-actions {
+                flex-direction: column;
+            }
+
+            .pm-final-actions a {
+                width: 100%;
+            }
+
+            .pm-footer-main {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .pm-carousel-track {
+                scroll-behavior: auto;
+            }
+
+            .pm-tool-card,
+            .pm-topic-card,
+            .pm-guide-card,
+            .pm-start-card {
+                transition: none;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "PaycheckMint",
+        "url": "https://paycheckmint.com/",
+        "description": "Practical U.S. personal finance calculators and guides."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "PaycheckMint",
+        "url": "https://paycheckmint.com/"
+    }
+    </script>
 </head>
 
 <body>
-    <header class="site-header">
 
-        <div class="container header-inner">
-            <a href="/" class="logo"> Paycheck<span>Mint</span> </a>
+    <header class="pm-header" id="site-header">
 
-            <button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"
-                aria-controls="main-navigation">
-                ☰
-            </button>
+        <div class="pm-header-inner">
 
-            <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
-                <a href="/"> Home </a>
+            <a class="pm-brand" href="/" aria-label="PaycheckMint home">
+                Paycheck<span>Mint</span>
+            </a>
 
-                <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+            <nav class="pm-desktop-nav" aria-label="Main navigation">
 
-                <a href="/income/"> Income </a>
+                <a class="pm-nav-link" href="/income/">
+                    Income
+                </a>
 
-                <div class="nav-dropdown">
-                    <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
                         Finance
 
-                        <span class="dropdown-arrow"> ▾ </span>
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
                     </button>
 
-                    <div class="nav-dropdown-menu">
-                        <a href="/finance/"> Finance Overview </a>
+                    <div class="pm-dropdown-menu">
 
-                        <a href="/finance/taxes/"> Taxes </a>
+                        <span class="pm-dropdown-label">
+                            Explore
+                        </span>
 
-                        <a href="/finance/budgeting/"> Budgeting &amp; Saving </a>
+                        <a href="/finance/">
+                            <span>Finance Overview</span>
+                        </a>
 
-                        <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+                        <a href="/income/">
+                            <span>Income & Earnings</span>
+                        </a>
 
-                        <a href="/finance/investing/"> Investing &amp; Retirement </a>
+                        <a href="/finance/">
+                            <span>Money Guides</span>
+                        </a>
 
-                        <a href="/finance/insurance/"> Insurance </a>
                     </div>
+
                 </div>
+
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                        Calculators
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="pm-dropdown-menu">
+
+                        <span class="pm-dropdown-label">
+                            Paycheck tools
+                        </span>
+
+                        <a href="/paycheck-tax-calculator/">
+                            Paycheck Tax Calculator
+                        </a>
+
+                        <a href="/take-home-pay-calculator/">
+                            Take-Home Pay Calculator
+                        </a>
+
+                        <a href="/hourly-paycheck-calculator/">
+                            Hourly Paycheck Calculator
+                        </a>
+
+                        <a href="/overtime-pay-calculator/">
+                            Overtime Pay Calculator
+                        </a>
+
+                        <a href="/salary-paycheck-calculator/">
+                            Salary Paycheck Calculator
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <a class="pm-nav-link" href="/finance/">
+                    Learn
+                </a>
+
             </nav>
+
+            <div class="pm-nav-spacer"></div>
+
+            <button class="pm-search-button" id="searchToggle" type="button" aria-label="Open search"
+                aria-expanded="false" aria-controls="searchPanel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m20 20-4-4" />
+                </svg>
+            </button>
+
+            <a class="pm-header-cta" href="/paycheck-tax-calculator/">
+                Calculate paycheck
+            </a>
+
+            <button class="pm-mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation"
+                aria-expanded="false" aria-controls="mobileNav">
+                <svg id="mobileMenuIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <path d="M4 6h16" />
+                    <path d="M4 12h16" />
+                    <path d="M4 18h16" />
+                </svg>
+            </button>
+
         </div>
+
+        <!-- SEARCH PANEL -->
+
+        <div class="pm-search-panel" id="searchPanel">
+
+            <div class="pm-search-inner">
+
+                <div class="pm-search-field">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="m20 20-4-4" />
+                    </svg>
+
+                    <input id="siteSearch" class="pm-search-input" type="search" autocomplete="off"
+                        placeholder="Search PaycheckMint..." aria-label="Search PaycheckMint">
+
+                    <button class="pm-search-close" id="searchClose" type="button" aria-label="Close search">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 6l12 12" />
+                            <path d="M18 6 6 18" />
+                        </svg>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="pm-search-results" id="searchResults"></div>
+
+        </div>
+
+        <!-- MOBILE NAV -->
+
+        <nav class="pm-mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+
+            <div class="pm-mobile-nav-inner">
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a href="/income/">
+                    Income
+                </a>
+
+                <button class="pm-mobile-finance-button" id="mobileFinanceToggle" type="button" aria-expanded="false">
+                    <span>Finance</span>
+
+                    <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m6 9 6 6 6-6" />
+                    </svg>
+                </button>
+
+                <div class="pm-mobile-finance-links" id="mobileFinanceLinks">
+
+                    <a href="/finance/">
+                        Finance Overview
+                    </a>
+
+                    <a href="/income/">
+                        Income & Earnings
+                    </a>
+
+                </div>
+
+                <a href="/paycheck-tax-calculator/">
+                    Paycheck Tax Calculator
+                </a>
+
+                <a href="/take-home-pay-calculator/">
+                    Take-Home Pay Calculator
+                </a>
+
+                <a href="/hourly-paycheck-calculator/">
+                    Hourly Paycheck Calculator
+                </a>
+
+                <a href="/overtime-pay-calculator/">
+                    Overtime Pay Calculator
+                </a>
+
+                <a href="/salary-paycheck-calculator/">
+                    Salary Paycheck Calculator
+                </a>
+
+                <a href="/weekly-paycheck-calculator/">
+                    Weekly Paycheck Calculator
+                </a>
+
+                <a href="/biweekly-paycheck-calculator/">
+                    Biweekly Paycheck Calculator
+                </a>
+
+                <a href="/monthly-paycheck-calculator/">
+                    Monthly Paycheck Calculator
+                </a>
+
+                <div class="pm-mobile-search-row">
+
+                    <button class="pm-button-secondary" id="mobileSearchButton" type="button">
+                        Search PaycheckMint
+                    </button>
+
+                </div>
+
+            </div>
+
+        </nav>
 
     </header>
 
+
     <main>
-        <!-- =========================================================
-     HERO
-========================================================= -->
 
-        <section class="hero">
+        <!-- =======================================================
+         HERO
+    ======================================================== -->
 
-            <div class="container hero-inner">
-                <p class="eyebrow">2026 U.S. PAYCHECK CALCULATOR</p>
+        <section class="pm-hero">
 
-                <h1>Estimate your 2026 take-home pay</h1>
+            <div class="pm-hero-grid">
 
-                <p class="hero-copy">
-                    See how salary, hourly wages, taxes, pay frequency, retirement contributions, insurance and
-                    other deductions can affect the amount you take home from each paycheck.
-                </p>
+                <div>
 
-                <div class="hero-actions">
-                    <a href="#calculator" class="primary-button"> Calculate my paycheck </a>
+                    <div class="pm-eyebrow">
+                        <span class="pm-eyebrow-dot"></span>
+                        Personal finance made practical
+                    </div>
 
-                    <a href="#how-it-works" class="secondary-button"> Learn how it works </a>
+                    <h1>
+                        Make smarter money decisions with less confusion.
+                    </h1>
+
+                    <p class="pm-hero-text">
+                        PaycheckMint brings together practical U.S. personal
+                        finance calculators and clear guides to help you
+                        understand your paycheck, income, spending, taxes,
+                        debt, and money goals.
+                    </p>
+
+                    <div class="pm-hero-actions">
+
+                        <a class="pm-button-primary" href="/paycheck-tax-calculator/">
+                            Calculate my paycheck
+                        </a>
+
+                        <a class="pm-button-secondary" href="/finance/">
+                            Explore finance
+                        </a>
+
+                    </div>
+
+                    <div class="pm-hero-trust">
+
+                        <div class="pm-trust-item">
+                            <span class="pm-check">✓</span>
+                            U.S.-focused
+                        </div>
+
+                        <div class="pm-trust-item">
+                            <span class="pm-check">✓</span>
+                            Practical explanations
+                        </div>
+
+                        <div class="pm-trust-item">
+                            <span class="pm-check">✓</span>
+                            Free tools
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <div class="hero-points">
-                    <span> ✓ Salary &amp; hourly income </span>
+                <div class="pm-hero-visual">
 
-                    <span> ✓ Multiple pay frequencies </span>
+                    <img class="pm-hero-image"
+                        src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=85"
+                        alt="Person reviewing personal finances" width="1200" height="800" fetchpriority="high">
 
-                    <span> ✓ Taxes &amp; deductions </span>
+                    <div class="pm-hero-card">
 
-                    <span> ✓ 2026 estimates </span>
+                        <div class="pm-hero-card-label">
+                            Your money picture
+                        </div>
+
+                        <div class="pm-hero-card-value">
+                            Income → Spending → Goals
+                        </div>
+
+                        <div class="pm-hero-card-note">
+                            Understand it. Plan it.
+                        </div>
+
+                    </div>
+
                 </div>
+
             </div>
 
         </section>
 
-        <!-- =========================================================
-     CALCULATOR
-========================================================= -->
 
-        <section id="calculator" class="calculator-section">
+        <!-- =======================================================
+         START HERE
+    ======================================================== -->
 
-            <div class="container">
-                <div class="calculator-intro">
-                    <p class="section-kicker">FREE PAYCHECK CALCULATOR</p>
+        <section class="pm-section">
 
-                    <h2>Calculate your estimated paycheck</h2>
+            <div class="pm-container">
 
-                    <p>
-                        Enter the information you know. You can start with your salary or hourly rate and add
-                        deductions or advanced withholding details when you want a more customized estimate.
-                    </p>
+                <div class="pm-section-head">
+
+                    <div>
+                        <p class="pm-section-kicker">
+                            Start here
+                        </p>
+
+                        <h2 class="pm-section-title">
+                            What do you want to figure out?
+                        </h2>
+                    </div>
+
                 </div>
 
-                <div class="calculator-layout">
-                    <!-- INPUT PANEL -->
+                <div class="pm-start-grid">
 
-                    <div class="calculator-card">
-                        <div class="card-heading">
-                            <div>
-                                <p class="section-kicker">INCOME</p>
+                    <a class="pm-start-card" href="/paycheck-tax-calculator/">
 
-                                <h2>Pay details</h2>
-                            </div>
-                        </div>
+                        <span class="pm-start-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="16" rx="2" />
+                                <path d="M7 8h10M7 12h3M14 12h3M7 16h10" />
+                            </svg>
+                        </span>
 
-                        <!-- Salary / Hourly -->
+                        <span>
+                            <strong class="pm-start-title">
+                                Understand my paycheck
+                            </strong>
 
-                        <div class="mode-switch">
-                            <button type="button" id="salaryMode" class="mode-button active" aria-pressed="true">
-                                Salary
-                            </button>
+                            <span class="pm-start-description">
+                                Estimate taxes and take-home pay from your earnings.
+                            </span>
+                        </span>
 
-                            <button type="button" id="hourlyMode" class="mode-button" aria-pressed="false">
-                                Hourly
-                            </button>
-                        </div>
+                    </a>
 
-                        <!-- Salary -->
 
-                        <div id="salaryFields">
-                            <label class="field-label" for="salary"> Annual salary </label>
+                    <a class="pm-start-card" href="/income/">
 
-                            <div class="input-wrap">
-                                <span> $ </span>
+                        <span class="pm-start-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 19V9" />
+                                <path d="M10 19V5" />
+                                <path d="M16 19v-7" />
+                                <path d="M22 19H2" />
+                            </svg>
+                        </span>
 
-                                <input id="salary" type="number" min="0" step="100" inputmode="decimal" value="60000"
-                                    placeholder="60000" />
-                            </div>
-                        </div>
+                        <span>
+                            <strong class="pm-start-title">
+                                Understand income
+                            </strong>
 
-                        <!-- Hourly -->
+                            <span class="pm-start-description">
+                                Learn how gross income, net income and pay relate.
+                            </span>
+                        </span>
 
-                        <div id="hourlyFields" hidden>
-                            <div class="field-grid">
-                                <div>
-                                    <label class="field-label" for="hourlyRate"> Hourly rate </label>
+                    </a>
 
-                                    <div class="input-wrap">
-                                        <span> $ </span>
 
-                                        <input id="hourlyRate" type="number" min="0" step="0.01" inputmode="decimal"
-                                            value="25" />
-                                    </div>
-                                </div>
+                    <a class="pm-start-card" href="/finance/">
 
-                                <div>
-                                    <label class="field-label" for="hoursWeek"> Hours / week </label>
+                        <span class="pm-start-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="9" />
+                                <path
+                                    d="M12 7v10M15 9.5c0-1.1-1.3-2-3-2s-3 .9-3 2 1.3 2 3 2 3 .9 3 2-1.3 2-3 2-3-.9-3-2" />
+                            </svg>
+                        </span>
 
-                                    <input id="hoursWeek" class="plain-input" type="number" min="0" max="168" step="0.5"
-                                        value="40" />
-                                </div>
-                            </div>
+                        <span>
+                            <strong class="pm-start-title">
+                                Explore personal finance
+                            </strong>
 
-                            <div class="field-block">
-                                <label class="field-label" for="overtimeWeek"> Overtime hours / week </label>
+                            <span class="pm-start-description">
+                                Find practical information for everyday money decisions.
+                            </span>
+                        </span>
 
-                                <input id="overtimeWeek" class="plain-input" type="number" min="0" max="168" step="0.5"
-                                    value="0" />
+                    </a>
 
-                                <p class="field-help">Overtime is estimated at 1.5× the regular hourly rate.</p>
-                            </div>
-                        </div>
 
-                        <!-- Frequency -->
+                    <a class="pm-start-card" href="/take-home-pay-calculator/">
 
-                        <div class="field-block">
-                            <label class="field-label" for="frequency"> Pay frequency </label>
+                        <span class="pm-start-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M4 7h16M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" />
+                                <path d="M8 12h2M14 12h2M8 16h8" />
+                            </svg>
+                        </span>
 
-                            <select id="frequency">
-                                <option value="weekly">Weekly</option>
+                        <span>
+                            <strong class="pm-start-title">
+                                Find take-home pay
+                            </strong>
 
-                                <option value="biweekly" selected>Biweekly</option>
+                            <span class="pm-start-description">
+                                See what your paycheck may look like after deductions.
+                            </span>
+                        </span>
 
-                                <option value="semimonthly">Semimonthly</option>
+                    </a>
 
-                                <option value="monthly">Monthly</option>
 
-                                <option value="quarterly">Quarterly</option>
+                    <a class="pm-start-card" href="/overtime-pay-calculator/">
 
-                                <option value="semiannually">Semiannually</option>
+                        <span class="pm-start-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="8" />
+                                <path d="M12 8v4l3 2" />
+                            </svg>
+                        </span>
 
-                                <option value="annually">Annually</option>
-                            </select>
-                        </div>
+                        <span>
+                            <strong class="pm-start-title">
+                                Calculate overtime
+                            </strong>
 
-                        <!-- State -->
+                            <span class="pm-start-description">
+                                Estimate overtime earnings using your hourly rate.
+                            </span>
+                        </span>
 
-                        <div class="field-block">
-                            <label class="field-label" for="state"> State </label>
+                    </a>
 
-                            <select id="state">
-                                <option value="none">Select state</option>
 
-                                <option value="al">Alabama</option>
+                    <a class="pm-start-card" href="/salary-paycheck-calculator/">
 
-                                <option value="az">Arizona</option>
+                        <span class="pm-start-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 20V8l7-4 7 4v12" />
+                                <path d="M3 20h18M9 20v-5h6v5M9 10h.01M15 10h.01" />
+                            </svg>
+                        </span>
 
-                                <option value="ca">California</option>
+                        <span>
+                            <strong class="pm-start-title">
+                                Estimate salary pay
+                            </strong>
 
-                                <option value="co">Colorado</option>
+                            <span class="pm-start-description">
+                                Convert salary information into useful paycheck estimates.
+                            </span>
+                        </span>
 
-                                <option value="fl">Florida</option>
+                    </a>
 
-                                <option value="ga">Georgia</option>
+                </div>
 
-                                <option value="il">Illinois</option>
+            </div>
 
-                                <option value="ma">Massachusetts</option>
+        </section>
 
-                                <option value="mi">Michigan</option>
 
-                                <option value="nc">North Carolina</option>
+        <!-- =======================================================
+         CALCULATORS
+    ======================================================== -->
 
-                                <option value="nj">New Jersey</option>
+        <section class="pm-section pm-section-soft">
 
-                                <option value="ny">New York</option>
+            <div class="pm-container">
 
-                                <option value="oh">Ohio</option>
+                <div class="pm-section-head">
 
-                                <option value="or">Oregon</option>
+                    <div>
 
-                                <option value="pa">Pennsylvania</option>
+                        <p class="pm-section-kicker">
+                            Free tools
+                        </p>
 
-                                <option value="tn">Tennessee</option>
+                        <h2 class="pm-section-title">
+                            Calculators for your paycheck
+                        </h2>
 
-                                <option value="tx">Texas</option>
+                        <p class="pm-section-description">
+                            Use a calculator when you need a quick estimate,
+                            then use the guides to understand what the numbers mean.
+                        </p>
 
-                                <option value="va">Virginia</option>
+                    </div>
 
-                                <option value="wa">Washington</option>
+                    <a class="pm-view-all" href="/paycheck-tax-calculator/">
+                        View paycheck tools →
+                    </a>
 
-                                <option value="other">Other state</option>
-                            </select>
+                </div>
 
-                            <p class="field-help">
-                                State withholding is estimated. Local taxes and employer-specific rules may also
-                                apply.
-                            </p>
-                        </div>
 
-                        <!-- Filing -->
+                <div class="pm-carousel">
 
-                        <div class="field-grid">
-                            <div>
-                                <label class="field-label" for="filing"> Filing status </label>
+                    <div class="pm-carousel-window" id="toolsWindow">
 
-                                <select id="filing">
-                                    <option value="single" selected>Single</option>
+                        <div class="pm-carousel-track pm-tools-track" id="toolsTrack">
 
-                                    <option value="married">Married filing jointly</option>
+                            <a class="pm-tool-card featured" href="/paycheck-tax-calculator/">
 
-                                    <option value="hoh">Head of household</option>
-                                </select>
-                            </div>
+                                <span class="pm-tool-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="4" width="18" height="16" rx="2" />
+                                        <path d="M7 8h10M7 12h3M14 12h3M7 16h10" />
+                                    </svg>
+                                </span>
 
-                            <div>
-                                <label class="field-label" for="dependents"> Dependents </label>
+                                <span class="pm-tool-badge">
+                                    Popular
+                                </span>
 
-                                <input id="dependents" class="plain-input" type="number" min="0" max="20" step="1"
-                                    value="0" />
-                            </div>
-                        </div>
+                                <h3>
+                                    Paycheck Tax Calculator
+                                </h3>
 
-                        <!-- PRE-TAX -->
-
-                        <div class="form-section">
-                            <div class="form-section-heading">
-                                <div>
-                                    <p class="section-kicker">PRE-TAX</p>
-
-                                    <h3>Pre-tax deductions</h3>
-                                </div>
-
-                                <span id="pretaxTotal" class="section-total"> $0.00 </span>
-                            </div>
-
-                            <div class="field-block">
-                                <label class="field-label" for="retirement401k">
-                                    401(k) / traditional retirement
-                                </label>
-
-                                <div class="input-wrap">
-                                    <span> $ </span>
-
-                                    <input id="retirement401k" type="number" min="0" step="10" value="0" />
-                                </div>
-                            </div>
-
-                            <div class="field-grid">
-                                <div>
-                                    <label class="field-label" for="hsa"> HSA </label>
-
-                                    <div class="input-wrap">
-                                        <span> $ </span>
-
-                                        <input id="hsa" type="number" min="0" step="10" value="0" />
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <label class="field-label" for="fsa"> FSA </label>
-
-                                    <div class="input-wrap">
-                                        <span> $ </span>
-
-                                        <input id="fsa" type="number" min="0" step="10" value="0" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="field-grid">
-                                <div>
-                                    <label class="field-label" for="healthInsurance"> Health insurance </label>
-
-                                    <div class="input-wrap">
-                                        <span> $ </span>
-
-                                        <input id="healthInsurance" type="number" min="0" step="10" value="0" />
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <label class="field-label" for="otherPretax"> Other pre-tax </label>
-
-                                    <div class="input-wrap">
-                                        <span> $ </span>
-
-                                        <input id="otherPretax" type="number" min="0" step="10" value="0" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <p class="field-help">Deduction amounts are entered per paycheck.</p>
-                        </div>
-
-                        <!-- ADVANCED -->
-
-                        <details class="advanced-options">
-                            <summary>
-                                <span> Advanced W-4 options </span>
-
-                                <span class="summary-arrow"> + </span>
-                            </summary>
-
-                            <div class="advanced-content">
-                                <p class="advanced-description">
-                                    Use these fields when you want to approximate additional W-4-related withholding
-                                    adjustments. Actual employer withholding can differ.
+                                <p>
+                                    Estimate federal income tax, payroll taxes,
+                                    deductions and take-home pay.
                                 </p>
 
-                                <div class="field-block">
-                                    <label class="field-label" for="multipleJobs">
-                                        Multiple jobs / spouse works
-                                    </label>
+                                <span class="pm-tool-link">
+                                    Calculate paycheck →
+                                </span>
 
-                                    <select id="multipleJobs">
-                                        <option value="no" selected>No</option>
+                            </a>
 
-                                        <option value="yes">Yes</option>
-                                    </select>
 
-                                    <p class="field-help">Step 2 can affect estimated federal withholding.</p>
-                                </div>
+                            <a class="pm-tool-card" href="/take-home-pay-calculator/">
 
-                                <div class="field-block">
-                                    <label class="field-label" for="otherIncome"> Other annual income </label>
+                                <span class="pm-tool-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path
+                                            d="M4 7h16M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" />
+                                        <path d="M8 12h2M14 12h2M8 16h8" />
+                                    </svg>
+                                </span>
 
-                                    <div class="input-wrap">
-                                        <span> $ </span>
+                                <span class="pm-tool-badge">
+                                    Paycheck
+                                </span>
 
-                                        <input id="otherIncome" type="number" min="0" step="100" value="0" />
-                                    </div>
+                                <h3>
+                                    Take-Home Pay Calculator
+                                </h3>
 
-                                    <p class="field-help">
-                                        For example, interest, dividends or other taxable income.
+                                <p>
+                                    Estimate how much of your gross pay may
+                                    remain after taxes and deductions.
+                                </p>
+
+                                <span class="pm-tool-link">
+                                    Calculate take-home pay →
+                                </span>
+
+                            </a>
+
+
+                            <a class="pm-tool-card" href="/hourly-paycheck-calculator/">
+
+                                <span class="pm-tool-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="8" />
+                                        <path d="M12 8v4l3 2" />
+                                    </svg>
+                                </span>
+
+                                <span class="pm-tool-badge">
+                                    Hourly
+                                </span>
+
+                                <h3>
+                                    Hourly Paycheck Calculator
+                                </h3>
+
+                                <p>
+                                    Estimate regular earnings, taxes and
+                                    take-home pay from hourly wages.
+                                </p>
+
+                                <span class="pm-tool-link">
+                                    Calculate hourly pay →
+                                </span>
+
+                            </a>
+
+
+                            <a class="pm-tool-card" href="/overtime-pay-calculator/">
+
+                                <span class="pm-tool-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 3v4M12 17v4M3 12h4M17 12h4" />
+                                        <circle cx="12" cy="12" r="6" />
+                                        <path d="M12 9v3l2 1.5" />
+                                    </svg>
+                                </span>
+
+                                <span class="pm-tool-badge">
+                                    Overtime
+                                </span>
+
+                                <h3>
+                                    Overtime Pay Calculator
+                                </h3>
+
+                                <p>
+                                    Estimate overtime earnings and compare
+                                    regular and overtime hours.
+                                </p>
+
+                                <span class="pm-tool-link">
+                                    Calculate overtime →
+                                </span>
+
+                            </a>
+
+
+                            <a class="pm-tool-card" href="/salary-paycheck-calculator/">
+
+                                <span class="pm-tool-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 20V8l7-4 7 4v12" />
+                                        <path d="M3 20h18M9 20v-5h6v5" />
+                                    </svg>
+                                </span>
+
+                                <span class="pm-tool-badge">
+                                    Salary
+                                </span>
+
+                                <h3>
+                                    Salary Paycheck Calculator
+                                </h3>
+
+                                <p>
+                                    Estimate paycheck amounts from annual
+                                    salary and pay frequency.
+                                </p>
+
+                                <span class="pm-tool-link">
+                                    Calculate salary pay →
+                                </span>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pm-carousel-controls">
+
+                        <div class="pm-carousel-arrows">
+
+                            <button class="pm-carousel-arrow" type="button" data-carousel="tools" data-direction="prev"
+                                aria-label="Previous paycheck calculator">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m15 18-6-6 6-6" />
+                                </svg>
+                            </button>
+
+                            <button class="pm-carousel-arrow" type="button" data-carousel="tools" data-direction="next"
+                                aria-label="Next paycheck calculator">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m9 18 6-6-6-6" />
+                                </svg>
+                            </button>
+
+                        </div>
+
+                        <div class="pm-carousel-dots" id="toolsDots" aria-label="Calculator slides"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =======================================================
+         TOPICS
+    ======================================================== -->
+
+        <section class="pm-section">
+
+            <div class="pm-container">
+
+                <div class="pm-section-head">
+
+                    <div>
+
+                        <p class="pm-section-kicker">
+                            Explore
+                        </p>
+
+                        <h2 class="pm-section-title">
+                            Personal finance topics
+                        </h2>
+
+                        <p class="pm-section-description">
+                            Start with the money topic you want to understand
+                            and explore the tools and information available.
+                        </p>
+
+                    </div>
+
+                    <a class="pm-view-all" href="/finance/">
+                        Finance overview →
+                    </a>
+
+                </div>
+
+
+                <div class="pm-carousel">
+
+                    <div class="pm-carousel-window">
+
+                        <div class="pm-carousel-track pm-topics-track" id="topicsTrack">
+
+                            <a class="pm-topic-card" href="/income/">
+
+                                <img src="https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=800&q=80"
+                                    alt="Income and earnings" loading="lazy" width="800" height="1000">
+
+                                <div class="pm-topic-content">
+
+                                    <span class="pm-topic-number">
+                                        01
+                                    </span>
+
+                                    <h3>
+                                        Income
+                                    </h3>
+
+                                    <p>
+                                        Understand the money you earn and how it is measured.
                                     </p>
+
                                 </div>
 
-                                <div class="field-block">
-                                    <label class="field-label" for="otherDeductions">
-                                        Other annual deductions
-                                    </label>
+                            </a>
 
-                                    <div class="input-wrap">
-                                        <span> $ </span>
 
-                                        <input id="otherDeductions" type="number" min="0" step="100" value="0" />
-                                    </div>
-                                </div>
+                            <a class="pm-topic-card" href="/finance/">
 
-                                <div class="field-block">
-                                    <label class="field-label" for="extraFederal">
-                                        Extra federal withholding / paycheck
-                                    </label>
+                                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80"
+                                    alt="Taxes and personal finance" loading="lazy" width="800" height="1000">
 
-                                    <div class="input-wrap">
-                                        <span> $ </span>
+                                <div class="pm-topic-content">
 
-                                        <input id="extraFederal" type="number" min="0" step="5" value="0" />
-                                    </div>
-                                </div>
+                                    <span class="pm-topic-number">
+                                        02
+                                    </span>
 
-                                <div class="field-block">
-                                    <label class="field-label" for="extraState">
-                                        Extra state withholding / paycheck
-                                    </label>
+                                    <h3>
+                                        Taxes
+                                    </h3>
 
-                                    <div class="input-wrap">
-                                        <span> $ </span>
-
-                                        <input id="extraState" type="number" min="0" step="5" value="0" />
-                                    </div>
-                                </div>
-
-                                <div class="field-block">
-                                    <label class="field-label" for="additionalMedicare">
-                                        Additional Medicare / paycheck
-                                    </label>
-
-                                    <div class="input-wrap">
-                                        <span> $ </span>
-
-                                        <input id="additionalMedicare" type="number" min="0" step="1" value="0" />
-                                    </div>
-
-                                    <p class="field-help">
-                                        Automatic Additional Medicare Tax estimation is handled by the calculator.
+                                    <p>
+                                        Learn how taxes affect your income and paycheck.
                                     </p>
+
                                 </div>
 
-                                <div class="field-block">
-                                    <label class="field-label" for="otherAdjustments">
-                                        Other paycheck adjustments
-                                    </label>
+                            </a>
 
-                                    <div class="input-wrap">
-                                        <span> $ </span>
 
-                                        <input id="otherAdjustments" type="number" min="0" step="5" value="0" />
-                                    </div>
-                                </div>
-                            </div>
-                        </details>
+                            <a class="pm-topic-card" href="/finance/">
 
-                        <!-- POST-TAX -->
+                                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80"
+                                    alt="Managing personal money" loading="lazy" width="800" height="1000">
 
-                        <div class="form-section">
-                            <div class="form-section-heading">
-                                <div>
-                                    <p class="section-kicker">POST-TAX</p>
+                                <div class="pm-topic-content">
 
-                                    <h3>Post-tax deductions</h3>
-                                </div>
+                                    <span class="pm-topic-number">
+                                        03
+                                    </span>
 
-                                <span id="posttaxTotal" class="section-total"> $0.00 </span>
-                            </div>
+                                    <h3>
+                                        Budgeting
+                                    </h3>
 
-                            <div class="field-grid">
-                                <div>
-                                    <label class="field-label" for="roth401k"> Roth 401(k) </label>
+                                    <p>
+                                        Build a practical plan for your income and spending.
+                                    </p>
 
-                                    <div class="input-wrap">
-                                        <span> $ </span>
-
-                                        <input id="roth401k" type="number" min="0" step="10" value="0" />
-                                    </div>
                                 </div>
 
-                                <div>
-                                    <label class="field-label" for="loanRepayment"> Loan repayment </label>
+                            </a>
 
-                                    <div class="input-wrap">
-                                        <span> $ </span>
 
-                                        <input id="loanRepayment" type="number" min="0" step="10" value="0" />
-                                    </div>
+                            <a class="pm-topic-card" href="/finance/">
+
+                                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80"
+                                    alt="Credit and debt" loading="lazy" width="800" height="1000">
+
+                                <div class="pm-topic-content">
+
+                                    <span class="pm-topic-number">
+                                        04
+                                    </span>
+
+                                    <h3>
+                                        Credit & Debt
+                                    </h3>
+
+                                    <p>
+                                        Understand borrowing, balances and repayment.
+                                    </p>
+
                                 </div>
-                            </div>
 
-                            <div class="field-grid">
-                                <div>
-                                    <label class="field-label" for="garnishments"> Garnishments </label>
+                            </a>
 
-                                    <div class="input-wrap">
-                                        <span> $ </span>
 
-                                        <input id="garnishments" type="number" min="0" step="10" value="0" />
-                                    </div>
+                            <a class="pm-topic-card" href="/finance/">
+
+                                <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80"
+                                    alt="Investing and financial growth" loading="lazy" width="800" height="1000">
+
+                                <div class="pm-topic-content">
+
+                                    <span class="pm-topic-number">
+                                        05
+                                    </span>
+
+                                    <h3>
+                                        Investing
+                                    </h3>
+
+                                    <p>
+                                        Learn the basic ideas behind investing and growth.
+                                    </p>
+
                                 </div>
 
-                                <div>
-                                    <label class="field-label" for="otherPosttax"> Other post-tax </label>
+                            </a>
 
-                                    <div class="input-wrap">
-                                        <span> $ </span>
 
-                                        <input id="otherPosttax" type="number" min="0" step="10" value="0" />
-                                    </div>
+                            <a class="pm-topic-card" href="/finance/">
+
+                                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80"
+                                    alt="Financial planning" loading="lazy" width="800" height="1000">
+
+                                <div class="pm-topic-content">
+
+                                    <span class="pm-topic-number">
+                                        06
+                                    </span>
+
+                                    <h3>
+                                        Insurance
+                                    </h3>
+
+                                    <p>
+                                        Learn the role insurance can play in financial planning.
+                                    </p>
+
                                 </div>
-                            </div>
+
+                            </a>
+
                         </div>
 
-                        <button id="calculate" class="calculate-button" type="button">
-                            Calculate take-home pay
-                        </button>
-
-                        <p class="calculator-note">
-                            Results are estimates for planning purposes. Your actual payroll withholding may differ.
-                        </p>
                     </div>
 
-                    <!-- RESULT PANEL -->
 
-                    <aside class="result-card">
-                        <div class="result-heading">
-                            <div>
-                                <p class="section-kicker">ESTIMATED TAKE-HOME</p>
+                    <div class="pm-carousel-controls">
 
-                                <div id="takeHome" class="take-home">$0.00</div>
+                        <div class="pm-carousel-arrows">
 
-                                <p id="resultPeriod" class="result-period">Biweekly take-home</p>
-                            </div>
+                            <button class="pm-carousel-arrow" type="button" data-carousel="topics" data-direction="prev"
+                                aria-label="Previous finance topic">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m15 18-6-6 6-6" />
+                                </svg>
+                            </button>
+
+                            <button class="pm-carousel-arrow" type="button" data-carousel="topics" data-direction="next"
+                                aria-label="Next finance topic">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m9 18 6-6-6-6" />
+                                </svg>
+                            </button>
+
                         </div>
 
-                        <div class="chart-area">
-                            <div id="paycheckChart" class="paycheck-chart">
-                                <div class="chart-center">
-                                    <span> Take home </span>
+                        <div class="pm-carousel-dots" id="topicsDots" aria-label="Finance topic slides"></div>
 
-                                    <strong id="chartNet"> $0 </strong>
-                                </div>
-                            </div>
-                        </div>
+                    </div>
 
-                        <div class="legend">
-                            <div class="legend-row">
-                                <span class="legend-label">
-                                    <i class="legend-dot net"></i>
-                                    Take home
-                                </span>
-
-                                <strong id="legendNet"> $0 </strong>
-                            </div>
-
-                            <div class="legend-row">
-                                <span class="legend-label">
-                                    <i class="legend-dot federal"></i>
-                                    Federal
-                                </span>
-
-                                <strong id="legendFederal"> $0 </strong>
-                            </div>
-
-                            <div class="legend-row">
-                                <span class="legend-label">
-                                    <i class="legend-dot fica"></i>
-                                    FICA
-                                </span>
-
-                                <strong id="legendFica"> $0 </strong>
-                            </div>
-
-                            <div class="legend-row">
-                                <span class="legend-label">
-                                    <i class="legend-dot state"></i>
-                                    State
-                                </span>
-
-                                <strong id="legendState"> $0 </strong>
-                            </div>
-
-                            <div class="legend-row">
-                                <span class="legend-label">
-                                    <i class="legend-dot deductions"></i>
-                                    Deductions
-                                </span>
-
-                                <strong id="legendDeductions"> $0 </strong>
-                            </div>
-                        </div>
-
-                        <div class="result-section">
-                            <div class="result-section-heading">Paycheck breakdown</div>
-
-                            <div class="breakdown-list">
-                                <div class="breakdown-row">
-                                    <span>Gross pay</span>
-                                    <strong id="grossPay">$0.00</strong>
-                                </div>
-
-                                <div class="breakdown-row">
-                                    <span>Federal tax</span>
-                                    <strong id="federalTax">$0.00</strong>
-                                </div>
-
-                                <div class="breakdown-row">
-                                    <span>Social Security + Medicare</span>
-                                    <strong id="fica">$0.00</strong>
-                                </div>
-
-                                <div class="breakdown-row">
-                                    <span>State tax</span>
-                                    <strong id="stateTax">$0.00</strong>
-                                </div>
-
-                                <div class="breakdown-row">
-                                    <span>Pre-tax deductions</span>
-                                    <strong id="preTaxResult">$0.00</strong>
-                                </div>
-
-                                <div class="breakdown-row">
-                                    <span>Post-tax deductions</span>
-                                    <strong id="postTaxResult">$0.00</strong>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="result-section">
-                            <div class="result-section-heading">Take-home by frequency</div>
-
-                            <div class="pay-summary">
-                                <div>
-                                    <span>Weekly</span>
-                                    <strong id="weeklyPay">$0.00</strong>
-                                </div>
-
-                                <div>
-                                    <span>Biweekly</span>
-                                    <strong id="biweeklyPay">$0.00</strong>
-                                </div>
-
-                                <div>
-                                    <span>Semimonthly</span>
-                                    <strong id="semimonthlyPay">$0.00</strong>
-                                </div>
-
-                                <div>
-                                    <span>Monthly</span>
-                                    <strong id="monthlyPay">$0.00</strong>
-                                </div>
-
-                                <div>
-                                    <span>Annual</span>
-                                    <strong id="annualPay">$0.00</strong>
-                                </div>
-                            </div>
-                        </div>
-                    </aside>
                 </div>
+
             </div>
 
         </section>
 
-        <!-- =========================================================
-     ORIGINAL VALUE SECTION
-========================================================= -->
 
-        <section class="content-section">
+        <!-- =======================================================
+         GUIDES
+    ======================================================== -->
 
-            <div class="container narrow">
-                <p class="section-kicker">UNDERSTAND YOUR PAYCHECK</p>
+        <section class="pm-section pm-section-soft">
 
-                <h2>What does a paycheck calculator actually tell you?</h2>
+            <div class="pm-container">
 
-                <p>
-                    A paycheck calculator is useful because your annual salary is not the amount that normally
-                    arrives in your bank account. Payroll withholding can include federal income tax, Social
-                    Security, Medicare, state or local taxes, retirement contributions, insurance premiums and other
-                    deductions.
-                </p>
+                <div class="pm-section-head">
 
-                <p>
-                    PaycheckMint separates these pieces so you can see where your earnings are going instead of
-                    looking only at one final take-home number.
-                </p>
+                    <div>
 
-                <div class="info-grid">
-                    <article class="info-item">
-                        <h3>Gross pay</h3>
-
-                        <p>
-                            Your earnings before taxes and deductions. For salaried workers, this usually starts
-                            with annual salary. For hourly workers, it can include regular and overtime wages.
+                        <p class="pm-section-kicker">
+                            Learn
                         </p>
-                    </article>
 
-                    <article class="info-item">
-                        <h3>Federal withholding</h3>
+                        <h2 class="pm-section-title">
+                            Useful money guides
+                        </h2>
 
-                        <p>
-                            Federal income tax withholding depends on your taxable wages and withholding
-                            information, including information reported on Form W-4.
+                        <p class="pm-section-description">
+                            Straightforward explanations for common personal
+                            finance questions.
                         </p>
-                    </article>
 
-                    <article class="info-item">
-                        <h3>FICA taxes</h3>
+                    </div>
 
-                        <p>
-                            FICA includes Social Security and Medicare taxes. They have different rules, including a
-                            wage base for Social Security.
-                        </p>
-                    </article>
+                    <a class="pm-view-all" href="/finance/">
+                        Explore more →
+                    </a>
 
-                    <article class="info-item">
-                        <h3>Other deductions</h3>
-
-                        <p>
-                            Retirement contributions, health benefits and other deductions can reduce the amount
-                            that ultimately reaches your bank account.
-                        </p>
-                    </article>
                 </div>
+
+
+                <div class="pm-carousel">
+
+                    <div class="pm-carousel-window">
+
+                        <div class="pm-carousel-track pm-guides-track" id="guidesTrack">
+
+                            <a class="pm-guide-card" href="/finance/">
+
+                                <img class="pm-guide-image"
+                                    src="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=900&q=80"
+                                    alt="Person planning a household budget" loading="lazy" width="900" height="600">
+
+                                <div class="pm-guide-body">
+
+                                    <span class="pm-guide-category">
+                                        Budgeting
+                                    </span>
+
+                                    <h3>
+                                        How to Build a Budget That You Can Actually Use
+                                    </h3>
+
+                                    <p>
+                                        Learn how income, essential expenses,
+                                        flexible spending and savings fit together.
+                                    </p>
+
+                                </div>
+
+                            </a>
+
+
+                            <a class="pm-guide-card" href="/finance/">
+
+                                <img class="pm-guide-image"
+                                    src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=900&q=80"
+                                    alt="Investing concept" loading="lazy" width="900" height="600">
+
+                                <div class="pm-guide-body">
+
+                                    <span class="pm-guide-category">
+                                        Investing
+                                    </span>
+
+                                    <h3>
+                                        Investing Basics: What New Investors Should Understand
+                                    </h3>
+
+                                    <p>
+                                        A practical introduction to risk, diversification,
+                                        time horizon and long-term investing.
+                                    </p>
+
+                                </div>
+
+                            </a>
+
+
+                            <a class="pm-guide-card" href="/finance/">
+
+                                <img class="pm-guide-image"
+                                    src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=900&q=80"
+                                    alt="Money growth concept" loading="lazy" width="900" height="600">
+
+                                <div class="pm-guide-body">
+
+                                    <span class="pm-guide-category">
+                                        Saving
+                                    </span>
+
+                                    <h3>
+                                        How Compound Growth Can Affect Your Savings
+                                    </h3>
+
+                                    <p>
+                                        Understand why time and repeated growth
+                                        can make a difference to long-term savings.
+                                    </p>
+
+                                </div>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pm-carousel-controls">
+
+                        <div class="pm-carousel-arrows">
+
+                            <button class="pm-carousel-arrow" type="button" data-carousel="guides" data-direction="prev"
+                                aria-label="Previous guide">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m15 18-6-6 6-6" />
+                                </svg>
+                            </button>
+
+                            <button class="pm-carousel-arrow" type="button" data-carousel="guides" data-direction="next"
+                                aria-label="Next guide">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m9 18 6-6-6-6" />
+                                </svg>
+                            </button>
+
+                        </div>
+
+                        <div class="pm-carousel-dots" id="guidesDots" aria-label="Guide slides"></div>
+
+                    </div>
+
+                </div>
+
             </div>
 
         </section>
 
-        <!-- =========================================================
-     ADVERTISEMENT
-========================================================= -->
 
-        <section class="ad-section">
+        <!-- =======================================================
+         BASICS
+    ======================================================== -->
 
-            <div class="container">
-                <div class="ad-placeholder">Advertisement</div>
+        <section class="pm-section">
+
+            <div class="pm-container">
+
+                <div class="pm-basics">
+
+                    <div class="pm-basics-intro">
+
+                        <p class="pm-section-kicker">
+                            Money basics
+                        </p>
+
+                        <h2>
+                            Start with the concepts behind the numbers.
+                        </h2>
+
+                        <p>
+                            Financial tools are more useful when you understand
+                            what the numbers actually represent. These basics
+                            help explain common terms before you make a decision.
+                        </p>
+
+                        <a class="pm-button-secondary" href="/income/" style="margin-top:20px;">
+                            Explore income guides
+                        </a>
+
+                    </div>
+
+
+                    <div class="pm-basics-list">
+
+                        <a class="pm-basic-row" href="/income/">
+
+                            <span class="pm-basic-icon">
+                                $
+                            </span>
+
+                            <span class="pm-basic-content">
+                                <strong>
+                                    What Is Gross Income?
+                                </strong>
+
+                                <span>
+                                    Understand income before taxes and deductions.
+                                </span>
+                            </span>
+
+                            <span class="pm-basic-arrow">
+                                →
+                            </span>
+
+                        </a>
+
+
+                        <a class="pm-basic-row" href="/income/">
+
+                            <span class="pm-basic-icon">
+                                $
+                            </span>
+
+                            <span class="pm-basic-content">
+                                <strong>
+                                    What Is Net Income?
+                                </strong>
+
+                                <span>
+                                    Learn how net income differs from gross income.
+                                </span>
+                            </span>
+
+                            <span class="pm-basic-arrow">
+                                →
+                            </span>
+
+                        </a>
+
+
+                        <a class="pm-basic-row" href="/take-home-pay-calculator/">
+
+                            <span class="pm-basic-icon">
+                                ✓
+                            </span>
+
+                            <span class="pm-basic-content">
+                                <strong>
+                                    What Is Take-Home Pay?
+                                </strong>
+
+                                <span>
+                                    See why your paycheck is lower than gross pay.
+                                </span>
+                            </span>
+
+                            <span class="pm-basic-arrow">
+                                →
+                            </span>
+
+                        </a>
+
+
+                        <a class="pm-basic-row" href="/finance/">
+
+                            <span class="pm-basic-icon">
+                                ≡
+                            </span>
+
+                            <span class="pm-basic-content">
+                                <strong>
+                                    How to Organize Your Money
+                                </strong>
+
+                                <span>
+                                    Build a clearer picture of income, spending and goals.
+                                </span>
+                            </span>
+
+                            <span class="pm-basic-arrow">
+                                →
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
             </div>
 
         </section>
 
-        <!-- =========================================================
-     HOW IT WORKS
-========================================================= -->
 
-        <section id="how-it-works" class="content-section muted-section">
+        <!-- =======================================================
+         TRUST
+    ======================================================== -->
 
-            <div class="container narrow">
-                <p class="section-kicker">HOW IT WORKS</p>
+        <section class="pm-trust-section">
 
-                <h2>How PaycheckMint estimates take-home pay</h2>
+            <div class="pm-container">
 
-                <p>
-                    The calculator follows the basic structure of a payroll calculation: start with earnings,
-                    account for applicable adjustments and deductions, estimate taxes, and determine the amount
-                    remaining.
-                </p>
+                <div class="pm-trust-heading">
 
-                <div class="process-grid">
-                    <article class="process-card">
-                        <span class="process-number"> 01 </span>
-
-                        <h3>Calculate gross earnings</h3>
-
-                        <p>
-                            Salary is converted into the selected pay period. Hourly workers can use their hourly
-                            rate, regular hours and overtime hours.
-                        </p>
-                    </article>
-
-                    <article class="process-card">
-                        <span class="process-number"> 02 </span>
-
-                        <h3>Account for deductions</h3>
-
-                        <p>
-                            Pre-tax and post-tax deductions can change the amount subject to certain taxes and the
-                            amount ultimately available as take-home pay.
-                        </p>
-                    </article>
-
-                    <article class="process-card">
-                        <span class="process-number"> 03 </span>
-
-                        <h3>Estimate taxes</h3>
-
-                        <p>
-                            Federal income tax, Social Security, Medicare and state withholding are estimated based
-                            on the information entered.
-                        </p>
-                    </article>
-
-                    <article class="process-card">
-                        <span class="process-number"> 04 </span>
-
-                        <h3>Show take-home pay</h3>
-
-                        <p>
-                            The calculator combines the estimated deductions and taxes to show the amount remaining
-                            for the selected pay period.
-                        </p>
-                    </article>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- =========================================================
-     GROSS VS NET
-========================================================= -->
-
-        <section class="content-section">
-
-            <div class="container narrow">
-                <p class="section-kicker">PAYCHECK BASICS</p>
-
-                <h2>Gross pay vs. take-home pay</h2>
-
-                <p>
-                    One of the most important paycheck concepts is the difference between gross pay and take-home
-                    pay.
-                </p>
-
-                <div class="comparison-table">
-                    <div class="comparison-row comparison-head">
-                        <strong> Gross pay </strong>
-
-                        <strong> Take-home pay </strong>
-                    </div>
-
-                    <div class="comparison-row">
-                        <span> Earnings before payroll deductions </span>
-
-                        <span> Amount remaining after applicable deductions </span>
-                    </div>
-
-                    <div class="comparison-row">
-                        <span> Used to determine many payroll taxes </span>
-
-                        <span> Closer to the amount available for spending </span>
-                    </div>
-
-                    <div class="comparison-row">
-                        <span> May be quoted as annual salary </span>
-
-                        <span> Usually received weekly, biweekly, semimonthly or monthly </span>
-                    </div>
-                </div>
-
-                <div class="example-box">
-                    <h3>Example: $60,000 annual salary</h3>
-
-                    <p>
-                        A $60,000 salary is $5,000 in gross monthly earnings before taxes and deductions if paid
-                        monthly. The amount deposited into your account will normally be lower because payroll
-                        withholding and deductions reduce gross pay.
+                    <p class="pm-section-kicker">
+                        Why PaycheckMint
                     </p>
 
-                    <p>
-                        The exact take-home amount depends on factors such as filing information, state, benefits,
-                        retirement contributions and other payroll settings.
-                    </p>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- =========================================================
-     2026 TAX INFORMATION
-========================================================= -->
-
-        <section class="content-section muted-section">
-
-            <div class="container narrow">
-                <p class="section-kicker">2026 TAX INFORMATION</p>
-
-                <h2>Payroll taxes that can affect your paycheck</h2>
-
-                <p>
-                    Your paycheck may include several different types of withholding. Understanding the purpose of
-                    each one makes the calculator results easier to interpret.
-                </p>
-
-                <div class="tax-facts">
-                    <article class="tax-fact">
-                        <strong> Federal income tax </strong>
-
-                        <span>
-                            Federal income tax withholding is based on federal withholding rules and information
-                            from your Form W-4.
-                        </span>
-                    </article>
-
-                    <article class="tax-fact">
-                        <strong> Social Security </strong>
-
-                        <span>
-                            The 2026 employee Social Security rate is 6.2% on covered wages up to the annual Social
-                            Security wage base.
-                        </span>
-                    </article>
-
-                    <article class="tax-fact">
-                        <strong> Medicare </strong>
-
-                        <span>
-                            The employee Medicare tax rate is 1.45% on covered wages, with no Social Security-style
-                            wage base.
-                        </span>
-                    </article>
-
-                    <article class="tax-fact">
-                        <strong> Additional Medicare Tax </strong>
-
-                        <span>
-                            Employers generally begin withholding the additional 0.9% Medicare tax when wages paid
-                            to an employee exceed $200,000 during the calendar year.
-                        </span>
-                    </article>
-
-                    <article class="tax-fact">
-                        <strong> State income tax </strong>
-
-                        <span>
-                            State withholding varies significantly. Some states have no individual income tax, while
-                            others use their own withholding rules and rates.
-                        </span>
-                    </article>
-
-                    <article class="tax-fact">
-                        <strong> Local taxes </strong>
-
-                        <span>
-                            Depending on where you work or live, local income or payroll taxes may affect your
-                            actual paycheck.
-                        </span>
-                    </article>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- =========================================================
-     DEDUCTIONS
-========================================================= -->
-
-        <section class="content-section">
-
-            <div class="container narrow">
-                <p class="section-kicker">PAYROLL DEDUCTIONS</p>
-
-                <h2>Pre-tax vs. post-tax deductions</h2>
-
-                <p>
-                    Not every deduction affects your paycheck in the same way. Whether a benefit or contribution is
-                    treated before or after tax can affect taxable wages and take-home pay.
-                </p>
-
-                <div class="info-grid">
-                    <article class="info-item">
-                        <h3>Common pre-tax deductions</h3>
-
-                        <ul>
-                            <li>Traditional 401(k) contributions</li>
-
-                            <li>Certain health insurance premiums</li>
-
-                            <li>HSA contributions when eligible</li>
-
-                            <li>FSA contributions when eligible</li>
-                        </ul>
-                    </article>
-
-                    <article class="info-item">
-                        <h3>Common post-tax deductions</h3>
-
-                        <ul>
-                            <li>Roth 401(k) contributions</li>
-
-                            <li>Certain loan repayments</li>
-
-                            <li>Garnishments</li>
-
-                            <li>Other deductions taken after applicable taxes</li>
-                        </ul>
-                    </article>
-                </div>
-
-                <p>
-                    Actual payroll treatment depends on the specific benefit, employer plan and applicable tax
-                    rules. The labels above are general categories rather than a determination of how every employer
-                    handles a particular deduction.
-                </p>
-            </div>
-
-        </section>
-
-        <!-- =========================================================
-     PAY FREQUENCY
-========================================================= -->
-
-        <section class="content-section muted-section">
-
-            <div class="container narrow">
-                <p class="section-kicker">PAY FREQUENCY</p>
-
-                <h2>Weekly vs. biweekly vs. semimonthly vs. monthly pay</h2>
-
-                <p>
-                    Your pay frequency changes the amount of each paycheck, but it does not necessarily change your
-                    annual salary. The number of paychecks received during the year is different for each schedule.
-                </p>
-
-                <div class="frequency-table">
-                    <div class="frequency-row frequency-head">
-                        <strong> Schedule </strong>
-
-                        <strong> Typical annual payments </strong>
-
-                        <strong> Useful for </strong>
-                    </div>
-
-                    <div class="frequency-row">
-                        <span> Weekly </span>
-
-                        <span> 52 </span>
-
-                        <span> Workers paid every week </span>
-                    </div>
-
-                    <div class="frequency-row">
-                        <span> Biweekly </span>
-
-                        <span> 26 </span>
-
-                        <span> Every two weeks </span>
-                    </div>
-
-                    <div class="frequency-row">
-                        <span> Semimonthly </span>
-
-                        <span> 24 </span>
-
-                        <span> Twice each month </span>
-                    </div>
-
-                    <div class="frequency-row">
-                        <span> Monthly </span>
-
-                        <span> 12 </span>
-
-                        <span> Once each month </span>
-                    </div>
-                </div>
-
-                <div class="callout">
-                    <strong> Important difference: </strong>
+                    <h2>
+                        Built to make personal finance easier to understand.
+                    </h2>
 
                     <p>
-                        Biweekly and semimonthly are not the same schedule. A biweekly employee generally receives
-                        26 paychecks per year, while a semimonthly employee generally receives 24.
+                        PaycheckMint combines practical tools with explanations
+                        so you can understand the numbers rather than simply receive them.
                     </p>
-                </div>
-            </div>
 
-        </section>
-
-        <!-- =========================================================
-     HOURLY VS SALARY
-========================================================= -->
-
-        <section class="content-section">
-
-            <div class="container narrow">
-                <p class="section-kicker">INCOME TYPES</p>
-
-                <h2>Salary vs. hourly pay: what changes?</h2>
-
-                <div class="comparison-table">
-                    <div class="comparison-row comparison-head">
-                        <strong> Salary </strong>
-
-                        <strong> Hourly </strong>
-                    </div>
-
-                    <div class="comparison-row">
-                        <span> Usually quoted as annual compensation </span>
-
-                        <span> Usually quoted as an hourly rate </span>
-                    </div>
-
-                    <div class="comparison-row">
-                        <span> Paychecks are based on the salary and pay schedule </span>
-
-                        <span> Pay can change with hours worked </span>
-                    </div>
-
-                    <div class="comparison-row">
-                        <span> Overtime treatment depends on classification and applicable rules </span>
-
-                        <span> Overtime may increase gross wages when applicable </span>
-                    </div>
                 </div>
 
-                <p>
-                    PaycheckMint lets you switch between salary and hourly income so you can estimate both common
-                    compensation structures.
-                </p>
-            </div>
 
-        </section>
+                <div class="pm-trust-grid">
 
-        <!-- =========================================================
-     WHY ACTUAL PAYCHECK DIFFERS
-========================================================= -->
+                    <div class="pm-trust-card">
 
-        <section class="content-section muted-section">
+                        <div class="pm-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 3 4 6v5c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V6l-8-3Z" />
+                                <path d="m8 12 2.5 2.5L16 9" />
+                            </svg>
+                        </div>
 
-            <div class="container narrow">
-                <p class="section-kicker">IMPORTANT</p>
-
-                <h2>Why your real paycheck may be different</h2>
-
-                <p>
-                    An online calculator can provide a useful planning estimate, but payroll systems have access to
-                    information that a general-purpose calculator may not have.
-                </p>
-
-                <div class="mistake-grid">
-                    <article>
-                        <h3>Form W-4</h3>
+                        <h3>
+                            U.S.-focused
+                        </h3>
 
                         <p>
-                            Your federal withholding depends partly on information supplied through your Form W-4.
+                            Information and calculators are designed around
+                            common U.S. personal finance questions.
                         </p>
-                    </article>
 
-                    <article>
-                        <h3>Year-to-date wages</h3>
+                    </div>
+
+
+                    <div class="pm-trust-card">
+
+                        <div class="pm-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 19V5" />
+                                <path d="M4 19h16" />
+                                <path d="m7 15 4-4 3 2 5-6" />
+                            </svg>
+                        </div>
+
+                        <h3>
+                            Practical tools
+                        </h3>
 
                         <p>
-                            Some payroll taxes and withholding calculations depend on cumulative wages already paid
-                            during the year.
+                            Use calculators for quick estimates and guides
+                            for the context behind the numbers.
                         </p>
-                    </article>
 
-                    <article>
-                        <h3>Employer benefits</h3>
+                    </div>
+
+
+                    <div class="pm-trust-card">
+
+                        <div class="pm-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 3v18M3 12h18" />
+                                <circle cx="12" cy="12" r="9" />
+                            </svg>
+                        </div>
+
+                        <h3>
+                            Clear explanations
+                        </h3>
 
                         <p>
-                            Health plans, retirement plans and other benefits can affect the deductions appearing on
-                            your pay stub.
+                            Complex financial terms are broken into practical
+                            ideas and examples.
                         </p>
-                    </article>
 
-                    <article>
-                        <h3>State and local rules</h3>
+                    </div>
 
-                        <p>
-                            State and local withholding can vary based on where you live, work and how your employer
-                            handles payroll.
-                        </p>
-                    </article>
                 </div>
+
             </div>
 
         </section>
 
-        <!-- =========================================================
-     HOW TO READ PAY STUB
-========================================================= -->
 
-        <section class="content-section">
+        <!-- =======================================================
+         FINAL CTA
+    ======================================================== -->
 
-            <div class="container narrow">
-                <p class="section-kicker">PAY STUB GUIDE</p>
+        <section class="pm-final-cta">
 
-                <h2>How to read your paycheck</h2>
+            <div class="pm-container">
 
-                <p>
-                    Your pay stub contains more information than the final amount deposited into your account.
-                    Comparing your calculator estimate with a real pay stub can help you understand the difference
-                    between gross wages, taxes and deductions.
-                </p>
+                <div class="pm-final-box">
 
-                <div class="paystub-grid">
-                    <article>
-                        <span class="step-number"> 01 </span>
-
-                        <h3>Gross earnings</h3>
-
-                        <p>
-                            Look for current-period earnings and year-to-date earnings. Hourly workers may see
-                            regular and overtime earnings listed separately.
-                        </p>
-                    </article>
-
-                    <article>
-                        <span class="step-number"> 02 </span>
-
-                        <h3>Federal tax</h3>
-
-                        <p>
-                            This is the federal income tax withholding shown for the current paycheck and, usually,
-                            the year to date.
-                        </p>
-                    </article>
-
-                    <article>
-                        <span class="step-number"> 03 </span>
-
-                        <h3>FICA</h3>
-
-                        <p>
-                            Social Security and Medicare generally appear separately or together in the payroll
-                            deduction section.
-                        </p>
-                    </article>
-
-                    <article>
-                        <span class="step-number"> 04 </span>
-
-                        <h3>Benefits and deductions</h3>
-
-                        <p>Retirement contributions, insurance and other payroll deductions may appear here.</p>
-                    </article>
-
-                    <article>
-                        <span class="step-number"> 05 </span>
-
-                        <h3>Net pay</h3>
-
-                        <p>
-                            Net pay is the amount remaining after the applicable payroll deductions shown on the
-                            statement.
-                        </p>
-                    </article>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- =========================================================
-     RELATED TOOLS
-========================================================= -->
-
-        <section class="tools-section">
-
-            <div class="section-heading">
-                <p class="eyebrow">PAYCHECK TOOLS</p>
-
-                <h2>Choose a calculator for your situation</h2>
-
-                <p>PaycheckMint includes separate tools for common salary, hourly, overtime and tax questions.</p>
-            </div>
-
-            <div class="tools-grid">
-                <a href="/hourly-paycheck-calculator/" class="tool-link">
-                    <div>
-                        <span class="tool-label"> HOURLY PAY </span>
-
-                        <h3>Hourly Paycheck Calculator</h3>
-
-                        <p>Estimate take-home pay from an hourly rate and hours worked.</p>
-                    </div>
-
-                    <span class="tool-arrow"> → </span>
-                </a>
-
-                <a href="/salary-paycheck-calculator/" class="tool-link">
-                    <div>
-                        <span class="tool-label"> SALARY </span>
-
-                        <h3>Salary Paycheck Calculator</h3>
-
-                        <p>Estimate take-home pay from an annual salary.</p>
-                    </div>
-
-                    <span class="tool-arrow"> → </span>
-                </a>
-
-                <a href="/overtime-pay-calculator/" class="tool-link">
-                    <div>
-                        <span class="tool-label"> OVERTIME </span>
-
-                        <h3>Overtime Pay Calculator</h3>
-
-                        <p>Estimate regular earnings, overtime earnings and gross pay.</p>
-                    </div>
-
-                    <span class="tool-arrow"> → </span>
-                </a>
-
-                <a href="/paycheck-tax-calculator/" class="tool-link">
-                    <div>
-                        <span class="tool-label"> PAYROLL TAX </span>
-
-                        <h3>Paycheck Tax Calculator</h3>
-
-                        <p>Estimate federal, FICA and state payroll taxes.</p>
-                    </div>
-
-                    <span class="tool-arrow"> → </span>
-                </a>
-
-                <a href="/take-home-pay-calculator/" class="tool-link">
-                    <div>
-                        <span class="tool-label"> TAKE-HOME PAY </span>
-
-                        <h3>Take-Home Pay Calculator</h3>
-
-                        <p>Focus on the amount remaining after estimated taxes and deductions.</p>
-                    </div>
-
-                    <span class="tool-arrow"> → </span>
-                </a>
-
-                <a href="/weekly-paycheck-calculator/" class="tool-link">
-                    <div>
-                        <span class="tool-label"> WEEKLY </span>
-
-                        <h3>Weekly Paycheck Calculator</h3>
-
-                        <p>Estimate weekly gross pay, taxes and take-home pay.</p>
-                    </div>
-
-                    <span class="tool-arrow"> → </span>
-                </a>
-
-                <a href="/biweekly-paycheck-calculator/" class="tool-link">
-                    <div>
-                        <span class="tool-label"> BIWEEKLY </span>
-
-                        <h3>Biweekly Paycheck Calculator</h3>
-
-                        <p>Estimate pay for employees paid every two weeks.</p>
-                    </div>
-
-                    <span class="tool-arrow"> → </span>
-                </a>
-
-                <a href="/monthly-paycheck-calculator/" class="tool-link">
-                    <div>
-                        <span class="tool-label"> MONTHLY </span>
-
-                        <h3>Monthly Paycheck Calculator</h3>
-
-                        <p>Estimate monthly earnings after taxes and deductions.</p>
-                    </div>
-
-                    <span class="tool-arrow"> → </span>
-                </a>
-            </div>
-
-        </section>
-
-        <!-- =========================================================
-     FINANCE GUIDES
-========================================================= -->
-
-        <section class="content-section muted-section">
-
-            <div class="container narrow">
-                <p class="section-kicker">PERSONAL FINANCE GUIDES</p>
-
-                <h2>Go beyond your paycheck</h2>
-
-                <p>
-                    Understanding your paycheck is only one part of managing personal finances. PaycheckMint also
-                    provides practical guides covering income, taxes, budgeting, credit, debt, investing and
-                    insurance.
-                </p>
-
-                <div class="guide-grid">
-                    <a href="/income/">
-                        <span> INCOME </span>
-
-                        <strong> Understand different types of income </strong>
-
-                        <small> Gross income, net income, side income and more. </small>
-                    </a>
-
-                    <a href="/finance/taxes/">
-                        <span> TAXES </span>
-
-                        <strong> Learn how taxes affect your income </strong>
-
-                        <small> Tax basics, withholding and practical explanations. </small>
-                    </a>
-
-                    <a href="/finance/budgeting/">
-                        <span> BUDGETING </span>
-
-                        <strong> Turn take-home pay into a budget </strong>
-
-                        <small> Budgeting methods, emergency funds and saving strategies. </small>
-                    </a>
-
-                    <a href="/finance/credit-debt/">
-                        <span> CREDIT &amp; DEBT </span>
-
-                        <strong> Understand credit and debt </strong>
-
-                        <small> Credit scores, reports, utilization and debt repayment. </small>
-                    </a>
-
-                    <a href="/finance/investing/">
-                        <span> INVESTING </span>
-
-                        <strong> Learn investing fundamentals </strong>
-
-                        <small> Retirement, stocks, ETFs and long-term investing concepts. </small>
-                    </a>
-
-                    <a href="/finance/insurance/">
-                        <span> INSURANCE </span>
-
-                        <strong> Understand insurance costs </strong>
-
-                        <small> Health, auto, renters, life and other insurance topics. </small>
-                    </a>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- =========================================================
-     METHODOLOGY
-========================================================= -->
-
-        <section class="content-section">
-
-            <div class="container narrow">
-                <p class="section-kicker">METHODOLOGY</p>
-
-                <h2>How PaycheckMint approaches paycheck estimates</h2>
-
-                <p>
-                    PaycheckMint is designed as a planning tool rather than a replacement for an employer's payroll
-                    system. The calculator combines the income and payroll information entered by the user with its
-                    tax rules to produce an estimated paycheck.
-                </p>
-
-                <p>
-                    Federal withholding is particularly dependent on withholding information and payroll
-                    methodology. The IRS publishes Publication 15-T for federal income tax withholding methods and
-                    Publication 15 for employer payroll tax guidance.
-                </p>
-
-                <p>
-                    State withholding can be more complicated because rules differ between states and some locations
-                    also have local taxes. Consequently, a general calculator cannot reproduce every employer's
-                    payroll configuration.
-                </p>
-
-                <div class="methodology-note">
-                    <strong> Why show an estimate? </strong>
+                    <h2>
+                        Start with one money question.
+                    </h2>
 
                     <p>
-                        The purpose of PaycheckMint is to help you understand the relationship between gross income,
-                        taxes, deductions and take-home pay before you receive your actual payroll statement.
-                    </p>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- =========================================================
-     2026 SOURCES
-========================================================= -->
-
-        <section class="content-section muted-section">
-
-            <div class="container narrow">
-                <p class="section-kicker">SOURCES</p>
-
-                <h2>2026 payroll and tax references</h2>
-
-                <p>
-                    PaycheckMint's educational material and payroll methodology are informed by official federal tax
-                    resources. Tax rules can change, so the calculator should be treated as an estimate rather than
-                    an official tax calculation.
-                </p>
-
-                <div class="source-cards">
-                    <a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener noreferrer">
-                        <strong> IRS Publication 15-T </strong>
-
-                        <span> Federal Income Tax Withholding Methods </span>
-                    </a>
-
-                    <a href="https://www.irs.gov/publications/p15" target="_blank" rel="noopener noreferrer">
-                        <strong> IRS Publication 15 </strong>
-
-                        <span> Employer's Tax Guide </span>
-                    </a>
-
-                    <a href="https://www.irs.gov/taxtopics/tc751" target="_blank" rel="noopener noreferrer">
-                        <strong> IRS Tax Topic 751 </strong>
-
-                        <span> Social Security and Medicare withholding rates </span>
-                    </a>
-
-                    <a href="https://www.irs.gov/forms-pubs/about-form-w-4" target="_blank" rel="noopener noreferrer">
-                        <strong> IRS Form W-4 </strong>
-
-                        <span> Employee's Withholding Certificate information </span>
-                    </a>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- =========================================================
-     FAQ
-========================================================= -->
-
-        <section id="faq" class="content-section">
-
-            <div class="container narrow">
-                <p class="section-kicker">FAQ</p>
-
-                <h2>Paycheck calculator questions</h2>
-
-                <div class="faq-list">
-                    <details>
-                        <summary>What is a paycheck calculator?</summary>
-
-                        <p>
-                            A paycheck calculator estimates how much of your gross earnings may remain after
-                            applicable federal, FICA, state and other deductions. It can be useful when comparing a
-                            salary, evaluating a job offer or planning a household budget.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>How does PaycheckMint calculate take-home pay?</summary>
-
-                        <p>
-                            PaycheckMint starts with gross earnings, accounts for the information entered for
-                            deductions and withholding, and estimates applicable taxes before calculating the
-                            remaining take-home amount.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>Is PaycheckMint an exact paycheck calculator?</summary>
-
-                        <p>
-                            No. PaycheckMint provides estimates for planning purposes. Actual payroll calculations
-                            can differ because of employer payroll systems, W-4 information, state and local rules,
-                            year-to-date wages, benefits and other payroll details.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>What is the difference between biweekly and semimonthly pay?</summary>
-
-                        <p>
-                            Biweekly pay normally means a paycheck every two weeks, resulting in 26 pay periods in a
-                            typical year. Semimonthly pay means two paychecks each month, normally resulting in 24
-                            pay periods.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>Does the calculator include Social Security and Medicare?</summary>
-
-                        <p>
-                            Yes. The calculator estimates Social Security and Medicare as part of the payroll tax
-                            calculation. Additional Medicare withholding may also apply at higher wage levels.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>Can I include 401(k) contributions?</summary>
-
-                        <p>
-                            Yes. The calculator includes a field for traditional 401(k) or retirement contributions
-                            as well as a separate field for Roth 401(k) contributions.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>Why does my calculator result differ from my pay stub?</summary>
-
-                        <p>
-                            Your employer's payroll calculation may include information that is not entered into a
-                            general calculator. Differences can come from W-4 settings, year-to-date wages, local
-                            taxes, benefits, payroll timing and employer-specific deduction treatment.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>Can I use PaycheckMint for budgeting?</summary>
-
-                        <p>
-                            Yes. An estimated take-home amount can provide a starting point for a monthly or
-                            paycheck-based budget. For actual budgeting, use your real pay stubs and bank records
-                            once available.
-                        </p>
-                    </details>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- =========================================================
-     FINAL INTERNAL NAVIGATION
-========================================================= -->
-
-        <section class="content-section final-navigation">
-
-            <div class="container narrow">
-                <div class="final-navigation-card">
-                    <p class="section-kicker">CONTINUE LEARNING</p>
-
-                    <h2>Explore PaycheckMint</h2>
-
-                    <p>
-                        Start with your paycheck, then learn how income connects to taxes, budgeting, credit, debt
-                        and long-term financial planning.
+                        Whether you're checking a paycheck or trying to understand
+                        a financial concept, PaycheckMint gives you a practical
+                        place to start.
                     </p>
 
-                    <div class="final-links">
-                        <a href="/income/"> Income guides → </a>
+                    <div class="pm-final-actions">
 
-                        <a href="/finance/taxes/"> Tax guides → </a>
+                        <a class="pm-button-primary" href="/paycheck-tax-calculator/">
+                            Calculate my paycheck
+                        </a>
 
-                        <a href="/finance/budgeting/"> Budgeting guides → </a>
+                        <a class="pm-button-secondary" href="/finance/">
+                            Explore finance
+                        </a>
 
-                        <a href="/finance/credit-debt/"> Credit &amp; debt → </a>
-
-                        <a href="/finance/investing/"> Investing guides → </a>
-
-                        <a href="/finance/insurance/"> Insurance guides → </a>
                     </div>
+
                 </div>
+
             </div>
 
         </section>
 
-        <!-- =========================================================
-     DISCLAIMER
-========================================================= -->
-
-        <section class="disclaimer-section">
-
-            <div class="container narrow">
-                <strong> Disclaimer </strong>
-
-                <p>
-                    PaycheckMint provides estimates and general educational information for planning purposes only.
-                    It is not tax, legal, accounting or personalized financial advice. Actual payroll withholding
-                    and take-home pay may differ. Tax rules, state rules and employer payroll practices can change.
-                    For questions about your individual payroll or tax situation, consult your employer's payroll
-                    department or a qualified professional.
-                </p>
-            </div>
-
-        </section>
     </main>
+
 
     <!-- =========================================================
      FOOTER
 ========================================================= -->
 
-    <footer class="site-footer">
+    <footer class="pm-footer">
 
-        <div class="container">
-            <div class="footer-inner">
-                <div class="footer-grid">
-                    <div>
-                        <div class="footer-brand">
-                            <a href="/" class="logo"> Paycheck<span>Mint</span> </a>
-                        </div>
+        <div class="pm-footer-main">
 
-                        <p class="footer-description">
-                            Simple tools and guides to help you understand your paycheck, income, taxes, budgeting,
-                            debt, investing and insurance.
-                        </p>
-                    </div>
+            <div>
 
-                    <div class="footer-column">
-                        <h3>Calculators</h3>
+                <a class="pm-footer-brand" href="/">
+                    Paycheck<span>Mint</span>
+                </a>
 
-                        <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+                <p class="pm-footer-description">
+                    Practical U.S. personal finance tools and explanations
+                    for everyday money decisions.
+                </p>
 
-                        <a href="/take-home-pay-calculator/"> Take-Home Pay </a>
-
-                        <a href="/salary-paycheck-calculator/"> Salary Paycheck </a>
-
-                        <a href="/hourly-paycheck-calculator/"> Hourly Paycheck </a>
-
-                        <a href="/overtime-pay-calculator/"> Overtime Pay </a>
-                    </div>
-
-                    <div class="footer-column">
-                        <h3>Finance</h3>
-
-                        <a href="/finance/"> Finance Overview </a>
-
-                        <a href="/finance/taxes/"> Taxes </a>
-
-                        <a href="/finance/budgeting/"> Budgeting </a>
-
-                        <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
-
-                        <a href="/finance/investing/"> Investing </a>
-
-                        <a href="/finance/insurance/"> Insurance </a>
-                    </div>
-
-                    <div class="footer-column">
-                        <h3>Company</h3>
-
-                        <a href="/about/"> About </a>
-
-                        <a href="/contact/"> Contact </a>
-
-                        <a href="/privacy-policy/"> Privacy </a>
-
-                        <a href="/terms/"> Terms </a>
-                        
-                        <a href="/sitemap.xml">Sitemap</a>
-                    </div>
-                </div>
-
-                <div class="footer-bottom">
-                    <span> © 2026 PaycheckMint. All rights reserved. </span>
-
-                    <span> Estimates are for informational purposes. </span>
-                </div>
             </div>
+
+
+            <div class="pm-footer-column">
+
+                <h3>
+                    Calculators
+                </h3>
+
+                <a href="/paycheck-tax-calculator/">
+                    Paycheck Tax Calculator
+                </a>
+
+                <a href="/take-home-pay-calculator/">
+                    Take-Home Pay
+                </a>
+
+                <a href="/hourly-paycheck-calculator/">
+                    Hourly Pay
+                </a>
+
+                <a href="/overtime-pay-calculator/">
+                    Overtime Pay
+                </a>
+
+                <a href="/salary-paycheck-calculator/">
+                    Salary Pay
+                </a>
+
+            </div>
+
+
+            <div class="pm-footer-column">
+
+                <h3>
+                    Paycheck tools
+                </h3>
+
+                <a href="/weekly-paycheck-calculator/">
+                    Weekly Paycheck
+                </a>
+
+                <a href="/biweekly-paycheck-calculator/">
+                    Biweekly Paycheck
+                </a>
+
+                <a href="/monthly-paycheck-calculator/">
+                    Monthly Paycheck
+                </a>
+
+                <a href="/income/">
+                    Income
+                </a>
+
+                <a href="/finance/">
+                    Finance
+                </a>
+
+            </div>
+
+
+            <div class="pm-footer-column">
+
+                <h3>
+                    Company
+                </h3>
+
+                <a href="/about/">
+                    About
+                </a>
+
+                <a href="/contact/">
+                    Contact
+                </a>
+
+                <a href="/privacy-policy/">
+                    Privacy Policy
+                </a>
+
+                <a href="/terms/">
+                    Terms
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="pm-footer-bottom">
+
+            <span>
+                © 2026 PaycheckMint. All rights reserved.
+            </span>
+
+            <span>
+                Calculator results are estimates and may differ from actual payroll results.
+            </span>
+
         </div>
 
     </footer>
 
-    <!-- =========================================================
-     EXISTING CALCULATOR SCRIPTS
-========================================================= -->
-
-    <script src="/tax-rules-2026.js"></script>
-
-    <script src="/tax-engine.js"></script>
-
-    <script src="/script.js"></script>
-
-    <!-- =========================================================
-     MOBILE NAVIGATION
-========================================================= -->
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const menuToggle = document.querySelector(".mobile-menu-toggle");
+        (function () {
+            "use strict";
 
-            const mainNav = document.querySelector(".main-nav");
+            /* =========================================================
+               NAVIGATION
+            ========================================================== */
 
-            const dropdown = document.querySelector(".nav-dropdown");
+            const mobileToggle = document.getElementById("mobileToggle");
+            const mobileNav = document.getElementById("mobileNav");
+            const mobileMenuIcon = document.getElementById("mobileMenuIcon");
 
-            const dropdownToggle = document.querySelector(".nav-dropdown-toggle");
+            function setMobileNav(open) {
+                if (!mobileToggle || !mobileNav) return;
 
-            if (!menuToggle || !mainNav) {
-                return;
+                mobileNav.classList.toggle("open", open);
+                mobileToggle.setAttribute("aria-expanded", String(open));
+
+                if (open) {
+                    mobileMenuIcon.innerHTML =
+                        '<path d="M6 6l12 12"/><path d="M18 6 6 18"/>';
+                    mobileToggle.setAttribute(
+                        "aria-label",
+                        "Close navigation"
+                    );
+                } else {
+                    mobileMenuIcon.innerHTML =
+                        '<path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/>';
+                    mobileToggle.setAttribute(
+                        "aria-label",
+                        "Open navigation"
+                    );
+                }
             }
 
-            menuToggle.addEventListener("click", function (event) {
-                event.stopPropagation();
-
-                const isOpen = mainNav.classList.toggle("mobile-open");
-
-                menuToggle.classList.toggle("open", isOpen);
-
-                menuToggle.setAttribute("aria-expanded", String(isOpen));
-
-                menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+            mobileToggle?.addEventListener("click", function () {
+                const open = mobileNav.classList.contains("open");
+                setMobileNav(!open);
             });
 
-            if (dropdown && dropdownToggle) {
-                dropdownToggle.addEventListener("click", function (event) {
+
+            /* =========================================================
+               DESKTOP DROPDOWNS
+            ========================================================== */
+
+            const dropdowns = document.querySelectorAll("[data-dropdown]");
+
+            dropdowns.forEach(function (dropdown) {
+
+                const button = dropdown.querySelector("button");
+
+                button.addEventListener("click", function (event) {
+
                     event.stopPropagation();
 
-                    const isOpen = dropdown.classList.toggle("open");
+                    const willOpen = !dropdown.classList.contains("open");
 
-                    dropdownToggle.setAttribute("aria-expanded", String(isOpen));
+                    dropdowns.forEach(function (item) {
+                        item.classList.remove("open");
+
+                        const itemButton = item.querySelector("button");
+
+                        if (itemButton) {
+                            itemButton.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+                        }
+                    });
+
+                    if (willOpen) {
+                        dropdown.classList.add("open");
+                        button.setAttribute(
+                            "aria-expanded",
+                            "true"
+                        );
+                    }
                 });
-            }
+
+            });
 
             document.addEventListener("click", function (event) {
-                if (mainNav.contains(event.target) || menuToggle.contains(event.target)) {
+
+                if (!event.target.closest("[data-dropdown]")) {
+
+                    dropdowns.forEach(function (dropdown) {
+
+                        dropdown.classList.remove("open");
+
+                        const button = dropdown.querySelector("button");
+
+                        if (button) {
+                            button.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+                        }
+
+                    });
+
+                }
+
+            });
+
+
+            /* =========================================================
+               MOBILE FINANCE MENU
+            ========================================================== */
+
+            const mobileFinanceToggle =
+                document.getElementById("mobileFinanceToggle");
+
+            const mobileFinanceLinks =
+                document.getElementById("mobileFinanceLinks");
+
+            mobileFinanceToggle?.addEventListener("click", function () {
+
+                const open =
+                    mobileFinanceLinks.classList.toggle("open");
+
+                mobileFinanceToggle.setAttribute(
+                    "aria-expanded",
+                    String(open)
+                );
+
+            });
+
+
+            /* =========================================================
+               SEARCH
+            ========================================================== */
+
+            const searchToggle =
+                document.getElementById("searchToggle");
+
+            const searchPanel =
+                document.getElementById("searchPanel");
+
+            const searchClose =
+                document.getElementById("searchClose");
+
+            const searchInput =
+                document.getElementById("siteSearch");
+
+            const searchResults =
+                document.getElementById("searchResults");
+
+            const mobileSearchButton =
+                document.getElementById("mobileSearchButton");
+
+
+            function openSearch() {
+
+                searchPanel.classList.add("open");
+
+                searchToggle.setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
+
+                setTimeout(function () {
+                    searchInput.focus();
+                }, 40);
+
+            }
+
+
+            function closeSearch() {
+
+                searchPanel.classList.remove("open");
+
+                searchToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                searchInput.value = "";
+
+                searchResults.innerHTML = "";
+
+                searchResults.classList.remove("visible");
+
+            }
+
+
+            searchToggle?.addEventListener(
+                "click",
+                function () {
+
+                    const open =
+                        searchPanel.classList.contains("open");
+
+                    if (open) {
+                        closeSearch();
+                    } else {
+                        openSearch();
+                    }
+
+                }
+            );
+
+
+            searchClose?.addEventListener(
+                "click",
+                closeSearch
+            );
+
+
+            mobileSearchButton?.addEventListener(
+                "click",
+                function () {
+
+                    setMobileNav(false);
+
+                    openSearch();
+
+                }
+            );
+
+
+            document.addEventListener(
+                "keydown",
+                function (event) {
+
+                    if (event.key === "Escape") {
+
+                        closeSearch();
+
+                        dropdowns.forEach(function (dropdown) {
+                            dropdown.classList.remove("open");
+                        });
+
+                    }
+
+                }
+            );
+
+
+            /* =========================================================
+               HOMEPAGE SEARCH INDEX
+               Only real URLs currently present in repository.
+            ========================================================== */
+
+            const searchIndex = [
+
+                {
+                    title: "Paycheck Tax Calculator",
+                    description: "Estimate paycheck taxes and take-home pay.",
+                    url: "/paycheck-tax-calculator/",
+                    keywords: "paycheck tax taxes salary income payroll calculator"
+                },
+
+                {
+                    title: "Take-Home Pay Calculator",
+                    description: "Estimate take-home pay after taxes and deductions.",
+                    url: "/take-home-pay-calculator/",
+                    keywords: "take home net pay paycheck calculator"
+                },
+
+                {
+                    title: "Hourly Paycheck Calculator",
+                    description: "Estimate pay from hourly wages.",
+                    url: "/hourly-paycheck-calculator/",
+                    keywords: "hourly wage paycheck calculator"
+                },
+
+                {
+                    title: "Overtime Pay Calculator",
+                    description: "Estimate overtime earnings.",
+                    url: "/overtime-pay-calculator/",
+                    keywords: "overtime pay hours calculator"
+                },
+
+                {
+                    title: "Salary Paycheck Calculator",
+                    description: "Estimate paycheck amounts from annual salary.",
+                    url: "/salary-paycheck-calculator/",
+                    keywords: "salary annual paycheck calculator"
+                },
+
+                {
+                    title: "Weekly Paycheck Calculator",
+                    description: "Estimate weekly paycheck amounts.",
+                    url: "/weekly-paycheck-calculator/",
+                    keywords: "weekly paycheck calculator"
+                },
+
+                {
+                    title: "Biweekly Paycheck Calculator",
+                    description: "Estimate biweekly paycheck amounts.",
+                    url: "/biweekly-paycheck-calculator/",
+                    keywords: "biweekly paycheck calculator every two weeks"
+                },
+
+                {
+                    title: "Monthly Paycheck Calculator",
+                    description: "Estimate monthly paycheck amounts.",
+                    url: "/monthly-paycheck-calculator/",
+                    keywords: "monthly paycheck calculator"
+                },
+
+                {
+                    title: "Income",
+                    description: "Learn about income, earnings and pay.",
+                    url: "/income/",
+                    keywords: "income earnings gross net pay money"
+                },
+
+                {
+                    title: "Finance",
+                    description: "Explore PaycheckMint personal finance information.",
+                    url: "/finance/",
+                    keywords: "finance personal finance money budgeting debt investing"
+                },
+
+                {
+                    title: "About PaycheckMint",
+                    description: "Learn more about PaycheckMint.",
+                    url: "/about/",
+                    keywords: "about company paycheckmint"
+                },
+
+                {
+                    title: "Contact PaycheckMint",
+                    description: "Contact PaycheckMint.",
+                    url: "/contact/",
+                    keywords: "contact support"
+                }
+
+            ];
+
+
+            function renderSearchResults(query) {
+
+                const cleanQuery =
+                    query.trim().toLowerCase();
+
+                if (!cleanQuery) {
+
+                    searchResults.innerHTML = "";
+
+                    searchResults.classList.remove(
+                        "visible"
+                    );
+
+                    return;
+
+                }
+
+                const matches =
+                    searchIndex.filter(function (item) {
+
+                        const searchable =
+                            (
+                                item.title +
+                                " " +
+                                item.description +
+                                " " +
+                                item.keywords
+                            ).toLowerCase();
+
+                        return searchable.includes(
+                            cleanQuery
+                        );
+
+                    });
+
+
+                if (!matches.length) {
+
+                    searchResults.innerHTML =
+                        '<div class="pm-search-empty">' +
+                        'No matching PaycheckMint pages found. Try "paycheck", "income", "salary", or "finance".' +
+                        '</div>';
+
+                    searchResults.classList.add(
+                        "visible"
+                    );
+
                     return;
                 }
 
-                mainNav.classList.remove("mobile-open");
 
-                menuToggle.classList.remove("open");
+                searchResults.innerHTML =
+                    matches.map(function (item) {
 
-                menuToggle.setAttribute("aria-expanded", "false");
+                        return (
+                            '<a class="pm-search-result" href="' +
+                            item.url +
+                            '">' +
+                            '<strong>' +
+                            item.title +
+                            '</strong>' +
+                            '<span>' +
+                            item.description +
+                            '</span>' +
+                            '</a>'
+                        );
 
-                menuToggle.setAttribute("aria-label", "Open navigation");
+                    }).join("");
 
-                if (dropdown) {
-                    dropdown.classList.remove("open");
+
+                searchResults.classList.add(
+                    "visible"
+                );
+
+            }
+
+
+            searchInput?.addEventListener(
+                "input",
+                function () {
+                    renderSearchResults(
+                        searchInput.value
+                    );
+                }
+            );
+
+
+            /* =========================================================
+               CAROUSEL ENGINE
+               Each carousel has independent state.
+            ========================================================== */
+
+            const carouselConfig = {
+
+                tools: {
+                    track: document.getElementById("toolsTrack"),
+                    dots: document.getElementById("toolsDots")
+                },
+
+                topics: {
+                    track: document.getElementById("topicsTrack"),
+                    dots: document.getElementById("topicsDots")
+                },
+
+                guides: {
+                    track: document.getElementById("guidesTrack"),
+                    dots: document.getElementById("guidesDots")
                 }
 
-                if (dropdownToggle) {
-                    dropdownToggle.setAttribute("aria-expanded", "false");
-                }
-            });
+            };
 
-            document.addEventListener("keydown", function (event) {
-                if (event.key !== "Escape") {
+
+            function getCarouselStep(track) {
+
+                const firstCard =
+                    track.children[0];
+
+                if (!firstCard) return 300;
+
+                const style =
+                    window.getComputedStyle(track);
+
+                const gap =
+                    parseFloat(style.columnGap || style.gap) || 18;
+
+                return (
+                    firstCard.getBoundingClientRect().width +
+                    gap
+                );
+
+            }
+
+
+            function getPageCount(track) {
+
+                if (!track || !track.children.length) {
+                    return 1;
+                }
+
+                const step =
+                    getCarouselStep(track);
+
+                const available =
+                    track.clientWidth;
+
+                const total =
+                    track.scrollWidth;
+
+                if (total <= available + 5) {
+                    return 1;
+                }
+
+                return Math.max(
+                    1,
+                    Math.ceil(
+                        (total - available) / step
+                    ) + 1
+                );
+
+            }
+
+
+            function createDots(name) {
+
+                const config =
+                    carouselConfig[name];
+
+                if (!config.track || !config.dots) {
                     return;
                 }
 
-                mainNav.classList.remove("mobile-open");
+                config.dots.innerHTML = "";
 
-                menuToggle.classList.remove("open");
+                const count =
+                    getPageCount(config.track);
 
-                menuToggle.setAttribute("aria-expanded", "false");
+                for (
+                    let index = 0;
+                    index < count;
+                    index++
+                ) {
 
-                menuToggle.setAttribute("aria-label", "Open navigation");
+                    const dot =
+                        document.createElement("button");
 
-                if (dropdown) {
-                    dropdown.classList.remove("open");
+                    dot.type = "button";
+
+                    dot.className =
+                        "pm-carousel-dot";
+
+                    dot.setAttribute(
+                        "aria-label",
+                        "Go to slide " + (index + 1)
+                    );
+
+                    dot.addEventListener(
+                        "click",
+                        function () {
+
+                            const step =
+                                getCarouselStep(
+                                    config.track
+                                );
+
+                            config.track.scrollTo({
+                                left: index * step,
+                                behavior: "smooth"
+                            });
+
+                        }
+                    );
+
+                    config.dots.appendChild(dot);
+
                 }
 
-                if (dropdownToggle) {
-                    dropdownToggle.setAttribute("aria-expanded", "false");
+                updateCarousel(name);
+
+            }
+
+
+            function updateCarousel(name) {
+
+                const config =
+                    carouselConfig[name];
+
+                if (!config.track) return;
+
+                const maxScroll =
+                    config.track.scrollWidth -
+                    config.track.clientWidth;
+
+                const scrollLeft =
+                    config.track.scrollLeft;
+
+                const step =
+                    getCarouselStep(config.track);
+
+                let index =
+                    Math.round(
+                        scrollLeft / step
+                    );
+
+                index =
+                    Math.max(0, index);
+
+                const count =
+                    config.dots
+                        ? config.dots.children.length
+                        : 1;
+
+                index =
+                    Math.min(
+                        index,
+                        Math.max(0, count - 1)
+                    );
+
+
+                if (config.dots) {
+
+                    Array.from(
+                        config.dots.children
+                    ).forEach(
+                        function (dot, dotIndex) {
+
+                            dot.classList.toggle(
+                                "active",
+                                dotIndex === index
+                            );
+
+                        }
+                    );
+
                 }
-            });
 
-            mainNav.querySelectorAll("a").forEach(function (link) {
-                link.addEventListener("click", function () {
-                    mainNav.classList.remove("mobile-open");
 
-                    menuToggle.classList.remove("open");
+                const prevButton =
+                    document.querySelector(
+                        '[data-carousel="' +
+                        name +
+                        '"][data-direction="prev"]'
+                    );
 
-                    menuToggle.setAttribute("aria-expanded", "false");
+                const nextButton =
+                    document.querySelector(
+                        '[data-carousel="' +
+                        name +
+                        '"][data-direction="next"]'
+                    );
+
+
+                if (prevButton) {
+                    prevButton.disabled =
+                        scrollLeft <= 3;
+                }
+
+                if (nextButton) {
+                    nextButton.disabled =
+                        scrollLeft >= maxScroll - 3;
+                }
+
+            }
+
+
+            function moveCarousel(name, direction) {
+
+                const config =
+                    carouselConfig[name];
+
+                if (!config.track) return;
+
+                const step =
+                    getCarouselStep(config.track);
+
+                config.track.scrollBy({
+                    left: direction * step,
+                    behavior: "smooth"
                 });
+
+            }
+
+
+            Object.keys(carouselConfig).forEach(
+                function (name) {
+
+                    const config =
+                        carouselConfig[name];
+
+                    if (!config.track) return;
+
+                    config.track.addEventListener(
+                        "scroll",
+                        function () {
+                            updateCarousel(name);
+                        },
+                        {
+                            passive: true
+                        }
+                    );
+
+                    createDots(name);
+
+                }
+            );
+
+
+            document.querySelectorAll(
+                ".pm-carousel-arrow"
+            ).forEach(function (button) {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        const name =
+                            button.dataset.carousel;
+
+                        const direction =
+                            button.dataset.direction === "next"
+                                ? 1
+                                : -1;
+
+                        moveCarousel(
+                            name,
+                            direction
+                        );
+
+                    }
+                );
+
             });
-        });
+
+
+            window.addEventListener(
+                "resize",
+                function () {
+
+                    Object.keys(
+                        carouselConfig
+                    ).forEach(function (name) {
+
+                        createDots(name);
+
+                    });
+
+                    if (window.innerWidth > 900) {
+                        setMobileNav(false);
+                    }
+
+                }
+            );
+
+
+        })();
     </script>
+
+
+
 </body>
 
 </html>

@@ -1,1200 +1,1665 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-          
-        <title>Sinking Fund: What It Is, How It Works & Calculator | PaycheckMint</title>
+<head>
+    <meta charset="UTF-8">
 
-        <meta
-            name="description"
-            content="Learn what a sinking fund is, how sinking funds work, what to save for, how much to save each month, and use the PaycheckMint sinking fund calculator to plan future expenses."
-        />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta
-            name="keywords"
-            content="sinking fund, sinking fund calculator, what is a sinking fund, sinking funds, sinking fund categories, sinking fund savings, how sinking funds work, sinking fund vs emergency fund, monthly sinking fund"
-        />
+    <title>Sinking Funds: What They Are, How They Work & How to Start | PaycheckMint</title>
 
-        <meta name="robots" content="index, follow" />
+    <meta name="description"
+        content="Learn what sinking funds are, how they differ from emergency funds, how to calculate monthly contributions, and how to use sinking funds for annual and irregular expenses.">
 
-        <link rel="canonical" href="https://paycheckmint.com/finance/budgeting/sinking-funds/" />
+    <meta name="robots" content="index, follow">
 
-        <meta property="og:title" content="Sinking Fund: What It Is, How It Works & Calculator | PaycheckMint" />
-        <meta
-            property="og:description"
-            content="Learn how sinking funds work, what expenses to save for, and how much to set aside each month."
-        />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://paycheckmint.com/finance/budgeting/sinking-funds/" />
-        <meta property="og:site_name" content="PaycheckMint" />
+    <link rel="canonical" href="https://paycheckmint.com/finance/budgeting/sinking-funds/">
 
-        <style>
-            :root {
-                --bg: #f6f5f1;
-                --surface: #ffffff;
-                --surface-soft: #faf9f6;
+    <link rel="icon" href="/icon.ico">
 
-                --ink: #191919;
-                --muted: #74736f;
-                --muted-light: #999791;
+    <meta name="theme-color" content="#176B5B">
 
-                --line: #deddd8;
-                --line-dark: #cbc9c3;
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Sinking Funds: What They Are, How They Work & How to Start">
+    <meta property="og:description"
+        content="A practical guide to sinking funds, including examples, monthly contribution calculations, and how sinking funds differ from emergency savings.">
+    <meta property="og:url" content="https://paycheckmint.com/finance/budgeting/sinking-funds/">
+    <meta property="og:site_name" content="PaycheckMint">
 
-                --accent: #5954d9;
-                --accent-dark: #4843c0;
-                --accent-soft: #efeeff;
+    <link rel="stylesheet" href="/style.css">
 
-                --success: #22734a;
-                --warning: #a66a00;
-                --danger: #b54747;
+    <style>
+        :root {
+            --primary: #176B5B;
+            --primary-dark: #0F5145;
+            --accent: #C9922E;
+            --bg: #F7F8F6;
+            --surface: #FFFFFF;
+            --soft: #EEF5F2;
+            --text: #17201D;
+            --muted: #64706C;
+            --line: #DCE5E1;
+            --success: #277A59;
+            --warning: #8A641D;
+            --danger: #B54747;
+            --shadow: 0 16px 42px rgba(23, 50, 43, .08);
+            --radius: 18px;
+        }
 
-                --radius: 16px;
-                --shadow: 0 8px 28px rgba(25, 25, 25, 0.06);
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+                BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--primary);
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        .pm-container {
+            width: min(1200px, calc(100% - 48px));
+            margin: 0 auto;
+        }
+
+
+        /* =========================================================
+           BREADCRUMB
+        ========================================================= */
+
+        .breadcrumb {
+            padding: 22px 0 0;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .breadcrumb span {
+            margin: 0 7px;
+            color: #9AA6A1;
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .article-hero {
+            padding: 38px 0 36px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.3fr) minmax(340px, .7fr);
+            gap: 48px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 24px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        h1 {
+            max-width: 820px;
+            margin: 0 0 18px;
+            font-size: clamp(38px, 5vw, 59px);
+            line-height: 1.04;
+            letter-spacing: -2.4px;
+        }
+
+        .hero-intro {
+            max-width: 760px;
+            margin: 0;
+            color: #52615C;
+            font-size: 19px;
+            line-height: 1.7;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 26px;
+        }
+
+        .btn {
+            min-height: 46px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 750;
+            transition: .2s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: #fff;
+            color: var(--primary-dark);
+            border: 1px solid var(--line);
+        }
+
+        .btn-secondary:hover {
+            background: var(--soft);
+        }
+
+        .hero-trust {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 22px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .hero-trust span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hero-trust span::before {
+            content: "✓";
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        /* =========================================================
+           HERO VISUAL
+        ========================================================= */
+
+        .fund-card {
+            position: relative;
+            overflow: hidden;
+            padding: 24px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            box-shadow: var(--shadow);
+        }
+
+        .fund-card::after {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            right: -65px;
+            top: -65px;
+            border-radius: 50%;
+            background: var(--soft);
+        }
+
+        .fund-header {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .fund-header strong {
+            font-size: 16px;
+        }
+
+        .fund-header span {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .fund-total {
+            font-size: 32px;
+            line-height: 1;
+            font-weight: 800;
+        }
+
+        .fund-caption {
+            margin-top: 6px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .mini-fund {
+            margin-top: 20px;
+        }
+
+        .mini-fund-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            font-size: 13px;
+        }
+
+        .mini-fund-top strong {
+            font-weight: 750;
+        }
+
+        .mini-bar {
+            height: 9px;
+            overflow: hidden;
+            border-radius: 99px;
+            background: #E8EEEB;
+        }
+
+        .mini-bar span {
+            display: block;
+            height: 100%;
+            border-radius: inherit;
+            background: var(--primary);
+        }
+
+        .bar-car {
+            width: 72%;
+        }
+
+        .bar-holiday {
+            width: 45%;
+            background: var(--accent) !important;
+        }
+
+        .bar-insurance {
+            width: 86%;
+            background: #71958A !important;
+        }
+
+        .fund-note {
+            margin-top: 21px;
+            padding: 12px 14px;
+            background: var(--soft);
+            border-radius: 11px;
+            color: #43534E;
+            font-size: 12px;
+            line-height: 1.55;
+        }
+
+        /* =========================================================
+           MAIN CONTENT
+        ========================================================= */
+
+        .content-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 300px;
+            gap: 48px;
+            align-items: start;
+            padding-bottom: 70px;
+        }
+
+        .article {
+            max-width: 780px;
+            min-width: 0;
+        }
+
+        .article section {
+            scroll-margin-top: 105px;
+        }
+
+        .article h2 {
+            margin: 50px 0 15px;
+            font-size: 30px;
+            line-height: 1.2;
+            letter-spacing: -.7px;
+        }
+
+        .article h3 {
+            margin: 30px 0 10px;
+            font-size: 21px;
+            line-height: 1.3;
+        }
+
+        .article p {
+            margin: 0 0 17px;
+            color: #45534F;
+        }
+
+        .article ul,
+        .article ol {
+            padding-left: 22px;
+            color: #45534F;
+        }
+
+        .article li {
+            margin-bottom: 9px;
+        }
+
+        .answer-box {
+            margin-top: 7px;
+            padding: 23px 24px;
+            border-left: 4px solid var(--primary);
+            border-radius: 13px;
+            background: var(--soft);
+            border-top: 1px solid #D1E1DC;
+            border-right: 1px solid #D1E1DC;
+            border-bottom: 1px solid #D1E1DC;
+        }
+
+        .answer-box strong {
+            color: var(--primary-dark);
+        }
+
+        /* =========================================================
+           DEFINITION CARDS
+        ========================================================= */
+
+        .definition-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 25px 0;
+        }
+
+        .definition-card {
+            padding: 20px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 15px;
+        }
+
+        .definition-icon {
+            width: 40px;
+            height: 40px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 12px;
+            background: var(--soft);
+            border-radius: 10px;
+            font-size: 18px;
+        }
+
+        .definition-card h3 {
+            margin: 0 0 7px;
+            font-size: 19px;
+        }
+
+        .definition-card p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* =========================================================
+           COMPARISON TABLE
+        ========================================================= */
+
+        .table-wrap {
+            margin: 22px 0 28px;
+            overflow-x: auto;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: var(--surface);
+        }
+
+        .comparison-table {
+            width: 100%;
+            min-width: 650px;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 14px 15px;
+            text-align: left;
+            vertical-align: top;
+            border-bottom: 1px solid var(--line);
+            font-size: 14px;
+        }
+
+        .comparison-table th {
+            background: var(--soft);
+            color: var(--primary-dark);
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .comparison-table td:first-child {
+            color: var(--text);
+            font-weight: 750;
+        }
+
+        /* =========================================================
+           CALCULATOR
+        ========================================================= */
+
+        .calculator-card {
+            margin: 30px 0;
+            padding: 26px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(23, 50, 43, .05);
+        }
+
+        .calculator-heading h3 {
+            margin: 0 0 5px;
+            font-size: 22px;
+        }
+
+        .calculator-heading p {
+            margin: 0 0 20px;
+            font-size: 14px;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .field label {
+            display: block;
+            margin-bottom: 6px;
+            color: #34433E;
+            font-size: 13px;
+            font-weight: 750;
+        }
+
+        .field input {
+            width: 100%;
+            height: 45px;
+            padding: 0 12px;
+            border: 1px solid #CAD7D2;
+            border-radius: 9px;
+            outline: none;
+            background: #fff;
+            color: var(--text);
+        }
+
+        .field input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(23, 107, 91, .1);
+        }
+
+        .calc-results {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 19px;
+        }
+
+        .result-box {
+            padding: 15px;
+            border-radius: 11px;
+            background: var(--soft);
+        }
+
+        .result-label {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--muted);
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .result-value {
+            font-size: 19px;
+            font-weight: 800;
+        }
+
+        .calculator-note {
+            margin: 14px 0 0 !important;
+            color: var(--muted) !important;
+            font-size: 12px !important;
+        }
+
+        .calc-status {
+            margin-top: 14px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            background: #F1F4F2;
+            color: #4A5853;
+            font-size: 13px;
+        }
+
+        .calc-status.good {
+            background: #EDF7F1;
+            color: var(--success);
+        }
+
+        /* =========================================================
+           FUND CARDS
+        ========================================================= */
+
+        .fund-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 24px 0;
+        }
+
+        .fund-example {
+            padding: 19px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+        }
+
+        .fund-example h3 {
+            margin: 0 0 7px;
+            font-size: 18px;
+        }
+
+        .fund-example p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .fund-example .amount {
+            margin-top: 11px;
+            color: var(--primary-dark);
+            font-weight: 800;
+            font-size: 13px;
+        }
+
+        /* =========================================================
+           STEPS
+        ========================================================= */
+
+        .step-list {
+            display: grid;
+            gap: 12px;
+            margin: 23px 0;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 42px 1fr;
+            gap: 14px;
+            padding: 17px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 13px;
+        }
+
+        .step-number {
+            width: 34px;
+            height: 34px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .step strong {
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .step p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* =========================================================
+           CALLOUT
+        ========================================================= */
+
+        .callout {
+            margin: 28px 0;
+            padding: 22px 23px;
+            border: 1px solid #EED9AE;
+            border-radius: 15px;
+            background: #FFF8EC;
+        }
+
+        .callout strong {
+            color: #795617;
+        }
+
+        .callout p {
+            margin: 6px 0 0;
+            color: #66563A;
+        }
+
+        /* =========================================================
+           EXAMPLE BUDGET
+        ========================================================= */
+
+        .example-box {
+            margin: 25px 0;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: var(--surface);
+        }
+
+        .example-header {
+            padding: 19px 20px;
+            background: var(--soft);
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .example-header strong {
+            font-size: 17px;
+        }
+
+        .example-header span {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .example-line {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--line);
+            font-size: 14px;
+        }
+
+        .example-line:last-child {
+            border-bottom: 0;
+        }
+
+        .example-line.total {
+            background: #FAFBFA;
+            font-weight: 800;
+        }
+
+        /* =========================================================
+           FAQ
+        ========================================================= */
+
+        .faq-list {
+            margin-top: 23px;
+            border-top: 1px solid var(--line);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .faq-item summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 18px 4px;
+            color: var(--text);
+            font-weight: 750;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: "+";
+            float: right;
+            color: var(--primary);
+            font-size: 21px;
+            line-height: 1;
+        }
+
+        .faq-item[open] summary::after {
+            content: "−";
+        }
+
+        .faq-answer {
+            padding: 0 4px 17px;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
+
+        .sidebar {
+            position: sticky;
+            top: 96px;
+            align-self: start;
+            height: max-content;
+        }
+
+        .side-card {
+            margin-bottom: 16px;
+            padding: 19px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+        }
+
+        .side-card h3 {
+            margin: 0 0 12px;
+            font-size: 16px;
+        }
+
+        .side-links {
+            display: grid;
+            gap: 2px;
+        }
+
+        .side-links a {
+            padding: 8px 9px;
+            border-radius: 8px;
+            color: #43524D;
+            text-decoration: none;
+            font-size: 13px;
+            line-height: 1.45;
+        }
+
+        .side-links a:hover {
+            background: var(--soft);
+            color: var(--primary-dark);
+        }
+
+        .side-highlight {
+            background: var(--primary);
+            border: 0;
+            color: #fff;
+        }
+
+        .side-highlight h3 {
+            color: #fff;
+        }
+
+        .side-highlight p {
+            margin: 0 0 13px;
+            color: rgba(255, 255, 255, .83);
+            font-size: 13px;
+            line-height: 1.55;
+        }
+
+        .side-highlight a {
+            display: inline-flex;
+            padding: 8px 11px;
+            border-radius: 8px;
+            background: #fff;
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        /* =========================================================
+           METHODOLOGY / DISCLAIMER
+        ========================================================= */
+
+        .methodology {
+            margin-top: 45px;
+            padding-top: 25px;
+            border-top: 1px solid var(--line);
+        }
+
+        .methodology h2 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .methodology p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .disclaimer {
+            margin-top: 22px;
+            padding: 16px;
+            border-radius: 11px;
+            background: #F0F2F1;
+            color: #66716D;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        .site-footer {
+            padding: 42px 0 25px;
+            background: var(--bg);
+            border-top: 1px solid var(--line);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 35px;
+        }
+
+        .footer-description {
+            max-width: 410px;
+            margin: 10px 0 0;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .footer-column h3 {
+            margin: 0 0 11px;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+        }
+
+        .footer-column a {
+            display: block;
+            margin-bottom: 7px;
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 30px;
+            padding-top: 18px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1000px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
             }
 
-            * {
-                box-sizing: border-box;
+            .fund-card {
+                max-width: 650px;
             }
+        }
 
-            html {
-                scroll-behavior: smooth;
-            }
-
-            body {
-                margin: 0;
-                background: var(--bg);
-                color: var(--ink);
-                font-family:
-                    Inter,
-                    -apple-system,
-                    BlinkMacSystemFont,
-                    "Segoe UI",
-                    Roboto,
-                    Arial,
-                    sans-serif;
-                line-height: 1.65;
-            }
-
-            a {
-                color: inherit;
-            }
-
-            .site-header {
-                position: sticky;
-                top: 0;
-                z-index: 1000;
-                background: rgba(246, 245, 241, 0.96);
-                backdrop-filter: blur(12px);
-                border-bottom: 1px solid var(--line);
-            }
-
-            .header-inner {
-                width: min(1180px, calc(100% - 32px));
-                margin: auto;
-                min-height: 70px;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 24px;
-            }
-
-            .brand {
-                text-decoration: none;
-                font-size: 1.35rem;
-                font-weight: 800;
-                letter-spacing: -0.04em;
-                white-space: nowrap;
-                color: #191919;
-            }
-
-            .brand span {
-                color: var(--accent);
-            }
-
-            .mobile-menu-toggle {
-                display: none;
-                width: 42px;
-                height: 42px;
-                border: 1px solid var(--line-dark);
-                border-radius: 10px;
-                background: var(--surface);
-                cursor: pointer;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                gap: 5px;
-            }
-
-            .mobile-menu-toggle span {
-                width: 20px;
-                height: 2px;
-                background: var(--ink);
-                border-radius: 3px;
-            }
-
-            .main-nav {
-                display: flex;
-                align-items: center;
-                gap: 6px;
-            }
-
-            .main-nav > a,
-            .nav-dropdown > button {
-                display: inline-flex;
-                align-items: center;
-                gap: 5px;
-                padding: 10px 13px;
-                border: 0;
-                border-radius: 9px;
-                background: transparent;
-                text-decoration: none;
-                color: var(--ink);
-                font-size: 0.94rem;
-                font-weight: 600;
-                cursor: pointer;
-            }
-
-            .main-nav > a:hover,
-            .nav-dropdown > button:hover {
-                background: var(--surface);
-            }
-
-            .nav-dropdown {
-                position: relative;
-            }
-
-            .nav-dropdown-menu {
-                position: absolute;
-                top: calc(100% + 8px);
-                right: 0;
-                width: 220px;
-                padding: 8px;
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: 13px;
-                box-shadow: var(--shadow);
-                display: none;
-            }
-
-            .nav-dropdown.open .nav-dropdown-menu {
-                display: block;
-            }
-
-            .nav-dropdown-menu a {
-                display: block;
-                padding: 10px 11px;
-                border-radius: 8px;
-                text-decoration: none;
-                font-size: 0.92rem;
-            }
-
-            .nav-dropdown-menu a:hover {
-                background: var(--accent-soft);
-                color: var(--accent-dark);
-            }
-
-            .page-wrap {
-                width: min(1180px, calc(100% - 32px));
-                margin: 0 auto;
-            }
-
-            .breadcrumb {
-                padding: 26px 0 12px;
-                color: var(--muted);
-                font-size: 0.88rem;
-            }
-
-            .breadcrumb a {
-                color: var(--muted);
-                text-decoration: none;
-            }
-
-            .breadcrumb a:hover {
-                color: var(--accent);
-            }
-
-            .hero {
-                padding: 16px 0 38px;
-                max-width: 900px;
-            }
-
-            .eyebrow {
-                display: inline-block;
-                margin-bottom: 10px;
-                padding: 5px 10px;
-                border-radius: 999px;
-                background: var(--accent-soft);
-                color: var(--accent-dark);
-                font-size: 0.78rem;
-                font-weight: 800;
-                letter-spacing: 0.03em;
-                text-transform: uppercase;
-            }
-
-            h1,
-            h2,
-            h3 {
-                line-height: 1.2;
-                letter-spacing: -0.035em;
-            }
-
-            h1 {
-                margin: 0 0 16px;
-                max-width: 900px;
-                font-size: clamp(2.15rem, 5vw, 3.65rem);
-            }
-
-            .hero p {
-                margin: 0;
-                max-width: 780px;
-                color: var(--muted);
-                font-size: 1.1rem;
-            }
+        @media (max-width: 900px) {
 
             .content-layout {
-                display: grid;
-                grid-template-columns: minmax(0, 1fr) 310px;
-                gap: 34px;
-                align-items: start;
+                grid-template-columns: 1fr;
+                gap: 35px;
             }
 
             .article {
-                min-width: 0;
-            }
-
-            .article-section {
-                margin-bottom: 42px;
-            }
-
-            .article-section h2 {
-                margin: 0 0 14px;
-                font-size: 1.75rem;
-            }
-
-            .article-section h3 {
-                margin: 25px 0 8px;
-                font-size: 1.18rem;
-            }
-
-            .article-section p {
-                margin: 0 0 15px;
-            }
-
-            .article-section ul,
-            .article-section ol {
-                padding-left: 22px;
-            }
-
-            .article-section li {
-                margin-bottom: 8px;
-            }
-
-            .callout {
-                margin: 22px 0;
-                padding: 19px 20px;
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-left: 4px solid var(--accent);
-                border-radius: 12px;
-            }
-
-            .callout strong {
-                display: block;
-                margin-bottom: 4px;
-            }
-
-            .calculator-card {
-                margin: 0 0 42px;
-                padding: 26px;
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: var(--radius);
-                box-shadow: var(--shadow);
-            }
-
-            .calculator-card h2 {
-                margin: 0 0 7px;
-                font-size: 1.65rem;
-            }
-
-            .calculator-intro {
-                margin: 0 0 22px;
-                color: var(--muted);
-            }
-
-            .fund-grid {
-                display: grid;
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 15px;
-            }
-
-            .field {
-                display: flex;
-                flex-direction: column;
-                gap: 6px;
-            }
-
-            .field.full {
-                grid-column: 1 / -1;
-            }
-
-            .field label {
-                font-size: 0.86rem;
-                font-weight: 700;
-            }
-
-            .field small {
-                color: var(--muted);
-                font-size: 0.78rem;
-            }
-
-            .field input,
-            .field select {
-                width: 100%;
-                min-height: 45px;
-                padding: 10px 12px;
-                border: 1px solid var(--line-dark);
-                border-radius: 9px;
-                background: #fff;
-                color: var(--ink);
-                font: inherit;
-                outline: none;
-            }
-
-            .field input:focus,
-            .field select:focus {
-                border-color: var(--accent);
-                box-shadow: 0 0 0 3px rgba(89, 84, 217, 0.11);
-            }
-
-            .calculate-btn {
-                width: 100%;
-                margin-top: 20px;
-                min-height: 48px;
-                border: 0;
-                border-radius: 10px;
-                background: var(--accent);
-                color: white;
-                font: inherit;
-                font-weight: 800;
-                cursor: pointer;
-            }
-
-            .calculate-btn:hover {
-                background: var(--accent-dark);
-            }
-
-            .results {
-                margin-top: 22px;
-                padding: 20px;
-                background: var(--surface-soft);
-                border: 1px solid var(--line);
-                border-radius: 13px;
-            }
-
-            .result-main {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 12px;
-                margin-bottom: 18px;
-            }
-
-            .result-box {
-                padding: 15px;
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: 11px;
-            }
-
-            .result-box span {
-                display: block;
-                color: var(--muted);
-                font-size: 0.78rem;
-                margin-bottom: 4px;
-            }
-
-            .result-box strong {
-                display: block;
-                font-size: 1.25rem;
-                letter-spacing: -0.02em;
-            }
-
-            .result-highlight {
-                color: var(--accent-dark);
-            }
-
-            .progress-label {
-                display: flex;
-                justify-content: space-between;
-                gap: 15px;
-                margin-bottom: 7px;
-                font-size: 0.83rem;
-                font-weight: 700;
-            }
-
-            .progress {
-                height: 11px;
-                background: #e5e3de;
-                border-radius: 999px;
-                overflow: hidden;
-            }
-
-            .progress-bar {
-                height: 100%;
-                width: 0;
-                background: var(--accent);
-                border-radius: inherit;
-                transition: width 0.25s ease;
-            }
-
-            .status {
-                margin-top: 15px;
-                padding: 12px 14px;
-                border-radius: 9px;
-                font-size: 0.88rem;
-                background: var(--accent-soft);
-                color: var(--accent-dark);
-            }
-
-            .formula {
-                margin: 18px 0;
-                padding: 16px;
-                text-align: center;
-                background: var(--accent-soft);
-                border-radius: 11px;
-                font-weight: 800;
-            }
-
-            .table-wrap {
-                overflow-x: auto;
-                margin: 20px 0;
-                border: 1px solid var(--line);
-                border-radius: 12px;
-                background: var(--surface);
-            }
-
-            table {
-                width: 100%;
-                border-collapse: collapse;
-                min-width: 570px;
-            }
-
-            th,
-            td {
-                padding: 12px 14px;
-                border-bottom: 1px solid var(--line);
-                text-align: left;
-                vertical-align: top;
-            }
-
-            th {
-                background: var(--surface-soft);
-                font-size: 0.85rem;
-            }
-
-            td {
-                font-size: 0.91rem;
-            }
-
-            tr:last-child td {
-                border-bottom: 0;
-            }
-
-            .example-card {
-                padding: 21px;
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: 13px;
-                margin: 20px 0;
-            }
-
-            .example-number {
-                font-size: 1.8rem;
-                font-weight: 800;
-                color: var(--accent-dark);
+                max-width: none;
             }
 
             .sidebar {
-                position: sticky;
-                top: 92px;
-            }
-
-            .sidebar-card {
-                margin-bottom: 18px;
-                padding: 20px;
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: 14px;
-            }
-
-            .sidebar-card h3 {
-                margin: 0 0 12px;
-                font-size: 1rem;
-            }
-
-            .sidebar-card a {
-                display: block;
-                padding: 7px 0;
-                color: var(--ink);
-                text-decoration: none;
-                font-size: 0.9rem;
-            }
-
-            .sidebar-card a:hover {
-                color: var(--accent);
-            }
-
-            .sidebar-cta {
-                background: var(--accent);
-                color: white;
-                border-color: var(--accent);
-            }
-
-            .sidebar-cta a {
-                color: white;
-                font-weight: 800;
-            }
-
-            .faq-item {
-                padding: 18px 0;
-                border-bottom: 1px solid var(--line);
-            }
-
-            .faq-item:last-child {
-                border-bottom: 0;
-            }
-
-            .faq-item h3 {
-                margin: 0 0 7px;
-                font-size: 1.05rem;
-            }
-
-            .faq-item p {
-                margin: 0;
-                color: var(--muted);
-            }
-
-            .related-grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-                margin-top: 18px;
-            }
-
-            .related-link {
-                display: block;
-                padding: 15px;
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: 11px;
-                text-decoration: none;
-            }
-
-            .related-link strong {
-                display: block;
-                margin-bottom: 4px;
-            }
-
-            .related-link span {
-                color: var(--muted);
-                font-size: 0.82rem;
-            }
-
-            .disclaimer {
-                margin-top: 25px;
-                padding: 15px;
-                color: var(--muted);
-                background: var(--surface-soft);
-                border: 1px solid var(--line);
-                border-radius: 10px;
-                font-size: 0.8rem;
-            }
-
-            footer {
-                margin-top: 70px;
-                padding: 45px 0 25px;
-                background: var(--bg);
-                border-top: 1px solid var(--line);
+                position: static;
             }
 
             .footer-grid {
-                width: min(1180px, calc(100% - 32px));
-                margin: auto;
-                display: grid;
-                grid-template-columns: 1.5fr repeat(3, 1fr);
-                gap: 30px;
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .pm-container {
+                width: min(100% - 30px, 1200px);
             }
 
-            .footer-brand p {
-                max-width: 360px;
-                color: var(--muted);
-                font-size: 0.88rem;
+            .pm-header-inner {
+                padding: 0 15px;
             }
 
-            footer h3 {
-                margin: 0 0 12px;
-                font-size: 0.95rem;
+            .article-hero {
+                padding-top: 28px;
             }
 
-            footer a {
-                display: block;
-                width: fit-content;
-                margin: 6px 0;
-                color: var(--muted);
-                text-decoration: none;
-                font-size: 0.86rem;
+            h1 {
+                font-size: 38px;
+                letter-spacing: -1.5px;
             }
 
-            footer a:hover {
-                color: var(--accent);
+            .hero-intro {
+                font-size: 17px;
+            }
+
+            .definition-grid,
+            .fund-grid,
+            .calc-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .calc-results {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .article h2 {
+                margin-top: 40px;
+                font-size: 26px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
             }
 
             .footer-bottom {
-                width: min(1180px, calc(100% - 32px));
-                margin: 28px auto 0;
-                padding-top: 20px;
-                border-top: 1px solid var(--line);
-                color: var(--muted);
-                font-size: 0.78rem;
+                flex-direction: column;
+                gap: 7px;
+            }
+        }
+
+        @media (max-width: 430px) {
+            .hero-actions {
+                flex-direction: column;
             }
 
-            @media (max-width: 850px) {
-                .mobile-menu-toggle {
-                    display: flex;
-                }
-
-                .main-nav {
-                    position: absolute;
-                    top: 70px;
-                    left: 16px;
-                    right: 16px;
-                    display: none;
-                    flex-direction: column;
-                    align-items: stretch;
-                    padding: 10px;
-                    background: var(--surface);
-                    border: 1px solid var(--line);
-                    border-radius: 14px;
-                    box-shadow: var(--shadow);
-                    max-height: calc(100vh - 85px);
-                    overflow-y: auto;
-                }
-
-                .main-nav.menu-open {
-                    display: flex;
-                }
-
-                .main-nav > a,
-                .nav-dropdown > button {
-                    width: 100%;
-                    justify-content: space-between;
-                    padding: 12px;
-                }
-
-                .nav-dropdown-menu {
-                    position: static;
-                    width: 100%;
-                    margin-top: 2px;
-                    border: 0;
-                    box-shadow: none;
-                    background: var(--surface-soft);
-                }
-
-                .content-layout {
-                    grid-template-columns: 1fr;
-                }
-
-                .sidebar {
-                    position: static;
-                }
-
-                .footer-grid {
-                    grid-template-columns: repeat(2, 1fr);
-                }
+            .btn {
+                width: 100%;
             }
 
-            @media (max-width: 600px) {
-                .page-wrap,
-                .header-inner,
-                .footer-grid,
-                .footer-bottom {
-                    width: min(100% - 22px, 1180px);
-                }
-
-                .hero {
-                    padding-bottom: 28px;
-                }
-
-                h1 {
-                    font-size: 2.15rem;
-                }
-
-                .calculator-card {
-                    padding: 18px;
-                }
-
-                .fund-grid {
-                    grid-template-columns: 1fr;
-                }
-
-                .field.full {
-                    grid-column: auto;
-                }
-
-                .result-main {
-                    grid-template-columns: 1fr;
-                }
-
-                .related-grid {
-                    grid-template-columns: 1fr;
-                }
-
-                .footer-grid {
-                    grid-template-columns: 1fr;
-                }
+            .calculator-card {
+                padding: 18px;
             }
-        </style>
+        }
+    </style>
 
-        <script type="application/ld+json">
+    <!-- =========================================================
+         ARTICLE SCHEMA
+    ========================================================== -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Sinking Funds: What They Are, How They Work & How to Start",
+        "description": "A practical guide to sinking funds, including examples, monthly contribution calculations, and how sinking funds differ from emergency savings.",
+        "url": "https://paycheckmint.com/finance/budgeting/sinking-funds/",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://paycheckmint.com/finance/budgeting/sinking-funds/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "PaycheckMint",
+            "url": "https://paycheckmint.com/"
+        }
+    }
+    </script>
+
+    <!-- =========================================================
+         BREADCRUMB SCHEMA
+    ========================================================== -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
             {
-                "@context": "https://schema.org",
-                "@type": "Article",
-                "headline": "Sinking Fund: What It Is, How It Works & Calculator",
-                "description": "Learn what a sinking fund is, how sinking funds work, what to save for, and how much to save each month.",
-                "author": {
-                    "@type": "Organization",
-                    "name": "PaycheckMint"
-                },
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "PaycheckMint"
-                },
-                "mainEntityOfPage": {
-                    "@type": "WebPage",
-                    "@id": "https://paycheckmint.com/finance/budgeting/sinking-funds/"
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://paycheckmint.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Budgeting",
+                "item": "https://paycheckmint.com/finance/budgeting/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Sinking Funds",
+                "item": "https://paycheckmint.com/finance/budgeting/sinking-funds/"
+            }
+        ]
+    }
+    </script>
+
+    <!-- =========================================================
+         FAQ SCHEMA
+    ========================================================== -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a sinking fund?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A sinking fund is money you set aside gradually for a known future or irregular expense. Instead of paying the entire cost when it arrives, you save smaller amounts over time."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between a sinking fund and an emergency fund?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A sinking fund is generally for a known or reasonably expected future expense, while an emergency fund is intended for unexpected financial emergencies."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much should I put into a sinking fund each month?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A simple approach is to divide the amount you need by the number of months until you expect to use it. If you already have money saved, subtract the existing balance before dividing."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What expenses can be covered by sinking funds?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Common examples include vehicle repairs, insurance premiums, annual subscriptions, holidays, gifts, home maintenance, property expenses, travel, and other predictable irregular costs."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need a separate bank account for every sinking fund?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. You can track several sinking funds in one savings account or use separate accounts or savings buckets. The important part is knowing how much of the balance belongs to each goal."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can sinking funds help if I live paycheck to paycheck?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "They can help with predictable irregular expenses by spreading the cost across multiple pay periods instead of treating the full expense as a surprise. The contribution still needs to fit within your actual cash flow."
                 }
             }
-        </script>
+        ]
+    }
+    </script>
+</head>
 
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Home",
-                        "item": "https://paycheckmint.com/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Finance",
-                        "item": "https://paycheckmint.com/finance/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 3,
-                        "name": "Budgeting",
-                        "item": "https://paycheckmint.com/finance/budgeting/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 4,
-                        "name": "Sinking Funds",
-                        "item": "https://paycheckmint.com/finance/budgeting/sinking-funds/"
-                    }
-                ]
-            }
-        </script>
+<body>
 
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": [
-                    {
-                        "@type": "Question",
-                        "name": "What is a sinking fund?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "A sinking fund is money set aside gradually for a specific planned expense. Instead of paying for the entire expense when it arrives, you save smaller amounts over time."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "How do you calculate a sinking fund?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Divide the amount you need by the number of months remaining before the expense is due. For example, saving $1,200 for an expense due in 12 months requires $100 per month."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "What should I use a sinking fund for?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Common sinking fund categories include annual insurance, vehicle maintenance, holidays and gifts, travel, home repairs, school expenses, subscriptions and other predictable irregular costs."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "What is the difference between a sinking fund and an emergency fund?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "A sinking fund is for a known or reasonably predictable future expense. An emergency fund is for unexpected financial emergencies such as an unplanned repair, medical bill or loss of income."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Should sinking funds be kept separate from my checking account?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Many people keep sinking fund money in a separate savings account or separate savings buckets so it is easier to track money reserved for specific goals."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Can I have multiple sinking funds?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Yes. You can create separate sinking funds for categories such as car maintenance, holidays, insurance, travel, home repairs or other predictable expenses."
-                        }
-                    }
-                ]
-            }
-        </script>
-          
-    </head>
+    <div class="pm-page">
 
-    <body>
-        <header class="site-header">
-            <div class="header-inner">
-                <a class="brand" href="/">Paycheck<span>Mint</span></a>
+        <!-- =========================================================
+         HEADER
+    ========================================================== -->
 
-                  
-                <button
-                    class="mobile-menu-toggle"
-                    id="mobileMenuToggle"
-                    aria-label="Open navigation"
-                    aria-expanded="false"
-                    type="button"
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+        <header class="pm-header" id="site-header">
 
-                <nav class="main-nav" id="mainNav">
-                    <a href="/">Home</a>
-                    <a href="/paycheck-tax-calculator/">Paycheck Calculator</a>
-                    <a href="/income/">Income</a>
+            <div class="pm-header-inner">
 
-                    <div class="nav-dropdown" id="financeDropdown">
-                        <button type="button" id="financeToggle" aria-expanded="false" aria-haspopup="true">
+                <a class="pm-brand" href="/" aria-label="PaycheckMint home">
+                    Paycheck<span>Mint</span>
+                </a>
+
+                <nav class="pm-desktop-nav" aria-label="Main navigation">
+
+                    <a class="pm-nav-link" href="/income/">
+                        Income
+                    </a>
+
+                    <div class="pm-nav-dropdown" data-dropdown>
+
+                        <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
                             Finance
-                            <span aria-hidden="true">▾</span>
+
+                            <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
                         </button>
 
-                        <div class="nav-dropdown-menu">
-                            <a href="/finance/">Finance Overview</a>
-                            <a href="/finance/taxes/">Taxes</a>
-                            <a href="/finance/budgeting/">Budgeting</a>
-                            <a href="/finance/credit-debt/">Credit &amp; Debt</a>
-                            <a href="/finance/investing/">Investing</a>
-                            <a href="/finance/insurance/">Insurance</a>
+                        <div class="pm-dropdown-menu">
+
+                            <span class="pm-dropdown-label">
+                                Explore
+                            </span>
+
+                            <a href="/finance/">
+                                <span>Finance Overview</span>
+                            </a>
+
+                            <a href="/income/">
+                                <span>Income & Earnings</span>
+                            </a>
+
+                            <a href="/finance/budgeting/">
+                                <span>Budgeting Guides</span>
+                            </a>
+
                         </div>
+
                     </div>
+
+                    <div class="pm-nav-dropdown" data-dropdown>
+
+                        <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                            Calculators
+
+                            <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </button>
+
+                        <div class="pm-dropdown-menu">
+
+                            <span class="pm-dropdown-label">
+                                Paycheck tools
+                            </span>
+
+                            <a href="/paycheck-tax-calculator/">
+                                Paycheck Tax Calculator
+                            </a>
+
+                            <a href="/monthly-paycheck-calculator/">
+                                Monthly Paycheck Calculator
+                            </a>
+
+                            <a href="/take-home-pay-calculator/">
+                                Take-Home Pay Calculator
+                            </a>
+
+                            <a href="/hourly-paycheck-calculator/">
+                                Hourly Paycheck Calculator
+                            </a>
+
+                            <a href="/overtime-pay-calculator/">
+                                Overtime Pay Calculator
+                            </a>
+
+                            <a href="/salary-paycheck-calculator/">
+                                Salary Paycheck Calculator
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <a class="pm-nav-link" href="/finance/">
+                        Learn
+                    </a>
+
                 </nav>
+
+                <div class="pm-nav-spacer"></div>
+
+                <button class="pm-search-button" id="searchToggle" type="button" aria-label="Open search"
+                    aria-expanded="false" aria-controls="searchPanel">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <path d="m20 20-4-4"></path>
+
+                    </svg>
+
+                </button>
+
+                <a class="pm-header-cta" href="/paycheck-tax-calculator/">
+                    Calculate paycheck
+                </a>
+
+                <button class="pm-mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation"
+                    aria-expanded="false" aria-controls="mobileNav">
+                    <svg id="mobileMenuIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round">
+                        <path d="M4 6h16" />
+                        <path d="M4 12h16" />
+                        <path d="M4 18h16" />
+                    </svg>
+                </button>
+
             </div>
-              
+
+            <!-- SEARCH PANEL -->
+
+            <div class="pm-search-panel" id="searchPanel">
+
+                <div class="pm-search-inner">
+
+                    <div class="pm-search-field">
+
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="7" />
+                            <path d="m20 20-4-4" />
+                        </svg>
+
+                        <input id="siteSearch" class="pm-search-input" type="search" autocomplete="off"
+                            placeholder="Search PaycheckMint..." aria-label="Search PaycheckMint">
+
+                        <button class="pm-search-close" id="searchClose" type="button" aria-label="Close search">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 6l12 12" />
+                                <path d="M18 6 6 18" />
+                            </svg>
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="pm-search-results" id="searchResults"></div>
+
+            </div>
+
+            <!-- MOBILE NAV -->
+
+            <nav class="pm-mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+
+                <div class="pm-mobile-nav-inner">
+
+                    <a href="/">
+                        Home
+                    </a>
+
+                    <a href="/income/">
+                        Income
+                    </a>
+
+                    <button class="pm-mobile-finance-button" id="mobileFinanceToggle" type="button"
+                        aria-expanded="false">
+                        <span>Finance</span>
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="pm-mobile-finance-links" id="mobileFinanceLinks">
+
+                        <a href="/finance/">
+                            Finance Overview
+                        </a>
+
+                        <a href="/income/">
+                            Income & Earnings
+                        </a>
+
+                    </div>
+
+                    <a href="/paycheck-tax-calculator/">
+                        Paycheck Tax Calculator
+                    </a>
+
+                    <a href="/take-home-pay-calculator/">
+                        Take-Home Pay Calculator
+                    </a>
+
+                    <a href="/hourly-paycheck-calculator/">
+                        Hourly Paycheck Calculator
+                    </a>
+
+                    <a href="/overtime-pay-calculator/">
+                        Overtime Pay Calculator
+                    </a>
+
+                    <a href="/salary-paycheck-calculator/">
+                        Salary Paycheck Calculator
+                    </a>
+
+                    <a href="/weekly-paycheck-calculator/">
+                        Weekly Paycheck Calculator
+                    </a>
+
+                    <a href="/biweekly-paycheck-calculator/">
+                        Biweekly Paycheck Calculator
+                    </a>
+
+                    <a href="/monthly-paycheck-calculator/">
+                        Monthly Paycheck Calculator
+                    </a>
+
+                    <div class="pm-mobile-search-row">
+
+                        <button class="pm-button-secondary" id="mobileSearchButton" type="button">
+                            Search PaycheckMint
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </nav>
+
         </header>
 
-        <main class="page-wrap">
-              
-            <div class="breadcrumb">
-                <a href="/">Home</a> / <a href="/finance/">Finance</a> / <a href="/finance/budgeting/">Budgeting</a> /
-                Sinking Funds
+
+        <main>
+
+            <!-- =====================================================
+             BREADCRUMB
+        ====================================================== -->
+
+            <div class="pm-container">
+
+                <div class="breadcrumb">
+
+                    <a href="/">Home</a>
+
+                    <span>›</span>
+
+                    <a href="/finance/budgeting/">
+                        Budgeting
+                    </a>
+
+                    <span>›</span>
+
+                    Sinking Funds
+
+                </div>
+
             </div>
 
-            <section class="hero">
-                <span class="eyebrow">Budgeting Guide</span>
 
-                <h1>Sinking Fund: What It Is, How It Works &amp; Calculator</h1>
+            <!-- =====================================================
+             HERO
+        ====================================================== -->
 
-                <p>
-                    A sinking fund helps you prepare for predictable expenses by saving smaller amounts over time. Learn
-                    how sinking funds work, what to save for, how much to contribute each month, and how they differ
-                    from an emergency fund.
-                </p>
+            <section class="article-hero">
+
+                <div class="pm-container">
+
+                    <div class="hero-grid">
+
+                        <div>
+
+                            <div class="eyebrow">
+                                Budgeting Guide
+                            </div>
+
+                            <h1>
+                                Sinking Funds: Plan for Big Expenses Before They Arrive
+                            </h1>
+
+                            <p class="hero-intro">
+                                A sinking fund turns an irregular expense into a planned
+                                monthly contribution. Instead of scrambling when a car
+                                repair, insurance bill, holiday, or annual expense arrives,
+                                you gradually set aside money for it ahead of time.
+                            </p>
+
+                            <div class="hero-actions">
+
+                                <a class="btn btn-primary" href="#calculator">
+                                    Calculate a Monthly Contribution
+                                </a>
+
+                                <a class="btn btn-secondary" href="/finance/budgeting/">
+                                    Budgeting Hub
+                                </a>
+
+                            </div>
+
+                            <div class="hero-trust">
+                                <span>Simple formulas</span>
+                                <span>Real-world examples</span>
+                                <span>Flexible approach</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="fund-card">
+
+                            <div class="fund-header">
+                                <strong>Illustrative sinking funds</strong>
+                                <span>Example only</span>
+                            </div>
+
+                            <div class="fund-total">
+                                $1,850
+                            </div>
+
+                            <div class="fund-caption">
+                                Combined planned balances
+                            </div>
+
+                            <div class="mini-fund">
+
+                                <div class="mini-fund-top">
+                                    <span>Car repairs</span>
+                                    <strong>$900</strong>
+                                </div>
+
+                                <div class="mini-bar">
+                                    <span class="bar-car"></span>
+                                </div>
+
+                            </div>
+
+                            <div class="mini-fund">
+
+                                <div class="mini-fund-top">
+                                    <span>Holiday</span>
+                                    <strong>$450</strong>
+                                </div>
+
+                                <div class="mini-bar">
+                                    <span class="bar-holiday"></span>
+                                </div>
+
+                            </div>
+
+                            <div class="mini-fund">
+
+                                <div class="mini-fund-top">
+                                    <span>Insurance</span>
+                                    <strong>$500</strong>
+                                </div>
+
+                                <div class="mini-bar">
+                                    <span class="bar-insurance"></span>
+                                </div>
+
+                            </div>
+
+                            <div class="fund-note">
+                                Each fund has a purpose and target. The money is still
+                                part of your savings, but it is already assigned to a
+                                future expense.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </section>
 
-            <div class="content-layout">
-                <article class="article">
-                    <!-- CALCULATOR -->
-                    <section class="calculator-card" id="sinking-fund-calculator">
-                        <h2>Sinking Fund Calculator</h2>
 
-                        <p class="calculator-intro">
-                            Enter the amount you want to have available, how much you already have saved, and when you
-                            expect to need the money. The calculator estimates the regular monthly contribution needed
-                            to reach your target.
+            <!-- =====================================================
+             CONTENT
+        ====================================================== -->
+
+            <div class="pm-container content-layout">
+
+                <article class="article">
+
+                    <!-- QUICK ANSWER -->
+
+                    <section id="quick-answer">
+
+                        <h2>
+                            What is a sinking fund?
+                        </h2>
+
+                        <div class="answer-box">
+
+                            <strong>
+                                A sinking fund is money you set aside gradually for a
+                                known future or irregular expense.
+                            </strong>
+
+                            Instead of paying the entire cost from one paycheck,
+                            you spread the cost across multiple months or pay periods.
+
+                        </div>
+
+                        <p>
+                            For example, suppose you know your car may need $1,200 of
+                            maintenance over the next year. Rather than waiting for
+                            the bill and trying to find $1,200 at once, you could
+                            save $100 per month toward that purpose.
+                        </p>
+
+                        <p>
+                            The same idea can work for annual insurance premiums,
+                            holidays, gifts, home maintenance, travel, school expenses,
+                            subscriptions, and other costs that are predictable enough
+                            to plan for.
+                        </p>
+
+                        <div class="definition-grid">
+
+                            <div class="definition-card">
+
+                                <div class="definition-icon">
+                                    🎯
+                                </div>
+
+                                <h3>
+                                    Specific purpose
+                                </h3>
+
+                                <p>
+                                    The money is assigned to a particular future
+                                    expense or category.
+                                </p>
+
+                            </div>
+
+                            <div class="definition-card">
+
+                                <div class="definition-icon">
+                                    📅
+                                </div>
+
+                                <h3>
+                                    Saved over time
+                                </h3>
+
+                                <p>
+                                    You build the balance gradually instead of
+                                    waiting until the expense is due.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- WHY -->
+
+                    <section id="why">
+
+                        <h2>
+                            Why sinking funds can make budgeting easier
+                        </h2>
+
+                        <p>
+                            Many budgets look fine until an expense occurs that does
+                            not happen every month. A $600 insurance payment, $900
+                            vehicle repair, or $1,200 holiday budget can make a normal
+                            monthly budget suddenly look very different.
+                        </p>
+
+                        <p>
+                            Sinking funds change the timing of the budgeting problem.
+                            Instead of treating the entire cost as a surprise, you
+                            recognize that the expense is coming and reserve part of
+                            your income ahead of time.
                         </p>
 
                         <div class="fund-grid">
-                            <div class="field">
-                                <label for="targetAmount">Amount Needed</label>
-                                <input
-                                    id="targetAmount"
-                                    type="number"
-                                    min="0"
-                                    step="0.01"
-                                    value="1200"
-                                    inputmode="decimal"
-                                />
+
+                            <div class="fund-example">
+                                <h3>Without a sinking fund</h3>
+                                <p>
+                                    A $1,200 expense arrives and the entire amount has
+                                    to come from current cash flow or another funding source.
+                                </p>
                             </div>
 
-                            <div class="field">
-                                <label for="currentSaved">Already Saved</label>
-                                <input
-                                    id="currentSaved"
-                                    type="number"
-                                    min="0"
-                                    step="0.01"
-                                    value="0"
-                                    inputmode="decimal"
-                                />
+                            <div class="fund-example">
+                                <h3>With a sinking fund</h3>
+                                <p>
+                                    You have gradually assigned money to the expense,
+                                    reducing the amount that must come from the current paycheck.
+                                </p>
                             </div>
 
-                            <div class="field">
-                                <label for="monthsRemaining">Months Until Expense</label>
-                                <input
-                                    id="monthsRemaining"
-                                    type="number"
-                                    min="1"
-                                    step="1"
-                                    value="12"
-                                    inputmode="numeric"
-                                />
-                            </div>
-
-                            <div class="field">
-                                <label for="monthlyContribution">Current Monthly Contribution</label>
-                                <input
-                                    id="monthlyContribution"
-                                    type="number"
-                                    min="0"
-                                    step="0.01"
-                                    value="100"
-                                    inputmode="decimal"
-                                />
-                            </div>
-
-                            <div class="field full">
-                                <label for="expenseName">Expense Name <small>(optional)</small></label>
-                                <input
-                                    id="expenseName"
-                                    type="text"
-                                    maxlength="80"
-                                    placeholder="Example: Car repairs, holiday gifts, insurance"
-                                />
-                            </div>
                         </div>
 
-                        <button class="calculate-btn" id="calculateFund" type="button">Calculate Sinking Fund</button>
-
-                        <div class="results" id="calculatorResults" aria-live="polite">
-                            <div class="result-main">
-                                <div class="result-box">
-                                    <span>Amount Still Needed</span>
-                                    <strong id="remainingAmount">$1,200</strong>
-                                </div>
-
-                                <div class="result-box">
-                                    <span>Monthly Contribution Needed</span>
-                                    <strong class="result-highlight" id="requiredMonthly">$100</strong>
-                                </div>
-
-                                <div class="result-box">
-                                    <span>Estimated Shortfall / Surplus</span>
-                                    <strong id="projectedDifference">$0</strong>
-                                </div>
-                            </div>
-
-                            <div class="progress-label">
-                                <span>Current progress</span>
-                                <span id="progressText">0%</span>
-                            </div>
-
-                            <div class="progress">
-                                <div class="progress-bar" id="progressBar"></div>
-                            </div>
-
-                            <div class="status" id="fundStatus">
-                                Saving $100 per month would reach the $1,200 goal in 12 months.
-                            </div>
-                        </div>
-
-                        <div class="formula">
-                            Monthly contribution needed = (Target amount − Current savings) ÷ Months remaining
-                        </div>
                     </section>
 
-                    <section class="article-section">
-                        <h2>What Is a Sinking Fund?</h2>
+
+                    <!-- SINKING VS EMERGENCY -->
+
+                    <section id="sinking-vs-emergency">
+
+                        <h2>
+                            Sinking fund vs. emergency fund
+                        </h2>
 
                         <p>
-                            A sinking fund is money you gradually set aside for a specific planned expense. Instead of
-                            waiting until a large bill arrives and trying to find the money all at once, you save
-                            smaller amounts over several weeks or months.
-                        </p>
-
-                        <p>
-                            For example, if you expect to spend $1,200 on an annual expense and have 12 months to
-                            prepare, you could set aside about $100 per month. When the expense arrives, much or all of
-                            the money is already available.
-                        </p>
-
-                        <div class="callout">
-                            <strong>The basic idea</strong>
-                            A sinking fund turns an irregular future expense into a planned savings contribution.
-                        </div>
-
-                        <p>
-                            This can make your monthly budget more predictable because the expense is accounted for
-                            before the bill or purchase arrives.
-                        </p>
-                    </section>
-
-                    <section class="article-section">
-                        <h2>How Does a Sinking Fund Work?</h2>
-
-                        <p>
-                            The process is simple: identify a future expense, estimate how much you will need, determine
-                            when you need it, and divide the amount you need by the time available to save.
-                        </p>
-
-                        <ol>
-                            <li>Choose a specific future expense.</li>
-                            <li>Estimate the total amount you will need.</li>
-                            <li>Subtract any money you have already saved for it.</li>
-                            <li>Determine how many months remain.</li>
-                            <li>Divide the remaining amount by the months remaining.</li>
-                            <li>Make regular contributions and track the balance.</li>
-                        </ol>
-
-                        <p>
-                            You can adjust the contribution when the estimated expense changes. For example, if a car
-                            repair is expected to cost more than originally planned, the monthly contribution can be
-                            increased or the target date can be changed.
-                        </p>
-                    </section>
-
-                    <section class="article-section">
-                        <h2>Sinking Fund Formula</h2>
-
-                        <p>The basic sinking fund calculation is:</p>
-
-                        <div class="formula">
-                            Monthly contribution = (Amount needed − Amount already saved) ÷ Months remaining
-                        </div>
-
-                        <p>
-                            For example, suppose you expect a $900 vehicle expense in six months and have already saved
-                            $150.
-                        </p>
-
-                        <div class="example-card">
-                            <div class="example-number">$125/month</div>
-                            <p>($900 − $150) ÷ 6 = $125 per month</p>
-                        </div>
-
-                        <p>
-                            This calculation does not assume investment returns or interest. Keeping the calculation
-                            simple makes it useful for ordinary budgeting and planning.
-                        </p>
-                    </section>
-
-                    <section class="article-section">
-                        <h2>Common Sinking Fund Categories</h2>
-
-                        <p>
-                            A sinking fund can be useful for an expense that is predictable enough to plan for, even if
-                            the exact amount or date changes.
+                            These two types of savings can look similar because both
+                            involve setting money aside. The key difference is the
+                            purpose of the money.
                         </p>
 
                         <div class="table-wrap">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Category</th>
-                                        <th>Example</th>
-                                        <th>How to Plan</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Insurance</td>
-                                        <td>Annual or semiannual premium</td>
-                                        <td>Estimate the next premium and divide by the months available.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Car</td>
-                                        <td>Maintenance, tires, registration or repairs</td>
-                                        <td>Use past costs and upcoming maintenance needs.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Holidays</td>
-                                        <td>Gifts, travel and celebrations</td>
-                                        <td>Set an overall holiday spending target.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Travel</td>
-                                        <td>Flights, hotels and activities</td>
-                                        <td>Estimate the trip cost before the travel date.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Home</td>
-                                        <td>Repairs, appliances or seasonal maintenance</td>
-                                        <td>Use expected replacement or maintenance costs.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Education</td>
-                                        <td>School supplies, fees or activities</td>
-                                        <td>Review previous school-year costs and upcoming fees.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Subscriptions</td>
-                                        <td>Annual memberships or software</td>
-                                        <td>Divide the annual renewal cost across the available months.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Medical</td>
-                                        <td>Known deductible or planned expense</td>
-                                        <td>
-                                            Use known upcoming costs rather than treating every medical bill as
-                                            predictable.
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </section>
 
-                    <section class="article-section">
-                        <h2>Sinking Fund vs. Emergency Fund</h2>
+                            <table class="comparison-table">
 
-                        <p>
-                            Sinking funds and emergency funds are both savings tools, but they have different purposes.
-                        </p>
-
-                        <div class="table-wrap">
-                            <table>
                                 <thead>
                                     <tr>
                                         <th>Feature</th>
@@ -1202,639 +1667,1754 @@
                                         <th>Emergency Fund</th>
                                     </tr>
                                 </thead>
+
                                 <tbody>
+
                                     <tr>
-                                        <td>Purpose</td>
-                                        <td>Planned or predictable future expense</td>
-                                        <td>Unexpected financial expense or disruption</td>
+                                        <td>Main purpose</td>
+                                        <td>
+                                            A known or reasonably expected future expense
+                                        </td>
+                                        <td>
+                                            An unexpected financial emergency
+                                        </td>
                                     </tr>
+
                                     <tr>
-                                        <td>Example</td>
-                                        <td>Holiday gifts or annual insurance</td>
-                                        <td>Unexpected medical bill or job loss</td>
+                                        <td>Examples</td>
+                                        <td>
+                                            Car maintenance, holidays, annual bills,
+                                            gifts, travel
+                                        </td>
+                                        <td>
+                                            Unexpected job loss, urgent repair,
+                                            unexpected necessary expense
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <td>Timing</td>
-                                        <td>Usually known or reasonably predictable</td>
-                                        <td>Usually unknown</td>
-                                    </tr>
+
                                     <tr>
                                         <td>Target</td>
-                                        <td>Based on the expected expense</td>
-                                        <td>Often based on essential living expenses and personal circumstances</td>
+                                        <td>
+                                            Usually based on the expected cost
+                                        </td>
+                                        <td>
+                                            Often based on essential expenses and
+                                            household circumstances
+                                        </td>
                                     </tr>
+
                                     <tr>
-                                        <td>Use</td>
-                                        <td>Use when the planned expense arrives</td>
-                                        <td>Use for genuine unexpected financial needs</td>
+                                        <td>When you use it</td>
+                                        <td>
+                                            When the planned expense arrives
+                                        </td>
+                                        <td>
+                                            When a genuine financial emergency occurs
+                                        </td>
                                     </tr>
+
                                 </tbody>
+
                             </table>
+
                         </div>
 
                         <p>
-                            For example, an annual car insurance premium is generally something you can anticipate and
-                            prepare for. A sudden unexpected car repair may instead be an emergency, depending on the
-                            circumstances.
+                            You may use both. A sinking fund does not replace an emergency
+                            fund because not every financial problem can be predicted.
                         </p>
 
                         <p>
-                            Having both systems can help separate predictable expenses from financial emergencies rather
-                            than relying on one savings balance for everything.
+                            Learn more about emergency savings in the
+                            <a href="/finance/budgeting/emergency-fund/">
+                                Emergency Fund Guide
+                            </a>.
                         </p>
+
                     </section>
 
-                    <section class="article-section">
-                        <h2>How Much Should You Put in a Sinking Fund?</h2>
+
+                    <!-- CALCULATOR -->
+
+                    <section id="calculator">
+
+                        <h2>
+                            Sinking fund calculator
+                        </h2>
 
                         <p>
-                            There is no universal percentage of income that every household needs to put into sinking
-                            funds. The amount depends on the expenses you expect and when you expect to pay them.
+                            A simple way to calculate a monthly contribution is to
+                            divide the amount you need by the number of months until
+                            you expect to use the money.
                         </p>
+
+                        <div class="calculator-card">
+
+                            <div class="calculator-heading">
+
+                                <h3>
+                                    Calculate your monthly contribution
+                                </h3>
+
+                                <p>
+                                    Enter the target amount, current savings, and
+                                    number of months until the expense.
+                                </p>
+
+                            </div>
+
+                            <div class="calc-grid">
+
+                                <div class="field">
+
+                                    <label for="targetAmount">
+                                        Target amount
+                                    </label>
+
+                                    <input id="targetAmount" type="number" min="0" step="50" value="1200"
+                                        inputmode="decimal">
+
+                                </div>
+
+                                <div class="field">
+
+                                    <label for="currentAmount">
+                                        Already saved
+                                    </label>
+
+                                    <input id="currentAmount" type="number" min="0" step="50" value="200"
+                                        inputmode="decimal">
+
+                                </div>
+
+                                <div class="field">
+
+                                    <label for="months">
+                                        Months until expense
+                                    </label>
+
+                                    <input id="months" type="number" min="1" step="1" value="10" inputmode="numeric">
+
+                                </div>
+
+                                <div class="field">
+
+                                    <label for="paychecks">
+                                        Paychecks per month
+                                    </label>
+
+                                    <input id="paychecks" type="number" min="1" step="1" value="2" inputmode="numeric">
+
+                                </div>
+
+                            </div>
+
+                            <div class="calc-results">
+
+                                <div class="result-box">
+
+                                    <span class="result-label">
+                                        Still needed
+                                    </span>
+
+                                    <span class="result-value" id="neededResult">
+                                        $1,000
+                                    </span>
+
+                                </div>
+
+                                <div class="result-box">
+
+                                    <span class="result-label">
+                                        Monthly contribution
+                                    </span>
+
+                                    <span class="result-value" id="monthlyResult">
+                                        $100
+                                    </span>
+
+                                </div>
+
+                                <div class="result-box">
+
+                                    <span class="result-label">
+                                        Per paycheck
+                                    </span>
+
+                                    <span class="result-value" id="paycheckResult">
+                                        $50
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="calc-status good" id="calcStatus" aria-live="polite">
+                                Save about $100 per month to reach the target.
+                            </div>
+
+                            <p class="calculator-note">
+                                This calculation does not account for interest,
+                                investment returns, taxes, fees, or changes in the
+                                target amount. It is intended as a simple budgeting tool.
+                            </p>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- FORMULA -->
+
+                    <section id="formula">
+
+                        <h2>
+                            How to calculate a sinking fund contribution
+                        </h2>
 
                         <p>
-                            Start by reviewing your bills, bank statements, receipts and previous spending. Look for
-                            expenses that happen periodically rather than every month.
+                            The basic calculation is straightforward:
                         </p>
 
-                        <p>
-                            If an expense cost $1,500 last year and you expect something similar in 10 months, a simple
-                            starting estimate would be:
-                        </p>
+                        <div class="answer-box">
 
-                        <div class="example-card">
-                            <div class="example-number">$150/month</div>
-                            <p>$1,500 ÷ 10 months = $150 per month</p>
+                            <strong>
+                                Monthly contribution =
+                                (Target amount − Current savings) ÷ Months remaining
+                            </strong>
+
                         </div>
 
                         <p>
-                            If you already have $300 saved, the remaining $1,200 would require about $120 per month over
-                            10 months.
-                        </p>
-                    </section>
-
-                    <section class="article-section">
-                        <h2>How to Create a Sinking Fund</h2>
-
-                        <h3>1. List your irregular expenses</h3>
-
-                        <p>
-                            Look back over the last year and identify expenses that did not occur every month. Include
-                            annual bills, seasonal costs, maintenance and planned purchases.
-                        </p>
-
-                        <h3>2. Estimate each cost</h3>
-
-                        <p>
-                            Use actual previous bills when possible. If the cost varies, consider using a reasonable
-                            planning estimate rather than assuming the lowest possible amount.
-                        </p>
-
-                        <h3>3. Add the due date</h3>
-
-                        <p>
-                            Knowing when you expect to need the money is important because it determines how quickly you
-                            need to save.
-                        </p>
-
-                        <h3>4. Calculate the contribution</h3>
-
-                        <p>
-                            Divide the amount still needed by the number of months remaining. The PaycheckMint
-                            calculator above can do this calculation automatically.
-                        </p>
-
-                        <h3>5. Choose where to keep the money</h3>
-
-                        <p>
-                            Many people use a separate savings account or savings buckets so money reserved for future
-                            expenses is easier to distinguish from everyday spending.
-                        </p>
-
-                        <h3>6. Automate contributions</h3>
-
-                        <p>
-                            A recurring transfer can make the contribution part of your normal money routine. If your
-                            income varies, you can use a flexible contribution amount and review your progress
-                            regularly.
-                        </p>
-
-                        <h3>7. Recalculate when circumstances change</h3>
-
-                        <p>
-                            A sinking fund is a planning tool, not a permanent number. Update it when prices, dates or
-                            expected expenses change.
-                        </p>
-                    </section>
-
-                    <section class="article-section">
-                        <h2>Should You Have One Sinking Fund or Several?</h2>
-
-                        <p>
-                            There is no requirement to create a separate account for every expense. The best
-                            organization method depends on how you prefer to manage your budget.
-                        </p>
-
-                        <p>
-                            Some people prefer one savings account with a spreadsheet or budgeting system that tracks
-                            different categories. Others prefer separate savings buckets for each goal.
-                        </p>
-
-                        <p>
-                            If multiple accounts make your finances difficult to manage, a simpler system may work
-                            better. The important part is knowing how much money is reserved for each planned expense.
-                        </p>
-                    </section>
-
-                    <section class="article-section">
-                        <h2>Example: Building Multiple Sinking Funds</h2>
-
-                        <p>Imagine a household wants to prepare for several expenses during the next year:</p>
-
-                        <div class="table-wrap">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Expense</th>
-                                        <th>Target</th>
-                                        <th>Time</th>
-                                        <th>Monthly Amount</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Car maintenance</td>
-                                        <td>$600</td>
-                                        <td>6 months</td>
-                                        <td>$100</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Holiday spending</td>
-                                        <td>$1,200</td>
-                                        <td>10 months</td>
-                                        <td>$120</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Annual insurance</td>
-                                        <td>$900</td>
-                                        <td>12 months</td>
-                                        <td>$75</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Travel</td>
-                                        <td>$1,500</td>
-                                        <td>12 months</td>
-                                        <td>$125</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <p>
-                            The combined planned contribution would be
-                            <strong>$420 per month</strong>.
-                        </p>
-
-                        <p>
-                            If that amount does not fit the household's current budget, the next step is not necessarily
-                            to use credit. The goals could be adjusted, the target dates could be extended, the
-                            estimated costs could be reviewed, or some expenses could be reduced.
-                        </p>
-                    </section>
-
-                    <section class="article-section">
-                        <h2>Sinking Funds When Money Is Tight</h2>
-
-                        <p>
-                            You do not need to fully fund every future expense at once. If your budget is limited, start
-                            with the expenses that are most likely to disrupt your finances.
+                            For example, imagine you expect a $1,500 expense in 12 months
+                            and already have $300 assigned to that sinking fund.
                         </p>
 
                         <ul>
-                            <li>Start with one or two high-priority expenses.</li>
-                            <li>Use smaller contributions if necessary.</li>
-                            <li>Review upcoming due dates regularly.</li>
-                            <li>Separate essential planned costs from optional purchases.</li>
-                            <li>Increase contributions when your cash flow allows.</li>
-                            <li>Use actual spending history to improve estimates.</li>
+                            <li>Target: $1,500</li>
+                            <li>Already saved: $300</li>
+                            <li>Amount still needed: $1,200</li>
+                            <li>Time remaining: 12 months</li>
+                            <li>Monthly contribution: $100</li>
                         </ul>
 
                         <p>
-                            Even partial preparation can be useful. A sinking fund does not have to completely cover an
-                            expense to make the final bill easier to manage.
+                            If you are paid twice per month, you could set aside about
+                            $50 from each paycheck instead of making one $100 transfer
+                            at the end of the month.
                         </p>
+
                     </section>
 
-                    <section class="article-section">
-                        <h2>Sinking Funds and Your Monthly Budget</h2>
+
+                    <!-- COMMON USES -->
+
+                    <section id="uses">
+
+                        <h2>
+                            Common sinking fund categories
+                        </h2>
 
                         <p>
-                            Sinking fund contributions should generally be treated as part of your planned monthly
-                            spending or savings structure. This prevents a future expense from appearing to be
-                            completely unexpected.
+                            The best categories are expenses that are either predictable,
+                            recurring, seasonal, or expensive enough that paying them all
+                            at once would put pressure on your normal monthly cash flow.
                         </p>
 
-                        <p>
-                            For example, if you know that $100 per month is needed for an annual expense, including that
-                            $100 in your monthly plan gives you a more realistic picture of your available money.
-                        </p>
+                        <div class="fund-grid">
 
-                        <p>
-                            This works especially well alongside a
-                            <a href="/finance/budgeting/monthly-budget/">monthly budget</a>
-                            or
-                            <a href="/finance/budgeting/paycheck-budget/">paycheck budget</a>.
-                        </p>
+                            <div class="fund-example">
+                                <h3>🚗 Vehicle</h3>
+                                <p>
+                                    Repairs, maintenance, tires, registration, or other
+                                    expected vehicle costs.
+                                </p>
+                            </div>
+
+                            <div class="fund-example">
+                                <h3>🏠 Home</h3>
+                                <p>
+                                    Maintenance, appliances, repairs, furnishings, or
+                                    other planned home expenses.
+                                </p>
+                            </div>
+
+                            <div class="fund-example">
+                                <h3>🎁 Gifts</h3>
+                                <p>
+                                    Birthdays, holidays, weddings, and other occasions
+                                    that occur throughout the year.
+                                </p>
+                            </div>
+
+                            <div class="fund-example">
+                                <h3>✈️ Travel</h3>
+                                <p>
+                                    Flights, hotels, transportation, activities, and
+                                    other planned travel costs.
+                                </p>
+                            </div>
+
+                            <div class="fund-example">
+                                <h3>🧾 Annual bills</h3>
+                                <p>
+                                    Insurance, memberships, subscriptions, registrations,
+                                    and other less-frequent bills.
+                                </p>
+                            </div>
+
+                            <div class="fund-example">
+                                <h3>🎓 Education</h3>
+                                <p>
+                                    Tuition-related expenses, supplies, fees, or other
+                                    predictable education costs.
+                                </p>
+                            </div>
+
+                        </div>
+
                     </section>
 
-                    <section class="article-section">
-                        <h2>Sinking Fund vs. Regular Savings</h2>
+
+                    <!-- WHAT NOT TO USE -->
+
+                    <section id="not-for">
+
+                        <h2>
+                            What should not automatically be treated as a sinking fund?
+                        </h2>
 
                         <p>
-                            Regular savings can be general-purpose money without a specific spending deadline. A sinking
-                            fund is more specifically assigned to a future expense.
+                            Not every expense needs its own sinking fund. Creating too
+                            many categories can make your budget harder to manage.
                         </p>
 
-                        <p>
-                            For example, "save $300 this month" is a general savings goal. "Save $300 toward the annual
-                            car insurance premium" gives the money a specific purpose.
-                        </p>
+                        <h3>Regular monthly bills</h3>
 
                         <p>
-                            Assigning a purpose can make it easier to determine whether money is actually available for
-                            everyday spending.
+                            If an expense occurs every month and is already part of your
+                            normal monthly budget, you generally do not need a separate
+                            sinking fund just because it has a large amount.
                         </p>
+
+                        <h3>True emergencies</h3>
+
+                        <p>
+                            Unexpected expenses that cannot reasonably be predicted are
+                            generally better handled by an emergency reserve rather than
+                            a sinking fund for a specific event.
+                        </p>
+
+                        <h3>Every small purchase</h3>
+
+                        <p>
+                            A sinking fund is most useful when assigning money ahead of
+                            time solves a real cash-flow problem. You do not need a
+                            separate fund for every category in your budget.
+                        </p>
+
                     </section>
 
-                    <section class="article-section">
-                        <h2>Common Sinking Fund Mistakes</h2>
 
-                        <h3>Ignoring irregular expenses</h3>
+                    <!-- HOW TO START -->
 
-                        <p>
-                            If an expense happens every year, it is easy to forget about it simply because it is not on
-                            every monthly bill.
-                        </p>
+                    <section id="how-to-start">
 
-                        <h3>Underestimating the total cost</h3>
+                        <h2>
+                            How to start sinking funds in your budget
+                        </h2>
 
                         <p>
-                            Review previous costs and include related expenses where appropriate. A travel sinking fund,
-                            for example, may need to include transportation, lodging and planned activities.
+                            You can start with just one or two categories. The goal is to
+                            make irregular expenses easier to handle, not to create a
+                            complicated financial system.
                         </p>
 
-                        <h3>Starting too late</h3>
+                        <div class="step-list">
 
-                        <p>
-                            Waiting until a large expense is close can make the monthly contribution much higher.
-                            Starting earlier generally reduces the amount required each month.
-                        </p>
+                            <div class="step">
 
-                        <h3>Mixing planned expenses with emergency savings</h3>
+                                <div class="step-number">
+                                    1
+                                </div>
 
-                        <p>
-                            Using an emergency fund for predictable expenses can make it harder to know how much
-                            protection you actually have for unexpected events.
-                        </p>
+                                <div>
 
-                        <h3>Creating too many categories</h3>
+                                    <strong>
+                                        Look at the next 12 months
+                                    </strong>
 
-                        <p>
-                            A complicated system can become difficult to maintain. Start with the expenses that matter
-                            most and expand only if the additional categories are useful.
-                        </p>
+                                    <p>
+                                        Review upcoming annual, seasonal, and irregular
+                                        expenses that you already expect.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="step">
+
+                                <div class="step-number">
+                                    2
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Estimate each target
+                                    </strong>
+
+                                    <p>
+                                        Use previous bills, current prices, or a reasonable
+                                        estimate to determine how much you may need.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="step">
+
+                                <div class="step-number">
+                                    3
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Choose a deadline
+                                    </strong>
+
+                                    <p>
+                                        Determine when the money will probably be needed
+                                        and count the months remaining.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="step">
+
+                                <div class="step-number">
+                                    4
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Calculate the contribution
+                                    </strong>
+
+                                    <p>
+                                        Subtract any money already saved and divide the
+                                        remaining amount by the time available.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="step">
+
+                                <div class="step-number">
+                                    5
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Add it to your budget
+                                    </strong>
+
+                                    <p>
+                                        Treat the contribution as a planned expense rather
+                                        than hoping money will remain at the end of the month.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="step">
+
+                                <div class="step-number">
+                                    6
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Adjust when the target changes
+                                    </strong>
+
+                                    <p>
+                                        Recalculate if the expected cost, deadline, or
+                                        amount already saved changes.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
                     </section>
 
-                    <section class="article-section">
-                        <h2>How Sinking Funds Fit Into a Larger Budget</h2>
+
+                    <!-- WHERE TO KEEP -->
+
+                    <section id="where">
+
+                        <h2>
+                            Where should you keep sinking fund money?
+                        </h2>
 
                         <p>
-                            Sinking funds work best as one part of a broader budgeting system. You might combine them
-                            with a monthly budget, paycheck budgeting, emergency savings and debt planning.
+                            The right setup depends on how many funds you have, how often
+                            you need the money, and how easy you want it to be to track.
                         </p>
 
-                        <div class="related-grid">
-                            <a class="related-link" href="/finance/budgeting/">
-                                <strong>Budgeting Guide</strong>
-                                <span>Explore PaycheckMint budgeting resources.</span>
-                            </a>
+                        <div class="table-wrap">
 
-                            <a class="related-link" href="/finance/budgeting/monthly-budget/">
-                                <strong>Monthly Budget</strong>
-                                <span>Build a monthly spending and savings plan.</span>
-                            </a>
+                            <table class="comparison-table">
 
-                            <a class="related-link" href="/finance/budgeting/emergency-fund/">
-                                <strong>Emergency Fund</strong>
-                                <span>Plan savings for unexpected financial expenses.</span>
-                            </a>
+                                <thead>
 
-                            <a class="related-link" href="/finance/budgeting/paycheck-budget/">
-                                <strong>Paycheck Budget</strong>
-                                <span>Organize income and expenses around your paydays.</span>
-                            </a>
+                                    <tr>
+                                        <th>Approach</th>
+                                        <th>How it works</th>
+                                        <th>Useful when</th>
+                                    </tr>
 
-                            <a class="related-link" href="/finance/budgeting/zero-based-budget/">
-                                <strong>Zero-Based Budget</strong>
-                                <span>Give every dollar a planned purpose.</span>
-                            </a>
+                                </thead>
 
-                            <a class="related-link" href="/finance/budgeting/50-30-20-rule/">
-                                <strong>50/30/20 Budget</strong>
-                                <span>Learn how this budgeting framework works.</span>
-                            </a>
+                                <tbody>
+
+                                    <tr>
+                                        <td>One savings account</td>
+                                        <td>
+                                            Keep all sinking-fund money together and
+                                            track individual balances in a budget.
+                                        </td>
+                                        <td>
+                                            You want a simple setup.
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Savings buckets</td>
+                                        <td>
+                                            Separate balances or labeled categories
+                                            within a savings system.
+                                        </td>
+                                        <td>
+                                            You want clearer organization.
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Separate savings accounts</td>
+                                        <td>
+                                            Give larger or important categories their
+                                            own account.
+                                        </td>
+                                        <td>
+                                            You prefer physical separation between goals.
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
                         </div>
+
+                        <p>
+                            You do not necessarily need a different bank account for
+                            every category. The important part is knowing what portion
+                            of your available savings belongs to each purpose.
+                        </p>
+
                     </section>
 
-                    <section class="article-section" id="faq">
-                        <h2>Frequently Asked Questions</h2>
 
-                        <div class="faq-item">
-                            <h3>What is a sinking fund?</h3>
-                            <p>
-                                A sinking fund is money gradually saved for a specific planned future expense. Instead
-                                of paying the entire amount at once, you build the balance over time.
-                            </p>
+                    <!-- EXAMPLE -->
+
+                    <section id="example">
+
+                        <h2>
+                            Example: building several sinking funds
+                        </h2>
+
+                        <p>
+                            Imagine a household expects several expenses over the next
+                            year. Instead of treating each bill as a surprise, it could
+                            assign a monthly amount to each category.
+                        </p>
+
+                        <div class="example-box">
+
+                            <div class="example-header">
+
+                                <strong>
+                                    Illustrative sinking-fund plan
+                                </strong>
+
+                                <span>
+                                    Monthly contributions
+                                </span>
+
+                            </div>
+
+                            <div class="example-line">
+                                <span>Car maintenance</span>
+                                <strong>$100</strong>
+                            </div>
+
+                            <div class="example-line">
+                                <span>Holiday spending</span>
+                                <strong>$75</strong>
+                            </div>
+
+                            <div class="example-line">
+                                <span>Annual insurance</span>
+                                <strong>$50</strong>
+                            </div>
+
+                            <div class="example-line">
+                                <span>Gifts</span>
+                                <strong>$40</strong>
+                            </div>
+
+                            <div class="example-line">
+                                <span>Home maintenance</span>
+                                <strong>$75</strong>
+                            </div>
+
+                            <div class="example-line total">
+                                <span>Total sinking-fund contributions</span>
+                                <strong>$340</strong>
+                            </div>
+
                         </div>
 
-                        <div class="faq-item">
-                            <h3>How do I calculate a sinking fund?</h3>
-                            <p>
-                                Subtract your current savings from the amount you need, then divide the remaining amount
-                                by the number of months before the expense. For example, $1,000 needed in 10 months with
-                                no current savings requires $100 per month.
-                            </p>
-                        </div>
+                        <p>
+                            In this example, $340 is treated as a planned part of the
+                            household's monthly cash flow. When one of these expenses
+                            arrives, the money is already assigned to it.
+                        </p>
 
-                        <div class="faq-item">
-                            <h3>What are good sinking fund categories?</h3>
-                            <p>
-                                Common categories include vehicle maintenance, insurance, holidays, gifts, travel, home
-                                repairs, school expenses, annual subscriptions and other predictable irregular costs.
-                            </p>
-                        </div>
+                        <p>
+                            The amounts are illustrative. Your sinking-fund contribution
+                            should fit your actual income, expenses, deadlines, and priorities.
+                        </p>
 
-                        <div class="faq-item">
-                            <h3>Is a sinking fund the same as an emergency fund?</h3>
-                            <p>
-                                No. A sinking fund is generally for a planned or predictable expense. An emergency fund
-                                is designed for unexpected financial needs.
-                            </p>
-                        </div>
-
-                        <div class="faq-item">
-                            <h3>Can I have more than one sinking fund?</h3>
-                            <p>
-                                Yes. You can track multiple sinking funds for different goals. You can use separate
-                                accounts, savings buckets, or one account with separate tracking.
-                            </p>
-                        </div>
-
-                        <div class="faq-item">
-                            <h3>Where should I keep sinking fund money?</h3>
-                            <p>
-                                Many people keep it in a dedicated savings account or savings buckets so the money is
-                                separate from everyday spending. Choose an approach that keeps the funds safe,
-                                accessible when needed and easy for you to track.
-                            </p>
-                        </div>
-
-                        <div class="faq-item">
-                            <h3>Should sinking fund contributions be included in my budget?</h3>
-                            <p>
-                                Yes. If the contribution is intended for a future expense, including it in your monthly
-                                budget can give you a more realistic picture of how much money is available for other
-                                spending.
-                            </p>
-                        </div>
                     </section>
 
-                    <div class="disclaimer">
-                        <strong>PaycheckMint disclaimer:</strong>
-                        This calculator is a planning tool and uses the information you enter. It does not account for
-                        interest, investment returns, changes in prices, taxes, fees or unexpected changes in your
-                        expenses. Actual costs and savings needs can vary.
-                    </div>
+
+                    <!-- PAYCHECK BUDGET -->
+
+                    <section id="paycheck">
+
+                        <h2>
+                            Sinking funds and paycheck budgeting
+                        </h2>
+
+                        <p>
+                            Sinking funds can work especially well with a paycheck budget.
+                            Instead of waiting until the end of the month to see whether
+                            money is left over, you can assign a portion of each paycheck
+                            to future expenses.
+                        </p>
+
+                        <p>
+                            For example, if a household is paid twice per month and needs
+                            to contribute $100 per month to a vehicle fund, it could assign
+                            $50 from each paycheck.
+                        </p>
+
+                        <p>
+                            This approach can make irregular expenses feel more like regular
+                            monthly expenses.
+                        </p>
+
+                        <p>
+                            Learn more about
+                            <a href="/finance/budgeting/paycheck-budget/">
+                                paycheck budgeting
+                            </a>.
+                        </p>
+
+                    </section>
+
+
+                    <!-- PAYCHECK TO PAYCHECK -->
+
+                    <section id="paycheck-to-paycheck">
+
+                        <h2>
+                            Can sinking funds help if you live paycheck to paycheck?
+                        </h2>
+
+                        <p>
+                            They can help with expenses that are predictable but irregular.
+                            If you know a bill is coming, spreading the cost over several
+                            paychecks can be easier than finding the entire amount at once.
+                        </p>
+
+                        <p>
+                            However, a sinking fund cannot create money that your current
+                            budget does not have. If your income is already fully consumed
+                            by essential expenses, required payments, and basic living costs,
+                            you may need to first identify where cash-flow pressure can be
+                            reduced.
+                        </p>
+
+                        <p>
+                            Read:
+                            <a href="/finance/budgeting/paycheck-to-paycheck/">
+                                Living Paycheck to Paycheck
+                            </a>
+                            for a broader look at creating financial breathing room.
+                        </p>
+
+                    </section>
+
+
+                    <!-- COMMON MISTAKES -->
+
+                    <section id="mistakes">
+
+                        <h2>
+                            Common sinking-fund mistakes
+                        </h2>
+
+                        <div class="fund-grid">
+
+                            <div class="fund-example">
+
+                                <h3>
+                                    Saving too little
+                                </h3>
+
+                                <p>
+                                    Underestimating the actual expense can leave you short
+                                    when the bill arrives.
+                                </p>
+
+                            </div>
+
+                            <div class="fund-example">
+
+                                <h3>
+                                    Forgetting the deadline
+                                </h3>
+
+                                <p>
+                                    A $1,200 goal six months away requires a different
+                                    contribution than the same goal 18 months away.
+                                </p>
+
+                            </div>
+
+                            <div class="fund-example">
+
+                                <h3>
+                                    Creating too many funds
+                                </h3>
+
+                                <p>
+                                    Excessive categories can make a simple budget difficult
+                                    to maintain.
+                                </p>
+
+                            </div>
+
+                            <div class="fund-example">
+
+                                <h3>
+                                    Using the fund for unrelated spending
+                                </h3>
+
+                                <p>
+                                    If money is repeatedly redirected to other purchases,
+                                    the original expense may become a cash-flow problem again.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- SINKING FUNDS IN MONTHLY BUDGET -->
+
+                    <section id="budget">
+
+                        <h2>
+                            How sinking funds fit into a monthly budget
+                        </h2>
+
+                        <p>
+                            A sinking fund contribution should be included in your budget
+                            just like other planned uses of income. It is not "extra"
+                            money if you have already decided that it belongs to a future bill.
+                        </p>
+
+                        <div class="callout">
+
+                            <strong>
+                                Think of it as moving the expense earlier.
+                            </strong>
+
+                            <p>
+                                The expense may happen once in the future, but your budget
+                                recognizes part of the cost every month before that date.
+                            </p>
+
+                        </div>
+
+                        <p>
+                            This is particularly useful for annual or seasonal expenses.
+                            Instead of one month carrying the full cost, several months
+                            share the preparation.
+                        </p>
+
+                        <p>
+                            If you are building a complete monthly plan, see
+                            <a href="/finance/budgeting/monthly-budget/">
+                                Monthly Budget
+                            </a>
+                            and
+                            <a href="/finance/budgeting/how-to-make-a-budget/">
+                                How to Make a Budget
+                            </a>.
+                        </p>
+
+                    </section>
+
+
+                    <!-- CHECKLIST -->
+
+                    <section id="checklist">
+
+                        <h2>
+                            Sinking fund checklist
+                        </h2>
+
+                        <ol>
+
+                            <li>
+                                List irregular expenses you expect during the next year.
+                            </li>
+
+                            <li>
+                                Estimate the amount needed for each expense.
+                            </li>
+
+                            <li>
+                                Write down the expected month or deadline.
+                            </li>
+
+                            <li>
+                                Subtract any money already saved.
+                            </li>
+
+                            <li>
+                                Divide the remaining amount by the number of months available.
+                            </li>
+
+                            <li>
+                                Add the contribution to your monthly or paycheck budget.
+                            </li>
+
+                            <li>
+                                Track the balance as you contribute.
+                            </li>
+
+                            <li>
+                                Recalculate when the target amount or deadline changes.
+                            </li>
+
+                            <li>
+                                Reuse the fund after the expense if the category will
+                                continue in the future.
+                            </li>
+
+                        </ol>
+
+                    </section>
+
+
+                    <!-- FAQ -->
+
+                    <section id="faq">
+
+                        <h2>
+                            Frequently asked questions
+                        </h2>
+
+                        <div class="faq-list">
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    What is a sinking fund?
+                                </summary>
+
+                                <div class="faq-answer">
+
+                                    <p>
+                                        A sinking fund is money you gradually set aside
+                                        for a known future or irregular expense. Instead
+                                        of paying the full amount when the expense arrives,
+                                        you save toward it over time.
+                                    </p>
+
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    What is the difference between a sinking fund and an emergency fund?
+                                </summary>
+
+                                <div class="faq-answer">
+
+                                    <p>
+                                        A sinking fund is generally for a known or reasonably
+                                        expected expense. An emergency fund is intended for
+                                        unexpected financial emergencies.
+                                    </p>
+
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    How much should I put into a sinking fund each month?
+                                </summary>
+
+                                <div class="faq-answer">
+
+                                    <p>
+                                        A simple calculation is to subtract your current
+                                        savings from the target amount and divide the
+                                        remainder by the number of months until the expense.
+                                    </p>
+
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    What expenses can be covered by sinking funds?
+                                </summary>
+
+                                <div class="faq-answer">
+
+                                    <p>
+                                        Common examples include vehicle maintenance,
+                                        insurance, annual subscriptions, holidays, gifts,
+                                        home maintenance, travel, education expenses,
+                                        and other predictable irregular costs.
+                                    </p>
+
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Do I need a separate account for every sinking fund?
+                                </summary>
+
+                                <div class="faq-answer">
+
+                                    <p>
+                                        No. You can use one savings account and track
+                                        individual balances, use labeled savings buckets,
+                                        or use separate accounts. Choose a system you can
+                                        consistently maintain.
+                                    </p>
+
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Can sinking funds help if I live paycheck to paycheck?
+                                </summary>
+
+                                <div class="faq-answer">
+
+                                    <p>
+                                        They can help spread predictable irregular expenses
+                                        across multiple paychecks. However, the contribution
+                                        still needs to fit within your actual cash flow.
+                                    </p>
+
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Are sinking funds part of savings?
+                                </summary>
+
+                                <div class="faq-answer">
+
+                                    <p>
+                                        Yes. The money is being saved, but it is assigned
+                                        to a specific future purpose rather than being
+                                        completely unallocated savings.
+                                    </p>
+
+                                </div>
+
+                            </details>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- RELATED -->
+
+                    <section id="related">
+
+                        <h2>
+                            Related budgeting guides
+                        </h2>
+
+                        <div class="fund-grid">
+
+                            <div class="fund-example">
+
+                                <h3>
+                                    Emergency Fund
+                                </h3>
+
+                                <p>
+                                    Understand how emergency savings differ from money
+                                    assigned to planned expenses.
+                                </p>
+
+                                <p>
+                                    <a href="/finance/budgeting/emergency-fund/">
+                                        Read the guide →
+                                    </a>
+                                </p>
+
+                            </div>
+
+
+                            <div class="fund-example">
+
+                                <h3>
+                                    Budget by Paycheck
+                                </h3>
+
+                                <p>
+                                    Organize contributions and expenses around when
+                                    your income arrives.
+                                </p>
+
+                                <p>
+                                    <a href="/finance/budgeting/paycheck-budget/">
+                                        Read the guide →
+                                    </a>
+                                </p>
+
+                            </div>
+
+
+                            <div class="fund-example">
+
+                                <h3>
+                                    Monthly Budget
+                                </h3>
+
+                                <p>
+                                    Build a complete monthly plan that includes future
+                                    and irregular expenses.
+                                </p>
+
+                                <p>
+                                    <a href="/finance/budgeting/monthly-budget/">
+                                        Read the guide →
+                                    </a>
+                                </p>
+
+                            </div>
+
+
+                            <div class="fund-example">
+
+                                <h3>
+                                    How to Make a Budget
+                                </h3>
+
+                                <p>
+                                    Start with income, expenses, savings, and financial
+                                    goals in one complete budgeting framework.
+                                </p>
+
+                                <p>
+                                    <a href="/finance/budgeting/how-to-make-a-budget/">
+                                        Read the guide →
+                                    </a>
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- METHODOLOGY -->
+
+                    <section class="methodology" id="methodology">
+
+                        <h2>
+                            How this guide approaches sinking funds
+                        </h2>
+
+                        <p>
+                            PaycheckMint treats sinking funds as a budgeting method for
+                            spreading predictable or reasonably expected irregular expenses
+                            over time. The examples and calculations on this page are
+                            illustrations rather than universal savings targets.
+                        </p>
+
+                        <div class="disclaimer">
+
+                            <strong>Educational disclaimer:</strong>
+                            This content is for general educational purposes and is not
+                            personalized financial, tax, legal, or investment advice.
+                            Your circumstances may require a different approach.
+
+                        </div>
+
+                    </section>
+
                 </article>
 
+
+                <!-- =================================================
+                 SIDEBAR
+            ================================================== -->
+
                 <aside class="sidebar">
-                    <div class="sidebar-card sidebar-cta">
-                        <h3>Plan a Future Expense</h3>
-                        <p>Use the sinking fund calculator to estimate how much you need to save each month.</p>
-                        <a href="#sinking-fund-calculator">Use Calculator →</a>
+
+                    <div class="side-card side-highlight">
+
+                        <h3>
+                            Plan ahead
+                        </h3>
+
+                        <p>
+                            Turn irregular expenses into smaller, planned contributions
+                            before the bill arrives.
+                        </p>
+
+                        <a href="#calculator">
+                            Use the calculator
+                        </a>
+
                     </div>
 
-                    <div class="sidebar-card">
-                        <h3>On This Page</h3>
-                        <a href="#sinking-fund-calculator">Sinking Fund Calculator</a>
-                        <a href="#faq">Frequently Asked Questions</a>
-                        <a href="/finance/budgeting/">Budgeting Guide</a>
-                        <a href="/finance/budgeting/emergency-fund/">Emergency Fund</a>
-                        <a href="/finance/budgeting/monthly-budget/">Monthly Budget</a>
-                        <a href="/finance/budgeting/paycheck-budget/">Paycheck Budget</a>
+
+                    <div class="side-card">
+
+                        <h3>
+                            On this page
+                        </h3>
+
+                        <nav class="side-links" aria-label="Page sections">
+
+                            <a href="#quick-answer">
+                                What is a sinking fund?
+                            </a>
+
+                            <a href="#sinking-vs-emergency">
+                                Sinking vs. emergency fund
+                            </a>
+
+                            <a href="#calculator">
+                                Sinking fund calculator
+                            </a>
+
+                            <a href="#uses">
+                                Common uses
+                            </a>
+
+                            <a href="#how-to-start">
+                                How to start
+                            </a>
+
+                            <a href="#example">
+                                Example
+                            </a>
+
+                            <a href="#mistakes">
+                                Common mistakes
+                            </a>
+
+                            <a href="#faq">
+                                FAQs
+                            </a>
+
+                        </nav>
+
                     </div>
 
-                    <div class="sidebar-card">
-                        <h3>PaycheckMint Tools</h3>
-                        <a href="/paycheck-tax-calculator/">Paycheck Calculator</a>
-                        <a href="/hourly-paycheck-calculator/">Hourly Paycheck Calculator</a>
-                        <a href="/salary-paycheck-calculator/">Salary Paycheck Calculator</a>
-                        <a href="/overtime-pay-calculator/">Overtime Pay Calculator</a>
+
+                    <div class="side-card">
+
+                        <h3>
+                            More budgeting guides
+                        </h3>
+
+                        <nav class="side-links">
+
+                            <a href="/finance/budgeting/">
+                                Budgeting Hub
+                            </a>
+
+                            <a href="/finance/budgeting/how-to-make-a-budget/">
+                                How to Make a Budget
+                            </a>
+
+                            <a href="/finance/budgeting/monthly-budget/">
+                                Monthly Budget
+                            </a>
+
+                            <a href="/finance/budgeting/paycheck-budget/">
+                                Paycheck Budget
+                            </a>
+
+                            <a href="/finance/budgeting/emergency-fund/">
+                                Emergency Fund
+                            </a>
+
+                            <a href="/finance/budgeting/50-30-20-rule/">
+                                50/30/20 Rule
+                            </a>
+
+                        </nav>
+
                     </div>
+
                 </aside>
+
             </div>
-              
+
         </main>
 
-        <footer>
-            <div class="footer-grid">
-                  
-                <div class="footer-brand">
-                    <a class="brand" href="/">Paycheck<span>Mint</span></a>
-                    <p>
-                        Simple calculators, guides and tools to help you understand income, budgeting, taxes and
-                        everyday personal finance.
-                    </p>
+
+        <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+        <footer class="pm-footer">
+
+            <div class="pm-footer-inner">
+
+                <div class="pm-footer-main">
+
+                    <div class="pm-footer-grid">
+
+                        <div class="pm-footer-brand-column">
+
+                            <a class="pm-footer-brand" href="/">
+                                Paycheck<span>Mint</span>
+                            </a>
+
+                            <p class="pm-footer-description">
+                                Practical personal finance guides, paycheck tools,
+                                and calculators to help you make informed money decisions.
+                            </p>
+
+                        </div>
+
+                        <div>
+                            <h3 class="pm-footer-heading">Money</h3>
+
+                            <ul class="pm-footer-links">
+                                <li><a href="/income/">Income</a></li>
+                                <li><a href="/paycheck-tax-calculator/">Paycheck Calculator</a></li>
+                                <li><a href="/take-home-pay-calculator/">Take-Home Pay</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="pm-footer-heading">Finance</h3>
+
+                            <ul class="pm-footer-links">
+                                <li><a href="/finance/taxes/">Taxes</a></li>
+                                <li><a href="/finance/budgeting/">Budgeting</a></li>
+                                <li><a href="/finance/credit-debt/">Credit &amp; Debt</a></li>
+                                <li><a href="/finance/investing/">Investing</a></li>
+                                <li><a href="/finance/insurance/">Insurance</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="pm-footer-heading">Company</h3>
+
+                            <ul class="pm-footer-links">
+                                <li><a href="/about/">About</a></li>
+                                <li><a href="/contact/">Contact</a></li>
+                                <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                                <li><a href="/terms/">Terms</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <div>
-                    <h3>Calculators</h3>
-                    <a href="/paycheck-tax-calculator/">Paycheck Calculator</a>
-                    <a href="/hourly-paycheck-calculator/">Hourly Paycheck Calculator</a>
-                    <a href="/salary-paycheck-calculator/">Salary Paycheck Calculator</a>
-                    <a href="/overtime-pay-calculator/">Overtime Calculator</a>
+                <div class="pm-footer-bottom">
+
+                    <div class="pm-footer-copyright">
+                        © 2026 PaycheckMint. All rights reserved.
+                    </div>
+
+                    <div class="pm-footer-legal">
+                        <a href="/privacy-policy/">Privacy Policy</a>
+                        <a href="/terms/">Terms</a>
+                        <a href="/contact/">Contact</a>
+                    </div>
+
                 </div>
 
-                <div>
-                    <h3>Finance</h3>
-                    <a href="/finance/">Finance Overview</a>
-                    <a href="/finance/taxes/">Taxes</a>
-                    <a href="/finance/budgeting/">Budgeting</a>
-                    <a href="/finance/credit-debt/">Credit &amp; Debt</a>
-                    <a href="/finance/investing/">Investing</a>
-                </div>
-
-                <div>
-                    <h3>Company</h3>
-                    <a href="/about/">About</a>
-                    <a href="/contact/">Contact</a>
-                    <a href="/privacy-policy/">Privacy Policy</a>
-                    <a href="/terms/">Terms</a>
-                </div>
             </div>
 
-            <div class="footer-bottom">
-                © 2026 PaycheckMint. All rights reserved. Information and calculators are provided for educational and
-                planning purposes and may not reflect your actual financial situation.
-            </div>
-              
         </footer>
 
-        <script>
-            (function () {
-                const mobileToggle = document.getElementById("mobileMenuToggle");
-                const mainNav = document.getElementById("mainNav");
-                const financeDropdown = document.getElementById("financeDropdown");
-                const financeToggle = document.getElementById("financeToggle");
+    </div>
 
-                if (mobileToggle && mainNav) {
-                    mobileToggle.addEventListener("click", function () {
-                        const isOpen = mainNav.classList.toggle("menu-open");
 
-                        mobileToggle.setAttribute("aria-expanded", String(isOpen));
-                        mobileToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+    <script>
+
+        /* =========================================================
+           SINKING FUND CALCULATOR
+        ========================================================== */
+
+        const targetInput =
+            document.getElementById("targetAmount");
+
+        const currentInput =
+            document.getElementById("currentAmount");
+
+        const monthsInput =
+            document.getElementById("months");
+
+        const paychecksInput =
+            document.getElementById("paychecks");
+
+        const neededResult =
+            document.getElementById("neededResult");
+
+        const monthlyResult =
+            document.getElementById("monthlyResult");
+
+        const paycheckResult =
+            document.getElementById("paycheckResult");
+
+        const calcStatus =
+            document.getElementById("calcStatus");
+
+
+        function getPositiveNumber(input) {
+
+            const value = Number(input.value);
+
+            if (!Number.isFinite(value) || value < 0) {
+                return 0;
+            }
+
+            return value;
+        }
+
+
+        function formatMoney(value) {
+
+            return value.toLocaleString("en-US", {
+                style: "currency",
+                currency: "USD",
+                maximumFractionDigits: 0
+            });
+
+        }
+
+
+        function updateSinkingFund() {
+
+            const target =
+                getPositiveNumber(targetInput);
+
+            const current =
+                getPositiveNumber(currentInput);
+
+            const months =
+                Math.max(
+                    1,
+                    Math.floor(getPositiveNumber(monthsInput))
+                );
+
+            const paychecks =
+                Math.max(
+                    1,
+                    Math.floor(getPositiveNumber(paychecksInput))
+                );
+
+
+            const needed =
+                Math.max(0, target - current);
+
+            const monthly =
+                needed / months;
+
+            const perPaycheck =
+                monthly / paychecks;
+
+
+            neededResult.textContent =
+                formatMoney(needed);
+
+            monthlyResult.textContent =
+                formatMoney(monthly);
+
+            paycheckResult.textContent =
+                formatMoney(perPaycheck);
+
+
+            calcStatus.classList.remove("good");
+
+
+            if (target === 0) {
+
+                calcStatus.textContent =
+                    "Enter a target amount to calculate the contribution.";
+
+                return;
+
+            }
+
+
+            if (current >= target) {
+
+                calcStatus.classList.add("good");
+
+                calcStatus.innerHTML =
+                    "<strong>Your target is already covered.</strong> " +
+                    "You have enough assigned savings based on the amounts entered.";
+
+                return;
+
+            }
+
+
+            calcStatus.classList.add("good");
+
+            calcStatus.innerHTML =
+                "Save about <strong>" +
+                formatMoney(monthly) +
+                "</strong> per month, or about <strong>" +
+                formatMoney(perPaycheck) +
+                "</strong> per paycheck, to reach the target.";
+
+        }
+
+
+        [
+            targetInput,
+            currentInput,
+            monthsInput,
+            paychecksInput
+        ].forEach(function (input) {
+
+            input.addEventListener(
+                "input",
+                updateSinkingFund
+            );
+
+        });
+
+
+        updateSinkingFund();
+
+    </script>
+
+    <script>
+        (function () {
+            "use strict";
+
+            /* ==========================================================================
+               1. ASYNC COMPONENT LOADER
+               ========================================================================== */
+            document.addEventListener("DOMContentLoaded", function () {
+                loadSharedComponents();
+            });
+
+            async function loadSharedComponents() {
+                const navbar = document.getElementById("site-navbar");
+                const footer = document.getElementById("site-footer");
+
+                try {
+                    const requests = [];
+
+                    if (navbar) {
+                        requests.push(
+                            fetch("/components/navbar.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Navbar 404"))
+                                .then(html => { navbar.innerHTML = html; })
+                        );
+                    }
+
+                    if (footer) {
+                        requests.push(
+                            fetch("/components/footer.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Footer 404"))
+                                .then(html => { footer.innerHTML = html; })
+                        );
+                    }
+
+                    await Promise.all(requests);
+                    // Re-bind focus or initial state if required after injection
+                    setupScrollHeader();
+                } catch (error) {
+                    console.error("Component loading error:", error);
+                    setupScrollHeader();
+                }
+            }
+
+            /* ==========================================================================
+               2. EVENT DELEGATION (Handles dynamic elements automatically)
+               ========================================================================== */
+            document.addEventListener("click", function (event) {
+
+                // --- DESKTOP DROPDOWNS ---
+                const dropdownBtn = event.target.closest(".pm-nav-dropdown-button");
+                if (dropdownBtn) {
+                    event.stopPropagation();
+                    const currentDropdown = dropdownBtn.closest(".pm-nav-dropdown");
+                    const isOpen = currentDropdown.classList.contains("is-open");
+
+                    // Close all dropdowns
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
+                    });
+
+                    // Toggle selected dropdown
+                    if (!isOpen) {
+                        currentDropdown.classList.add("is-open");
+                        dropdownBtn.setAttribute("aria-expanded", "true");
+                    }
+                    return;
+                }
+
+                // Close desktop dropdowns when clicking outside
+                if (!event.target.closest(".pm-nav-dropdown")) {
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
                     });
                 }
 
-                if (financeToggle && financeDropdown) {
-                    financeToggle.addEventListener("click", function (event) {
-                        event.stopPropagation();
-
-                        const isOpen = financeDropdown.classList.toggle("open");
-                        financeToggle.setAttribute("aria-expanded", String(isOpen));
-                    });
+                // --- MOBILE NAV TOGGLE ---
+                const mobileToggle = event.target.closest("#mobileToggle");
+                if (mobileToggle) {
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) {
+                        const isOpen = mobileNav.classList.toggle("is-open");
+                        mobileToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
                 }
 
-                document.addEventListener("click", function (event) {
-                    if (financeDropdown && !financeDropdown.contains(event.target)) {
-                        financeDropdown.classList.remove("open");
-
-                        if (financeToggle) {
-                            financeToggle.setAttribute("aria-expanded", "false");
-                        }
+                // --- MOBILE SUBMENU TOGGLE ---
+                const mobileFinanceToggle = event.target.closest("#mobileFinanceToggle");
+                if (mobileFinanceToggle) {
+                    event.stopPropagation();
+                    const mobileFinanceLinks = document.getElementById("mobileFinanceLinks");
+                    if (mobileFinanceLinks) {
+                        const isOpen = mobileFinanceLinks.classList.toggle("is-open");
+                        mobileFinanceToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
                     }
-                });
-
-                document.querySelectorAll(".main-nav a").forEach(function (link) {
-                    link.addEventListener("click", function () {
-                        if (mainNav) {
-                            mainNav.classList.remove("menu-open");
-                        }
-
-                        if (mobileToggle) {
-                            mobileToggle.setAttribute("aria-expanded", "false");
-                            mobileToggle.setAttribute("aria-label", "Open navigation");
-                        }
-                    });
-                });
-
-                window.addEventListener("resize", function () {
-                    if (window.innerWidth > 850) {
-                        mainNav?.classList.remove("menu-open");
-                        mobileToggle?.setAttribute("aria-expanded", "false");
-                    }
-                });
-            })();
-
-            (function () {
-                const targetInput = document.getElementById("targetAmount");
-                const currentInput = document.getElementById("currentSaved");
-                const monthsInput = document.getElementById("monthsRemaining");
-                const contributionInput = document.getElementById("monthlyContribution");
-                const nameInput = document.getElementById("expenseName");
-
-                const remainingEl = document.getElementById("remainingAmount");
-                const requiredEl = document.getElementById("requiredMonthly");
-                const differenceEl = document.getElementById("projectedDifference");
-                const progressEl = document.getElementById("progressText");
-                const progressBar = document.getElementById("progressBar");
-                const statusEl = document.getElementById("fundStatus");
-                const calculateBtn = document.getElementById("calculateFund");
-
-                function money(value) {
-                    return new Intl.NumberFormat("en-US", {
-                        style: "currency",
-                        currency: "USD",
-                        maximumFractionDigits: 0,
-                    }).format(Math.max(0, value));
+                    return;
                 }
 
-                function calculate() {
-                    const target = Math.max(0, parseFloat(targetInput.value) || 0);
-                    const current = Math.max(0, parseFloat(currentInput.value) || 0);
-                    const months = Math.max(1, parseInt(monthsInput.value, 10) || 1);
-                    const monthlyContribution = Math.max(0, parseFloat(contributionInput.value) || 0);
+                // --- SEARCH TOGGLE (OPEN / CLOSE) ---
+                const searchToggle = event.target.closest("#searchToggle");
+                const mobileSearchBtn = event.target.closest("#mobileSearchButton");
+                const searchClose = event.target.closest("#searchClose");
+                const searchPanel = document.getElementById("searchPanel");
 
-                    const expenseName = nameInput.value.trim() || "this expense";
+                if (searchToggle || mobileSearchBtn) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) mobileNav.classList.remove("is-open");
 
-                    const remaining = Math.max(0, target - current);
-                    const requiredMonthly = remaining / months;
-                    const projectedAdditional = monthlyContribution * months;
-                    const projectedBalance = current + projectedAdditional;
-                    const difference = projectedBalance - target;
-
-                    let progress = target > 0 ? (current / target) * 100 : 0;
-
-                    progress = Math.min(100, Math.max(0, progress));
-
-                    remainingEl.textContent = money(remaining);
-                    requiredEl.textContent = money(requiredMonthly);
-                    differenceEl.textContent =
-                        difference >= 0 ? "+" + money(difference) : "-" + money(Math.abs(difference));
-
-                    progressEl.textContent = Math.round(progress) + "%";
-                    progressBar.style.width = progress + "%";
-
-                    if (target === 0) {
-                        statusEl.textContent = "Enter an amount for your planned expense.";
-                        return;
+                    if (searchPanel) {
+                        if (searchPanel.classList.contains("is-open") && searchToggle) {
+                            closeSearch();
+                        } else {
+                            openSearch();
+                        }
                     }
+                    return;
+                }
 
-                    if (current >= target) {
-                        statusEl.textContent = "You have already reached the target for " + expenseName + ".";
-                    } else if (monthlyContribution >= requiredMonthly) {
-                        statusEl.textContent =
-                            "At " +
-                            money(monthlyContribution) +
-                            " per month, you are on track to reach " +
-                            money(target) +
-                            " for " +
-                            expenseName +
-                            " within " +
-                            months +
-                            " months.";
+                if (searchClose) {
+                    event.preventDefault();
+                    closeSearch();
+                    return;
+                }
+
+                // Close search panel when clicking outside of it
+                if (searchPanel && searchPanel.classList.contains("is-open")) {
+                    if (!searchPanel.contains(event.target)) {
+                        closeSearch();
+                    }
+                }
+            });
+
+            /* ==========================================================================
+               3. SEARCH HELPER FUNCTIONS & LIVE FILTERING
+               ========================================================================== */
+            function openSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchToggle = document.getElementById("searchToggle");
+
+                if (!searchPanel) return;
+                searchPanel.classList.add("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "true");
+                    searchToggle.setAttribute("aria-label", "Close search");
+                }
+                if (searchInput) setTimeout(() => searchInput.focus(), 100);
+            }
+
+            function closeSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchResults = document.getElementById("searchResults");
+                const searchToggle = document.getElementById("searchToggle");
+
+                if (!searchPanel) return;
+                searchPanel.classList.remove("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "false");
+                    searchToggle.setAttribute("aria-label", "Open search");
+                }
+                if (searchInput) searchInput.value = "";
+                if (searchResults) searchResults.innerHTML = "";
+            }
+
+            // Keyboard Shortcuts (Escape Key)
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closeSearch();
+                }
+            });
+
+            // Live Search Typing Input Event
+            document.addEventListener("input", function (event) {
+                if (event.target.id !== "siteSearch") return;
+
+                const query = event.target.value.trim().toLowerCase();
+                const searchResults = document.getElementById("searchResults");
+                if (!searchResults) return;
+
+                if (query.length === 0) {
+                    searchResults.innerHTML = "";
+                    return;
+                }
+
+                const searchablePages = [
+                    { title: "Paycheck Tax Calculator", url: "/paycheck-tax-calculator/", description: "Calculate accurate net pay and taxes." },
+                    { title: "Take-Home Pay Calculator", url: "/take-home-pay-calculator/", description: "Estimate your actual paycheck total after deductions." },
+                    { title: "Hourly Paycheck Calculator", url: "/hourly-paycheck-calculator/", description: "Calculate income based on hourly wage and hours worked." },
+                    { title: "Overtime Pay Calculator", url: "/overtime-pay-calculator/", description: "Compute overtime rates and total extra wages." },
+                    { title: "Salary Paycheck Calculator", url: "/salary-paycheck-calculator/", description: "Break down annual salary into per-paycheck earnings." },
+                    { title: "Income Overview", url: "/income/", description: "Learn about taxable income, gross wages, and take-home pay." },
+                    { title: "Finance Overview", url: "/finance/", description: "Guides on managing personal finances and budgeting strategies." },
+                    { title: "Budgeting Guides", url: "/finance/budgeting/", description: "Strategies for budgeting your paycheck effectively." }
+                ];
+
+                const matches = searchablePages.filter(page =>
+                    page.title.toLowerCase().includes(query) ||
+                    page.description.toLowerCase().includes(query)
+                );
+
+                if (matches.length === 0) {
+                    searchResults.innerHTML = `<p class="pm-search-no-results">No results found for "${escapeHTML(query)}"</p>`;
+                    return;
+                }
+
+                searchResults.innerHTML = matches.map(item => `
+            <a href="${item.url}" class="pm-search-result-item">
+                <span class="pm-search-result-title">${escapeHTML(item.title)}</span>
+                <span class="pm-search-result-desc">${escapeHTML(item.description)}</span>
+            </a>
+        `).join("");
+            });
+
+            function escapeHTML(str) {
+                return str.replace(/[&<>'"]/g, tag => ({
+                    '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+                }[tag] || tag));
+            }
+
+            /* ==========================================================================
+               4. SCROLL SHADOW
+               ========================================================================== */
+            function setupScrollHeader() {
+                const header = document.getElementById("site-header");
+                if (!header) return;
+
+                window.addEventListener("scroll", function () {
+                    if (window.scrollY > 20) {
+                        header.classList.add("is-scrolled");
                     } else {
-                        const extraNeeded = requiredMonthly - monthlyContribution;
-
-                        statusEl.textContent =
-                            "At your current contribution of " +
-                            money(monthlyContribution) +
-                            " per month, you may be short by about " +
-                            money(extraNeeded) +
-                            " per month. The estimated required contribution is " +
-                            money(requiredMonthly) +
-                            ".";
+                        header.classList.remove("is-scrolled");
                     }
-                }
+                }, { passive: true });
+            }
 
-                calculateBtn.addEventListener("click", calculate);
+        })();
+    </script>
 
-                [targetInput, currentInput, monthsInput, contributionInput].forEach(function (input) {
-                    input.addEventListener("input", calculate);
-                });
+</body>
 
-                calculate();
-            })();
-        </script>
-    </body>
 </html>

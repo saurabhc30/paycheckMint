@@ -1,2060 +1,3118 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Compound Interest Calculator: Calculate Compound Growth | PaycheckMint</title>
+    <title>Compound Interest Calculator: See How Your Money Could Grow | PaycheckMint</title>
 
     <meta name="description"
-        content="Use PaycheckMint's compound interest calculator to estimate how your money can grow with compound interest, regular contributions, different rates, time periods, and compounding frequencies." />
+        content="Use PaycheckMint's compound interest calculator to estimate how an initial investment and regular monthly contributions could grow over time with compounded returns.">
 
-    <meta name="keywords"
-        content="compound interest calculator, compound interest calculator USA, compound interest, compound interest formula, compound growth calculator, investment calculator, savings calculator, compound interest with monthly contributions" />
+    <meta name="robots" content="index, follow">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="canonical" href="https://paycheckmint.com/finance/investing/compound-interest-calculator/">
 
-    <link rel="canonical" href="https://paycheckmint.com/finance/investing/compound-interest-calculator/" />
-
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Compound Interest Calculator | PaycheckMint" />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Compound Interest Calculator | PaycheckMint">
     <meta property="og:description"
-        content="Calculate compound growth with an initial investment, regular contributions, interest rate, time period, and compounding frequency." />
-    <meta property="og:url" content="https://paycheckmint.com/finance/investing/compound-interest-calculator/" />
-    <meta property="og:site_name" content="PaycheckMint" />
+        content="Estimate how your money could grow through compound returns, regular contributions, and time.">
+    <meta property="og:url" content="https://paycheckmint.com/finance/investing/compound-interest-calculator/">
+    <meta property="og:site_name" content="PaycheckMint">
 
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Compound Interest Calculator | PaycheckMint" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Compound Interest Calculator | PaycheckMint">
     <meta name="twitter:description"
-        content="Calculate compound interest and see how regular contributions can affect future growth." />
+        content="Estimate investment growth with compound returns and regular contributions.">
+
+    <link rel="icon" href="/icon.ico">
+    <link rel="stylesheet" href="/style.css">
+
+    <meta name="theme-color" content="#176B5B">
 
     <style>
+        /* =========================================================
+           PAYCHECKMINT — COMPOUND INTEREST CALCULATOR
+        ========================================================= */
+
         :root {
-            --bg: #f6f5f1;
-            --surface: #ffffff;
-            --surface-soft: #faf9f6;
-
-            --ink: #191919;
-            --muted: #74736f;
-            --muted-light: #999791;
-
-            --line: #deddd8;
-            --line-dark: #cbc9c3;
-
-            --accent: #5954d9;
-            --accent-dark: #4843c2;
-            --accent-soft: #eeedff;
-
-            --success: #237a4b;
-            --danger: #b33a3a;
-
-            --shadow: 0 8px 30px rgba(25, 25, 25, 0.06);
-            --radius: 16px;
-            --max: 1160px;
+            --ci-primary: #176B5B;
+            --ci-primary-dark: #0F5145;
+            --ci-accent: #C9922E;
+            --ci-bg: #F7F8F6;
+            --ci-surface: #FFFFFF;
+            --ci-soft: #EEF5F2;
+            --ci-text: #17201D;
+            --ci-muted: #64706C;
+            --ci-line: #DCE5E1;
+            --ci-danger: #A94A4A;
+            --ci-radius: 18px;
         }
 
         * {
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            margin: 0;
-            background: var(--bg);
-            color: var(--ink);
-            font-family:
-                Inter,
-                system-ui,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                sans-serif;
-            line-height: 1.65;
-            overflow-x: hidden;
+            background: var(--ci-bg);
+            color: var(--ci-text);
         }
 
-        a {
-            color: inherit;
-            text-decoration: none;
+        .ci-page {
+            min-height: 100vh;
         }
 
-        .container {
-            width: min(var(--max), calc(100% - 32px));
+        .ci-container {
+            width: min(1200px, calc(100% - 40px));
             margin: 0 auto;
         }
 
-        /* =========================
-       NAVBAR
-    ========================= */
+        /* =========================================================
+           HERO
+        ========================================================= */
 
-        .site-header {
-            background: rgba(246, 245, 241, 0.96);
-            border-bottom: 1px solid var(--line);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(12px);
+        .ci-hero {
+            padding: 58px 0 38px;
         }
 
-        .nav-inner {
-            min-height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .brand {
-            font-size: 1.25rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            white-space: nowrap;
-        }
-
-        .brand span {
-            color: var(--accent);
-        }
-
-        .main-nav {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .main-nav>a,
-        .nav-dropdown>button {
-            border: 0;
-            background: transparent;
-            color: var(--ink);
-            font: inherit;
-            font-size: 0.94rem;
-            font-weight: 650;
-            padding: 10px 13px;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-
-        .main-nav>a:hover,
-        .nav-dropdown>button:hover {
-            background: var(--accent-soft);
-            color: var(--accent-dark);
-        }
-
-        .nav-dropdown {
-            position: relative;
-        }
-
-        .nav-dropdown>button {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .nav-arrow {
-            font-size: 0.7rem;
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            right: 0;
-            top: calc(100% + 8px);
-            min-width: 225px;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 13px;
-            box-shadow: var(--shadow);
-            padding: 7px;
-        }
-
-        .nav-dropdown:hover .dropdown-menu,
-        .nav-dropdown.open .dropdown-menu {
-            display: block;
-        }
-
-        .dropdown-menu a {
-            display: block;
-            padding: 10px 12px;
-            border-radius: 9px;
-            font-size: 0.9rem;
-        }
-
-        .dropdown-menu a:hover {
-            background: var(--accent-soft);
-            color: var(--accent-dark);
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-            border: 1px solid var(--line-dark);
-            background: var(--surface);
-            color: var(--ink);
-            width: 43px;
-            height: 43px;
-            border-radius: 11px;
-            cursor: pointer;
-            font-size: 1.25rem;
-        }
-
-        /* =========================
-       BREADCRUMB
-    ========================= */
-
-        .breadcrumb {
-            padding: 24px 0 8px;
-            color: var(--muted);
-            font-size: 0.86rem;
-        }
-
-        .breadcrumb a {
-            color: var(--accent-dark);
-        }
-
-        /* =========================
-       HERO
-    ========================= */
-
-        .hero {
-            padding: 30px 0 34px;
-        }
-
-        .hero-grid {
+        .ci-hero-grid {
             display: grid;
-            grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr);
-            gap: 35px;
+            grid-template-columns: minmax(0, 1fr) 430px;
             align-items: center;
+            gap: 52px;
         }
 
-        .eyebrow {
+        .ci-eyebrow {
             display: inline-flex;
             align-items: center;
-            background: var(--accent-soft);
-            color: var(--accent-dark);
-            padding: 6px 11px;
+            gap: 7px;
+            margin-bottom: 15px;
+            padding: 7px 11px;
+            background: var(--ci-soft);
+            color: var(--ci-primary-dark);
             border-radius: 999px;
-            font-size: 0.8rem;
-            font-weight: 750;
-            margin-bottom: 14px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .5px;
+            text-transform: uppercase;
         }
 
-        h1 {
-            font-size: clamp(2.25rem, 5vw, 3.8rem);
-            line-height: 1.06;
-            letter-spacing: -0.055em;
+        .ci-eyebrow::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            background: var(--ci-accent);
+            border-radius: 50%;
+        }
+
+        .ci-hero h1 {
             margin: 0 0 17px;
-        }
-
-        .hero p {
-            font-size: 1.06rem;
-            color: var(--muted);
             max-width: 720px;
+            font-size: clamp(38px, 5vw, 60px);
+            line-height: 1.04;
+            letter-spacing: -2.2px;
+            color: var(--ci-text);
+        }
+
+        .ci-hero-text {
+            max-width: 680px;
             margin: 0;
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--ci-muted);
         }
 
-        .hero-card {
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 19px;
-            padding: 23px;
-            box-shadow: var(--shadow);
-        }
-
-        .hero-card h2 {
-            font-size: 1.04rem;
-            margin: 0 0 13px;
-        }
-
-        .hero-points {
-            display: grid;
-            gap: 9px;
-        }
-
-        .hero-point {
+        .ci-hero-actions {
             display: flex;
-            gap: 9px;
-            color: var(--muted);
-            font-size: 0.87rem;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 26px;
         }
 
-        .hero-point b {
-            color: var(--accent-dark);
+        .ci-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 46px;
+            padding: 0 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 750;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: .2s ease;
+            font-family: inherit;
         }
 
-        /* =========================
-       LAYOUT
-    ========================= */
+        .ci-button-primary {
+            background: var(--ci-primary);
+            color: #fff;
+        }
 
-        .content-layout {
+        .ci-button-primary:hover {
+            background: var(--ci-primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .ci-button-secondary {
+            background: #fff;
+            border-color: var(--ci-line);
+            color: var(--ci-text);
+        }
+
+        .ci-button-secondary:hover {
+            border-color: var(--ci-primary);
+            color: var(--ci-primary-dark);
+        }
+
+        .ci-trust-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .ci-trust-item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: var(--ci-muted);
+            font-size: 13px;
+        }
+
+        .ci-trust-item strong {
+            color: var(--ci-primary);
+            font-size: 15px;
+        }
+
+        /* =========================================================
+           CALCULATOR
+        ========================================================= */
+
+        .ci-calculator {
+            background: var(--ci-surface);
+            border: 1px solid var(--ci-line);
+            border-radius: 20px;
+            box-shadow: 0 18px 50px rgba(15, 81, 69, .10);
+            overflow: hidden;
+        }
+
+        .ci-calculator-head {
+            padding: 21px 23px;
+            background: var(--ci-primary);
+            color: #fff;
+        }
+
+        .ci-calculator-head h2 {
+            margin: 0 0 5px;
+            font-size: 20px;
+        }
+
+        .ci-calculator-head p {
+            margin: 0;
+            color: rgba(255, 255, 255, .78);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .ci-calculator-body {
+            padding: 22px;
+        }
+
+        .ci-form-grid {
             display: grid;
-            grid-template-columns: minmax(0, 1fr) 295px;
-            gap: 30px;
-            align-items: start;
-            padding-bottom: 70px;
+            grid-template-columns: 1fr 1fr;
+            gap: 17px;
         }
 
-        .article {
+        .ci-field {
             min-width: 0;
         }
 
-        .section {
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 28px;
-            margin-bottom: 20px;
-        }
-
-        h2 {
-            font-size: clamp(1.45rem, 2vw, 1.85rem);
-            line-height: 1.2;
-            letter-spacing: -0.035em;
-            margin: 0 0 13px;
-        }
-
-        h3 {
-            font-size: 1.1rem;
-            line-height: 1.3;
-            margin: 23px 0 8px;
-        }
-
-        p {
-            margin: 0 0 14px;
-        }
-
-        .muted {
-            color: var(--muted);
-        }
-
-        /* =========================
-       CALCULATOR
-    ========================= */
-
-        .calculator-section {
-            border: 2px solid var(--accent);
-            background: var(--surface);
-        }
-
-        .calculator-intro {
-            color: var(--muted);
-            margin-bottom: 20px;
-        }
-
-        .calculator {
-            background: var(--surface-soft);
-            border: 1px solid var(--line);
-            border-radius: 15px;
-            padding: 20px;
-        }
-
-        .calculator-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 15px;
-        }
-
-        .field {
-            display: grid;
-            gap: 6px;
-        }
-
-        .field.full {
+        .ci-field.full {
             grid-column: 1 / -1;
         }
 
-        label {
-            font-size: 0.84rem;
+        .ci-field label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 13px;
             font-weight: 750;
+            color: var(--ci-text);
         }
 
-        .field-help {
-            font-size: 0.74rem;
-            color: var(--muted);
-            line-height: 1.4;
+        .ci-input-wrap {
+            position: relative;
         }
 
-        input,
-        select {
+        .ci-prefix,
+        .ci-suffix {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--ci-muted);
+            font-size: 14px;
+            pointer-events: none;
+        }
+
+        .ci-prefix {
+            left: 12px;
+        }
+
+        .ci-suffix {
+            right: 12px;
+        }
+
+        .ci-input,
+        .ci-select {
             width: 100%;
-            min-height: 44px;
-            border: 1px solid var(--line-dark);
-            background: var(--surface);
-            color: var(--ink);
+            height: 45px;
+            border: 1px solid var(--ci-line);
             border-radius: 9px;
-            padding: 9px 11px;
-            font: inherit;
+            background: #fff;
+            color: var(--ci-text);
+            font-family: inherit;
+            font-size: 14px;
             outline: none;
+            transition: .2s ease;
         }
 
-        input:focus,
-        select:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(89, 84, 217, 0.1);
+        .ci-input {
+            padding: 0 12px;
         }
 
-        .calculate-btn {
-            width: 100%;
-            min-height: 48px;
-            margin-top: 17px;
-            border: 0;
-            border-radius: 10px;
-            background: var(--accent);
-            color: #fff;
-            font: inherit;
-            font-weight: 800;
-            cursor: pointer;
+        .ci-input.has-prefix {
+            padding-left: 28px;
         }
 
-        .calculate-btn:hover {
-            background: var(--accent-dark);
+        .ci-input.has-suffix {
+            padding-right: 37px;
         }
 
-        .results {
+        .ci-select {
+            padding: 0 11px;
+        }
+
+        .ci-input:focus,
+        .ci-select:focus {
+            border-color: var(--ci-primary);
+            box-shadow: 0 0 0 3px rgba(23, 107, 91, .10);
+        }
+
+        .ci-helper {
+            margin-top: 5px;
+            color: var(--ci-muted);
+            font-size: 11px;
+            line-height: 1.45;
+        }
+
+        .ci-calc-actions {
+            display: flex;
+            gap: 9px;
+            margin-top: 20px;
+        }
+
+        .ci-calc-actions button {
+            flex: 1;
+        }
+
+        .ci-reset {
+            background: #fff;
+            color: var(--ci-muted);
+            border: 1px solid var(--ci-line);
+        }
+
+        .ci-reset:hover {
+            color: var(--ci-text);
+            border-color: #bdcbc6;
+        }
+
+        /* =========================================================
+           RESULT CARD
+        ========================================================= */
+
+        .ci-results {
             margin-top: 19px;
+            padding: 18px;
+            border-radius: 14px;
+            background: var(--ci-soft);
+            border: 1px solid #dcebe5;
+        }
+
+        .ci-results-label {
+            margin-bottom: 5px;
+            color: var(--ci-muted);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .ci-future-value {
+            margin-bottom: 17px;
+            color: var(--ci-primary-dark);
+            font-size: 30px;
+            font-weight: 850;
+            letter-spacing: -1px;
+        }
+
+        .ci-result-grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 10px;
-        }
-
-        .result-card {
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            padding: 14px;
-        }
-
-        .result-card span {
-            display: block;
-            color: var(--muted);
-            font-size: 0.76rem;
-            margin-bottom: 3px;
-        }
-
-        .result-card strong {
-            display: block;
-            font-size: 1.18rem;
-            letter-spacing: -0.02em;
-        }
-
-        .result-card.highlight {
-            background: var(--accent-soft);
-            border-color: #d8d5ff;
-        }
-
-        .result-card.highlight strong {
-            color: var(--accent-dark);
-        }
-
-        .formula-box {
-            background: var(--accent-soft);
-            border: 1px solid #dad7ff;
-            border-radius: 12px;
-            padding: 16px;
-            margin: 18px 0;
-            text-align: center;
-        }
-
-        .formula-box strong {
-            font-size: 1.02rem;
-        }
-
-        .calculator-note {
-            color: var(--muted);
-            font-size: 0.77rem;
-            margin-top: 13px;
-        }
-
-        .breakdown {
-            margin-top: 18px;
-            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 9px;
         }
 
-        .breakdown-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--line);
-            font-size: 0.87rem;
+        .ci-result-box {
+            padding: 10px;
+            border-radius: 9px;
+            background: #fff;
+            border: 1px solid #dcebe5;
         }
 
-        .breakdown-row:last-child {
+        .ci-result-box span {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--ci-muted);
+            font-size: 10px;
+        }
+
+        .ci-result-box strong {
+            display: block;
+            font-size: 13px;
+            color: var(--ci-text);
+        }
+
+        .ci-assumption {
+            margin: 13px 0 0;
+            color: var(--ci-muted);
+            font-size: 10.5px;
+            line-height: 1.5;
+        }
+
+        /* =========================================================
+           MAIN CONTENT
+        ========================================================= */
+
+        .ci-main {
+            padding: 24px 0 70px;
+        }
+
+        .ci-content-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 780px) 300px;
+            justify-content: space-between;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .ci-article {
+            min-width: 0;
+        }
+
+        .ci-section {
+            margin-bottom: 48px;
+        }
+
+        .ci-section h2 {
+            margin: 0 0 15px;
+            font-size: 29px;
+            line-height: 1.2;
+            letter-spacing: -.7px;
+        }
+
+        .ci-section h3 {
+            margin: 27px 0 10px;
+            font-size: 20px;
+            line-height: 1.3;
+        }
+
+        .ci-section p {
+            margin: 0 0 15px;
+            color: #3f4b47;
+            font-size: 16px;
+            line-height: 1.78;
+        }
+
+        .ci-section ul,
+        .ci-section ol {
+            margin: 0 0 17px;
+            padding-left: 22px;
+            color: #3f4b47;
+        }
+
+        .ci-section li {
+            margin-bottom: 9px;
+            line-height: 1.65;
+        }
+
+        .ci-answer-box {
+            margin-bottom: 45px;
+            padding: 24px 25px;
+            background: #fff;
+            border: 1px solid var(--ci-line);
+            border-left: 4px solid var(--ci-primary);
+            border-radius: 14px;
+        }
+
+        .ci-answer-box h2 {
+            margin-bottom: 9px;
+            font-size: 22px;
+        }
+
+        .ci-answer-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* =========================================================
+           INFO CARDS
+        ========================================================= */
+
+        .ci-info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 22px 0 10px;
+        }
+
+        .ci-info-card {
+            padding: 20px;
+            background: #fff;
+            border: 1px solid var(--ci-line);
+            border-radius: 14px;
+        }
+
+        .ci-info-icon {
+            width: 36px;
+            height: 36px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 13px;
+            background: var(--ci-soft);
+            color: var(--ci-primary);
+            border-radius: 9px;
+            font-weight: 850;
+        }
+
+        .ci-info-card h3 {
+            margin: 0 0 7px;
+            font-size: 17px;
+        }
+
+        .ci-info-card p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        /* =========================================================
+           FORMULA
+        ========================================================= */
+
+        .ci-formula {
+            margin: 20px 0;
+            padding: 21px;
+            background: #17201D;
+            border-radius: 13px;
+            color: #fff;
+            text-align: center;
+            overflow-x: auto;
+        }
+
+        .ci-formula-main {
+            font-size: 20px;
+            font-weight: 700;
+            white-space: nowrap;
+            letter-spacing: .2px;
+        }
+
+        .ci-formula-note {
+            margin-top: 10px;
+            color: rgba(255, 255, 255, .68);
+            font-size: 12px;
+        }
+
+        .ci-definitions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .ci-definition {
+            padding: 13px 15px;
+            background: #fff;
+            border: 1px solid var(--ci-line);
+            border-radius: 10px;
+            font-size: 13px;
+            line-height: 1.55;
+        }
+
+        .ci-definition strong {
+            color: var(--ci-primary-dark);
+        }
+
+        /* =========================================================
+           COMPARISON TABLE
+        ========================================================= */
+
+        .ci-table-wrap {
+            overflow-x: auto;
+            margin-top: 20px;
+            border: 1px solid var(--ci-line);
+            border-radius: 13px;
+            background: #fff;
+        }
+
+        .ci-table {
+            width: 100%;
+            min-width: 580px;
+            border-collapse: collapse;
+        }
+
+        .ci-table th,
+        .ci-table td {
+            padding: 14px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--ci-line);
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        .ci-table th {
+            background: var(--ci-soft);
+            color: var(--ci-primary-dark);
+            font-weight: 800;
+        }
+
+        .ci-table tr:last-child td {
             border-bottom: 0;
         }
 
-        /* =========================
-       TABLE
-    ========================= */
+        /* =========================================================
+           GROWTH BREAKDOWN
+        ========================================================= */
 
-        .table-wrap {
-            overflow-x: auto;
-            margin-top: 18px;
+        .ci-breakdown {
+            margin-top: 22px;
+            background: #fff;
+            border: 1px solid var(--ci-line);
+            border-radius: 14px;
+            overflow: hidden;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 580px;
-        }
-
-        th,
-        td {
-            padding: 13px 12px;
-            border-bottom: 1px solid var(--line);
-            text-align: left;
-            vertical-align: top;
-        }
-
-        th {
-            background: var(--surface-soft);
-            font-size: 0.86rem;
-        }
-
-        td {
-            font-size: 0.9rem;
-        }
-
-        /* =========================
-       CALC EXAMPLES
-    ========================= */
-
-        .example-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 12px;
-            margin-top: 18px;
-        }
-
-        .example {
-            background: var(--surface-soft);
-            border: 1px solid var(--line);
-            border-radius: 13px;
-            padding: 16px;
-        }
-
-        .example strong {
-            display: block;
-            margin-bottom: 6px;
-        }
-
-        .example span {
-            color: var(--muted);
-            font-size: 0.86rem;
-        }
-
-        /* =========================
-       CALLOUT / STEPS
-    ========================= */
-
-        .callout {
-            background: var(--accent-soft);
-            border: 1px solid #dcd9ff;
-            border-radius: 13px;
+        .ci-breakdown-head {
             padding: 17px 18px;
-            margin: 20px 0;
-        }
-
-        .steps {
-            display: grid;
-            gap: 12px;
-            margin-top: 18px;
-        }
-
-        .step {
-            display: grid;
-            grid-template-columns: 35px 1fr;
-            gap: 12px;
-        }
-
-        .step-number {
-            width: 35px;
-            height: 35px;
-            display: grid;
-            place-items: center;
-            background: var(--accent);
-            color: #fff;
-            border-radius: 10px;
-            font-weight: 800;
-        }
-
-        .step strong {
-            display: block;
-            margin-bottom: 3px;
-        }
-
-        .step p {
-            color: var(--muted);
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        /* =========================
-       RELATED
-    ========================= */
-
-        .topic-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px;
-            margin-top: 18px;
-        }
-
-        .topic-card {
-            display: block;
-            background: var(--surface-soft);
-            border: 1px solid var(--line);
-            border-radius: 13px;
-            padding: 16px;
-        }
-
-        .topic-card:hover {
-            border-color: var(--accent);
-        }
-
-        .topic-card strong {
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .topic-card span {
-            color: var(--muted);
-            font-size: 0.84rem;
-        }
-
-        /* =========================
-       SIDEBAR
-    ========================= */
-
-        .sidebar {
-            position: sticky;
-            top: 92px;
-        }
-
-        .side-card {
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 15px;
-            padding: 19px;
-            margin-bottom: 14px;
-        }
-
-        .side-card h3 {
-            margin: 0 0 10px;
-            font-size: 1rem;
-        }
-
-        .toc,
-        .side-links {
-            display: grid;
-            gap: 4px;
-        }
-
-        .toc a,
-        .side-links a {
-            color: var(--muted);
-            font-size: 0.85rem;
-            padding: 6px 0;
-        }
-
-        .toc a:hover,
-        .side-links a:hover {
-            color: var(--accent-dark);
-        }
-
-        /* =========================
-       FAQ
-    ========================= */
-
-        .faq {
-            border-top: 1px solid var(--line);
-        }
-
-        .faq details {
-            border-bottom: 1px solid var(--line);
-            padding: 14px 0;
-        }
-
-        .faq summary {
-            cursor: pointer;
-            font-weight: 750;
-        }
-
-        .faq p {
-            color: var(--muted);
-            margin: 10px 0 0;
-            font-size: 0.9rem;
-        }
-
-        /* =========================
-       FOOTER
-    ========================= */
-
-        footer {
-            background: var(--bg);
-            border-top: 1px solid var(--line);
-            padding: 38px 0 25px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.5fr repeat(3, 1fr);
-            gap: 28px;
-        }
-
-        .footer-brand {
-            font-size: 1.12rem;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-
-        .footer-brand span {
-            color: var(--accent);
-        }
-
-        footer p,
-        footer a {
-            color: var(--muted);
-            font-size: 0.84rem;
-        }
-
-        footer h3 {
-            margin: 0 0 9px;
-            font-size: 0.9rem;
-        }
-
-        .footer-links {
-            display: grid;
-            gap: 6px;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--line);
-            margin-top: 25px;
-            padding-top: 17px;
+            background: var(--ci-soft);
+            border-bottom: 1px solid var(--ci-line);
             display: flex;
+            align-items: center;
             justify-content: space-between;
             gap: 15px;
-            flex-wrap: wrap;
         }
 
-        .disclaimer {
-            max-width: 850px;
+        .ci-breakdown-head strong {
+            font-size: 15px;
         }
 
-        /* =========================
-       RESPONSIVE
-    ========================= */
+        .ci-breakdown-head span {
+            color: var(--ci-muted);
+            font-size: 12px;
+        }
+
+        .ci-year-list {
+            max-height: 430px;
+            overflow-y: auto;
+        }
+
+        .ci-year-row {
+            display: grid;
+            grid-template-columns: 60px 1fr 115px 115px;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 17px;
+            border-bottom: 1px solid #edf1ef;
+        }
+
+        .ci-year-row:last-child {
+            border-bottom: 0;
+        }
+
+        .ci-year-number {
+            font-weight: 800;
+            color: var(--ci-primary-dark);
+            font-size: 13px;
+        }
+
+        .ci-year-bar {
+            height: 9px;
+            background: #edf2ef;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .ci-year-bar span {
+            display: block;
+            height: 100%;
+            background: var(--ci-primary);
+            border-radius: inherit;
+        }
+
+        .ci-year-value,
+        .ci-year-interest {
+            text-align: right;
+            font-size: 12px;
+            color: var(--ci-muted);
+        }
+
+        .ci-year-value strong {
+            display: block;
+            color: var(--ci-text);
+            font-size: 13px;
+        }
+
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
+
+        .ci-sidebar {
+            position: sticky;
+            top: 96px;
+            align-self: start;
+            height: max-content;
+        }
+
+        .ci-side-card {
+            padding: 19px;
+            margin-bottom: 15px;
+            background: #fff;
+            border: 1px solid var(--ci-line);
+            border-radius: 15px;
+        }
+
+        .ci-side-card h3 {
+            margin: 0 0 12px;
+            font-size: 16px;
+        }
+
+        .ci-side-links {
+            display: grid;
+            gap: 5px;
+        }
+
+        .ci-side-links a {
+            padding: 9px 10px;
+            border-radius: 8px;
+            color: #3f4b47;
+            text-decoration: none;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .ci-side-links a:hover {
+            background: var(--ci-soft);
+            color: var(--ci-primary-dark);
+        }
+
+        .ci-side-note {
+            background: var(--ci-primary);
+            color: #fff;
+            border: 0;
+        }
+
+        .ci-side-note h3 {
+            color: #fff;
+        }
+
+        .ci-side-note p {
+            margin: 0 0 14px;
+            color: rgba(255, 255, 255, .78);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .ci-side-note a {
+            color: #fff;
+            font-size: 13px;
+            font-weight: 750;
+            text-decoration: none;
+        }
+
+        /* =========================================================
+           FAQ
+        ========================================================= */
+
+        .ci-faq {
+            display: grid;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .ci-faq details {
+            background: #fff;
+            border: 1px solid var(--ci-line);
+            border-radius: 12px;
+            padding: 0 17px;
+        }
+
+        .ci-faq summary {
+            padding: 17px 0;
+            cursor: pointer;
+            list-style: none;
+            font-size: 15px;
+            font-weight: 750;
+            color: var(--ci-text);
+        }
+
+        .ci-faq summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .ci-faq summary::after {
+            content: "+";
+            float: right;
+            color: var(--ci-primary);
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .ci-faq details[open] summary::after {
+            content: "−";
+        }
+
+        .ci-faq-answer {
+            padding: 0 0 16px;
+        }
+
+        .ci-faq-answer p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* =========================================================
+           DISCLAIMER
+        ========================================================= */
+
+        .ci-disclaimer {
+            padding: 18px 20px;
+            background: #fff;
+            border: 1px solid var(--ci-line);
+            border-radius: 12px;
+            color: var(--ci-muted);
+            font-size: 12px;
+            line-height: 1.65;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1050px) {
+            .ci-hero-grid {
+                grid-template-columns: minmax(0, 1fr) 390px;
+                gap: 30px;
+            }
+
+            .ci-content-layout {
+                grid-template-columns: minmax(0, 1fr) 280px;
+                gap: 30px;
+            }
+        }
 
         @media (max-width: 900px) {
 
-            .hero-grid,
-            .content-layout {
+            .ci-hero-grid {
                 grid-template-columns: 1fr;
             }
 
-            .sidebar {
+            .ci-calculator {
+                max-width: 650px;
+            }
+
+            .ci-content-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .ci-sidebar {
                 position: static;
             }
 
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .ci-side-card {
+                margin-bottom: 12px;
             }
         }
 
-        @media (max-width: 760px) {
-            .mobile-menu-toggle {
-                display: inline-grid;
-                place-items: center;
+        @media (max-width: 600px) {
+            .ci-container {
+                width: min(100% - 28px, 1200px);
             }
 
-            .main-nav {
-                display: none;
-                position: absolute;
-                left: 16px;
-                right: 16px;
-                top: calc(100% + 8px);
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: 14px;
-                box-shadow: var(--shadow);
-                padding: 8px;
-                align-items: stretch;
-                flex-direction: column;
-                max-height: calc(100vh - 90px);
-                overflow-y: auto;
+            .ci-hero {
+                padding: 38px 0 25px;
             }
 
-            .main-nav.menu-open {
-                display: flex;
+            .ci-hero h1 {
+                font-size: 39px;
+                letter-spacing: -1.5px;
             }
 
-            .main-nav>a,
-            .nav-dropdown>button {
-                width: 100%;
-                text-align: left;
-                padding: 12px;
+            .ci-hero-text {
+                font-size: 16px;
             }
 
-            .nav-dropdown {
-                width: 100%;
-            }
-
-            .dropdown-menu {
-                position: static;
-                display: none;
-                width: 100%;
-                box-shadow: none;
-                border: 0;
-                border-top: 1px solid var(--line);
-                border-radius: 0;
-                margin-top: 5px;
-                padding: 5px 0 0 10px;
-            }
-
-            .nav-dropdown.open .dropdown-menu {
-                display: block;
-            }
-
-            .calculator-grid,
-            .results,
-            .example-grid,
-            .topic-grid {
+            .ci-form-grid {
                 grid-template-columns: 1fr;
             }
 
-            .field.full {
+            .ci-field.full {
                 grid-column: auto;
             }
 
-            .footer-grid {
+            .ci-result-grid {
                 grid-template-columns: 1fr;
             }
 
-            h1 {
-                font-size: 2.45rem;
+            .ci-info-grid,
+            .ci-definitions {
+                grid-template-columns: 1fr;
             }
 
-            .section {
-                padding: 21px;
+            .ci-section h2 {
+                font-size: 25px;
+            }
+
+            .ci-year-row {
+                grid-template-columns: 42px 1fr;
+                gap: 8px;
+            }
+
+            .ci-year-value,
+            .ci-year-interest {
+                text-align: left;
+                grid-column: 2;
+            }
+
+            .ci-year-bar {
+                grid-column: 2;
+            }
+
+            .ci-calculator-body {
+                padding: 17px;
+            }
+
+            .ci-trust-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
             }
         }
     </style>
 
-    <!-- Article / WebPage -->
+    <!-- Structured Data -->
     <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Compound Interest Calculator",
+        "url": "https://paycheckmint.com/finance/investing/compound-interest-calculator/",
+        "description": "A compound interest calculator for estimating how an initial investment and regular contributions could grow over time."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
             {
-                "@context": "https://schema.org",
-                "@type": "WebPage",
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://paycheckmint.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Investing",
+                "item": "https://paycheckmint.com/finance/investing/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
                 "name": "Compound Interest Calculator",
-                "url": "https://paycheckmint.com/finance/investing/compound-interest-calculator/",
-                "description": "Compound interest calculator for estimating future growth from an initial amount, recurring contributions, interest rate, time period and compounding frequency.",
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "PaycheckMint",
-                    "url": "https://paycheckmint.com/"
+                "item": "https://paycheckmint.com/finance/investing/compound-interest-calculator/"
+            }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is compound interest?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Compound interest is growth calculated on an original amount plus previously accumulated growth. Over time, this can cause the growth itself to generate additional growth."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does compound interest work with monthly contributions?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "When you make regular contributions, each contribution can have its own period of growth. Contributions made earlier generally have more time to compound than contributions made later."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is a 7% investment return guaranteed?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. A calculator rate is an assumption used to create an estimate. Investment returns can rise or fall, and actual results may differ substantially."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does daily compounding always produce a much larger result?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "More frequent compounding can increase the result when the nominal rate and other assumptions are held constant, but the difference may be relatively small. Contribution amounts and the length of time invested can also materially affect the estimate."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does this calculator include taxes and investment fees?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. The calculator is a simplified estimate and does not account for taxes, investment fees, inflation, changing returns, withdrawals, or account-specific rules."
                 }
             }
-        </script>
-
-    <!-- Breadcrumb -->
-    <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Home",
-                        "item": "https://paycheckmint.com/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Finance",
-                        "item": "https://paycheckmint.com/finance/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 3,
-                        "name": "Investing",
-                        "item": "https://paycheckmint.com/finance/investing/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 4,
-                        "name": "Compound Interest Calculator",
-                        "item": "https://paycheckmint.com/finance/investing/compound-interest-calculator/"
-                    }
-                ]
-            }
-        </script>
-
-    <!-- FAQ -->
-    <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": [
-                    {
-                        "@type": "Question",
-                        "name": "What is compound interest?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Compound interest is interest earned on an initial amount plus previously accumulated interest. When returns remain invested, future growth can build on the larger balance."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "How does a compound interest calculator work?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "A compound interest calculator uses inputs such as the starting amount, recurring contributions, annual interest rate, investment period and compounding frequency to estimate a future balance."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Does compound interest apply to investments?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "The concept of compounding can apply when investment returns remain invested and generate additional returns. Actual investment returns are not guaranteed and can be negative."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "How often should interest compound?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Compounding frequency depends on the financial product. Common frequencies include annually, semiannually, quarterly, monthly and daily. The effect of frequency depends on the rate, balance and terms."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "What is the compound interest formula?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "For a single initial amount compounded at a fixed rate, the standard formula is A = P(1 + r/n)^(nt), where A is the future value, P is principal, r is the annual rate, n is the number of compounding periods per year and t is the number of years."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Does adding money every month increase compound growth?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Regular contributions can increase the amount available to compound over time. The calculator estimates the effect of recurring contributions based on the assumptions entered."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Is compound interest guaranteed?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "No. A mathematical compound-interest calculation uses an assumed rate. Actual investment returns can vary, and investments can lose value."
-                        }
-                    }
-                ]
-            }
-        </script>
-
+        ]
+    }
+    </script>
 </head>
 
 <body>
-    <header class="site-header">
-        <div class="container nav-inner">
 
-            <a class="brand" href="/">Paycheck<span>Mint</span></a>
+    <div class="ci-page">
 
-            <button class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"
-                aria-controls="main-navigation">
-                ☰
-            </button>
+        <!-- =========================================================
+         HEADER
+    ========================================================== -->
+        <header class="pm-header" id="site-header">
 
-            <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
-                <a href="/">Home</a>
+            <div class="pm-header-inner">
 
-                <a href="/paycheck-tax-calculator/">Paycheck Calculator</a>
+                <a class="pm-brand" href="/" aria-label="PaycheckMint home">
+                    Paycheck<span>Mint</span>
+                </a>
 
-                <a href="/income/">Income</a>
+                <nav class="pm-desktop-nav" aria-label="Main navigation">
 
-                <div class="nav-dropdown">
-                    <button type="button" aria-expanded="false">
-                        Finance
-                        <span class="nav-arrow">▼</span>
+                    <a class="pm-nav-link" href="/income/">
+                        Income
+                    </a>
+
+                    <div class="pm-nav-dropdown" data-dropdown>
+
+                        <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                            Finance
+
+                            <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </button>
+
+                        <div class="pm-dropdown-menu">
+
+                            <span class="pm-dropdown-label">
+                                Explore
+                            </span>
+
+                            <a href="/finance/">
+                                <span>Finance Overview</span>
+                            </a>
+
+                            <a href="/income/">
+                                <span>Income & Earnings</span>
+                            </a>
+
+                            <a href="/finance/budgeting/">
+                                <span>Budgeting Guides</span>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="pm-nav-dropdown" data-dropdown>
+
+                        <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                            Calculators
+
+                            <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </button>
+
+                        <div class="pm-dropdown-menu">
+
+                            <span class="pm-dropdown-label">
+                                Paycheck tools
+                            </span>
+
+                            <a href="/paycheck-tax-calculator/">
+                                Paycheck Tax Calculator
+                            </a>
+
+                            <a href="/monthly-paycheck-calculator/">
+                                Monthly Paycheck Calculator
+                            </a>
+
+                            <a href="/take-home-pay-calculator/">
+                                Take-Home Pay Calculator
+                            </a>
+
+                            <a href="/hourly-paycheck-calculator/">
+                                Hourly Paycheck Calculator
+                            </a>
+
+                            <a href="/overtime-pay-calculator/">
+                                Overtime Pay Calculator
+                            </a>
+
+                            <a href="/salary-paycheck-calculator/">
+                                Salary Paycheck Calculator
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <a class="pm-nav-link" href="/finance/">
+                        Learn
+                    </a>
+
+                </nav>
+
+                <div class="pm-nav-spacer"></div>
+
+                <button class="pm-search-button" id="searchToggle" type="button" aria-label="Open search"
+                    aria-expanded="false" aria-controls="searchPanel">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <path d="m20 20-4-4"></path>
+
+                    </svg>
+
+                </button>
+
+                <a class="pm-header-cta" href="/paycheck-tax-calculator/">
+                    Calculate paycheck
+                </a>
+
+                <button class="pm-mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation"
+                    aria-expanded="false" aria-controls="mobileNav">
+                    <svg id="mobileMenuIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round">
+                        <path d="M4 6h16" />
+                        <path d="M4 12h16" />
+                        <path d="M4 18h16" />
+                    </svg>
+                </button>
+
+            </div>
+
+            <!-- SEARCH PANEL -->
+
+            <div class="pm-search-panel" id="searchPanel">
+
+                <div class="pm-search-inner">
+
+                    <div class="pm-search-field">
+
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="7" />
+                            <path d="m20 20-4-4" />
+                        </svg>
+
+                        <input id="siteSearch" class="pm-search-input" type="search" autocomplete="off"
+                            placeholder="Search PaycheckMint..." aria-label="Search PaycheckMint">
+
+                        <button class="pm-search-close" id="searchClose" type="button" aria-label="Close search">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 6l12 12" />
+                                <path d="M18 6 6 18" />
+                            </svg>
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="pm-search-results" id="searchResults"></div>
+
+            </div>
+
+            <!-- MOBILE NAV -->
+
+            <nav class="pm-mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+
+                <div class="pm-mobile-nav-inner">
+
+                    <a href="/">
+                        Home
+                    </a>
+
+                    <a href="/income/">
+                        Income
+                    </a>
+
+                    <button class="pm-mobile-finance-button" id="mobileFinanceToggle" type="button"
+                        aria-expanded="false">
+                        <span>Finance</span>
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
                     </button>
 
-                    <div class="dropdown-menu">
-                        <a href="/finance/">Finance Overview</a>
-                        <a href="/finance/taxes/">Taxes</a>
-                        <a href="/finance/budgeting/">Budgeting</a>
-                        <a href="/finance/credit-debt/">Credit &amp; Debt</a>
-                        <a href="/finance/investing/">Investing</a>
-                        <a href="/finance/insurance/">Insurance</a>
+                    <div class="pm-mobile-finance-links" id="mobileFinanceLinks">
+
+                        <a href="/finance/">
+                            Finance Overview
+                        </a>
+
+                        <a href="/income/">
+                            Income & Earnings
+                        </a>
+
                     </div>
+
+                    <a href="/paycheck-tax-calculator/">
+                        Paycheck Tax Calculator
+                    </a>
+
+                    <a href="/take-home-pay-calculator/">
+                        Take-Home Pay Calculator
+                    </a>
+
+                    <a href="/hourly-paycheck-calculator/">
+                        Hourly Paycheck Calculator
+                    </a>
+
+                    <a href="/overtime-pay-calculator/">
+                        Overtime Pay Calculator
+                    </a>
+
+                    <a href="/salary-paycheck-calculator/">
+                        Salary Paycheck Calculator
+                    </a>
+
+                    <a href="/weekly-paycheck-calculator/">
+                        Weekly Paycheck Calculator
+                    </a>
+
+                    <a href="/biweekly-paycheck-calculator/">
+                        Biweekly Paycheck Calculator
+                    </a>
+
+                    <a href="/monthly-paycheck-calculator/">
+                        Monthly Paycheck Calculator
+                    </a>
+
+                    <div class="pm-mobile-search-row">
+
+                        <button class="pm-button-secondary" id="mobileSearchButton" type="button">
+                            Search PaycheckMint
+                        </button>
+
+                    </div>
+
                 </div>
+
             </nav>
-        </div>
 
-    </header>
+        </header>
 
-    <main>
 
-        <div class="container breadcrumb">
-            <a href="/">Home</a>
-            <span> / </span>
-            <a href="/finance/">Finance</a>
-            <span> / </span>
-            <a href="/finance/investing/">Investing</a>
-            <span> / </span>
-            <span>Compound Interest Calculator</span>
-        </div>
+        <!-- =========================================================
+         HERO
+    ========================================================== -->
 
-        <section class="hero">
-            <div class="container hero-grid">
-                <div>
-                    <div class="eyebrow">Free Investing Calculator</div>
+        <section class="ci-hero">
+            <div class="ci-container">
 
-                    <h1>Compound Interest Calculator</h1>
+                <div class="ci-hero-grid">
 
-                    <p>
-                        See how your money could grow with compound interest. Enter an initial investment, monthly
-                        contribution, interest rate, time period and compounding frequency to estimate your future
-                        balance, total contributions and estimated interest earned.
-                    </p>
-                </div>
+                    <div>
 
-                <aside class="hero-card">
-                    <h2>Calculate compound growth</h2>
-
-                    <div class="hero-points">
-                        <div class="hero-point">
-                            <b>✓</b>
-                            <span>Initial investment</span>
+                        <div class="ci-eyebrow">
+                            Investing Calculator
                         </div>
 
-                        <div class="hero-point">
-                            <b>✓</b>
-                            <span>Monthly contributions</span>
+                        <h1>
+                            Compound Interest Calculator
+                        </h1>
+
+                        <p class="ci-hero-text">
+                            Estimate how an initial investment and regular contributions
+                            could grow over time when returns are compounded. Adjust the
+                            rate, time horizon, contribution amount, and compounding
+                            frequency to see how the numbers change.
+                        </p>
+
+                        <div class="ci-hero-actions">
+
+                            <a class="ci-button ci-button-primary" href="/finance/investing/">
+                                Explore Investing
+                            </a>
+
+                            <a class="ci-button ci-button-secondary" href="/finance/budgeting/">
+                                Build a Budget
+                            </a>
+
                         </div>
 
-                        <div class="hero-point">
-                            <b>✓</b>
-                            <span>Annual interest rate</span>
+                        <div class="ci-trust-row">
+
+                            <div class="ci-trust-item">
+                                <strong>✓</strong>
+                                Monthly contributions
+                            </div>
+
+                            <div class="ci-trust-item">
+                                <strong>✓</strong>
+                                Flexible compounding
+                            </div>
+
+                            <div class="ci-trust-item">
+                                <strong>✓</strong>
+                                Growth breakdown
+                            </div>
+
                         </div>
 
-                        <div class="hero-point">
-                            <b>✓</b>
-                            <span>Years and compounding frequency</span>
+                    </div>
+
+
+                    <!-- CALCULATOR -->
+
+                    <div class="ci-calculator">
+
+                        <div class="ci-calculator-head">
+
+                            <h2>
+                                Estimate Your Growth
+                            </h2>
+
+                            <p>
+                                Change the assumptions below to see an updated estimate.
+                            </p>
+
+                        </div>
+
+                        <div class="ci-calculator-body">
+
+                            <div class="ci-form-grid">
+
+                                <div class="ci-field">
+
+                                    <label for="ciInitial">
+                                        Starting investment
+                                    </label>
+
+                                    <div class="ci-input-wrap">
+
+                                        <span class="ci-prefix">$</span>
+
+                                        <input class="ci-input has-prefix" id="ciInitial" type="number" min="0"
+                                            max="10000000" step="100" value="5000" inputmode="decimal">
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="ci-field">
+
+                                    <label for="ciMonthly">
+                                        Monthly contribution
+                                    </label>
+
+                                    <div class="ci-input-wrap">
+
+                                        <span class="ci-prefix">$</span>
+
+                                        <input class="ci-input has-prefix" id="ciMonthly" type="number" min="0"
+                                            max="100000" step="25" value="300" inputmode="decimal">
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="ci-field">
+
+                                    <label for="ciRate">
+                                        Annual return assumption
+                                    </label>
+
+                                    <div class="ci-input-wrap">
+
+                                        <input class="ci-input has-suffix" id="ciRate" type="number" min="0" max="30"
+                                            step="0.1" value="7" inputmode="decimal">
+
+                                        <span class="ci-suffix">%</span>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="ci-field">
+
+                                    <label for="ciYears">
+                                        Investment period
+                                    </label>
+
+                                    <div class="ci-input-wrap">
+
+                                        <input class="ci-input has-suffix" id="ciYears" type="number" min="1" max="60"
+                                            step="1" value="20" inputmode="numeric">
+
+                                        <span class="ci-suffix">years</span>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="ci-field full">
+
+                                    <label for="ciFrequency">
+                                        Compounding frequency
+                                    </label>
+
+                                    <select class="ci-select" id="ciFrequency">
+
+                                        <option value="1">
+                                            Annually
+                                        </option>
+
+                                        <option value="2">
+                                            Semi-annually
+                                        </option>
+
+                                        <option value="4">
+                                            Quarterly
+                                        </option>
+
+                                        <option value="12" selected>
+                                            Monthly
+                                        </option>
+
+                                        <option value="365">
+                                            Daily
+                                        </option>
+
+                                    </select>
+
+                                    <div class="ci-helper">
+                                        Contributions are modeled at the end of each month.
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="ci-calc-actions">
+
+                                <button type="button" class="ci-button ci-button-primary" id="ciCalculate">
+                                    Calculate
+                                </button>
+
+                                <button type="button" class="ci-button ci-reset" id="ciReset">
+                                    Reset
+                                </button>
+
+                            </div>
+
+
+                            <div class="ci-results" aria-live="polite">
+
+                                <div class="ci-results-label">
+                                    Estimated future value
+                                </div>
+
+                                <div class="ci-future-value" id="ciFutureValue">
+                                    $0
+                                </div>
+
+                                <div class="ci-result-grid">
+
+                                    <div class="ci-result-box">
+
+                                        <span>
+                                            Starting investment
+                                        </span>
+
+                                        <strong id="ciPrincipalResult">
+                                            $0
+                                        </strong>
+
+                                    </div>
+
+                                    <div class="ci-result-box">
+
+                                        <span>
+                                            Contributions
+                                        </span>
+
+                                        <strong id="ciContributionResult">
+                                            $0
+                                        </strong>
+
+                                    </div>
+
+                                    <div class="ci-result-box">
+
+                                        <span>
+                                            Estimated growth
+                                        </span>
+
+                                        <strong id="ciInterestResult">
+                                            $0
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+                                <p class="ci-assumption">
+                                    Estimate only. It assumes a constant return and
+                                    regular contributions. Actual investment performance
+                                    can be higher or lower.
+                                </p>
+
+                            </div>
+
                         </div>
                     </div>
-                </aside>
+
+                </div>
             </div>
         </section>
 
-        <div class="container content-layout">
-            <article class="article">
-                <!-- CALCULATOR -->
-                <section class="section calculator-section" id="calculator">
-                    <h2>Compound Interest Calculator</h2>
 
-                    <p class="calculator-intro">
-                        Enter your numbers below. The calculator updates the estimate using the assumptions you
-                        provide.
-                    </p>
+        <!-- =========================================================
+         MAIN
+    ========================================================== -->
 
-                    <div class="calculator">
-                        <div class="calculator-grid">
-                            <div class="field">
-                                <label for="principal">Initial investment</label>
+        <main class="ci-main">
 
-                                <input id="principal" type="number" min="0" step="100" value="1000" />
+            <div class="ci-container">
 
-                                <span class="field-help"> Amount you start with. </span>
-                            </div>
+                <div class="ci-content-layout">
 
-                            <div class="field">
-                                <label for="contribution">Monthly contribution</label>
+                    <article class="ci-article">
 
-                                <input id="contribution" type="number" min="0" step="25" value="200" />
 
-                                <span class="field-help"> Amount added at the end of each month. </span>
-                            </div>
+                        <!-- QUICK ANSWER -->
 
-                            <div class="field">
-                                <label for="years">Investment period</label>
+                        <section class="ci-answer-box">
 
-                                <input id="years" type="number" min="1" max="100" step="1" value="20" />
-
-                                <span class="field-help"> Number of years the money remains invested. </span>
-                            </div>
-
-                            <div class="field">
-                                <label for="rate">Annual interest rate (%)</label>
-
-                                <input id="rate" type="number" min="0" max="100" step="0.01" value="7" />
-
-                                <span class="field-help"> Use an assumed annual rate for planning. </span>
-                            </div>
-
-                            <div class="field full">
-                                <label for="frequency">Compounding frequency</label>
-
-                                <select id="frequency">
-                                    <option value="1">Annually</option>
-                                    <option value="2">Semiannually</option>
-                                    <option value="4">Quarterly</option>
-                                    <option value="12" selected>Monthly</option>
-                                    <option value="365">Daily</option>
-                                </select>
-
-                                <span class="field-help"> How many times per year interest is compounded. </span>
-                            </div>
-                        </div>
-
-                        <button class="calculate-btn" type="button" id="calculate">
-                            Calculate Compound Interest
-                        </button>
-
-                        <div class="results" aria-live="polite">
-                            <div class="result-card highlight">
-                                <span>Estimated future value</span>
-                                <strong id="futureValue">$0</strong>
-                            </div>
-
-                            <div class="result-card">
-                                <span>Total contributions</span>
-                                <strong id="totalContributions">$0</strong>
-                            </div>
-
-                            <div class="result-card">
-                                <span>Estimated interest</span>
-                                <strong id="interestEarned">$0</strong>
-                            </div>
-                        </div>
-
-                        <div class="breakdown">
-                            <div class="breakdown-row">
-                                <span>Initial investment</span>
-                                <strong id="startingAmount">$0</strong>
-                            </div>
-
-                            <div class="breakdown-row">
-                                <span>Monthly contributions</span>
-                                <strong id="monthlyAmount">$0</strong>
-                            </div>
-
-                            <div class="breakdown-row">
-                                <span>Investment period</span>
-                                <strong id="periodAmount">0 years</strong>
-                            </div>
-
-                            <div class="breakdown-row">
-                                <span>Assumed annual rate</span>
-                                <strong id="rateAmount">0%</strong>
-                            </div>
-                        </div>
-
-                        <p class="calculator-note">
-                            This calculator is an estimate. Actual savings and investment results depend on the
-                            financial product, rate, fees, contributions, taxes and market performance. Investment
-                            returns are not guaranteed.
-                        </p>
-                    </div>
-                </section>
-
-                <!-- QUICK ANSWER -->
-                <section class="section" id="what-is-compound-interest">
-                    <h2>What Is Compound Interest?</h2>
-
-                    <p>
-                        Compound interest is interest calculated on an initial amount plus interest that has already
-                        accumulated. In simple terms, your money can earn returns, and those accumulated returns can
-                        become part of the balance used to calculate future returns.
-                    </p>
-
-                    <p>
-                        The effect becomes more noticeable over longer periods because growth can build on previous
-                        growth. Regular contributions can increase the amount available to compound as well.
-                    </p>
-
-                    <div class="callout">
-                        <strong>Quick example:</strong>
-                        If you start with $1,000 and earn an assumed 7% annual return, the balance can grow over
-                        time if the returns remain invested. Adding money regularly can increase the projected
-                        ending balance. The actual return on an investment is not guaranteed.
-                    </div>
-                </section>
-
-                <!-- FORMULA -->
-                <section class="section" id="formula">
-                    <h2>Compound Interest Formula</h2>
-
-                    <p>
-                        For a single initial amount compounded at a fixed rate, the standard compound interest
-                        formula is:
-                    </p>
-
-                    <div class="formula-box">
-                        <strong>A = P × (1 + r ÷ n)<sup>nt</sup></strong>
-                    </div>
-
-                    <p>Where:</p>
-
-                    <div class="table-wrap">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Symbol</th>
-                                    <th>Meaning</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr>
-                                    <td><strong>A</strong></td>
-                                    <td>Future value of the account or investment</td>
-                                </tr>
-
-                                <tr>
-                                    <td><strong>P</strong></td>
-                                    <td>Initial principal or starting amount</td>
-                                </tr>
-
-                                <tr>
-                                    <td><strong>r</strong></td>
-                                    <td>Annual interest rate expressed as a decimal</td>
-                                </tr>
-
-                                <tr>
-                                    <td><strong>n</strong></td>
-                                    <td>Number of compounding periods per year</td>
-                                </tr>
-
-                                <tr>
-                                    <td><strong>t</strong></td>
-                                    <td>Number of years</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <p class="muted" style="margin-top: 15px">
-                        The PaycheckMint calculator also accounts for recurring monthly contributions, which require
-                        an additional contribution-growth calculation.
-                    </p>
-                </section>
-
-                <!-- HOW CALCULATOR WORKS -->
-                <section class="section" id="how-it-works">
-                    <h2>How the Compound Interest Calculator Works</h2>
-
-                    <p>
-                        The PaycheckMint calculator combines your starting amount, recurring contributions, assumed
-                        annual rate, investment period and compounding frequency to estimate a future balance.
-                    </p>
-
-                    <div class="steps">
-                        <div class="step">
-                            <div class="step-number">1</div>
-
-                            <div>
-                                <strong>Enter your initial investment</strong>
-
-                                <p>
-                                    This is the amount you already have available at the beginning of the
-                                    calculation.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="step">
-                            <div class="step-number">2</div>
-
-                            <div>
-                                <strong>Add your monthly contribution</strong>
-
-                                <p>
-                                    Enter how much you expect to add each month. Contributions can significantly
-                                    affect long-term growth.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="step">
-                            <div class="step-number">3</div>
-
-                            <div>
-                                <strong>Choose the time period</strong>
-
-                                <p>Longer periods give assumed returns and contributions more time to compound.</p>
-                            </div>
-                        </div>
-
-                        <div class="step">
-                            <div class="step-number">4</div>
-
-                            <div>
-                                <strong>Enter an assumed rate</strong>
-
-                                <p>
-                                    Use an annual rate appropriate for the type of account or investment you are
-                                    modeling.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="step">
-                            <div class="step-number">5</div>
-
-                            <div>
-                                <strong>Select compounding frequency</strong>
-
-                                <p>
-                                    Choose annually, semiannually, quarterly, monthly or daily depending on the
-                                    product being modeled.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- COMPOUNDING FREQUENCY -->
-                <section class="section" id="frequency">
-                    <h2>What Is Compounding Frequency?</h2>
-
-                    <p>
-                        Compounding frequency describes how often interest is added to the balance during a year.
-                        Common frequencies include annual, semiannual, quarterly, monthly and daily compounding.
-                    </p>
-
-                    <div class="table-wrap">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Frequency</th>
-                                    <th>Times per year</th>
-                                    <th>Example</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr>
-                                    <td><strong>Annually</strong></td>
-                                    <td>1</td>
-                                    <td>Interest compounds once per year.</td>
-                                </tr>
-
-                                <tr>
-                                    <td><strong>Semiannually</strong></td>
-                                    <td>2</td>
-                                    <td>Interest compounds twice per year.</td>
-                                </tr>
-
-                                <tr>
-                                    <td><strong>Quarterly</strong></td>
-                                    <td>4</td>
-                                    <td>Interest compounds four times per year.</td>
-                                </tr>
-
-                                <tr>
-                                    <td><strong>Monthly</strong></td>
-                                    <td>12</td>
-                                    <td>Interest compounds twelve times per year.</td>
-                                </tr>
-
-                                <tr>
-                                    <td><strong>Daily</strong></td>
-                                    <td>365</td>
-                                    <td>Interest compounds approximately every day.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <p style="margin-top: 15px">
-                        The actual terms of a bank account, savings product or investment determine how interest or
-                        returns are calculated. Check the account or investment documentation when you need an exact
-                        calculation.
-                    </p>
-                </section>
-
-                <!-- SIMPLE VS COMPOUND -->
-                <section class="section" id="simple-vs-compound">
-                    <h2>Compound Interest vs. Simple Interest</h2>
-
-                    <p>
-                        The key difference is what happens to previously earned interest. With simple interest,
-                        interest is calculated only on the original principal. With compound interest, previously
-                        accumulated interest can also earn interest.
-                    </p>
-
-                    <div class="table-wrap">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>Simple Interest</th>
-                                    <th>Compound Interest</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr>
-                                    <td><strong>Interest calculated on</strong></td>
-                                    <td>Original principal</td>
-                                    <td>Principal plus accumulated interest</td>
-                                </tr>
-
-                                <tr>
-                                    <td><strong>Effect over time</strong></td>
-                                    <td>Generally more linear</td>
-                                    <td>Can accelerate as the balance grows</td>
-                                </tr>
-
-                                <tr>
-                                    <td><strong>Common use</strong></td>
-                                    <td>Certain loans and financial calculations</td>
-                                    <td>Many savings and investment growth calculations</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <!-- EXAMPLE -->
-                <section class="section" id="example">
-                    <h2>Compound Interest Example</h2>
-
-                    <p>
-                        Suppose you start with <strong>$5,000</strong>, contribute <strong>$250 per month</strong>,
-                        and use an assumed annual return of <strong>7%</strong> for a period of
-                        <strong>20 years</strong>.
-                    </p>
-
-                    <p>
-                        The final result depends on the compounding and contribution assumptions. The important
-                        point is that both the starting balance and ongoing contributions have time to grow.
-                    </p>
-
-                    <div class="example-grid">
-                        <div class="example">
-                            <strong>Starting amount</strong>
-                            <span>$5,000</span>
-                        </div>
-
-                        <div class="example">
-                            <strong>Monthly contribution</strong>
-                            <span>$250</span>
-                        </div>
-
-                        <div class="example">
-                            <strong>Investment period</strong>
-                            <span>20 years</span>
-                        </div>
-                    </div>
-
-                    <p class="muted" style="margin-top: 17px">
-                        Use the calculator above to change the assumptions and see how the estimated result changes.
-                    </p>
-                </section>
-
-                <!-- CONTRIBUTIONS -->
-                <section class="section" id="contributions">
-                    <h2>How Monthly Contributions Affect Compound Growth</h2>
-
-                    <p>
-                        A starting balance is not the only factor that matters. Regular contributions can add
-                        substantially to the amount invested over a long period.
-                    </p>
-
-                    <p>
-                        For example, someone who contributes $300 every month for 20 years contributes $72,000 from
-                        those monthly deposits alone, before considering any investment growth.
-                    </p>
-
-                    <p>
-                        If those contributions remain invested, each contribution has its own opportunity to earn
-                        returns. Earlier contributions have more time to compound than later contributions.
-                    </p>
-
-                    <div class="callout">
-                        <strong>Key idea:</strong>
-                        Compound growth depends on more than the interest rate. Starting amount, contribution
-                        amount, time and compounding assumptions all affect the result.
-                    </div>
-                </section>
-
-                <!-- TIME -->
-                <section class="section" id="time">
-                    <h2>Why Time Matters With Compound Interest</h2>
-
-                    <p>
-                        Time gives a balance more opportunities to earn returns and for those returns to become part
-                        of the balance. This is why long-term calculations can look very different from short-term
-                        calculations even when the assumed annual rate stays the same.
-                    </p>
-
-                    <p>
-                        Starting earlier can also give recurring contributions more time to grow. However, a longer
-                        investment period does not guarantee a positive investment result because actual returns can
-                        fluctuate.
-                    </p>
-                </section>
-
-                <!-- INVESTMENTS -->
-                <section class="section" id="investing">
-                    <h2>Compound Interest and Investing</h2>
-
-                    <p>
-                        People often use the term "compound interest" when discussing investing, but investment
-                        returns are not the same as a guaranteed bank interest rate.
-                    </p>
-
-                    <p>
-                        A stock, ETF, mutual fund or other investment can increase or decrease in value. Dividends
-                        or other distributions may also be reinvested. When returns remain invested, the general
-                        concept of compounding can apply.
-                    </p>
-
-                    <p>
-                        For investment planning, use the calculator's rate as an
-                        <strong>assumption</strong>, not as a promise of what an investment will earn.
-                    </p>
-
-                    <a href="/finance/investing/"
-                        style="display: inline-block; color: var(--accent-dark); font-weight: 750; margin-top: 5px">
-                        Explore the PaycheckMint Investing Guide →
-                    </a>
-                </section>
-
-                <!-- SAVINGS -->
-                <section class="section" id="savings">
-                    <h2>Compound Interest for Savings</h2>
-
-                    <p>
-                        Compound interest can also apply to savings products when the account pays interest and that
-                        interest is added to the balance.
-                    </p>
-
-                    <p>
-                        For savings accounts, the rate and account terms can change. If you are calculating the
-                        future value of a specific savings account, use the rate and compounding information
-                        provided by the financial institution.
-                    </p>
-
-                    <p>
-                        The calculator is useful for planning scenarios, but it should not be treated as an exact
-                        forecast of what a particular bank account or investment will produce.
-                    </p>
-                </section>
-
-                <!-- RATE -->
-                <section class="section" id="rate">
-                    <h2>What Interest Rate Should You Use?</h2>
-
-                    <p>
-                        There is no single rate that should be used for every calculation. The appropriate
-                        assumption depends on what you are modeling.
-                    </p>
-
-                    <p>
-                        For a savings account, you can use the account's stated rate when estimating its growth. For
-                        investments, future returns are uncertain, so using multiple scenarios can be more
-                        informative than relying on a single assumed rate.
-                    </p>
-
-                    <p>
-                        Try changing the calculator's annual rate to see how sensitive the projected result is to
-                        your assumption.
-                    </p>
-                </section>
-
-                <!-- USE CASES -->
-                <section class="section" id="uses">
-                    <h2>What Can You Use a Compound Interest Calculator For?</h2>
-
-                    <div class="topic-grid">
-                        <div class="topic-card">
-                            <strong>Investment planning</strong>
-                            <span>Estimate how recurring contributions could grow over a long period.</span>
-                        </div>
-
-                        <div class="topic-card">
-                            <strong>Retirement planning</strong>
-                            <span>Model hypothetical growth of long-term contributions.</span>
-                        </div>
-
-                        <div class="topic-card">
-                            <strong>Savings goals</strong>
-                            <span>Explore how a starting balance and regular deposits may grow.</span>
-                        </div>
-
-                        <div class="topic-card">
-                            <strong>Comparing scenarios</strong>
-                            <span>Change the rate, time or contribution amount and compare estimates.</span>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- COMMON MISTAKES -->
-                <section class="section" id="mistakes">
-                    <h2>Common Compound Interest Calculation Mistakes</h2>
-
-                    <h3>Using a guaranteed return for an investment</h3>
-
-                    <p>
-                        Investment returns are uncertain. An assumed rate in a calculator is only a mathematical
-                        scenario.
-                    </p>
-
-                    <h3>Forgetting recurring contributions</h3>
-
-                    <p>
-                        If you regularly add money to an account, excluding those contributions can make your
-                        calculation substantially different from your actual plan.
-                    </p>
-
-                    <h3>Ignoring fees and taxes</h3>
-
-                    <p>
-                        A basic compound interest calculation does not automatically account for investment fees,
-                        taxes or inflation. These factors can affect your actual outcome.
-                    </p>
-
-                    <h3>Assuming the same rate every year</h3>
-
-                    <p>
-                        A fixed rate is convenient for a calculator, but real investment returns can vary from year
-                        to year.
-                    </p>
-                </section>
-
-                <!-- RELATED -->
-                <section class="section" id="related">
-                    <h2>Related PaycheckMint Investing Tools &amp; Guides</h2>
-
-                    <div class="topic-grid">
-                        <a class="topic-card" href="/finance/investing/">
-                            <strong>Investing Guide</strong>
-                            <span>Learn investing basics, risk, diversification and common investment types.</span>
-                        </a>
-
-                        <a class="topic-card" href="/finance/investing/investing-for-beginners/">
-                            <strong>Investing for Beginners</strong>
-                            <span>Start with the fundamentals of building an investing plan.</span>
-                        </a>
-
-                        <a class="topic-card" href="/finance/investing/how-to-invest-in-stocks/">
-                            <strong>How to Invest in Stocks</strong>
-                            <span>Learn the basics of investing in individual stocks.</span>
-                        </a>
-
-                        <a class="topic-card" href="/finance/investing/index-funds/">
-                            <strong>Index Funds</strong>
-                            <span>Learn how index funds work and how they can provide broad exposure.</span>
-                        </a>
-
-                        <a class="topic-card" href="/finance/budgeting/emergency-fund/">
-                            <strong>Emergency Fund</strong>
-                            <span>Build cash reserves for unexpected expenses before taking on additional investment
-                                risk.</span>
-                        </a>
-
-                        <a class="topic-card" href="/finance/budgeting/monthly-budget/">
-                            <strong>Monthly Budget</strong>
-                            <span>Create a plan for income, expenses, savings and investing.</span>
-                        </a>
-                    </div>
-                </section>
-
-                <!-- FAQ -->
-                <section class="section" id="faq">
-                    <h2>Compound Interest Calculator FAQs</h2>
-
-                    <div class="faq">
-                        <details>
-                            <summary>What is compound interest?</summary>
+                            <h2>
+                                What does compound interest mean?
+                            </h2>
 
                             <p>
-                                Compound interest is interest earned on an initial amount plus previously
-                                accumulated interest. Over time, this can allow growth to build on earlier growth.
+                                Compound interest is growth earned on an amount that
+                                already includes previous growth. When money remains
+                                invested, returns can potentially generate additional
+                                returns over subsequent periods.
                             </p>
-                        </details>
-
-                        <details>
-                            <summary>How does a compound interest calculator work?</summary>
 
                             <p>
-                                It uses inputs such as the starting amount, recurring contributions, annual rate,
-                                investment period and compounding frequency to estimate a future balance.
+                                The calculator above combines a starting investment,
+                                monthly contributions, an assumed annual return, and a
+                                time period to estimate a possible future value.
                             </p>
-                        </details>
 
-                        <details>
-                            <summary>What is the compound interest formula?</summary>
+                        </section>
+
+
+                        <!-- WHAT CALCULATOR SHOWS -->
+
+                        <section class="ci-section">
+
+                            <h2>
+                                What this compound interest calculator shows
+                            </h2>
 
                             <p>
-                                For a single principal amount, the standard formula is A = P × (1 + r ÷
-                                n)<sup>nt</sup>. The PaycheckMint calculator also accounts for recurring monthly
-                                contributions.
+                                A compound-growth estimate becomes more useful when you
+                                can separate where the ending balance comes from. This
+                                calculator breaks the result into your starting money,
+                                additional contributions, and estimated investment growth.
                             </p>
-                        </details>
 
-                        <details>
-                            <summary>How often can interest compound?</summary>
+                            <div class="ci-info-grid">
+
+                                <div class="ci-info-card">
+
+                                    <div class="ci-info-icon">
+                                        $
+                                    </div>
+
+                                    <h3>
+                                        Starting investment
+                                    </h3>
+
+                                    <p>
+                                        The amount you invest at the beginning of the
+                                        calculation.
+                                    </p>
+
+                                </div>
+
+
+                                <div class="ci-info-card">
+
+                                    <div class="ci-info-icon">
+                                        +
+                                    </div>
+
+                                    <h3>
+                                        Contributions
+                                    </h3>
+
+                                    <p>
+                                        The total of your recurring monthly contributions
+                                        over the selected period.
+                                    </p>
+
+                                </div>
+
+
+                                <div class="ci-info-card">
+
+                                    <div class="ci-info-icon">
+                                        %
+                                    </div>
+
+                                    <h3>
+                                        Estimated growth
+                                    </h3>
+
+                                    <p>
+                                        The portion of the ending balance attributed to
+                                        the assumed investment growth.
+                                    </p>
+
+                                </div>
+
+
+                                <div class="ci-info-card">
+
+                                    <div class="ci-info-icon">
+                                        ↗
+                                    </div>
+
+                                    <h3>
+                                        Future value
+                                    </h3>
+
+                                    <p>
+                                        The estimated value of the starting balance plus
+                                        contributions and modeled growth.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- HOW IT WORKS -->
+
+                        <section class="ci-section">
+
+                            <h2>
+                                How compound interest works
+                            </h2>
 
                             <p>
-                                Common compounding frequencies include annually, semiannually, quarterly, monthly
-                                and daily. The actual frequency depends on the financial product.
+                                With simple interest, growth is calculated only on the
+                                original principal. With compounding, previously earned
+                                growth becomes part of the balance that can generate
+                                additional growth.
                             </p>
-                        </details>
-
-                        <details>
-                            <summary>Does monthly investing compound?</summary>
 
                             <p>
-                                Regular contributions can increase the amount of money available to earn future
-                                returns. Each contribution has its own period of time to potentially grow.
+                                The basic compound-interest formula for a lump-sum
+                                investment is:
                             </p>
-                        </details>
 
-                        <details>
-                            <summary>Is compound interest guaranteed?</summary>
+                            <div class="ci-formula">
+
+                                <div class="ci-formula-main">
+                                    A = P × (1 + r / n)<sup>nt</sup>
+                                </div>
+
+                                <div class="ci-formula-note">
+                                    Basic compound-interest formula
+                                </div>
+
+                            </div>
+
+                            <div class="ci-definitions">
+
+                                <div class="ci-definition">
+                                    <strong>A</strong> = ending value
+                                </div>
+
+                                <div class="ci-definition">
+                                    <strong>P</strong> = starting principal
+                                </div>
+
+                                <div class="ci-definition">
+                                    <strong>r</strong> = annual rate expressed as a decimal
+                                </div>
+
+                                <div class="ci-definition">
+                                    <strong>n</strong> = number of compounding periods per year
+                                </div>
+
+                                <div class="ci-definition">
+                                    <strong>t</strong> = number of years
+                                </div>
+
+                            </div>
 
                             <p>
-                                No. A calculator using a fixed rate produces a mathematical estimate. Actual
-                                investment returns can vary and can be negative.
+                                Regular contributions add another variable. Each
+                                contribution has its own amount of time to potentially
+                                grow, which means contributions made earlier generally
+                                have more compounding periods than contributions made later.
                             </p>
-                        </details>
 
-                        <details>
-                            <summary>Can I use this calculator for a savings account?</summary>
+                        </section>
+
+
+                        <!-- EXAMPLE -->
+
+                        <section class="ci-section">
+
+                            <h2>
+                                Example: investing $5,000 plus $300 a month
+                            </h2>
 
                             <p>
-                                Yes. You can use it for planning a savings scenario, but use the actual rate and
-                                compounding terms provided by your financial institution when you need a
-                                product-specific calculation.
+                                Suppose you start with $5,000, contribute $300 at the end
+                                of every month, use a 7% annual return assumption, and
+                                leave the money invested for 20 years.
                             </p>
-                        </details>
-
-                        <details>
-                            <summary>Does the calculator account for inflation?</summary>
 
                             <p>
-                                No. The displayed future value is a nominal estimate and does not automatically
-                                account for inflation. The future purchasing power of that amount may be lower than
-                                its nominal value.
+                                The calculator can estimate the ending balance and show
+                                how much came from your starting investment, how much you
+                                contributed over time, and how much is attributed to the
+                                assumed growth rate.
                             </p>
-                        </details>
-
-                        <details>
-                            <summary>Does the calculator include investment fees?</summary>
 
                             <p>
-                                No. This basic calculator does not subtract investment management fees, account fees
-                                or other costs.
+                                The 7% figure in this example is only an assumption. It
+                                should not be interpreted as a guaranteed investment
+                                return or a prediction of future market performance.
                             </p>
-                        </details>
+
+                        </section>
+
+
+                        <!-- YEARLY BREAKDOWN -->
+
+                        <section class="ci-section">
+
+                            <h2>
+                                See the year-by-year growth
+                            </h2>
+
+                            <p>
+                                The table below updates when you change the calculator
+                                assumptions. It helps show how the estimated balance
+                                develops throughout the selected investment period.
+                            </p>
+
+                            <div class="ci-breakdown">
+
+                                <div class="ci-breakdown-head">
+
+                                    <strong>
+                                        Estimated annual breakdown
+                                    </strong>
+
+                                    <span>
+                                        Ending balance by year
+                                    </span>
+
+                                </div>
+
+                                <div class="ci-year-list" id="ciYearList">
+                                </div>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- TIME -->
+
+                        <section class="ci-section">
+
+                            <h2>
+                                Why time matters when money compounds
+                            </h2>
+
+                            <p>
+                                Compounding depends on repeated periods of growth.
+                                Giving an investment more time creates more opportunities
+                                for previous growth and new contributions to participate
+                                in subsequent periods.
+                            </p>
+
+                            <p>
+                                This is one reason an investor may want to compare several
+                                time horizons rather than looking at only one target date.
+                                Try the calculator with 10, 20, 30, and 40 years while
+                                keeping the other assumptions unchanged.
+                            </p>
+
+                            <p>
+                                Starting later does not make saving pointless. It simply
+                                means there are fewer periods in which the money can
+                                potentially compound, so the contribution and time
+                                assumptions become especially important to the estimate.
+                            </p>
+
+                        </section>
+
+
+                        <!-- COMPOUND VS SIMPLE -->
+
+                        <section class="ci-section">
+
+                            <h2>
+                                Compound interest vs. simple interest
+                            </h2>
+
+                            <p>
+                                The main difference is the amount on which future growth
+                                is calculated. Compound growth includes accumulated growth
+                                in the balance, while simple interest is calculated from
+                                the original principal.
+                            </p>
+
+                            <div class="ci-table-wrap">
+
+                                <table class="ci-table">
+
+                                    <thead>
+
+                                        <tr>
+                                            <th>
+                                                Feature
+                                            </th>
+
+                                            <th>
+                                                Simple interest
+                                            </th>
+
+                                            <th>
+                                                Compound interest
+                                            </th>
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody>
+
+                                        <tr>
+
+                                            <td>
+                                                Growth base
+                                            </td>
+
+                                            <td>
+                                                Original principal
+                                            </td>
+
+                                            <td>
+                                                Principal plus accumulated growth
+                                            </td>
+
+                                        </tr>
+
+                                        <tr>
+
+                                            <td>
+                                                Previous growth
+                                            </td>
+
+                                            <td>
+                                                Not added to the calculation base
+                                            </td>
+
+                                            <td>
+                                                Can become part of the balance
+                                            </td>
+
+                                        </tr>
+
+                                        <tr>
+
+                                            <td>
+                                                Effect of time
+                                            </td>
+
+                                            <td>
+                                                Growth generally increases linearly
+                                            </td>
+
+                                            <td>
+                                                Growth can accelerate as the balance increases
+                                            </td>
+
+                                        </tr>
+
+                                        <tr>
+
+                                            <td>
+                                                Common concept
+                                            </td>
+
+                                            <td>
+                                                Interest on principal
+                                            </td>
+
+                                            <td>
+                                                Interest or returns on accumulated value
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- FREQUENCY -->
+
+                        <section class="ci-section">
+
+                            <h2>
+                                How compounding frequency affects growth
+                            </h2>
+
+                            <p>
+                                Compounding frequency describes how often growth is added
+                                to the balance. Common frequencies include annual,
+                                semi-annual, quarterly, monthly, and daily.
+                            </p>
+
+                            <div class="ci-info-grid">
+
+                                <div class="ci-info-card">
+
+                                    <h3>
+                                        Annual
+                                    </h3>
+
+                                    <p>
+                                        Growth is compounded once per year.
+                                    </p>
+
+                                </div>
+
+                                <div class="ci-info-card">
+
+                                    <h3>
+                                        Semi-annual
+                                    </h3>
+
+                                    <p>
+                                        Growth is compounded twice per year.
+                                    </p>
+
+                                </div>
+
+                                <div class="ci-info-card">
+
+                                    <h3>
+                                        Quarterly
+                                    </h3>
+
+                                    <p>
+                                        Growth is compounded four times per year.
+                                    </p>
+
+                                </div>
+
+                                <div class="ci-info-card">
+
+                                    <h3>
+                                        Monthly or daily
+                                    </h3>
+
+                                    <p>
+                                        Growth is modeled more frequently during the year.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <p>
+                                More frequent compounding can produce a somewhat different
+                                result when the nominal annual rate is held constant.
+                                However, the effect should be considered alongside the
+                                contribution amount, investment period, fees, taxes, and
+                                actual investment performance.
+                            </p>
+
+                        </section>
+
+
+                        <!-- CONTRIBUTIONS -->
+
+                        <section class="ci-section">
+
+                            <h2>
+                                How regular contributions affect compound growth
+                            </h2>
+
+                            <p>
+                                Regular contributions can increase the amount of money
+                                available to compound. They also mean that your total
+                                invested amount grows over time instead of remaining fixed.
+                            </p>
+
+                            <p>
+                                For example, increasing a monthly contribution changes
+                                both the amount you personally add and the amount that can
+                                potentially experience future growth.
+                            </p>
+
+                            <p>
+                                You can test this directly by running the calculator twice:
+                                once with your current monthly contribution and again with
+                                a higher or lower amount. Keep the other assumptions the
+                                same so you can isolate the effect of the contribution.
+                            </p>
+
+                        </section>
+
+
+                        <!-- WHAT NOT INCLUDED -->
+
+                        <section class="ci-section">
+
+                            <h2>
+                                What this calculator does not include
+                            </h2>
+
+                            <p>
+                                This is a simplified planning calculator. Real investment
+                                outcomes can differ because many factors are not modeled.
+                            </p>
+
+                            <ul>
+
+                                <li>
+                                    Investment taxes
+                                </li>
+
+                                <li>
+                                    Account fees and expense ratios
+                                </li>
+
+                                <li>
+                                    Inflation
+                                </li>
+
+                                <li>
+                                    Changing investment returns
+                                </li>
+
+                                <li>
+                                    Withdrawals
+                                </li>
+
+                                <li>
+                                    Employer contributions or matches
+                                </li>
+
+                                <li>
+                                    Account-specific contribution limits
+                                </li>
+
+                                <li>
+                                    Changes to your monthly contribution
+                                </li>
+
+                            </ul>
+
+                            <p>
+                                Because of these exclusions, use the result as an
+                                illustration rather than a precise forecast of what an
+                                investment account will actually be worth.
+                            </p>
+
+                        </section>
+
+
+                        <!-- HOW TO USE -->
+
+                        <section class="ci-section">
+
+                            <h2>
+                                Practical ways to use the calculator
+                            </h2>
+
+                            <ol>
+
+                                <li>
+                                    <strong>Compare time horizons.</strong>
+                                    Try different investment periods to see how the
+                                    assumed growth changes.
+                                </li>
+
+                                <li>
+                                    <strong>Test contribution amounts.</strong>
+                                    Compare several monthly contribution levels based
+                                    on amounts that fit your budget.
+                                </li>
+
+                                <li>
+                                    <strong>Test different return assumptions.</strong>
+                                    Use more than one assumption rather than relying
+                                    on a single rate.
+                                </li>
+
+                                <li>
+                                    <strong>Look at the breakdown.</strong>
+                                    Separate your contributions from the estimated
+                                    growth instead of focusing only on the final number.
+                                </li>
+
+                                <li>
+                                    <strong>Revisit the estimate.</strong>
+                                    Your income, savings rate, time horizon, and goals
+                                    can change over time.
+                                </li>
+
+                            </ol>
+
+                        </section>
+
+
+                        <!-- FAQ -->
+
+                        <section class="ci-section">
+
+                            <h2>
+                                Compound interest calculator FAQ
+                            </h2>
+
+                            <div class="ci-faq">
+
+                                <details>
+
+                                    <summary>
+                                        What is compound interest?
+                                    </summary>
+
+                                    <div class="ci-faq-answer">
+
+                                        <p>
+                                            Compound interest is growth calculated on an
+                                            amount that includes previous accumulated growth.
+                                            Over multiple periods, the growth itself can
+                                            become part of the balance used for future growth.
+                                        </p>
+
+                                    </div>
+
+                                </details>
+
+
+                                <details>
+
+                                    <summary>
+                                        How does compound interest work with monthly contributions?
+                                    </summary>
+
+                                    <div class="ci-faq-answer">
+
+                                        <p>
+                                            Each monthly contribution becomes part of the
+                                            balance and can potentially grow during the
+                                            remaining investment period. Earlier contributions
+                                            have more time to compound than later contributions.
+                                        </p>
+
+                                    </div>
+
+                                </details>
+
+
+                                <details>
+
+                                    <summary>
+                                        Is a 7% return guaranteed?
+                                    </summary>
+
+                                    <div class="ci-faq-answer">
+
+                                        <p>
+                                            No. A 7% rate in a calculator is simply an
+                                            assumption. Investment returns are uncertain
+                                            and actual results can be higher or lower.
+                                        </p>
+
+                                    </div>
+
+                                </details>
+
+
+                                <details>
+
+                                    <summary>
+                                        Does daily compounding always make a big difference?
+                                    </summary>
+
+                                    <div class="ci-faq-answer">
+
+                                        <p>
+                                            More frequent compounding can change the result
+                                            when other assumptions remain constant, but the
+                                            difference may be relatively small. The contribution
+                                            amount and length of time invested can also have
+                                            substantial effects on an estimate.
+                                        </p>
+
+                                    </div>
+
+                                </details>
+
+
+                                <details>
+
+                                    <summary>
+                                        How long does it take for money to compound?
+                                    </summary>
+
+                                    <div class="ci-faq-answer">
+
+                                        <p>
+                                            There is no single time period that applies to
+                                            everyone. The result depends on the starting
+                                            amount, contribution rate, return assumption,
+                                            compounding method, and investment period.
+                                        </p>
+
+                                    </div>
+
+                                </details>
+
+
+                                <details>
+
+                                    <summary>
+                                        Should I account for inflation?
+                                    </summary>
+
+                                    <div class="ci-faq-answer">
+
+                                        <p>
+                                            For longer-term planning, considering inflation
+                                            can be useful because a future dollar may buy
+                                            less than a dollar does today. This calculator
+                                            shows a nominal growth estimate and does not
+                                            subtract inflation.
+                                        </p>
+
+                                    </div>
+
+                                </details>
+
+
+                                <details>
+
+                                    <summary>
+                                        Does the calculator include taxes and fees?
+                                    </summary>
+
+                                    <div class="ci-faq-answer">
+
+                                        <p>
+                                            No. Taxes, investment fees, expense ratios,
+                                            withdrawals, inflation, and account-specific
+                                            rules are not included in the basic calculation.
+                                        </p>
+
+                                    </div>
+
+                                </details>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- DISCLAIMER -->
+
+                        <section class="ci-section">
+
+                            <div class="ci-disclaimer">
+
+                                <strong>Important:</strong>
+                                The results produced by this calculator are estimates for
+                                educational and planning purposes. They are based on the
+                                assumptions you enter and are not a guarantee of future
+                                investment performance. Actual returns can vary, including
+                                from year to year. Taxes, fees, inflation, withdrawals,
+                                market losses, and other factors can affect actual results.
+                                PaycheckMint does not provide individualized investment advice.
+
+                            </div>
+
+                        </section>
+
+                    </article>
+
+
+                    <!-- =================================================
+                     SIDEBAR
+                ================================================== -->
+
+                    <aside class="ci-sidebar">
+
+                        <div class="ci-side-card">
+
+                            <h3>
+                                Investing
+                            </h3>
+
+                            <div class="ci-side-links">
+
+                                <a href="/finance/investing/">
+                                    Investing guide
+                                </a>
+
+                                <a href="/finance/budgeting/">
+                                    Budgeting hub
+                                </a>
+
+                                <a href="/finance/budgeting/emergency-fund/">
+                                    Emergency fund
+                                </a>
+
+                                <a href="/paycheck-tax-calculator/">
+                                    Paycheck calculator
+                                </a>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="ci-side-card">
+
+                            <h3>
+                                Before you invest
+                            </h3>
+
+                            <div class="ci-side-links">
+
+                                <a href="/finance/budgeting/">
+                                    Know your monthly cash flow
+                                </a>
+
+                                <a href="/finance/budgeting/emergency-fund/">
+                                    Build an emergency fund
+                                </a>
+
+                                <a href="/finance/credit-debt/">
+                                    Review high-interest debt
+                                </a>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="ci-side-card ci-side-note">
+
+                            <h3>
+                                Make the estimate useful
+                            </h3>
+
+                            <p>
+                                Try several time horizons and contribution amounts instead
+                                of relying on one growth assumption.
+                            </p>
+
+                            <a href="/finance/investing/">
+                                Explore investing topics →
+                            </a>
+
+                        </div>
+
+                    </aside>
+
+                </div>
+            </div>
+        </main>
+
+
+        <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+        <footer class="pm-footer">
+
+            <div class="pm-footer-inner">
+
+                <div class="pm-footer-main">
+
+                    <div class="pm-footer-grid">
+
+                        <div class="pm-footer-brand-column">
+
+                            <a class="pm-footer-brand" href="/">
+                                Paycheck<span>Mint</span>
+                            </a>
+
+                            <p class="pm-footer-description">
+                                Practical personal finance guides, paycheck tools,
+                                and calculators to help you make informed money decisions.
+                            </p>
+
+                        </div>
+
+                        <div>
+                            <h3 class="pm-footer-heading">Money</h3>
+
+                            <ul class="pm-footer-links">
+                                <li><a href="/income/">Income</a></li>
+                                <li><a href="/paycheck-tax-calculator/">Paycheck Calculator</a></li>
+                                <li><a href="/take-home-pay-calculator/">Take-Home Pay</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="pm-footer-heading">Finance</h3>
+
+                            <ul class="pm-footer-links">
+                                <li><a href="/finance/taxes/">Taxes</a></li>
+                                <li><a href="/finance/budgeting/">Budgeting</a></li>
+                                <li><a href="/finance/credit-debt/">Credit &amp; Debt</a></li>
+                                <li><a href="/finance/investing/">Investing</a></li>
+                                <li><a href="/finance/insurance/">Insurance</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="pm-footer-heading">Company</h3>
+
+                            <ul class="pm-footer-links">
+                                <li><a href="/about/">About</a></li>
+                                <li><a href="/contact/">Contact</a></li>
+                                <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                                <li><a href="/terms/">Terms</a></li>
+                            </ul>
+                        </div>
+
                     </div>
-                </section>
 
-                <!-- DISCLAIMER -->
-                <section class="section">
-                    <h2>Compound Interest Calculator Disclaimer</h2>
-
-                    <p class="muted">
-                        PaycheckMint's compound interest calculator is provided for general educational and planning
-                        purposes. Results are estimates based on the assumptions entered and are not a guarantee of
-                        future savings or investment performance. Actual results can differ because of changing
-                        rates, investment returns, contributions, fees, taxes, inflation and other factors.
-                        PaycheckMint does not provide individualized investment, financial, tax or legal advice.
-                    </p>
-                </section>
-            </article>
-
-            <aside class="sidebar">
-                <div class="side-card">
-                    <h3>On this page</h3>
-
-                    <nav class="toc">
-                        <a href="#calculator">Calculator</a>
-                        <a href="#what-is-compound-interest">What Is Compound Interest?</a>
-                        <a href="#formula">Formula</a>
-                        <a href="#how-it-works">How It Works</a>
-                        <a href="#frequency">Compounding Frequency</a>
-                        <a href="#simple-vs-compound">Simple vs. Compound</a>
-                        <a href="#example">Example</a>
-                        <a href="#contributions">Monthly Contributions</a>
-                        <a href="#time">Why Time Matters</a>
-                        <a href="#investing">Investing</a>
-                        <a href="#savings">Savings</a>
-                        <a href="#faq">FAQs</a>
-                    </nav>
                 </div>
 
-                <div class="side-card">
-                    <h3>Investing</h3>
+                <div class="pm-footer-bottom">
 
-                    <div class="side-links">
-                        <a href="/finance/investing/">Investing Overview</a>
-                        <a href="/finance/investing/investing-for-beginners/">Investing for Beginners</a>
-                        <a href="/finance/investing/how-to-invest-in-stocks/">How to Invest in Stocks</a>
-                        <a href="/finance/investing/index-funds/">Index Funds</a>
-                        <a href="/finance/investing/401k/">401(k)</a>
-                        <a href="/finance/investing/roth-ira-vs-traditional-ira/">Roth IRA vs. Traditional IRA</a>
+                    <div class="pm-footer-copyright">
+                        © 2026 PaycheckMint. All rights reserved.
                     </div>
-                </div>
 
-                <div class="side-card">
-                    <h3>Money Tools</h3>
-
-                    <div class="side-links">
-                        <a href="/paycheck-tax-calculator/">Paycheck Calculator</a>
-                        <a href="/finance/budgeting/monthly-budget/">Monthly Budget</a>
-                        <a href="/finance/budgeting/emergency-fund/">Emergency Fund</a>
-                        <a href="/finance/credit-debt/">Credit &amp; Debt</a>
-                        <a href="/finance/taxes/">Taxes</a>
-                    </div>
-                </div>
-            </aside>
-        </div>
-
-    </main>
-
-    <footer>
-
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <div class="footer-brand">Paycheck<span>Mint</span></div>
-
-                    <p>
-                        U.S.-focused calculators, guides and practical resources for understanding income and
-                        managing money.
-                    </p>
-                </div>
-
-                <div>
-                    <h3>Calculators</h3>
-
-                    <div class="footer-links">
-                        <a href="/paycheck-tax-calculator/">Paycheck Calculator</a>
-                        <a href="/hourly-paycheck-calculator/">Hourly Paycheck Calculator</a>
-                        <a href="/salary-paycheck-calculator/">Salary Paycheck Calculator</a>
-                        <a href="/overtime-pay-calculator/">Overtime Calculator</a>
-                    </div>
-                </div>
-
-                <div>
-                    <h3>Finance</h3>
-
-                    <div class="footer-links">
-                        <a href="/finance/">Finance Overview</a>
-                        <a href="/finance/taxes/">Taxes</a>
-                        <a href="/finance/budgeting/">Budgeting</a>
-                        <a href="/finance/credit-debt/">Credit &amp; Debt</a>
-                        <a href="/finance/investing/">Investing</a>
-                        <a href="/finance/insurance/">Insurance</a>
-                    </div>
-                </div>
-
-                <div>
-                    <h3>Company</h3>
-
-                    <div class="footer-links">
-                        <a href="/about/">About</a>
-                        <a href="/contact/">Contact</a>
-                        <a href="/privacy-policy/">Privacy</a>
+                    <div class="pm-footer-legal">
+                        <a href="/privacy-policy/">Privacy Policy</a>
                         <a href="/terms/">Terms</a>
+                        <a href="/contact/">Contact</a>
                     </div>
+
                 </div>
+
             </div>
 
-            <div class="footer-bottom">
-                <p>© 2026 PaycheckMint. All rights reserved.</p>
+        </footer>
 
-                <p class="disclaimer">
-                    Financial information on PaycheckMint is for general educational purposes and is not financial,
-                    investment, tax or legal advice.
-                </p>
-            </div>
-        </div>
+    </div>
 
-    </footer>
 
     <script>
         (function () {
-            /* =========================
-   MOBILE NAVIGATION
-========================= */
+            "use strict";
 
-            const toggle = document.querySelector(".mobile-menu-toggle");
-            const nav = document.querySelector(".main-nav");
-            const dropdown = document.querySelector(".nav-dropdown");
-            const dropdownButton = document.querySelector(".nav-dropdown > button");
+            /* ==========================================================================
+               1. ASYNC COMPONENT LOADER
+               ========================================================================== */
+            document.addEventListener("DOMContentLoaded", function () {
+                loadSharedComponents();
+            });
 
-            if (toggle && nav) {
-                toggle.addEventListener("click", function () {
-                    const open = nav.classList.toggle("menu-open");
+            async function loadSharedComponents() {
+                const navbar = document.getElementById("site-navbar");
+                const footer = document.getElementById("site-footer");
 
-                    toggle.setAttribute("aria-expanded", String(open));
-                    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+                try {
+                    const requests = [];
 
-                    if (!open && dropdown) {
-                        dropdown.classList.remove("open");
+                    if (navbar) {
+                        requests.push(
+                            fetch("/components/navbar.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Navbar 404"))
+                                .then(html => { navbar.innerHTML = html; })
+                        );
+                    }
 
-                        if (dropdownButton) {
-                            dropdownButton.setAttribute("aria-expanded", "false");
+                    if (footer) {
+                        requests.push(
+                            fetch("/components/footer.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Footer 404"))
+                                .then(html => { footer.innerHTML = html; })
+                        );
+                    }
+
+                    await Promise.all(requests);
+                    // Re-bind focus or initial state if required after injection
+                    setupScrollHeader();
+                } catch (error) {
+                    console.error("Component loading error:", error);
+                    setupScrollHeader();
+                }
+            }
+
+            /* ==========================================================================
+               2. EVENT DELEGATION (Handles dynamic elements automatically)
+               ========================================================================== */
+            document.addEventListener("click", function (event) {
+
+                // --- DESKTOP DROPDOWNS ---
+                const dropdownBtn = event.target.closest(".pm-nav-dropdown-button");
+                if (dropdownBtn) {
+                    event.stopPropagation();
+                    const currentDropdown = dropdownBtn.closest(".pm-nav-dropdown");
+                    const isOpen = currentDropdown.classList.contains("is-open");
+
+                    // Close all dropdowns
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
+                    });
+
+                    // Toggle selected dropdown
+                    if (!isOpen) {
+                        currentDropdown.classList.add("is-open");
+                        dropdownBtn.setAttribute("aria-expanded", "true");
+                    }
+                    return;
+                }
+
+                // Close desktop dropdowns when clicking outside
+                if (!event.target.closest(".pm-nav-dropdown")) {
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
+                    });
+                }
+
+                // --- MOBILE NAV TOGGLE ---
+                const mobileToggle = event.target.closest("#mobileToggle");
+                if (mobileToggle) {
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) {
+                        const isOpen = mobileNav.classList.toggle("is-open");
+                        mobileToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
+                }
+
+                // --- MOBILE SUBMENU TOGGLE ---
+                const mobileFinanceToggle = event.target.closest("#mobileFinanceToggle");
+                if (mobileFinanceToggle) {
+                    event.stopPropagation();
+                    const mobileFinanceLinks = document.getElementById("mobileFinanceLinks");
+                    if (mobileFinanceLinks) {
+                        const isOpen = mobileFinanceLinks.classList.toggle("is-open");
+                        mobileFinanceToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
+                }
+
+                // --- SEARCH TOGGLE (OPEN / CLOSE) ---
+                const searchToggle = event.target.closest("#searchToggle");
+                const mobileSearchBtn = event.target.closest("#mobileSearchButton");
+                const searchClose = event.target.closest("#searchClose");
+                const searchPanel = document.getElementById("searchPanel");
+
+                if (searchToggle || mobileSearchBtn) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) mobileNav.classList.remove("is-open");
+
+                    if (searchPanel) {
+                        if (searchPanel.classList.contains("is-open") && searchToggle) {
+                            closeSearch();
+                        } else {
+                            openSearch();
                         }
                     }
-                });
-            }
+                    return;
+                }
 
-            if (dropdownButton && dropdown) {
-                dropdownButton.addEventListener("click", function (event) {
+                if (searchClose) {
                     event.preventDefault();
+                    closeSearch();
+                    return;
+                }
 
-                    const open = dropdown.classList.toggle("open");
+                // Close search panel when clicking outside of it
+                if (searchPanel && searchPanel.classList.contains("is-open")) {
+                    if (!searchPanel.contains(event.target)) {
+                        closeSearch();
+                    }
+                }
+            });
 
-                    dropdownButton.setAttribute("aria-expanded", String(open));
-                });
+            /* ==========================================================================
+               3. SEARCH HELPER FUNCTIONS & LIVE FILTERING
+               ========================================================================== */
+            function openSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchToggle = document.getElementById("searchToggle");
+
+                if (!searchPanel) return;
+                searchPanel.classList.add("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "true");
+                    searchToggle.setAttribute("aria-label", "Close search");
+                }
+                if (searchInput) setTimeout(() => searchInput.focus(), 100);
             }
 
-            document.addEventListener("click", function (event) {
-                if (!dropdown) return;
+            function closeSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchResults = document.getElementById("searchResults");
+                const searchToggle = document.getElementById("searchToggle");
 
-                if (!dropdown.contains(event.target)) {
-                    dropdown.classList.remove("open");
+                if (!searchPanel) return;
+                searchPanel.classList.remove("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "false");
+                    searchToggle.setAttribute("aria-label", "Open search");
+                }
+                if (searchInput) searchInput.value = "";
+                if (searchResults) searchResults.innerHTML = "";
+            }
 
-                    if (dropdownButton) {
-                        dropdownButton.setAttribute("aria-expanded", "false");
-                    }
+            // Keyboard Shortcuts (Escape Key)
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closeSearch();
                 }
             });
 
-            window.addEventListener("resize", function () {
-                if (window.innerWidth > 760 && nav) {
-                    nav.classList.remove("menu-open");
+            // Live Search Typing Input Event
+            document.addEventListener("input", function (event) {
+                if (event.target.id !== "siteSearch") return;
 
-                    if (toggle) {
-                        toggle.setAttribute("aria-expanded", "false");
-                        toggle.setAttribute("aria-label", "Open menu");
-                    }
+                const query = event.target.value.trim().toLowerCase();
+                const searchResults = document.getElementById("searchResults");
+                if (!searchResults) return;
+
+                if (query.length === 0) {
+                    searchResults.innerHTML = "";
+                    return;
                 }
+
+                const searchablePages = [
+                    { title: "Paycheck Tax Calculator", url: "/paycheck-tax-calculator/", description: "Calculate accurate net pay and taxes." },
+                    { title: "Take-Home Pay Calculator", url: "/take-home-pay-calculator/", description: "Estimate your actual paycheck total after deductions." },
+                    { title: "Hourly Paycheck Calculator", url: "/hourly-paycheck-calculator/", description: "Calculate income based on hourly wage and hours worked." },
+                    { title: "Overtime Pay Calculator", url: "/overtime-pay-calculator/", description: "Compute overtime rates and total extra wages." },
+                    { title: "Salary Paycheck Calculator", url: "/salary-paycheck-calculator/", description: "Break down annual salary into per-paycheck earnings." },
+                    { title: "Income Overview", url: "/income/", description: "Learn about taxable income, gross wages, and take-home pay." },
+                    { title: "Finance Overview", url: "/finance/", description: "Guides on managing personal finances and budgeting strategies." },
+                    { title: "Budgeting Guides", url: "/finance/budgeting/", description: "Strategies for budgeting your paycheck effectively." }
+                ];
+
+                const matches = searchablePages.filter(page =>
+                    page.title.toLowerCase().includes(query) ||
+                    page.description.toLowerCase().includes(query)
+                );
+
+                if (matches.length === 0) {
+                    searchResults.innerHTML = `<p class="pm-search-no-results">No results found for "${escapeHTML(query)}"</p>`;
+                    return;
+                }
+
+                searchResults.innerHTML = matches.map(item => `
+            <a href="${item.url}" class="pm-search-result-item">
+                <span class="pm-search-result-title">${escapeHTML(item.title)}</span>
+                <span class="pm-search-result-desc">${escapeHTML(item.description)}</span>
+            </a>
+        `).join("");
             });
+
+            function escapeHTML(str) {
+                return str.replace(/[&<>'"]/g, tag => ({
+                    '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+                }[tag] || tag));
+            }
+
+            /* ==========================================================================
+               4. SCROLL SHADOW
+               ========================================================================== */
+            function setupScrollHeader() {
+                const header = document.getElementById("site-header");
+                if (!header) return;
+
+                window.addEventListener("scroll", function () {
+                    if (window.scrollY > 20) {
+                        header.classList.add("is-scrolled");
+                    } else {
+                        header.classList.remove("is-scrolled");
+                    }
+                }, { passive: true });
+            }
+
         })();
+    </script>
 
-        /* =========================
-COMPOUND INTEREST CALCULATOR
-========================= */
 
+    <!-- =============================================================
+     CALCULATOR JAVASCRIPT
+============================================================= -->
+
+    <script>
         (function () {
-            const principalInput = document.getElementById("principal");
-            const contributionInput = document.getElementById("contribution");
-            const yearsInput = document.getElementById("years");
-            const rateInput = document.getElementById("rate");
-            const frequencyInput = document.getElementById("frequency");
-            const calculateButton = document.getElementById("calculate");
 
-            const futureValueOutput = document.getElementById("futureValue");
-            const contributionsOutput = document.getElementById("totalContributions");
-            const interestOutput = document.getElementById("interestEarned");
+            "use strict";
 
-            const startingAmountOutput = document.getElementById("startingAmount");
-            const monthlyAmountOutput = document.getElementById("monthlyAmount");
-            const periodOutput = document.getElementById("periodAmount");
-            const rateOutput = document.getElementById("rateAmount");
 
-            function number(value) {
-                const parsed = Number(value);
-                return Number.isFinite(parsed) ? Math.max(0, parsed) : 0;
-            }
+            /* =========================================================
+               ELEMENTS
+            ========================================================= */
+
+            const initialInput = document.getElementById("ciInitial");
+            const monthlyInput = document.getElementById("ciMonthly");
+            const rateInput = document.getElementById("ciRate");
+            const yearsInput = document.getElementById("ciYears");
+            const frequencyInput = document.getElementById("ciFrequency");
+
+            const calculateButton = document.getElementById("ciCalculate");
+            const resetButton = document.getElementById("ciReset");
+
+            const futureValueEl = document.getElementById("ciFutureValue");
+            const principalResultEl = document.getElementById("ciPrincipalResult");
+            const contributionResultEl = document.getElementById("ciContributionResult");
+            const interestResultEl = document.getElementById("ciInterestResult");
+            const yearListEl = document.getElementById("ciYearList");
+
+
+            /* =========================================================
+               DEFAULTS
+            ========================================================= */
+
+            const defaults = {
+                initial: 5000,
+                monthly: 300,
+                rate: 7,
+                years: 20,
+                frequency: "12"
+            };
+
+
+            /* =========================================================
+               FORMATTERS
+            ========================================================= */
 
             function money(value) {
-                return new Intl.NumberFormat("en-US", {
+
+                if (!Number.isFinite(value)) {
+                    value = 0;
+                }
+
+                return value.toLocaleString("en-US", {
                     style: "currency",
                     currency: "USD",
-                    maximumFractionDigits: 0,
-                }).format(Math.max(0, value));
+                    maximumFractionDigits: 0
+                });
             }
 
-            function calculate() {
-                const principal = number(principalInput.value);
-                const monthlyContribution = number(contributionInput.value);
 
-                const years = Math.min(100, Math.max(1, number(yearsInput.value)));
+            function numberValue(input, fallback) {
 
-                const annualRate = number(rateInput.value) / 100;
+                const value = parseFloat(input.value);
 
-                const compoundsPerYear = Number(frequencyInput.value) || 12;
+                if (!Number.isFinite(value)) {
+                    return fallback;
+                }
 
-                const totalMonths = Math.round(years * 12);
+                return value;
+            }
+
+
+            /* =========================================================
+               CALCULATION
+            ========================================================= */
+
+            function calculateGrowth() {
+
+                let initial = numberValue(initialInput, defaults.initial);
+                let monthlyContribution = numberValue(
+                    monthlyInput,
+                    defaults.monthly
+                );
+                let annualRate = numberValue(
+                    rateInput,
+                    defaults.rate
+                );
+                let years = numberValue(
+                    yearsInput,
+                    defaults.years
+                );
+
+                const compoundsPerYear =
+                    parseInt(frequencyInput.value, 10) || 12;
+
 
                 /*
-                 * Monthly equivalent rate derived from the selected
-                 * annual nominal rate and compounding frequency.
+                 * Keep the inputs within reasonable ranges.
+                 */
+
+                initial = Math.max(0, Math.min(initial, 10000000));
+
+                monthlyContribution = Math.max(
+                    0,
+                    Math.min(monthlyContribution, 100000)
+                );
+
+                annualRate = Math.max(
+                    0,
+                    Math.min(annualRate, 30)
+                );
+
+                years = Math.max(
+                    1,
+                    Math.min(Math.round(years), 60)
+                );
+
+
+                /*
+                 * Convert the nominal annual rate and selected
+                 * compounding frequency into an equivalent monthly rate.
                  *
-                 * This allows monthly contributions to be modeled
-                 * alongside the selected compounding frequency.
+                 * This lets us model monthly contributions while still
+                 * respecting the selected compounding frequency.
                  */
 
                 let monthlyRate = 0;
 
-                if (annualRate > 0) {
-                    const periodicRate = annualRate / compoundsPerYear;
+                if (annualRate !== 0) {
 
-                    monthlyRate = Math.pow(1 + periodicRate, compoundsPerYear / 12) - 1;
+                    const nominalRate = annualRate / 100;
+
+                    const effectiveAnnualRate =
+                        Math.pow(
+                            1 + nominalRate / compoundsPerYear,
+                            compoundsPerYear
+                        ) - 1;
+
+                    monthlyRate =
+                        Math.pow(
+                            1 + effectiveAnnualRate,
+                            1 / 12
+                        ) - 1;
                 }
 
-                let finalPrincipal;
 
-                if (monthlyRate === 0) {
-                    finalPrincipal = principal + monthlyContribution * totalMonths;
-                } else {
-                    const startingGrowth = principal * Math.pow(1 + monthlyRate, totalMonths);
+                let balance = initial;
 
-                    const contributionGrowth =
-                        monthlyContribution * ((Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate);
+                let totalContributions = 0;
 
-                    finalPrincipal = startingGrowth + contributionGrowth;
+                const yearlyData = [];
+
+                const totalMonths = years * 12;
+
+
+                for (let month = 1; month <= totalMonths; month++) {
+
+                    /*
+                     * Growth is applied before the end-of-month
+                     * contribution.
+                     */
+
+                    balance = balance * (1 + monthlyRate);
+
+                    balance += monthlyContribution;
+
+                    totalContributions += monthlyContribution;
+
+
+                    if (month % 12 === 0) {
+
+                        const year = month / 12;
+
+                        const invested =
+                            initial + totalContributions;
+
+                        const estimatedGrowth =
+                            balance - invested;
+
+                        yearlyData.push({
+                            year: year,
+                            balance: balance,
+                            invested: invested,
+                            interest: estimatedGrowth
+                        });
+                    }
                 }
 
-                const totalContributions = principal + monthlyContribution * totalMonths;
 
-                const estimatedInterest = Math.max(0, finalPrincipal - totalContributions);
+                const totalInvested =
+                    initial + totalContributions;
 
-                futureValueOutput.textContent = money(finalPrincipal);
+                const estimatedGrowth =
+                    balance - totalInvested;
 
-                contributionsOutput.textContent = money(totalContributions);
 
-                interestOutput.textContent = money(estimatedInterest);
-
-                startingAmountOutput.textContent = money(principal);
-
-                monthlyAmountOutput.textContent = money(monthlyContribution);
-
-                periodOutput.textContent = years + (years === 1 ? " year" : " years");
-
-                rateOutput.textContent = annualRate * 100 + "%";
+                return {
+                    initial,
+                    monthlyContribution,
+                    annualRate,
+                    years,
+                    compoundsPerYear,
+                    balance,
+                    totalContributions,
+                    totalInvested,
+                    estimatedGrowth,
+                    yearlyData
+                };
             }
 
-            calculateButton.addEventListener("click", calculate);
 
-            [principalInput, contributionInput, yearsInput, rateInput, frequencyInput].forEach(function (input) {
-                input.addEventListener("input", calculate);
+            /* =========================================================
+               RENDER RESULTS
+            ========================================================= */
 
-                input.addEventListener("change", calculate);
+            function renderResults(data) {
+
+                futureValueEl.textContent =
+                    money(data.balance);
+
+                principalResultEl.textContent =
+                    money(data.initial);
+
+                contributionResultEl.textContent =
+                    money(data.totalContributions);
+
+                interestResultEl.textContent =
+                    money(data.estimatedGrowth);
+
+
+                renderYearlyBreakdown(data.yearlyData);
+            }
+
+
+            function renderYearlyBreakdown(yearlyData) {
+
+                yearListEl.innerHTML = "";
+
+
+                if (!yearlyData.length) {
+                    yearListEl.innerHTML =
+                        "<div style='padding:20px;color:#64706C;'>No data available.</div>";
+                    return;
+                }
+
+
+                const maximumBalance =
+                    yearlyData[yearlyData.length - 1].balance;
+
+
+                yearlyData.forEach(function (item) {
+
+                    const row =
+                        document.createElement("div");
+
+                    row.className = "ci-year-row";
+
+
+                    const year =
+                        document.createElement("div");
+
+                    year.className = "ci-year-number";
+
+                    year.textContent =
+                        "Year " + item.year;
+
+
+                    const bar =
+                        document.createElement("div");
+
+                    bar.className = "ci-year-bar";
+
+
+                    const barFill =
+                        document.createElement("span");
+
+                    const percentage =
+                        maximumBalance > 0
+                            ? Math.min(
+                                100,
+                                (item.balance / maximumBalance) * 100
+                            )
+                            : 0;
+
+                    barFill.style.width =
+                        percentage + "%";
+
+                    bar.appendChild(barFill);
+
+
+                    const value =
+                        document.createElement("div");
+
+                    value.className = "ci-year-value";
+
+                    value.innerHTML =
+                        "<strong>" +
+                        money(item.balance) +
+                        "</strong>" +
+                        " invested: " +
+                        money(item.invested);
+
+
+                    const interest =
+                        document.createElement("div");
+
+                    interest.className = "ci-year-interest";
+
+                    interest.textContent =
+                        "Growth: " +
+                        money(item.interest);
+
+
+                    row.appendChild(year);
+                    row.appendChild(bar);
+                    row.appendChild(value);
+                    row.appendChild(interest);
+
+                    yearListEl.appendChild(row);
+                });
+            }
+
+
+            /* =========================================================
+               EVENTS
+            ========================================================= */
+
+            function runCalculation() {
+                const data = calculateGrowth();
+                renderResults(data);
+            }
+
+
+            calculateButton.addEventListener(
+                "click",
+                runCalculation
+            );
+
+
+            [
+                initialInput,
+                monthlyInput,
+                rateInput,
+                yearsInput,
+                frequencyInput
+            ].forEach(function (element) {
+
+                element.addEventListener(
+                    "input",
+                    runCalculation
+                );
+
+                element.addEventListener(
+                    "change",
+                    runCalculation
+                );
             });
 
-            calculate();
+
+            resetButton.addEventListener(
+                "click",
+                function () {
+
+                    initialInput.value =
+                        defaults.initial;
+
+                    monthlyInput.value =
+                        defaults.monthly;
+
+                    rateInput.value =
+                        defaults.rate;
+
+                    yearsInput.value =
+                        defaults.years;
+
+                    frequencyInput.value =
+                        defaults.frequency;
+
+                    runCalculation();
+                }
+            );
+
+            /* =========================================================
+               INITIAL CALCULATION
+            ========================================================= */
+
+            runCalculation();
+
         })();
     </script>
+
 </body>
 
 </html>

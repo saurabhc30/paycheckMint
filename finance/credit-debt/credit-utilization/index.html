@@ -1,59 +1,47 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
 
     <title>Credit Utilization Ratio: What It Is & How It Works | PaycheckMint</title>
 
     <meta name="description"
-        content="Learn what credit utilization is, how to calculate your credit utilization ratio, why it affects your credit score, and practical ways to lower it." />
+        content="Learn how credit utilization works, how to calculate your credit utilization ratio, why it can affect your credit score, and practical ways to lower your utilization.">
 
-    <meta name="keywords"
-        content="credit utilization, credit utilization ratio, credit card utilization, credit utilization rate, what is credit utilization, how to calculate credit utilization, credit utilization percentage, 30 percent credit utilization" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="canonical" href="https://paycheckmint.com/finance/credit-debt/credit-utilization/" />
+    <link rel="canonical" href="https://paycheckmint.com/finance/credit-debt/credit-utilization/">
 
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Credit Utilization Ratio: What It Is & How It Works | PaycheckMint" />
+    <meta property="og:title" content="Credit Utilization Ratio: What It Is & How It Works">
     <meta property="og:description"
-        content="Understand credit utilization, the formula, 30% rule, individual versus overall utilization, and ways to lower your utilization rate." />
-    <meta property="og:url" content="https://paycheckmint.com/finance/credit-debt/credit-utilization/" />
-    <meta property="og:site_name" content="PaycheckMint" />
+        content="Understand credit utilization, how to calculate it, and practical ways to manage your credit card balances.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://paycheckmint.com/finance/credit-debt/credit-utilization/">
+    <meta property="og:site_name" content="PaycheckMint">
 
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Credit Utilization Ratio: What It Is & How It Works | PaycheckMint" />
-    <meta name="twitter:description"
-        content="Learn how credit utilization works, how to calculate it, and how utilization can affect your credit score." />
+    <meta name="theme-color" content="#176B5B">
+
+    <link rel="icon" href="/icon.ico">
+
+    <link rel="stylesheet" href="/style.css">
 
     <style>
+        /* =========================================================
+           CREDIT UTILIZATION PAGE
+        ========================================================= */
+
         :root {
-            --bg: #f6f5f1;
-            --surface: #ffffff;
-            --surface-soft: #faf9f6;
-
-            --ink: #191919;
-            --muted: #74736f;
-            --muted-light: #999791;
-
-            --line: #deddd8;
-            --line-dark: #cbc9c3;
-
-            --accent: #5954d9;
-            --accent-dark: #4843c7;
-            --accent-soft: #eeedff;
-
-            --success: #28794b;
-            --warning: #9a6817;
-            --danger: #b34a4a;
-
-            --shadow: 0 10px 30px rgba(25, 25, 25, 0.05);
-
-            --radius: 16px;
+            --cu-primary: #176B5B;
+            --cu-primary-dark: #0F5145;
+            --cu-accent: #C9922E;
+            --cu-bg: #F7F8F6;
+            --cu-surface: #FFFFFF;
+            --cu-soft: #EEF5F2;
+            --cu-text: #17201D;
+            --cu-muted: #64706C;
+            --cu-border: #DDE5E1;
+            --cu-danger: #A84747;
         }
 
         * {
@@ -66,1836 +54,2591 @@
 
         body {
             margin: 0;
-            background: var(--bg);
-            color: var(--ink);
-            font-family:
-                Inter,
-                ui-sans-serif,
-                system-ui,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                sans-serif;
-            line-height: 1.7;
-            overflow-x: hidden;
+            background: var(--cu-bg);
+            color: var(--cu-text);
         }
 
-        a {
-            color: inherit;
+        .cu-page {
+            width: 100%;
         }
 
-        img {
-            max-width: 100%;
-        }
-
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(246, 245, 241, 0.96);
-            border-bottom: 1px solid var(--line);
-            backdrop-filter: blur(12px);
-        }
-
-        .header-inner {
-            max-width: 1180px;
+        .cu-container {
+            width: min(1200px, calc(100% - 40px));
             margin: 0 auto;
-            min-height: 72px;
-            padding: 0 22px;
+        }
 
+        /* =========================================================
+           BREADCRUMB
+        ========================================================= */
+
+        .cu-breadcrumb-wrap {
+            padding: 22px 0 0;
+        }
+
+        .cu-breadcrumb {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
-            justify-content: space-between;
-            gap: 24px;
+            gap: 7px;
+            font-size: 14px;
+            color: var(--cu-muted);
         }
 
-        .brand {
+        .cu-breadcrumb a {
+            color: var(--cu-primary);
             text-decoration: none;
-            font-size: 1.35rem;
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            white-space: nowrap;
-        }
-
-        .brand span {
-            color: var(--accent);
-        }
-
-        .main-nav {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .main-nav>a,
-        .nav-dropdown>button {
-            border: 0;
-            background: transparent;
-            color: var(--ink);
-            text-decoration: none;
-            font: inherit;
-            font-size: 0.93rem;
-            font-weight: 650;
-            padding: 10px 12px;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-
-        .main-nav>a:hover,
-        .nav-dropdown>button:hover {
-            background: var(--surface);
-        }
-
-        .nav-dropdown {
-            position: relative;
-        }
-
-        .nav-dropdown>button {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .nav-dropdown>button::after {
-            content: "⌄";
-            font-size: 0.8rem;
-            color: var(--muted);
-            transform: translateY(-1px);
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            right: 0;
-            top: calc(100% + 8px);
-            width: 230px;
-
-            padding: 8px;
-
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            box-shadow: var(--shadow);
-
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-5px);
-            transition:
-                opacity 0.16s ease,
-                transform 0.16s ease,
-                visibility 0.16s ease;
-        }
-
-        .nav-dropdown.open .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown-menu a {
-            display: block;
-            padding: 10px 11px;
-            border-radius: 9px;
-
-            color: var(--ink);
-            text-decoration: none;
-            font-size: 0.9rem;
             font-weight: 600;
         }
 
-        .dropdown-menu a:hover {
-            background: var(--surface-soft);
-            color: var(--accent);
+        .cu-breadcrumb a:hover {
+            text-decoration: underline;
         }
 
-        .mobile-menu-toggle {
-            display: none;
-            width: 42px;
-            height: 42px;
-            border: 1px solid var(--line);
-            border-radius: 10px;
-            background: var(--surface);
-            cursor: pointer;
-            font-size: 1.2rem;
+        .cu-breadcrumb-separator {
+            color: #98A39F;
         }
 
-        .page-shell {
-            max-width: 1180px;
-            margin: 0 auto;
-            padding: 42px 22px 70px;
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .cu-hero {
+            padding: 34px 0 42px;
         }
 
-        .hero {
-            max-width: 850px;
-            margin-bottom: 30px;
+        .cu-hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 360px;
+            gap: 48px;
+            align-items: center;
         }
 
-        .eyebrow {
+        .cu-eyebrow {
             display: inline-flex;
             align-items: center;
-            gap: 7px;
-
-            padding: 6px 10px;
+            gap: 8px;
+            margin-bottom: 14px;
+            padding: 7px 12px;
             border-radius: 999px;
-
-            background: var(--accent-soft);
-            color: var(--accent-dark);
-
-            font-size: 0.76rem;
+            background: var(--cu-soft);
+            color: var(--cu-primary-dark);
+            font-size: 13px;
             font-weight: 800;
-            letter-spacing: 0.05em;
+            letter-spacing: .03em;
             text-transform: uppercase;
         }
 
-        h1 {
-            margin: 16px 0 12px;
-
-            font-size: clamp(2rem, 4vw, 3.2rem);
-            line-height: 1.08;
-            letter-spacing: -0.055em;
+        .cu-eyebrow-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--cu-accent);
         }
 
-        .hero p {
-            margin: 0;
+        .cu-hero h1 {
+            margin: 0 0 18px;
             max-width: 760px;
-            color: var(--muted);
-            font-size: 1.08rem;
-        }
-
-        .content-layout {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) 300px;
-            gap: 28px;
-            align-items: start;
-        }
-
-        article {
-            min-width: 0;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            padding: clamp(22px, 4vw, 42px);
-        }
-
-        article h2 {
-            margin: 42px 0 15px;
-            font-size: 1.65rem;
-            line-height: 1.2;
+            font-size: clamp(36px, 5vw, 58px);
+            line-height: 1.05;
             letter-spacing: -0.035em;
         }
 
-        article h2:first-child {
-            margin-top: 0;
+        .cu-hero-lead {
+            max-width: 760px;
+            margin: 0;
+            color: var(--cu-muted);
+            font-size: 19px;
+            line-height: 1.7;
         }
 
-        article h3 {
-            margin: 28px 0 10px;
-            font-size: 1.18rem;
-            line-height: 1.3;
+        .cu-hero-card {
+            background: var(--cu-surface);
+            border: 1px solid var(--cu-border);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(23, 32, 29, .06);
         }
 
-        article p {
-            margin: 0 0 17px;
-            color: #343432;
-        }
-
-        article ul,
-        article ol {
-            margin: 0 0 20px;
-            padding-left: 22px;
-            color: #343432;
-        }
-
-        article li {
-            margin: 7px 0;
-        }
-
-        strong {
-            color: var(--ink);
-        }
-
-        .quick-answer {
-            margin: 0 0 30px;
-            padding: 20px 21px;
-
-            background: var(--accent-soft);
-            border: 1px solid #dcd9ff;
-            border-radius: 14px;
-        }
-
-        .quick-answer strong {
-            display: block;
-            margin-bottom: 6px;
-            color: var(--accent-dark);
-            font-size: 0.82rem;
-            letter-spacing: 0.04em;
+        .cu-hero-card-label {
+            margin-bottom: 9px;
+            color: var(--cu-muted);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: .04em;
             text-transform: uppercase;
         }
 
-        .fact-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin: 26px 0 34px;
+        .cu-hero-card-title {
+            margin: 0 0 14px;
+            font-size: 23px;
+            line-height: 1.25;
         }
 
-        .fact {
-            padding: 16px;
-            border: 1px solid var(--line);
-            border-radius: 13px;
-            background: var(--surface-soft);
-        }
-
-        .fact strong {
-            display: block;
-            font-size: 1.12rem;
-            margin-bottom: 2px;
-        }
-
-        .fact span {
-            color: var(--muted);
-            font-size: 0.84rem;
-        }
-
-        .formula-box {
-            margin: 20px 0 25px;
-            padding: 22px;
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            background: #f8f7ff;
-            text-align: center;
-        }
-
-        .formula {
-            display: block;
-            font-size: clamp(1.05rem, 2vw, 1.35rem);
-            font-weight: 800;
-            color: var(--accent-dark);
-        }
-
-        .formula-note {
-            display: block;
-            margin-top: 7px;
-            color: var(--muted);
-            font-size: 0.88rem;
-        }
-
-        .example-card {
-            margin: 20px 0;
-            padding: 20px;
-
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            background: var(--surface-soft);
-        }
-
-        .example-card h3 {
-            margin-top: 0;
-        }
-
-        .table-wrap {
-            width: 100%;
-            overflow-x: auto;
-            margin: 20px 0 26px;
-            border: 1px solid var(--line);
-            border-radius: 12px;
-        }
-
-        table {
-            width: 100%;
-            min-width: 560px;
-            border-collapse: collapse;
-            background: var(--surface);
-        }
-
-        th,
-        td {
-            padding: 13px 14px;
-            text-align: left;
-            border-bottom: 1px solid var(--line);
-            font-size: 0.91rem;
-            vertical-align: top;
-        }
-
-        th {
-            background: var(--surface-soft);
-            font-weight: 800;
-        }
-
-        tr:last-child td {
-            border-bottom: 0;
-        }
-
-        .utilization-bar {
-            margin: 18px 0 8px;
-        }
-
-        .bar-label {
+        .cu-ratio-box {
             display: flex;
-            justify-content: space-between;
-            gap: 12px;
-            margin-bottom: 7px;
-            font-size: 0.84rem;
+            align-items: baseline;
+            gap: 6px;
+            margin: 4px 0 13px;
+        }
+
+        .cu-ratio-number {
+            color: var(--cu-primary);
+            font-size: 48px;
+            line-height: 1;
+            font-weight: 850;
+            letter-spacing: -.04em;
+        }
+
+        .cu-ratio-symbol {
+            color: var(--cu-muted);
+            font-size: 23px;
             font-weight: 700;
         }
 
-        .bar-track {
-            height: 12px;
-            overflow: hidden;
-            background: #e6e4df;
-            border-radius: 999px;
+        .cu-hero-card p {
+            margin: 0;
+            color: var(--cu-muted);
+            font-size: 14px;
+            line-height: 1.65;
         }
 
-        .bar-fill {
-            height: 100%;
-            border-radius: inherit;
-            background: var(--accent);
-        }
+        /* =========================================================
+           MAIN CONTENT
+        ========================================================= */
 
-        .callout {
-            margin: 22px 0;
-            padding: 18px 19px;
-            border-left: 4px solid var(--accent);
-            background: var(--surface-soft);
-            border-radius: 0 12px 12px 0;
-        }
-
-        .mistake-list {
+        .cu-content-layout {
             display: grid;
+            grid-template-columns: minmax(0, 1fr) 300px;
+            gap: 48px;
+            align-items: start;
+            padding-bottom: 70px;
+        }
+
+        .cu-article {
+            min-width: 0;
+            max-width: 780px;
+        }
+
+        .cu-section {
+            margin-bottom: 48px;
+            scroll-margin-top: 95px;
+        }
+
+        .cu-section h2 {
+            margin: 0 0 16px;
+            font-size: 31px;
+            line-height: 1.2;
+            letter-spacing: -.025em;
+        }
+
+        .cu-section h3 {
+            margin: 28px 0 11px;
+            font-size: 21px;
+            line-height: 1.3;
+        }
+
+        .cu-section p {
+            margin: 0 0 17px;
+            color: #3F4B47;
+            font-size: 17px;
+            line-height: 1.78;
+        }
+
+        .cu-section ul,
+        .cu-section ol {
+            margin: 12px 0 20px;
+            padding-left: 23px;
+        }
+
+        .cu-section li {
+            margin: 9px 0;
+            color: #3F4B47;
+            font-size: 16px;
+            line-height: 1.65;
+        }
+
+        .cu-section strong {
+            color: var(--cu-text);
+        }
+
+        /* =========================================================
+           QUICK ANSWER
+        ========================================================= */
+
+        .cu-quick-answer {
+            margin-bottom: 48px;
+            padding: 25px 27px;
+            background: var(--cu-soft);
+            border: 1px solid #D8E8E2;
+            border-left: 5px solid var(--cu-primary);
+            border-radius: 14px;
+        }
+
+        .cu-quick-answer-label {
+            margin-bottom: 8px;
+            color: var(--cu-primary-dark);
+            font-size: 13px;
+            font-weight: 850;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+        }
+
+        .cu-quick-answer p {
+            margin: 0;
+            color: #2E403B;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* =========================================================
+           FORMULA
+        ========================================================= */
+
+        .cu-formula-card {
+            margin: 24px 0;
+            padding: 25px;
+            background: var(--cu-surface);
+            border: 1px solid var(--cu-border);
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .cu-formula-label {
+            margin-bottom: 12px;
+            color: var(--cu-muted);
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+        }
+
+        .cu-formula {
+            color: var(--cu-primary-dark);
+            font-size: clamp(22px, 4vw, 31px);
+            font-weight: 850;
+            line-height: 1.4;
+        }
+
+        .cu-formula-note {
+            margin-top: 12px;
+            color: var(--cu-muted);
+            font-size: 14px;
+        }
+
+        /* =========================================================
+           EXAMPLE
+        ========================================================= */
+
+        .cu-example {
+            margin: 25px 0;
+            padding: 23px 25px;
+            border: 1px solid var(--cu-border);
+            border-radius: 16px;
+            background: var(--cu-surface);
+        }
+
+        .cu-example h3 {
+            margin-top: 0;
+        }
+
+        .cu-example-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 12px;
-            margin: 20px 0;
+            margin-top: 17px;
         }
 
-        .mistake {
-            padding: 17px;
-            border: 1px solid var(--line);
-            border-radius: 13px;
-            background: var(--surface-soft);
+        .cu-example-stat {
+            padding: 15px;
+            background: var(--cu-bg);
+            border-radius: 11px;
         }
 
-        .mistake strong {
+        .cu-example-stat span {
             display: block;
-            margin-bottom: 4px;
+            margin-bottom: 5px;
+            color: var(--cu-muted);
+            font-size: 12px;
+            font-weight: 750;
         }
 
-        .faq-item {
-            padding: 18px 0;
-            border-bottom: 1px solid var(--line);
+        .cu-example-stat strong {
+            font-size: 20px;
         }
 
-        .faq-item:last-child {
+        /* =========================================================
+           TABLE
+        ========================================================= */
+
+        .cu-table-wrap {
+            margin: 24px 0;
+            overflow-x: auto;
+            border: 1px solid var(--cu-border);
+            border-radius: 15px;
+            background: var(--cu-surface);
+        }
+
+        .cu-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 560px;
+        }
+
+        .cu-table th,
+        .cu-table td {
+            padding: 15px 17px;
+            border-bottom: 1px solid var(--cu-border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .cu-table th {
+            background: var(--cu-soft);
+            color: var(--cu-text);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: .035em;
+        }
+
+        .cu-table td {
+            color: #3F4B47;
+            font-size: 15px;
+            line-height: 1.55;
+        }
+
+        .cu-table tr:last-child td {
             border-bottom: 0;
         }
 
-        .faq-item h3 {
-            margin: 0 0 7px;
-            font-size: 1.05rem;
-        }
+        /* =========================================================
+           INFO CARDS
+        ========================================================= */
 
-        .related-links {
+        .cu-card-grid {
             display: grid;
-            gap: 9px;
-            margin-top: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 25px 0;
         }
 
-        .related-links a {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
+        .cu-info-card {
+            padding: 21px;
+            background: var(--cu-surface);
+            border: 1px solid var(--cu-border);
+            border-radius: 15px;
+        }
 
-            padding: 12px 14px;
-            border: 1px solid var(--line);
+        .cu-info-icon {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 14px;
             border-radius: 10px;
-
-            text-decoration: none;
-            font-weight: 650;
-            font-size: 0.92rem;
+            background: var(--cu-soft);
+            color: var(--cu-primary);
+            font-weight: 900;
         }
 
-        .related-links a:hover {
-            border-color: #c7c4f4;
-            color: var(--accent);
-            background: var(--surface-soft);
+        .cu-info-card h3 {
+            margin: 0 0 8px;
+            font-size: 18px;
         }
 
-        .source-list {
-            color: var(--muted);
-            font-size: 0.9rem;
+        .cu-info-card p {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.65;
         }
 
-        .disclaimer {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid var(--line);
+        /* =========================================================
+           UTILIZATION EXAMPLES
+        ========================================================= */
 
-            color: var(--muted);
-            font-size: 0.82rem;
+        .cu-utilization-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 13px;
+            margin: 25px 0;
         }
 
-        aside {
-            position: sticky;
-            top: 94px;
-            align-self: start;
-        }
-
-        .sidebar-card {
-            background: var(--surface);
-            border: 1px solid var(--line);
+        .cu-utilization-card {
+            padding: 20px;
+            border: 1px solid var(--cu-border);
             border-radius: 14px;
-            box-shadow: var(--shadow);
+            background: var(--cu-surface);
+        }
+
+        .cu-utilization-percent {
+            margin-bottom: 8px;
+            color: var(--cu-primary);
+            font-size: 27px;
+            font-weight: 850;
+        }
+
+        .cu-utilization-card h3 {
+            margin: 0 0 7px;
+            font-size: 17px;
+        }
+
+        .cu-utilization-card p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        /* =========================================================
+           WARNING / NOTE
+        ========================================================= */
+
+        .cu-note {
+            margin: 24px 0;
+            padding: 19px 21px;
+            border-radius: 13px;
+            background: #FFF9ED;
+            border: 1px solid #EBD9AD;
+        }
+
+        .cu-note strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #72541C;
+        }
+
+        .cu-note p {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.65;
+        }
+
+        /* =========================================================
+           CHECKLIST
+        ========================================================= */
+
+        .cu-checklist {
+            margin: 24px 0;
+            padding: 23px 25px;
+            background: var(--cu-surface);
+            border: 1px solid var(--cu-border);
+            border-radius: 15px;
+        }
+
+        .cu-check-item {
+            display: flex;
+            gap: 11px;
+            align-items: flex-start;
+            padding: 11px 0;
+            border-bottom: 1px solid #E8EEEB;
+            color: #3F4B47;
+            font-size: 15px;
+            line-height: 1.55;
+        }
+
+        .cu-check-item:last-child {
+            border-bottom: 0;
+        }
+
+        .cu-check {
+            flex: 0 0 auto;
+            width: 21px;
+            height: 21px;
+            display: grid;
+            place-items: center;
+            margin-top: 1px;
+            border-radius: 50%;
+            background: var(--cu-primary);
+            color: white;
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+        /* =========================================================
+           FAQ
+        ========================================================= */
+
+        .cu-faq {
+            margin-top: 20px;
+            border-top: 1px solid var(--cu-border);
+        }
+
+        .cu-faq-item {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--cu-border);
+        }
+
+        .cu-faq-item h3 {
+            margin: 0 0 9px;
+            font-size: 18px;
+        }
+
+        .cu-faq-item p {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* =========================================================
+           RELATED LINKS
+        ========================================================= */
+
+        .cu-related-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 13px;
+            margin-top: 22px;
+        }
+
+        .cu-related-link {
+            display: block;
             padding: 18px;
+            border: 1px solid var(--cu-border);
+            border-radius: 13px;
+            background: var(--cu-surface);
+            color: var(--cu-text);
+            text-decoration: none;
+            transition: transform .18s ease, border-color .18s ease;
         }
 
-        .sidebar-card+.sidebar-card {
-            margin-top: 14px;
+        .cu-related-link:hover {
+            transform: translateY(-2px);
+            border-color: #A9C9C0;
         }
 
-        .sidebar-title {
-            margin: 0 0 12px;
-            font-size: 0.95rem;
-            font-weight: 800;
+        .cu-related-link strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--cu-primary-dark);
         }
 
-        .toc {
+        .cu-related-link span {
+            color: var(--cu-muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
+
+        .cu-sidebar {
+            position: sticky;
+            top: 96px;
+            align-self: start;
+            height: max-content;
+        }
+
+        .cu-sidebar-card {
+            padding: 21px;
+            margin-bottom: 16px;
+            background: var(--cu-surface);
+            border: 1px solid var(--cu-border);
+            border-radius: 15px;
+        }
+
+        .cu-sidebar-card h2 {
+            margin: 0 0 13px;
+            font-size: 17px;
+        }
+
+        .cu-sidebar-links {
             display: grid;
             gap: 2px;
         }
 
-        .toc a {
-            padding: 7px 8px;
-            border-radius: 8px;
-
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 0.86rem;
-            line-height: 1.4;
-        }
-
-        .toc a:hover {
-            color: var(--accent);
-            background: var(--surface-soft);
-        }
-
-        .mini-tool {
-            padding: 14px;
-            background: var(--accent-soft);
-            border-radius: 11px;
-        }
-
-        .mini-tool strong {
+        .cu-sidebar-links a {
             display: block;
-            margin-bottom: 4px;
-        }
-
-        .mini-tool p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 0.82rem;
-            line-height: 1.55;
-        }
-
-        .mini-tool a {
-            display: inline-block;
-            margin-top: 9px;
-            color: var(--accent-dark);
-            font-size: 0.85rem;
-            font-weight: 750;
+            padding: 8px 9px;
+            border-radius: 8px;
+            color: #43504C;
+            font-size: 14px;
+            line-height: 1.45;
             text-decoration: none;
         }
 
-        .site-footer {
-            background: var(--bg);
-            border-top: 1px solid var(--line);
+        .cu-sidebar-links a:hover {
+            background: var(--cu-soft);
+            color: var(--cu-primary-dark);
         }
 
-        .footer-inner {
-            max-width: 1180px;
-            margin: 0 auto;
-            padding: 44px 22px 25px;
-
-            display: grid;
-            grid-template-columns: 1.7fr 1fr 1fr 1fr;
-            gap: 35px;
+        .cu-sidebar-tip {
+            background: var(--cu-primary);
+            border-color: var(--cu-primary);
+            color: white;
         }
 
-        .footer-brand {
-            font-size: 1.25rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
+        .cu-sidebar-tip h2 {
+            color: white;
         }
 
-        .footer-brand span {
-            color: var(--accent);
+        .cu-sidebar-tip p {
+            margin: 0;
+            color: rgba(255, 255, 255, .86);
+            font-size: 14px;
+            line-height: 1.6;
         }
 
-        .footer-description {
-            max-width: 350px;
-            margin: 11px 0 0;
-            color: var(--muted);
-            font-size: 0.88rem;
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .cu-bottom-cta {
+            margin-top: 52px;
+            padding: 30px;
+            background: var(--cu-primary-dark);
+            border-radius: 18px;
+            color: white;
+        }
+
+        .cu-bottom-cta h2 {
+            margin: 0 0 9px;
+            color: white;
+            font-size: 27px;
+        }
+
+        .cu-bottom-cta p {
+            margin: 0 0 20px;
+            max-width: 620px;
+            color: rgba(255, 255, 255, .84);
+            font-size: 15px;
             line-height: 1.65;
         }
 
-        .footer-column h3 {
-            margin: 0 0 12px;
-            font-size: 0.9rem;
-        }
-
-        .footer-column a {
-            display: block;
-            width: fit-content;
-            margin: 7px 0;
-
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 0.86rem;
-        }
-
-        .footer-column a:hover {
-            color: var(--accent);
-        }
-
-        .footer-bottom {
-            max-width: 1180px;
-            margin: 0 auto;
-            padding: 18px 22px 28px;
-
-            border-top: 1px solid var(--line);
-
-            display: flex;
-            justify-content: space-between;
+        .cu-cta-button {
+            display: inline-flex;
             align-items: center;
-            gap: 20px;
-
-            color: var(--muted);
-            font-size: 0.78rem;
+            justify-content: center;
+            min-height: 45px;
+            padding: 0 18px;
+            border-radius: 9px;
+            background: white;
+            color: var(--cu-primary-dark);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 800;
         }
 
-        .footer-bottom p {
-            margin: 0;
+        .cu-cta-button:hover {
+            background: #F2F6F4;
         }
 
-        @media (max-width: 900px) {
-            .mobile-menu-toggle {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
+        /* =========================================================
+           DISCLAIMER
+        ========================================================= */
+
+        .cu-disclaimer {
+            margin-top: 38px;
+            padding-top: 22px;
+            border-top: 1px solid var(--cu-border);
+            color: var(--cu-muted);
+            font-size: 13px;
+            line-height: 1.65;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 950px) {
+            .cu-hero-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
             }
 
-            .main-nav {
-                position: absolute;
-                left: 12px;
-                right: 12px;
-                top: 72px;
-
-                display: none;
-                flex-direction: column;
-                align-items: stretch;
-                gap: 3px;
-
-                padding: 10px;
-
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: 14px;
-                box-shadow: var(--shadow);
-
-                max-height: calc(100vh - 90px);
-                overflow-y: auto;
+            .cu-hero-card {
+                max-width: 600px;
             }
 
-            .main-nav.menu-open {
-                display: flex;
+            .cu-content-layout {
+                grid-template-columns: 1fr;
+                gap: 35px;
             }
 
-            .main-nav>a,
-            .nav-dropdown>button {
-                width: 100%;
-                text-align: left;
-                padding: 12px;
-            }
-
-            .nav-dropdown {
-                width: 100%;
-            }
-
-            .dropdown-menu {
+            .cu-sidebar {
                 position: static;
-                width: 100%;
-
-                display: none;
-
-                margin-top: 3px;
-                padding: 4px;
-
-                border: 0;
-                box-shadow: none;
-                background: var(--surface-soft);
-
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-            }
-
-            .nav-dropdown.open .dropdown-menu {
-                display: block;
-            }
-
-            .content-layout {
-                grid-template-columns: 1fr;
-            }
-
-            aside {
-                position: static;
-                top: auto;
             }
         }
 
-        @media (max-width: 850px) {
-            .footer-inner {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .page-shell {
-                padding-top: 28px;
+        @media (max-width: 700px) {
+            .cu-container {
+                width: min(100% - 28px, 1200px);
             }
 
-            .header-inner {
-                padding: 0 16px;
+            .cu-hero {
+                padding-top: 25px;
             }
 
-            .page-shell {
-                padding-left: 16px;
-                padding-right: 16px;
+            .cu-hero h1 {
+                font-size: 38px;
             }
 
-            article {
-                padding: 22px 18px;
+            .cu-hero-lead {
+                font-size: 17px;
             }
 
-            .fact-grid {
+            .cu-section h2 {
+                font-size: 27px;
+            }
+
+            .cu-section p {
+                font-size: 16px;
+            }
+
+            .cu-card-grid,
+            .cu-related-grid {
                 grid-template-columns: 1fr;
             }
 
-            .footer-inner {
+            .cu-utilization-grid {
                 grid-template-columns: 1fr;
-                gap: 24px;
             }
 
-            .footer-bottom {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-
-        @media (max-width: 420px) {
-            h1 {
-                font-size: 2rem;
+            .cu-example-grid {
+                grid-template-columns: 1fr;
             }
 
-            .hero p {
-                font-size: 0.98rem;
-            }
-
-            article h2 {
-                font-size: 1.4rem;
+            .cu-quick-answer {
+                padding: 21px;
             }
         }
     </style>
-
 </head>
 
 <body>
-    <header class="site-header">
-        <div class="header-inner">
 
-            <a class="brand" href="/"> Paycheck<span>Mint</span> </a>
+    <div class="cu-page">
 
-            <button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"
-                aria-controls="main-nav">
-                ☰
-            </button>
+        <!-- =========================================================
+         NAVBAR
+         ========================================================= -->
 
-            <nav class="main-nav" id="main-nav">
-                <a href="/">Home</a>
+        <header class="pm-header" id="site-header">
 
-                <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+            <div class="pm-header-inner">
 
-                <a href="/income/"> Income </a>
+                <a class="pm-brand" href="/" aria-label="PaycheckMint home">
+                    Paycheck<span>Mint</span>
+                </a>
 
-                <div class="nav-dropdown">
-                    <button type="button" aria-expanded="false" aria-haspopup="true">Finance</button>
+                <nav class="pm-desktop-nav" aria-label="Main navigation">
 
-                    <div class="dropdown-menu">
-                        <a href="/finance/"> Finance Overview </a>
+                    <a class="pm-nav-link" href="/income/">
+                        Income
+                    </a>
 
-                        <a href="/finance/taxes/"> Taxes </a>
+                    <div class="pm-nav-dropdown" data-dropdown>
 
-                        <a href="/finance/budgeting/"> Budgeting </a>
+                        <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                            Finance
 
-                        <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+                            <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </button>
 
-                        <a href="/finance/investing/"> Investing </a>
+                        <div class="pm-dropdown-menu">
 
-                        <a href="/finance/insurance/"> Insurance </a>
+                            <span class="pm-dropdown-label">
+                                Explore
+                            </span>
+
+                            <a href="/finance/">
+                                <span>Finance Overview</span>
+                            </a>
+
+                            <a href="/income/">
+                                <span>Income & Earnings</span>
+                            </a>
+
+                            <a href="/finance/budgeting/">
+                                <span>Budgeting Guides</span>
+                            </a>
+
+                        </div>
+
                     </div>
+
+                    <div class="pm-nav-dropdown" data-dropdown>
+
+                        <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                            Calculators
+
+                            <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </button>
+
+                        <div class="pm-dropdown-menu">
+
+                            <span class="pm-dropdown-label">
+                                Paycheck tools
+                            </span>
+
+                            <a href="/paycheck-tax-calculator/">
+                                Paycheck Tax Calculator
+                            </a>
+
+                            <a href="/monthly-paycheck-calculator/">
+                                Monthly Paycheck Calculator
+                            </a>
+
+                            <a href="/take-home-pay-calculator/">
+                                Take-Home Pay Calculator
+                            </a>
+
+                            <a href="/hourly-paycheck-calculator/">
+                                Hourly Paycheck Calculator
+                            </a>
+
+                            <a href="/overtime-pay-calculator/">
+                                Overtime Pay Calculator
+                            </a>
+
+                            <a href="/salary-paycheck-calculator/">
+                                Salary Paycheck Calculator
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <a class="pm-nav-link" href="/finance/">
+                        Learn
+                    </a>
+
+                </nav>
+
+                <div class="pm-nav-spacer"></div>
+
+                <button class="pm-search-button" id="searchToggle" type="button" aria-label="Open search"
+                    aria-expanded="false" aria-controls="searchPanel">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <path d="m20 20-4-4"></path>
+
+                    </svg>
+
+                </button>
+
+                <a class="pm-header-cta" href="/paycheck-tax-calculator/">
+                    Calculate paycheck
+                </a>
+
+                <button class="pm-mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation"
+                    aria-expanded="false" aria-controls="mobileNav">
+                    <svg id="mobileMenuIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round">
+                        <path d="M4 6h16" />
+                        <path d="M4 12h16" />
+                        <path d="M4 18h16" />
+                    </svg>
+                </button>
+
+            </div>
+
+            <!-- SEARCH PANEL -->
+
+            <div class="pm-search-panel" id="searchPanel">
+
+                <div class="pm-search-inner">
+
+                    <div class="pm-search-field">
+
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="7" />
+                            <path d="m20 20-4-4" />
+                        </svg>
+
+                        <input id="siteSearch" class="pm-search-input" type="search" autocomplete="off"
+                            placeholder="Search PaycheckMint..." aria-label="Search PaycheckMint">
+
+                        <button class="pm-search-close" id="searchClose" type="button" aria-label="Close search">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 6l12 12" />
+                                <path d="M18 6 6 18" />
+                            </svg>
+                        </button>
+
+                    </div>
+
                 </div>
+
+                <div class="pm-search-results" id="searchResults"></div>
+
+            </div>
+
+            <!-- MOBILE NAV -->
+
+            <nav class="pm-mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+
+                <div class="pm-mobile-nav-inner">
+
+                    <a href="/">
+                        Home
+                    </a>
+
+                    <a href="/income/">
+                        Income
+                    </a>
+
+                    <button class="pm-mobile-finance-button" id="mobileFinanceToggle" type="button"
+                        aria-expanded="false">
+                        <span>Finance</span>
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="pm-mobile-finance-links" id="mobileFinanceLinks">
+
+                        <a href="/finance/">
+                            Finance Overview
+                        </a>
+
+                        <a href="/income/">
+                            Income & Earnings
+                        </a>
+
+                    </div>
+
+                    <a href="/paycheck-tax-calculator/">
+                        Paycheck Tax Calculator
+                    </a>
+
+                    <a href="/take-home-pay-calculator/">
+                        Take-Home Pay Calculator
+                    </a>
+
+                    <a href="/hourly-paycheck-calculator/">
+                        Hourly Paycheck Calculator
+                    </a>
+
+                    <a href="/overtime-pay-calculator/">
+                        Overtime Pay Calculator
+                    </a>
+
+                    <a href="/salary-paycheck-calculator/">
+                        Salary Paycheck Calculator
+                    </a>
+
+                    <a href="/weekly-paycheck-calculator/">
+                        Weekly Paycheck Calculator
+                    </a>
+
+                    <a href="/biweekly-paycheck-calculator/">
+                        Biweekly Paycheck Calculator
+                    </a>
+
+                    <a href="/monthly-paycheck-calculator/">
+                        Monthly Paycheck Calculator
+                    </a>
+
+                    <div class="pm-mobile-search-row">
+
+                        <button class="pm-button-secondary" id="mobileSearchButton" type="button">
+                            Search PaycheckMint
+                        </button>
+
+                    </div>
+
+                </div>
+
             </nav>
+
+        </header>
+
+
+        <!-- =========================================================
+         BREADCRUMB
+         ========================================================= -->
+
+        <div class="cu-breadcrumb-wrap">
+            <div class="cu-container">
+
+                <div class="cu-breadcrumb">
+                    <a href="/">Home</a>
+                    <span class="cu-breadcrumb-separator">/</span>
+
+                    <a href="/finance/">Finance</a>
+                    <span class="cu-breadcrumb-separator">/</span>
+
+                    <a href="/finance/credit-debt/">Credit &amp; Debt</a>
+                    <span class="cu-breadcrumb-separator">/</span>
+
+                    <span>Credit Utilization</span>
+                </div>
+
+            </div>
         </div>
 
-    </header>
 
-    <main class="page-shell">
+        <!-- =========================================================
+         HERO
+         ========================================================= -->
 
-        <section class="hero">
-            <span class="eyebrow"> Credit &amp; Debt </span>
+        <section class="cu-hero">
+            <div class="cu-container">
 
-            <h1>Credit Utilization Ratio: What It Is &amp; How It Works</h1>
+                <div class="cu-hero-grid">
 
-            <p>
-                Credit utilization measures how much of your available revolving credit you're using. Learn how to
-                calculate your utilization rate, why it matters to your credit score, and practical ways to lower
-                it.
-            </p>
+                    <div>
+                        <div class="cu-eyebrow">
+                            <span class="cu-eyebrow-dot"></span>
+                            Credit &amp; Debt Guide
+                        </div>
+
+                        <h1>Credit Utilization Ratio: What It Is &amp; How It Works</h1>
+
+                        <p class="cu-hero-lead">
+                            Credit utilization measures how much of your available
+                            revolving credit you are using. Learn how to calculate
+                            your ratio, why it matters to credit scoring models,
+                            and practical ways to manage your balances.
+                        </p>
+                    </div>
+
+                    <div class="cu-hero-card">
+
+                        <div class="cu-hero-card-label">
+                            Basic calculation
+                        </div>
+
+                        <h2 class="cu-hero-card-title">
+                            Credit Utilization Ratio
+                        </h2>
+
+                        <div class="cu-ratio-box">
+                            <span class="cu-ratio-number">30</span>
+                            <span class="cu-ratio-symbol">%</span>
+                        </div>
+
+                        <p>
+                            Example: a $1,500 credit-card balance on a $5,000
+                            credit limit produces a 30% utilization ratio.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
         </section>
 
-        <div class="content-layout">
-            <article>
-                <div class="quick-answer">
-                    <strong>Quick answer</strong>
 
-                    Credit utilization is the percentage of your available revolving credit that you're currently
-                    using. The basic formula is
-                    <strong>credit card balance ÷ credit limit × 100</strong>. Lower utilization generally helps
-                    credit scores, although there is no universal percentage that guarantees a particular score.
-                </div>
+        <!-- =========================================================
+         MAIN CONTENT
+         ========================================================= -->
 
-                <div class="fact-grid">
-                    <div class="fact">
-                        <strong>Formula</strong>
-                        <span>Balance ÷ Credit Limit × 100</span>
+        <main class="cu-container">
+
+            <div class="cu-content-layout">
+
+                <article class="cu-article">
+
+                    <!-- QUICK ANSWER -->
+
+                    <div class="cu-quick-answer">
+
+                        <div class="cu-quick-answer-label">
+                            Quick answer
+                        </div>
+
+                        <p>
+                            Credit utilization is the percentage of your available
+                            revolving credit that is currently being used. It is
+                            generally calculated by dividing your credit-card
+                            balances by your credit limits. Credit utilization can
+                            be an important factor in many credit scoring models,
+                            so keeping balances manageable can help you maintain
+                            a healthier credit profile.
+                        </p>
+
                     </div>
 
-                    <div class="fact">
-                        <strong>30%</strong>
-                        <span>Common rule-of-thumb benchmark</span>
+
+                    <!-- WHAT IS IT -->
+
+                    <section class="cu-section" id="what-is-credit-utilization">
+
+                        <h2>What Is Credit Utilization?</h2>
+
+                        <p>
+                            Credit utilization is the relationship between the
+                            balances on your revolving credit accounts and the
+                            credit limits available on those accounts.
+                        </p>
+
+                        <p>
+                            Credit cards are the most common example. If a card has
+                            a $5,000 credit limit and a $1,000 balance, you are
+                            using 20% of that card's available credit.
+                        </p>
+
+                        <p>
+                            Credit utilization can be considered at both the
+                            <strong>individual-account level</strong> and across
+                            your <strong>revolving accounts overall</strong>.
+                            Depending on the credit scoring model, information
+                            about individual cards and your overall revolving
+                            utilization may both be relevant.
+                        </p>
+
+                    </section>
+
+
+                    <!-- FORMULA -->
+
+                    <section class="cu-section" id="how-to-calculate">
+
+                        <h2>How to Calculate Credit Utilization</h2>
+
+                        <p>
+                            The basic calculation is straightforward. Divide your
+                            revolving credit balance by the total available credit
+                            limit, then multiply by 100.
+                        </p>
+
+                        <div class="cu-formula-card">
+
+                            <div class="cu-formula-label">
+                                Credit utilization formula
+                            </div>
+
+                            <div class="cu-formula">
+                                (Credit Card Balance ÷ Credit Limit) × 100
+                            </div>
+
+                            <div class="cu-formula-note">
+                                Use the same type of balance and limit when
+                                calculating a single-card ratio.
+                            </div>
+
+                        </div>
+
+                        <div class="cu-example">
+
+                            <h3>Example: One credit card</h3>
+
+                            <p>
+                                Suppose your credit card has a $5,000 limit and
+                                your reported balance is $1,500.
+                            </p>
+
+                            <div class="cu-example-grid">
+
+                                <div class="cu-example-stat">
+                                    <span>Balance</span>
+                                    <strong>$1,500</strong>
+                                </div>
+
+                                <div class="cu-example-stat">
+                                    <span>Credit limit</span>
+                                    <strong>$5,000</strong>
+                                </div>
+
+                                <div class="cu-example-stat">
+                                    <span>Utilization</span>
+                                    <strong>30%</strong>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- OVERALL UTILIZATION -->
+
+                    <section class="cu-section" id="overall-utilization">
+
+                        <h2>What Is Overall Credit Utilization?</h2>
+
+                        <p>
+                            If you have multiple credit cards, you can calculate
+                            an overall utilization ratio by adding the balances
+                            and credit limits across your revolving accounts.
+                        </p>
+
+                        <div class="cu-formula-card">
+
+                            <div class="cu-formula">
+                                Total Balances ÷ Total Credit Limits × 100
+                            </div>
+
+                        </div>
+
+                        <div class="cu-example">
+
+                            <h3>Example: Multiple credit cards</h3>
+
+                            <div class="cu-table-wrap">
+
+                                <table class="cu-table">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Account</th>
+                                            <th>Balance</th>
+                                            <th>Limit</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                        <tr>
+                                            <td>Card A</td>
+                                            <td>$800</td>
+                                            <td>$4,000</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Card B</td>
+                                            <td>$600</td>
+                                            <td>$3,000</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Card C</td>
+                                            <td>$100</td>
+                                            <td>$3,000</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Total</strong></td>
+                                            <td><strong>$1,500</strong></td>
+                                            <td><strong>$10,000</strong></td>
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                            <p>
+                                The overall utilization in this example is
+                                $1,500 ÷ $10,000 × 100 = <strong>15%</strong>.
+                            </p>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- WHY IT MATTERS -->
+
+                    <section class="cu-section" id="why-it-matters">
+
+                        <h2>Why Does Credit Utilization Matter?</h2>
+
+                        <p>
+                            Credit utilization is one of the factors considered by
+                            many credit scoring models. In general, a lower
+                            utilization ratio can be associated with lower
+                            perceived reliance on revolving credit.
+                        </p>
+
+                        <p>
+                            However, there is no single utilization percentage that
+                            guarantees a particular credit score. Credit scoring
+                            models can use different formulas, and your score is
+                            also influenced by other information in your credit
+                            report.
+                        </p>
+
+                        <div class="cu-card-grid">
+
+                            <div class="cu-info-card">
+
+                                <div class="cu-info-icon">1</div>
+
+                                <h3>Overall utilization</h3>
+
+                                <p>
+                                    The relationship between your total revolving
+                                    balances and total revolving credit limits can
+                                    affect scoring calculations.
+                                </p>
+
+                            </div>
+
+                            <div class="cu-info-card">
+
+                                <div class="cu-info-icon">2</div>
+
+                                <h3>Individual card utilization</h3>
+
+                                <p>
+                                    A single card with a high balance relative to
+                                    its limit can produce high utilization even
+                                    when your overall ratio is lower.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- 30 PERCENT -->
+
+                    <section class="cu-section" id="30-percent-rule">
+
+                        <h2>Is 30% Credit Utilization the Ideal?</h2>
+
+                        <p>
+                            You may have heard that you should keep your credit
+                            utilization below 30%. This is commonly repeated
+                            personal-finance guidance, but it should not be treated
+                            as a universal cutoff or a guaranteed credit-score
+                            threshold.
+                        </p>
+
+                        <p>
+                            Credit scoring models can respond to utilization in
+                            different ways. In general, lower revolving utilization
+                            is often viewed more favorably by scoring models than
+                            high utilization, all else being equal.
+                        </p>
+
+                        <div class="cu-utilization-grid">
+
+                            <div class="cu-utilization-card">
+                                <div class="cu-utilization-percent">10%</div>
+                                <h3>Low utilization</h3>
+                                <p>
+                                    Represents relatively little of the available
+                                    revolving credit being used.
+                                </p>
+                            </div>
+
+                            <div class="cu-utilization-card">
+                                <div class="cu-utilization-percent">30%</div>
+                                <h3>Common benchmark</h3>
+                                <p>
+                                    Often discussed as a target, but it is not a
+                                    universal scoring threshold.
+                                </p>
+                            </div>
+
+                            <div class="cu-utilization-card">
+                                <div class="cu-utilization-percent">70%</div>
+                                <h3>High utilization</h3>
+                                <p>
+                                    A large portion of available revolving credit
+                                    is being used.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="cu-note">
+
+                            <strong>Important:</strong>
+
+                            <p>
+                                You do not need to carry a credit-card balance or
+                                pay interest just to build credit. Paying your
+                                statement balance in full by the due date can help
+                                you avoid interest on purchases when your card's
+                                terms provide a grace period.
+                            </p>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- INDIVIDUAL VS OVERALL -->
+
+                    <section class="cu-section" id="individual-vs-overall">
+
+                        <h2>Individual vs. Overall Credit Utilization</h2>
+
+                        <p>
+                            Your overall ratio can sometimes hide a high balance
+                            on one particular card.
+                        </p>
+
+                        <p>
+                            For example, imagine you have two cards:
+                        </p>
+
+                        <div class="cu-table-wrap">
+
+                            <table class="cu-table">
+
+                                <thead>
+                                    <tr>
+                                        <th>Card</th>
+                                        <th>Balance</th>
+                                        <th>Limit</th>
+                                        <th>Utilization</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>Card A</td>
+                                        <td>$2,400</td>
+                                        <td>$3,000</td>
+                                        <td>80%</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Card B</td>
+                                        <td>$0</td>
+                                        <td>$7,000</td>
+                                        <td>0%</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>Total</strong></td>
+                                        <td><strong>$2,400</strong></td>
+                                        <td><strong>$10,000</strong></td>
+                                        <td><strong>24%</strong></td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                        <p>
+                            The overall utilization is 24%, but Card A itself is
+                            using 80% of its available limit. This illustrates why
+                            looking only at the overall percentage may not tell the
+                            entire story.
+                        </p>
+
+                    </section>
+
+
+                    <!-- WHAT BALANCE IS REPORTED -->
+
+                    <section class="cu-section" id="reported-balance">
+
+                        <h2>Which Credit Card Balance Is Used?</h2>
+
+                        <p>
+                            Your credit-card balance can change throughout the
+                            month. The amount a card issuer reports to a credit
+                            bureau may therefore differ from the balance you see
+                            at another point in the billing cycle.
+                        </p>
+
+                        <p>
+                            Many issuers report account information periodically,
+                            often around the statement cycle, but reporting
+                            practices can vary. Because of this, paying your
+                            balance before the statement closes may sometimes
+                            result in a lower reported balance than waiting until
+                            the payment due date.
+                        </p>
+
+                        <p>
+                            The exact timing depends on the issuer and account.
+                            You should not assume that every lender reports on the
+                            same date.
+                        </p>
+
+                    </section>
+
+
+                    <!-- LOWER UTILIZATION -->
+
+                    <section class="cu-section" id="lower-utilization">
+
+                        <h2>How to Lower Your Credit Utilization</h2>
+
+                        <p>
+                            If your revolving balances are high relative to your
+                            limits, several practical strategies can reduce
+                            utilization.
+                        </p>
+
+                        <h3>1. Pay down credit-card balances</h3>
+
+                        <p>
+                            Paying down revolving debt directly reduces the
+                            numerator in the utilization calculation. If possible,
+                            prioritize reducing high-interest credit-card debt
+                            while continuing to make at least the required
+                            minimum payments on all accounts.
+                        </p>
+
+                        <h3>2. Make payments before the statement closes</h3>
+
+                        <p>
+                            If your issuer reports the statement balance, making
+                            an additional payment before the statement closing
+                            date may reduce the balance that gets reported.
+                            Confirm your issuer's reporting practices before
+                            relying on this strategy.
+                        </p>
+
+                        <h3>3. Avoid unnecessary new charges</h3>
+
+                        <p>
+                            Paying down a balance while continuing to add large
+                            purchases can keep utilization high. A sustainable
+                            spending plan can make it easier to keep balances
+                            manageable.
+                        </p>
+
+                        <h3>4. Request a higher credit limit carefully</h3>
+
+                        <p>
+                            A higher credit limit can reduce utilization if your
+                            balance stays the same. For example, a $1,000 balance
+                            on a $5,000 limit is 20%, while the same balance on a
+                            $10,000 limit is 10%.
+                        </p>
+
+                        <p>
+                            However, a credit-limit increase is not guaranteed,
+                            and the issuer may review your credit profile. Ask
+                            about the issuer's process before requesting one.
+                        </p>
+
+                        <h3>5. Do not close cards solely to simplify your wallet</h3>
+
+                        <p>
+                            Closing a credit card can reduce your total available
+                            revolving credit. If balances remain unchanged, that
+                            can increase your overall utilization ratio.
+                        </p>
+
+                        <p>
+                            Whether to close an unused card depends on the broader
+                            situation, including fees, spending habits, account
+                            age, and your ability to manage the account safely.
+                        </p>
+
+                    </section>
+
+
+                    <!-- EXAMPLE OF LOWERING -->
+
+                    <section class="cu-section" id="example">
+
+                        <h2>Example: How Paying Down a Balance Changes Utilization</h2>
+
+                        <p>
+                            Suppose a card has a $5,000 credit limit and a $3,000
+                            balance.
+                        </p>
+
+                        <div class="cu-table-wrap">
+
+                            <table class="cu-table">
+
+                                <thead>
+                                    <tr>
+                                        <th>Balance</th>
+                                        <th>Credit Limit</th>
+                                        <th>Utilization</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>$3,000</td>
+                                        <td>$5,000</td>
+                                        <td>60%</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>$2,000</td>
+                                        <td>$5,000</td>
+                                        <td>40%</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>$1,500</td>
+                                        <td>$5,000</td>
+                                        <td>30%</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>$1,000</td>
+                                        <td>$5,000</td>
+                                        <td>20%</td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                        <p>
+                            The credit limit did not change in this example.
+                            Paying down the balance alone reduced the utilization
+                            percentage.
+                        </p>
+
+                    </section>
+
+
+                    <!-- UTILIZATION AND CREDIT SCORE -->
+
+                    <section class="cu-section" id="credit-score">
+
+                        <h2>How Credit Utilization Can Affect Your Credit Score</h2>
+
+                        <p>
+                            Credit utilization is one component of the information
+                            used by many credit scoring systems. Because scoring
+                            models differ, the exact effect of a particular
+                            utilization percentage can vary.
+                        </p>
+
+                        <p>
+                            A high utilization ratio can matter especially when
+                            compared with your previous reported balances. Your
+                            credit score can change as updated account information
+                            reaches the credit bureaus.
+                        </p>
+
+                        <p>
+                            Importantly, utilization is only one part of your
+                            credit profile. Payment history, length of credit
+                            history, types of credit, new credit, and other
+                            information can also matter depending on the scoring
+                            model.
+                        </p>
+
+                    </section>
+
+
+                    <!-- TEMPORARY HIGH UTILIZATION -->
+
+                    <section class="cu-section" id="temporary">
+
+                        <h2>What If Your Credit Utilization Is Temporarily High?</h2>
+
+                        <p>
+                            A temporarily high balance does not necessarily mean
+                            your credit profile is permanently damaged.
+                        </p>
+
+                        <p>
+                            For example, you might use a card for a large purchase,
+                            an emergency expense, or travel and then pay the
+                            balance down later. If the reported balance decreases,
+                            the utilization information used by a scoring model can
+                            also change.
+                        </p>
+
+                        <p>
+                            This is one reason credit scores can move from month
+                            to month even when you have not missed a payment.
+                        </p>
+
+                        <div class="cu-note">
+
+                            <strong>Focus on the debt, not just the percentage.</strong>
+
+                            <p>
+                                A lower utilization ratio is not a reason to take
+                                on additional debt you cannot comfortably repay.
+                                Paying expensive revolving debt down can be more
+                                important to your finances than trying to reach a
+                                particular utilization percentage.
+                            </p>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- CREDIT LIMIT INCREASE -->
+
+                    <section class="cu-section" id="credit-limit">
+
+                        <h2>Can Increasing Your Credit Limit Lower Utilization?</h2>
+
+                        <p>
+                            Yes, mathematically, a higher credit limit can lower
+                            your utilization if your balance remains unchanged.
+                        </p>
+
+                        <div class="cu-example">
+
+                            <h3>Example</h3>
+
+                            <div class="cu-table-wrap">
+
+                                <table class="cu-table">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Scenario</th>
+                                            <th>Balance</th>
+                                            <th>Limit</th>
+                                            <th>Utilization</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                        <tr>
+                                            <td>Before increase</td>
+                                            <td>$1,500</td>
+                                            <td>$5,000</td>
+                                            <td>30%</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>After increase</td>
+                                            <td>$1,500</td>
+                                            <td>$7,500</td>
+                                            <td>20%</td>
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                        <p>
+                            But a larger limit should not be treated as additional
+                            income. Spending more simply because you have more
+                            available credit can increase debt and interest costs.
+                        </p>
+
+                    </section>
+
+
+                    <!-- COMMON MISTAKES -->
+
+                    <section class="cu-section" id="mistakes">
+
+                        <h2>Common Credit Utilization Mistakes</h2>
+
+                        <div class="cu-card-grid">
+
+                            <div class="cu-info-card">
+
+                                <div class="cu-info-icon">!</div>
+
+                                <h3>Carrying a balance to build credit</h3>
+
+                                <p>
+                                    You generally do not need to carry debt and pay
+                                    interest just to demonstrate credit usage.
+                                </p>
+
+                            </div>
+
+                            <div class="cu-info-card">
+
+                                <div class="cu-info-icon">!</div>
+
+                                <h3>Focusing only on 30%</h3>
+
+                                <p>
+                                    Treating 30% as a universal scoring cutoff
+                                    oversimplifies how different credit models work.
+                                </p>
+
+                            </div>
+
+                            <div class="cu-info-card">
+
+                                <div class="cu-info-icon">!</div>
+
+                                <h3>Ignoring individual cards</h3>
+
+                                <p>
+                                    Your overall utilization can look moderate
+                                    while one card is carrying a very high balance.
+                                </p>
+
+                            </div>
+
+                            <div class="cu-info-card">
+
+                                <div class="cu-info-icon">!</div>
+
+                                <h3>Closing cards without considering the effect</h3>
+
+                                <p>
+                                    Closing a card can reduce your available credit
+                                    and potentially increase overall utilization.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- CHECKLIST -->
+
+                    <section class="cu-section" id="checklist">
+
+                        <h2>Credit Utilization Checklist</h2>
+
+                        <div class="cu-checklist">
+
+                            <div class="cu-check-item">
+                                <span class="cu-check">✓</span>
+                                <span>Know the credit limit on each revolving account.</span>
+                            </div>
+
+                            <div class="cu-check-item">
+                                <span class="cu-check">✓</span>
+                                <span>Review your balances regularly instead of relying only on the due date.</span>
+                            </div>
+
+                            <div class="cu-check-item">
+                                <span class="cu-check">✓</span>
+                                <span>Calculate both individual-card and overall utilization when useful.</span>
+                            </div>
+
+                            <div class="cu-check-item">
+                                <span class="cu-check">✓</span>
+                                <span>Make at least the required minimum payment by every due date.</span>
+                            </div>
+
+                            <div class="cu-check-item">
+                                <span class="cu-check">✓</span>
+                                <span>Pay down high-interest revolving debt as your budget allows.</span>
+                            </div>
+
+                            <div class="cu-check-item">
+                                <span class="cu-check">✓</span>
+                                <span>Avoid taking on new debt simply to improve a utilization percentage.</span>
+                            </div>
+
+                            <div class="cu-check-item">
+                                <span class="cu-check">✓</span>
+                                <span>Review your credit reports for inaccurate account information.</span>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- FAQ -->
+
+                    <section class="cu-section" id="faq">
+
+                        <h2>Credit Utilization FAQs</h2>
+
+                        <div class="cu-faq">
+
+                            <div class="cu-faq-item">
+
+                                <h3>What is a good credit utilization ratio?</h3>
+
+                                <p>
+                                    Lower utilization is generally viewed more
+                                    favorably by many credit scoring models than
+                                    high utilization. There is no single percentage
+                                    that guarantees a particular credit score.
+                                </p>
+
+                            </div>
+
+                            <div class="cu-faq-item">
+
+                                <h3>Is 30% credit utilization good?</h3>
+
+                                <p>
+                                    A 30% ratio is commonly used as a personal
+                                    finance benchmark, but it is not a universal
+                                    cutoff used by every credit scoring model.
+                                </p>
+
+                            </div>
+
+                            <div class="cu-faq-item">
+
+                                <h3>Does paying off my credit card lower utilization?</h3>
+
+                                <p>
+                                    Yes. If your balance decreases while the credit
+                                    limit stays the same, the utilization percentage
+                                    decreases mathematically.
+                                </p>
+
+                            </div>
+
+                            <div class="cu-faq-item">
+
+                                <h3>Does credit utilization reset every month?</h3>
+
+                                <p>
+                                    Credit-card balances can change throughout the
+                                    month, and issuers report account information
+                                    periodically. The reported balance can
+                                    therefore change from one reporting period to
+                                    another.
+                                </p>
+
+                            </div>
+
+                            <div class="cu-faq-item">
+
+                                <h3>Does having a $0 balance hurt your credit?</h3>
+
+                                <p>
+                                    Having a $0 credit-card balance does not by
+                                    itself mean you are failing to build credit.
+                                    You generally do not need to carry a balance
+                                    and pay interest to establish responsible
+                                    credit use.
+                                </p>
+
+                            </div>
+
+                            <div class="cu-faq-item">
+
+                                <h3>Can closing a credit card increase utilization?</h3>
+
+                                <p>
+                                    It can. Closing an account may reduce your total
+                                    available revolving credit. If your balances
+                                    remain the same, your overall utilization ratio
+                                    can increase.
+                                </p>
+
+                            </div>
+
+                            <div class="cu-faq-item">
+
+                                <h3>Does credit utilization affect every credit score?</h3>
+
+                                <p>
+                                    Credit scoring models differ. Utilization of
+                                    revolving credit is important in many commonly
+                                    used scoring models, but the exact calculation
+                                    and impact can vary by model and credit profile.
+                                </p>
+
+                            </div>
+
+                            <div class="cu-faq-item">
+
+                                <h3>Do I need to pay my card before the due date?</h3>
+
+                                <p>
+                                    You should make at least the required minimum
+                                    payment by the due date to avoid being late.
+                                    Paying earlier can also reduce your balance
+                                    before a statement or reporting date, depending
+                                    on the issuer's practices.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- RELATED -->
+
+                    <section class="cu-section" id="related">
+
+                        <h2>Related Credit &amp; Debt Guides</h2>
+
+                        <div class="cu-related-grid">
+
+                            <a class="cu-related-link" href="/finance/credit-debt/how-credit-scores-work/">
+                                <strong>How Credit Scores Work</strong>
+                                <span>
+                                    Understand the major factors that can affect
+                                    your credit score.
+                                </span>
+                            </a>
+
+                            <a class="cu-related-link" href="/finance/credit-debt/how-to-improve-credit-score/">
+                                <strong>How to Improve Your Credit Score</strong>
+                                <span>
+                                    Practical steps for building and maintaining
+                                    a stronger credit profile.
+                                </span>
+                            </a>
+
+                            <a class="cu-related-link" href="/finance/budgeting/">
+                                <strong>Budgeting</strong>
+                                <span>
+                                    Build a spending plan that helps you manage
+                                    debt payments and monthly expenses.
+                                </span>
+                            </a>
+
+                            <a class="cu-related-link" href="/finance/">
+                                <strong>Personal Finance</strong>
+                                <span>
+                                    Explore PaycheckMint's broader personal
+                                    finance guides and calculators.
+                                </span>
+                            </a>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- CTA -->
+
+                    <div class="cu-bottom-cta">
+
+                        <h2>Want to understand your overall finances?</h2>
+
+                        <p>
+                            Credit utilization is only one part of your financial
+                            picture. Use PaycheckMint's calculators and guides to
+                            understand income, taxes, budgeting, debt, and other
+                            personal-finance topics.
+                        </p>
+
+                        <a class="cu-cta-button" href="/finance/">
+                            Explore Personal Finance
+                        </a>
+
                     </div>
 
-                    <div class="fact">
-                        <strong>Lower is generally better</strong>
-                        <span>Especially for scoring purposes</span>
-                    </div>
-                </div>
 
-                <h2 id="what-is-credit-utilization">What Is Credit Utilization?</h2>
+                    <!-- DISCLAIMER -->
 
-                <p>
-                    Credit utilization, also called a credit utilization ratio or utilization rate, measures how
-                    much of your available revolving credit you are using.
-                </p>
+                    <div class="cu-disclaimer">
 
-                <p>
-                    For a credit card, you compare the balance reported for the account with its credit limit. You
-                    can calculate utilization for one card or calculate an overall rate using multiple revolving
-                    accounts.
-                </p>
+                        <strong>Disclaimer:</strong>
+                        PaycheckMint provides general educational information and
+                        is not a bank, lender, credit bureau, financial adviser, or
+                        tax professional. Credit scoring models and lender
+                        practices can differ. Information on this page should not
+                        be considered personalized financial advice. Check your
+                        card issuer's terms and your credit reports for information
+                        specific to your accounts.
 
-                <p>
-                    For example, if a credit card has a $5,000 limit and a $1,000 balance, the utilization rate is
-                    20%.
-                </p>
-
-                <div class="formula-box">
-                    <span class="formula"> Credit Utilization = (Balance ÷ Credit Limit) × 100 </span>
-
-                    <span class="formula-note">
-                        Use the balance and credit limit being reported for the revolving account.
-                    </span>
-                </div>
-
-                <h2 id="how-to-calculate">How to Calculate Credit Utilization</h2>
-
-                <p>
-                    Calculating credit utilization is straightforward. You need two numbers: the revolving balance
-                    and the corresponding credit limit.
-                </p>
-
-                <ol>
-                    <li>Find the balance on your credit card or revolving account.</li>
-                    <li>Find the credit limit for that account.</li>
-                    <li>Divide the balance by the credit limit.</li>
-                    <li>Multiply the result by 100.</li>
-                </ol>
-
-                <div class="example-card">
-                    <h3>Example: $2,000 balance on a $10,000 limit</h3>
-
-                    <p>Suppose your credit card has a $10,000 credit limit and $2,000 in reported balances.</p>
-
-                    <div class="formula-box">
-                        <span class="formula"> $2,000 ÷ $10,000 × 100 = 20% </span>
                     </div>
 
-                    <p>
-                        Your utilization for that account would therefore be
-                        <strong>20%</strong>.
-                    </p>
-                </div>
+                </article>
 
-                <h2 id="individual-vs-overall">Individual vs. Overall Credit Utilization</h2>
 
-                <p>
-                    Credit utilization can be viewed at both the individual-account level and across multiple
-                    revolving accounts.
-                </p>
+                <!-- =====================================================
+                 SIDEBAR
+                 ===================================================== -->
 
-                <p>
-                    This distinction matters because a low overall utilization rate does not necessarily mean every
-                    individual card has a low utilization rate.
-                </p>
+                <aside class="cu-sidebar">
 
-                <div class="table-wrap">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Account</th>
-                                <th>Credit Limit</th>
-                                <th>Balance</th>
-                                <th>Utilization</th>
-                            </tr>
-                        </thead>
+                    <div class="cu-sidebar-card">
 
-                        <tbody>
-                            <tr>
-                                <td>Card A</td>
-                                <td>$5,000</td>
-                                <td>$500</td>
-                                <td>10%</td>
-                            </tr>
+                        <h2>On this page</h2>
 
-                            <tr>
-                                <td>Card B</td>
-                                <td>$10,000</td>
-                                <td>$2,000</td>
-                                <td>20%</td>
-                            </tr>
+                        <nav class="cu-sidebar-links">
 
-                            <tr>
-                                <td>Card C</td>
-                                <td>$5,000</td>
-                                <td>$3,000</td>
-                                <td>60%</td>
-                            </tr>
+                            <a href="#what-is-credit-utilization">
+                                What Is Credit Utilization?
+                            </a>
 
-                            <tr>
-                                <td><strong>Total</strong></td>
-                                <td><strong>$20,000</strong></td>
-                                <td><strong>$5,500</strong></td>
-                                <td><strong>27.5%</strong></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                            <a href="#how-to-calculate">
+                                How to Calculate It
+                            </a>
 
-                <p>
-                    In this example, overall utilization is 27.5%, but Card C has 60% utilization on its own. Credit
-                    scoring models can consider both overall utilization and utilization on individual revolving
-                    accounts.
-                </p>
+                            <a href="#overall-utilization">
+                                Overall Utilization
+                            </a>
 
-                <h2 id="why-it-matters">Why Does Credit Utilization Matter?</h2>
+                            <a href="#why-it-matters">
+                                Why It Matters
+                            </a>
 
-                <p>
-                    Credit utilization is an important part of how several commonly used credit scoring models
-                    evaluate revolving credit. In the commonly published FICO framework, utilization is included in
-                    the broader "amounts owed" category, which accounts for about 30% of a FICO Score.
-                </p>
+                            <a href="#lower-utilization">
+                                How to Lower It
+                            </a>
 
-                <p>
-                    That does not mean your credit score simply drops by a fixed number whenever your utilization
-                    rises. Credit scoring models evaluate multiple pieces of information, and the effect of a
-                    particular utilization level varies by scoring model and individual credit profile.
-                </p>
+                            <a href="#mistakes">
+                                Common Mistakes
+                            </a>
 
-                <div class="callout">
-                    <strong> Important: </strong>
+                            <a href="#faq">
+                                FAQs
+                            </a>
 
-                    <p style="margin: 7px 0 0">
-                        The 30% figure is a useful guideline, not a universal pass/fail threshold. In general, lower
-                        utilization is associated with stronger credit scores, and consumers with very high scores
-                        often have utilization in the single digits.
-                    </p>
-                </div>
+                        </nav>
 
-                <h2 id="30-percent-rule">Is 30% Credit Utilization Good?</h2>
-
-                <p>
-                    The commonly cited 30% rule means keeping revolving balances below roughly 30% of available
-                    credit. It can be a useful benchmark, but it should not be treated as a magic number.
-                </p>
-
-                <p>
-                    A 29% utilization rate is not automatically "good," while a 31% rate is not automatically "bad."
-                    Credit scoring models consider more than one number, and the relationship between utilization
-                    and scores is not a simple cutoff.
-                </p>
-
-                <p>
-                    If your goal is to keep utilization favorable for credit scoring, a lower percentage generally
-                    provides more room below your available limits.
-                </p>
-
-                <div class="utilization-bar">
-                    <div class="bar-label">
-                        <span>10% utilization</span>
-                        <span>Low</span>
                     </div>
 
-                    <div class="bar-track">
-                        <div class="bar-fill" style="width: 10%"></div>
-                    </div>
-                </div>
 
-                <div class="utilization-bar">
-                    <div class="bar-label">
-                        <span>30% utilization</span>
-                        <span>Common benchmark</span>
-                    </div>
+                    <div class="cu-sidebar-card cu-sidebar-tip">
 
-                    <div class="bar-track">
-                        <div class="bar-fill" style="width: 30%"></div>
-                    </div>
-                </div>
+                        <h2>Key takeaway</h2>
 
-                <div class="utilization-bar">
-                    <div class="bar-label">
-                        <span>50% utilization</span>
-                        <span>High</span>
+                        <p>
+                            Credit utilization is based on balances relative to
+                            available revolving credit. Lower utilization generally
+                            means less of your available credit is being used.
+                        </p>
+
                     </div>
 
-                    <div class="bar-track">
-                        <div class="bar-fill" style="width: 50%"></div>
-                    </div>
-                </div>
+                </aside>
 
-                <div class="utilization-bar">
-                    <div class="bar-label">
-                        <span>90% utilization</span>
-                        <span>Very high</span>
-                    </div>
-
-                    <div class="bar-track">
-                        <div class="bar-fill" style="width: 90%"></div>
-                    </div>
-                </div>
-
-                <h2 id="what-counts">What Counts Toward Credit Utilization?</h2>
-
-                <p>
-                    Credit utilization primarily concerns revolving credit, where you can repeatedly borrow up to a
-                    limit and repay the balance.
-                </p>
-
-                <div class="table-wrap">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Account type</th>
-                                <th>Utilization relevance</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>Credit cards</td>
-                                <td>Major source of revolving utilization data</td>
-                            </tr>
-
-                            <tr>
-                                <td>Personal lines of credit</td>
-                                <td>May be included depending on the scoring model</td>
-                            </tr>
-
-                            <tr>
-                                <td>HELOCs</td>
-                                <td>Treatment can vary by scoring model and reporting information</td>
-                            </tr>
-
-                            <tr>
-                                <td>Auto loans</td>
-                                <td>Installment debt rather than ordinary revolving utilization</td>
-                            </tr>
-
-                            <tr>
-                                <td>Student loans</td>
-                                <td>Installment debt rather than ordinary revolving utilization</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h2 id="when-reported">When Is Credit Utilization Reported?</h2>
-
-                <p>
-                    Your credit card balance shown in a credit report may not be the same as your current balance in
-                    your card app.
-                </p>
-
-                <p>
-                    Card issuers generally report account information periodically, often around the end of a
-                    billing or statement cycle. The exact reporting schedule can vary by issuer.
-                </p>
-
-                <p>
-                    This means you can pay your credit card in full every month and still have a utilization rate
-                    reported to the credit bureaus. For example, a card could report a $1,500 balance at the
-                    statement closing date and you could then pay that amount in full before the payment due date.
-                </p>
-
-                <p>
-                    Your payment can therefore prevent interest from accruing under the applicable card terms while
-                    the previously reported balance may still have been used for a credit score calculation.
-                </p>
-
-                <h2 id="pay-in-full">Does Credit Utilization Matter If You Pay in Full?</h2>
-
-                <p>
-                    Yes. Paying your statement balance in full can help you avoid interest on purchases when your
-                    card's terms provide a grace period and you meet its requirements, but it does not necessarily
-                    mean your reported utilization was zero.
-                </p>
-
-                <p>
-                    The balance reported to the credit bureaus can be captured before your payment due date.
-                    Therefore, someone who pays every bill in full can still temporarily have a high utilization
-                    percentage on their credit report.
-                </p>
-
-                <p>
-                    If you're trying to reduce reported utilization before an upcoming credit application, checking
-                    your issuer's statement closing date and reporting practices can be useful.
-                </p>
-
-                <h2 id="how-to-lower">How to Lower Your Credit Utilization</h2>
-
-                <p>
-                    If your utilization is high, there are several ways to reduce the percentage. The right approach
-                    depends on your budget, debt level, credit profile, and card terms.
-                </p>
-
-                <h3>1. Pay Down Your Credit Card Balances</h3>
-
-                <p>
-                    Reducing revolving balances directly reduces utilization. Paying more than the minimum can also
-                    reduce the amount of interest that accumulates, depending on your card's terms and balance.
-                </p>
-
-                <h3>2. Make an Extra Payment Before the Statement Closes</h3>
-
-                <p>
-                    If your issuer reports the statement balance, making a payment before the statement closing date
-                    may result in a lower balance being reported.
-                </p>
-
-                <p>This does not replace paying at least the required amount by the payment due date.</p>
-
-                <h3>3. Make Multiple Payments During the Month</h3>
-
-                <p>
-                    Instead of waiting for one monthly payment, you can make additional payments when your budget
-                    allows. This can keep the balance lower throughout the billing cycle and may reduce the balance
-                    that gets reported.
-                </p>
-
-                <h3>4. Request a Credit Limit Increase Carefully</h3>
-
-                <p>A higher credit limit can reduce your utilization if your balance stays the same.</p>
-
-                <div class="example-card">
-                    <h3>Example</h3>
-
-                    <p>Suppose you have a $2,000 balance on a $5,000 limit.</p>
-
-                    <p>
-                        Current utilization:
-                        <strong>40%</strong>
-                    </p>
-
-                    <p>
-                        If your limit increases to $10,000 while the balance stays at $2,000, utilization becomes:
-                        <strong>20%</strong>
-                    </p>
-
-                    <p>
-                        However, a credit-limit request may involve a credit inquiry depending on the issuer. Ask
-                        the issuer whether the request uses a hard or soft inquiry before applying.
-                    </p>
-                </div>
-
-                <h3>5. Avoid Adding New Debt Just to Increase Available Credit</h3>
-
-                <p>
-                    Opening another credit card can increase your total available revolving credit, but it can also
-                    result in a hard inquiry, create a new account, and increase your opportunity to take on
-                    additional debt.
-                </p>
-
-                <p>Lower utilization should not be pursued by borrowing money you do not need.</p>
-
-                <h3>6. Keep Existing Accounts Open When Appropriate</h3>
-
-                <p>
-                    Closing a credit card can reduce your total available revolving credit. If your balances stay
-                    the same, that can cause your overall utilization percentage to rise.
-                </p>
-
-                <p>
-                    Before closing a card, consider annual fees, spending habits, account age, issuer policies, and
-                    whether keeping the account open creates a risk of overspending.
-                </p>
-
-                <h3>7. Reduce Spending While Paying Down High Balances</h3>
-
-                <p>
-                    If high utilization is caused by recurring spending, simply making one payment may not solve the
-                    underlying problem. Combining lower spending with a debt-payoff plan can help prevent balances
-                    from building again.
-                </p>
-
-                <h2 id="common-mistakes">Common Credit Utilization Mistakes</h2>
-
-                <div class="mistake-list">
-                    <div class="mistake">
-                        <strong> Mistake 1: Treating 30% as a hard cutoff </strong>
-
-                        The 30% figure is a general benchmark, not a universal scoring threshold. Lower utilization
-                        can still be better for scoring purposes.
-                    </div>
-
-                    <div class="mistake">
-                        <strong> Mistake 2: Looking only at total utilization </strong>
-
-                        Individual card utilization can matter too. One nearly maxed-out card can have a different
-                        effect from several cards with moderate balances.
-                    </div>
-
-                    <div class="mistake">
-                        <strong> Mistake 3: Assuming paying in full means 0% utilization </strong>
-
-                        The balance reported during the billing cycle may be different from the balance you
-                        ultimately pay.
-                    </div>
-
-                    <div class="mistake">
-                        <strong> Mistake 4: Closing cards without considering available credit </strong>
-
-                        Closing an account can reduce your total available credit and potentially increase your
-                        overall utilization.
-                    </div>
-
-                    <div class="mistake">
-                        <strong> Mistake 5: Opening new accounts only to lower utilization </strong>
-
-                        New credit can bring hard inquiries and additional borrowing opportunities. A lower ratio is
-                        not useful if it leads to unnecessary debt.
-                    </div>
-                </div>
-
-                <h2 id="utilization-and-score">Credit Utilization vs. Other Credit Score Factors</h2>
-
-                <p>
-                    Credit utilization is important, but it is only one part of a credit score. Different scoring
-                    models use different formulas and may weigh information differently.
-                </p>
-
-                <div class="table-wrap">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Factor</th>
-                                <th>What it generally represents</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>Payment history</td>
-                                <td>Whether you have made required payments on time</td>
-                            </tr>
-
-                            <tr>
-                                <td>Amounts owed</td>
-                                <td>Balances and the amount of revolving credit being used</td>
-                            </tr>
-
-                            <tr>
-                                <td>Length of credit history</td>
-                                <td>How long your credit accounts have been established</td>
-                            </tr>
-
-                            <tr>
-                                <td>Credit mix</td>
-                                <td>Experience managing different types of credit</td>
-                            </tr>
-
-                            <tr>
-                                <td>New credit</td>
-                                <td>Recent applications, inquiries and new accounts</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h2 id="does-it-reset">Does Credit Utilization Reset Every Month?</h2>
-
-                <p>
-                    Credit utilization can change whenever your reported balances or credit limits change. It is not
-                    a permanent mark like a missed payment or collection account.
-                </p>
-
-                <p>
-                    Many credit scoring models use recently reported revolving balances. Therefore, lowering a high
-                    reported balance can potentially affect a score after updated information reaches the credit
-                    bureaus.
-                </p>
-
-                <p>
-                    Some newer scoring models also consider trends in credit behavior, so maintaining lower
-                    utilization consistently can be useful rather than focusing only on one reporting cycle.
-                </p>
-
-                <h2 id="credit-limit">Can Increasing Your Credit Limit Lower Utilization?</h2>
-
-                <p>
-                    Yes, mathematically, a higher credit limit can reduce your utilization if your balance does not
-                    increase.
-                </p>
-
-                <div class="formula-box">
-                    <span class="formula"> $2,000 ÷ $5,000 = 40% </span>
-
-                    <span class="formula"> $2,000 ÷ $10,000 = 20% </span>
-
-                    <span class="formula-note"> The balance is unchanged; only the credit limit increased. </span>
-                </div>
-
-                <p>
-                    However, requesting a higher limit is not guaranteed to be approved, and an issuer may review
-                    your credit. Opening a new account also has additional consequences. Never increase your
-                    available credit simply as an excuse to increase spending.
-                </p>
-
-                <h2 id="before-loan">Credit Utilization Before Applying for a Loan</h2>
-
-                <p>
-                    If you are preparing to apply for a mortgage, auto loan, personal loan, or new credit card,
-                    reviewing your revolving balances can help you understand what a lender or scoring model may
-                    see.
-                </p>
-
-                <p>
-                    Consider checking your credit reports, reviewing each card's reported balance and limit, and
-                    avoiding unnecessary large purchases that could substantially increase reported utilization
-                    immediately before an application.
-                </p>
-
-                <p>
-                    There is no guaranteed utilization percentage that will result in approval or a particular
-                    interest rate. Lenders can consider many other factors, including income, debt obligations,
-                    credit history and the specific loan product.
-                </p>
-
-                <h2 id="practical-check">A Simple Credit Utilization Check</h2>
-
-                <p>You can use this checklist once a month to understand your utilization:</p>
-
-                <ol>
-                    <li>List each revolving account.</li>
-                    <li>Record each account's reported balance.</li>
-                    <li>Record each account's credit limit.</li>
-                    <li>Calculate utilization for each card.</li>
-                    <li>Add all balances together.</li>
-                    <li>Add all applicable credit limits together.</li>
-                    <li>Calculate your overall utilization.</li>
-                    <li>Check for accounts with unusually high individual utilization.</li>
-                </ol>
-
-                <h2 id="key-takeaways">Key Takeaways</h2>
-
-                <ul>
-                    <li>Credit utilization measures revolving balances relative to available credit.</li>
-
-                    <li>The basic formula is balance divided by credit limit, multiplied by 100.</li>
-
-                    <li>You can calculate utilization for individual cards and across multiple accounts.</li>
-
-                    <li>Lower utilization generally supports stronger credit scores.</li>
-
-                    <li>The 30% figure is a common guideline, not a universal cutoff.</li>
-
-                    <li>Paying a card in full does not necessarily mean the reported utilization was zero.</li>
-
-                    <li>Paying down balances can reduce utilization without taking on new debt.</li>
-
-                    <li>
-                        Increasing a credit limit can lower utilization if balances remain unchanged, but
-                        credit-limit requests can involve credit checks.
-                    </li>
-
-                    <li>Credit utilization is only one part of a credit score.</li>
-                </ul>
-
-                <h2 id="faqs">Frequently Asked Questions</h2>
-
-                <div class="faq-item">
-                    <h3>What is credit utilization?</h3>
-
-                    <p>
-                        Credit utilization is the percentage of available revolving credit that you are using. For a
-                        credit card, divide the balance by the credit limit and multiply by 100.
-                    </p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>What is a good credit utilization ratio?</h3>
-
-                    <p>
-                        Lower utilization is generally better for credit scoring. Keeping utilization below 30% is a
-                        commonly used guideline, while people with very high scores often have utilization below
-                        10%. There is no universal percentage that guarantees a particular credit score.
-                    </p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>Is 30% credit utilization bad?</h3>
-
-                    <p>
-                        A 30% utilization rate is not automatically bad. It is commonly used as a benchmark because
-                        higher utilization can have a greater negative effect on credit scores. Lower utilization is
-                        generally preferable.
-                    </p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>Is 0% credit utilization better than 10%?</h3>
-
-                    <p>
-                        Not necessarily. Some scoring models may not provide an additional benefit for having every
-                        revolving account report a zero balance. A small reported balance that is managed
-                        responsibly can still be consistent with strong credit.
-                    </p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>Does paying my credit card in full improve utilization?</h3>
-
-                    <p>
-                        Paying in full reduces your balance, but the balance used for scoring may be the amount
-                        reported before your payment due date. Therefore, you can pay in full every month and still
-                        have a nonzero utilization rate reported.
-                    </p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>Does credit utilization affect my credit score?</h3>
-
-                    <p>
-                        Yes. Credit utilization is an important component of many credit scoring models. Higher
-                        utilization generally has a negative relationship with credit scores, although the exact
-                        effect depends on the scoring model and your overall credit profile.
-                    </p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>Can credit utilization go above 100%?</h3>
-
-                    <p>
-                        A reported balance can exceed a card's stated credit limit in some circumstances, resulting
-                        in utilization above 100%. Such a high utilization level can negatively affect credit scores
-                        and may also create account or fee consequences depending on the issuer.
-                    </p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>How quickly can lowering utilization affect my credit score?</h3>
-
-                    <p>
-                        It depends on when the creditor reports updated information and which scoring model is used.
-                        Because many scores use recently reported revolving balances, a lower reported balance can
-                        sometimes be reflected relatively quickly after the next reporting cycle.
-                    </p>
-                </div>
-
-                <h2 id="related">Related Credit &amp; Debt Guides</h2>
-
-                <div class="related-links">
-                    <a href="/finance/credit-debt/what-is-a-credit-score/">
-                        What Is a Credit Score?
-                        <span>→</span>
-                    </a>
-
-                    <a href="/finance/credit-debt/how-credit-scores-work/">
-                        How Credit Scores Work
-                        <span>→</span>
-                    </a>
-
-                    <a href="/finance/credit-debt/what-is-a-credit-report/">
-                        What Is a Credit Report?
-                        <span>→</span>
-                    </a>
-
-                    <a href="/finance/credit-debt/how-to-build-credit/">
-                        How to Build Credit
-                        <span>→</span>
-                    </a>
-
-                    <a href="/finance/credit-debt/how-to-improve-credit-score/">
-                        How to Improve Your Credit Score
-                        <span>→</span>
-                    </a>
-
-                    <a href="/finance/credit-debt/how-to-pay-off-debt/">
-                        How to Pay Off Debt
-                        <span>→</span>
-                    </a>
-
-                    <a href="/finance/credit-debt/get-out-of-credit-card-debt/">
-                        How to Get Out of Credit Card Debt
-                        <span>→</span>
-                    </a>
-                </div>
-
-                <h2 id="sources">Sources &amp; Further Reading</h2>
-
-                <p class="source-list">
-                    This guide was informed by educational resources from Experian, TD Bank, Equifax, Lafayette
-                    Federal Credit Union, Navy Federal Credit Union, and consumer-credit guidance.
-                </p>
-
-                <p class="source-list">
-                    Credit scoring models and reporting practices can change, and different lenders may use
-                    different scoring models. Check the terms of your specific credit account and the credit
-                    reporting information available to you.
-                </p>
-
-                <div class="disclaimer">
-                    <strong>Educational disclaimer:</strong>
-                    This article is for general educational purposes and is not personalized financial, credit,
-                    legal, or tax advice. Credit scores are calculated using different models, and the same
-                    utilization rate may affect different scores differently. Always consider your complete
-                    financial situation before making borrowing or credit decisions.
-                </div>
-            </article>
-
-            <aside>
-                <div class="sidebar-card">
-                    <h2 class="sidebar-title">On this page</h2>
-
-                    <nav class="toc">
-                        <a href="#what-is-credit-utilization"> What Is Credit Utilization? </a>
-
-                        <a href="#how-to-calculate"> How to Calculate It </a>
-
-                        <a href="#individual-vs-overall"> Individual vs. Overall </a>
-
-                        <a href="#why-it-matters"> Why It Matters </a>
-
-                        <a href="#30-percent-rule"> The 30% Rule </a>
-
-                        <a href="#when-reported"> When It's Reported </a>
-
-                        <a href="#pay-in-full"> Paying in Full </a>
-
-                        <a href="#how-to-lower"> How to Lower It </a>
-
-                        <a href="#common-mistakes"> Common Mistakes </a>
-
-                        <a href="#faqs"> FAQs </a>
-                    </nav>
-                </div>
-
-                <div class="sidebar-card">
-                    <div class="mini-tool">
-                        <strong> Keep learning </strong>
-
-                        <p>Learn how credit scores, reports, debt and utilization work together.</p>
-
-                        <a href="/finance/credit-debt/"> Explore Credit &amp; Debt → </a>
-                    </div>
-                </div>
-
-                <div class="sidebar-card">
-                    <h2 class="sidebar-title">Credit guides</h2>
-
-                    <div class="toc">
-                        <a href="/finance/credit-debt/what-is-a-credit-score/"> Credit Score Basics </a>
-
-                        <a href="/finance/credit-debt/how-credit-scores-work/"> How Scores Work </a>
-
-                        <a href="/finance/credit-debt/what-is-a-credit-report/"> Credit Reports </a>
-
-                        <a href="/finance/credit-debt/debt-to-income-ratio/"> Debt-to-Income Ratio </a>
-
-                        <a href="/finance/credit-debt/how-to-pay-off-debt/"> Pay Off Debt </a>
-                    </div>
-                </div>
-            </aside>
-        </div>
-
-    </main>
-
-    <footer class="site-footer">
-
-        <div class="footer-inner">
-            <div>
-                <div class="footer-brand">Paycheck<span>Mint</span></div>
-
-                <p class="footer-description">
-                    Simple tools and guides to help you understand your paycheck, income, taxes, budgeting, debt,
-                    and investing.
-                </p>
             </div>
 
-            <div class="footer-column">
-                <h3>Tools</h3>
+        </main>
 
-                <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
 
-                <a href="/hourly-paycheck-calculator/"> Hourly Paycheck Calculator </a>
+        <!-- =========================================================
+         FOOTER
+         ========================================================= -->
 
-                <a href="/salary-paycheck-calculator/"> Salary Paycheck Calculator </a>
+        <footer class="pm-footer">
 
-                <a href="/overtime-pay-calculator/"> Overtime Calculator </a>
+            <div class="pm-footer-inner">
+
+                <div class="pm-footer-main">
+
+                    <div class="pm-footer-grid">
+
+                        <div class="pm-footer-brand-column">
+
+                            <a class="pm-footer-brand" href="/">
+                                Paycheck<span>Mint</span>
+                            </a>
+
+                            <p class="pm-footer-description">
+                                Practical personal finance guides, paycheck tools,
+                                and calculators to help you make informed money decisions.
+                            </p>
+
+                        </div>
+
+                        <div>
+                            <h3 class="pm-footer-heading">Money</h3>
+
+                            <ul class="pm-footer-links">
+                                <li><a href="/income/">Income</a></li>
+                                <li><a href="/paycheck-tax-calculator/">Paycheck Calculator</a></li>
+                                <li><a href="/take-home-pay-calculator/">Take-Home Pay</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="pm-footer-heading">Finance</h3>
+
+                            <ul class="pm-footer-links">
+                                <li><a href="/finance/taxes/">Taxes</a></li>
+                                <li><a href="/finance/budgeting/">Budgeting</a></li>
+                                <li><a href="/finance/credit-debt/">Credit &amp; Debt</a></li>
+                                <li><a href="/finance/investing/">Investing</a></li>
+                                <li><a href="/finance/insurance/">Insurance</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="pm-footer-heading">Company</h3>
+
+                            <ul class="pm-footer-links">
+                                <li><a href="/about/">About</a></li>
+                                <li><a href="/contact/">Contact</a></li>
+                                <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                                <li><a href="/terms/">Terms</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="pm-footer-bottom">
+
+                    <div class="pm-footer-copyright">
+                        © 2026 PaycheckMint. All rights reserved.
+                    </div>
+
+                    <div class="pm-footer-legal">
+                        <a href="/privacy-policy/">Privacy Policy</a>
+                        <a href="/terms/">Terms</a>
+                        <a href="/contact/">Contact</a>
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="footer-column">
-                <h3>Finance</h3>
+        </footer>
 
-                <a href="/finance/"> Finance Overview </a>
+    </div>
 
-                <a href="/finance/taxes/"> Taxes </a>
-
-                <a href="/finance/budgeting/"> Budgeting </a>
-
-                <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
-
-                <a href="/finance/investing/"> Investing </a>
-
-                <a href="/finance/insurance/"> Insurance </a>
-            </div>
-
-            <div class="footer-column">
-                <h3>Company</h3>
-
-                <a href="/about/"> About </a>
-
-                <a href="/contact/"> Contact </a>
-
-                <a href="/privacy-policy/"> Privacy </a>
-
-                <a href="/terms/"> Terms </a>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>© 2026 PaycheckMint. All rights reserved.</p>
-
-            <p>
-                PaycheckMint provides general educational information and estimates, not personalized financial
-                advice.
-            </p>
-        </div>
-
-    </footer>
 
     <script>
         (function () {
-            const toggle = document.querySelector(".mobile-menu-toggle");
-            const nav = document.querySelector(".main-nav");
-            const dropdown = document.querySelector(".nav-dropdown");
-            const dropdownButton = dropdown ? dropdown.querySelector("button") : null;
+            "use strict";
 
-            if (!toggle || !nav) return;
-
-            toggle.addEventListener("click", function (event) {
-                event.stopPropagation();
-
-                const isOpen = nav.classList.toggle("menu-open");
-
-                toggle.setAttribute("aria-expanded", String(isOpen));
-
-                toggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+            /* ==========================================================================
+               1. ASYNC COMPONENT LOADER
+               ========================================================================== */
+            document.addEventListener("DOMContentLoaded", function () {
+                loadSharedComponents();
             });
 
-            if (dropdown && dropdownButton) {
-                dropdownButton.addEventListener("click", function (event) {
-                    event.stopPropagation();
+            async function loadSharedComponents() {
+                const navbar = document.getElementById("site-navbar");
+                const footer = document.getElementById("site-footer");
 
-                    const isOpen = dropdown.classList.toggle("open");
+                try {
+                    const requests = [];
 
-                    dropdownButton.setAttribute("aria-expanded", String(isOpen));
-                });
+                    if (navbar) {
+                        requests.push(
+                            fetch("/components/navbar.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Navbar 404"))
+                                .then(html => { navbar.innerHTML = html; })
+                        );
+                    }
+
+                    if (footer) {
+                        requests.push(
+                            fetch("/components/footer.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Footer 404"))
+                                .then(html => { footer.innerHTML = html; })
+                        );
+                    }
+
+                    await Promise.all(requests);
+                    // Re-bind focus or initial state if required after injection
+                    setupScrollHeader();
+                } catch (error) {
+                    console.error("Component loading error:", error);
+                    setupScrollHeader();
+                }
             }
 
+            /* ==========================================================================
+               2. EVENT DELEGATION (Handles dynamic elements automatically)
+               ========================================================================== */
             document.addEventListener("click", function (event) {
-                if (
-                    nav.classList.contains("menu-open") &&
-                    !nav.contains(event.target) &&
-                    !toggle.contains(event.target)
-                ) {
-                    nav.classList.remove("menu-open");
 
-                    toggle.setAttribute("aria-expanded", "false");
+                // --- DESKTOP DROPDOWNS ---
+                const dropdownBtn = event.target.closest(".pm-nav-dropdown-button");
+                if (dropdownBtn) {
+                    event.stopPropagation();
+                    const currentDropdown = dropdownBtn.closest(".pm-nav-dropdown");
+                    const isOpen = currentDropdown.classList.contains("is-open");
 
-                    toggle.setAttribute("aria-label", "Open navigation");
+                    // Close all dropdowns
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
+                    });
+
+                    // Toggle selected dropdown
+                    if (!isOpen) {
+                        currentDropdown.classList.add("is-open");
+                        dropdownBtn.setAttribute("aria-expanded", "true");
+                    }
+                    return;
                 }
 
-                if (dropdown && dropdown.classList.contains("open") && !dropdown.contains(event.target)) {
-                    dropdown.classList.remove("open");
+                // Close desktop dropdowns when clicking outside
+                if (!event.target.closest(".pm-nav-dropdown")) {
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
+                    });
+                }
 
-                    if (dropdownButton) {
-                        dropdownButton.setAttribute("aria-expanded", "false");
+                // --- MOBILE NAV TOGGLE ---
+                const mobileToggle = event.target.closest("#mobileToggle");
+                if (mobileToggle) {
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) {
+                        const isOpen = mobileNav.classList.toggle("is-open");
+                        mobileToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
+                }
+
+                // --- MOBILE SUBMENU TOGGLE ---
+                const mobileFinanceToggle = event.target.closest("#mobileFinanceToggle");
+                if (mobileFinanceToggle) {
+                    event.stopPropagation();
+                    const mobileFinanceLinks = document.getElementById("mobileFinanceLinks");
+                    if (mobileFinanceLinks) {
+                        const isOpen = mobileFinanceLinks.classList.toggle("is-open");
+                        mobileFinanceToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
+                }
+
+                // --- SEARCH TOGGLE (OPEN / CLOSE) ---
+                const searchToggle = event.target.closest("#searchToggle");
+                const mobileSearchBtn = event.target.closest("#mobileSearchButton");
+                const searchClose = event.target.closest("#searchClose");
+                const searchPanel = document.getElementById("searchPanel");
+
+                if (searchToggle || mobileSearchBtn) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) mobileNav.classList.remove("is-open");
+
+                    if (searchPanel) {
+                        if (searchPanel.classList.contains("is-open") && searchToggle) {
+                            closeSearch();
+                        } else {
+                            openSearch();
+                        }
+                    }
+                    return;
+                }
+
+                if (searchClose) {
+                    event.preventDefault();
+                    closeSearch();
+                    return;
+                }
+
+                // Close search panel when clicking outside of it
+                if (searchPanel && searchPanel.classList.contains("is-open")) {
+                    if (!searchPanel.contains(event.target)) {
+                        closeSearch();
                     }
                 }
             });
 
+            /* ==========================================================================
+               3. SEARCH HELPER FUNCTIONS & LIVE FILTERING
+               ========================================================================== */
+            function openSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchToggle = document.getElementById("searchToggle");
+
+                if (!searchPanel) return;
+                searchPanel.classList.add("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "true");
+                    searchToggle.setAttribute("aria-label", "Close search");
+                }
+                if (searchInput) setTimeout(() => searchInput.focus(), 100);
+            }
+
+            function closeSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchResults = document.getElementById("searchResults");
+                const searchToggle = document.getElementById("searchToggle");
+
+                if (!searchPanel) return;
+                searchPanel.classList.remove("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "false");
+                    searchToggle.setAttribute("aria-label", "Open search");
+                }
+                if (searchInput) searchInput.value = "";
+                if (searchResults) searchResults.innerHTML = "";
+            }
+
+            // Keyboard Shortcuts (Escape Key)
             document.addEventListener("keydown", function (event) {
                 if (event.key === "Escape") {
-                    nav.classList.remove("menu-open");
-
-                    toggle.setAttribute("aria-expanded", "false");
-
-                    toggle.setAttribute("aria-label", "Open navigation");
-
-                    if (dropdown) {
-                        dropdown.classList.remove("open");
-                    }
-
-                    if (dropdownButton) {
-                        dropdownButton.setAttribute("aria-expanded", "false");
-                    }
+                    closeSearch();
                 }
             });
 
-            nav.querySelectorAll("a").forEach(function (link) {
-                link.addEventListener("click", function () {
-                    nav.classList.remove("menu-open");
+            // Live Search Typing Input Event
+            document.addEventListener("input", function (event) {
+                if (event.target.id !== "siteSearch") return;
 
-                    toggle.setAttribute("aria-expanded", "false");
+                const query = event.target.value.trim().toLowerCase();
+                const searchResults = document.getElementById("searchResults");
+                if (!searchResults) return;
 
-                    toggle.setAttribute("aria-label", "Open navigation");
-                });
+                if (query.length === 0) {
+                    searchResults.innerHTML = "";
+                    return;
+                }
+
+                const searchablePages = [
+                    { title: "Paycheck Tax Calculator", url: "/paycheck-tax-calculator/", description: "Calculate accurate net pay and taxes." },
+                    { title: "Take-Home Pay Calculator", url: "/take-home-pay-calculator/", description: "Estimate your actual paycheck total after deductions." },
+                    { title: "Hourly Paycheck Calculator", url: "/hourly-paycheck-calculator/", description: "Calculate income based on hourly wage and hours worked." },
+                    { title: "Overtime Pay Calculator", url: "/overtime-pay-calculator/", description: "Compute overtime rates and total extra wages." },
+                    { title: "Salary Paycheck Calculator", url: "/salary-paycheck-calculator/", description: "Break down annual salary into per-paycheck earnings." },
+                    { title: "Income Overview", url: "/income/", description: "Learn about taxable income, gross wages, and take-home pay." },
+                    { title: "Finance Overview", url: "/finance/", description: "Guides on managing personal finances and budgeting strategies." },
+                    { title: "Budgeting Guides", url: "/finance/budgeting/", description: "Strategies for budgeting your paycheck effectively." }
+                ];
+
+                const matches = searchablePages.filter(page =>
+                    page.title.toLowerCase().includes(query) ||
+                    page.description.toLowerCase().includes(query)
+                );
+
+                if (matches.length === 0) {
+                    searchResults.innerHTML = `<p class="pm-search-no-results">No results found for "${escapeHTML(query)}"</p>`;
+                    return;
+                }
+
+                searchResults.innerHTML = matches.map(item => `
+            <a href="${item.url}" class="pm-search-result-item">
+                <span class="pm-search-result-title">${escapeHTML(item.title)}</span>
+                <span class="pm-search-result-desc">${escapeHTML(item.description)}</span>
+            </a>
+        `).join("");
             });
+
+            function escapeHTML(str) {
+                return str.replace(/[&<>'"]/g, tag => ({
+                    '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+                }[tag] || tag));
+            }
+
+            /* ==========================================================================
+               4. SCROLL SHADOW
+               ========================================================================== */
+            function setupScrollHeader() {
+                const header = document.getElementById("site-header");
+                if (!header) return;
+
+                window.addEventListener("scroll", function () {
+                    if (window.scrollY > 20) {
+                        header.classList.add("is-scrolled");
+                    } else {
+                        header.classList.remove("is-scrolled");
+                    }
+                }, { passive: true });
+            }
+
         })();
     </script>
 
-    <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "Article",
-                "headline": "Credit Utilization Ratio: What It Is & How It Works",
-                "description": "Learn what credit utilization is, how to calculate your credit utilization ratio, why it affects your credit score, and practical ways to lower it.",
-                "url": "https://paycheckmint.com/finance/credit-debt/credit-utilization/",
-                "mainEntityOfPage": {
-                    "@type": "WebPage",
-                    "@id": "https://paycheckmint.com/finance/credit-debt/credit-utilization/"
-                },
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "PaycheckMint",
-                    "url": "https://paycheckmint.com/"
-                },
-                "datePublished": "2026-09-22",
-                "dateModified": "2026-09-22"
-            }
-        </script>
+
+    <!-- =========================================================
+     FAQ SCHEMA
+     ========================================================= -->
 
     <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Home",
-                        "item": "https://paycheckmint.com/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Credit & Debt",
-                        "item": "https://paycheckmint.com/finance/credit-debt/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 3,
-                        "name": "Credit Utilization",
-                        "item": "https://paycheckmint.com/finance/credit-debt/credit-utilization/"
-                    }
-                ]
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What is a good credit utilization ratio?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Lower utilization is generally viewed more favorably by many credit scoring models than high utilization. There is no single percentage that guarantees a particular credit score."
             }
-        </script>
+        },
+        {
+            "@type": "Question",
+            "name": "Is 30% credit utilization good?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A 30% ratio is commonly used as a personal finance benchmark, but it is not a universal cutoff used by every credit scoring model."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Does paying off my credit card lower utilization?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. If your balance decreases while the credit limit stays the same, the utilization percentage decreases mathematically."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Does credit utilization reset every month?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Credit-card balances can change throughout the month, and issuers report account information periodically. The reported balance can therefore change from one reporting period to another."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Does having a $0 balance hurt your credit?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Having a $0 credit-card balance does not by itself mean you are failing to build credit. You generally do not need to carry a balance and pay interest to establish responsible credit use."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can closing a credit card increase utilization?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It can. Closing an account may reduce your total available revolving credit. If your balances remain the same, your overall utilization ratio can increase."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Does credit utilization affect every credit score?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Credit scoring models differ. Utilization of revolving credit is important in many commonly used scoring models, but the exact calculation and impact can vary by model and credit profile."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do I need to pay my card before the due date?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You should make at least the required minimum payment by the due date to avoid being late. Paying earlier can also reduce your balance before a statement or reporting date, depending on the issuer's practices."
+            }
+        }
+    ]
+}
+</script>
+
+
+    <!-- =========================================================
+     WEBSITE / ARTICLE SCHEMA
+     ========================================================= -->
 
     <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": [
-                    {
-                        "@type": "Question",
-                        "name": "What is credit utilization?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Credit utilization is the percentage of available revolving credit that you are using. For a credit card, divide the balance by the credit limit and multiply by 100."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "What is a good credit utilization ratio?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Lower utilization is generally better for credit scoring. Keeping utilization below 30% is a commonly used guideline, while people with very high scores often have utilization below 10%. There is no universal percentage that guarantees a particular credit score."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Is 30% credit utilization bad?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "A 30% utilization rate is not automatically bad. It is commonly used as a benchmark because higher utilization can have a greater negative effect on credit scores. Lower utilization is generally preferable."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Does paying my credit card in full improve utilization?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Paying in full reduces your balance, but the balance used for scoring may be the amount reported before your payment due date. Therefore, you can pay in full every month and still have a nonzero utilization rate reported."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Does credit utilization affect my credit score?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Yes. Credit utilization is an important component of many credit scoring models. Higher utilization generally has a negative relationship with credit scores, although the exact effect depends on the scoring model and your overall credit profile."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "How quickly can lowering utilization affect my credit score?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "It depends on when the creditor reports updated information and which scoring model is used. Because many scores use recently reported revolving balances, a lower reported balance can sometimes be reflected relatively quickly after the next reporting cycle."
-                        }
-                    }
-                ]
-            }
-        </script>
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Credit Utilization Ratio: What It Is & How It Works",
+    "description": "Learn how credit utilization works, how to calculate your credit utilization ratio, why it can affect your credit score, and practical ways to lower your utilization.",
+    "url": "https://paycheckmint.com/finance/credit-debt/credit-utilization/",
+    "publisher": {
+        "@type": "Organization",
+        "name": "PaycheckMint",
+        "url": "https://paycheckmint.com/"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://paycheckmint.com/finance/credit-debt/credit-utilization/"
+    }
+}
+</script>
+
+
+    <!-- =========================================================
+     MOBILE NAVIGATION
+     ========================================================= -->
+
+
 </body>
 
 </html>

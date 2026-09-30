@@ -1,2443 +1,3652 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
 
-        <title>Salary Paycheck Calculator 2026 | PaycheckMint</title>
+<head>
 
-        <meta
-            name="description"
-            content="Use PaycheckMint's 2026 salary paycheck calculator to estimate your take-home pay after federal, Social Security, Medicare, state taxes, and deductions."
-        />
+    <meta charset="UTF-8">
 
-        <meta name="robots" content="index, follow, max-image-preview:large" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta name="author" content="PaycheckMint" />
-        <meta name="theme-color" content="#5954d9" />
+    <title>Salary Paycheck Calculator 2026 | PaycheckMint</title>
 
-        <link rel="canonical" href="https://paycheckmint.com/salary-paycheck-calculator/" />
-        <link rel="icon" href="/icon.ico" />
+    <meta name="description"
+        content="Use PaycheckMint's salary paycheck calculator to estimate your gross and net take-home pay across pay frequencies after federal, state, local taxes, FICA, and deductions.">
 
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Salary Paycheck Calculator 2026 | PaycheckMint" />
-        <meta
-            property="og:description"
-            content="Estimate your 2026 take-home salary after federal, FICA, state taxes, and deductions."
-        />
-        <meta property="og:url" content="https://paycheckmint.com/salary-paycheck-calculator/" />
-        <meta property="og:site_name" content="PaycheckMint" />
+    <meta name="robots" content="index, follow">
 
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="Salary Paycheck Calculator 2026 | PaycheckMint" />
-        <meta
-            name="twitter:description"
-            content="Estimate your 2026 salary take-home pay after taxes and deductions."
-        />
+    <link rel="canonical" href="/salary-paycheck-calculator/">
 
-        <style>
-            :root {
-                --bg: #f6f5f1;
-                --surface: #ffffff;
-                --surface-soft: #faf9f6;
-                --ink: #191919;
-                --muted: #74736f;
-                --muted-light: #999791;
-                --line: #deddd8;
-                --line-dark: #cbc9c3;
+    <link rel="icon" href="/icon.ico">
 
-                --accent: #5954d9;
-                --accent-dark: #4843c4;
-                --accent-soft: #eeecff;
+    <link rel="stylesheet" href="/style.css">
 
-                --chart-net: #5954d9;
-                --chart-federal: #e7a23b;
-                --chart-fica: #e06c5d;
-                --chart-state: #72a86f;
-                --chart-deductions: #aaa9a3;
-
-                --radius: 14px;
-                --radius-sm: 8px;
-                --radius-md: 12px;
-
-                --shadow: 0 8px 30px rgba(20, 20, 20, 0.06);
-            }
-
-            * {
-                box-sizing: border-box;
-            }
-
-            html {
-                scroll-behavior: smooth;
-            }
-
-            body {
-                margin: 0;
-                background: var(--bg);
-                color: var(--ink);
-                font-family:
-                    Inter,
-                    ui-sans-serif,
-                    system-ui,
-                    -apple-system,
-                    BlinkMacSystemFont,
-                    "Segoe UI",
-                    sans-serif;
-                line-height: 1.55;
-            }
-
-            .container {
-                width: min(1120px, calc(100% - 32px));
-                margin-inline: auto;
-            }
-
-            button,
-            input,
-            select {
-                font: inherit;
-            }
-
-            a {
-                color: inherit;
-            }
-
-            /* =========================================================
-           HEADER
+    <style>
+        /* =========================================================
+           SALARY PAYCHECK CALCULATOR
+           PAGE-SPECIFIC DESIGN
         ========================================================= */
 
-            .site-header {
-                position: relative;
-                z-index: 1000;
-                width: 100%;
-                background: var(--surface);
-                border-bottom: 1px solid var(--line);
-            }
+        :root {
+            --bpc-green: #176b5b;
+            --bpc-green-dark: #0f5145;
+            --bpc-green-light: #eaf4f1;
+            --bpc-gold: #c9922e;
+            --bpc-bg: #f6f5f1;
+            --bpc-white: #ffffff;
+            --bpc-text: #17221f;
+            --bpc-muted: #697570;
+            --bpc-border: #dfe5e2;
+            --bpc-danger: #b84c4c;
+            --bpc-radius: 16px;
+            --bpc-shadow: 0 10px 35px rgba(23, 44, 38, .08);
+        }
 
-            .header-inner {
-                position: relative;
-                min-height: 64px;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 24px;
-            }
+        * {
+            box-sizing: border-box;
+        }
 
-            .logo {
-                display: inline-flex;
-                align-items: center;
-                flex: 0 0 auto;
+        body {
+            margin: 0;
+            background: var(--bpc-bg);
+            color: var(--bpc-text);
+        }
 
-                color: var(--ink);
-                font-size: 1.25rem;
-                font-weight: 800;
-                line-height: 1;
-                text-decoration: none;
-                white-space: nowrap;
-            }
+        .bpc-page {
+            width: 100%;
+        }
 
-            .logo:hover {
-                color: var(--accent);
-            }
+        .bpc-container {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+        }
 
-            /* =========================================================
-           DESKTOP NAVIGATION
+        /* =========================================================
+           HERO
         ========================================================= */
 
-            .main-nav {
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
-                gap: 5px;
-                width: auto;
-            }
+        .bpc-hero {
+            padding: 54px 0 34px;
+        }
 
-            .main-nav > a,
-            .nav-dropdown-toggle {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
+        .bpc-breadcrumb {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+            color: var(--bpc-muted);
+            font-size: 14px;
+        }
 
-                min-height: 40px;
-                padding: 7px 10px;
+        .bpc-breadcrumb a {
+            color: var(--bpc-green);
+            text-decoration: none;
+        }
 
-                border: 0;
-                border-radius: var(--radius-sm);
+        .bpc-breadcrumb span {
+            color: #9ba5a1;
+        }
 
-                background: transparent;
-                color: var(--ink);
+        .bpc-hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 330px;
+            gap: 42px;
+            align-items: end;
+        }
 
-                font-size: 0.92rem;
-                font-weight: 600;
+        .bpc-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin-bottom: 13px;
+            color: var(--bpc-green);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
 
-                text-decoration: none;
-                white-space: nowrap;
+        .bpc-eyebrow::before {
+            content: "";
+            width: 24px;
+            height: 2px;
+            background: var(--bpc-gold);
+        }
 
-                cursor: pointer;
-            }
+        .bpc-hero h1 {
+            max-width: 760px;
+            margin: 0 0 17px;
+            font-size: clamp(34px, 5vw, 56px);
+            line-height: 1.04;
+            letter-spacing: -.035em;
+        }
 
-            .main-nav > a:hover,
-            .nav-dropdown-toggle:hover {
-                background: var(--surface-soft);
-                color: var(--accent);
-            }
+        .bpc-hero-text {
+            max-width: 750px;
+            margin: 0;
+            color: #596761;
+            font-size: 18px;
+            line-height: 1.7;
+        }
 
-            /* =========================================================
-           FINANCE DROPDOWN
+        .bpc-hero-note {
+            padding: 20px;
+            background: var(--bpc-white);
+            border: 1px solid var(--bpc-border);
+            border-radius: var(--bpc-radius);
+            box-shadow: 0 7px 25px rgba(23, 44, 38, .045);
+        }
+
+        .bpc-hero-note strong {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 17px;
+        }
+
+        .bpc-hero-note p {
+            margin: 0;
+            color: var(--bpc-muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* =========================================================
+           CALCULATOR GRID
         ========================================================= */
 
-            .nav-dropdown {
-                position: relative;
-            }
+        .bpc-calculator-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.12fr) minmax(350px, .88fr);
+            gap: 24px;
+            align-items: start;
+            margin: 10px auto 60px;
+        }
 
-            .nav-dropdown-toggle {
-                gap: 6px;
-            }
+        .bpc-form {
+            min-width: 0;
+            background: var(--bpc-white);
+            border: 1px solid var(--bpc-border);
+            border-radius: var(--bpc-radius);
+            box-shadow: var(--bpc-shadow);
+            overflow: hidden;
+        }
 
-            .dropdown-arrow {
-                font-size: 11px;
-                line-height: 1;
-                transition: transform 0.2s ease;
-            }
+        .bpc-form-header {
+            padding: 25px 26px;
+            border-bottom: 1px solid var(--bpc-border);
+        }
 
-            .nav-dropdown.open .dropdown-arrow {
-                transform: rotate(180deg);
-            }
+        .bpc-form-header h2 {
+            margin: 0 0 7px;
+            font-size: 22px;
+            letter-spacing: -.02em;
+        }
 
-            .nav-dropdown-menu {
-                position: absolute;
-                top: calc(100% + 6px);
-                right: 0;
+        .bpc-form-header p {
+            margin: 0;
+            color: var(--bpc-muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
 
-                z-index: 2000;
+        .bpc-form-body {
+            padding: 26px;
+        }
 
-                width: 235px;
-                padding: 7px;
+        .bpc-section {
+            padding-bottom: 28px;
+            margin-bottom: 28px;
+            border-bottom: 1px solid #edf0ee;
+        }
 
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: var(--radius-md);
+        .bpc-section:last-child {
+            padding-bottom: 0;
+            margin-bottom: 0;
+            border-bottom: 0;
+        }
 
-                box-shadow: var(--shadow);
+        .bpc-section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 19px;
+            font-size: 17px;
+        }
 
-                display: none;
-            }
+        .bpc-section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--bpc-green-light);
+            color: var(--bpc-green);
+            font-size: 13px;
+            font-weight: 800;
+        }
 
-            .nav-dropdown.open .nav-dropdown-menu {
-                display: block;
-            }
-
-            .nav-dropdown-menu a {
-                display: block;
-
-                padding: 10px 12px;
-
-                border-radius: var(--radius-sm);
-
-                color: var(--ink);
-
-                font-size: 13px;
-                font-weight: 500;
-
-                text-decoration: none;
-            }
-
-            .nav-dropdown-menu a:hover {
-                background: var(--surface-soft);
-                color: var(--accent);
-            }
-
-            /* =========================================================
-           MOBILE MENU BUTTON
+        /* =========================================================
+           FIELDS
         ========================================================= */
 
-            .mobile-menu-toggle {
-                display: none;
+        .bpc-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 17px;
+        }
 
-                width: 42px;
-                height: 42px;
+        .bpc-field {
+            min-width: 0;
+        }
 
-                flex: 0 0 42px;
+        .bpc-field.full {
+            grid-column: 1 / -1;
+        }
 
-                padding: 8px;
+        .bpc-field label {
+            display: block;
+            margin-bottom: 7px;
+            color: #36433e;
+            font-size: 13px;
+            font-weight: 750;
+        }
 
-                border: 1px solid var(--line);
-                border-radius: var(--radius-sm);
+        .bpc-input,
+        .bpc-select {
+            width: 100%;
+            height: 46px;
+            padding: 0 12px;
+            border: 1px solid #d6dfdb;
+            border-radius: 9px;
+            background: #fff;
+            color: var(--bpc-text);
+            font: inherit;
+            font-size: 15px;
+            outline: none;
+            transition:
+                border-color .15s ease,
+                box-shadow .15s ease;
+        }
 
-                background: var(--surface);
+        .bpc-input:focus,
+        .bpc-select:focus {
+            border-color: var(--bpc-green);
+            box-shadow: 0 0 0 3px rgba(23, 107, 91, .10);
+        }
 
-                cursor: pointer;
+        .bpc-input-wrap {
+            position: relative;
+        }
 
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-            }
+        .bpc-prefix {
+            position: absolute;
+            left: 13px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6d7975;
+            pointer-events: none;
+            font-size: 14px;
+        }
 
-            .mobile-menu-toggle span {
-                display: block;
+        .bpc-input.has-prefix {
+            padding-left: 30px;
+        }
 
-                width: 20px;
-                height: 2px;
+        .bpc-field-help {
+            margin-top: 7px;
+            color: #89938f;
+            font-size: 12px;
+            line-height: 1.45;
+        }
 
-                margin: 3px 0;
-
-                background: var(--ink);
-                border-radius: 2px;
-
-                transition:
-                    transform 0.2s ease,
-                    opacity 0.2s ease;
-            }
-
-            .mobile-menu-toggle.open span:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
-            }
-
-            .mobile-menu-toggle.open span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .mobile-menu-toggle.open span:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
-            }
-
-            /* =========================================================
-           PAGE
+        /* =========================================================
+           RESULT PANEL — RIGHT
         ========================================================= */
 
-            .page {
-                width: min(1100px, calc(100% - 32px));
-                margin: 0 auto;
-            }
+        .bpc-result {
+            position: sticky;
+            top: 20px;
+            min-width: 0;
+            overflow: hidden;
+            border-radius: var(--bpc-radius);
+            background: var(--bpc-green);
+            color: #fff;
+            box-shadow: 0 16px 42px rgba(23, 107, 91, .20);
+        }
 
-            .hero {
-                max-width: 760px;
-                margin: 48px auto 34px;
-                text-align: center;
-            }
+        .bpc-result-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 27px 27px 23px;
+        }
 
-            .eyebrow {
-                margin: 0 0 9px;
-                color: var(--accent);
-                font-size: 0.72rem;
-                font-weight: 800;
-                letter-spacing: 0.11em;
-            }
+        .bpc-result-label {
+            margin-bottom: 6px;
+            color: rgba(255, 255, 255, .72);
+            font-size: 13px;
+            font-weight: 700;
+        }
 
-            .hero h1 {
-                margin: 0;
-                font-size: clamp(2rem, 5vw, 3.3rem);
-                line-height: 1.08;
-                letter-spacing: -0.055em;
-            }
+        .bpc-net-pay {
+            font-size: clamp(34px, 5vw, 47px);
+            font-weight: 850;
+            line-height: 1;
+            letter-spacing: -.045em;
+        }
 
-            .hero p {
-                max-width: 650px;
-                margin: 16px auto 0;
-                color: var(--muted);
-                font-size: 0.98rem;
-            }
+        .bpc-net-subtitle {
+            margin-top: 8px;
+            color: rgba(255, 255, 255, .68);
+            font-size: 13px;
+        }
 
-            /* =========================================================
-           CALCULATOR
+        .bpc-result-period {
+            align-self: flex-start;
+            padding: 7px 10px;
+            border: 1px solid rgba(255, 255, 255, .16);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, .07);
+            color: rgba(255, 255, 255, .78);
+            white-space: nowrap;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .bpc-result-rate {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 14px 27px;
+            border-top: 1px solid rgba(255, 255, 255, .10);
+            border-bottom: 1px solid rgba(255, 255, 255, .10);
+            background: rgba(0, 0, 0, .08);
+            color: rgba(255, 255, 255, .72);
+            font-size: 13px;
+        }
+
+        .bpc-result-rate strong {
+            color: #fff;
+        }
+
+        .bpc-breakdown {
+            padding: 22px 27px 10px;
+        }
+
+        .bpc-breakdown-title {
+            margin-bottom: 13px;
+            color: rgba(255, 255, 255, .55);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .bpc-breakdown-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 9px 0;
+            color: rgba(255, 255, 255, .82);
+            font-size: 14px;
+        }
+
+        .bpc-breakdown-name {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .bpc-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .38);
+        }
+
+        .bpc-breakdown-value {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .bpc-chart-wrap {
+            padding: 4px 27px 18px;
+        }
+
+        .bpc-chart {
+            width: 170px;
+            height: 170px;
+            margin: 0 auto;
+            border-radius: 50%;
+            background:
+                conic-gradient(#fff 0deg,
+                    #fff 0deg);
+            position: relative;
+        }
+
+        .bpc-chart::after {
+            content: "";
+            position: absolute;
+            inset: 28px;
+            border-radius: 50%;
+            background: var(--bpc-green);
+        }
+
+        .bpc-chart-center {
+            position: absolute;
+            z-index: 2;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .bpc-chart-center strong {
+            font-size: 18px;
+        }
+
+        .bpc-chart-center span {
+            color: rgba(255, 255, 255, .6);
+            font-size: 10px;
+        }
+
+        .bpc-chart-caption {
+            margin-top: -2px;
+            text-align: center;
+            color: rgba(255, 255, 255, .55);
+            font-size: 11px;
+        }
+
+        .bpc-result-summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 9px;
+            padding: 18px 20px 20px;
+            background: rgba(0, 0, 0, .10);
+        }
+
+        .bpc-summary-card {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, .10);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, .045);
+        }
+
+        .bpc-summary-card span {
+            display: block;
+            margin-bottom: 4px;
+            color: rgba(255, 255, 255, .52);
+            font-size: 10px;
+        }
+
+        .bpc-summary-card strong {
+            font-size: 14px;
+        }
+
+        /* =========================================================
+           UPDATE ANIMATION
         ========================================================= */
 
-            .calculator {
-                display: grid;
-                grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
-                gap: 18px;
-                align-items: start;
-                margin-bottom: 70px;
-            }
-
-            .panel {
-                min-width: 0;
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: var(--radius);
-                box-shadow: var(--shadow);
-            }
-
-            .form-panel {
-                padding: 24px;
-            }
-
-            .result-panel {
-                padding: 24px;
-                position: sticky;
-                top: 18px;
-            }
-
-            .panel-title {
-                margin: 0 0 20px;
-                font-size: 1rem;
-                letter-spacing: -0.02em;
-            }
-
-            .field {
-                margin-bottom: 16px;
-            }
-
-            .field:last-child {
-                margin-bottom: 0;
-            }
-
-            label {
-                display: block;
-                margin-bottom: 7px;
-                font-size: 0.78rem;
-                font-weight: 700;
-                color: var(--ink);
-            }
-
-            .input-wrap {
-                position: relative;
-            }
-
-            .prefix {
-                position: absolute;
-                left: 13px;
-                top: 50%;
-                transform: translateY(-50%);
-                color: var(--muted);
-                font-size: 0.92rem;
-                pointer-events: none;
-            }
-
-            input,
-            select {
-                width: 100%;
-                min-height: 46px;
-
-                border: 1px solid var(--line-dark);
-                border-radius: 10px;
-
-                background: var(--surface);
-                color: var(--ink);
-
-                padding: 10px 12px;
-                outline: none;
-
-                transition:
-                    border-color 0.15s ease,
-                    box-shadow 0.15s ease;
-            }
-
-            .has-prefix input {
-                padding-left: 30px;
-            }
-
-            input:focus,
-            select:focus {
-                border-color: var(--accent);
-                box-shadow: 0 0 0 3px var(--accent-soft);
-            }
-
-            .two-col {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
-            }
-
-            .three-col {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 12px;
-            }
-
-            .section-label {
-                margin: 27px 0 12px;
-                padding-top: 20px;
-
-                border-top: 1px solid var(--line);
-
-                font-size: 0.73rem;
-                font-weight: 800;
-                color: var(--muted);
-                letter-spacing: 0.09em;
-                text-transform: uppercase;
-            }
-
-            .advanced-options {
-                margin-top: 18px;
-                border-top: 1px solid var(--line);
-                border-bottom: 1px solid var(--line);
-            }
-
-            .advanced-options summary {
-                cursor: pointer;
-                padding: 15px 0;
-
-                color: var(--ink);
-                font-size: 0.82rem;
-                font-weight: 750;
-
-                list-style: none;
-            }
-
-            .advanced-options summary::-webkit-details-marker {
-                display: none;
-            }
-
-            .advanced-options summary::after {
-                content: "+";
-                float: right;
-
-                color: var(--accent);
-                font-size: 1rem;
-            }
-
-            .advanced-options[open] summary::after {
-                content: "−";
-            }
-
-            .advanced-content {
-                padding: 0 0 16px;
-            }
-
-            .calculate-btn {
-                width: 100%;
-                min-height: 50px;
-                margin-top: 22px;
-
-                border: 0;
-                border-radius: 10px;
-
-                background: var(--accent);
-                color: white;
-
-                cursor: pointer;
-
-                font-size: 0.92rem;
-                font-weight: 800;
-
-                transition:
-                    background 0.15s ease,
-                    transform 0.15s ease;
-            }
-
-            .calculate-btn:hover {
-                background: var(--accent-dark);
-            }
-
-            .calculate-btn:active {
-                transform: translateY(1px);
-            }
-
-            /* =========================================================
-           RESULTS
-        ========================================================= */
-
-            .result-kicker {
-                margin: 0;
-                color: var(--muted);
-                font-size: 0.76rem;
-                font-weight: 700;
-            }
-
-            .take-home {
-                margin: 4px 0 0;
-
-                font-size: clamp(2rem, 5vw, 2.7rem);
-                line-height: 1.1;
-                letter-spacing: -0.05em;
-            }
-
-            .result-period {
-                margin: 5px 0 22px;
-                color: var(--muted);
-                font-size: 0.78rem;
-            }
-
-            .chart-wrap {
-                display: grid;
-                place-items: center;
-                margin: 10px 0 22px;
-            }
-
-            .chart {
-                width: 220px;
-                height: 220px;
-
-                border-radius: 50%;
-                position: relative;
-
-                background: var(--line);
-            }
-
-            .chart-center {
-                position: absolute;
-                inset: 28%;
-
-                display: grid;
-                place-items: center;
-
-                text-align: center;
-
-                background: var(--surface);
-                border-radius: 50%;
-                border: 1px solid var(--line);
-            }
-
-            .chart-center small {
-                display: block;
-                color: var(--muted);
-                font-size: 0.67rem;
-                font-weight: 700;
-            }
-
-            .chart-center strong {
-                display: block;
-                margin-top: 2px;
-
-                font-size: 1rem;
-                letter-spacing: -0.03em;
-            }
-
-            .legend {
-                display: grid;
-                gap: 8px;
-                margin-bottom: 24px;
-            }
-
-            .legend-row {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-
-                gap: 12px;
-
-                font-size: 0.78rem;
-            }
-
-            .legend-label {
-                display: flex;
-                align-items: center;
-                gap: 8px;
-
-                color: var(--muted);
-            }
-
-            .dot {
-                width: 9px;
-                height: 9px;
-
-                border-radius: 50%;
-                flex: 0 0 auto;
-            }
-
-            .dot.net {
-                background: var(--chart-net);
-            }
-
-            .dot.federal {
-                background: var(--chart-federal);
-            }
-
-            .dot.fica {
-                background: var(--chart-fica);
-            }
-
-            .dot.state {
-                background: var(--chart-state);
-            }
-
-            .dot.deductions {
-                background: var(--chart-deductions);
-            }
-
-            .legend-value {
-                font-weight: 750;
-            }
-
-            .breakdown {
-                border-top: 1px solid var(--line);
-                padding-top: 15px;
-            }
-
-            .breakdown-row {
-                display: flex;
-                justify-content: space-between;
-
-                gap: 15px;
-                padding: 8px 0;
-
-                font-size: 0.82rem;
-            }
-
-            .breakdown-row span:first-child {
-                color: var(--muted);
-            }
-
-            .breakdown-row strong {
-                font-weight: 750;
-            }
-
-            .summary {
-                margin-top: 18px;
-                padding-top: 16px;
-
-                border-top: 1px solid var(--line);
-            }
-
-            .summary-title {
-                margin: 0 0 9px;
-
-                font-size: 0.76rem;
-                font-weight: 800;
-
-                color: var(--muted);
-
-                text-transform: uppercase;
-                letter-spacing: 0.08em;
-            }
-
-            .summary-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 7px 18px;
-            }
-
-            .summary-row {
-                display: flex;
-                justify-content: space-between;
-
-                gap: 8px;
-
-                font-size: 0.77rem;
-            }
-
-            .summary-row span {
-                color: var(--muted);
-            }
-
-            /* =========================================================
+        .bpc-result.is-updating .bpc-net-pay {
+            opacity: .65;
+            transform: translateY(2px);
+        }
+
+        .bpc-net-pay {
+            transition:
+                opacity .12s ease,
+                transform .12s ease;
+        }
+
+        /* =========================================================
            CONTENT
         ========================================================= */
 
-            .content-section {
-                width: min(900px, 100%);
-                margin: 0 auto 68px;
+        .bpc-content-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 280px;
+            gap: 35px;
+            align-items: start;
+            margin-bottom: 70px;
+        }
+
+        .bpc-article {
+            min-width: 0;
+            padding: 34px;
+            background: var(--bpc-white);
+            border: 1px solid var(--bpc-border);
+            border-radius: var(--bpc-radius);
+        }
+
+        .bpc-article h2 {
+            margin: 0 0 15px;
+            font-size: 28px;
+            letter-spacing: -.025em;
+        }
+
+        .bpc-article h3 {
+            margin: 32px 0 12px;
+            font-size: 21px;
+        }
+
+        .bpc-article p {
+            margin: 0 0 17px;
+            color: #53615c;
+            font-size: 16px;
+            line-height: 1.75;
+        }
+
+        .bpc-article ul,
+        .bpc-article ol {
+            margin: 0 0 20px;
+            padding-left: 22px;
+            color: #53615c;
+            line-height: 1.75;
+        }
+
+        .bpc-article li {
+            margin-bottom: 7px;
+        }
+
+        .bpc-formula {
+            margin: 22px 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--bpc-gold);
+            border-radius: 8px;
+            background: #f7f5ed;
+            color: #36433e;
+            font-weight: 700;
+        }
+
+        .bpc-info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0 25px;
+            font-size: 14px;
+        }
+
+        .bpc-info-table th,
+        .bpc-info-table td {
+            padding: 12px 13px;
+            border: 1px solid var(--bpc-border);
+            text-align: left;
+        }
+
+        .bpc-info-table th {
+            background: #f2f5f3;
+            color: #34423d;
+        }
+
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
+
+        .bpc-sidebar {
+            position: sticky;
+            top: 20px;
+        }
+
+        .bpc-sidebar-card {
+            padding: 22px;
+            margin-bottom: 15px;
+            background: #fff;
+            border: 1px solid var(--bpc-border);
+            border-radius: 14px;
+        }
+
+        .bpc-sidebar-card h3 {
+            margin: 0 0 12px;
+            font-size: 17px;
+        }
+
+        .bpc-sidebar-card p {
+            margin: 0 0 15px;
+            color: var(--bpc-muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .bpc-sidebar-links {
+            display: grid;
+            gap: 8px;
+        }
+
+        .bpc-sidebar-links a {
+            display: block;
+            padding: 10px 11px;
+            border-radius: 8px;
+            background: #f4f7f5;
+            color: var(--bpc-green-dark);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .bpc-sidebar-links a:hover {
+            background: var(--bpc-green-light);
+        }
+
+        /* =========================================================
+           FAQ
+        ========================================================= */
+
+        .bpc-faq {
+            margin-top: 32px;
+        }
+
+        .bpc-faq-item {
+            border-top: 1px solid var(--bpc-border);
+        }
+
+        .bpc-faq-item:last-child {
+            border-bottom: 1px solid var(--bpc-border);
+        }
+
+        .bpc-faq-item summary {
+            padding: 17px 0;
+            cursor: pointer;
+            list-style: none;
+            font-weight: 750;
+        }
+
+        .bpc-faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .bpc-faq-item p {
+            padding-bottom: 17px;
+            margin: 0;
+        }
+
+        /* =========================================================
+           DISCLAIMER
+        ========================================================= */
+
+        .bpc-disclaimer {
+            margin-top: 24px;
+            padding: 18px;
+            border: 1px solid #e4dfcc;
+            border-radius: 10px;
+            background: #faf8f0;
+            color: #686352;
+            font-size: 13px;
+            line-height: 1.65;
+        }
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 950px) {
+
+            .bpc-hero-grid {
+                grid-template-columns: 1fr;
+                gap: 22px;
             }
 
-            .content-section h2 {
-                margin: 0 0 13px;
-
-                font-size: clamp(1.45rem, 4vw, 2rem);
-                line-height: 1.2;
-                letter-spacing: -0.035em;
+            .bpc-hero-note {
+                max-width: 520px;
             }
 
-            .content-section h3 {
-                margin: 25px 0 7px;
-
-                font-size: 1rem;
-                letter-spacing: -0.015em;
+            .bpc-calculator-grid {
+                grid-template-columns: 1fr;
             }
 
-            .content-section p,
-            .content-section li {
-                color: var(--muted);
-                font-size: 0.91rem;
+            .bpc-form {
+                grid-column: 1;
+                grid-row: 1;
             }
 
-            .content-section ul {
-                padding-left: 20px;
+            .bpc-result {
+                grid-column: 1;
+                grid-row: 2;
+                position: relative;
+                top: auto;
             }
 
-            .info-grid {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 12px;
-
-                margin-top: 20px;
+            .bpc-content-layout {
+                grid-template-columns: 1fr;
             }
 
-            .info-card {
-                padding: 17px;
-
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: 12px;
+            .bpc-sidebar {
+                position: relative;
+                top: auto;
             }
 
-            .info-card strong {
-                display: block;
-                margin-bottom: 6px;
+        }
 
-                font-size: 0.85rem;
+        @media (max-width: 640px) {
+
+            .bpc-container {
+                width: min(100% - 22px, 1180px);
             }
 
-            .info-card span {
-                color: var(--muted);
-                font-size: 0.77rem;
+            .bpc-hero {
+                padding-top: 32px;
             }
 
-            .example-box,
-            .notice-box {
-                margin-top: 18px;
+            .bpc-hero h1 {
+                font-size: 36px;
+            }
+
+            .bpc-hero-text {
+                font-size: 16px;
+            }
+
+            .bpc-form-header,
+            .bpc-form-body {
                 padding: 20px;
-
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: 12px;
             }
 
-            .example-box strong {
+            .bpc-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bpc-field.full {
+                grid-column: auto;
+            }
+
+            .bpc-result-header {
+                padding: 22px 20px;
+            }
+
+            .bpc-breakdown {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .bpc-chart-wrap {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .bpc-result-summary {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .bpc-article {
+                padding: 23px 20px;
+            }
+
+            .bpc-article h2 {
+                font-size: 25px;
+            }
+
+            .bpc-info-table {
                 display: block;
-                margin-bottom: 7px;
+                overflow-x: auto;
+                white-space: nowrap;
             }
 
-            .example-box p,
-            .notice-box p {
-                margin: 0;
-            }
-
-            .faq-list {
-                display: grid;
-                gap: 9px;
-            }
-
-            .faq-list details {
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: 10px;
-                padding: 0 15px;
-            }
-
-            .faq-list summary {
-                cursor: pointer;
-                padding: 14px 0;
-
-                font-size: 0.85rem;
-                font-weight: 750;
-            }
-
-            .faq-list p {
-                margin: 0 0 15px;
-                font-size: 0.82rem;
-            }
-
-            .ad-space {
-                min-height: 90px;
-                width: min(900px, 100%);
-
-                margin: 0 auto 65px;
-
-                display: grid;
-                place-items: center;
-
-                border: 1px dashed var(--line-dark);
-                border-radius: 10px;
-
-                color: var(--muted-light);
-                font-size: 0.7rem;
-            }
-
-            /* =========================================================
-           FOOTER
-        ========================================================= */
-
-            footer {
-                border-top: 1px solid var(--line);
-
-                margin-top: 30px;
-                padding: 30px 16px;
-
-                text-align: center;
-
-                color: var(--muted);
-                font-size: 0.76rem;
-            }
-
-            footer p {
-                margin: 0 0 10px;
-            }
-
-            footer a {
-                color: var(--muted);
-                text-decoration: none;
-                margin: 0 7px;
-            }
-
-            footer a:hover {
-                color: var(--accent);
-            }
-
-            /* =========================================================
-           TABLET
-        ========================================================= */
-
-            @media (max-width: 850px) {
-                .calculator {
-                    grid-template-columns: 1fr;
-                }
-
-                .result-panel {
-                    position: static;
-                }
-
-                .info-grid {
-                    grid-template-columns: 1fr 1fr;
-                }
-            }
-
-            /* =========================================================
-           MOBILE NAVIGATION
-        ========================================================= */
-
-            @media (max-width: 760px) {
-                .container {
-                    width: min(100% - 24px, 1120px);
-                }
-
-                .page {
-                    width: min(100% - 24px, 1100px);
-                }
-
-                .header-inner {
-                    min-height: 58px;
-                    gap: 12px;
-                }
-
-                .logo {
-                    font-size: 1.15rem;
-                }
-
-                .mobile-menu-toggle {
-                    display: flex;
-                    margin-left: auto;
-                }
-
-                .main-nav {
-                    display: none;
-
-                    position: absolute;
-                    top: calc(100% + 1px);
-                    left: 0;
-                    right: 0;
-
-                    width: 100%;
-
-                    flex-direction: column;
-                    align-items: stretch;
-                    justify-content: flex-start;
-
-                    gap: 3px;
-
-                    padding: 8px;
-
-                    background: var(--surface);
-
-                    border: 1px solid var(--line);
-                    border-top: 0;
-                    border-radius: 0 0 12px 12px;
-
-                    box-shadow: var(--shadow);
-                }
-
-                .main-nav.mobile-open {
-                    display: flex;
-                }
-
-                .main-nav > a,
-                .nav-dropdown-toggle {
-                    width: 100%;
-                    min-height: 44px;
-
-                    justify-content: flex-start;
-
-                    padding: 10px 12px;
-
-                    font-size: 0.88rem;
-                    text-align: left;
-                }
-
-                .nav-dropdown {
-                    width: 100%;
-                }
-
-                .nav-dropdown-toggle {
-                    justify-content: space-between;
-                }
-
-                .nav-dropdown-menu {
-                    position: static;
-
-                    width: 100%;
-
-                    margin: 2px 0 5px;
-                    padding: 4px;
-
-                    border: 0;
-                    border-radius: 8px;
-
-                    background: var(--surface-soft);
-                    box-shadow: none;
-                }
-
-                .nav-dropdown-menu a {
-                    display: flex;
-                    align-items: center;
-
-                    min-height: 40px;
-
-                    padding: 8px 12px;
-
-                    font-size: 0.82rem;
-                }
-
-                .hero {
-                    margin: 34px auto 28px;
-                }
-
-                .hero h1 {
-                    font-size: 2rem;
-                }
-
-                .hero p {
-                    font-size: 0.88rem;
-                }
-
-                .form-panel,
-                .result-panel {
-                    padding: 18px;
-                }
-
-                .two-col,
-                .three-col {
-                    grid-template-columns: 1fr;
-                }
-
-                .info-grid {
-                    grid-template-columns: 1fr;
-                }
-
-                .chart {
-                    width: 190px;
-                    height: 190px;
-                }
-
-                .content-section {
-                    margin-bottom: 50px;
-                }
-            }
-
-            /* =========================================================
-           SMALL PHONES
-        ========================================================= */
-
-            @media (max-width: 430px) {
-                .container {
-                    width: calc(100% - 20px);
-                }
-
-                .page {
-                    width: calc(100% - 20px);
-                }
-
-                .hero {
-                    margin-top: 28px;
-                }
-
-                .hero h1 {
-                    font-size: 1.75rem;
-                }
-
-                .hero p {
-                    font-size: 0.84rem;
-                }
-
-                .take-home {
-                    font-size: 2rem;
-                }
-
-                .summary-grid {
-                    grid-template-columns: 1fr;
-                }
-            }
-
-            @media (max-width: 350px) {
-                .form-panel,
-                .result-panel {
-                    padding: 15px;
-                }
-
-                .chart {
-                    width: 175px;
-                    height: 175px;
-                }
-
-                .logo {
-                    font-size: 1.05rem;
-                }
-
-                .mobile-menu-toggle {
-                    width: 40px;
-                    height: 40px;
-                    flex-basis: 40px;
-                }
-            }
-        </style>
-
-        <!-- WebSite Schema -->
-        <script type="application/ld+json">
+        }
+    </style>
+
+    <!-- =========================================================
+         STRUCTURED DATA
+    ========================================================= -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Salary Paycheck Calculator 2026",
+        "description": "Estimate your take-home salary pay after federal, state, local taxes, FICA, and pre/post-tax deductions.",
+        "url": "/salary-paycheck-calculator/",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "PaycheckMint"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
             {
-                "@context": "https://schema.org",
-                "@type": "WebSite",
-                "name": "PaycheckMint",
-                "url": "https://paycheckmint.com/"
-            }
-        </script>
-
-        <!-- WebApplication Schema -->
-        <script type="application/ld+json">
+                "@type": "Question",
+                "name": "How is salary broken down into paycheck amounts?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Your annual gross salary is divided by the total number of pay periods in a year (e.g., 26 for biweekly, 24 for semimonthly, 52 for weekly, or 12 for monthly) to determine gross paycheck income before tax withholding."
+                }
+            },
             {
-                "@context": "https://schema.org",
-                "@type": "WebApplication",
-                "name": "Salary Paycheck Calculator",
-                "applicationCategory": "FinanceApplication",
-                "operatingSystem": "Web",
-                "description": "A 2026 salary paycheck calculator for estimating take-home pay after federal, FICA, state taxes, and deductions.",
-                "url": "https://paycheckmint.com/salary-paycheck-calculator/"
-            }
-        </script>
-
-        <!-- FAQ Schema -->
-        <script type="application/ld+json">
+                "@type": "Question",
+                "name": "What is the difference between gross salary and net take-home pay?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Gross salary is your total compensation before any deductions, while net take-home pay is what remains after federal, state, local taxes, FICA, and voluntary benefit deductions are subtracted."
+                }
+            },
             {
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": [
-                    {
-                        "@type": "Question",
-                        "name": "What is a salary paycheck calculator?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "A salary paycheck calculator estimates your take-home pay after estimated federal income tax, Social Security, Medicare, state taxes, and deductions."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "How do I calculate my take-home salary?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Start with your gross salary, then subtract estimated taxes and applicable deductions. PaycheckMint performs these calculations based on the information you enter."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Can I calculate biweekly salary?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Yes. Select Biweekly from the pay frequency menu. A typical biweekly schedule has 26 pay periods per year."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Does this calculator calculate exact withholding?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "No. The result is an estimate. Actual payroll withholding depends on your Form W-4, employer payroll system, state and local rules, deductions, benefits, and other individual circumstances."
-                        }
-                    }
-                ]
+                "@type": "Question",
+                "name": "How do pre-tax deductions impact salary paycheck withholding?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pre-tax deductions like traditional 401(k), HSA, FSA, and health insurance reduce your taxable wage base, which lowers the amount of federal and state income tax withheld from each paycheck."
+                }
             }
-        </script>
+        ]
+    }
+    </script>
 
-        <!-- Breadcrumb Schema -->
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "PaycheckMint",
-                        "item": "https://paycheckmint.com/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Salary Paycheck Calculator",
-                        "item": "https://paycheckmint.com/salary-paycheck-calculator/"
-                    }
-                ]
-            }
-        </script>
-    </head>
+</head>
 
-    <body>
-        <!-- =========================================================
-         HEADER
-    ========================================================== -->
 
-        <header class="site-header">
-            <div class="container header-inner">
-                <a class="logo" href="/" aria-label="PaycheckMint home"> PaycheckMint </a>
+<body>
 
-                <button
-                    class="mobile-menu-toggle"
-                    type="button"
-                    aria-label="Open navigation"
-                    aria-expanded="false"
-                    aria-controls="main-navigation"
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
+    <!-- =========================================================
+         SHARED NAVBAR
+    ========================================================= -->
+
+    <header class="pm-header" id="site-header">
+
+        <div class="pm-header-inner">
+
+            <a class="pm-brand" href="/" aria-label="PaycheckMint home">
+                Paycheck<span>Mint</span>
+            </a>
+
+            <nav class="pm-desktop-nav" aria-label="Main navigation">
+
+                <a class="pm-nav-link" href="/income/">
+                    Income
+                </a>
+
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                        Finance
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="pm-dropdown-menu">
+
+                        <span class="pm-dropdown-label">
+                            Explore
+                        </span>
+
+                        <a href="/finance/">
+                            <span>Finance Overview</span>
+                        </a>
+
+                        <a href="/income/">
+                            <span>Income & Earnings</span>
+                        </a>
+
+                        <a href="/finance/budgeting/">
+                            <span>Budgeting Guides</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                        Calculators
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="pm-dropdown-menu">
+
+                        <span class="pm-dropdown-label">
+                            Paycheck tools
+                        </span>
+
+                        <a href="/paycheck-tax-calculator/">
+                            Paycheck Tax Calculator
+                        </a>
+
+                        <a href="/take-home-pay-calculator/">
+                            Take-Home Pay Calculator
+                        </a>
+
+                        <a href="/hourly-paycheck-calculator/">
+                            Hourly Paycheck Calculator
+                        </a>
+
+                        <a href="/overtime-pay-calculator/">
+                            Overtime Pay Calculator
+                        </a>
+
+                        <a href="/salary-paycheck-calculator/">
+                            Salary Paycheck Calculator
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <a class="pm-nav-link" href="/finance/">
+                    Learn
+                </a>
+
+            </nav>
+
+            <div class="pm-nav-spacer"></div>
+
+            <button class="pm-search-button" id="searchToggle" type="button" aria-label="Open search"
+                aria-expanded="false" aria-controls="searchPanel">
+
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="m20 20-4-4"></path>
+
+                </svg>
+
+            </button>
+
+            <a class="pm-header-cta" href="/paycheck-tax-calculator/">
+                Calculate paycheck
+            </a>
+
+            <button class="pm-mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation"
+                aria-expanded="false" aria-controls="mobileNav">
+                <svg id="mobileMenuIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <path d="M4 6h16" />
+                    <path d="M4 12h16" />
+                    <path d="M4 18h16" />
+                </svg>
+            </button>
+
+        </div>
+
+        <!-- SEARCH PANEL -->
+
+        <div class="pm-search-panel" id="searchPanel">
+
+            <div class="pm-search-inner">
+
+                <div class="pm-search-field">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="m20 20-4-4" />
+                    </svg>
+
+                    <input id="siteSearch" class="pm-search-input" type="search" autocomplete="off"
+                        placeholder="Search PaycheckMint..." aria-label="Search PaycheckMint">
+
+                    <button class="pm-search-close" id="searchClose" type="button" aria-label="Close search">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 6l12 12" />
+                            <path d="M18 6 6 18" />
+                        </svg>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="pm-search-results" id="searchResults"></div>
+
+        </div>
+
+        <!-- MOBILE NAV -->
+
+        <nav class="pm-mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+
+            <div class="pm-mobile-nav-inner">
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a href="/income/">
+                    Income
+                </a>
+
+                <button class="pm-mobile-finance-button" id="mobileFinanceToggle" type="button" aria-expanded="false">
+                    <span>Finance</span>
+
+                    <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m6 9 6 6 6-6" />
+                    </svg>
                 </button>
 
-                <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+                <div class="pm-mobile-finance-links" id="mobileFinanceLinks">
+
+                    <a href="/finance/">
+                        Finance Overview
+                    </a>
+
+                    <a href="/income/">
+                        Income & Earnings
+                    </a>
+
+                </div>
+
+                <a href="/paycheck-tax-calculator/">
+                    Paycheck Tax Calculator
+                </a>
+
+                <a href="/take-home-pay-calculator/">
+                    Take-Home Pay Calculator
+                </a>
+
+                <a href="/hourly-paycheck-calculator/">
+                    Hourly Paycheck Calculator
+                </a>
+
+                <a href="/overtime-pay-calculator/">
+                    Overtime Pay Calculator
+                </a>
+
+                <a href="/salary-paycheck-calculator/">
+                    Salary Paycheck Calculator
+                </a>
+
+                <a href="/weekly-paycheck-calculator/">
+                    Weekly Paycheck Calculator
+                </a>
+
+                <a href="/biweekly-paycheck-calculator/">
+                    Biweekly Paycheck Calculator
+                </a>
+
+                <a href="/monthly-paycheck-calculator/">
+                    Monthly Paycheck Calculator
+                </a>
+
+                <div class="pm-mobile-search-row">
+
+                    <button class="pm-button-secondary" id="mobileSearchButton" type="button">
+                        Search PaycheckMint
+                    </button>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main class="bpc-page">
+
+        <!-- =====================================================
+             HERO
+        ===================================================== -->
+
+        <section class="bpc-hero">
+
+            <div class="bpc-container">
+
+                <div class="bpc-breadcrumb">
+
                     <a href="/">Home</a>
 
-                    <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+                    <span>/</span>
 
-                    <a href="/income/"> Income </a>
+                    <a href="/paycheck-tax-calculator/">
+                        Paycheck Calculators
+                    </a>
 
-                    <div class="nav-dropdown">
-                        <button
-                            class="nav-dropdown-toggle"
-                            type="button"
-                            aria-expanded="false"
-                            aria-haspopup="true"
-                            aria-controls="finance-menu"
-                        >
-                            Finance
+                    <span>/</span>
 
-                            <span class="dropdown-arrow">▾</span>
-                        </button>
+                    <span>Salary Paycheck Calculator</span>
 
-                        <div class="nav-dropdown-menu" id="finance-menu">
-                            <a href="/finance/"> Finance Overview </a>
+                </div>
 
-                            <a href="/finance/taxes/"> Taxes </a>
+                <div class="bpc-hero-grid">
 
-                            <a href="/finance/budgeting/"> Budgeting &amp; Saving </a>
+                    <div>
 
-                            <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
-
-                            <a href="/finance/investing/"> Investing &amp; Retirement </a>
-
-                            <a href="/finance/insurance/"> Insurance </a>
+                        <div class="bpc-eyebrow">
+                            2026 salary tool
                         </div>
+
+                        <h1>
+                            Salary Paycheck Calculator
+                        </h1>
+
+                        <p class="bpc-hero-text">
+                            Convert your annual salary into regular paycheck amounts.
+                            Calculate take-home pay across biweekly, semimonthly, monthly,
+                            or weekly pay schedules after taxes and deductions.
+                        </p>
+
                     </div>
-                </nav>
+
+                    <div class="bpc-hero-note">
+
+                        <strong>
+                            Quick calculation
+                        </strong>
+
+                        <p>
+                            Enter your annual salary and choose your pay frequency.
+                            Your estimated net take-home salary updates instantly on the right.
+                        </p>
+
+                    </div>
+
+                </div>
+
             </div>
-        </header>
 
-        <main class="page">
-            <!-- =====================================================
-             HERO
-        ====================================================== -->
+        </section>
 
-            <section class="hero">
-                <p class="eyebrow">2026 SALARY PAYCHECK CALCULATOR</p>
 
-                <h1>Estimate your salary take-home pay.</h1>
-
-                <p>
-                    Enter your annual salary, pay frequency, state, filing status, and deductions to estimate how much
-                    you may take home after taxes.
-                </p>
-            </section>
-
-            <!-- =====================================================
+        <!-- =====================================================
              CALCULATOR
-        ====================================================== -->
+        ===================================================== -->
 
-            <section class="calculator" aria-label="Salary paycheck calculator">
-                <!-- FORM -->
+        <section class="bpc-container">
 
-                <div class="panel form-panel">
-                    <h2 class="panel-title">Salary details</h2>
+            <div class="bpc-calculator-grid">
 
-                    <div class="field">
-                        <label for="salary"> Annual salary </label>
+                <!-- =================================================
+                     INPUTS — LEFT
+                ================================================= -->
 
-                        <div class="input-wrap has-prefix">
-                            <span class="prefix">$</span>
+                <section class="bpc-form">
 
-                            <input
-                                id="salary"
-                                type="number"
-                                min="0"
-                                step="100"
-                                value="75000"
-                                inputmode="decimal"
-                                autocomplete="off"
-                            />
-                        </div>
+                    <div class="bpc-form-header">
+
+                        <h2>
+                            Enter your salary details
+                        </h2>
+
+                        <p>
+                            Change any salary or pay schedule field to see results immediately.
+                        </p>
+
                     </div>
 
-                    <div class="two-col">
-                        <div class="field">
-                            <label for="frequency"> Pay frequency </label>
+                    <div class="bpc-form-body">
 
-                            <select id="frequency">
-                                <option value="52">Weekly</option>
+                        <!-- SALARY & FREQUENCY -->
 
-                                <option value="26" selected>Biweekly</option>
+                        <div class="bpc-section">
 
-                                <option value="24">Semimonthly</option>
+                            <h3 class="bpc-section-title">
 
-                                <option value="12">Monthly</option>
+                                <span class="bpc-section-number">
+                                    1
+                                </span>
 
-                                <option value="4">Quarterly</option>
+                                Salary & Frequency
 
-                                <option value="2">Semiannually</option>
+                            </h3>
 
-                                <option value="1">Annually</option>
-                            </select>
-                        </div>
+                            <div class="bpc-grid">
 
-                        <div class="field">
-                            <label for="state"> State </label>
+                                <div class="bpc-field">
 
-                            <select id="state">
-                                <option value="none">No state tax</option>
+                                    <label for="annualSalary">
+                                        Annual salary
+                                    </label>
 
-                                <option value="al">Alabama</option>
-                                <option value="az">Arizona</option>
-                                <option value="ca">California</option>
-                                <option value="co">Colorado</option>
-                                <option value="fl">Florida</option>
-                                <option value="ga">Georgia</option>
-                                <option value="il">Illinois</option>
-                                <option value="ma">Massachusetts</option>
-                                <option value="mi">Michigan</option>
-                                <option value="nc">North Carolina</option>
-                                <option value="nj">New Jersey</option>
-                                <option value="ny">New York</option>
-                                <option value="oh">Ohio</option>
-                                <option value="or">Oregon</option>
-                                <option value="pa">Pennsylvania</option>
-                                <option value="tn">Tennessee</option>
-                                <option value="tx">Texas</option>
-                                <option value="va">Virginia</option>
-                                <option value="wa">Washington</option>
-                                <option value="other">Other state</option>
-                            </select>
-                        </div>
-                    </div>
+                                    <div class="bpc-input-wrap">
 
-                    <div class="two-col">
-                        <div class="field">
-                            <label for="filing"> Filing status </label>
+                                        <span class="bpc-prefix">
+                                            $
+                                        </span>
 
-                            <select id="filing">
-                                <option value="single">Single</option>
+                                        <input class="bpc-input has-prefix" id="annualSalary" type="number" min="0"
+                                            step="100" value="75000" inputmode="decimal">
 
-                                <option value="married">Married filing jointly</option>
-
-                                <option value="hoh">Head of household</option>
-                            </select>
-                        </div>
-
-                        <div class="field">
-                            <label for="dependents"> Dependents </label>
-
-                            <input id="dependents" type="number" min="0" max="20" value="0" inputmode="numeric" />
-                        </div>
-                    </div>
-
-                    <!-- PRE-TAX -->
-
-                    <div class="section-label">Pre-tax deductions</div>
-
-                    <div class="two-col">
-                        <div class="field">
-                            <label for="retirement401k"> 401(k) contribution </label>
-
-                            <div class="input-wrap has-prefix">
-                                <span class="prefix">$</span>
-
-                                <input id="retirement401k" type="number" min="0" step="25" value="0" />
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label for="healthInsurance"> Health insurance </label>
-
-                            <div class="input-wrap has-prefix">
-                                <span class="prefix">$</span>
-
-                                <input id="healthInsurance" type="number" min="0" step="25" value="0" />
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label for="hsa"> HSA </label>
-
-                            <div class="input-wrap has-prefix">
-                                <span class="prefix">$</span>
-
-                                <input id="hsa" type="number" min="0" step="25" value="0" />
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label for="fsa"> FSA </label>
-
-                            <div class="input-wrap has-prefix">
-                                <span class="prefix">$</span>
-
-                                <input id="fsa" type="number" min="0" step="25" value="0" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ADVANCED -->
-
-                    <details class="advanced-options">
-                        <summary>Advanced tax options</summary>
-
-                        <div class="advanced-content">
-                            <div class="two-col">
-                                <div class="field">
-                                    <label for="extraFederal"> Extra federal withholding </label>
-
-                                    <div class="input-wrap has-prefix">
-                                        <span class="prefix">$</span>
-
-                                        <input id="extraFederal" type="number" min="0" step="10" value="0" />
                                     </div>
-                                </div>
 
-                                <div class="field">
-                                    <label for="extraState"> Extra state withholding </label>
-
-                                    <div class="input-wrap has-prefix">
-                                        <span class="prefix">$</span>
-
-                                        <input id="extraState" type="number" min="0" step="10" value="0" />
+                                    <div class="bpc-field-help">
+                                        Gross base salary before taxes and deductions.
                                     </div>
+
                                 </div>
 
-                                <div class="field">
-                                    <label for="additionalMedicare"> Additional Medicare tax </label>
+                                <div class="bpc-field">
 
-                                    <div class="input-wrap has-prefix">
-                                        <span class="prefix">$</span>
+                                    <label for="payFrequency">
+                                        Pay frequency
+                                    </label>
 
-                                        <input id="additionalMedicare" type="number" min="0" step="10" value="0" />
+                                    <select class="bpc-select" id="payFrequency">
+
+                                        <option value="26">
+                                            Biweekly (Every 2 weeks - 26)
+                                        </option>
+
+                                        <option value="24">
+                                            Semimonthly (Twice a month - 24)
+                                        </option>
+
+                                        <option value="12">
+                                            Monthly (12 checks/year)
+                                        </option>
+
+                                        <option value="52">
+                                            Weekly (52 checks/year)
+                                        </option>
+
+                                    </select>
+
+                                    <div class="bpc-field-help">
+                                        Select how often your salary is distributed.
                                     </div>
+
                                 </div>
 
-                                <div class="field">
-                                    <label for="otherPretax"> Other pre-tax deductions </label>
+                            </div>
 
-                                    <div class="input-wrap has-prefix">
-                                        <span class="prefix">$</span>
+                        </div>
 
-                                        <input id="otherPretax" type="number" min="0" step="10" value="0" />
+
+                        <!-- TAX PROFILE -->
+
+                        <div class="bpc-section">
+
+                            <h3 class="bpc-section-title">
+
+                                <span class="bpc-section-number">
+                                    2
+                                </span>
+
+                                Tax profile
+
+                            </h3>
+
+                            <div class="bpc-grid">
+
+                                <div class="bpc-field">
+
+                                    <label for="filingStatus">
+                                        Filing status
+                                    </label>
+
+                                    <select class="bpc-select" id="filingStatus">
+
+                                        <option value="single">
+                                            Single
+                                        </option>
+
+                                        <option value="married">
+                                            Married filing jointly
+                                        </option>
+
+                                        <option value="hoh">
+                                            Head of household
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="bpc-field">
+
+                                    <label for="state">
+                                        State
+                                    </label>
+
+                                    <select class="bpc-select" id="state">
+
+                                        <option value="none">
+                                            No state income tax / None
+                                        </option>
+
+                                        <option value="alabama">Alabama</option>
+                                        <option value="alaska">Alaska</option>
+                                        <option value="arizona">Arizona</option>
+                                        <option value="arkansas">Arkansas</option>
+                                        <option value="california">California</option>
+                                        <option value="colorado">Colorado</option>
+                                        <option value="connecticut">Connecticut</option>
+                                        <option value="delaware">Delaware</option>
+                                        <option value="district-columbia">District of Columbia</option>
+                                        <option value="florida">Florida</option>
+                                        <option value="georgia">Georgia</option>
+                                        <option value="hawaii">Hawaii</option>
+                                        <option value="idaho">Idaho</option>
+                                        <option value="illinois">Illinois</option>
+                                        <option value="indiana">Indiana</option>
+                                        <option value="iowa">Iowa</option>
+                                        <option value="kansas">Kansas</option>
+                                        <option value="kentucky">Kentucky</option>
+                                        <option value="louisiana">Louisiana</option>
+                                        <option value="maine">Maine</option>
+                                        <option value="maryland">Maryland</option>
+                                        <option value="massachusetts">Massachusetts</option>
+                                        <option value="michigan">Michigan</option>
+                                        <option value="minnesota">Minnesota</option>
+                                        <option value="mississippi">Mississippi</option>
+                                        <option value="missouri">Missouri</option>
+                                        <option value="montana">Montana</option>
+                                        <option value="nebraska">Nebraska</option>
+                                        <option value="nevada">Nevada</option>
+                                        <option value="new-hampshire">New Hampshire</option>
+                                        <option value="new-jersey">New Jersey</option>
+                                        <option value="new-mexico">New Mexico</option>
+                                        <option value="new-york">New York</option>
+                                        <option value="north-carolina">North Carolina</option>
+                                        <option value="north-dakota">North Dakota</option>
+                                        <option value="ohio">Ohio</option>
+                                        <option value="oklahoma">Oklahoma</option>
+                                        <option value="oregon">Oregon</option>
+                                        <option value="pennsylvania">Pennsylvania</option>
+                                        <option value="rhode-island">Rhode Island</option>
+                                        <option value="south-carolina">South Carolina</option>
+                                        <option value="south-dakota">South Dakota</option>
+                                        <option value="tennessee">Tennessee</option>
+                                        <option value="texas">Texas</option>
+                                        <option value="utah">Utah</option>
+                                        <option value="vermont">Vermont</option>
+                                        <option value="virginia">Virginia</option>
+                                        <option value="washington">Washington</option>
+                                        <option value="west-virginia">West Virginia</option>
+                                        <option value="wisconsin">Wisconsin</option>
+                                        <option value="wyoming">Wyoming</option>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="bpc-field">
+
+                                    <label for="dependents">
+                                        Dependents
+                                    </label>
+
+                                    <input class="bpc-input" id="dependents" type="number" min="0" step="1" value="0">
+
+                                </div>
+
+                                <div class="bpc-field">
+
+                                    <label for="localTaxRate">
+                                        Local tax rate (%)
+                                    </label>
+
+                                    <input class="bpc-input" id="localTaxRate" type="number" min="0" max="20"
+                                        step="0.01" value="0">
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- PRE-TAX DEDUCTIONS -->
+
+                        <div class="bpc-section">
+
+                            <h3 class="bpc-section-title">
+
+                                <span class="bpc-section-number">
+                                    3
+                                </span>
+
+                                Pre-tax deductions
+
+                            </h3>
+
+                            <div class="bpc-grid">
+
+                                <div class="bpc-field">
+
+                                    <label for="retirement401k">
+                                        401(k) / 403(b)
+                                    </label>
+
+                                    <div class="bpc-input-wrap">
+
+                                        <span class="bpc-prefix">
+                                            $
+                                        </span>
+
+                                        <input class="bpc-input has-prefix" id="retirement401k" type="number" min="0"
+                                            step="1" value="0">
+
                                     </div>
+
                                 </div>
+
+                                <div class="bpc-field">
+
+                                    <label for="healthInsurance">
+                                        Health insurance
+                                    </label>
+
+                                    <div class="bpc-input-wrap">
+
+                                        <span class="bpc-prefix">
+                                            $
+                                        </span>
+
+                                        <input class="bpc-input has-prefix" id="healthInsurance" type="number" min="0"
+                                            step="1" value="0">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="bpc-field">
+
+                                    <label for="hsa">
+                                        HSA
+                                    </label>
+
+                                    <div class="bpc-input-wrap">
+
+                                        <span class="bpc-prefix">
+                                            $
+                                        </span>
+
+                                        <input class="bpc-input has-prefix" id="hsa" type="number" min="0" step="1"
+                                            value="0">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="bpc-field">
+
+                                    <label for="fsa">
+                                        FSA
+                                    </label>
+
+                                    <div class="bpc-input-wrap">
+
+                                        <span class="bpc-prefix">
+                                            $
+                                        </span>
+
+                                        <input class="bpc-input has-prefix" id="fsa" type="number" min="0" step="1"
+                                            value="0">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="bpc-field full">
+
+                                    <label for="otherPretax">
+                                        Other pre-tax deductions
+                                    </label>
+
+                                    <div class="bpc-input-wrap">
+
+                                        <span class="bpc-prefix">
+                                            $
+                                        </span>
+
+                                        <input class="bpc-input has-prefix" id="otherPretax" type="number" min="0"
+                                            step="1" value="0">
+
+                                    </div>
+
+                                </div>
+
                             </div>
+
                         </div>
-                    </details>
 
-                    <!-- POST-TAX -->
 
-                    <div class="section-label">Post-tax deductions</div>
+                        <!-- POST TAX DEDUCTIONS -->
 
-                    <div class="two-col">
-                        <div class="field">
-                            <label for="roth401k"> Roth 401(k) </label>
+                        <div class="bpc-section">
 
-                            <div class="input-wrap has-prefix">
-                                <span class="prefix">$</span>
+                            <h3 class="bpc-section-title">
 
-                                <input id="roth401k" type="number" min="0" step="25" value="0" />
+                                <span class="bpc-section-number">
+                                    4
+                                </span>
+
+                                Other deductions & withholding
+
+                            </h3>
+
+                            <div class="bpc-grid">
+
+                                <div class="bpc-field">
+
+                                    <label for="roth401k">
+                                        Roth 401(k)
+                                    </label>
+
+                                    <div class="bpc-input-wrap">
+
+                                        <span class="bpc-prefix">
+                                            $
+                                        </span>
+
+                                        <input class="bpc-input has-prefix" id="roth401k" type="number" min="0" step="1"
+                                            value="0">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="bpc-field">
+
+                                    <label for="loanRepayment">
+                                        Loan repayment
+                                    </label>
+
+                                    <div class="bpc-input-wrap">
+
+                                        <span class="bpc-prefix">
+                                            $
+                                        </span>
+
+                                        <input class="bpc-input has-prefix" id="loanRepayment" type="number" min="0"
+                                            step="1" value="0">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="bpc-field">
+
+                                    <label for="garnishments">
+                                        Garnishments
+                                    </label>
+
+                                    <div class="bpc-input-wrap">
+
+                                        <span class="bpc-prefix">
+                                            $
+                                        </span>
+
+                                        <input class="bpc-input has-prefix" id="garnishments" type="number" min="0"
+                                            step="1" value="0">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="bpc-field">
+
+                                    <label for="otherPosttax">
+                                        Other post-tax deductions
+                                    </label>
+
+                                    <div class="bpc-input-wrap">
+
+                                        <span class="bpc-prefix">
+                                            $
+                                        </span>
+
+                                        <input class="bpc-input has-prefix" id="otherPosttax" type="number" min="0"
+                                            step="1" value="0">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="bpc-field">
+
+                                    <label for="extraFederal">
+                                        Extra federal withholding
+                                    </label>
+
+                                    <div class="bpc-input-wrap">
+
+                                        <span class="bpc-prefix">
+                                            $
+                                        </span>
+
+                                        <input class="bpc-input has-prefix" id="extraFederal" type="number" min="0"
+                                            step="1" value="0">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="bpc-field">
+
+                                    <label for="extraState">
+                                        Extra state withholding
+                                    </label>
+
+                                    <div class="bpc-input-wrap">
+
+                                        <span class="bpc-prefix">
+                                            $
+                                        </span>
+
+                                        <input class="bpc-input has-prefix" id="extraState" type="number" min="0"
+                                            step="1" value="0">
+
+                                    </div>
+
+                                </div>
+
                             </div>
+
                         </div>
 
-                        <div class="field">
-                            <label for="loanRepayment"> Loan repayment </label>
-
-                            <div class="input-wrap has-prefix">
-                                <span class="prefix">$</span>
-
-                                <input id="loanRepayment" type="number" min="0" step="25" value="0" />
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label for="garnishments"> Garnishments </label>
-
-                            <div class="input-wrap has-prefix">
-                                <span class="prefix">$</span>
-
-                                <input id="garnishments" type="number" min="0" step="25" value="0" />
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label for="otherPosttax"> Other post-tax deductions </label>
-
-                            <div class="input-wrap has-prefix">
-                                <span class="prefix">$</span>
-
-                                <input id="otherPosttax" type="number" min="0" step="25" value="0" />
-                            </div>
-                        </div>
                     </div>
 
-                    <button class="calculate-btn" id="calculate" type="button">Calculate take-home pay</button>
-                </div>
+                </section>
 
-                <!-- RESULTS -->
 
-                <aside class="panel result-panel">
-                    <p class="result-kicker">Estimated take-home</p>
+                <!-- =================================================
+                     RESULTS — RIGHT
+                ================================================= -->
 
-                    <div class="take-home" id="takeHome">$0</div>
+                <aside class="bpc-result" id="resultPanel">
 
-                    <p class="result-period" id="resultPeriod">Every 2 weeks</p>
+                    <div class="bpc-result-header">
 
-                    <div class="chart-wrap">
-                        <div class="chart" id="paycheckChart" role="img" aria-label="Salary pay breakdown chart">
-                            <div class="chart-center">
-                                <div>
-                                    <small> Net pay </small>
+                        <div>
 
-                                    <strong id="chartNet"> $0 </strong>
-                                </div>
+                            <div class="bpc-result-label">
+                                Estimated take-home
                             </div>
+
+                            <div class="bpc-net-pay" id="netPay">
+                                $0.00
+                            </div>
+
+                            <div class="bpc-net-subtitle" id="netPaySubtitle">
+                                per paycheck
+                            </div>
+
                         </div>
+
+                        <div class="bpc-result-period" id="periodTag">
+                            26 checks / year
+                        </div>
+
                     </div>
 
-                    <div class="legend">
-                        <div class="legend-row">
-                            <span class="legend-label">
-                                <span class="dot net"></span>
+                    <div class="bpc-result-rate">
 
-                                Take-home
-                            </span>
+                        <span>
+                            Effective tax rate
+                        </span>
 
-                            <span class="legend-value" id="legendNet"> $0 </span>
+                        <strong id="effectiveTaxRate">
+                            0.00%
+                        </strong>
+
+                    </div>
+
+                    <div class="bpc-breakdown">
+
+                        <div class="bpc-breakdown-title">
+                            Paycheck breakdown
                         </div>
 
-                        <div class="legend-row">
-                            <span class="legend-label">
-                                <span class="dot federal"></span>
+                        <div class="bpc-breakdown-row">
 
+                            <div class="bpc-breakdown-name">
+                                <span class="bpc-dot"></span>
+                                Gross pay
+                            </div>
+
+                            <div class="bpc-breakdown-value" id="grossPay">
+                                $0.00
+                            </div>
+
+                        </div>
+
+                        <div class="bpc-breakdown-row">
+
+                            <div class="bpc-breakdown-name">
+                                <span class="bpc-dot"></span>
                                 Federal tax
-                            </span>
+                            </div>
 
-                            <span class="legend-value" id="legendFederal"> $0 </span>
+                            <div class="bpc-breakdown-value" id="federalTax">
+                                $0.00
+                            </div>
+
                         </div>
 
-                        <div class="legend-row">
-                            <span class="legend-label">
-                                <span class="dot fica"></span>
+                        <div class="bpc-breakdown-row">
 
-                                FICA
-                            </span>
+                            <div class="bpc-breakdown-name">
+                                <span class="bpc-dot"></span>
+                                Social Security
+                            </div>
 
-                            <span class="legend-value" id="legendFica"> $0 </span>
+                            <div class="bpc-breakdown-value" id="socialSecurity">
+                                $0.00
+                            </div>
+
                         </div>
 
-                        <div class="legend-row">
-                            <span class="legend-label">
-                                <span class="dot state"></span>
+                        <div class="bpc-breakdown-row">
 
+                            <div class="bpc-breakdown-name">
+                                <span class="bpc-dot"></span>
+                                Medicare
+                            </div>
+
+                            <div class="bpc-breakdown-value" id="medicare">
+                                $0.00
+                            </div>
+
+                        </div>
+
+                        <div class="bpc-breakdown-row">
+
+                            <div class="bpc-breakdown-name">
+                                <span class="bpc-dot"></span>
                                 State tax
-                            </span>
+                            </div>
 
-                            <span class="legend-value" id="legendState"> $0 </span>
+                            <div class="bpc-breakdown-value" id="stateTax">
+                                $0.00
+                            </div>
+
                         </div>
 
-                        <div class="legend-row">
-                            <span class="legend-label">
-                                <span class="dot deductions"></span>
+                        <div class="bpc-breakdown-row">
 
+                            <div class="bpc-breakdown-name">
+                                <span class="bpc-dot"></span>
+                                Local tax
+                            </div>
+
+                            <div class="bpc-breakdown-value" id="localTax">
+                                $0.00
+                            </div>
+
+                        </div>
+
+                        <div class="bpc-breakdown-row">
+
+                            <div class="bpc-breakdown-name">
+                                <span class="bpc-dot"></span>
                                 Deductions
+                            </div>
+
+                            <div class="bpc-breakdown-value" id="deductions">
+                                $0.00
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="bpc-chart-wrap">
+
+                        <div class="bpc-chart" id="resultChart">
+
+                            <div class="bpc-chart-center">
+
+                                <strong id="chartPercent">
+                                    0%
+                                </strong>
+
+                                <span>
+                                    take-home
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="bpc-chart-caption">
+                            Estimated salary allocation
+                        </div>
+
+                    </div>
+
+
+                    <div class="bpc-result-summary">
+
+                        <div class="bpc-summary-card">
+
+                            <span>
+                                Annual gross
                             </span>
 
-                            <span class="legend-value" id="legendDeductions"> $0 </span>
+                            <strong id="annualGross">
+                                $0
+                            </strong>
+
                         </div>
+
+                        <div class="bpc-summary-card">
+
+                            <span>
+                                Annual net
+                            </span>
+
+                            <strong id="annualNet">
+                                $0
+                            </strong>
+
+                        </div>
+
+                        <div class="bpc-summary-card">
+
+                            <span>
+                                Monthly net
+                            </span>
+
+                            <strong id="monthlyNet">
+                                $0
+                            </strong>
+
+                        </div>
+
+                        <div class="bpc-summary-card">
+
+                            <span>
+                                Weekly net
+                            </span>
+
+                            <strong id="weeklyNet">
+                                $0
+                            </strong>
+
+                        </div>
+
                     </div>
 
-                    <div class="breakdown">
-                        <div class="breakdown-row">
-                            <span> Gross pay </span>
-
-                            <strong id="grossPay"> $0 </strong>
-                        </div>
-
-                        <div class="breakdown-row">
-                            <span> Federal tax </span>
-
-                            <strong id="federalTax"> $0 </strong>
-                        </div>
-
-                        <div class="breakdown-row">
-                            <span> Social Security + Medicare </span>
-
-                            <strong id="fica"> $0 </strong>
-                        </div>
-
-                        <div class="breakdown-row">
-                            <span> State tax </span>
-
-                            <strong id="stateTax"> $0 </strong>
-                        </div>
-
-                        <div class="breakdown-row">
-                            <span> Pre-tax deductions </span>
-
-                            <strong id="preTaxResult"> $0 </strong>
-                        </div>
-
-                        <div class="breakdown-row">
-                            <span> Post-tax deductions </span>
-
-                            <strong id="postTaxResult"> $0 </strong>
-                        </div>
-                    </div>
-
-                    <div class="summary">
-                        <p class="summary-title">Estimated pay summary</p>
-
-                        <div class="summary-grid">
-                            <div class="summary-row">
-                                <span> Weekly </span>
-
-                                <strong id="weeklyPay"> $0 </strong>
-                            </div>
-
-                            <div class="summary-row">
-                                <span> Biweekly </span>
-
-                                <strong id="biweeklyPay"> $0 </strong>
-                            </div>
-
-                            <div class="summary-row">
-                                <span> Semimonthly </span>
-
-                                <strong id="semimonthlyPay"> $0 </strong>
-                            </div>
-
-                            <div class="summary-row">
-                                <span> Monthly </span>
-
-                                <strong id="monthlyPay"> $0 </strong>
-                            </div>
-
-                            <div class="summary-row">
-                                <span> Annual </span>
-
-                                <strong id="annualPay"> $0 </strong>
-                            </div>
-                        </div>
-                    </div>
                 </aside>
-            </section>
 
-            <!-- AD -->
-
-            <div class="ad-space" aria-label="Advertisement">Advertisement</div>
-
-            <!-- =====================================================
-             CONTENT
-        ====================================================== -->
-
-            <section class="content-section" id="how-it-works">
-                <p class="eyebrow">HOW IT WORKS</p>
-
-                <h2>How the salary paycheck calculator works</h2>
-
-                <p>
-                    Your annual salary is your gross income before taxes and deductions. PaycheckMint estimates the
-                    amount you may receive in each paycheck by applying estimated federal income tax, Social Security,
-                    Medicare, state taxes, and the deductions you enter.
-                </p>
-
-                <div class="info-grid">
-                    <div class="info-card">
-                        <strong> Gross salary </strong>
-
-                        <span> Your annual salary before taxes and deductions. </span>
-                    </div>
-
-                    <div class="info-card">
-                        <strong> Federal tax </strong>
-
-                        <span> An estimate based on 2026 federal tax brackets. </span>
-                    </div>
-
-                    <div class="info-card">
-                        <strong> FICA </strong>
-
-                        <span> Social Security and Medicare payroll taxes. </span>
-                    </div>
-
-                    <div class="info-card">
-                        <strong> State tax </strong>
-
-                        <span> An estimated state income tax amount. </span>
-                    </div>
-                </div>
-            </section>
-
-            <section class="content-section">
-                <p class="eyebrow">SALARY EXAMPLE</p>
-
-                <h2>What does a $75,000 salary look like after taxes?</h2>
-
-                <p>
-                    A $75,000 annual salary does not mean you receive $75,000 in cash. Your actual take-home pay is
-                    lower because federal income tax, Social Security, Medicare, state taxes, and any employee
-                    deductions may be withheld from your pay.
-                </p>
-
-                <div class="example-box">
-                    <strong> $75,000 annual salary </strong>
-
-                    <p>
-                        If you are paid biweekly, your gross paycheck is approximately $2,884.62 before taxes and
-                        deductions. Your actual take-home amount depends on your state, filing status, benefits, and
-                        withholding settings.
-                    </p>
-                </div>
-            </section>
-
-            <section class="content-section">
-                <p class="eyebrow">GROSS VS. TAKE-HOME</p>
-
-                <h2>Salary vs. take-home pay</h2>
-
-                <p>
-                    Gross salary is the amount you earn before deductions. Take-home pay, sometimes called net pay, is
-                    what remains after applicable taxes and deductions are taken out.
-                </p>
-
-                <p>
-                    For example, someone earning $80,000 per year may have a gross annual salary of $80,000 while
-                    receiving a substantially smaller amount in actual paychecks after taxes and benefits.
-                </p>
-            </section>
-
-            <section class="content-section">
-                <p class="eyebrow">2026 TAX ESTIMATE</p>
-
-                <h2>What taxes affect your salary paycheck?</h2>
-
-                <h3>Federal income tax</h3>
-
-                <p>
-                    Federal income tax is progressive, meaning different portions of taxable income are taxed at
-                    different rates. Your filing status, deductions, credits, and withholding settings can affect the
-                    amount withheld.
-                </p>
-
-                <h3>Social Security</h3>
-
-                <p>
-                    Employee Social Security tax is generally 6.2% of covered wages up to the annual Social Security
-                    wage base.
-                </p>
-
-                <h3>Medicare</h3>
-
-                <p>
-                    Employee Medicare tax is generally 1.45% of covered wages. Higher-income employees may also be
-                    subject to the Additional Medicare Tax.
-                </p>
-
-                <h3>State income tax</h3>
-
-                <p>
-                    State income tax varies significantly. Some states have no individual income tax, while others
-                    impose state income tax. This calculator uses simplified state estimates rather than reproducing
-                    every state and local payroll rule.
-                </p>
-            </section>
-
-            <section class="content-section">
-                <p class="eyebrow">METHODOLOGY</p>
-
-                <h2>How PaycheckMint estimates salary take-home pay</h2>
-
-                <p>
-                    PaycheckMint annualizes your salary and estimates federal income tax, FICA, state tax, and
-                    deductions. The resulting annual net amount is then divided by your selected number of pay periods.
-                </p>
-
-                <p>
-                    Pre-tax deductions may reduce taxable income, while post-tax deductions are subtracted after
-                    estimated taxes. The calculator also lets you enter additional withholding amounts for more
-                    customized estimates.
-                </p>
-
-                <div class="notice-box">
-                    <p>
-                        <strong>Important:</strong>
-                        This is an educational estimate, not an official payroll calculation. Actual withholding can
-                        differ because of Form W-4 elections, employer payroll systems, local taxes, benefits,
-                        year-to-date wages, tax credits, and state-specific rules.
-                    </p>
-                </div>
-            </section>
-
-            <!-- FAQ -->
-
-            <section class="content-section" id="faq">
-                <p class="eyebrow">FAQ</p>
-
-                <h2>Salary paycheck calculator questions</h2>
-
-                <div class="faq-list">
-                    <details>
-                        <summary>What is a salary paycheck calculator?</summary>
-
-                        <p>
-                            A salary paycheck calculator estimates your take-home pay after estimated federal income
-                            tax, Social Security, Medicare, state taxes, and deductions.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>How do I calculate my take-home salary?</summary>
-
-                        <p>
-                            Start with your gross salary, then subtract estimated taxes and applicable deductions.
-                            PaycheckMint performs these calculations based on the information you enter.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>Can I calculate biweekly salary?</summary>
-
-                        <p>
-                            Yes. Select Biweekly from the pay frequency menu. A typical biweekly schedule has 26 pay
-                            periods per year.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>Does this calculator calculate exact withholding?</summary>
-
-                        <p>
-                            No. The result is an estimate. Actual payroll withholding depends on your Form W-4, employer
-                            payroll system, state and local rules, deductions, benefits, and other individual
-                            circumstances.
-                        </p>
-                    </details>
-                </div>
-            </section>
-
-            <section class="content-section">
-                <p class="eyebrow">DISCLAIMER</p>
-
-                <h2>Salary calculator limitations</h2>
-
-                <p>
-                    PaycheckMint provides general educational estimates and does not provide tax, legal, accounting, or
-                    financial advice. Tax laws and payroll rules can change, and actual results may differ from the
-                    calculator.
-                </p>
-
-                <p>
-                    For an official calculation of your federal withholding, consult the current IRS guidance and your
-                    employer's payroll department.
-                </p>
-            </section>
-        </main>
-
-        <!-- =========================================================
-         FOOTER
-    ========================================================== -->
-
-        <footer>
-            <p>© 2026 PaycheckMint. Free paycheck and salary calculators.</p>
-
-            <div>
-                <a href="/"> Calculator </a>
-
-                <a href="/about/"> About </a>
-
-                <a href="/privacy-policy/"> Privacy </a>
-
-                <a href="/terms/"> Terms </a>
-
-                <a href="/contact/"> Contact </a>
             </div>
-        </footer>
 
-        <!-- =========================================================
-         TAX ENGINE
-    ========================================================== -->
+        </section>
 
-        <script src="/tax-rules-2026.js"></script>
-        <script src="/tax-engine.js"></script>
 
-        <!-- =========================================================
-         PAYCHECK CALCULATOR + NAVIGATION
-    ========================================================== -->
+        <!-- =====================================================
+             CONTENT
+        ========================================================= -->
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                "use strict";
+        <section class="bpc-container">
 
-                /* =====================================================
-               HELPERS
-            ====================================================== */
+            <div class="bpc-content-layout">
 
-                const $ = (id) => document.getElementById(id);
+                <article class="bpc-article">
 
-                const num = (value) => {
-                    const n = Number(value);
-                    return Number.isFinite(n) ? n : 0;
-                };
+                    <h2>
+                        How to calculate paycheck take-home pay from salary
+                    </h2>
 
-                const positive = (value) => {
-                    return Math.max(0, num(value));
-                };
+                    <p>
+                        A salary paycheck represents your annual agreed compensation broken down across regular payment cycles. Employers typically run salary payroll on weekly (52 paychecks), biweekly (26 paychecks), semimonthly (24 paychecks), or monthly (12 paychecks) schedules.
+                    </p>
 
-                const money = (value) => {
-                    return new Intl.NumberFormat("en-US", {
-                        style: "currency",
-                        currency: "USD",
-                        minimumFractionDigits: 0,
-                        maximumFractionDigits: 0,
-                    }).format(Math.max(0, num(value)));
-                };
+                    <p>
+                        This calculator converts your total gross salary into per-paycheck gross wages and applies 2026 federal income tax brackets, FICA taxes (Social Security and Medicare), estimated state and local taxes, and pre/post-tax deductions to calculate your net salary take-home pay.
+                    </p>
 
-                const moneyExact = (value) => {
-                    return new Intl.NumberFormat("en-US", {
-                        style: "currency",
-                        currency: "USD",
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2,
-                    }).format(Math.max(0, num(value)));
-                };
+                    <div class="bpc-formula">
+                        Paycheck Gross Salary = Annual Gross Salary ÷ Pay Periods
+                    </div>
 
-                /* =====================================================
-               ELEMENTS
-            ====================================================== */
+                    <h3>
+                        Comparing Salary Pay Schedule Frequencies
+                    </h3>
 
-                const salary = $("salary");
-                const frequency = $("frequency");
-                const state = $("state");
-                const filing = $("filing");
-                const dependents = $("dependents");
+                    <table class="bpc-info-table">
 
-                const retirement401k = $("retirement401k");
-                const healthInsurance = $("healthInsurance");
-                const hsa = $("hsa");
-                const fsa = $("fsa");
-                const otherPretax = $("otherPretax");
+                        <thead>
 
-                const extraFederal = $("extraFederal");
-                const extraState = $("extraState");
-                const additionalMedicare = $("additionalMedicare");
+                            <tr>
+                                <th>
+                                    Pay Schedule
+                                </th>
 
-                const roth401k = $("roth401k");
-                const loanRepayment = $("loanRepayment");
-                const garnishments = $("garnishments");
-                const otherPosttax = $("otherPosttax");
+                                <th>
+                                    Checks per Year
+                                </th>
 
-                const calculateButton = $("calculate");
+                                <th>
+                                    Gross Salary Example ($78,000)
+                                </th>
+                            </tr>
 
-                const takeHome = $("takeHome");
-                const resultPeriod = $("resultPeriod");
+                        </thead>
 
-                const paycheckChart = $("paycheckChart");
-                const chartNet = $("chartNet");
+                        <tbody>
 
-                const legendNet = $("legendNet");
-                const legendFederal = $("legendFederal");
-                const legendFica = $("legendFica");
-                const legendState = $("legendState");
-                const legendDeductions = $("legendDeductions");
+                            <tr>
 
-                const grossPay = $("grossPay");
-                const federalTax = $("federalTax");
-                const fica = $("fica");
-                const stateTax = $("stateTax");
-                const preTaxResult = $("preTaxResult");
-                const postTaxResult = $("postTaxResult");
+                                <td>
+                                    Biweekly
+                                </td>
 
-                const weeklyPay = $("weeklyPay");
-                const biweeklyPay = $("biweeklyPay");
-                const semimonthlyPay = $("semimonthlyPay");
-                const monthlyPay = $("monthlyPay");
-                const annualPay = $("annualPay");
+                                <td>
+                                    26
+                                </td>
 
-                /* =====================================================
-               DEDUCTION TOTALS
-            ====================================================== */
+                                <td>
+                                    $78,000 ÷ 26 = $3,000 / check
+                                </td>
 
-                function getDeductionTotals() {
-                    const pretax =
-                        positive(retirement401k?.value) +
-                        positive(healthInsurance?.value) +
-                        positive(hsa?.value) +
-                        positive(fsa?.value) +
-                        positive(otherPretax?.value);
+                            </tr>
 
-                    const posttax =
-                        positive(roth401k?.value) +
-                        positive(loanRepayment?.value) +
-                        positive(garnishments?.value) +
-                        positive(otherPosttax?.value);
+                            <tr>
 
-                    return {
-                        pretax,
-                        posttax,
-                    };
+                                <td>
+                                    Semimonthly
+                                </td>
+
+                                <td>
+                                    24
+                                </td>
+
+                                <td>
+                                    $78,000 ÷ 24 = $3,250 / check
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    Monthly
+                                </td>
+
+                                <td>
+                                    12
+                                </td>
+
+                                <td>
+                                    $78,000 ÷ 12 = $6,500 / check
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    Weekly
+                                </td>
+
+                                <td>
+                                    52
+                                </td>
+
+                                <td>
+                                    $78,000 ÷ 52 = $1,500 / check
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                    <h3>
+                        Understanding Salary Payroll Taxes
+                    </h3>
+
+                    <p>
+                        Federal income tax is withheld based on your gross income, tax filing status (Single, Married Filing Jointly, or Head of Household), standard deductions, and dependents on Form W-4.
+                    </p>
+
+                    <p>
+                        FICA payroll taxes are mandatory and consist of two parts:
+                    </p>
+
+                    <ul>
+                        <li><strong>Social Security Tax:</strong> 6.2% on eligible gross wages.</li>
+                        <li><strong>Medicare Tax:</strong> 1.45% on all eligible gross wages.</li>
+                    </ul>
+
+                    <h3>
+                        2026 Federal Income Tax Brackets & Standard Deductions
+                    </h3>
+
+                    <p>
+                        For 2026, the standard deduction amounts are $16,100 for single filers, $24,150 for heads of household, and $32,200 for married couples filing jointly. The calculator annualizes your taxable wages after pre-tax benefits to determine federal withholding using marginal tax rates from 10% to 37%.
+                    </p>
+
+                    <h3>
+                        How Pre-Tax Deductions Save Tax Dollars
+                    </h3>
+
+                    <p>
+                        Contributions to traditional 401(k) or 403(b) retirement plans, Health Savings Accounts (HSA), Flexible Spending Accounts (FSA), and qualified health insurance premiums are subtracted from gross earnings before tax calculation. This lowers your total taxable salary wage base.
+                    </p>
+
+                    <h3>
+                        Related Paycheck Calculators
+                    </h3>
+
+                    <p>
+                        Compare different income structures using these PaycheckMint tools:
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            <a href="/paycheck-tax-calculator/">
+                                Paycheck Tax Calculator
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/take-home-pay-calculator/">
+                                Take-Home Pay Calculator
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/hourly-paycheck-calculator/">
+                                Hourly Paycheck Calculator
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/biweekly-paycheck-calculator/">
+                                Biweekly Paycheck Calculator
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/weekly-paycheck-calculator/">
+                                Weekly Paycheck Calculator
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/monthly-paycheck-calculator/">
+                                Monthly Paycheck Calculator
+                            </a>
+                        </li>
+
+                    </ul>
+
+
+                    <!-- FAQ -->
+
+                    <div class="bpc-faq">
+
+                        <h2>
+                            Frequently asked questions
+                        </h2>
+
+                        <details class="bpc-faq-item">
+
+                            <summary>
+                                How is salary calculated per paycheck?
+                            </summary>
+
+                            <p>
+                                Divide your total gross annual salary by the number of pay periods in your employer's pay schedule (26 for biweekly, 24 for semimonthly, 12 for monthly, or 52 for weekly).
+                            </p>
+
+                        </details>
+
+                        <details class="bpc-faq-item">
+
+                            <summary>
+                                What is the difference between biweekly and semimonthly salary pay?
+                            </summary>
+
+                            <p>
+                                Biweekly employees receive 26 paychecks per year (every two weeks), resulting in two months with 3 paychecks. Semimonthly employees receive 24 paychecks per year (typically paid on the 1st and 15th of each month).
+                            </p>
+
+                        </details>
+
+                        <details class="bpc-faq-item">
+
+                            <summary>
+                                How do 401(k) contributions affect salary paycheck tax?
+                            </summary>
+
+                            <p>
+                                Traditional 401(k) contributions are pre-tax deductions that reduce your income tax wage base, lowering the federal and state tax withheld from each paycheck. Roth 401(k) contributions are post-tax and do not reduce current income tax.
+                            </p>
+
+                        </details>
+
+                        <details class="bpc-faq-item">
+
+                            <summary>
+                                Why does my calculated paycheck differ slightly from my actual paystub?
+                            </summary>
+
+                            <p>
+                                Small variations can occur due to precise Form W-4 allowance choices, local tax jurisdictions, supplemental tax rates, or employer benefit structures.
+                            </p>
+
+                        </details>
+
+                    </div>
+
+
+                    <div class="bpc-disclaimer">
+
+                        <strong>
+                            Calculator disclaimer:
+                        </strong>
+
+                        This calculator provides an estimate for educational and planning purposes. Actual paycheck withholding may differ based on your employer's payroll system, Form W-4 elections, tax credits, benefits, state and local tax rules, and other individual circumstances.
+
+                    </div>
+
+                </article>
+
+
+                <!-- SIDEBAR -->
+
+                <aside class="bpc-sidebar">
+
+                    <div class="bpc-sidebar-card">
+
+                        <h3>
+                            Paycheck tools
+                        </h3>
+
+                        <p>
+                            Compare your salary pay across different schedules and income types.
+                        </p>
+
+                        <div class="bpc-sidebar-links">
+
+                            <a href="/paycheck-tax-calculator/">
+                                Paycheck Tax Calculator
+                            </a>
+
+                            <a href="/take-home-pay-calculator/">
+                                Take-Home Pay Calculator
+                            </a>
+
+                            <a href="/hourly-paycheck-calculator/">
+                                Hourly Paycheck Calculator
+                            </a>
+
+                            <a href="/biweekly-paycheck-calculator/">
+                                Biweekly Paycheck Calculator
+                            </a>
+
+                            <a href="/weekly-paycheck-calculator/">
+                                Weekly Paycheck Calculator
+                            </a>
+
+                            <a href="/monthly-paycheck-calculator/">
+                                Monthly Paycheck Calculator
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="bpc-sidebar-card">
+
+                        <h3>
+                            Quick formula
+                        </h3>
+
+                        <p>
+                            Gross Paycheck Salary:
+                        </p>
+
+                        <div class="bpc-formula">
+                            Annual salary ÷ Pay periods
+                        </div>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         SHARED FOOTER
+    ========================================================= -->
+
+    <footer class="pm-footer">
+
+        <div class="pm-footer-inner">
+
+            <div class="pm-footer-main">
+
+                <div class="pm-footer-grid">
+
+                    <div class="pm-footer-brand-column">
+
+                        <a class="pm-footer-brand" href="/">
+                            Paycheck<span>Mint</span>
+                        </a>
+
+                        <p class="pm-footer-description">
+                            Practical personal finance guides, paycheck tools,
+                            and calculators to help you make informed money decisions.
+                        </p>
+
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Money</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/income/">Income</a></li>
+                            <li><a href="/paycheck-tax-calculator/">Paycheck Calculator</a></li>
+                            <li><a href="/take-home-pay-calculator/">Take-Home Pay</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Finance</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/finance/taxes/">Taxes</a></li>
+                            <li><a href="/finance/budgeting/">Budgeting</a></li>
+                            <li><a href="/finance/credit-debt/">Credit &amp; Debt</a></li>
+                            <li><a href="/finance/investing/">Investing</a></li>
+                            <li><a href="/finance/insurance/">Insurance</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Company</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/contact/">Contact</a></li>
+                            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="pm-footer-bottom">
+
+                <div class="pm-footer-copyright">
+                    © 2026 PaycheckMint. All rights reserved.
+                </div>
+
+                <div class="pm-footer-legal">
+                    <a href="/privacy-policy/">Privacy Policy</a>
+                    <a href="/terms/">Terms</a>
+                    <a href="/contact/">Contact</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         CALCULATOR SCRIPT
+    ========================================================= -->
+
+    <script>
+
+        (function () {
+
+            "use strict";
+
+            const STANDARD_DEDUCTION = {
+                single: 16100,
+                married: 32200,
+                hoh: 24150
+            };
+
+            /*
+             * 2026 federal income-tax brackets.
+             * Source: IRS Revenue Procedure 2025-45.
+             */
+
+            const FEDERAL_BRACKETS = {
+
+                single: [
+                    [12400, 0.10],
+                    [50400, 0.12],
+                    [105700, 0.22],
+                    [201775, 0.24],
+                    [256225, 0.32],
+                    [640600, 0.35],
+                    [Infinity, 0.37]
+                ],
+
+                married: [
+                    [24800, 0.10],
+                    [100800, 0.12],
+                    [211400, 0.22],
+                    [403550, 0.24],
+                    [512450, 0.32],
+                    [768700, 0.35],
+                    [Infinity, 0.37]
+                ],
+
+                hoh: [
+                    [17700, 0.10],
+                    [67450, 0.12],
+                    [105700, 0.22],
+                    [201750, 0.24],
+                    [256200, 0.32],
+                    [640600, 0.35],
+                    [Infinity, 0.37]
+                ]
+
+            };
+
+
+            /*
+             * State effective-rate estimates.
+             */
+
+            const STATE_RATES = {
+
+                none: 0,
+
+                alabama: .040,
+                alaska: 0,
+                arizona: .025,
+                arkansas: .035,
+                california: .055,
+                colorado: .044,
+                connecticut: .045,
+                delaware: .035,
+                "district-columbia": .045,
+                florida: 0,
+                georgia: .040,
+                hawaii: .050,
+                idaho: .035,
+                illinois: .0495,
+                indiana: .0305,
+                iowa: .035,
+                kansas: .045,
+                kentucky: .035,
+                louisiana: .035,
+                maine: .045,
+                maryland: .045,
+                massachusetts: .050,
+                michigan: .0425,
+                minnesota: .055,
+                mississippi: .040,
+                missouri: .035,
+                montana: .050,
+                nebraska: .045,
+                nevada: 0,
+                "new-hampshire": 0,
+                "new-jersey": .035,
+                "new-mexico": .045,
+                "new-york": .055,
+                "north-carolina": .0399,
+                "north-dakota": .020,
+                ohio: .025,
+                oklahoma: .035,
+                oregon: .070,
+                pennsylvania: .0307,
+                "rhode-island": .040,
+                "south-carolina": .040,
+                "south-dakota": 0,
+                tennessee: 0,
+                texas: 0,
+                utah: .045,
+                vermont: .055,
+                virginia: .040,
+                washington: 0,
+                "west-virginia": .045,
+                wisconsin: .040,
+                wyoming: 0
+
+            };
+
+
+            function number(id) {
+
+                const element = document.getElementById(id);
+
+                if (!element) {
+                    return 0;
                 }
 
-                /* =====================================================
-               FREQUENCY
-            ====================================================== */
+                const value = parseFloat(element.value);
 
-                const frequencyLabels = {
-                    52: "weekly",
-                    26: "biweekly",
-                    24: "semimonthly",
-                    12: "monthly",
-                    4: "quarterly",
-                    2: "semiannual",
-                    1: "annual",
-                };
+                return Number.isFinite(value)
+                    ? Math.max(0, value)
+                    : 0;
 
-                /* =====================================================
-               SAFE RESULT VALUES
-            ====================================================== */
+            }
 
-                function getPeriodsPerYear(result, selectedFrequency) {
-                    const enginePeriods = positive(result?.periodsPerYear);
 
-                    if (enginePeriods > 0) {
-                        return enginePeriods;
-                    }
+            function money(value) {
 
-                    return positive(selectedFrequency) || 26;
-                }
+                return new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                    maximumFractionDigits: 2
+                }).format(
+                    Number.isFinite(value) ? value : 0
+                );
 
-                function getPeriodValue(result, property, selectedFrequency) {
-                    const direct = num(result?.net?.[property]);
+            }
 
-                    if (direct > 0 || property === "weekly") {
-                        return Math.max(0, direct);
-                    }
 
-                    const annual = positive(result?.net?.annual);
+            function wholeMoney(value) {
 
-                    const periods = positive(selectedFrequency);
+                return new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                    maximumFractionDigits: 0
+                }).format(
+                    Number.isFinite(value) ? value : 0
+                );
 
-                    return periods > 0 ? annual / periods : 0;
-                }
+            }
 
-                /* =====================================================
-               MAIN CALCULATION
-            ====================================================== */
 
-                function calculate() {
-                    if (!window.PaycheckMintTax || typeof window.PaycheckMintTax.calculate !== "function") {
-                        console.error("PaycheckMint: tax-engine.js was not loaded correctly.");
+            function calculateFederalTax(taxableIncome, status) {
 
-                        if (takeHome) {
-                            takeHome.textContent = "$0";
-                        }
+                let remaining = Math.max(0, taxableIncome);
+                let previousLimit = 0;
+                let tax = 0;
 
-                        return null;
-                    }
+                const brackets =
+                    FEDERAL_BRACKETS[status] ||
+                    FEDERAL_BRACKETS.single;
 
-                    const deductions = getDeductionTotals();
+                for (let i = 0; i < brackets.length; i++) {
 
-                    const annualGross = positive(salary?.value);
+                    const upperLimit = brackets[i][0];
+                    const rate = brackets[i][1];
 
-                    const selectedFrequency = frequency?.value || "26";
-
-                    let result;
-
-                    try {
-                        result = window.PaycheckMintTax.calculate({
-                            annualGross,
-
-                            state: state?.value || "none",
-
-                            filing: filing?.value || "single",
-
-                            dependents: positive(dependents?.value),
-
-                            frequency: selectedFrequency,
-
-                            pretax: {
-                                retirement401k: positive(retirement401k?.value),
-
-                                healthInsurance: positive(healthInsurance?.value),
-
-                                hsa: positive(hsa?.value),
-
-                                fsa: positive(fsa?.value),
-
-                                other: positive(otherPretax?.value),
-                            },
-
-                            posttax: {
-                                roth401k: positive(roth401k?.value),
-
-                                loanRepayment: positive(loanRepayment?.value),
-
-                                garnishments: positive(garnishments?.value),
-
-                                other: positive(otherPosttax?.value),
-                            },
-
-                            extraFederal: positive(extraFederal?.value),
-
-                            extraState: positive(extraState?.value),
-
-                            additionalMedicare: positive(additionalMedicare?.value),
-
-                            otherAdjustments: 0,
-
-                            overtimeDeduction: 0,
-                        });
-                    } catch (error) {
-                        console.error("PaycheckMint calculation error:", error);
-
-                        if (takeHome) {
-                            takeHome.textContent = "$0";
-                        }
-
-                        if (resultPeriod) {
-                            resultPeriod.textContent = "Unable to calculate";
-                        }
-
-                        return null;
-                    }
-
-                    if (!result || typeof result !== "object") {
-                        console.error("PaycheckMint: tax engine returned an invalid result.");
-
-                        return null;
-                    }
-
-                    /* =================================================
-                   PERIOD
-                ================================================== */
-
-                    const label = frequencyLabels[selectedFrequency] || "pay";
-
-                    const periodsPerYear = getPeriodsPerYear(result, selectedFrequency);
-
-                    /* =================================================
-                   MAIN TAKE-HOME
-                ================================================== */
-
-                    const periodNet =
-                        num(result?.net?.period) ||
-                        getPeriodValue(
-                            result,
-                            selectedFrequency === "52"
-                                ? "weekly"
-                                : selectedFrequency === "26"
-                                  ? "biweekly"
-                                  : selectedFrequency === "24"
-                                    ? "semimonthly"
-                                    : selectedFrequency === "12"
-                                      ? "monthly"
-                                      : selectedFrequency === "4"
-                                        ? "quarterly"
-                                        : selectedFrequency === "2"
-                                          ? "semiannually"
-                                          : "annually",
-                            selectedFrequency
+                    const taxableInBracket =
+                        Math.max(
+                            0,
+                            Math.min(
+                                remaining,
+                                upperLimit - previousLimit
+                            )
                         );
 
-                    if (takeHome) {
-                        takeHome.textContent = money(periodNet);
+                    tax += taxableInBracket * rate;
+
+                    remaining -= taxableInBracket;
+
+                    previousLimit = upperLimit;
+
+                    if (remaining <= 0) {
+                        break;
                     }
 
-                    if (resultPeriod) {
-                        resultPeriod.textContent = `Estimated ${label} take-home`;
-                    }
-
-                    /* =================================================
-                   BREAKDOWN
-                ================================================== */
-
-                    const grossPeriod = num(result?.gross?.period) || positive(result?.gross?.annual) / periodsPerYear;
-
-                    const federalAnnual = positive(result?.federal?.tax);
-
-                    const ficaAnnual = positive(result?.fica?.total);
-
-                    const stateAnnual = positive(result?.state?.tax);
-
-                    const pretaxAnnual = positive(result?.deductions?.pretax);
-
-                    const posttaxAnnual = positive(result?.deductions?.posttax);
-
-                    if (grossPay) {
-                        grossPay.textContent = money(grossPeriod);
-                    }
-
-                    if (federalTax) {
-                        federalTax.textContent = money(federalAnnual / periodsPerYear);
-                    }
-
-                    if (fica) {
-                        fica.textContent = money(ficaAnnual / periodsPerYear);
-                    }
-
-                    if (stateTax) {
-                        stateTax.textContent = money(stateAnnual / periodsPerYear);
-                    }
-
-                    if (preTaxResult) {
-                        preTaxResult.textContent = money(pretaxAnnual / periodsPerYear);
-                    }
-
-                    if (postTaxResult) {
-                        postTaxResult.textContent = money(posttaxAnnual / periodsPerYear);
-                    }
-
-                    /* =================================================
-                   PAY SUMMARY
-                ================================================== */
-
-                    if (weeklyPay) {
-                        weeklyPay.textContent = money(num(result?.net?.weekly));
-                    }
-
-                    if (biweeklyPay) {
-                        biweeklyPay.textContent = money(num(result?.net?.biweekly));
-                    }
-
-                    if (semimonthlyPay) {
-                        semimonthlyPay.textContent = money(num(result?.net?.semimonthly));
-                    }
-
-                    if (monthlyPay) {
-                        monthlyPay.textContent = money(num(result?.net?.monthly));
-                    }
-
-                    if (annualPay) {
-                        annualPay.textContent = money(num(result?.net?.annual));
-                    }
-
-                    /* =================================================
-                   CHART
-                ================================================== */
-
-                    updateChart(result);
-
-                    /* =================================================
-                   PUBLIC RESULT
-                ================================================== */
-
-                    window.paycheckMintSalaryResult = {
-                        tax: result,
-                        deductions,
-                    };
-
-                    return result;
                 }
 
-                /* =====================================================
-               DONUT CHART
-            ====================================================== */
+                return Math.max(0, tax);
 
-                function updateChart(result) {
-                    if (!paycheckChart) {
+            }
+
+
+            function calculate() {
+
+                const resultPanel =
+                    document.getElementById("resultPanel");
+
+                if (resultPanel) {
+                    resultPanel.classList.add("is-updating");
+                }
+
+                const payPeriods =
+                    number("payFrequency") || 26;
+
+                const annualSalary =
+                    number("annualSalary");
+
+                const gross =
+                    annualSalary / payPeriods;
+
+                const status =
+                    document.getElementById("filingStatus").value;
+
+                const dependents =
+                    number("dependents");
+
+                const pretax401k =
+                    number("retirement401k");
+
+                const health =
+                    number("healthInsurance");
+
+                const hsa =
+                    number("hsa");
+
+                const fsa =
+                    number("fsa");
+
+                const otherPretax =
+                    number("otherPretax");
+
+                const pretax =
+                    pretax401k +
+                    health +
+                    hsa +
+                    fsa +
+                    otherPretax;
+
+                const usablePretax =
+                    Math.min(
+                        gross,
+                        pretax
+                    );
+
+                const taxableWages =
+                    Math.max(
+                        0,
+                        gross - usablePretax
+                    );
+
+                const annualTaxableWages =
+                    taxableWages * payPeriods;
+
+                const standardDeduction =
+                    STANDARD_DEDUCTION[status] ||
+                    STANDARD_DEDUCTION.single;
+
+                const annualTaxableIncome =
+                    Math.max(
+                        0,
+                        annualTaxableWages -
+                        standardDeduction
+                    );
+
+                let annualFederalTax =
+                    calculateFederalTax(
+                        annualTaxableIncome,
+                        status
+                    );
+
+                const dependentCredit =
+                    Math.min(
+                        annualFederalTax,
+                        dependents * 2200
+                    );
+
+                annualFederalTax =
+                    Math.max(
+                        0,
+                        annualFederalTax -
+                        dependentCredit
+                    );
+
+                const federalTax =
+                    annualFederalTax / payPeriods;
+
+                const socialSecurity =
+                    gross * 0.062;
+
+                const medicare =
+                    gross * 0.0145;
+
+                const state =
+                    document.getElementById("state").value;
+
+                const stateRate =
+                    STATE_RATES[state] || 0;
+
+                const stateTax =
+                    taxableWages * stateRate;
+
+                const localRate =
+                    number("localTaxRate") / 100;
+
+                const localTax =
+                    taxableWages * localRate;
+
+                const extraFederal =
+                    number("extraFederal");
+
+                const extraState =
+                    number("extraState");
+
+                const roth401k =
+                    number("roth401k");
+
+                const loanRepayment =
+                    number("loanRepayment");
+
+                const garnishments =
+                    number("garnishments");
+
+                const otherPosttax =
+                    number("otherPosttax");
+
+                const postTaxDeductions =
+                    roth401k +
+                    loanRepayment +
+                    garnishments +
+                    otherPosttax;
+
+                const totalTax =
+                    federalTax +
+                    socialSecurity +
+                    medicare +
+                    stateTax +
+                    localTax +
+                    extraFederal +
+                    extraState;
+
+                const totalDeductions =
+                    usablePretax +
+                    postTaxDeductions;
+
+                const net =
+                    Math.max(
+                        0,
+                        gross -
+                        totalTax -
+                        totalDeductions
+                    );
+
+                const annualGross =
+                    gross * payPeriods;
+
+                const annualNet =
+                    net * payPeriods;
+
+                const monthlyNet =
+                    annualNet / 12;
+
+                const weeklyNet =
+                    annualNet / 52;
+
+                const effectiveTaxRate =
+                    gross > 0
+                        ? (
+                            totalTax /
+                            gross
+                        ) * 100
+                        : 0;
+
+                const takeHomePercentage =
+                    gross > 0
+                        ? (
+                            net /
+                            gross
+                        ) * 100
+                        : 0;
+
+                /* Update period tag labels dynamically */
+                let frequencyText = "per paycheck";
+                if (payPeriods === 26) frequencyText = "per biweekly paycheck";
+                else if (payPeriods === 24) frequencyText = "per semimonthly paycheck";
+                else if (payPeriods === 12) frequencyText = "per monthly paycheck";
+                else if (payPeriods === 52) frequencyText = "per weekly paycheck";
+
+                setText("netPaySubtitle", frequencyText);
+                setText("periodTag", payPeriods + " checks / year");
+
+                /* Update visible result values */
+                setText("netPay", money(net));
+                setText("grossPay", money(gross));
+                setText("federalTax", money(federalTax + extraFederal));
+                setText("socialSecurity", money(socialSecurity));
+                setText("medicare", money(medicare));
+                setText("stateTax", money(stateTax + extraState));
+                setText("localTax", money(localTax));
+                setText("deductions", money(totalDeductions));
+                setText("effectiveTaxRate", effectiveTaxRate.toFixed(2) + "%");
+                setText("annualGross", wholeMoney(annualGross));
+                setText("annualNet", wholeMoney(annualNet));
+                setText("monthlyNet", wholeMoney(monthlyNet));
+                setText("weeklyNet", wholeMoney(weeklyNet));
+                setText("chartPercent", Math.round(takeHomePercentage) + "%");
+
+                updateChart(
+                    gross,
+                    net,
+                    totalTax,
+                    totalDeductions
+                );
+
+                if (resultPanel) {
+                    requestAnimationFrame(function () {
+                        resultPanel.classList.remove("is-updating");
+                    });
+                }
+
+            }
+
+
+            function setText(id, value) {
+
+                const element =
+                    document.getElementById(id);
+
+                if (element) {
+                    element.textContent = value;
+                }
+
+            }
+
+
+            function updateChart(
+                gross,
+                net,
+                taxes,
+                deductions
+            ) {
+
+                const chart =
+                    document.getElementById(
+                        "resultChart"
+                    );
+
+                if (!chart || gross <= 0) {
+                    return;
+                }
+
+                const safeNet = Math.max(0, net);
+                const safeTaxes = Math.max(0, taxes);
+                const safeDeductions = Math.max(0, deductions);
+
+                const total = safeNet + safeTaxes + safeDeductions;
+
+                if (total <= 0) {
+                    return;
+                }
+
+                const netDegrees = safeNet / total * 360;
+                const taxDegrees = safeTaxes / total * 360;
+                const deductionDegrees = safeDeductions / total * 360;
+
+                const first = netDegrees;
+                const second = first + taxDegrees;
+                const third = second + deductionDegrees;
+
+                chart.style.background =
+                    `conic-gradient(
+                        #ffffff 0deg ${first}deg,
+                        #c9922e ${first}deg ${second}deg,
+                        rgba(255,255,255,.28) ${second}deg ${third}deg,
+                        rgba(255,255,255,.10) ${third}deg 360deg
+                    )`;
+
+            }
+
+
+            function setupInputs() {
+
+                const fields =
+                    document.querySelectorAll(
+                        ".bpc-input, .bpc-select"
+                    );
+
+                fields.forEach(function (field) {
+
+                    field.addEventListener(
+                        "input",
+                        calculate
+                    );
+
+                    field.addEventListener(
+                        "change",
+                        calculate
+                    );
+
+                });
+
+            }
+
+
+            document.addEventListener(
+                "DOMContentLoaded",
+                function () {
+
+                    setupInputs();
+
+                    calculate();
+
+                }
+            );
+
+        })();
+
+    </script>
+
+
+    <!-- =========================================================
+         SHARED NAVBAR / FOOTER / SEARCH SCRIPT
+    ========================================================= -->
+
+    <script>
+
+        (function () {
+
+            "use strict";
+
+            /* =====================================================
+               1. ASYNC COMPONENT LOADER
+            ===================================================== */
+
+            document.addEventListener(
+                "DOMContentLoaded",
+                function () {
+                    loadSharedComponents();
+                }
+            );
+
+
+            async function loadSharedComponents() {
+
+                const navbar =
+                    document.getElementById(
+                        "site-navbar"
+                    );
+
+                const footer =
+                    document.getElementById(
+                        "site-footer"
+                    );
+
+                try {
+
+                    const requests = [];
+
+                    if (navbar) {
+
+                        requests.push(
+
+                            fetch(
+                                "/components/navbar.html"
+                            )
+
+                                .then(
+                                    res =>
+                                        res.ok
+                                            ? res.text()
+                                            : Promise.reject(
+                                                "Navbar 404"
+                                            )
+                                )
+
+                                .then(
+                                    html => {
+                                        navbar.innerHTML =
+                                            html;
+                                    }
+                                )
+
+                        );
+
+                    }
+
+                    if (footer) {
+
+                        requests.push(
+
+                            fetch(
+                                "/components/footer.html"
+                            )
+
+                                .then(
+                                    res =>
+                                        res.ok
+                                            ? res.text()
+                                            : Promise.reject(
+                                                "Footer 404"
+                                            )
+                                )
+
+                                .then(
+                                    html => {
+                                        footer.innerHTML =
+                                            html;
+                                    }
+                                )
+
+                        );
+
+                    }
+
+                    await Promise.all(
+                        requests
+                    );
+
+                    setupScrollHeader();
+
+                }
+
+                catch (error) {
+
+                    console.error(
+                        "Component loading error:",
+                        error
+                    );
+
+                    setupScrollHeader();
+
+                }
+
+            }
+
+
+            /* =====================================================
+               2. EVENT DELEGATION
+            ===================================================== */
+
+            document.addEventListener(
+                "click",
+                function (event) {
+
+                    const dropdownBtn =
+                        event.target.closest(
+                            ".pm-nav-dropdown-button"
+                        );
+
+                    if (dropdownBtn) {
+
+                        event.stopPropagation();
+
+                        const currentDropdown =
+                            dropdownBtn.closest(
+                                ".pm-nav-dropdown"
+                            );
+
+                        const isOpen =
+                            currentDropdown.classList.contains(
+                                "is-open"
+                            );
+
+                        document
+                            .querySelectorAll(
+                                ".pm-nav-dropdown"
+                            )
+                            .forEach(
+                                d => {
+
+                                    d.classList.remove(
+                                        "is-open"
+                                    );
+
+                                    const btn =
+                                        d.querySelector(
+                                            ".pm-nav-dropdown-button"
+                                        );
+
+                                    if (btn) {
+
+                                        btn.setAttribute(
+                                            "aria-expanded",
+                                            "false"
+                                        );
+
+                                    }
+
+                                }
+                            );
+
+                        if (!isOpen) {
+
+                            currentDropdown.classList.add(
+                                "is-open"
+                            );
+
+                            dropdownBtn.setAttribute(
+                                "aria-expanded",
+                                "true"
+                            );
+
+                        }
+
+                        return;
+
+                    }
+
+                    if (
+                        !event.target.closest(
+                            ".pm-nav-dropdown"
+                        )
+                    ) {
+
+                        document
+                            .querySelectorAll(
+                                ".pm-nav-dropdown"
+                            )
+                            .forEach(
+                                d => {
+
+                                    d.classList.remove(
+                                        "is-open"
+                                    );
+
+                                    const btn =
+                                        d.querySelector(
+                                            ".pm-nav-dropdown-button"
+                                        );
+
+                                    if (btn) {
+
+                                        btn.setAttribute(
+                                            "aria-expanded",
+                                            "false"
+                                        );
+
+                                    }
+
+                                }
+                            );
+
+                    }
+
+                    /* MOBILE NAV */
+
+                    const mobileToggle =
+                        event.target.closest(
+                            "#mobileToggle"
+                        );
+
+                    if (mobileToggle) {
+
+                        event.stopPropagation();
+
+                        const mobileNav =
+                            document.getElementById(
+                                "mobileNav"
+                            );
+
+                        if (mobileNav) {
+
+                            const isOpen =
+                                mobileNav.classList.toggle(
+                                    "is-open"
+                                );
+
+                            mobileToggle.setAttribute(
+                                "aria-expanded",
+                                isOpen
+                                    ? "true"
+                                    : "false"
+                            );
+
+                        }
+
+                        return;
+
+                    }
+
+                    /* MOBILE FINANCE */
+
+                    const mobileFinanceToggle =
+                        event.target.closest(
+                            "#mobileFinanceToggle"
+                        );
+
+                    if (mobileFinanceToggle) {
+
+                        event.stopPropagation();
+
+                        const mobileFinanceLinks =
+                            document.getElementById(
+                                "mobileFinanceLinks"
+                            );
+
+                        if (mobileFinanceLinks) {
+
+                            const isOpen =
+                                mobileFinanceLinks.classList.toggle(
+                                    "is-open"
+                                );
+
+                            mobileFinanceToggle.setAttribute(
+                                "aria-expanded",
+                                isOpen
+                                    ? "true"
+                                    : "false"
+                            );
+
+                        }
+
+                        return;
+
+                    }
+
+                    /* SEARCH */
+
+                    const searchToggle =
+                        event.target.closest(
+                            "#searchToggle"
+                        );
+
+                    const mobileSearchBtn =
+                        event.target.closest(
+                            "#mobileSearchButton"
+                        );
+
+                    const searchClose =
+                        event.target.closest(
+                            "#searchClose"
+                        );
+
+                    const searchPanel =
+                        document.getElementById(
+                            "searchPanel"
+                        );
+
+                    if (
+                        searchToggle ||
+                        mobileSearchBtn
+                    ) {
+
+                        event.preventDefault();
+
+                        event.stopPropagation();
+
+                        const mobileNav =
+                            document.getElementById(
+                                "mobileNav"
+                            );
+
+                        if (mobileNav) {
+
+                            mobileNav.classList.remove(
+                                "is-open"
+                            );
+
+                        }
+
+                        if (searchPanel) {
+
+                            if (
+                                searchPanel.classList.contains(
+                                    "is-open"
+                                ) &&
+                                searchToggle
+                            ) {
+
+                                closeSearch();
+
+                            }
+
+                            else {
+
+                                openSearch();
+
+                            }
+
+                        }
+
+                        return;
+
+                    }
+
+                    if (searchClose) {
+
+                        event.preventDefault();
+
+                        closeSearch();
+
+                        return;
+
+                    }
+
+                    if (
+                        searchPanel &&
+                        searchPanel.classList.contains(
+                            "is-open"
+                        )
+                    ) {
+
+                        if (
+                            !searchPanel.contains(
+                                event.target
+                            )
+                        ) {
+
+                            closeSearch();
+
+                        }
+
+                    }
+
+                }
+            );
+
+
+            /* =====================================================
+               3. SEARCH
+            ===================================================== */
+
+            function openSearch() {
+
+                const searchPanel =
+                    document.getElementById(
+                        "searchPanel"
+                    );
+
+                const searchInput =
+                    document.getElementById(
+                        "siteSearch"
+                    );
+
+                const searchToggle =
+                    document.getElementById(
+                        "searchToggle"
+                    );
+
+                if (!searchPanel) {
+                    return;
+                }
+
+                searchPanel.classList.add(
+                    "is-open"
+                );
+
+                if (searchToggle) {
+
+                    searchToggle.setAttribute(
+                        "aria-expanded",
+                        "true"
+                    );
+
+                    searchToggle.setAttribute(
+                        "aria-label",
+                        "Close search"
+                    );
+
+                }
+
+                if (searchInput) {
+
+                    setTimeout(
+                        function () {
+                            searchInput.focus();
+                        },
+                        100
+                    );
+
+                }
+
+            }
+
+
+            function closeSearch() {
+
+                const searchPanel =
+                    document.getElementById(
+                        "searchPanel"
+                    );
+
+                const searchInput =
+                    document.getElementById(
+                        "siteSearch"
+                    );
+
+                const searchResults =
+                    document.getElementById(
+                        "searchResults"
+                    );
+
+                const searchToggle =
+                    document.getElementById(
+                        "searchToggle"
+                    );
+
+                if (!searchPanel) {
+                    return;
+                }
+
+                searchPanel.classList.remove(
+                    "is-open"
+                );
+
+                if (searchToggle) {
+
+                    searchToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                    searchToggle.setAttribute(
+                        "aria-label",
+                        "Open search"
+                    );
+
+                }
+
+                if (searchInput) {
+
+                    searchInput.value = "";
+
+                }
+
+                if (searchResults) {
+
+                    searchResults.innerHTML = "";
+
+                }
+
+            }
+
+
+            document.addEventListener(
+                "keydown",
+                function (event) {
+
+                    if (
+                        event.key === "Escape"
+                    ) {
+
+                        closeSearch();
+
+                    }
+
+                }
+            );
+
+
+            document.addEventListener(
+                "input",
+                function (event) {
+
+                    if (
+                        event.target.id !==
+                        "siteSearch"
+                    ) {
                         return;
                     }
 
-                    const net = Math.max(0, num(result?.net?.annual));
+                    const query =
+                        event.target.value
+                            .trim()
+                            .toLowerCase();
 
-                    const federal = Math.max(0, num(result?.federal?.tax));
+                    const searchResults =
+                        document.getElementById(
+                            "searchResults"
+                        );
 
-                    const ficaAmount = Math.max(0, num(result?.fica?.total));
-
-                    const stateAmount = Math.max(0, num(result?.state?.tax));
-
-                    const deductions = Math.max(0, num(result?.deductions?.total));
-
-                    const total = net + federal + ficaAmount + stateAmount + deductions;
-
-                    if (total <= 0) {
-                        paycheckChart.style.background = "var(--line)";
-                    } else {
-                        const netEnd = (net / total) * 100;
-
-                        const federalEnd = netEnd + (federal / total) * 100;
-
-                        const ficaEnd = federalEnd + (ficaAmount / total) * 100;
-
-                        const stateEnd = ficaEnd + (stateAmount / total) * 100;
-
-                        paycheckChart.style.background = `conic-gradient(
-                            var(--chart-net) 0 ${netEnd}%,
-                            var(--chart-federal) ${netEnd}% ${federalEnd}%,
-                            var(--chart-fica) ${federalEnd}% ${ficaEnd}%,
-                            var(--chart-state) ${ficaEnd}% ${stateEnd}%,
-                            var(--chart-deductions) ${stateEnd}% 100%
-                        )`;
+                    if (!searchResults) {
+                        return;
                     }
 
-                    if (chartNet) {
-                        chartNet.textContent = money(net);
+                    if (
+                        query.length === 0
+                    ) {
+
+                        searchResults.innerHTML =
+                            "";
+
+                        return;
+
                     }
 
-                    if (legendNet) {
-                        legendNet.textContent = money(net);
+                    const searchablePages = [
+
+                        {
+                            title:
+                                "Paycheck Tax Calculator",
+
+                            url:
+                                "/paycheck-tax-calculator/",
+
+                            description:
+                                "Calculate estimated net pay and paycheck taxes."
+                        },
+
+                        {
+                            title:
+                                "Take-Home Pay Calculator",
+
+                            url:
+                                "/take-home-pay-calculator/",
+
+                            description:
+                                "Estimate your paycheck after taxes and deductions."
+                        },
+
+                        {
+                            title:
+                                "Hourly Paycheck Calculator",
+
+                            url:
+                                "/hourly-paycheck-calculator/",
+
+                            description:
+                                "Calculate paycheck income from hourly wages."
+                        },
+
+                        {
+                            title:
+                                "Overtime Pay Calculator",
+
+                            url:
+                                "/overtime-pay-calculator/",
+
+                            description:
+                                "Estimate overtime pay and total wages."
+                        },
+
+                        {
+                            title:
+                                "Salary Paycheck Calculator",
+
+                            url:
+                                "/salary-paycheck-calculator/",
+
+                            description:
+                                "Break down salary into paycheck amounts."
+                        },
+
+                        {
+                            title:
+                                "Weekly Paycheck Calculator",
+
+                            url:
+                                "/weekly-paycheck-calculator/",
+
+                            description:
+                                "Estimate weekly take-home pay."
+                        },
+
+                        {
+                            title:
+                                "Biweekly Paycheck Calculator",
+
+                            url:
+                                "/biweekly-paycheck-calculator/",
+
+                            description:
+                                "Estimate take-home pay every two weeks."
+                        },
+
+                        {
+                            title:
+                                "Monthly Paycheck Calculator",
+
+                            url:
+                                "/monthly-paycheck-calculator/",
+
+                            description:
+                                "Estimate monthly paycheck income."
+                        },
+
+                        {
+                            title:
+                                "Income Overview",
+
+                            url:
+                                "/income/",
+
+                            description:
+                                "Learn about income, earnings and take-home pay."
+                        },
+
+                        {
+                            title:
+                                "Finance Overview",
+
+                            url:
+                                "/finance/",
+
+                            description:
+                                "Explore personal finance guides."
+                        },
+
+                        {
+                            title:
+                                "Budgeting Guides",
+
+                            url:
+                                "/finance/budgeting/",
+
+                            description:
+                                "Learn practical budgeting strategies."
+                        }
+
+                    ];
+
+                    const matches =
+                        searchablePages.filter(
+                            page =>
+                                page.title
+                                    .toLowerCase()
+                                    .includes(query) ||
+
+                                page.description
+                                    .toLowerCase()
+                                    .includes(query)
+                        );
+
+                    if (
+                        matches.length === 0
+                    ) {
+
+                        searchResults.innerHTML =
+                            `<p class="pm-search-no-results">
+                                No results found for
+                                "${escapeHTML(query)}"
+                            </p>`;
+
+                        return;
+
                     }
 
-                    if (legendFederal) {
-                        legendFederal.textContent = money(federal);
-                    }
+                    searchResults.innerHTML =
+                        matches
+                            .map(
+                                item => `
 
-                    if (legendFica) {
-                        legendFica.textContent = money(ficaAmount);
-                    }
+                                    <a
+                                        href="${item.url}"
+                                        class="pm-search-result-item">
 
-                    if (legendState) {
-                        legendState.textContent = money(stateAmount);
-                    }
+                                        <span
+                                            class="pm-search-result-title">
 
-                    if (legendDeductions) {
-                        legendDeductions.textContent = money(deductions);
-                    }
+                                            ${escapeHTML(
+                                    item.title
+                                )}
+
+                                        </span>
+
+                                        <span
+                                            class="pm-search-result-desc">
+
+                                            ${escapeHTML(
+                                    item.description
+                                )}
+
+                                        </span>
+
+                                    </a>
+
+                                `
+                            )
+                            .join("");
+
+                }
+            );
+
+
+            function escapeHTML(str) {
+
+                return str.replace(
+                    /[&<>'"]/g,
+                    tag => ({
+                        "&":
+                            "&amp;",
+
+                        "<":
+                            "&lt;",
+
+                        ">":
+                            "&gt;",
+
+                        "'":
+                            "&#39;",
+
+                        '"':
+                            "&quot;"
+
+                    }[tag] || tag)
+                );
+
+            }
+
+
+            /* =====================================================
+               4. SCROLL HEADER
+            ===================================================== */
+
+            function setupScrollHeader() {
+
+                const header =
+                    document.getElementById(
+                        "site-header"
+                    );
+
+                if (!header) {
+                    return;
                 }
 
-                /* =====================================================
-               CALCULATOR EVENTS
-            ====================================================== */
+                window.addEventListener(
+                    "scroll",
+                    function () {
 
-                if (calculateButton) {
-                    calculateButton.addEventListener("click", calculate);
-                }
+                        if (
+                            window.scrollY > 20
+                        ) {
 
-                const calculatorInputs = document.querySelectorAll(".form-panel input, .form-panel select");
+                            header.classList.add(
+                                "is-scrolled"
+                            );
 
-                calculatorInputs.forEach(function (input) {
-                    input.addEventListener("input", calculate);
+                        }
 
-                    input.addEventListener("change", calculate);
-                });
+                        else {
 
-                const advancedOptions = document.querySelector(".advanced-options");
+                            header.classList.remove(
+                                "is-scrolled"
+                            );
 
-                if (advancedOptions) {
-                    advancedOptions.addEventListener("toggle", calculate);
-                }
+                        }
 
-                /* =====================================================
-               INITIAL CALCULATION
-            ====================================================== */
-
-                calculate();
-
-                /* =====================================================
-               NAVIGATION
-            ====================================================== */
-
-                const header = document.querySelector(".site-header");
-
-                const menuToggle = document.querySelector(".mobile-menu-toggle");
-
-                const mainNav = document.querySelector(".main-nav");
-
-                const dropdown = document.querySelector(".nav-dropdown");
-
-                const dropdownToggle = document.querySelector(".nav-dropdown-toggle");
-
-                function closeMobileMenu() {
-                    if (mainNav) {
-                        mainNav.classList.remove("mobile-open");
+                    },
+                    {
+                        passive: true
                     }
+                );
 
-                    if (menuToggle) {
-                        menuToggle.classList.remove("open");
+            }
 
-                        menuToggle.setAttribute("aria-expanded", "false");
+        })();
 
-                        menuToggle.setAttribute("aria-label", "Open navigation");
-                    }
-                }
+    </script>
 
-                function closeDropdown() {
-                    if (dropdown) {
-                        dropdown.classList.remove("open");
-                    }
+</body>
 
-                    if (dropdownToggle) {
-                        dropdownToggle.setAttribute("aria-expanded", "false");
-                    }
-                }
-
-                /* Mobile menu */
-
-                if (menuToggle && mainNav) {
-                    menuToggle.addEventListener("click", function (event) {
-                        event.stopPropagation();
-
-                        const isOpen = mainNav.classList.toggle("mobile-open");
-
-                        menuToggle.classList.toggle("open", isOpen);
-
-                        menuToggle.setAttribute("aria-expanded", String(isOpen));
-
-                        menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
-                    });
-                }
-
-                /* Finance dropdown */
-
-                if (dropdown && dropdownToggle) {
-                    dropdownToggle.addEventListener("click", function (event) {
-                        event.stopPropagation();
-
-                        const isOpen = dropdown.classList.toggle("open");
-
-                        dropdownToggle.setAttribute("aria-expanded", String(isOpen));
-                    });
-                }
-
-                /* Navigation links */
-
-                if (mainNav) {
-                    mainNav.querySelectorAll("a").forEach(function (link) {
-                        link.addEventListener("click", function () {
-                            closeMobileMenu();
-                            closeDropdown();
-                        });
-                    });
-                }
-
-                /* Outside click */
-
-                document.addEventListener("click", function (event) {
-                    if (header && !header.contains(event.target)) {
-                        closeMobileMenu();
-                        closeDropdown();
-                    }
-                });
-
-                /* Escape key */
-
-                document.addEventListener("keydown", function (event) {
-                    if (event.key === "Escape") {
-                        closeMobileMenu();
-                        closeDropdown();
-                    }
-                });
-
-                /* Desktop resize */
-
-                window.addEventListener("resize", function () {
-                    if (window.innerWidth > 760) {
-                        closeMobileMenu();
-                    }
-                });
-            });
-        </script>
-    </body>
 </html>

@@ -1,50 +1,53 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>How Credit Scores Work: Factors, Models &amp; Scoring | PaycheckMint</title>
+    <title>How Credit Scores Work: A Simple Guide | PaycheckMint</title>
 
     <meta name="description"
-        content="Learn how credit scores work in the U.S., including how credit reports are used, FICO and VantageScore models, payment history, credit utilization, inquiries, credit mix, and why scores differ." />
+        content="Learn how credit scores work, what factors affect them, how credit reports and scoring models differ, and what lenders may consider when reviewing your credit.">
 
-    <meta name="keywords"
-        content="how credit scores work, how does a credit score work, credit score calculation, how credit scores are calculated, FICO vs VantageScore, credit score factors, credit scoring models" />
+    <meta name="robots" content="index, follow">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="canonical" href="https://paycheckmint.com/finance/credit-debt/how-credit-scores-work/">
 
-    <link rel="canonical" href="https://paycheckmint.com/finance/credit-debt/how-credit-scores-work/" />
+    <link rel="icon" href="/icon.ico">
 
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="How Credit Scores Work: Factors, Models &amp; Scoring" />
+    <meta name="theme-color" content="#176B5B">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How Credit Scores Work: A Simple Guide">
     <meta property="og:description"
-        content="Understand how credit scores are calculated, what factors affect them, why scores differ, and how FICO and VantageScore work." />
-    <meta property="og:url" content="https://paycheckmint.com/finance/credit-debt/how-credit-scores-work/" />
-    <meta property="og:site_name" content="PaycheckMint" />
+        content="Understand how credit scores are calculated, what factors affect them, and how credit reports, scores, and lenders fit together.">
+    <meta property="og:url" content="https://paycheckmint.com/finance/credit-debt/how-credit-scores-work/">
+    <meta property="og:site_name" content="PaycheckMint">
+
+    <!-- Global stylesheet -->
+    <link rel="stylesheet" href="/style.css">
 
     <style>
+        /* =========================================================
+           PAYCHECKMINT — HOW CREDIT SCORES WORK
+           Page-specific styles
+        ========================================================= */
+
         :root {
-            --bg: #f6f5f1;
-            --surface: #ffffff;
-            --surface-soft: #faf9f6;
-
-            --ink: #191919;
-            --muted: #74736f;
-            --muted-light: #999791;
-
-            --line: #deddd8;
-            --line-dark: #cbc9c3;
-
-            --accent: #5954d9;
-            --accent-dark: #4843c4;
-            --accent-soft: #eeedff;
-
-            --success: #23784a;
-
-            --shadow: 0 12px 35px rgba(25, 25, 25, 0.06);
+            --credit-primary: #176B5B;
+            --credit-primary-dark: #0F5145;
+            --credit-accent: #C9922E;
+            --credit-bg: #F7F8F6;
+            --credit-surface: #FFFFFF;
+            --credit-soft: #EEF5F2;
+            --credit-text: #17201D;
+            --credit-muted: #64706C;
+            --credit-line: #DDE5E1;
+            --credit-radius: 18px;
+            --credit-shadow: 0 10px 30px rgba(23, 107, 91, 0.08);
         }
 
         * {
@@ -56,2119 +59,3136 @@
         }
 
         body {
-            margin: 0;
-            background: var(--bg);
-            color: var(--ink);
-            font-family:
-                Inter,
-                ui-sans-serif,
-                system-ui,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                sans-serif;
-            line-height: 1.7;
-            overflow-x: hidden;
+            background: var(--credit-bg);
+            color: var(--credit-text);
         }
 
-        a {
-            color: inherit;
+        /* =========================================================
+           PAGE WRAPPER
+        ========================================================= */
+
+        .credit-page {
+            width: 100%;
+        }
+
+        .credit-container {
+            width: min(1200px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        /* =========================================================
+           BREADCRUMB
+        ========================================================= */
+
+        .credit-breadcrumb {
+            padding: 24px 0 8px;
+            font-size: 14px;
+            color: var(--credit-muted);
+        }
+
+        .credit-breadcrumb a {
+            color: var(--credit-primary);
             text-decoration: none;
+            font-weight: 600;
         }
 
-        /* =========================
-       HEADER
-    ========================= */
-
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(246, 245, 241, 0.96);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--line);
+        .credit-breadcrumb a:hover {
+            text-decoration: underline;
         }
 
-        .header-inner {
-            width: min(1180px, calc(100% - 32px));
-            min-height: 72px;
-            margin: 0 auto;
+        .credit-breadcrumb span {
+            margin: 0 7px;
+            color: #9AA7A2;
+        }
 
-            display: flex;
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .credit-hero {
+            padding: 28px 0 54px;
+        }
+
+        .credit-hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(330px, 0.8fr);
+            gap: 54px;
             align-items: center;
-            justify-content: space-between;
-
-            gap: 28px;
         }
 
-        .brand {
-            display: inline-block;
-
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: -0.8px;
-
-            white-space: nowrap;
-        }
-
-        .brand span {
-            color: var(--accent);
-        }
-
-        .main-nav {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .main-nav>a,
-        .nav-dropdown>button {
-            border: 0;
-            background: transparent;
-
-            color: var(--ink);
-            font: inherit;
-
-            font-size: 14px;
-            font-weight: 650;
-
-            padding: 10px 12px;
-
-            border-radius: 9px;
-            cursor: pointer;
-        }
-
-        .main-nav>a:hover,
-        .nav-dropdown>button:hover {
-            background: var(--surface);
-            color: var(--accent);
-        }
-
-        /* =========================
-       FINANCE DROPDOWN
-    ========================= */
-
-        .nav-dropdown {
-            position: relative;
-        }
-
-        .nav-dropdown-menu {
-            position: absolute;
-
-            top: calc(100% + 8px);
-            right: 0;
-
-            width: 220px;
-
-            padding: 8px;
-
-            background: var(--surface);
-
-            border: 1px solid var(--line);
-            border-radius: 12px;
-
-            box-shadow: var(--shadow);
-
-            display: none;
-        }
-
-        .nav-dropdown.open .nav-dropdown-menu {
-            display: block;
-        }
-
-        .nav-dropdown-menu a {
-            display: block;
-
-            padding: 9px 11px;
-
-            border-radius: 8px;
-
-            font-size: 14px;
-        }
-
-        .nav-dropdown-menu a:hover {
-            background: var(--accent-soft);
-            color: var(--accent);
-        }
-
-        /* =========================
-       MOBILE MENU
-    ========================= */
-
-        .mobile-menu-toggle {
-            display: none;
-
-            border: 1px solid var(--line-dark);
-
-            background: var(--surface);
-
-            border-radius: 9px;
-
-            padding: 9px 11px;
-
-            cursor: pointer;
-
-            font-size: 20px;
-            line-height: 1;
-        }
-
-        /* =========================
-       PAGE
-    ========================= */
-
-        .page-wrap {
-            width: min(1180px, calc(100% - 32px));
-            margin: 0 auto;
-        }
-
-        .hero {
-            padding: 64px 0 34px;
-            max-width: 850px;
-        }
-
-        .eyebrow {
+        .credit-eyebrow {
             display: inline-flex;
             align-items: center;
-
-            padding: 6px 10px;
-
+            gap: 8px;
+            padding: 7px 12px;
+            margin-bottom: 18px;
             border-radius: 999px;
-
-            background: var(--accent-soft);
-
-            color: var(--accent-dark);
-
-            font-size: 12px;
-            font-weight: 800;
-
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-        }
-
-        .hero h1 {
-            margin: 16px 0 14px;
-
-            font-size: clamp(34px, 5vw, 54px);
-
-            line-height: 1.08;
-
-            letter-spacing: -1.8px;
-        }
-
-        .hero p {
-            margin: 0;
-
-            max-width: 760px;
-
-            color: var(--muted);
-
-            font-size: 18px;
-        }
-
-        /* =========================
-       ARTICLE + SIDEBAR
-    ========================= */
-
-        .content-grid {
-            display: grid;
-
-            grid-template-columns:
-                minmax(0, 1fr) 300px;
-
-            gap: 42px;
-
-            align-items: start;
-
-            padding-bottom: 70px;
-        }
-
-        article {
-            min-width: 0;
-
-            background: var(--surface);
-
-            border: 1px solid var(--line);
-            border-radius: 18px;
-
-            padding: clamp(24px, 4vw, 42px);
-
-            box-shadow: var(--shadow);
-        }
-
-        article h2 {
-            margin: 42px 0 14px;
-
-            font-size: 29px;
-
-            line-height: 1.2;
-
-            letter-spacing: -0.7px;
-        }
-
-        article h3 {
-            margin: 28px 0 10px;
-
-            font-size: 21px;
-
-            line-height: 1.3;
-        }
-
-        article h2:first-child {
-            margin-top: 0;
-        }
-
-        article p {
-            margin: 0 0 16px;
-        }
-
-        article ul,
-        article ol {
-            padding-left: 23px;
-        }
-
-        article li {
-            margin: 8px 0;
-        }
-
-        /* =========================
-       QUICK ANSWER
-    ========================= */
-
-        .quick-answer {
-            margin: 0 0 30px;
-
-            padding: 22px;
-
-            background: var(--accent-soft);
-
-            border: 1px solid #dcd9ff;
-
-            border-radius: 14px;
-        }
-
-        .quick-answer strong {
-            display: block;
-
-            margin-bottom: 6px;
-
-            color: var(--accent-dark);
-
-            font-size: 14px;
-
-            text-transform: uppercase;
-
-            letter-spacing: 0.04em;
-        }
-
-        /* =========================
-       FACT GRID
-    ========================= */
-
-        .fact-grid {
-            display: grid;
-
-            grid-template-columns: repeat(3, 1fr);
-
-            gap: 12px;
-
-            margin: 25px 0 35px;
-        }
-
-        .fact-card {
-            padding: 18px;
-
-            border: 1px solid var(--line);
-
-            background: var(--surface-soft);
-
-            border-radius: 12px;
-        }
-
-        .fact-card strong {
-            display: block;
-
-            margin-bottom: 4px;
-
-            font-size: 18px;
-        }
-
-        .fact-card span {
-            color: var(--muted);
-
+            background: var(--credit-soft);
+            color: var(--credit-primary-dark);
             font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 0.02em;
         }
 
-        /* =========================
-       INFO CARDS
-    ========================= */
-
-        .info-card {
-            margin: 24px 0;
-
-            padding: 22px;
-
-            background: var(--surface-soft);
-
-            border: 1px solid var(--line);
-
-            border-radius: 14px;
+        .credit-eyebrow::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--credit-accent);
         }
 
-        .info-card h3 {
-            margin-top: 0;
+        .credit-hero h1 {
+            margin: 0 0 18px;
+            max-width: 760px;
+            font-size: clamp(40px, 5vw, 62px);
+            line-height: 1.05;
+            letter-spacing: -0.045em;
+            color: var(--credit-text);
         }
 
-        .tip-box {
-            margin: 24px 0;
-
-            padding: 19px 21px;
-
-            border: 1px solid #d6e8dc;
-
-            background: #f3faf5;
-
-            border-radius: 12px;
+        .credit-hero-intro {
+            max-width: 730px;
+            margin: 0;
+            font-size: 19px;
+            line-height: 1.7;
+            color: var(--credit-muted);
         }
 
-        .warning-box {
-            margin: 24px 0;
-
-            padding: 19px 21px;
-
-            border: 1px solid #eadfc8;
-
-            background: #fffaf0;
-
-            border-radius: 12px;
-        }
-
-        /* =========================
-       FACTOR CARDS
-    ========================= */
-
-        .factor {
-            margin: 22px 0;
-
-            padding: 22px;
-
-            border: 1px solid var(--line);
-
-            border-radius: 14px;
-
-            background: var(--surface-soft);
-        }
-
-        .factor-header {
+        .credit-hero-actions {
             display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 15px;
-
-            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
         }
 
-        .factor-number {
+        .credit-btn {
             display: inline-flex;
-
-            width: 34px;
-            height: 34px;
-
             align-items: center;
             justify-content: center;
-
-            flex: 0 0 34px;
-
-            border-radius: 50%;
-
-            background: var(--accent);
-
-            color: #fff;
-
+            min-height: 46px;
+            padding: 0 18px;
+            border-radius: 10px;
+            text-decoration: none;
             font-size: 14px;
             font-weight: 800;
+            transition: 0.2s ease;
         }
 
-        .factor h3 {
-            margin: 0;
-
-            flex: 1;
+        .credit-btn-primary {
+            background: var(--credit-primary);
+            color: #fff;
         }
 
-        .factor-label {
-            padding: 5px 9px;
+        .credit-btn-primary:hover {
+            background: var(--credit-primary-dark);
+            transform: translateY(-1px);
+        }
 
-            background: var(--accent-soft);
+        .credit-btn-secondary {
+            background: #fff;
+            color: var(--credit-primary-dark);
+            border: 1px solid var(--credit-line);
+        }
 
-            color: var(--accent-dark);
+        .credit-btn-secondary:hover {
+            border-color: var(--credit-primary);
+            background: var(--credit-soft);
+        }
 
-            border-radius: 999px;
+        /* =========================================================
+           HERO VISUAL
+        ========================================================= */
 
+        .credit-hero-card {
+            position: relative;
+            padding: 25px;
+            background: var(--credit-surface);
+            border: 1px solid var(--credit-line);
+            border-radius: 22px;
+            box-shadow: var(--credit-shadow);
+        }
+
+        .credit-card-label {
+            margin-bottom: 5px;
             font-size: 12px;
-            font-weight: 750;
-
-            white-space: nowrap;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--credit-muted);
         }
 
-        /* =========================
-       TABLE
-    ========================= */
-
-        .table-wrap {
-            width: 100%;
-
-            overflow-x: auto;
-
-            margin: 22px 0 30px;
+        .credit-card-title {
+            margin: 0 0 22px;
+            font-size: 23px;
+            line-height: 1.25;
         }
 
-        .comparison-table {
-            width: 100%;
+        .credit-factor-list {
+            display: grid;
+            gap: 11px;
+        }
 
-            min-width: 620px;
+        .credit-factor {
+            display: grid;
+            grid-template-columns: 40px 1fr;
+            gap: 12px;
+            align-items: center;
+            padding: 13px;
+            border-radius: 13px;
+            background: var(--credit-bg);
+            border: 1px solid #E7ECE9;
+        }
 
-            border-collapse: collapse;
+        .credit-factor-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 11px;
+            background: var(--credit-soft);
+            color: var(--credit-primary);
+            font-size: 19px;
+            font-weight: 900;
+        }
 
+        .credit-factor strong {
+            display: block;
+            margin-bottom: 2px;
             font-size: 14px;
         }
 
-        .comparison-table th,
-        .comparison-table td {
-            padding: 13px;
-
-            border: 1px solid var(--line);
-
-            text-align: left;
-
-            vertical-align: top;
+        .credit-factor small {
+            display: block;
+            font-size: 12px;
+            line-height: 1.45;
+            color: var(--credit-muted);
         }
 
-        .comparison-table th {
-            background: var(--surface-soft);
-
-            font-weight: 750;
+        .credit-card-note {
+            margin: 18px 0 0;
+            padding-top: 16px;
+            border-top: 1px solid var(--credit-line);
+            font-size: 12px;
+            line-height: 1.55;
+            color: var(--credit-muted);
         }
 
-        /* =========================
-       MODEL COMPARISON
-    ========================= */
+        /* =========================================================
+           TRUST ROW
+        ========================================================= */
 
-        .model-grid {
+        .credit-trust {
+            padding: 18px 0 34px;
+        }
+
+        .credit-trust-grid {
             display: grid;
-
-            grid-template-columns: repeat(2, 1fr);
-
-            gap: 16px;
-
-            margin: 25px 0 30px;
-        }
-
-        .model-card {
-            padding: 22px;
-
-            background: var(--surface-soft);
-
-            border: 1px solid var(--line);
-
-            border-radius: 14px;
-        }
-
-        .model-card h3 {
-            margin-top: 0;
-        }
-
-        .model-card p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* =========================
-       FLOW DIAGRAM
-    ========================= */
-
-        .score-flow {
-            display: grid;
-
             grid-template-columns: repeat(3, 1fr);
-
-            gap: 12px;
-
-            margin: 25px 0 32px;
+            border-top: 1px solid var(--credit-line);
+            border-bottom: 1px solid var(--credit-line);
         }
 
-        .flow-item {
-            position: relative;
-
-            padding: 20px 16px;
-
-            background: var(--surface-soft);
-
-            border: 1px solid var(--line);
-
-            border-radius: 13px;
-
+        .credit-trust-item {
+            padding: 18px 22px;
             text-align: center;
         }
 
-        .flow-item strong {
-            display: block;
-
-            margin-bottom: 5px;
-
-            font-size: 16px;
+        .credit-trust-item+.credit-trust-item {
+            border-left: 1px solid var(--credit-line);
         }
 
-        .flow-item span {
+        .credit-trust-item strong {
             display: block;
-
-            color: var(--muted);
-
-            font-size: 13px;
+            margin-bottom: 4px;
+            font-size: 14px;
         }
 
-        /* =========================
-       RELATED LINKS
-    ========================= */
+        .credit-trust-item span {
+            font-size: 12px;
+            color: var(--credit-muted);
+        }
 
-        .related-links {
+        /* =========================================================
+           MAIN CONTENT LAYOUT
+        ========================================================= */
+
+        .credit-content {
+            padding: 22px 0 80px;
+        }
+
+        .credit-content-layout {
             display: grid;
-
-            grid-template-columns: repeat(2, 1fr);
-
-            gap: 10px;
-
-            margin-top: 20px;
+            grid-template-columns: minmax(0, 1fr) 300px;
+            gap: 48px;
+            align-items: start;
         }
 
-        .related-links a {
-            padding: 13px;
-
-            border: 1px solid var(--line);
-
-            border-radius: 10px;
-
-            background: var(--surface-soft);
-
-            color: var(--accent-dark);
-
-            font-size: 14px;
-
-            font-weight: 650;
-        }
-
-        .related-links a:hover {
-            border-color: var(--accent);
-
-            color: var(--accent);
-        }
-
-        /* =========================
-       SIDEBAR
-    ========================= */
-
-        /*
-     * IMPORTANT:
-     *
-     * The entire sidebar is sticky.
-     * The TOC is NOT independently sticky.
-     *
-     * This prevents sidebar cards from moving behind
-     * the table of contents.
-     */
-
-        aside {
+        .credit-article {
             min-width: 0;
-
-            position: sticky;
-
-            top: 94px;
-
-            align-self: start;
         }
 
-        .toc {
-            position: static;
+        /* =========================================================
+           ARTICLE
+        ========================================================= */
 
-            background: var(--surface);
-
-            border: 1px solid var(--line);
-
-            border-radius: 16px;
-
-            padding: 20px;
+        .credit-article-section {
+            margin-bottom: 48px;
         }
 
-        .toc h3 {
-            margin: 0 0 12px;
+        .credit-article-section:last-child {
+            margin-bottom: 0;
+        }
 
+        .credit-article h2 {
+            margin: 0 0 17px;
+            font-size: clamp(28px, 3vw, 36px);
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+        }
+
+        .credit-article h3 {
+            margin: 30px 0 11px;
+            font-size: 21px;
+            line-height: 1.3;
+        }
+
+        .credit-article p {
+            margin: 0 0 17px;
             font-size: 16px;
+            line-height: 1.78;
+            color: #394641;
         }
 
-        .toc a {
-            display: block;
-
-            padding: 6px 0;
-
-            color: var(--muted);
-
-            font-size: 13px;
-
-            line-height: 1.4;
+        .credit-article ul,
+        .credit-article ol {
+            margin: 14px 0 22px;
+            padding-left: 23px;
         }
 
-        .toc a:hover {
-            color: var(--accent);
-        }
-
-        .sidebar-card {
-            margin-top: 16px;
-
-            padding: 20px;
-
-            background: var(--surface);
-
-            border: 1px solid var(--line);
-
-            border-radius: 16px;
-        }
-
-        .sidebar-card h3 {
-            margin: 0 0 10px;
-
+        .credit-article li {
+            margin-bottom: 10px;
+            padding-left: 4px;
             font-size: 16px;
+            line-height: 1.7;
+            color: #394641;
         }
 
-        .sidebar-card a {
-            display: block;
-
-            padding: 7px 0;
-
-            color: var(--accent-dark);
-
-            font-size: 14px;
+        .credit-article strong {
+            color: var(--credit-text);
         }
 
-        .sidebar-card a:hover {
-            color: var(--accent);
-        }
-
-        /* =========================
-       FAQ
-    ========================= */
-
-        .faq {
-            border-top: 1px solid var(--line);
-        }
-
-        .faq details {
-            border-bottom: 1px solid var(--line);
-
-            padding: 15px 0;
-        }
-
-        .faq summary {
-            cursor: pointer;
-
+        .credit-article a {
+            color: var(--credit-primary);
             font-weight: 700;
         }
 
-        .faq p {
-            margin: 10px 0 0;
+        /* =========================================================
+           QUICK ANSWER
+        ========================================================= */
 
-            color: var(--muted);
+        .credit-answer {
+            margin-bottom: 48px;
+            padding: 25px 27px;
+            background: var(--credit-soft);
+            border: 1px solid #D6E8E1;
+            border-radius: var(--credit-radius);
         }
 
-        /* =========================
-       DISCLAIMER
-    ========================= */
+        .credit-answer-label {
+            display: inline-block;
+            margin-bottom: 10px;
+            color: var(--credit-primary-dark);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
 
-        .disclaimer {
-            margin-top: 35px;
+        .credit-answer p {
+            margin: 0;
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--credit-text);
+        }
 
-            padding-top: 20px;
+        /* =========================================================
+           FACTOR CARDS
+        ========================================================= */
 
-            border-top: 1px solid var(--line);
+        .credit-factor-cards {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 15px;
+            margin: 25px 0 30px;
+        }
 
-            color: var(--muted);
+        .credit-info-card {
+            padding: 21px;
+            background: var(--credit-surface);
+            border: 1px solid var(--credit-line);
+            border-radius: 15px;
+        }
 
+        .credit-info-card-icon {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 13px;
+            border-radius: 10px;
+            background: var(--credit-soft);
+            color: var(--credit-primary);
+            font-weight: 900;
+        }
+
+        .credit-info-card h3 {
+            margin: 0 0 8px;
+            font-size: 18px;
+        }
+
+        .credit-info-card p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        /* =========================================================
+           NUMBERED STEPS
+        ========================================================= */
+
+        .credit-steps {
+            display: grid;
+            gap: 15px;
+            margin-top: 24px;
+        }
+
+        .credit-step {
+            display: grid;
+            grid-template-columns: 42px 1fr;
+            gap: 15px;
+            padding: 19px;
+            background: #fff;
+            border: 1px solid var(--credit-line);
+            border-radius: 15px;
+        }
+
+        .credit-step-number {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--credit-primary);
+            color: #fff;
+            font-size: 15px;
+            font-weight: 900;
+        }
+
+        .credit-step h3 {
+            margin: 1px 0 7px;
+            font-size: 18px;
+        }
+
+        .credit-step p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        /* =========================================================
+           FORMULA BOX
+        ========================================================= */
+
+        .credit-formula {
+            margin: 24px 0;
+            padding: 23px;
+            background: var(--credit-text);
+            color: #fff;
+            border-radius: 16px;
+        }
+
+        .credit-formula-label {
+            margin-bottom: 9px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        .credit-formula-main {
+            margin-bottom: 14px;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .credit-formula-example {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.65;
+            color: #DCE5E1;
+        }
+
+        /* =========================================================
+           EXAMPLE
+        ========================================================= */
+
+        .credit-example {
+            margin: 25px 0;
+            padding: 23px;
+            border: 1px solid var(--credit-line);
+            border-radius: 16px;
+            background: #fff;
+        }
+
+        .credit-example-title {
+            margin: 0 0 15px;
+            font-size: 17px;
+            font-weight: 900;
+        }
+
+        .credit-example-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .credit-example-stat {
+            padding: 15px;
+            border-radius: 11px;
+            background: var(--credit-bg);
+        }
+
+        .credit-example-stat span {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 11px;
+            color: var(--credit-muted);
+        }
+
+        .credit-example-stat strong {
+            font-size: 18px;
+        }
+
+        /* =========================================================
+           COMPARISON TABLE
+        ========================================================= */
+
+        .credit-table-wrap {
+            margin: 25px 0;
+            overflow-x: auto;
+            border: 1px solid var(--credit-line);
+            border-radius: 15px;
+            background: #fff;
+        }
+
+        .credit-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 580px;
+        }
+
+        .credit-table th,
+        .credit-table td {
+            padding: 14px 16px;
+            text-align: left;
+            vertical-align: top;
+            border-bottom: 1px solid var(--credit-line);
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        .credit-table th {
+            background: var(--credit-soft);
+            color: var(--credit-text);
+            font-weight: 900;
+        }
+
+        .credit-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* =========================================================
+           CALLOUT
+        ========================================================= */
+
+        .credit-callout {
+            margin: 27px 0;
+            padding: 21px 23px;
+            border-left: 4px solid var(--credit-accent);
+            background: #FBF8F1;
+            border-radius: 0 13px 13px 0;
+        }
+
+        .credit-callout strong {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .credit-callout p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        /* =========================================================
+           CHECKLIST
+        ========================================================= */
+
+        .credit-checklist {
+            display: grid;
+            gap: 9px;
+            margin: 23px 0;
+        }
+
+        .credit-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 12px 14px;
+            background: #fff;
+            border: 1px solid var(--credit-line);
+            border-radius: 10px;
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        .credit-check-mark {
+            flex: 0 0 auto;
+            width: 21px;
+            height: 21px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--credit-soft);
+            color: var(--credit-primary);
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+        /* =========================================================
+           FAQ
+        ========================================================= */
+
+        .credit-faq {
+            border-top: 1px solid var(--credit-line);
+        }
+
+        .credit-faq details {
+            border-bottom: 1px solid var(--credit-line);
+        }
+
+        .credit-faq summary {
+            position: relative;
+            padding: 18px 35px 18px 0;
+            cursor: pointer;
+            list-style: none;
+            font-size: 16px;
+            font-weight: 800;
+            line-height: 1.45;
+        }
+
+        .credit-faq summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .credit-faq summary::after {
+            content: "+";
+            position: absolute;
+            right: 2px;
+            top: 15px;
+            font-size: 22px;
+            font-weight: 400;
+            color: var(--credit-primary);
+        }
+
+        .credit-faq details[open] summary::after {
+            content: "−";
+        }
+
+        .credit-faq-answer {
+            padding: 0 20px 18px 0;
+        }
+
+        .credit-faq-answer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* =========================================================
+           DISCLAIMER
+        ========================================================= */
+
+        .credit-disclaimer {
+            margin-top: 40px;
+            padding: 18px;
+            border: 1px solid var(--credit-line);
+            border-radius: 13px;
+            background: var(--credit-bg);
+        }
+
+        .credit-disclaimer strong {
+            display: block;
+            margin-bottom: 5px;
             font-size: 13px;
         }
 
-        /* =========================
-       FOOTER
-    ========================= */
-
-        .site-footer {
-            background: var(--bg);
-
-            border-top: 1px solid var(--line);
-        }
-
-        .footer-inner {
-            width: min(1180px, calc(100% - 32px));
-
-            margin: 0 auto;
-
-            padding: 48px 0 25px;
-
-            display: grid;
-
-            grid-template-columns: 1.7fr 1fr 1fr 1fr;
-
-            gap: 30px;
-        }
-
-        .footer-brand {
-            max-width: 390px;
-        }
-
-        .footer-brand p,
-        .footer-column a {
-            color: var(--muted);
-
-            font-size: 14px;
-        }
-
-        .footer-brand p {
-            margin-top: 12px;
-        }
-
-        .footer-column h3 {
-            margin: 0 0 12px;
-
-            font-size: 14px;
-        }
-
-        .footer-column a {
-            display: block;
-
-            padding: 4px 0;
-        }
-
-        .footer-column a:hover {
-            color: var(--accent);
-        }
-
-        .footer-bottom {
-            width: min(1180px, calc(100% - 32px));
-
-            margin: 0 auto;
-
-            padding: 18px 0 25px;
-
-            border-top: 1px solid var(--line);
-
-            color: var(--muted);
-
+        .credit-disclaimer p {
+            margin: 0;
             font-size: 12px;
+            line-height: 1.65;
+            color: var(--credit-muted);
         }
 
-        /* =========================
-       RESPONSIVE
-    ========================= */
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
+
+        .credit-sidebar {
+            position: sticky;
+            top: 96px;
+            align-self: start;
+            height: max-content;
+        }
+
+        .credit-sidebar-card {
+            padding: 20px;
+            background: #fff;
+            border: 1px solid var(--credit-line);
+            border-radius: 16px;
+        }
+
+        .credit-sidebar-card+.credit-sidebar-card {
+            margin-top: 15px;
+        }
+
+        .credit-sidebar-title {
+            margin: 0 0 13px;
+            font-size: 15px;
+            font-weight: 900;
+        }
+
+        .credit-sidebar-links {
+            display: grid;
+            gap: 2px;
+        }
+
+        .credit-sidebar-links a {
+            display: block;
+            padding: 9px 10px;
+            border-radius: 8px;
+            color: var(--credit-muted);
+            text-decoration: none;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .credit-sidebar-links a:hover {
+            background: var(--credit-soft);
+            color: var(--credit-primary-dark);
+        }
+
+        .credit-sidebar-note {
+            margin: 0;
+            font-size: 12px;
+            line-height: 1.6;
+            color: var(--credit-muted);
+        }
+
+        .credit-sidebar-highlight {
+            padding: 14px;
+            margin-top: 13px;
+            background: var(--credit-soft);
+            border-radius: 10px;
+            font-size: 12px;
+            line-height: 1.55;
+            color: var(--credit-primary-dark);
+        }
+
+        /* =========================================================
+           BOTTOM CTA
+        ========================================================= */
+
+        .credit-bottom-cta {
+            margin-top: 55px;
+            padding: 31px;
+            background: var(--credit-primary);
+            color: #fff;
+            border-radius: 19px;
+        }
+
+        .credit-bottom-cta h2 {
+            margin: 0 0 10px;
+            color: #fff;
+            font-size: 27px;
+        }
+
+        .credit-bottom-cta p {
+            max-width: 650px;
+            margin: 0 0 19px;
+            color: #DCEBE6;
+            font-size: 15px;
+            line-height: 1.65;
+        }
+
+        .credit-bottom-cta .credit-btn-secondary {
+            background: #fff;
+            border-color: #fff;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1000px) {
+            .credit-hero-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .credit-hero-card {
+                max-width: 650px;
+            }
+        }
 
         @media (max-width: 900px) {
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .main-nav {
-                position: absolute;
-
-                top: 72px;
-
-                left: 16px;
-                right: 16px;
-
-                display: none;
-
-                flex-direction: column;
-
-                align-items: stretch;
-
-                padding: 10px;
-
-                background: var(--surface);
-
-                border: 1px solid var(--line);
-
-                border-radius: 14px;
-
-                box-shadow: var(--shadow);
-            }
-
-            .main-nav.menu-open {
-                display: flex;
-            }
-
-            .main-nav>a,
-            .nav-dropdown>button {
-                width: 100%;
-
-                text-align: left;
-            }
-
-            .nav-dropdown-menu {
-                position: static;
-
-                width: 100%;
-
-                margin-top: 4px;
-
-                padding: 4px 0 4px 12px;
-
-                border: 0;
-
-                box-shadow: none;
-            }
-
-            .content-grid {
+            .credit-content-layout {
                 grid-template-columns: 1fr;
-
-                gap: 28px;
             }
 
-            /*
-         * Disable sticky behavior on mobile.
-         */
-
-            aside {
+            .credit-sidebar {
                 position: static;
-
-                top: auto;
-
-                width: 100%;
-            }
-
-            .toc {
-                position: static;
-
-                top: auto;
-            }
-
-            .sidebar-card {
-                position: static;
-
-                margin-top: 16px;
-            }
-
-            .footer-inner {
-                grid-template-columns: 1.5fr 1fr 1fr;
             }
         }
 
         @media (max-width: 700px) {
-            .fact-grid {
+            .credit-container {
+                width: min(100% - 28px, 1200px);
+            }
+
+            .credit-hero {
+                padding-top: 20px;
+                padding-bottom: 35px;
+            }
+
+            .credit-hero h1 {
+                font-size: 40px;
+            }
+
+            .credit-hero-intro {
+                font-size: 17px;
+            }
+
+            .credit-trust-grid {
                 grid-template-columns: 1fr;
             }
 
-            .model-grid {
+            .credit-trust-item+.credit-trust-item {
+                border-left: none;
+                border-top: 1px solid var(--credit-line);
+            }
+
+            .credit-factor-cards {
                 grid-template-columns: 1fr;
             }
 
-            .score-flow {
+            .credit-example-grid {
                 grid-template-columns: 1fr;
             }
 
-            .related-links {
-                grid-template-columns: 1fr;
+            .credit-step {
+                grid-template-columns: 36px 1fr;
+                gap: 11px;
+                padding: 15px;
+            }
+
+            .credit-step-number {
+                width: 36px;
+                height: 36px;
+            }
+
+            .credit-article h2 {
+                font-size: 29px;
+            }
+
+            .credit-bottom-cta {
+                padding: 24px;
             }
         }
 
-        @media (max-width: 650px) {
-            .hero {
-                padding-top: 42px;
+        @media (max-width: 500px) {
+            .credit-hero h1 {
+                font-size: 35px;
             }
 
-            .hero h1 {
-                font-size: 37px;
+            .credit-hero-actions {
+                flex-direction: column;
             }
 
-            .hero p {
-                font-size: 16px;
+            .credit-btn {
+                width: 100%;
             }
 
-            .footer-inner {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 520px) {
-            .header-inner {
-                min-height: 66px;
+            .credit-hero-card {
+                padding: 19px;
             }
 
-            .main-nav {
-                top: 66px;
-
-                left: 11px;
-                right: 11px;
-            }
-
-            .hero h1 {
-                font-size: 34px;
-            }
-
-            article h2 {
-                font-size: 25px;
-            }
-
-            article h3 {
-                font-size: 19px;
-            }
-
-            .factor-header {
-                align-items: flex-start;
-
-                flex-wrap: wrap;
-            }
-
-            .footer-inner {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 420px) {
-
-            .header-inner,
-            .page-wrap,
-            .footer-inner,
-            .footer-bottom {
-                width: min(100% - 22px, 1180px);
-            }
-
-            article {
-                padding: 21px;
-            }
-
-            .hero {
-                padding-top: 34px;
-            }
-
-            .hero h1 {
-                font-size: 31px;
-            }
-
-            .footer-inner {
-                grid-template-columns: 1fr;
+            .credit-answer {
+                padding: 20px;
             }
         }
     </style>
 
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "How Credit Scores Work",
+        "url": "https://paycheckmint.com/finance/credit-debt/how-credit-scores-work/",
+        "description": "A practical guide explaining how credit scores work, what factors affect them, and how credit reports and scoring models differ.",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "PaycheckMint",
+            "url": "https://paycheckmint.com/"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://paycheckmint.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Credit & Debt",
+                "item": "https://paycheckmint.com/finance/credit-debt/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "How Credit Scores Work",
+                "item": "https://paycheckmint.com/finance/credit-debt/how-credit-scores-work/"
+            }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a credit score?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A credit score is a number generated by a credit scoring model using information in a consumer's credit report. It is designed to help lenders assess credit risk."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What factors affect a credit score?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Credit scoring models can consider payment history, amounts owed and revolving credit utilization, length of credit history, types of credit, and recent credit activity. The exact factors and their importance vary by scoring model."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does checking my own credit score lower it?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Checking your own credit information is generally treated differently from a lender's hard inquiry. A consumer checking their own credit information does not normally create the same type of inquiry used when applying for new credit."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How long does it take to improve a credit score?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "There is no fixed timeline. Scores can change as updated account information is reported, but meaningful improvement can take months or longer depending on the person's credit history and the scoring model being used."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does paying off a credit card improve your credit score?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Paying down or paying off revolving balances can reduce reported credit utilization, which can be helpful under many scoring models. However, the exact effect on a score varies by credit profile and scoring model."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should I close a credit card after paying it off?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Not necessarily. Closing an account can change your available credit and other aspects of your credit profile. Consider the account's fees, usefulness, age, and effect on your overall finances before closing it."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 
 <body>
-    <header class="site-header">
 
-        <div class="header-inner">
-            <a class="brand" href="/"> Paycheck<span>Mint</span> </a>
+    <!-- =========================================================
+     HEADER
+========================================================= -->
 
-            <button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"
-                aria-controls="main-navigation">
-                ☰
+    <header class="pm-header" id="site-header">
+
+        <div class="pm-header-inner">
+
+            <a class="pm-brand" href="/" aria-label="PaycheckMint home">
+                Paycheck<span>Mint</span>
+            </a>
+
+            <nav class="pm-desktop-nav" aria-label="Main navigation">
+
+                <a class="pm-nav-link" href="/income/">
+                    Income
+                </a>
+
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                        Finance
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="pm-dropdown-menu">
+
+                        <span class="pm-dropdown-label">
+                            Explore
+                        </span>
+
+                        <a href="/finance/">
+                            <span>Finance Overview</span>
+                        </a>
+
+                        <a href="/income/">
+                            <span>Income & Earnings</span>
+                        </a>
+
+                        <a href="/finance/budgeting/">
+                            <span>Budgeting Guides</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                        Calculators
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="pm-dropdown-menu">
+
+                        <span class="pm-dropdown-label">
+                            Paycheck tools
+                        </span>
+
+                        <a href="/paycheck-tax-calculator/">
+                            Paycheck Tax Calculator
+                        </a>
+
+                        <a href="/monthly-paycheck-calculator/">
+                            Monthly Paycheck Calculator
+                        </a>
+
+                        <a href="/take-home-pay-calculator/">
+                            Take-Home Pay Calculator
+                        </a>
+
+                        <a href="/hourly-paycheck-calculator/">
+                            Hourly Paycheck Calculator
+                        </a>
+
+                        <a href="/overtime-pay-calculator/">
+                            Overtime Pay Calculator
+                        </a>
+
+                        <a href="/salary-paycheck-calculator/">
+                            Salary Paycheck Calculator
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <a class="pm-nav-link" href="/finance/">
+                    Learn
+                </a>
+
+            </nav>
+
+            <div class="pm-nav-spacer"></div>
+
+            <button class="pm-search-button" id="searchToggle" type="button" aria-label="Open search"
+                aria-expanded="false" aria-controls="searchPanel">
+
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="m20 20-4-4"></path>
+
+                </svg>
+
             </button>
 
-            <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
-                <a href="/">Home</a>
+            <a class="pm-header-cta" href="/paycheck-tax-calculator/">
+                Calculate paycheck
+            </a>
 
-                <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+            <button class="pm-mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation"
+                aria-expanded="false" aria-controls="mobileNav">
+                <svg id="mobileMenuIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <path d="M4 6h16" />
+                    <path d="M4 12h16" />
+                    <path d="M4 18h16" />
+                </svg>
+            </button>
 
-                <a href="/income/"> Income </a>
-
-                <div class="nav-dropdown">
-                    <button type="button" class="nav-dropdown-toggle" aria-expanded="false">Finance ▾</button>
-
-                    <div class="nav-dropdown-menu">
-                        <a href="/finance/"> Finance Overview </a>
-
-                        <a href="/finance/taxes/"> Taxes </a>
-
-                        <a href="/finance/budgeting/"> Budgeting </a>
-
-                        <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
-
-                        <a href="/finance/investing/"> Investing </a>
-
-                        <a href="/finance/insurance/"> Insurance </a>
-                    </div>
-                </div>
-            </nav>
         </div>
+
+        <!-- SEARCH PANEL -->
+
+        <div class="pm-search-panel" id="searchPanel">
+
+            <div class="pm-search-inner">
+
+                <div class="pm-search-field">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="m20 20-4-4" />
+                    </svg>
+
+                    <input id="siteSearch" class="pm-search-input" type="search" autocomplete="off"
+                        placeholder="Search PaycheckMint..." aria-label="Search PaycheckMint">
+
+                    <button class="pm-search-close" id="searchClose" type="button" aria-label="Close search">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 6l12 12" />
+                            <path d="M18 6 6 18" />
+                        </svg>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="pm-search-results" id="searchResults"></div>
+
+        </div>
+
+        <!-- MOBILE NAV -->
+
+        <nav class="pm-mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+
+            <div class="pm-mobile-nav-inner">
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a href="/income/">
+                    Income
+                </a>
+
+                <button class="pm-mobile-finance-button" id="mobileFinanceToggle" type="button" aria-expanded="false">
+                    <span>Finance</span>
+
+                    <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m6 9 6 6 6-6" />
+                    </svg>
+                </button>
+
+                <div class="pm-mobile-finance-links" id="mobileFinanceLinks">
+
+                    <a href="/finance/">
+                        Finance Overview
+                    </a>
+
+                    <a href="/income/">
+                        Income & Earnings
+                    </a>
+
+                </div>
+
+                <a href="/paycheck-tax-calculator/">
+                    Paycheck Tax Calculator
+                </a>
+
+                <a href="/take-home-pay-calculator/">
+                    Take-Home Pay Calculator
+                </a>
+
+                <a href="/hourly-paycheck-calculator/">
+                    Hourly Paycheck Calculator
+                </a>
+
+                <a href="/overtime-pay-calculator/">
+                    Overtime Pay Calculator
+                </a>
+
+                <a href="/salary-paycheck-calculator/">
+                    Salary Paycheck Calculator
+                </a>
+
+                <a href="/weekly-paycheck-calculator/">
+                    Weekly Paycheck Calculator
+                </a>
+
+                <a href="/biweekly-paycheck-calculator/">
+                    Biweekly Paycheck Calculator
+                </a>
+
+                <a href="/monthly-paycheck-calculator/">
+                    Monthly Paycheck Calculator
+                </a>
+
+                <div class="pm-mobile-search-row">
+
+                    <button class="pm-button-secondary" id="mobileSearchButton" type="button">
+                        Search PaycheckMint
+                    </button>
+
+                </div>
+
+            </div>
+
+        </nav>
 
     </header>
 
-    <main>
 
-        <div class="page-wrap">
-            <section class="hero">
-                <span class="eyebrow"> Credit &amp; Debt </span>
-
-                <h1>How Credit Scores Work</h1>
-
-                <p>
-                    Understand how credit scores are calculated, what information goes into them, how FICO and
-                    VantageScore differ, why you can have multiple scores, and what can cause your score to change.
-                </p>
-            </section>
-
-            <div class="content-grid">
-                <article>
-                    <div class="quick-answer">
-                        <strong> Quick answer </strong>
-
-                        A credit score is calculated by applying a scoring model to information in a credit report.
-                        The model looks at patterns such as payment history, balances and credit utilization, credit
-                        history, new credit activity and, depending on the model, credit mix and other information.
-                        Different models, credit reports and reporting dates can produce different scores.
-                    </div>
-
-                    <div class="fact-grid">
-                        <div class="fact-card">
-                            <strong> 300–850 </strong>
-
-                            <span> Many commonly used U.S. consumer credit scores fall within this range. </span>
-                        </div>
-
-                        <div class="fact-card">
-                            <strong> Multiple scores </strong>
-
-                            <span>
-                                You can have different scores because models and credit-report data can differ.
-                            </span>
-                        </div>
-
-                        <div class="fact-card">
-                            <strong> Credit reports </strong>
-
-                            <span> Credit scores generally use information from consumer credit reports. </span>
-                        </div>
-                    </div>
-
-                    <h2 id="process">How Do Credit Scores Work?</h2>
-
-                    <p>
-                        Think of a credit score as the output of a calculation. Your credit report contains
-                        information about your credit accounts and payment history. A credit scoring model analyzes
-                        that information and produces a numerical score.
-                    </p>
-
-                    <div class="score-flow">
-                        <div class="flow-item">
-                            <strong> 1. Credit activity </strong>
-
-                            <span> Accounts, balances, payments and inquiries generate information. </span>
-                        </div>
-
-                        <div class="flow-item">
-                            <strong> 2. Credit report </strong>
-
-                            <span>
-                                Credit-reporting companies collect and maintain information from data furnishers.
-                            </span>
-                        </div>
-
-                        <div class="flow-item">
-                            <strong> 3. Scoring model </strong>
-
-                            <span> A scoring model analyzes the report and produces a score. </span>
-                        </div>
-                    </div>
-
-                    <p>
-                        The important distinction is that a credit bureau does not simply decide your score. Credit
-                        reporting companies maintain credit-report information, while scoring companies develop
-                        models that use that information to calculate scores.
-                    </p>
-
-                    <h2 id="report">What Information Goes Into a Credit Score?</h2>
-
-                    <p>
-                        Credit scoring models generally use information contained in a consumer credit report. The
-                        exact information and weighting depend on the particular scoring model.
-                    </p>
-
-                    <p>
-                        Common information includes payment history, balances, credit limits, account age, types of
-                        accounts, collections, public records where applicable, and recent applications or
-                        inquiries.
-                    </p>
-
-                    <div class="info-card">
-                        <h3>Credit score vs. credit report</h3>
-
-                        <p>
-                            A <strong>credit report</strong> is a detailed record of credit-related information. A
-                            <strong>credit score</strong> is a numerical calculation based on information in a
-                            report using a particular scoring model.
-                        </p>
-                    </div>
-
-                    <h2 id="factors">The Main Factors That Affect Credit Scores</h2>
-
-                    <p>
-                        There is no single universal formula for every credit score. However, several categories
-                        appear repeatedly across major scoring systems.
-                    </p>
-
-                    <div class="factor">
-                        <div class="factor-header">
-                            <span class="factor-number"> 1 </span>
-
-                            <h3>Payment History</h3>
-
-                            <span class="factor-label"> Major factor </span>
-                        </div>
-
-                        <p>
-                            Payment history looks at whether you have paid credit obligations as agreed. Late
-                            payments, defaults, collections and other negative payment information can affect
-                            scores.
-                        </p>
-
-                        <p>
-                            For FICO Score models, payment history is generally the largest category in the commonly
-                            published FICO Score factor framework.
-                        </p>
-
-                        <div class="tip-box">
-                            <strong> What this means: </strong>
-
-                            Consistently paying accounts on time can help establish positive credit history. Missing
-                            payments can have the opposite effect.
-                        </div>
-                    </div>
-
-                    <div class="factor">
-                        <div class="factor-header">
-                            <span class="factor-number"> 2 </span>
-
-                            <h3>Amounts Owed and Credit Utilization</h3>
-
-                            <span class="factor-label"> Major factor </span>
-                        </div>
-
-                        <p>
-                            Scoring models can consider how much debt you have and how your revolving balances
-                            compare with your available credit.
-                        </p>
-
-                        <p>Credit utilization is especially relevant to revolving accounts such as credit cards.</p>
-
-                        <div class="info-card">
-                            <h3>Credit utilization formula</h3>
-
-                            <p>
-                                Credit utilization = total revolving balances ÷ total revolving credit limits × 100
-                            </p>
-
-                            <p>
-                                For example, $1,500 in credit card balances against $6,000 in total credit limits
-                                equals 25% overall utilization.
-                            </p>
-                        </div>
-
-                        <p>
-                            Lower utilization is generally favorable, but there is no single percentage that
-                            guarantees a particular score.
-                        </p>
-                    </div>
-
-                    <div class="factor">
-                        <div class="factor-header">
-                            <span class="factor-number"> 3 </span>
-
-                            <h3>Length of Credit History</h3>
-
-                            <span class="factor-label"> History </span>
-                        </div>
-
-                        <p>
-                            Credit scoring models can consider the age of your accounts and how long you have been
-                            using credit.
-                        </p>
-
-                        <p>
-                            Depending on the model, factors can include the age of your oldest account, newest
-                            account and the average age of accounts.
-                        </p>
-
-                        <p>
-                            A longer credit history can provide more information about how you have managed credit
-                            over time.
-                        </p>
-                    </div>
-
-                    <div class="factor">
-                        <div class="factor-header">
-                            <span class="factor-number"> 4 </span>
-
-                            <h3>New Credit and Hard Inquiries</h3>
-
-                            <span class="factor-label"> Recent activity </span>
-                        </div>
-
-                        <p>
-                            Applying for credit can generate a hard inquiry when a lender reviews your credit report
-                            for a credit application.
-                        </p>
-
-                        <p>
-                            A single hard inquiry generally has a relatively small effect on a score, but multiple
-                            recent applications can be more significant depending on the scoring model and the rest
-                            of your credit profile.
-                        </p>
-
-                        <p>
-                            Some scoring models also have special treatment for multiple inquiries associated with
-                            rate shopping for certain types of loans.
-                        </p>
-                    </div>
-
-                    <div class="factor">
-                        <div class="factor-header">
-                            <span class="factor-number"> 5 </span>
-
-                            <h3>Credit Mix</h3>
-
-                            <span class="factor-label"> Model dependent </span>
-                        </div>
-
-                        <p>
-                            Some scoring models consider the types of credit accounts in your profile. These can
-                            include revolving credit cards and installment accounts such as auto, student or
-                            mortgage loans.
-                        </p>
-
-                        <p>
-                            Credit mix can contribute to a FICO Score, but you generally should not open accounts
-                            you do not need just to create a particular mix of credit.
-                        </p>
-                    </div>
-
-                    <h2 id="fico">How FICO Scores Work</h2>
-
-                    <p>
-                        FICO is a credit-scoring company whose models are used by lenders and other businesses. FICO
-                        scores are calculated from information in a consumer credit report.
-                    </p>
-
-                    <p>
-                        A commonly discussed FICO Score framework uses five broad categories: payment history,
-                        amounts owed, length of credit history, new credit and credit mix.
-                    </p>
-
-                    <div class="table-wrap">
-                        <table class="comparison-table">
-                            <thead>
-                                <tr>
-                                    <th>FICO Score category</th>
-
-                                    <th>Commonly published FICO Score 8 weighting</th>
-
-                                    <th>What it generally considers</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr>
-                                    <td>Payment history</td>
-
-                                    <td>35%</td>
-
-                                    <td>
-                                        Whether accounts have been paid as agreed and negative payment information.
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>Amounts owed</td>
-
-                                    <td>30%</td>
-
-                                    <td>Debt levels, balances and revolving credit utilization.</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Length of credit history</td>
-
-                                    <td>15%</td>
-
-                                    <td>The age and history of credit accounts.</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Credit mix</td>
-
-                                    <td>10%</td>
-
-                                    <td>Different types of credit accounts.</td>
-                                </tr>
-
-                                <tr>
-                                    <td>New credit</td>
-
-                                    <td>10%</td>
-
-                                    <td>Recent applications, inquiries and newly opened accounts.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="warning-box">
-                        <strong> Important: </strong>
-
-                        These percentages describe the commonly published FICO Score 8 framework. They should not be
-                        treated as a universal formula for every FICO score, VantageScore or lender-specific model.
-                        The exact effect of an item depends on the scoring model and your credit profile.
-                    </div>
-
-                    <h2 id="vantage">How VantageScore Works</h2>
-
-                    <p>
-                        VantageScore is another major U.S. credit scoring system. It was developed by the three
-                        nationwide credit reporting companies: Equifax, Experian and TransUnion.
-                    </p>
-
-                    <p>
-                        VantageScore models use information from credit reports but do not use exactly the same
-                        calculation as FICO. That is one reason a consumer can see a different FICO Score and
-                        VantageScore even when the underlying credit information is similar.
-                    </p>
-
-                    <p>
-                        VantageScore models can consider payment history, age and type of credit, credit
-                        utilization, balances, recent credit activity and other credit-report information. The
-                        relative importance of these factors differs from the FICO framework.
-                    </p>
-
-                    <div class="model-grid">
-                        <div class="model-card">
-                            <h3>FICO Score</h3>
-
-                            <p>
-                                FICO provides multiple scoring models, including base scores and industry-specific
-                                versions.
-                            </p>
-
-                            <p>Different FICO versions can be designed for different lending situations.</p>
-                        </div>
-
-                        <div class="model-card">
-                            <h3>VantageScore</h3>
-
-                            <p>
-                                VantageScore provides another family of credit scoring models used with information
-                                from consumer credit reports.
-                            </p>
-
-                            <p>Its models can evaluate credit information differently from FICO.</p>
-                        </div>
-                    </div>
-
-                    <h2 id="different">Why Do I Have Different Credit Scores?</h2>
-
-                    <p>
-                        Having different credit scores does not necessarily mean one of them is wrong. Your score
-                        can differ because the underlying data, scoring model or timing is different.
-                    </p>
-
-                    <table class="comparison-table">
-                        <thead>
-                            <tr>
-                                <th>Reason</th>
-
-                                <th>Example</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>Different scoring model</td>
-
-                                <td>
-                                    A FICO model and a VantageScore model can calculate different numbers from
-                                    similar information.
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>Different credit bureau</td>
-
-                                <td>One report may contain information that another report does not yet show.</td>
-                            </tr>
-
-                            <tr>
-                                <td>Different model version</td>
-
-                                <td>A lender may use a newer or industry-specific scoring model.</td>
-                            </tr>
-
-                            <tr>
-                                <td>Different reporting date</td>
-
-                                <td>A recently reported balance or payment may appear at different times.</td>
-                            </tr>
-
-                            <tr>
-                                <td>Different lending purpose</td>
-
-                                <td>
-                                    Mortgage, auto and credit-card applications may use different scoring models.
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <h2 id="updates">When Does a Credit Score Update?</h2>
-
-                    <p>
-                        Credit scores do not necessarily update on one universal monthly date. Creditors can report
-                        information to credit reporting companies at different times.
-                    </p>
-
-                    <p>
-                        When the information in a credit report changes, a score calculated using that report can
-                        also change. For example, a newly reported credit card balance can affect the utilization
-                        information used by a scoring model.
-                    </p>
-
-                    <div class="tip-box">
-                        <strong> Example: </strong>
-
-                        Suppose your credit card balance is $3,000 on a $5,000 limit. If you pay the balance down to
-                        $1,000 and the lower balance is subsequently reported, a scoring model may calculate a
-                        different score using the updated information.
-                    </div>
-
-                    <p>
-                        The exact timing depends on when your creditor reports the information and when a score is
-                        generated.
-                    </p>
-
-                    <h2 id="inquiries">How Credit Inquiries Work</h2>
-
-                    <p>
-                        Credit inquiries are requests to access your credit report. They are generally divided into
-                        two broad categories:
-                        <strong>soft inquiries</strong> and <strong>hard inquiries</strong>.
-                    </p>
-
-                    <div class="model-grid">
-                        <div class="model-card">
-                            <h3>Soft inquiry</h3>
-
-                            <p>
-                                Checking your own credit report or score is generally a soft inquiry. Soft inquiries
-                                do not generally affect your credit score.
-                            </p>
-                        </div>
-
-                        <div class="model-card">
-                            <h3>Hard inquiry</h3>
-
-                            <p>
-                                A lender may perform a hard inquiry when you apply for credit. Hard inquiries can
-                                affect some credit scores.
-                            </p>
-                        </div>
-                    </div>
-
-                    <p>
-                        The treatment of inquiries varies by scoring model. Some models also account for
-                        rate-shopping behavior for certain installment loans.
-                    </p>
-
-                    <h2 id="not-affect">What Does Not Directly Determine Your Credit Score?</h2>
-
-                    <p>
-                        Credit scores are based on specific information used by a scoring model. They are not a
-                        general measure of your entire financial life.
-                    </p>
-
-                    <p>
-                        For example, your income and savings balance are not generally components of traditional
-                        credit scoring models. Someone can have a high income and poor credit, or a modest income
-                        and strong credit history.
-                    </p>
-
-                    <p>
-                        Personal characteristics such as race, gender and marital status are also not used in
-                        traditional credit score calculations.
-                    </p>
-
-                    <div class="warning-box">
-                        <strong> Credit score is not the same as financial health. </strong>
-
-                        Your score primarily describes credit risk according to a particular model. It does not tell
-                        a lender everything about your income, savings, investments, spending habits or overall
-                        financial situation.
-                    </div>
-
-                    <h2 id="improve">How Understanding Credit Scores Can Help</h2>
-
-                    <p>
-                        Understanding the scoring process makes it easier to focus on actions that can actually
-                        affect your credit profile.
-                    </p>
-
-                    <ol>
-                        <li>Pay credit obligations on time.</li>
-
-                        <li>Keep revolving balances manageable.</li>
-
-                        <li>Review your credit reports for inaccurate information.</li>
-
-                        <li>Avoid unnecessary credit applications.</li>
-
-                        <li>Maintain accounts responsibly over time.</li>
-
-                        <li>Do not open accounts solely to create a particular credit mix.</li>
-                    </ol>
-
-                    <p>
-                        These habits are more useful than trying to predict exactly how many points a single action
-                        will add. Credit scoring models evaluate your overall credit profile, and the same action
-                        can have different effects for different consumers.
-                    </p>
-
-                    <h2 id="example">Example: How a Credit Score Can Change</h2>
-
-                    <p>
-                        Imagine someone has several credit cards with a combined $10,000 credit limit and $7,000 in
-                        revolving balances. Their overall utilization is 70%.
-                    </p>
-
-                    <p>If that person pays the balances down to $2,500, their utilization falls to 25%.</p>
-
-                    <div class="info-card">
-                        <h3>Before</h3>
-
-                        <p>$7,000 ÷ $10,000 = <strong>70% utilization</strong></p>
-
-                        <h3>After</h3>
-
-                        <p>$2,500 ÷ $10,000 = <strong>25% utilization</strong></p>
-                    </div>
-
-                    <p>
-                        If the lower balances are reported to the credit bureaus, the scoring model will have
-                        different utilization information to evaluate. The exact score change cannot be predicted
-                        from utilization alone because the model also considers the rest of the credit profile.
-                    </p>
-
-                    <h2 id="important">Important Things to Remember</h2>
-
-                    <ul>
-                        <li>There is no single universal credit score.</li>
-
-                        <li>Different scoring models can produce different scores.</li>
-
-                        <li>Different credit reports can contain different information.</li>
-
-                        <li>Many commonly used consumer scores range from 300 to 850.</li>
-
-                        <li>
-                            Payment history and amounts owed are important factors in commonly used scoring models.
-                        </li>
-
-                        <li>Lower credit utilization is generally favorable.</li>
-
-                        <li>Hard inquiries can affect some scores.</li>
-
-                        <li>Checking your own credit generally does not lower your score.</li>
-
-                        <li>Credit scores can change when the information used to calculate them changes.</li>
-
-                        <li>A credit score is only one part of a lender's decision.</li>
-                    </ul>
-
-                    <h2 id="related">Related Credit &amp; Debt Guides</h2>
-
-                    <div class="related-links">
-                        <a href="/finance/credit-debt/"> Credit &amp; Debt Overview </a>
-
-                        <a href="/finance/credit-debt/what-is-a-credit-score/"> What Is a Credit Score? </a>
-
-                        <a href="/finance/credit-debt/how-to-improve-credit-score/">
-                            How to Improve Your Credit Score
-                        </a>
-
-                        <a href="/finance/credit-debt/how-to-build-credit/"> How to Build Credit </a>
-
-                        <a href="/finance/credit-debt/what-is-a-credit-report/"> What Is a Credit Report? </a>
-
-                        <a href="/finance/credit-debt/credit-utilization/"> Credit Utilization </a>
-
-                        <a href="/finance/credit-debt/how-does-credit-card-interest-work/">
-                            How Credit Card Interest Works
-                        </a>
-
-                        <a href="/finance/credit-debt/debt-to-income-ratio/"> Debt-to-Income Ratio </a>
-
-                        <a href="/finance/credit-debt/how-to-pay-off-debt/"> How to Pay Off Debt </a>
-                    </div>
-
-                    <h2 id="faq">Frequently Asked Questions</h2>
-
-                    <div class="faq">
-                        <details>
-                            <summary>How are credit scores calculated?</summary>
-
-                            <p>
-                                Credit scores are calculated by applying a specific scoring model to information in
-                                a credit report. The model evaluates factors such as payment history, balances,
-                                credit utilization, account history and recent credit activity, depending on the
-                                model.
-                            </p>
-                        </details>
-
-                        <details>
-                            <summary>What are the main factors in a credit score?</summary>
-
-                            <p>
-                                Major scoring models consider factors such as payment history, amounts owed or
-                                credit utilization, length of credit history, new credit and, depending on the
-                                model, credit mix.
-                            </p>
-                        </details>
-
-                        <details>
-                            <summary>Why are my FICO Score and VantageScore different?</summary>
-
-                            <p>
-                                FICO and VantageScore use different scoring models. Differences can also result from
-                                the credit report being analyzed, the model version and when the information was
-                                reported.
-                            </p>
-                        </details>
-
-                        <details>
-                            <summary>How often does a credit score change?</summary>
-
-                            <p>
-                                A score can change whenever the information used by the scoring model changes and a
-                                new score is generated. Creditors report information at different times, so there is
-                                no single universal monthly update date.
-                            </p>
-                        </details>
-
-                        <details>
-                            <summary>Does paying a credit card balance change your score?</summary>
-
-                            <p>
-                                It can. Paying down a revolving balance can reduce reported credit utilization. If
-                                the lower balance is reported and used by a scoring model, the resulting score may
-                                change.
-                            </p>
-                        </details>
-
-                        <details>
-                            <summary>Does checking my credit score hurt my credit?</summary>
-
-                            <p>
-                                Checking your own credit score generally does not hurt your credit because consumer
-                                self-checks are generally treated as soft inquiries.
-                            </p>
-                        </details>
-
-                        <details>
-                            <summary>Is there only one credit score?</summary>
-
-                            <p>
-                                No. You can have multiple credit scores because lenders may use different scoring
-                                models, credit reporting companies may have different information, and different
-                                model versions may be used for different lending purposes.
-                            </p>
-                        </details>
-
-                        <details>
-                            <summary>Is a credit score the same as a credit report?</summary>
-
-                            <p>
-                                No. A credit report contains detailed information about your credit history, while a
-                                credit score is a numerical calculation based on information in a credit report.
-                            </p>
-                        </details>
-                    </div>
-
-                    <div class="disclaimer">
-                        <strong> Disclaimer: </strong>
-
-                        This article is for educational purposes only and is not financial, legal, credit-repair or
-                        lending advice. Credit scoring models, lender requirements and credit-reporting practices
-                        vary. PaycheckMint does not guarantee a specific credit score, score increase or approval
-                        for any financial product.
-                    </div>
-                </article>
-
-                <!-- =========================
-             SIDEBAR
-        ========================== -->
-
-                <aside>
-                    <div class="toc">
-                        <h3>On This Page</h3>
-
-                        <a href="#process"> How Credit Scores Work </a>
-
-                        <a href="#report"> Information Used </a>
-
-                        <a href="#factors"> Credit Score Factors </a>
-
-                        <a href="#fico"> How FICO Scores Work </a>
-
-                        <a href="#vantage"> How VantageScore Works </a>
-
-                        <a href="#different"> Why Scores Differ </a>
-
-                        <a href="#updates"> When Scores Update </a>
-
-                        <a href="#inquiries"> Credit Inquiries </a>
-
-                        <a href="#not-affect"> What Doesn't Determine Your Score </a>
-
-                        <a href="#improve"> How to Use This Information </a>
-
-                        <a href="#faq"> FAQs </a>
-                    </div>
-
-                    <div class="sidebar-card">
-                        <h3>Credit &amp; Debt</h3>
-
-                        <a href="/finance/credit-debt/"> Credit &amp; Debt Overview </a>
-
-                        <a href="/finance/credit-debt/what-is-a-credit-score/"> What Is a Credit Score? </a>
-
-                        <a href="/finance/credit-debt/how-to-improve-credit-score/">
-                            How to Improve Credit Score
-                        </a>
-
-                        <a href="/finance/credit-debt/how-to-build-credit/"> How to Build Credit </a>
-
-                        <a href="/finance/credit-debt/what-is-a-credit-report/"> What Is a Credit Report? </a>
-
-                        <a href="/finance/credit-debt/credit-utilization/"> Credit Utilization </a>
-
-                        <a href="/finance/credit-debt/how-to-pay-off-debt/"> How to Pay Off Debt </a>
-                    </div>
-
-                    <div class="sidebar-card">
-                        <h3>PaycheckMint Tools</h3>
-
-                        <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
-
-                        <a href="/hourly-paycheck-calculator/"> Hourly Paycheck Calculator </a>
-
-                        <a href="/salary-paycheck-calculator/"> Salary Paycheck Calculator </a>
-
-                        <a href="/overtime-pay-calculator/"> Overtime Pay Calculator </a>
-                    </div>
-                </aside>
+    <main class="credit-page">
+
+        <!-- =====================================================
+         BREADCRUMB
+    ====================================================== -->
+
+        <div class="credit-container">
+            <div class="credit-breadcrumb">
+                <a href="/">Home</a>
+                <span>›</span>
+                <a href="/finance/credit-debt/">Credit &amp; Debt</a>
+                <span>›</span>
+                How Credit Scores Work
             </div>
         </div>
+
+
+        <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+        <section class="credit-hero">
+            <div class="credit-container">
+
+                <div class="credit-hero-grid">
+
+                    <div>
+                        <div class="credit-eyebrow">
+                            Credit &amp; Debt Guide
+                        </div>
+
+                        <h1>How Credit Scores Work</h1>
+
+                        <p class="credit-hero-intro">
+                            A credit score is a number generated from information
+                            in your credit report. Learn what goes into a score,
+                            why different scores can exist, how credit utilization
+                            works, and what lenders may look at when you apply for
+                            credit.
+                        </p>
+
+                        <div class="credit-hero-actions">
+                            <a class="credit-btn credit-btn-primary" href="/finance/credit-debt/">
+                                Explore Credit &amp; Debt
+                            </a>
+
+                            <a class="credit-btn credit-btn-secondary" href="/finance/budgeting/">
+                                Build a Better Budget
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <div class="credit-hero-card">
+
+                        <div class="credit-card-label">
+                            Credit score basics
+                        </div>
+
+                        <h2 class="credit-card-title">
+                            Think of your score as a summary of credit information
+                        </h2>
+
+                        <div class="credit-factor-list">
+
+                            <div class="credit-factor">
+                                <div class="credit-factor-icon">✓</div>
+                                <div>
+                                    <strong>Payment history</strong>
+                                    <small>Whether accounts have been paid as agreed.</small>
+                                </div>
+                            </div>
+
+                            <div class="credit-factor">
+                                <div class="credit-factor-icon">%</div>
+                                <div>
+                                    <strong>Amounts owed</strong>
+                                    <small>Balances and revolving credit utilization.</small>
+                                </div>
+                            </div>
+
+                            <div class="credit-factor">
+                                <div class="credit-factor-icon">◷</div>
+                                <div>
+                                    <strong>Credit history</strong>
+                                    <small>How long and how extensively you have used credit.</small>
+                                </div>
+                            </div>
+
+                            <div class="credit-factor">
+                                <div class="credit-factor-icon">+</div>
+                                <div>
+                                    <strong>Recent activity</strong>
+                                    <small>New accounts and applications can matter.</small>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <p class="credit-card-note">
+                            The exact formula depends on the scoring model. A lender
+                            may also consider information beyond a credit score.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =====================================================
+         TRUST ROW
+    ====================================================== -->
+
+        <section class="credit-trust">
+            <div class="credit-container">
+
+                <div class="credit-trust-grid">
+
+                    <div class="credit-trust-item">
+                        <strong>Credit report</strong>
+                        <span>The information used by scoring models</span>
+                    </div>
+
+                    <div class="credit-trust-item">
+                        <strong>Scoring model</strong>
+                        <span>A formula that evaluates credit information</span>
+                    </div>
+
+                    <div class="credit-trust-item">
+                        <strong>Credit score</strong>
+                        <span>A numerical result from a scoring model</span>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =====================================================
+         CONTENT
+    ====================================================== -->
+
+        <section class="credit-content">
+
+            <div class="credit-container">
+
+                <div class="credit-content-layout">
+
+                    <!-- =================================================
+                     ARTICLE
+                ================================================== -->
+
+                    <article class="credit-article">
+
+                        <!-- QUICK ANSWER -->
+
+                        <div class="credit-answer">
+
+                            <div class="credit-answer-label">
+                                Quick answer
+                            </div>
+
+                            <p>
+                                A credit score is calculated from information in
+                                your credit report using a particular scoring
+                                model. Payment history, amounts owed, revolving
+                                credit utilization, length of credit history,
+                                types of credit, and recent credit activity can
+                                all play a role. The exact calculation varies by
+                                scoring model, so there is not one universal
+                                formula used for every credit decision.
+                            </p>
+
+                        </div>
+
+
+                        <!-- =================================================
+                         WHAT IS A CREDIT SCORE?
+                    ================================================== -->
+
+                        <section class="credit-article-section" id="what-is-a-credit-score">
+
+                            <h2>What is a credit score?</h2>
+
+                            <p>
+                                A credit score is a numerical representation
+                                generated by a credit scoring model. The model
+                                analyzes information associated with your credit
+                                history and produces a score intended to help
+                                predict credit risk.
+                            </p>
+
+                            <p>
+                                In the United States, consumers can have multiple
+                                credit scores at the same time. Different lenders
+                                may use different scoring models, credit reporting
+                                agencies, versions of a model, or information
+                                depending on the type of credit being considered.
+                            </p>
+
+                            <p>
+                                That means the number you see when checking your
+                                credit does not necessarily have to be identical
+                                to the number a lender uses.
+                            </p>
+
+                            <div class="credit-callout">
+
+                                <strong>
+                                    Credit score ≠ credit report
+                                </strong>
+
+                                <p>
+                                    Your credit report contains the underlying
+                                    credit information. A credit score is a number
+                                    calculated from information using a particular
+                                    scoring model.
+                                </p>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- =================================================
+                         HOW IT WORKS
+                    ================================================== -->
+
+                        <section class="credit-article-section" id="how-it-works">
+
+                            <h2>How does the credit scoring process work?</h2>
+
+                            <p>
+                                The basic process can be thought of as three
+                                stages: information is reported, a scoring model
+                                evaluates that information, and a score is
+                                generated.
+                            </p>
+
+                            <div class="credit-factor-cards">
+
+                                <div class="credit-info-card">
+
+                                    <div class="credit-info-card-icon">
+                                        1
+                                    </div>
+
+                                    <h3>Credit information is reported</h3>
+
+                                    <p>
+                                        Creditors and other companies may report
+                                        account information to consumer reporting
+                                        agencies. The information can include
+                                        account status, balances, payment history,
+                                        and other details.
+                                    </p>
+
+                                </div>
+
+
+                                <div class="credit-info-card">
+
+                                    <div class="credit-info-card-icon">
+                                        2
+                                    </div>
+
+                                    <h3>A scoring model evaluates it</h3>
+
+                                    <p>
+                                        A scoring model applies its own rules to
+                                        the available information. Different models
+                                        can treat the same information differently.
+                                    </p>
+
+                                </div>
+
+
+                                <div class="credit-info-card">
+
+                                    <div class="credit-info-card-icon">
+                                        3
+                                    </div>
+
+                                    <h3>A score is produced</h3>
+
+                                    <p>
+                                        The result is a numerical score. Lenders
+                                        can use this score alongside other
+                                        information when evaluating an application.
+                                    </p>
+
+                                </div>
+
+
+                                <div class="credit-info-card">
+
+                                    <div class="credit-info-card-icon">
+                                        4
+                                    </div>
+
+                                    <h3>The information can change</h3>
+
+                                    <p>
+                                        As creditors report updated balances,
+                                        payments, accounts, or other information,
+                                        a later calculation can produce a
+                                        different score.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- =================================================
+                         FACTORS
+                    ================================================== -->
+
+                        <section class="credit-article-section" id="factors">
+
+                            <h2>What factors affect a credit score?</h2>
+
+                            <p>
+                                Credit scoring models do not all use identical
+                                formulas. However, common scoring factors include
+                                payment history, amounts owed, credit history,
+                                types of credit, and recent credit activity.
+                            </p>
+
+                            <div class="credit-table-wrap">
+
+                                <table class="credit-table">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Factor</th>
+                                            <th>What it means</th>
+                                            <th>Why it matters</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                        <tr>
+                                            <td>
+                                                <strong>Payment history</strong>
+                                            </td>
+
+                                            <td>
+                                                Whether accounts have been paid
+                                                on time or have reported late
+                                                payments.
+                                            </td>
+
+                                            <td>
+                                                A history of paying obligations
+                                                as agreed can be an important part
+                                                of credit scoring.
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <strong>Amounts owed</strong>
+                                            </td>
+
+                                            <td>
+                                                The balances you owe across credit
+                                                accounts.
+                                            </td>
+
+                                            <td>
+                                                Higher balances can indicate more
+                                                credit exposure.
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <strong>Revolving utilization</strong>
+                                            </td>
+
+                                            <td>
+                                                How much revolving credit you are
+                                                using relative to available limits.
+                                            </td>
+
+                                            <td>
+                                                Utilization can change as card
+                                                balances and limits change.
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <strong>Length of history</strong>
+                                            </td>
+
+                                            <td>
+                                                How long accounts and credit
+                                                activity have been established.
+                                            </td>
+
+                                            <td>
+                                                Longer credit histories can give
+                                                a model more information about
+                                                past credit behavior.
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <strong>Credit mix</strong>
+                                            </td>
+
+                                            <td>
+                                                The types of credit accounts in
+                                                your profile.
+                                            </td>
+
+                                            <td>
+                                                Some scoring models consider the
+                                                variety of credit experience.
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <strong>Recent credit activity</strong>
+                                            </td>
+
+                                            <td>
+                                                New accounts and certain credit
+                                                applications or inquiries.
+                                            </td>
+
+                                            <td>
+                                                A pattern of seeking new credit
+                                                can be relevant to some models.
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                            <div class="credit-callout">
+
+                                <strong>
+                                    There is no single universal percentage formula
+                                </strong>
+
+                                <p>
+                                    You may see specific percentages online for
+                                    particular scoring systems. Those figures
+                                    should not be treated as a universal formula
+                                    for every score. Different scoring models can
+                                    weigh and evaluate information differently.
+                                </p>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- =================================================
+                         PAYMENT HISTORY
+                    ================================================== -->
+
+                        <section class="credit-article-section" id="payment-history">
+
+                            <h2>Why payment history matters</h2>
+
+                            <p>
+                                Payment history describes how you have handled
+                                payments on reported credit accounts. Depending on
+                                the scoring model, information about late or
+                                missed payments can affect a credit score.
+                            </p>
+
+                            <p>
+                                A single late payment does not necessarily tell
+                                the whole story of a credit profile. The effect can
+                                depend on factors such as the account, the timing,
+                                the severity of the delinquency, and the scoring
+                                model.
+                            </p>
+
+                            <h3>Practical ways to avoid missed payments</h3>
+
+                            <ul>
+                                <li>Set up automatic payments for at least the required minimum when appropriate.</li>
+                                <li>Use calendar or banking alerts before due dates.</li>
+                                <li>Keep enough cash in the payment account to cover scheduled automatic payments.</li>
+                                <li>Review statements so unexpected charges do not cause an account to become overdue.
+                                </li>
+                                <li>If you are struggling to pay, contact the creditor before missing a payment to ask
+                                    about available options.</li>
+                            </ul>
+
+                        </section>
+
+
+                        <!-- =================================================
+                         UTILIZATION
+                    ================================================== -->
+
+                        <section class="credit-article-section" id="utilization">
+
+                            <h2>What is credit utilization?</h2>
+
+                            <p>
+                                Credit utilization generally refers to the amount
+                                of revolving credit you are using compared with
+                                your available revolving credit limits.
+                            </p>
+
+                            <div class="credit-formula">
+
+                                <div class="credit-formula-label">
+                                    Basic calculation
+                                </div>
+
+                                <div class="credit-formula-main">
+                                    Utilization = Balance ÷ Credit Limit × 100
+                                </div>
+
+                                <p class="credit-formula-example">
+                                    Example: A $600 credit-card balance on a
+                                    $2,000 limit produces 30% utilization for that
+                                    card at the time the balance is measured.
+                                </p>
+
+                            </div>
+
+                            <p>
+                                If you have multiple credit cards, you can also
+                                look at your overall revolving utilization by
+                                comparing total revolving balances with total
+                                revolving limits.
+                            </p>
+
+                            <div class="credit-example">
+
+                                <h3 class="credit-example-title">
+                                    Example: two credit cards
+                                </h3>
+
+                                <div class="credit-example-grid">
+
+                                    <div class="credit-example-stat">
+                                        <span>Card 1</span>
+                                        <strong>$1,200 / $2,000</strong>
+                                    </div>
+
+                                    <div class="credit-example-stat">
+                                        <span>Card 2</span>
+                                        <strong>$200 / $3,000</strong>
+                                    </div>
+
+                                    <div class="credit-example-stat">
+                                        <span>Combined</span>
+                                        <strong>$1,400 / $5,000</strong>
+                                    </div>
+
+                                </div>
+
+                                <p style="margin:16px 0 0;font-size:14px;">
+                                    The combined utilization in this example is
+                                    28%. The actual score impact depends on the
+                                    scoring model and the rest of the credit
+                                    profile.
+                                </p>
+
+                            </div>
+
+                            <p>
+                                Credit utilization can change without opening a
+                                new account. For example, paying down a card can
+                                reduce the reported balance, while a large purchase
+                                can increase it. The timing of when information is
+                                reported can therefore matter.
+                            </p>
+
+                        </section>
+
+
+                        <!-- =================================================
+                         REPORT VS SCORE
+                    ================================================== -->
+
+                        <section class="credit-article-section" id="report-vs-score">
+
+                            <h2>Credit report vs. credit score</h2>
+
+                            <p>
+                                These terms are often used together, but they are
+                                not the same thing.
+                            </p>
+
+                            <div class="credit-table-wrap">
+
+                                <table class="credit-table">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Credit report</th>
+                                            <th>Credit score</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                        <tr>
+                                            <td>
+                                                Contains credit-related
+                                                information reported about you.
+                                            </td>
+
+                                            <td>
+                                                A numerical result generated by a
+                                                scoring model.
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                Can contain account details,
+                                                payment history, balances, and
+                                                inquiries.
+                                            </td>
+
+                                            <td>
+                                                Summarizes risk-related
+                                                information according to a
+                                                particular model.
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                The underlying information can
+                                                change as creditors report updates.
+                                            </td>
+
+                                            <td>
+                                                Can change when the information
+                                                used by the model changes.
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                            <p>
+                                Checking a report can therefore be useful even when
+                                you are not applying for credit. Errors in reported
+                                information can potentially affect how a scoring
+                                model evaluates your credit profile.
+                            </p>
+
+                        </section>
+
+
+                        <!-- =================================================
+                         MULTIPLE SCORES
+                    ================================================== -->
+
+                        <section class="credit-article-section" id="multiple-scores">
+
+                            <h2>Why can I have more than one credit score?</h2>
+
+                            <p>
+                                There is no requirement that every lender use the
+                                same credit score. Several factors can cause the
+                                number you see to differ from another score.
+                            </p>
+
+                            <ul>
+                                <li><strong>Different scoring models:</strong> Models can use different formulas and
+                                    evaluate information differently.</li>
+                                <li><strong>Different model versions:</strong> A newer or specialized version may
+                                    produce a different result.</li>
+                                <li><strong>Different credit reports:</strong> Information available to one reporting
+                                    agency may not be identical to information available to another.</li>
+                                <li><strong>Different timing:</strong> Account information can be updated at different
+                                    times.</li>
+                                <li><strong>Different lending purposes:</strong> Some scoring models are designed for
+                                    particular types of credit decisions.</li>
+                            </ul>
+
+                            <div class="credit-callout">
+
+                                <strong>
+                                    Don't chase one specific number
+                                </strong>
+
+                                <p>
+                                    A credit score is useful in context. Rather
+                                    than assuming one score represents every lender's
+                                    decision, focus on maintaining accurate credit
+                                    information and responsible credit habits.
+                                </p>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- =================================================
+                         HARD AND SOFT INQUIRIES
+                    ================================================== -->
+
+                        <section class="credit-article-section" id="inquiries">
+
+                            <h2>Hard inquiries vs. soft inquiries</h2>
+
+                            <p>
+                                A credit inquiry occurs when credit information is
+                                accessed. The effect depends on the type of
+                                inquiry and the circumstances.
+                            </p>
+
+                            <div class="credit-factor-cards">
+
+                                <div class="credit-info-card">
+
+                                    <div class="credit-info-card-icon">
+                                        H
+                                    </div>
+
+                                    <h3>Hard inquiry</h3>
+
+                                    <p>
+                                        A hard inquiry can occur when you apply for
+                                        certain types of credit and authorize a
+                                        lender or creditor to review your credit
+                                        information. Hard inquiries can be
+                                        considered by some scoring models.
+                                    </p>
+
+                                </div>
+
+
+                                <div class="credit-info-card">
+
+                                    <div class="credit-info-card-icon">
+                                        S
+                                    </div>
+
+                                    <h3>Soft inquiry</h3>
+
+                                    <p>
+                                        Soft inquiries can occur in situations such
+                                        as checking your own credit information or
+                                        certain promotional or account-review
+                                        situations. They are treated differently
+                                        from hard inquiries for scoring purposes.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <p>
+                                If you are shopping for credit, the treatment of
+                                multiple inquiries can depend on the scoring model
+                                and type of loan. It is useful to understand the
+                                lender's application process before submitting
+                                multiple applications.
+                            </p>
+
+                        </section>
+
+
+                        <!-- =================================================
+                         IMPROVING SCORE
+                    ================================================== -->
+
+                        <section class="credit-article-section" id="improve">
+
+                            <h2>How to build a stronger credit profile</h2>
+
+                            <p>
+                                Improving credit generally involves consistent
+                                financial habits rather than one quick fix. The
+                                steps below can help you focus on the information
+                                that commonly matters to credit scoring models.
+                            </p>
+
+                            <div class="credit-steps">
+
+                                <div class="credit-step">
+
+                                    <div class="credit-step-number">1</div>
+
+                                    <div>
+                                        <h3>Pay accounts on time</h3>
+
+                                        <p>
+                                            Payment history is an important part of
+                                            many scoring models. Use automatic
+                                            payments and reminders to reduce the
+                                            chance of accidentally missing a due
+                                            date.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="credit-step">
+
+                                    <div class="credit-step-number">2</div>
+
+                                    <div>
+                                        <h3>Manage revolving balances</h3>
+
+                                        <p>
+                                            Paying down credit-card balances can
+                                            reduce revolving utilization. Avoid
+                                            carrying balances simply because you
+                                            believe a balance is necessary to build
+                                            credit.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="credit-step">
+
+                                    <div class="credit-step-number">3</div>
+
+                                    <div>
+                                        <h3>Check your credit reports</h3>
+
+                                        <p>
+                                            Review your reports for incorrect
+                                            account information, unfamiliar
+                                            accounts, inaccurate payment status,
+                                            or other errors.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="credit-step">
+
+                                    <div class="credit-step-number">4</div>
+
+                                    <div>
+                                        <h3>Limit unnecessary new applications</h3>
+
+                                        <p>
+                                            Apply for credit when you have a genuine
+                                            need rather than opening accounts only
+                                            to increase your number of accounts.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="credit-step">
+
+                                    <div class="credit-step-number">5</div>
+
+                                    <div>
+                                        <h3>Keep established accounts in context</h3>
+
+                                        <p>
+                                            Do not automatically close an older
+                                            account simply because it has been paid
+                                            off. Consider fees, usefulness, available
+                                            credit, and the potential effects on
+                                            your overall credit profile.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="credit-step">
+
+                                    <div class="credit-step-number">6</div>
+
+                                    <div>
+                                        <h3>Use credit only as part of a sustainable budget</h3>
+
+                                        <p>
+                                            A budget can help prevent credit-card
+                                            balances and missed payments from
+                                            becoming recurring problems.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- =================================================
+                         LOW SCORE
+                    ================================================== -->
+
+                        <section class="credit-article-section" id="low-score">
+
+                            <h2>What if your credit score is low?</h2>
+
+                            <p>
+                                The right starting point depends on why the score
+                                is low. Someone with several missed payments may
+                                need a different strategy from someone whose main
+                                issue is high revolving utilization.
+                            </p>
+
+                            <h3>If missed payments are the problem</h3>
+
+                            <ul>
+                                <li>Bring past-due accounts current if possible.</li>
+                                <li>Set up reminders or automatic payments.</li>
+                                <li>Contact creditors if you are having difficulty making required payments.</li>
+                                <li>Focus on avoiding additional late payments.</li>
+                            </ul>
+
+                            <h3>If high card balances are the problem</h3>
+
+                            <ul>
+                                <li>Continue making at least the required payments on all accounts.</li>
+                                <li>Review your budget to determine how much extra cash can go toward debt.</li>
+                                <li>Prioritize debt repayment according to your financial goals and interest costs.</li>
+                                <li>Reduce unnecessary new charges while paying down balances.</li>
+                            </ul>
+
+                            <p>
+                                If debt payments are consuming too much of your
+                                income, review your spending and cash flow. A
+                                practical starting point is the
+                                <a href="/finance/budgeting/">
+                                    PaycheckMint budgeting guide
+                                </a>.
+                            </p>
+
+                        </section>
+
+
+                        <!-- =================================================
+                         CREDIT REPORT ERRORS
+                    ================================================== -->
+
+                        <section class="credit-article-section" id="errors">
+
+                            <h2>What should you do if your credit report has an error?</h2>
+
+                            <p>
+                                Start by identifying exactly what information is
+                                inaccurate. Examples can include an account that
+                                does not belong to you, an incorrect payment status,
+                                an incorrect balance, or outdated personal
+                                information.
+                            </p>
+
+                            <ol>
+                                <li>Obtain and review your credit reports.</li>
+                                <li>Identify the specific information you believe is inaccurate or incomplete.</li>
+                                <li>Collect documents that support your position.</li>
+                                <li>Follow the applicable dispute process with the relevant credit reporting agency and,
+                                    where appropriate, the company that supplied the information.</li>
+                                <li>Keep copies of your dispute and supporting documents.</li>
+                            </ol>
+
+                            <div class="credit-callout">
+
+                                <strong>
+                                    An accurate negative item is different from an error
+                                </strong>
+
+                                <p>
+                                    A dispute process is intended to address
+                                    inaccurate or incomplete information. You should
+                                    not assume that accurate negative information
+                                    can simply be removed because it hurts your
+                                    score.
+                                </p>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- =================================================
+                         TIMELINE
+                    ================================================== -->
+
+                        <section class="credit-article-section" id="timeline">
+
+                            <h2>How long does it take to improve a credit score?</h2>
+
+                            <p>
+                                There is no universal timeline. A score can change
+                                when new information is reported and incorporated
+                                into a scoring model, but the size and speed of a
+                                change depend on the underlying credit profile.
+                            </p>
+
+                            <p>
+                                For example, reducing a reported revolving balance
+                                can affect a later score calculation relatively
+                                quickly once updated information is available.
+                                Rebuilding a history affected by repeated late
+                                payments can take considerably longer because it
+                                involves establishing a consistent record over
+                                time.
+                            </p>
+
+                            <p>
+                                Be cautious of companies promising a guaranteed
+                                number of points or a guaranteed timeline. Credit
+                                scoring depends on the information in your profile
+                                and the model being used.
+                            </p>
+
+                        </section>
+
+
+                        <!-- =================================================
+                         30 DAY CHECKLIST
+                    ================================================== -->
+
+                        <section class="credit-article-section" id="checklist">
+
+                            <h2>A simple 30-day credit checkup</h2>
+
+                            <p>
+                                You do not need to make dramatic changes all at
+                                once. Use the following checklist to understand
+                                where your credit profile stands.
+                            </p>
+
+                            <div class="credit-checklist">
+
+                                <div class="credit-check">
+                                    <span class="credit-check-mark">✓</span>
+                                    <span>List every credit account, balance, credit limit, and payment due date.</span>
+                                </div>
+
+                                <div class="credit-check">
+                                    <span class="credit-check-mark">✓</span>
+                                    <span>Set payment reminders or automatic payments.</span>
+                                </div>
+
+                                <div class="credit-check">
+                                    <span class="credit-check-mark">✓</span>
+                                    <span>Review your credit reports for unfamiliar or inaccurate information.</span>
+                                </div>
+
+                                <div class="credit-check">
+                                    <span class="credit-check-mark">✓</span>
+                                    <span>Calculate your revolving credit utilization.</span>
+                                </div>
+
+                                <div class="credit-check">
+                                    <span class="credit-check-mark">✓</span>
+                                    <span>Choose a realistic amount of extra money to direct toward revolving debt if
+                                        appropriate.</span>
+                                </div>
+
+                                <div class="credit-check">
+                                    <span class="credit-check-mark">✓</span>
+                                    <span>Avoid unnecessary applications for new credit.</span>
+                                </div>
+
+                                <div class="credit-check">
+                                    <span class="credit-check-mark">✓</span>
+                                    <span>Review your budget so future credit payments remain manageable.</span>
+                                </div>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- =================================================
+                         WHAT NOT TO DO
+                    ================================================== -->
+
+                        <section class="credit-article-section" id="mistakes">
+
+                            <h2>Credit-score mistakes to avoid</h2>
+
+                            <ul>
+                                <li>
+                                    <strong>Carrying a credit-card balance just to build credit.</strong>
+                                    Paying interest is not generally required simply
+                                    to establish responsible credit behavior.
+                                </li>
+
+                                <li>
+                                    <strong>Opening unnecessary accounts.</strong>
+                                    More accounts do not automatically mean a better
+                                    credit profile.
+                                </li>
+
+                                <li>
+                                    <strong>Maxing out available credit.</strong>
+                                    High revolving utilization can be unfavorable
+                                    under many scoring models.
+                                </li>
+
+                                <li>
+                                    <strong>Closing every paid-off card.</strong>
+                                    Closing accounts can affect available credit and
+                                    other aspects of your profile.
+                                </li>
+
+                                <li>
+                                    <strong>Disputing information simply because it is negative.</strong>
+                                    Disputes are designed to address inaccurate or
+                                    incomplete information.
+                                </li>
+
+                                <li>
+                                    <strong>Believing guaranteed score-increase claims.</strong>
+                                    No legitimate strategy can guarantee a specific
+                                    score increase for every consumer.
+                                </li>
+                            </ul>
+
+                        </section>
+
+
+                        <!-- =================================================
+                         FAQ
+                    ================================================== -->
+
+                        <section class="credit-article-section" id="faq">
+
+                            <h2>How credit scores work: FAQs</h2>
+
+                            <div class="credit-faq">
+
+                                <details>
+                                    <summary>What is a credit score?</summary>
+
+                                    <div class="credit-faq-answer">
+                                        <p>
+                                            A credit score is a number generated by
+                                            a credit scoring model using information
+                                            associated with your credit history. It
+                                            is designed to help lenders evaluate
+                                            credit risk.
+                                        </p>
+                                    </div>
+                                </details>
+
+
+                                <details>
+                                    <summary>What factors affect a credit score?</summary>
+
+                                    <div class="credit-faq-answer">
+                                        <p>
+                                            Common factors include payment history,
+                                            amounts owed, revolving utilization,
+                                            length of credit history, types of
+                                            credit, and recent credit activity.
+                                            Their importance varies by scoring model.
+                                        </p>
+                                    </div>
+                                </details>
+
+
+                                <details>
+                                    <summary>Does checking my own credit score lower it?</summary>
+
+                                    <div class="credit-faq-answer">
+                                        <p>
+                                            Checking your own credit information is
+                                            generally treated differently from a
+                                            hard inquiry made in connection with a
+                                            credit application. It does not normally
+                                            have the same scoring treatment as a hard
+                                            inquiry.
+                                        </p>
+                                    </div>
+                                </details>
+
+
+                                <details>
+                                    <summary>Does paying off a credit card improve your credit score?</summary>
+
+                                    <div class="credit-faq-answer">
+                                        <p>
+                                            Paying down a revolving balance can
+                                            reduce reported utilization, which can
+                                            be helpful under many scoring models.
+                                            However, the exact score effect depends
+                                            on the rest of the credit profile and
+                                            the model being used.
+                                        </p>
+                                    </div>
+                                </details>
+
+
+                                <details>
+                                    <summary>What is a good credit utilization ratio?</summary>
+
+                                    <div class="credit-faq-answer">
+                                        <p>
+                                            Lower revolving utilization is generally
+                                            viewed more favorably by many scoring
+                                            models, but there is no universal
+                                            utilization percentage that guarantees a
+                                            particular score. The effect depends on
+                                            the scoring model and overall profile.
+                                        </p>
+                                    </div>
+                                </details>
+
+
+                                <details>
+                                    <summary>How long does it take to improve credit?</summary>
+
+                                    <div class="credit-faq-answer">
+                                        <p>
+                                            It varies. Changes can occur as updated
+                                            information is reported, while rebuilding
+                                            a credit history affected by repeated
+                                            negative information can take much longer.
+                                        </p>
+                                    </div>
+                                </details>
+
+
+                                <details>
+                                    <summary>Can I build credit without carrying a balance?</summary>
+
+                                    <div class="credit-faq-answer">
+                                        <p>
+                                            Yes. You generally do not need to pay
+                                            credit-card interest just to demonstrate
+                                            responsible credit use. Paying your
+                                            required payments on time and managing
+                                            credit responsibly can support a healthy
+                                            credit profile.
+                                        </p>
+                                    </div>
+                                </details>
+
+
+                                <details>
+                                    <summary>Should I close a credit card after paying it off?</summary>
+
+                                    <div class="credit-faq-answer">
+                                        <p>
+                                            Not automatically. Consider annual fees,
+                                            usefulness, available credit, account
+                                            history, and how closing the account
+                                            could affect your overall credit profile.
+                                        </p>
+                                    </div>
+                                </details>
+
+
+                                <details>
+                                    <summary>Can accurate negative information be removed from a credit report?
+                                    </summary>
+
+                                    <div class="credit-faq-answer">
+                                        <p>
+                                            Accurate negative information generally
+                                            cannot simply be removed because it is
+                                            unfavorable. Dispute processes are
+                                            intended to correct information that is
+                                            inaccurate or incomplete.
+                                        </p>
+                                    </div>
+                                </details>
+
+
+                                <details>
+                                    <summary>Do I need a credit-repair company to improve my credit?</summary>
+
+                                    <div class="credit-faq-answer">
+                                        <p>
+                                            Not necessarily. Many basic credit
+                                            management steps involve reviewing your
+                                            reports, correcting inaccurate
+                                            information, paying accounts on time,
+                                            managing balances, and avoiding
+                                            unnecessary new debt. Be cautious about
+                                            companies promising guaranteed results.
+                                        </p>
+                                    </div>
+                                </details>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- =================================================
+                         RELATED CONTENT
+                    ================================================== -->
+
+                        <section class="credit-article-section" id="related">
+
+                            <h2>Related PaycheckMint guides</h2>
+
+                            <p>
+                                Credit decisions are closely connected to cash flow,
+                                debt payments, and everyday budgeting. These guides
+                                can help you work on the surrounding parts of your
+                                finances.
+                            </p>
+
+                            <div class="credit-factor-cards">
+
+                                <div class="credit-info-card">
+
+                                    <div class="credit-info-card-icon">↗</div>
+
+                                    <h3>
+                                        <a href="/finance/credit-debt/how-to-improve-credit-score/">
+                                            How to Improve Your Credit Score
+                                        </a>
+                                    </h3>
+
+                                    <p>
+                                        Practical steps for improving credit habits,
+                                        managing balances, and reviewing your credit
+                                        profile.
+                                    </p>
+
+                                </div>
+
+
+                                <div class="credit-info-card">
+
+                                    <div class="credit-info-card-icon">$</div>
+
+                                    <h3>
+                                        <a href="/finance/budgeting/">
+                                            Budgeting
+                                        </a>
+                                    </h3>
+
+                                    <p>
+                                        Build a plan for income, spending, savings,
+                                        and debt payments.
+                                    </p>
+
+                                </div>
+
+
+                                <div class="credit-info-card">
+
+                                    <div class="credit-info-card-icon">D</div>
+
+                                    <h3>
+                                        <a href="/finance/budgeting/debt-budget/">
+                                            Debt Budget
+                                        </a>
+                                    </h3>
+
+                                    <p>
+                                        Organize debt payments and make room for
+                                        repayment in your monthly budget.
+                                    </p>
+
+                                </div>
+
+
+                                <div class="credit-info-card">
+
+                                    <div class="credit-info-card-icon">E</div>
+
+                                    <h3>
+                                        <a href="/finance/budgeting/emergency-fund/">
+                                            Emergency Fund
+                                        </a>
+                                    </h3>
+
+                                    <p>
+                                        Create a cash buffer that can help reduce
+                                        reliance on credit when unexpected expenses
+                                        occur.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- =================================================
+                         DISCLAIMER
+                    ================================================== -->
+
+                        <div class="credit-disclaimer">
+
+                            <strong>Educational disclaimer</strong>
+
+                            <p>
+                                This article is for general educational purposes
+                                and is not individualized financial, legal, tax,
+                                lending, or credit-repair advice. Credit scoring
+                                models differ, and lenders may consider additional
+                                information when making credit decisions. Credit
+                                reporting rules and product terms can also change.
+                                Review your specific situation and applicable
+                                information before making financial decisions.
+                            </p>
+
+                        </div>
+
+
+                        <!-- =================================================
+                         BOTTOM CTA
+                    ================================================== -->
+
+                        <div class="credit-bottom-cta">
+
+                            <h2>
+                                Your credit is part of your larger financial picture
+                            </h2>
+
+                            <p>
+                                Credit scores matter, but sustainable cash flow,
+                                manageable debt, and a realistic budget matter too.
+                                Use PaycheckMint's finance guides to work on the
+                                pieces together.
+                            </p>
+
+                            <a href="/finance/credit-debt/" class="credit-btn credit-btn-secondary">
+                                Explore Credit &amp; Debt
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =================================================
+                     SIDEBAR
+                ================================================== -->
+
+                    <aside class="credit-sidebar">
+
+                        <div class="credit-sidebar-card">
+
+                            <h3 class="credit-sidebar-title">
+                                On this page
+                            </h3>
+
+                            <nav class="credit-sidebar-links">
+
+                                <a href="#what-is-a-credit-score">
+                                    What is a credit score?
+                                </a>
+
+                                <a href="#how-it-works">
+                                    How scoring works
+                                </a>
+
+                                <a href="#factors">
+                                    Credit score factors
+                                </a>
+
+                                <a href="#utilization">
+                                    Credit utilization
+                                </a>
+
+                                <a href="#multiple-scores">
+                                    Why scores differ
+                                </a>
+
+                                <a href="#improve">
+                                    Building stronger credit
+                                </a>
+
+                                <a href="#errors">
+                                    Credit report errors
+                                </a>
+
+                                <a href="#faq">
+                                    FAQs
+                                </a>
+
+                            </nav>
+
+                        </div>
+
+
+                        <div class="credit-sidebar-card">
+
+                            <h3 class="credit-sidebar-title">
+                                Credit &amp; Debt
+                            </h3>
+
+                            <nav class="credit-sidebar-links">
+
+                                <a href="/finance/credit-debt/">
+                                    Credit &amp; Debt Hub
+                                </a>
+
+                                <a href="/finance/credit-debt/how-to-improve-credit-score/">
+                                    Improve Your Credit Score
+                                </a>
+
+                                <a href="/finance/budgeting/debt-budget/">
+                                    Debt Budget
+                                </a>
+
+                                <a href="/finance/budgeting/emergency-fund/">
+                                    Emergency Fund
+                                </a>
+
+                                <a href="/paycheck-tax-calculator/">
+                                    Paycheck Calculator
+                                </a>
+
+                            </nav>
+
+                        </div>
+
+
+                        <div class="credit-sidebar-card">
+
+                            <h3 class="credit-sidebar-title">
+                                Keep in mind
+                            </h3>
+
+                            <p class="credit-sidebar-note">
+                                There is no single credit score used for every
+                                lender or every credit decision.
+                            </p>
+
+                            <div class="credit-sidebar-highlight">
+                                Focus on accurate reports, on-time payments,
+                                manageable balances, and sustainable financial
+                                habits rather than chasing a promised point increase.
+                            </div>
+
+                        </div>
+
+                    </aside>
+
+                </div>
+
+            </div>
+
+        </section>
 
     </main>
 
-    <footer class="site-footer">
 
-        <div class="footer-inner">
-            <div class="footer-brand">
-                <a class="brand" href="/"> Paycheck<span>Mint</span> </a>
+    <!-- =========================================================
+     FOOTER
+========================================================= -->
+    <footer class="pm-footer">
 
-                <p>
-                    Simple tools and guides to help you understand your paycheck, income, taxes, budgeting, debt,
-                    and investing.
-                </p>
+        <div class="pm-footer-inner">
+
+            <div class="pm-footer-main">
+
+                <div class="pm-footer-grid">
+
+                    <div class="pm-footer-brand-column">
+
+                        <a class="pm-footer-brand" href="/">
+                            Paycheck<span>Mint</span>
+                        </a>
+
+                        <p class="pm-footer-description">
+                            Practical personal finance guides, paycheck tools,
+                            and calculators to help you make informed money decisions.
+                        </p>
+
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Money</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/income/">Income</a></li>
+                            <li><a href="/paycheck-tax-calculator/">Paycheck Calculator</a></li>
+                            <li><a href="/take-home-pay-calculator/">Take-Home Pay</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Finance</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/finance/taxes/">Taxes</a></li>
+                            <li><a href="/finance/budgeting/">Budgeting</a></li>
+                            <li><a href="/finance/credit-debt/">Credit &amp; Debt</a></li>
+                            <li><a href="/finance/investing/">Investing</a></li>
+                            <li><a href="/finance/insurance/">Insurance</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Company</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/contact/">Contact</a></li>
+                            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="footer-column">
-                <h3>Tools</h3>
+            <div class="pm-footer-bottom">
 
-                <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+                <div class="pm-footer-copyright">
+                    © 2026 PaycheckMint. All rights reserved.
+                </div>
 
-                <a href="/hourly-paycheck-calculator/"> Hourly Paycheck Calculator </a>
+                <div class="pm-footer-legal">
+                    <a href="/privacy-policy/">Privacy Policy</a>
+                    <a href="/terms/">Terms</a>
+                    <a href="/contact/">Contact</a>
+                </div>
 
-                <a href="/salary-paycheck-calculator/"> Salary Paycheck Calculator </a>
-
-                <a href="/overtime-pay-calculator/"> Overtime Calculator </a>
             </div>
 
-            <div class="footer-column">
-                <h3>Finance</h3>
-
-                <a href="/finance/"> Finance Overview </a>
-
-                <a href="/finance/taxes/"> Taxes </a>
-
-                <a href="/finance/budgeting/"> Budgeting </a>
-
-                <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
-
-                <a href="/finance/investing/"> Investing </a>
-
-                <a href="/finance/insurance/"> Insurance </a>
-            </div>
-
-            <div class="footer-column">
-                <h3>Company</h3>
-
-                <a href="/about/"> About </a>
-
-                <a href="/contact/"> Contact </a>
-
-                <a href="/privacy-policy/"> Privacy Policy </a>
-
-                <a href="/terms/"> Terms </a>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            © 2026 PaycheckMint. All rights reserved. Educational content only; not financial, tax, legal, or
-            investment advice.
         </div>
 
     </footer>
 
     <script>
         (function () {
-            const menuButton = document.querySelector(".mobile-menu-toggle");
+            "use strict";
 
-            const nav = document.querySelector(".main-nav");
-
-            const dropdown = document.querySelector(".nav-dropdown");
-
-            const dropdownButton = document.querySelector(".nav-dropdown-toggle");
-
-            /* =========================
-   MOBILE MENU
-========================= */
-
-            if (menuButton && nav) {
-                menuButton.addEventListener("click", function (event) {
-                    event.stopPropagation();
-
-                    const isOpen = nav.classList.toggle("menu-open");
-
-                    menuButton.setAttribute("aria-expanded", String(isOpen));
-                });
-            }
-
-            /* =========================
-   FINANCE DROPDOWN
-========================= */
-
-            if (dropdown && dropdownButton) {
-                dropdownButton.addEventListener("click", function (event) {
-                    event.stopPropagation();
-
-                    const isOpen = dropdown.classList.toggle("open");
-
-                    dropdownButton.setAttribute("aria-expanded", String(isOpen));
-                });
-            }
-
-            /* =========================
-   OUTSIDE CLICK
-========================= */
-
-            document.addEventListener("click", function (event) {
-                if (dropdown && !dropdown.contains(event.target)) {
-                    dropdown.classList.remove("open");
-
-                    if (dropdownButton) {
-                        dropdownButton.setAttribute("aria-expanded", "false");
-                    }
-                }
-
-                if (
-                    nav &&
-                    menuButton &&
-                    nav.classList.contains("menu-open") &&
-                    !nav.contains(event.target) &&
-                    !menuButton.contains(event.target)
-                ) {
-                    nav.classList.remove("menu-open");
-
-                    menuButton.setAttribute("aria-expanded", "false");
-                }
+            /* ==========================================================================
+               1. ASYNC COMPONENT LOADER
+               ========================================================================== */
+            document.addEventListener("DOMContentLoaded", function () {
+                loadSharedComponents();
             });
 
-            /* =========================
-   ESCAPE
-========================= */
+            async function loadSharedComponents() {
+                const navbar = document.getElementById("site-navbar");
+                const footer = document.getElementById("site-footer");
 
-            document.addEventListener("keydown", function (event) {
-                if (event.key !== "Escape") {
+                try {
+                    const requests = [];
+
+                    if (navbar) {
+                        requests.push(
+                            fetch("/components/navbar.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Navbar 404"))
+                                .then(html => { navbar.innerHTML = html; })
+                        );
+                    }
+
+                    if (footer) {
+                        requests.push(
+                            fetch("/components/footer.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Footer 404"))
+                                .then(html => { footer.innerHTML = html; })
+                        );
+                    }
+
+                    await Promise.all(requests);
+                    // Re-bind focus or initial state if required after injection
+                    setupScrollHeader();
+                } catch (error) {
+                    console.error("Component loading error:", error);
+                    setupScrollHeader();
+                }
+            }
+
+            /* ==========================================================================
+               2. EVENT DELEGATION (Handles dynamic elements automatically)
+               ========================================================================== */
+            document.addEventListener("click", function (event) {
+
+                // --- DESKTOP DROPDOWNS ---
+                const dropdownBtn = event.target.closest(".pm-nav-dropdown-button");
+                if (dropdownBtn) {
+                    event.stopPropagation();
+                    const currentDropdown = dropdownBtn.closest(".pm-nav-dropdown");
+                    const isOpen = currentDropdown.classList.contains("is-open");
+
+                    // Close all dropdowns
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
+                    });
+
+                    // Toggle selected dropdown
+                    if (!isOpen) {
+                        currentDropdown.classList.add("is-open");
+                        dropdownBtn.setAttribute("aria-expanded", "true");
+                    }
                     return;
                 }
 
-                if (dropdown) {
-                    dropdown.classList.remove("open");
+                // Close desktop dropdowns when clicking outside
+                if (!event.target.closest(".pm-nav-dropdown")) {
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
+                    });
                 }
 
-                if (dropdownButton) {
-                    dropdownButton.setAttribute("aria-expanded", "false");
+                // --- MOBILE NAV TOGGLE ---
+                const mobileToggle = event.target.closest("#mobileToggle");
+                if (mobileToggle) {
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) {
+                        const isOpen = mobileNav.classList.toggle("is-open");
+                        mobileToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
                 }
 
-                if (nav) {
-                    nav.classList.remove("menu-open");
+                // --- MOBILE SUBMENU TOGGLE ---
+                const mobileFinanceToggle = event.target.closest("#mobileFinanceToggle");
+                if (mobileFinanceToggle) {
+                    event.stopPropagation();
+                    const mobileFinanceLinks = document.getElementById("mobileFinanceLinks");
+                    if (mobileFinanceLinks) {
+                        const isOpen = mobileFinanceLinks.classList.toggle("is-open");
+                        mobileFinanceToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
                 }
 
-                if (menuButton) {
-                    menuButton.setAttribute("aria-expanded", "false");
+                // --- SEARCH TOGGLE (OPEN / CLOSE) ---
+                const searchToggle = event.target.closest("#searchToggle");
+                const mobileSearchBtn = event.target.closest("#mobileSearchButton");
+                const searchClose = event.target.closest("#searchClose");
+                const searchPanel = document.getElementById("searchPanel");
+
+                if (searchToggle || mobileSearchBtn) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) mobileNav.classList.remove("is-open");
+
+                    if (searchPanel) {
+                        if (searchPanel.classList.contains("is-open") && searchToggle) {
+                            closeSearch();
+                        } else {
+                            openSearch();
+                        }
+                    }
+                    return;
+                }
+
+                if (searchClose) {
+                    event.preventDefault();
+                    closeSearch();
+                    return;
+                }
+
+                // Close search panel when clicking outside of it
+                if (searchPanel && searchPanel.classList.contains("is-open")) {
+                    if (!searchPanel.contains(event.target)) {
+                        closeSearch();
+                    }
                 }
             });
 
-            /* =========================
-   CLOSE AFTER NAVIGATION
-========================= */
+            /* ==========================================================================
+               3. SEARCH HELPER FUNCTIONS & LIVE FILTERING
+               ========================================================================== */
+            function openSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchToggle = document.getElementById("searchToggle");
 
-            document.querySelectorAll(".main-nav a").forEach(function (link) {
-                link.addEventListener("click", function () {
-                    if (nav) {
-                        nav.classList.remove("menu-open");
-                    }
+                if (!searchPanel) return;
+                searchPanel.classList.add("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "true");
+                    searchToggle.setAttribute("aria-label", "Close search");
+                }
+                if (searchInput) setTimeout(() => searchInput.focus(), 100);
+            }
 
-                    if (menuButton) {
-                        menuButton.setAttribute("aria-expanded", "false");
-                    }
-                });
+            function closeSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchResults = document.getElementById("searchResults");
+                const searchToggle = document.getElementById("searchToggle");
+
+                if (!searchPanel) return;
+                searchPanel.classList.remove("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "false");
+                    searchToggle.setAttribute("aria-label", "Open search");
+                }
+                if (searchInput) searchInput.value = "";
+                if (searchResults) searchResults.innerHTML = "";
+            }
+
+            // Keyboard Shortcuts (Escape Key)
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closeSearch();
+                }
             });
+
+            // Live Search Typing Input Event
+            document.addEventListener("input", function (event) {
+                if (event.target.id !== "siteSearch") return;
+
+                const query = event.target.value.trim().toLowerCase();
+                const searchResults = document.getElementById("searchResults");
+                if (!searchResults) return;
+
+                if (query.length === 0) {
+                    searchResults.innerHTML = "";
+                    return;
+                }
+
+                const searchablePages = [
+                    { title: "Paycheck Tax Calculator", url: "/paycheck-tax-calculator/", description: "Calculate accurate net pay and taxes." },
+                    { title: "Take-Home Pay Calculator", url: "/take-home-pay-calculator/", description: "Estimate your actual paycheck total after deductions." },
+                    { title: "Hourly Paycheck Calculator", url: "/hourly-paycheck-calculator/", description: "Calculate income based on hourly wage and hours worked." },
+                    { title: "Overtime Pay Calculator", url: "/overtime-pay-calculator/", description: "Compute overtime rates and total extra wages." },
+                    { title: "Salary Paycheck Calculator", url: "/salary-paycheck-calculator/", description: "Break down annual salary into per-paycheck earnings." },
+                    { title: "Income Overview", url: "/income/", description: "Learn about taxable income, gross wages, and take-home pay." },
+                    { title: "Finance Overview", url: "/finance/", description: "Guides on managing personal finances and budgeting strategies." },
+                    { title: "Budgeting Guides", url: "/finance/budgeting/", description: "Strategies for budgeting your paycheck effectively." }
+                ];
+
+                const matches = searchablePages.filter(page =>
+                    page.title.toLowerCase().includes(query) ||
+                    page.description.toLowerCase().includes(query)
+                );
+
+                if (matches.length === 0) {
+                    searchResults.innerHTML = `<p class="pm-search-no-results">No results found for "${escapeHTML(query)}"</p>`;
+                    return;
+                }
+
+                searchResults.innerHTML = matches.map(item => `
+            <a href="${item.url}" class="pm-search-result-item">
+                <span class="pm-search-result-title">${escapeHTML(item.title)}</span>
+                <span class="pm-search-result-desc">${escapeHTML(item.description)}</span>
+            </a>
+        `).join("");
+            });
+
+            function escapeHTML(str) {
+                return str.replace(/[&<>'"]/g, tag => ({
+                    '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+                }[tag] || tag));
+            }
+
+            /* ==========================================================================
+               4. SCROLL SHADOW
+               ========================================================================== */
+            function setupScrollHeader() {
+                const header = document.getElementById("site-header");
+                if (!header) return;
+
+                window.addEventListener("scroll", function () {
+                    if (window.scrollY > 20) {
+                        header.classList.add("is-scrolled");
+                    } else {
+                        header.classList.remove("is-scrolled");
+                    }
+                }, { passive: true });
+            }
+
         })();
     </script>
 
-    <!-- =========================
-     ARTICLE SCHEMA
-========================= -->
 
-    <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "Article",
-                "headline": "How Credit Scores Work: Factors, Models & Scoring",
-                "description": "Understand how credit scores are calculated, what factors affect them, why scores differ, and how FICO and VantageScore work.",
-                "url": "https://paycheckmint.com/finance/credit-debt/how-credit-scores-work/",
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "PaycheckMint",
-                    "url": "https://paycheckmint.com/"
-                },
-                "mainEntityOfPage": {
-                    "@type": "WebPage",
-                    "@id": "https://paycheckmint.com/finance/credit-debt/how-credit-scores-work/"
-                }
-            }
-        </script>
 
-    <!-- =========================
-     BREADCRUMB SCHEMA
-========================= -->
-
-    <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Home",
-                        "item": "https://paycheckmint.com/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Credit & Debt",
-                        "item": "https://paycheckmint.com/finance/credit-debt/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 3,
-                        "name": "How Credit Scores Work",
-                        "item": "https://paycheckmint.com/finance/credit-debt/how-credit-scores-work/"
-                    }
-                ]
-            }
-        </script>
-
-    <!-- =========================
-     FAQ SCHEMA
-========================= -->
-
-    <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": [
-                    {
-                        "@type": "Question",
-                        "name": "How are credit scores calculated?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Credit scores are calculated by applying a specific scoring model to information in a credit report. The model can evaluate payment history, balances, credit utilization, account history and recent credit activity, depending on the model."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "What are the main factors in a credit score?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Major scoring models consider factors such as payment history, amounts owed or credit utilization, length of credit history, new credit and, depending on the model, credit mix."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Why are my FICO Score and VantageScore different?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "FICO and VantageScore use different scoring models. Differences can also result from the credit report being analyzed, the model version and when information was reported."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "How often does a credit score change?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "A score can change when information used by the scoring model changes and a new score is generated. Creditors report information at different times, so there is no single universal monthly update date."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Does paying a credit card balance change your score?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "It can. Paying down a revolving balance can reduce reported credit utilization. If the lower balance is reported and used by a scoring model, the resulting score may change."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Does checking my credit score hurt my credit?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Checking your own credit score generally does not hurt your credit because consumer self-checks are generally treated as soft inquiries."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Is there only one credit score?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "No. You can have multiple credit scores because lenders may use different scoring models, credit reporting companies may have different information, and different model versions may be used for different lending purposes."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Is a credit score the same as a credit report?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "No. A credit report contains detailed information about your credit history, while a credit score is a numerical calculation based on information in a credit report."
-                        }
-                    }
-                ]
-            }
-        </script>
 </body>
 
 </html>

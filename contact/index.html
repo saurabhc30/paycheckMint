@@ -1,273 +1,1406 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Contact PaycheckMint | Get in Touch</title>
+    <title>Contact PaycheckMint | Get in Touch</title>
 
-        <meta
-            name="description"
-            content="Contact PaycheckMint for calculator issues, website feedback, corrections, questions, or suggestions."
-        />
+    <meta name="description"
+        content="Contact PaycheckMint with questions, feedback, calculator issues, content corrections, or suggestions about personal finance.">
 
-        <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://paycheckmint.com/contact/">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/icon.ico">
 
-        <link rel="canonical" href="/contact/" />
+    <style>
+        :root {
+            --primary: #176B5B;
+            --primary-dark: #0F5145;
+            --gold: #C9922E;
+            --background: #f6f7f4;
+            --surface: #ffffff;
+            --text: #17342d;
+            --muted: #687772;
+            --border: #dfe6e2;
+            --soft-green: #eaf3f0;
+            --shadow: 0 12px 35px rgba(23, 107, 91, 0.08);
+        }
 
-        <link rel="icon" href="/icon.ico" />
+        * {
+            box-sizing: border-box;
+        }
 
-        <link rel="stylesheet" href="/legal.css" />
-    </head>
+        body {
+            margin: 0;
+            background: var(--background);
+            color: var(--text);
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+            line-height: 1.6;
+        }
 
-    <body>
-        <!-- Header -->
-        <header class="site-header">
-            <div class="container header-inner">
-                <a class="logo" href="/" aria-label="PaycheckMint home"> PaycheckMint </a>
+        a {
+            color: inherit;
+        }
 
-                <button
-                    class="mobile-menu-toggle"
-                    type="button"
-                    aria-label="Open navigation"
-                    aria-expanded="false"
-                    aria-controls="main-navigation"
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
+        /* =========================================
+           PAGE
+        ========================================= */
+
+        .contact-page {
+            padding: 50px 20px 90px;
+        }
+
+        .contact-container {
+            width: min(1180px, 100%);
+            margin: 0 auto;
+        }
+
+        /* =========================================
+           BREADCRUMB
+        ========================================= */
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 30px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .contact-hero {
+            display: grid;
+            grid-template-columns: 1.35fr .65fr;
+            gap: 40px;
+            align-items: end;
+            padding-bottom: 48px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin-bottom: 14px;
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .hero-label::before {
+            content: "";
+            width: 26px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .contact-hero h1 {
+            max-width: 750px;
+            margin: 0 0 18px;
+            color: #15382f;
+            font-size: clamp(40px, 5vw, 64px);
+            line-height: 1.04;
+            letter-spacing: -.045em;
+        }
+
+        .hero-description {
+            max-width: 700px;
+            margin: 0;
+            color: var(--muted);
+            font-size: 18px;
+        }
+
+        .hero-side {
+            padding: 25px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-side-title {
+            margin: 0 0 8px;
+            font-size: 16px;
+            font-weight: 800;
+        }
+
+        .hero-side-text {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* =========================================
+           MAIN CONTENT
+        ========================================= */
+
+        .contact-main {
+            display: grid;
+            grid-template-columns: minmax(0, 1.45fr) minmax(280px, .75fr);
+            gap: 30px;
+            margin-top: 42px;
+            align-items: start;
+        }
+
+        /* =========================================
+           FORM
+        ========================================= */
+
+        .form-card {
+            padding: 34px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-card-header {
+            margin-bottom: 28px;
+        }
+
+        .form-card-header h2 {
+            margin: 0 0 7px;
+            font-size: 27px;
+            line-height: 1.2;
+        }
+
+        .form-card-header p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .field {
+            margin-bottom: 20px;
+        }
+
+        .field label {
+            display: block;
+            margin-bottom: 7px;
+            color: #29453d;
+            font-size: 14px;
+            font-weight: 750;
+        }
+
+        .required {
+            color: var(--gold);
+        }
+
+        .field input,
+        .field select,
+        .field textarea {
+            width: 100%;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: #fff;
+            color: var(--text);
+            outline: none;
+            transition:
+                border-color .2s ease,
+                box-shadow .2s ease;
+        }
+
+        .field input,
+        .field select {
+            height: 49px;
+            padding: 0 14px;
+        }
+
+        .field textarea {
+            min-height: 175px;
+            padding: 13px 14px;
+            resize: vertical;
+        }
+
+        .field input::placeholder,
+        .field textarea::placeholder {
+            color: #9aa6a2;
+        }
+
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(23, 107, 91, .1);
+        }
+
+        .form-disclaimer {
+            margin: 2px 0 20px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .form-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .submit-button {
+            min-height: 49px;
+            padding: 0 25px;
+            border: 0;
+            border-radius: 10px;
+            background: var(--primary);
+            color: #fff;
+            font-weight: 800;
+            cursor: pointer;
+            transition:
+                background .2s ease,
+                transform .2s ease;
+        }
+
+        .submit-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .form-status {
+            display: none;
+            color: var(--primary-dark);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .form-status.show {
+            display: block;
+        }
+
+        /* =========================================
+           SIDEBAR
+        ========================================= */
+
+        .contact-sidebar {
+            display: grid;
+            gap: 18px;
+        }
+
+        .side-card {
+            padding: 25px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .side-icon {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 15px;
+            border-radius: 11px;
+            background: var(--soft-green);
+            color: var(--primary);
+            font-size: 18px;
+            font-weight: 900;
+        }
+
+        .side-card h3 {
+            margin: 0 0 7px;
+            font-size: 18px;
+        }
+
+        .side-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* EMAIL CARD */
+
+        .email-card {
+            padding: 27px;
+            border-radius: 16px;
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .email-card .side-icon {
+            background: rgba(255, 255, 255, .12);
+            color: #fff;
+        }
+
+        .email-card h3 {
+            margin: 0 0 7px;
+            font-size: 19px;
+        }
+
+        .email-card p {
+            margin: 0 0 15px;
+            color: rgba(255, 255, 255, .82);
+            font-size: 14px;
+        }
+
+        .email-link {
+            display: inline-block;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 800;
+            text-decoration: none;
+            word-break: break-word;
+        }
+
+        .email-link:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================================
+           TOPICS
+        ========================================= */
+
+        .topics-section {
+            margin-top: 75px;
+        }
+
+        .section-heading {
+            max-width: 700px;
+            margin-bottom: 28px;
+        }
+
+        .section-heading h2 {
+            margin: 0 0 9px;
+            font-size: 31px;
+            line-height: 1.2;
+        }
+
+        .section-heading p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .topic-card {
+            min-height: 170px;
+            padding: 22px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+        }
+
+        .topic-number {
+            display: block;
+            margin-bottom: 25px;
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 900;
+        }
+
+        .topic-card h3 {
+            margin: 0 0 7px;
+            font-size: 16px;
+        }
+
+        .topic-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* =========================================
+           PRIVACY NOTE
+        ========================================= */
+
+        .privacy-note {
+            margin-top: 25px;
+            padding: 17px 20px;
+            border-left: 4px solid var(--gold);
+            border-radius: 0 10px 10px 0;
+            background: #fffaf0;
+            color: #66522d;
+            font-size: 13px;
+        }
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 950px) {
+            .contact-hero {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .contact-main {
+                grid-template-columns: 1fr;
+            }
+
+            .topic-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+            .contact-page {
+                padding: 35px 16px 65px;
+            }
+
+            .contact-hero {
+                padding-bottom: 35px;
+            }
+
+            .contact-hero h1 {
+                font-size: 40px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .form-card {
+                padding: 22px 18px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .form-actions {
+                display: block;
+            }
+
+            .submit-button {
+                width: 100%;
+            }
+
+            .form-status {
+                margin-top: 12px;
+            }
+
+            .topic-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .topics-section {
+                margin-top: 55px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="pm-header" id="site-header">
+
+        <div class="pm-header-inner">
+
+            <a class="pm-brand" href="/" aria-label="PaycheckMint home">
+                Paycheck<span>Mint</span>
+            </a>
+
+            <nav class="pm-desktop-nav" aria-label="Main navigation">
+
+                <a class="pm-nav-link" href="/income/">
+                    Income
+                </a>
+
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                        Finance
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="pm-dropdown-menu">
+
+                        <span class="pm-dropdown-label">
+                            Explore
+                        </span>
+
+                        <a href="/finance/">
+                            <span>Finance Overview</span>
+                        </a>
+
+                        <a href="/income/">
+                            <span>Income & Earnings</span>
+                        </a>
+
+                        <a href="/finance/budgeting/">
+                            <span>Budgeting Guides</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                        Calculators
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="pm-dropdown-menu">
+
+                        <span class="pm-dropdown-label">
+                            Paycheck tools
+                        </span>
+
+                        <a href="/paycheck-tax-calculator/">
+                            Paycheck Tax Calculator
+                        </a>
+
+                        <a href="/take-home-pay-calculator/">
+                            Take-Home Pay Calculator
+                        </a>
+
+                        <a href="/hourly-paycheck-calculator/">
+                            Hourly Paycheck Calculator
+                        </a>
+
+                        <a href="/overtime-pay-calculator/">
+                            Overtime Pay Calculator
+                        </a>
+
+                        <a href="/salary-paycheck-calculator/">
+                            Salary Paycheck Calculator
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <a class="pm-nav-link" href="/finance/">
+                    Learn
+                </a>
+
+            </nav>
+
+            <div class="pm-nav-spacer"></div>
+
+            <button class="pm-search-button" id="searchToggle" type="button" aria-label="Open search"
+                aria-expanded="false" aria-controls="searchPanel">
+
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="m20 20-4-4"></path>
+
+                </svg>
+
+            </button>
+
+            <a class="pm-header-cta" href="/paycheck-tax-calculator/">
+                Calculate paycheck
+            </a>
+
+            <button class="pm-mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation"
+                aria-expanded="false" aria-controls="mobileNav">
+                <svg id="mobileMenuIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <path d="M4 6h16" />
+                    <path d="M4 12h16" />
+                    <path d="M4 18h16" />
+                </svg>
+            </button>
+
+        </div>
+
+        <!-- SEARCH PANEL -->
+
+        <div class="pm-search-panel" id="searchPanel">
+
+            <div class="pm-search-inner">
+
+                <div class="pm-search-field">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="m20 20-4-4" />
+                    </svg>
+
+                    <input id="siteSearch" class="pm-search-input" type="search" autocomplete="off"
+                        placeholder="Search PaycheckMint..." aria-label="Search PaycheckMint">
+
+                    <button class="pm-search-close" id="searchClose" type="button" aria-label="Close search">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 6l12 12" />
+                            <path d="M18 6 6 18" />
+                        </svg>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="pm-search-results" id="searchResults"></div>
+
+        </div>
+
+        <!-- MOBILE NAV -->
+
+        <nav class="pm-mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+
+            <div class="pm-mobile-nav-inner">
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a href="/income/">
+                    Income
+                </a>
+
+                <button class="pm-mobile-finance-button" id="mobileFinanceToggle" type="button" aria-expanded="false">
+                    <span>Finance</span>
+
+                    <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m6 9 6 6 6-6" />
+                    </svg>
                 </button>
 
-                <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
-                    <a href="/">Home</a>
+                <div class="pm-mobile-finance-links" id="mobileFinanceLinks">
 
-                    <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+                    <a href="/finance/">
+                        Finance Overview
+                    </a>
 
-                    <a href="/income/"> Income </a>
+                    <a href="/income/">
+                        Income & Earnings
+                    </a>
 
-                    <div class="nav-dropdown">
-                        <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
-                            Finance
-                            <span class="dropdown-arrow">▾</span>
-                        </button>
+                </div>
 
-                        <div class="nav-dropdown-menu">
-                            <a href="/finance/"> Finance Overview </a>
+                <a href="/paycheck-tax-calculator/">
+                    Paycheck Tax Calculator
+                </a>
 
-                            <a href="/finance/taxes/"> Taxes </a>
+                <a href="/take-home-pay-calculator/">
+                    Take-Home Pay Calculator
+                </a>
 
-                            <a href="/finance/budgeting/"> Budgeting &amp; Saving </a>
+                <a href="/hourly-paycheck-calculator/">
+                    Hourly Paycheck Calculator
+                </a>
 
-                            <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+                <a href="/overtime-pay-calculator/">
+                    Overtime Pay Calculator
+                </a>
 
-                            <a href="/finance/investing/"> Investing &amp; Retirement </a>
+                <a href="/salary-paycheck-calculator/">
+                    Salary Paycheck Calculator
+                </a>
 
-                            <a href="/finance/insurance/"> Insurance </a>
+                <a href="/weekly-paycheck-calculator/">
+                    Weekly Paycheck Calculator
+                </a>
+
+                <a href="/biweekly-paycheck-calculator/">
+                    Biweekly Paycheck Calculator
+                </a>
+
+                <a href="/monthly-paycheck-calculator/">
+                    Monthly Paycheck Calculator
+                </a>
+
+                <div class="pm-mobile-search-row">
+
+                    <button class="pm-button-secondary" id="mobileSearchButton" type="button">
+                        Search PaycheckMint
+                    </button>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <main class="contact-page">
+
+        <div class="contact-container">
+
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="/">Home</a>
+                <span>/</span>
+                <span>Contact</span>
+            </div>
+
+            <!-- Hero -->
+            <section class="contact-hero">
+
+                <div>
+                    <div class="hero-label">Contact PaycheckMint</div>
+
+                    <h1>
+                        Have a question?
+                        Let's hear from you.
+                    </h1>
+
+                    <p class="hero-description">
+                        Whether you've found an issue with a calculator,
+                        have feedback about an article, or want to suggest
+                        a new personal finance topic, you can get in touch
+                        with the PaycheckMint team.
+                    </p>
+                </div>
+
+                <div class="hero-side">
+                    <p class="hero-side-title">
+                        What we can help with
+                    </p>
+
+                    <p class="hero-side-text">
+                        Calculator questions, content corrections,
+                        website feedback, topic suggestions, and
+                        general questions about PaycheckMint.
+                    </p>
+                </div>
+
+            </section>
+
+            <!-- Main contact area -->
+            <section class="contact-main">
+
+                <!-- Contact form -->
+                <div class="form-card">
+
+                    <div class="form-card-header">
+                        <h2>Send us a message</h2>
+
+                        <p>
+                            Tell us what you need help with using the form below.
+                        </p>
+                    </div>
+
+                    <form id="contactForm">
+
+                        <div class="form-row">
+
+                            <div class="field">
+                                <label for="contactName">
+                                    Name <span class="required">*</span>
+                                </label>
+
+                                <input type="text" id="contactName" name="name" placeholder="Your name" required>
+                            </div>
+
+                            <div class="field">
+                                <label for="contactEmail">
+                                    Email <span class="required">*</span>
+                                </label>
+
+                                <input type="email" id="contactEmail" name="email" placeholder="you@example.com"
+                                    required>
+                            </div>
+
                         </div>
-                    </div>
-                </nav>
-            </div>
-        </header>
 
-        <!-- Main Content -->
-        <main class="legal-page">
-            <div class="legal-container contact-container">
-                <!-- Page Header -->
-                <div class="legal-header">
-                    <p class="eyebrow">PAYCHECKMINT</p>
+                        <div class="field">
 
-                    <h1>Contact PaycheckMint</h1>
+                            <label for="contactTopic">
+                                Topic <span class="required">*</span>
+                            </label>
 
-                    <p class="updated">Have a question or found something that needs fixing?</p>
+                            <select id="contactTopic" name="topic" required>
+                                <option value="">
+                                    Choose a topic
+                                </option>
+
+                                <option value="Calculator">
+                                    Calculator question or issue
+                                </option>
+
+                                <option value="Content">
+                                    Content correction
+                                </option>
+
+                                <option value="Feedback">
+                                    Website feedback
+                                </option>
+
+                                <option value="Suggestion">
+                                    Topic suggestion
+                                </option>
+
+                                <option value="General">
+                                    General question
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+                            </select>
+
+                        </div>
+
+                        <div class="field">
+
+                            <label for="contactMessage">
+                                Message <span class="required">*</span>
+                            </label>
+
+                            <textarea id="contactMessage" name="message" placeholder="Write your message here..."
+                                required></textarea>
+
+                        </div>
+
+                        <p class="form-disclaimer">
+                            Please do not include passwords, Social Security
+                            numbers, bank account information, or other
+                            sensitive financial details.
+                        </p>
+
+                        <div class="form-actions">
+
+                            <button type="submit" class="submit-button">
+                                Send message
+                            </button>
+
+                            <span class="form-status" id="formStatus"></span>
+
+                        </div>
+
+                    </form>
+
                 </div>
 
-                <!-- Contact -->
-                <section class="legal-section">
-                    <h2>Get in Touch</h2>
+                <!-- Sidebar -->
+                <aside class="contact-sidebar">
 
-                    <p>
-                        If you have a question about PaycheckMint, found a calculator issue, noticed incorrect
-                        information, or simply want to send us feedback, we'd be happy to hear from you.
-                    </p>
+                    <div class="side-card">
 
-                    <div class="contact-box">
-                        <span class="contact-label">Email</span>
+                        <div class="side-icon">?</div>
 
-                        <a href="mailto:sourabhc.0102@gmail.com"> support@paycheckmint.com </a>
+                        <h3>Calculator help</h3>
+
+                        <p>
+                            If something doesn't look right in one of our
+                            paycheck or finance calculators, tell us what
+                            happened and what you expected.
+                        </p>
+
                     </div>
-                </section>
 
-                <!-- What We Can Help With -->
-                <section class="legal-section">
-                    <h2>How Can We Help?</h2>
+                    <div class="side-card">
 
-                    <p>You can contact us about:</p>
+                        <div class="side-icon">✓</div>
 
-                    <ul>
-                        <li>Paycheck calculator errors</li>
-                        <li>Unexpected calculation results</li>
-                        <li>Incorrect or outdated information</li>
-                        <li>Website bugs or technical problems</li>
-                        <li>Broken links</li>
-                        <li>Privacy Policy questions</li>
-                        <li>Terms of Use questions</li>
-                        <li>Suggestions for new calculators</li>
-                        <li>General website feedback</li>
-                    </ul>
-                </section>
+                        <h3>Content corrections</h3>
 
-                <!-- Calculator Issues -->
-                <section class="legal-section">
-                    <h2>Reporting a Calculator Issue</h2>
+                        <p>
+                            Found information that may be outdated or
+                            unclear? Let us know so we can review it.
+                        </p>
 
-                    <p>
-                        If you believe a calculator is producing an unexpected result, please include the relevant
-                        calculator settings when contacting us.
-                    </p>
+                    </div>
 
-                    <p>
-                        For example, you may include the pay frequency, filing status, state, and general income
-                        information used for the calculation.
-                    </p>
+                    <div class="email-card">
 
-                    <p>Please do not send sensitive personal information.</p>
-                </section>
+                        <div class="side-icon">✉</div>
 
-                <!-- Tax Questions -->
-                <section class="legal-section">
-                    <h2>Tax Questions</h2>
+                        <h3>Email us directly</h3>
 
-                    <p>
-                        PaycheckMint provides estimated paycheck calculations for informational and planning purposes.
-                    </p>
+                        <p>
+                            Prefer email? You can contact PaycheckMint
+                            directly.
+                        </p>
 
-                    <p>We cannot provide personalized tax, legal, accounting, employment, or financial advice.</p>
+                        <a class="email-link" href="mailto:sourabhc.0102@gmail.com">
+                            sourabhc.0102@gmail.com
+                        </a>
+
+                    </div>
+
+                </aside>
+
+            </section>
+
+            <!-- Contact topics -->
+            <section class="topics-section">
+
+                <div class="section-heading">
+
+                    <h2>
+                        What can you contact us about?
+                    </h2>
 
                     <p>
-                        For questions about your specific tax situation, contact the IRS, your state tax authority, your
-                        employer's payroll department, or a qualified tax professional.
+                        PaycheckMint covers U.S. personal finance,
+                        including income, taxes, budgeting, credit,
+                        debt, investing, insurance, and paycheck tools.
                     </p>
-                </section>
 
-                <!-- Sensitive Information -->
-                <section class="legal-section">
-                    <h2>Please Don't Send Sensitive Information</h2>
-
-                    <p>For your security, please do not include sensitive information in an email.</p>
-
-                    <ul>
-                        <li>Social Security numbers</li>
-                        <li>Bank account numbers</li>
-                        <li>Credit or debit card information</li>
-                        <li>Passwords</li>
-                        <li>Government identification numbers</li>
-                        <li>Other confidential financial information</li>
-                    </ul>
-                </section>
-
-                <!-- Response -->
-                <section class="legal-section">
-                    <h2>Response Time</h2>
-
-                    <p>
-                        We aim to review messages and respond as soon as reasonably possible. Response times may vary
-                        depending on the type of request.
-                    </p>
-                </section>
-
-                <!-- Bottom Brand -->
-                <div class="legal-note">
-                    <strong>PaycheckMint</strong>
-
-                    <span> Free online paycheck and take-home pay calculator. </span>
                 </div>
+
+                <div class="topic-grid">
+
+                    <div class="topic-card">
+                        <span class="topic-number">01</span>
+
+                        <h3>Calculator feedback</h3>
+
+                        <p>
+                            Report unexpected results or problems
+                            with a calculator.
+                        </p>
+                    </div>
+
+                    <div class="topic-card">
+                        <span class="topic-number">02</span>
+
+                        <h3>Content correction</h3>
+
+                        <p>
+                            Tell us about information that may need
+                            updating or clarification.
+                        </p>
+                    </div>
+
+                    <div class="topic-card">
+                        <span class="topic-number">03</span>
+
+                        <h3>Topic suggestions</h3>
+
+                        <p>
+                            Suggest a financial topic, guide, or
+                            calculator you'd like to see.
+                        </p>
+                    </div>
+
+                    <div class="topic-card">
+                        <span class="topic-number">04</span>
+
+                        <h3>General feedback</h3>
+
+                        <p>
+                            Share your thoughts about the PaycheckMint
+                            website and user experience.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="privacy-note">
+                    <strong>Privacy reminder:</strong>
+                    Please don't send passwords, Social Security numbers,
+                    bank account numbers, credit card numbers, or other
+                    sensitive financial information through the contact form.
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <footer class="pm-footer">
+
+        <div class="pm-footer-inner">
+
+            <div class="pm-footer-main">
+
+                <div class="pm-footer-grid">
+
+                    <div class="pm-footer-brand-column">
+
+                        <a class="pm-footer-brand" href="/">
+                            Paycheck<span>Mint</span>
+                        </a>
+
+                        <p class="pm-footer-description">
+                            Practical personal finance guides, paycheck tools,
+                            and calculators to help you make informed money decisions.
+                        </p>
+
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Money</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/income/">Income</a></li>
+                            <li><a href="/paycheck-tax-calculator/">Paycheck Calculator</a></li>
+                            <li><a href="/take-home-pay-calculator/">Take-Home Pay</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Finance</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/finance/taxes/">Taxes</a></li>
+                            <li><a href="/finance/budgeting/">Budgeting</a></li>
+                            <li><a href="/finance/credit-debt/">Credit &amp; Debt</a></li>
+                            <li><a href="/finance/investing/">Investing</a></li>
+                            <li><a href="/finance/insurance/">Insurance</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Company</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/contact/">Contact</a></li>
+                            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
             </div>
-        </main>
 
-        <!-- Footer -->
-        <footer class="site-footer">
-            <p>© 2026 PaycheckMint. Free online paycheck and take-home pay calculator.</p>
+            <div class="pm-footer-bottom">
 
-            <div class="footer-links">
-                <a href="/privacy-policy/"> Privacy Policy </a>
+                <div class="pm-footer-copyright">
+                    © 2026 PaycheckMint. All rights reserved.
+                </div>
 
-                <a href="/terms/"> Terms </a>
+                <div class="pm-footer-legal">
+                    <a href="/privacy-policy/">Privacy Policy</a>
+                    <a href="/terms/">Terms</a>
+                    <a href="/contact/">Contact</a>
+                </div>
 
-                <a href="/contact/"> Contact </a>
             </div>
-        </footer>
 
-        <script>
+        </div>
+
+    </footer>
+
+    <!-- Contact form behavior -->
+    <script>
+        (function () {
+            "use strict";
+
+            const form = document.getElementById("contactForm");
+            const status = document.getElementById("formStatus");
+
+            if (!form || !status) return;
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+
+                const name = document.getElementById("contactName").value.trim();
+                const email = document.getElementById("contactEmail").value.trim();
+                const topic = document.getElementById("contactTopic").value;
+                const message = document.getElementById("contactMessage").value.trim();
+
+                const subject = encodeURIComponent(
+                    "PaycheckMint Contact: " + topic
+                );
+
+                const body = encodeURIComponent(
+                    "Name: " + name +
+                    "\nEmail: " + email +
+                    "\nTopic: " + topic +
+                    "\n\nMessage:\n" + message
+                );
+
+                window.location.href =
+                    "mailto:sourabhc.0102@gmail.com" +
+                    "?subject=" + subject +
+                    "&body=" + body;
+            });
+        })();
+    </script>
+
+    <script>
+        (function () {
+            "use strict";
+
+            /* ==========================================================================
+               1. ASYNC COMPONENT LOADER
+               ========================================================================== */
             document.addEventListener("DOMContentLoaded", function () {
-                const menuToggle = document.querySelector(".mobile-menu-toggle");
+                loadSharedComponents();
+            });
 
-                const mainNav = document.querySelector(".main-nav");
+            async function loadSharedComponents() {
+                const navbar = document.getElementById("site-navbar");
+                const footer = document.getElementById("site-footer");
 
-                const dropdown = document.querySelector(".nav-dropdown");
+                try {
+                    const requests = [];
 
-                const dropdownToggle = document.querySelector(".nav-dropdown-toggle");
+                    if (navbar) {
+                        requests.push(
+                            fetch("/components/navbar.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Navbar 404"))
+                                .then(html => { navbar.innerHTML = html; })
+                        );
+                    }
 
-                /* Mobile menu */
+                    if (footer) {
+                        requests.push(
+                            fetch("/components/footer.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Footer 404"))
+                                .then(html => { footer.innerHTML = html; })
+                        );
+                    }
 
-                if (menuToggle && mainNav) {
-                    menuToggle.addEventListener("click", function (event) {
-                        event.stopPropagation();
+                    await Promise.all(requests);
+                    // Re-bind focus or initial state if required after injection
+                    setupScrollHeader();
+                } catch (error) {
+                    console.error("Component loading error:", error);
+                    setupScrollHeader();
+                }
+            }
 
-                        const isOpen = mainNav.classList.toggle("mobile-open");
+            /* ==========================================================================
+               2. EVENT DELEGATION (Handles dynamic elements automatically)
+               ========================================================================== */
+            document.addEventListener("click", function (event) {
 
-                        menuToggle.classList.toggle("open", isOpen);
+                // --- DESKTOP DROPDOWNS ---
+                const dropdownBtn = event.target.closest(".pm-nav-dropdown-button");
+                if (dropdownBtn) {
+                    event.stopPropagation();
+                    const currentDropdown = dropdownBtn.closest(".pm-nav-dropdown");
+                    const isOpen = currentDropdown.classList.contains("is-open");
 
-                        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    // Close all dropdowns
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
+                    });
 
-                        menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+                    // Toggle selected dropdown
+                    if (!isOpen) {
+                        currentDropdown.classList.add("is-open");
+                        dropdownBtn.setAttribute("aria-expanded", "true");
+                    }
+                    return;
+                }
+
+                // Close desktop dropdowns when clicking outside
+                if (!event.target.closest(".pm-nav-dropdown")) {
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
                     });
                 }
 
-                /* Finance dropdown */
-
-                if (dropdown && dropdownToggle) {
-                    dropdownToggle.addEventListener("click", function (event) {
-                        event.stopPropagation();
-
-                        const isOpen = dropdown.classList.toggle("open");
-
-                        dropdownToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-                    });
+                // --- MOBILE NAV TOGGLE ---
+                const mobileToggle = event.target.closest("#mobileToggle");
+                if (mobileToggle) {
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) {
+                        const isOpen = mobileNav.classList.toggle("is-open");
+                        mobileToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
                 }
 
-                /* Close when clicking outside */
-
-                document.addEventListener("click", function () {
-                    if (mainNav) {
-                        mainNav.classList.remove("mobile-open");
+                // --- MOBILE SUBMENU TOGGLE ---
+                const mobileFinanceToggle = event.target.closest("#mobileFinanceToggle");
+                if (mobileFinanceToggle) {
+                    event.stopPropagation();
+                    const mobileFinanceLinks = document.getElementById("mobileFinanceLinks");
+                    if (mobileFinanceLinks) {
+                        const isOpen = mobileFinanceLinks.classList.toggle("is-open");
+                        mobileFinanceToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
                     }
+                    return;
+                }
 
-                    if (menuToggle) {
-                        menuToggle.classList.remove("open");
+                // --- SEARCH TOGGLE (OPEN / CLOSE) ---
+                const searchToggle = event.target.closest("#searchToggle");
+                const mobileSearchBtn = event.target.closest("#mobileSearchButton");
+                const searchClose = event.target.closest("#searchClose");
+                const searchPanel = document.getElementById("searchPanel");
 
-                        menuToggle.setAttribute("aria-expanded", "false");
+                if (searchToggle || mobileSearchBtn) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) mobileNav.classList.remove("is-open");
 
-                        menuToggle.setAttribute("aria-label", "Open navigation");
+                    if (searchPanel) {
+                        if (searchPanel.classList.contains("is-open") && searchToggle) {
+                            closeSearch();
+                        } else {
+                            openSearch();
+                        }
                     }
+                    return;
+                }
 
-                    if (dropdown) {
-                        dropdown.classList.remove("open");
+                if (searchClose) {
+                    event.preventDefault();
+                    closeSearch();
+                    return;
+                }
+
+                // Close search panel when clicking outside of it
+                if (searchPanel && searchPanel.classList.contains("is-open")) {
+                    if (!searchPanel.contains(event.target)) {
+                        closeSearch();
                     }
-
-                    if (dropdownToggle) {
-                        dropdownToggle.setAttribute("aria-expanded", "false");
-                    }
-                });
-
-                /* Don't close menu when clicking inside it */
-
-                if (mainNav) {
-                    mainNav.addEventListener("click", function (event) {
-                        event.stopPropagation();
-                    });
                 }
             });
-        </script>
-    </body>
+
+            /* ==========================================================================
+               3. SEARCH HELPER FUNCTIONS & LIVE FILTERING
+               ========================================================================== */
+            function openSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchToggle = document.getElementById("searchToggle");
+
+                if (!searchPanel) return;
+                searchPanel.classList.add("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "true");
+                    searchToggle.setAttribute("aria-label", "Close search");
+                }
+                if (searchInput) setTimeout(() => searchInput.focus(), 100);
+            }
+
+            function closeSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchResults = document.getElementById("searchResults");
+                const searchToggle = document.getElementById("searchToggle");
+
+                if (!searchPanel) return;
+                searchPanel.classList.remove("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "false");
+                    searchToggle.setAttribute("aria-label", "Open search");
+                }
+                if (searchInput) searchInput.value = "";
+                if (searchResults) searchResults.innerHTML = "";
+            }
+
+            // Keyboard Shortcuts (Escape Key)
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closeSearch();
+                }
+            });
+
+            // Live Search Typing Input Event
+            document.addEventListener("input", function (event) {
+                if (event.target.id !== "siteSearch") return;
+
+                const query = event.target.value.trim().toLowerCase();
+                const searchResults = document.getElementById("searchResults");
+                if (!searchResults) return;
+
+                if (query.length === 0) {
+                    searchResults.innerHTML = "";
+                    return;
+                }
+
+                const searchablePages = [
+                    { title: "Paycheck Tax Calculator", url: "/paycheck-tax-calculator/", description: "Calculate accurate net pay and taxes." },
+                    { title: "Take-Home Pay Calculator", url: "/take-home-pay-calculator/", description: "Estimate your actual paycheck total after deductions." },
+                    { title: "Hourly Paycheck Calculator", url: "/hourly-paycheck-calculator/", description: "Calculate income based on hourly wage and hours worked." },
+                    { title: "Overtime Pay Calculator", url: "/overtime-pay-calculator/", description: "Compute overtime rates and total extra wages." },
+                    { title: "Salary Paycheck Calculator", url: "/salary-paycheck-calculator/", description: "Break down annual salary into per-paycheck earnings." },
+                    { title: "Income Overview", url: "/income/", description: "Learn about taxable income, gross wages, and take-home pay." },
+                    { title: "Finance Overview", url: "/finance/", description: "Guides on managing personal finances and budgeting strategies." },
+                    { title: "Budgeting Guides", url: "/finance/budgeting/", description: "Strategies for budgeting your paycheck effectively." }
+                ];
+
+                const matches = searchablePages.filter(page =>
+                    page.title.toLowerCase().includes(query) ||
+                    page.description.toLowerCase().includes(query)
+                );
+
+                if (matches.length === 0) {
+                    searchResults.innerHTML = `<p class="pm-search-no-results">No results found for "${escapeHTML(query)}"</p>`;
+                    return;
+                }
+
+                searchResults.innerHTML = matches.map(item => `
+            <a href="${item.url}" class="pm-search-result-item">
+                <span class="pm-search-result-title">${escapeHTML(item.title)}</span>
+                <span class="pm-search-result-desc">${escapeHTML(item.description)}</span>
+            </a>
+        `).join("");
+            });
+
+            function escapeHTML(str) {
+                return str.replace(/[&<>'"]/g, tag => ({
+                    '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+                }[tag] || tag));
+            }
+
+            /* ==========================================================================
+               4. SCROLL SHADOW
+               ========================================================================== */
+            function setupScrollHeader() {
+                const header = document.getElementById("site-header");
+                if (!header) return;
+
+                window.addEventListener("scroll", function () {
+                    if (window.scrollY > 20) {
+                        header.classList.add("is-scrolled");
+                    } else {
+                        header.classList.remove("is-scrolled");
+                    }
+                }, { passive: true });
+            }
+
+        })();
+    </script>
+
+</body>
+
 </html>

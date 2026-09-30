@@ -1,60 +1,53 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
 
-    <title>What Is a 401(k)? How It Works, Contributions &amp; Rules | PaycheckMint</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>401(k) Plans: How They Work, Contributions & Employer Match | PaycheckMint</title>
 
     <meta name="description"
-        content="Learn what a 401(k) is, how 401(k) plans work, traditional vs. Roth 401(k), employer matching, 2026 contribution limits, investment options, withdrawals, rollovers, and common 401(k) questions." />
+        content="Learn how 401(k) plans work, how employee contributions and employer matches build retirement savings, traditional vs. Roth 401(k)s, vesting, fees, and how to choose a contribution amount.">
 
-    <meta name="keywords"
-        content="what is a 401k, what is a 401(k), 401k explained, how does a 401k work, 401k for beginners, traditional 401k vs Roth 401k, 401k contribution limit 2026, 401k employer match, 401k withdrawal rules, 401k rollover, 401k investment options" />
+    <meta name="robots" content="index, follow">
 
-    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://paycheckmint.com/finance/investing/401k/">
 
-    <link rel="canonical" href="https://paycheckmint.com/finance/investing/401k/" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="What Is a 401(k)? How It Works, Contributions &amp; Rules | PaycheckMint" />
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="401(k) Plans: How They Work, Contributions & Employer Match">
     <meta property="og:description"
-        content="Understand 401(k) plans, traditional and Roth contributions, employer matching, contribution limits, investments, withdrawals and rollovers." />
-    <meta property="og:url" content="https://paycheckmint.com/finance/investing/401k/" />
-    <meta property="og:site_name" content="PaycheckMint" />
+        content="A practical guide to 401(k) plans, contributions, employer matching, traditional vs. Roth 401(k), vesting, investments, and retirement planning.">
+    <meta property="og:url" content="https://paycheckmint.com/finance/investing/401k/">
+    <meta property="og:site_name" content="PaycheckMint">
 
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="What Is a 401(k)? How It Works, Contributions &amp; Rules | PaycheckMint" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="401(k) Plans: How They Work, Contributions & Employer Match">
     <meta name="twitter:description"
-        content="A beginner-friendly guide to 401(k) plans, contributions, employer matches, taxes, investments, withdrawals and rollovers." />
+        content="Understand 401(k) contributions, employer matches, Roth vs. traditional contributions, vesting, fees, and investment choices.">
+
+    <meta name="theme-color" content="#176B5B">
+
+    <link rel="icon" href="/icon.ico">
+    <link rel="stylesheet" href="/style.css">
 
     <style>
+        /* =========================================================
+           401(K) PAGE
+        ========================================================= */
+
         :root {
-            --bg: #f6f5f1;
-            --surface: #ffffff;
-            --surface-soft: #faf9f6;
-
-            --ink: #191919;
-            --muted: #74736f;
-            --muted-light: #999791;
-
-            --line: #deddd8;
-            --line-dark: #cbc9c3;
-
-            --accent: #5954d9;
-            --accent-dark: #4843c0;
-            --accent-soft: #efeeff;
-
-            --success: #287a52;
-            --warning: #a66a00;
-
-            --shadow: 0 8px 28px rgba(20, 20, 20, 0.06);
-
-            --radius: 16px;
-            --max-width: 1180px;
+            --primary: #176B5B;
+            --primary-dark: #0F5145;
+            --accent: #C9922E;
+            --bg: #F7F8F6;
+            --surface: #FFFFFF;
+            --soft: #EEF5F2;
+            --text: #17201D;
+            --muted: #64706C;
+            --line: #DCE5E1;
+            --shadow: 0 12px 35px rgba(23, 107, 91, 0.08);
         }
 
         * {
@@ -68,1696 +61,3171 @@
         body {
             margin: 0;
             background: var(--bg);
-            color: var(--ink);
-            font-family:
-                Inter,
-                ui-sans-serif,
-                system-ui,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                sans-serif;
+            color: var(--text);
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
+                "Segoe UI", sans-serif;
             line-height: 1.7;
         }
 
+        img {
+            max-width: 100%;
+        }
+
         a {
-            color: var(--accent);
-            text-decoration: none;
+            color: var(--primary);
         }
 
-        a:hover {
-            color: var(--accent-dark);
-        }
-
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(246, 245, 241, 0.96);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--line);
-        }
-
-        .header-inner {
-            max-width: var(--max-width);
+        .pm-page {
+            width: min(1200px, calc(100% - 40px));
             margin: 0 auto;
-            min-height: 72px;
-            padding: 0 22px;
+        }
 
-            display: flex;
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .invest-hero {
+            padding: 68px 0 54px;
+        }
+
+        .invest-hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr);
+            gap: 52px;
             align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .brand {
-            color: var(--ink);
-            font-size: 1.25rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            white-space: nowrap;
-        }
-
-        .brand span {
-            color: var(--accent);
-        }
-
-        .main-nav {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .main-nav>a,
-        .nav-dropdown>button {
-            border: 0;
-            background: transparent;
-            color: var(--ink);
-            font: inherit;
-            font-size: 0.95rem;
-            font-weight: 650;
-            padding: 10px 13px;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-
-        .main-nav>a:hover,
-        .nav-dropdown>button:hover {
-            background: var(--surface);
-            color: var(--accent);
-        }
-
-        .nav-dropdown {
-            position: relative;
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: calc(100% + 7px);
-            right: 0;
-            min-width: 225px;
-            padding: 8px;
-
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            box-shadow: var(--shadow);
-
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-5px);
-
-            transition:
-                opacity 0.18s ease,
-                transform 0.18s ease,
-                visibility 0.18s ease;
-        }
-
-        .nav-dropdown:hover .dropdown-menu,
-        .nav-dropdown.open .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown-menu a {
-            display: block;
-            padding: 9px 11px;
-            border-radius: 9px;
-            color: var(--ink);
-            font-size: 0.92rem;
-        }
-
-        .dropdown-menu a:hover {
-            background: var(--accent-soft);
-            color: var(--accent-dark);
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-            width: 42px;
-            height: 42px;
-            border: 1px solid var(--line-dark);
-            border-radius: 10px;
-            background: var(--surface);
-            cursor: pointer;
-            padding: 8px;
-        }
-
-        .mobile-menu-toggle span {
-            display: block;
-            height: 2px;
-            margin: 5px 0;
-            background: var(--ink);
-            border-radius: 2px;
-        }
-
-        .page-wrap {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 28px 22px 70px;
-        }
-
-        .breadcrumbs {
-            margin-bottom: 25px;
-            color: var(--muted);
-            font-size: 0.88rem;
-        }
-
-        .breadcrumbs a {
-            color: var(--muted);
-        }
-
-        .breadcrumbs span {
-            margin: 0 6px;
-        }
-
-        .hero {
-            max-width: 900px;
-            margin-bottom: 38px;
         }
 
         .eyebrow {
-            display: inline-block;
-            margin-bottom: 12px;
-            padding: 5px 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            background: var(--soft);
+            border: 1px solid #D4E6E0;
+            padding: 6px 11px;
             border-radius: 999px;
-            background: var(--accent-soft);
-            color: var(--accent-dark);
-            font-size: 0.8rem;
-            font-weight: 750;
-            letter-spacing: 0.02em;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .06em;
+            text-transform: uppercase;
         }
 
-        h1,
-        h2,
-        h3 {
-            line-height: 1.2;
-            letter-spacing: -0.025em;
+        .hero-title {
+            margin: 18px 0 17px;
+            max-width: 760px;
+            font-size: clamp(38px, 5vw, 60px);
+            line-height: 1.04;
+            letter-spacing: -2.4px;
+            font-weight: 850;
         }
 
-        h1 {
-            max-width: 850px;
-            margin: 0 0 18px;
-            font-size: clamp(2.25rem, 5vw, 4rem);
+        .hero-title span {
+            color: var(--primary);
         }
 
-        h2 {
-            margin: 48px 0 16px;
-            font-size: clamp(1.65rem, 3vw, 2.25rem);
-        }
-
-        h3 {
-            margin: 28px 0 10px;
-            font-size: 1.25rem;
-        }
-
-        .hero-text {
-            max-width: 780px;
+        .hero-copy {
+            max-width: 720px;
             margin: 0;
             color: var(--muted);
-            font-size: 1.1rem;
+            font-size: 18px;
+            line-height: 1.75;
         }
 
-        .quick-answer {
-            margin: 28px 0;
-            padding: 20px 22px;
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 27px;
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 46px;
+            padding: 0 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 750;
+            font-size: 14px;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--primary-dark);
+            border-color: var(--line);
+        }
+
+        .hero-trust {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-top: 22px;
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 650;
+        }
+
+        .hero-trust span::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: 900;
+            margin-right: 6px;
+        }
+
+        /* =========================================================
+           HERO VISUAL
+        ========================================================= */
+
+        .retirement-card {
+            position: relative;
             background: var(--surface);
             border: 1px solid var(--line);
-            border-left: 4px solid var(--accent);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
+            border-radius: 24px;
+            padding: 25px;
+            box-shadow: 0 22px 55px rgba(15, 81, 69, .10);
+            overflow: hidden;
         }
 
-        .quick-answer strong {
-            color: var(--ink);
+        .retirement-card::before {
+            content: "";
+            position: absolute;
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            background: rgba(201, 146, 46, .10);
+            right: -70px;
+            top: -70px;
         }
 
-        .layout {
+        .visual-top {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .visual-label {
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 750;
+        }
+
+        .visual-title {
+            margin-top: 3px;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .visual-badge {
+            color: var(--primary);
+            background: var(--soft);
+            border-radius: 999px;
+            padding: 6px 9px;
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .retirement-balance {
+            margin: 28px 0 17px;
+        }
+
+        .balance-label {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .balance-number {
+            margin-top: 3px;
+            font-size: 37px;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            font-weight: 850;
+        }
+
+        .visual-bar {
+            height: 10px;
+            background: #E8EFEC;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .visual-bar span {
+            display: block;
+            height: 100%;
+            width: 66%;
+            background: var(--primary);
+            border-radius: inherit;
+        }
+
+        .visual-stats {
             display: grid;
-            grid-template-columns: minmax(0, 1fr) 285px;
-            gap: 30px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 19px;
+        }
+
+        .visual-stat {
+            padding: 13px 10px;
+            background: var(--bg);
+            border-radius: 12px;
+        }
+
+        .visual-stat small {
+            display: block;
+            color: var(--muted);
+            font-size: 10px;
+        }
+
+        .visual-stat strong {
+            display: block;
+            margin-top: 2px;
+            font-size: 14px;
+        }
+
+        .visual-note {
+            margin: 17px 0 0;
+            color: var(--muted);
+            font-size: 11px;
+            line-height: 1.55;
+        }
+
+        /* =========================================================
+           CONTENT LAYOUT
+        ========================================================= */
+
+        .content-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 300px;
+            gap: 48px;
             align-items: start;
+            padding-bottom: 70px;
         }
 
         .article {
             min-width: 0;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: clamp(22px, 4vw, 42px);
-            box-shadow: var(--shadow);
+        }
+
+        .article-section {
+            scroll-margin-top: 100px;
+            margin-bottom: 50px;
+        }
+
+        .article h2 {
+            margin: 0 0 16px;
+            font-size: clamp(27px, 3vw, 35px);
+            line-height: 1.18;
+            letter-spacing: -1px;
+        }
+
+        .article h3 {
+            margin: 27px 0 9px;
+            font-size: 21px;
+            line-height: 1.3;
         }
 
         .article p {
             margin: 0 0 17px;
+            color: #34403C;
         }
 
         .article ul,
         .article ol {
-            margin: 10px 0 22px;
-            padding-left: 23px;
+            margin: 0 0 20px;
+            padding-left: 22px;
+            color: #34403C;
         }
 
         .article li {
-            margin: 7px 0;
+            margin: 8px 0;
         }
 
-        .toc {
-            position: sticky;
-            top: 96px;
+        .lead-box {
             background: var(--surface);
             border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 20px;
-        }
-
-        .toc-title {
-            margin: 0 0 12px;
-            font-weight: 800;
-        }
-
-        .toc a {
-            display: block;
-            padding: 6px 0;
-            color: var(--muted);
-            font-size: 0.9rem;
-            line-height: 1.45;
-        }
-
-        .toc a:hover {
-            color: var(--accent);
-        }
-
-        .info-box {
-            margin: 25px 0;
-            padding: 19px 21px;
-            background: var(--surface-soft);
-            border: 1px solid var(--line);
+            border-left: 4px solid var(--primary);
+            padding: 20px 22px;
             border-radius: 13px;
+            margin: 0 0 34px;
         }
 
-        .info-box strong {
+        .lead-box strong {
+            color: var(--text);
+        }
+
+        /* =========================================================
+           QUICK ANSWER CARDS
+        ========================================================= */
+
+        .answer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 13px;
+            margin-top: 24px;
+        }
+
+        .answer-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 18px;
+        }
+
+        .answer-icon {
+            width: 36px;
+            height: 36px;
+            display: grid;
+            place-items: center;
+            border-radius: 10px;
+            background: var(--soft);
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .answer-card strong {
             display: block;
             margin-bottom: 5px;
         }
 
-        .highlight {
-            padding: 23px;
-            margin: 28px 0;
-            border-radius: 15px;
-            background: var(--accent-soft);
-            border: 1px solid #d9d7ff;
+        .answer-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.55;
         }
 
-        .step-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 16px;
-            margin: 24px 0 30px;
-        }
+        /* =========================================================
+           COMPARISON TABLE
+        ========================================================= */
 
-        .step-card {
-            padding: 20px;
-            background: var(--surface-soft);
+        .table-wrap {
+            overflow-x: auto;
+            margin: 22px 0;
             border: 1px solid var(--line);
             border-radius: 14px;
+            background: var(--surface);
         }
 
-        .step-number {
-            display: inline-flex;
-            width: 31px;
-            height: 31px;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-            border-radius: 50%;
-            background: var(--accent-soft);
-            color: var(--accent-dark);
-            font-weight: 800;
-            font-size: 0.9rem;
-        }
-
-        .step-card h3 {
-            margin-top: 2px;
-        }
-
-        .comparison-wrap {
-            overflow-x: auto;
-            margin: 24px 0;
-        }
-
-        table {
+        .comparison-table {
             width: 100%;
-            border-collapse: collapse;
             min-width: 650px;
+            border-collapse: collapse;
         }
 
-        th,
-        td {
-            padding: 12px 13px;
-            border: 1px solid var(--line);
+        .comparison-table th,
+        .comparison-table td {
+            padding: 14px 15px;
             text-align: left;
             vertical-align: top;
-        }
-
-        th {
-            background: var(--surface-soft);
-            font-weight: 750;
-        }
-
-        .limit-card {
-            margin: 25px 0;
-            padding: 24px;
-            border: 1px solid var(--line);
-            border-radius: 15px;
-            background: var(--surface-soft);
-        }
-
-        .limit-number {
-            font-size: clamp(2rem, 5vw, 3rem);
-            line-height: 1;
-            font-weight: 850;
-            color: var(--accent-dark);
-            margin-bottom: 8px;
-        }
-
-        .limit-label {
-            color: var(--muted);
-        }
-
-        .limit-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-            margin-top: 18px;
-        }
-
-        .mini-limit {
-            padding: 17px;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 12px;
-        }
-
-        .mini-limit strong {
-            display: block;
-            font-size: 1.15rem;
-            margin-bottom: 4px;
-        }
-
-        .faq-item {
-            padding: 19px 0;
             border-bottom: 1px solid var(--line);
+            font-size: 14px;
         }
 
-        .faq-item:last-child {
+        .comparison-table th {
+            background: var(--soft);
+            color: var(--primary-dark);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+        }
+
+        .comparison-table tr:last-child td {
             border-bottom: 0;
         }
 
-        .faq-item h3 {
-            margin: 0 0 8px;
-            font-size: 1.08rem;
+        /* =========================================================
+           CALCULATOR
+        ========================================================= */
+
+        .calculator {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin: 25px 0 30px;
         }
 
-        .related-grid {
+        .calculator-heading {
+            margin-bottom: 22px;
+        }
+
+        .calculator-heading h3 {
+            margin: 0 0 5px;
+            font-size: 23px;
+        }
+
+        .calculator-heading p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .calculator-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px;
-            margin-top: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 17px;
         }
 
-        .related-card {
+        .field label {
             display: block;
-            padding: 16px;
+            margin-bottom: 6px;
+            color: var(--text);
+            font-size: 13px;
+            font-weight: 750;
+        }
+
+        .field input,
+        .field select {
+            width: 100%;
+            min-height: 45px;
+            padding: 9px 11px;
+            border: 1px solid #CAD7D2;
+            border-radius: 9px;
+            background: #fff;
+            color: var(--text);
+            font: inherit;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .field input:focus,
+        .field select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(23, 107, 91, .10);
+        }
+
+        .calc-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 19px;
+        }
+
+        .calc-button {
+            min-height: 44px;
+            padding: 0 17px;
+            border: 0;
+            border-radius: 9px;
+            background: var(--primary);
+            color: #fff;
+            font: inherit;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .reset-button {
+            min-height: 44px;
+            padding: 0 15px;
+            border: 1px solid var(--line);
+            border-radius: 9px;
+            background: #fff;
+            color: var(--text);
+            font: inherit;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .calculator-results {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 23px;
+        }
+
+        .result-card {
+            padding: 15px;
+            border-radius: 12px;
+            background: var(--soft);
+        }
+
+        .result-card small {
+            display: block;
+            color: var(--muted);
+            font-size: 10px;
+            line-height: 1.4;
+        }
+
+        .result-card strong {
+            display: block;
+            margin-top: 4px;
+            color: var(--primary-dark);
+            font-size: 19px;
+            line-height: 1.2;
+        }
+
+        .calculator-status {
+            min-height: 20px;
+            margin-top: 15px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* =========================================================
+           FORMULA / CALLOUTS
+        ========================================================= */
+
+        .formula-box {
+            margin: 23px 0;
+            padding: 21px;
+            border-radius: 15px;
+            background: var(--primary-dark);
+            color: #fff;
+        }
+
+        .formula-box small {
+            display: block;
+            opacity: .75;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            font-weight: 750;
+        }
+
+        .formula {
+            margin: 8px 0 0;
+            font-size: clamp(19px, 3vw, 27px);
+            line-height: 1.4;
+            font-weight: 800;
+        }
+
+        .example-box {
+            padding: 20px;
+            background: #FFF9EE;
+            border: 1px solid #EBD8AE;
+            border-radius: 14px;
+            margin: 22px 0;
+        }
+
+        .example-box strong {
+            color: #79571B;
+        }
+
+        /* =========================================================
+           STEPS
+        ========================================================= */
+
+        .steps {
+            display: grid;
+            gap: 13px;
+            margin-top: 22px;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 38px minmax(0, 1fr);
+            gap: 14px;
+            padding: 17px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 13px;
+        }
+
+        .step-number {
+            width: 34px;
+            height: 34px;
+            display: grid;
+            place-items: center;
+            background: var(--soft);
+            color: var(--primary-dark);
+            border-radius: 50%;
+            font-size: 13px;
+            font-weight: 850;
+        }
+
+        .step h3 {
+            margin: 0 0 4px;
+            font-size: 17px;
+        }
+
+        .step p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* =========================================================
+           EXPENSE GRID
+        ========================================================= */
+
+        .expense-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 11px;
+            margin-top: 21px;
+        }
+
+        .expense-card {
+            padding: 15px;
+            border: 1px solid var(--line);
+            background: var(--surface);
+            border-radius: 12px;
+        }
+
+        .expense-card strong {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        .expense-card span {
+            display: block;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        /* =========================================================
+           PRIORITY TABLE / LIST
+        ========================================================= */
+
+        .priority-box {
+            padding: 20px;
+            background: var(--soft);
+            border-radius: 15px;
+            margin-top: 22px;
+        }
+
+        .priority-box h3 {
+            margin-top: 0;
+        }
+
+        /* =========================================================
+           FAQ
+        ========================================================= */
+
+        .faq-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .faq-item {
+            background: var(--surface);
             border: 1px solid var(--line);
             border-radius: 12px;
-            background: var(--surface-soft);
-            color: var(--ink);
+            overflow: hidden;
         }
 
-        .related-card:hover {
-            border-color: var(--accent);
-            background: var(--accent-soft);
+        .faq-item summary {
+            padding: 17px 18px;
+            cursor: pointer;
+            font-weight: 750;
+            list-style: none;
+            position: relative;
+            padding-right: 45px;
         }
 
-        .related-card strong {
-            display: block;
-            margin-bottom: 4px;
+        .faq-item summary::-webkit-details-marker {
+            display: none;
         }
 
-        .disclaimer {
-            margin-top: 35px;
-            padding-top: 22px;
-            border-top: 1px solid var(--line);
+        .faq-item summary::after {
+            content: "+";
+            position: absolute;
+            right: 18px;
+            top: 14px;
+            font-size: 22px;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .faq-item[open] summary::after {
+            content: "−";
+        }
+
+        .faq-answer {
+            padding: 0 18px 17px;
             color: var(--muted);
-            font-size: 0.88rem;
+            font-size: 14px;
         }
 
-        footer {
-            background: var(--bg);
+        .faq-answer p {
+            margin: 0;
+        }
+
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
+
+        .sidebar {
+            position: sticky;
+            top: 96px;
+            align-self: start;
+            height: max-content;
+        }
+
+        .side-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 19px;
+            margin-bottom: 14px;
+        }
+
+        .side-card h3 {
+            margin: 0 0 11px;
+            font-size: 16px;
+        }
+
+        .side-links {
+            display: grid;
+            gap: 4px;
+        }
+
+        .side-links a {
+            display: block;
+            padding: 8px 9px;
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 13px;
+            line-height: 1.4;
+            border-radius: 7px;
+        }
+
+        .side-links a:hover {
+            color: var(--primary);
+            background: var(--soft);
+        }
+
+        .side-tip {
+            background: var(--primary-dark);
+            color: #fff;
+            border-radius: 16px;
+            padding: 19px;
+        }
+
+        .side-tip strong {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .side-tip p {
+            margin: 0;
+            opacity: .82;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        /* =========================================================
+           DISCLOSURE
+        ========================================================= */
+
+        .methodology {
+            padding: 22px;
+            border: 1px solid var(--line);
+            background: var(--surface);
+            border-radius: 15px;
+        }
+
+        .methodology h3 {
+            margin-top: 0;
+            font-size: 18px;
+        }
+
+        .methodology p {
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        .pm-footer {
             border-top: 1px solid var(--line);
-        }
-
-        .footer-inner {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 40px 22px 25px;
+            padding: 38px 0 28px;
+            background: var(--bg);
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: 1.5fr repeat(3, 1fr);
-            gap: 30px;
+            gap: 35px;
         }
 
         .footer-brand {
-            font-size: 1.15rem;
-            font-weight: 800;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .footer-description {
-            max-width: 340px;
+            max-width: 350px;
             color: var(--muted);
-            font-size: 0.9rem;
+            font-size: 13px;
+            line-height: 1.65;
         }
 
         .footer-column h3 {
-            margin: 0 0 11px;
-            font-size: 0.95rem;
+            margin: 0 0 10px;
+            font-size: 13px;
         }
 
         .footer-column a {
             display: block;
-            margin: 6px 0;
+            margin: 7px 0;
             color: var(--muted);
-            font-size: 0.88rem;
+            text-decoration: none;
+            font-size: 12px;
         }
 
         .footer-column a:hover {
-            color: var(--accent);
+            color: var(--primary);
         }
 
         .footer-bottom {
-            margin-top: 30px;
-            padding-top: 18px;
             border-top: 1px solid var(--line);
+            margin-top: 27px;
+            padding-top: 20px;
+            color: var(--muted);
+            font-size: 11px;
             display: flex;
             justify-content: space-between;
-            gap: 20px;
-            color: var(--muted);
-            font-size: 0.82rem;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
-        @media (max-width: 850px) {
-            .mobile-menu-toggle {
-                display: block;
-            }
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
 
-            .main-nav {
-                display: none;
-                position: absolute;
-                top: 72px;
-                left: 12px;
-                right: 12px;
-                width: auto;
-                max-height: calc(100vh - 86px);
-                overflow-y: auto;
-                padding: 10px;
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: 14px;
-                box-shadow: var(--shadow);
-                flex-direction: column;
-                align-items: stretch;
-            }
+        @media (max-width: 980px) {
 
-            .main-nav.menu-open {
-                display: flex;
-            }
-
-            .main-nav>a,
-            .nav-dropdown>button {
-                width: 100%;
-                text-align: left;
-                padding: 12px;
-            }
-
-            .nav-dropdown {
-                width: 100%;
-            }
-
-            .dropdown-menu {
-                position: static;
-                display: none;
-                width: 100%;
-                margin: 3px 0 5px;
-                padding: 5px;
-                box-shadow: none;
-                border-radius: 10px;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-            }
-
-            .nav-dropdown.open .dropdown-menu {
-                display: block;
-            }
-
-            .dropdown-menu a {
-                padding: 10px 12px;
-            }
-
-            .layout {
+            .invest-hero-grid {
                 grid-template-columns: 1fr;
             }
 
-            .toc {
-                position: static;
-                order: 2;
+            .content-layout {
+                grid-template-columns: 1fr;
             }
 
-            .article {
-                order: 1;
+            .sidebar {
+                position: static;
             }
         }
 
         @media (max-width: 700px) {
-            .limit-grid {
+            .pm-page {
+                width: min(100% - 28px, 1200px);
+            }
+
+            .invest-hero {
+                padding: 42px 0 38px;
+            }
+
+            .hero-title {
+                font-size: 39px;
+                letter-spacing: -1.6px;
+            }
+
+            .hero-copy {
+                font-size: 16px;
+            }
+
+            .retirement-card {
+                padding: 19px;
+                border-radius: 18px;
+            }
+
+            .answer-grid,
+            .expense-grid,
+            .calculator-grid {
                 grid-template-columns: 1fr;
             }
+
+            .calculator-results {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
         }
 
-        @media (max-width: 650px) {
-            .page-wrap {
-                padding-left: 14px;
-                padding-right: 14px;
+        @media (max-width: 460px) {
+            .hero-actions {
+                flex-direction: column;
             }
 
-            .header-inner {
-                padding: 0 14px;
+            .hero-actions .btn {
+                width: 100%;
             }
 
-            h1 {
-                font-size: 2.25rem;
+            .hero-trust {
+                display: grid;
+                gap: 8px;
             }
 
-            .step-grid,
-            .related-grid {
+            .visual-stats {
                 grid-template-columns: 1fr;
             }
 
-            .footer-grid {
+            .calculator {
+                padding: 17px;
+            }
+
+            .calculator-results {
                 grid-template-columns: 1fr 1fr;
             }
 
-            .footer-grid> :first-child {
-                grid-column: 1 / -1;
-            }
 
-            .footer-bottom {
-                flex-direction: column;
-                gap: 5px;
-            }
-        }
-
-        @media (max-width: 430px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid> :first-child {
-                grid-column: auto;
-            }
         }
     </style>
 
+    <!-- Structured Data -->
     <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Home",
-                        "item": "https://paycheckmint.com/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Finance",
-                        "item": "https://paycheckmint.com/finance/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 3,
-                        "name": "Investing",
-                        "item": "https://paycheckmint.com/finance/investing/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 4,
-                        "name": "401(k)",
-                        "item": "https://paycheckmint.com/finance/investing/401k/"
-                    }
-                ]
-            }
-        </script>
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "401(k) Plans: How They Work, Contributions & Employer Match",
+        "description": "A practical guide to 401(k) plans, contributions, employer matching, traditional and Roth 401(k) contributions, vesting, fees and investment choices.",
+        "url": "https://paycheckmint.com/finance/investing/401k/",
+        "publisher": {
+            "@type": "Organization",
+            "name": "PaycheckMint",
+            "url": "https://paycheckmint.com/"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://paycheckmint.com/finance/investing/401k/"
+        }
+    }
+    </script>
 
     <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
             {
-                "@context": "https://schema.org",
-                "@type": "Article",
-                "headline": "What Is a 401(k)? How It Works, Contributions & Rules",
-                "description": "A beginner-friendly guide to understanding 401(k) retirement plans, traditional and Roth contributions, employer matching, investment options, contribution limits, withdrawals and rollovers.",
-                "author": {
-                    "@type": "Organization",
-                    "name": "PaycheckMint"
-                },
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "PaycheckMint"
-                },
-                "mainEntityOfPage": {
-                    "@type": "WebPage",
-                    "@id": "https://paycheckmint.com/finance/investing/401k/"
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://paycheckmint.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Investing",
+                "item": "https://paycheckmint.com/finance/investing/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "401(k)",
+                "item": "https://paycheckmint.com/finance/investing/401k/"
+            }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a 401(k)?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A 401(k) is an employer-sponsored retirement plan that allows eligible employees to save money through payroll deductions and invest those contributions for retirement."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is an employer 401(k) match?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "An employer match is money an employer contributes to an employee's retirement account according to the employer's plan rules, often based on how much the employee contributes."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between a traditional 401(k) and a Roth 401(k)?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Traditional 401(k) contributions generally receive their tax treatment before retirement, while Roth 401(k) contributions are made with after-tax dollars. Withdrawals and tax rules depend on applicable requirements."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much should I contribute to my 401(k)?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "There is no single contribution percentage that works for everyone. A practical starting point is to understand your employer match, cash-flow needs, other savings goals, and retirement timeline, then choose a contribution level you can maintain."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What does vesting mean in a 401(k)?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Vesting determines when employer contributions become fully yours under the retirement plan's rules. Your own contributions are generally subject to different ownership rules than employer contributions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I have both a traditional and Roth 401(k)?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Some employer plans allow employees to make both traditional and Roth 401(k) contributions, subject to the plan's rules and applicable contribution limits."
                 }
             }
-        </script>
-
-    <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": [
-                    {
-                        "@type": "Question",
-                        "name": "What is a 401(k)?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "A 401(k) is an employer-sponsored retirement plan that allows eligible employees to contribute part of their pay to a retirement account and invest the money according to the investment options available in the plan."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "How does a 401(k) work?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Employees generally choose how much of their paycheck to contribute, contributions are made through payroll, and the money can be invested using the options offered by the employer's plan."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "What is the 401(k) contribution limit for 2026?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "The 2026 employee elective deferral limit for most 401(k) plans is $24,500. Eligible participants may also have catch-up contribution opportunities subject to age, plan and IRS rules."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "What is the difference between a traditional 401(k) and a Roth 401(k)?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Traditional 401(k) contributions generally receive tax treatment before retirement, with taxes generally due on withdrawals. Roth 401(k) contributions are made with after-tax dollars, and qualified Roth withdrawals can generally be tax-free under applicable rules."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Does an employer have to match 401(k) contributions?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "No. Employer matching contributions depend on the employer's plan. Some employers match part of an employee's contributions according to a specific formula and limit."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Can I withdraw money from my 401(k) before retirement?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Some plans permit certain withdrawals or loans, but accessing retirement money early can have tax consequences and may result in an additional tax unless an exception applies."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "What happens to my 401(k) when I change jobs?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Depending on the plan and circumstances, you may be able to leave the money in the former employer's plan, roll it into another eligible retirement plan or IRA, or take a distribution subject to applicable rules."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Is a 401(k) an investment?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "A 401(k) is a retirement account or plan, not a single investment. The account can hold investments selected from the options provided by the plan."
-                        }
-                    }
-                ]
-            }
-        </script>
-
+        ]
+    }
+    </script>
 </head>
 
 <body>
-    <header class="site-header">
-        <div class="header-inner">
 
-            <a class="brand" href="/">Paycheck<span>Mint</span></a>
+    <header class="pm-header" id="site-header">
 
-            <button class="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"
-                aria-controls="main-navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+        <div class="pm-header-inner">
 
-            <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
-                <a href="/">Home</a>
+            <a class="pm-brand" href="/" aria-label="PaycheckMint home">
+                Paycheck<span>Mint</span>
+            </a>
 
-                <a href="/paycheck-tax-calculator/">Paycheck Calculator</a>
+            <nav class="pm-desktop-nav" aria-label="Main navigation">
 
-                <a href="/income/">Income</a>
+                <a class="pm-nav-link" href="/income/">
+                    Income
+                </a>
 
-                <div class="nav-dropdown">
-                    <button type="button" class="finance-toggle" aria-expanded="false" aria-haspopup="true">
-                        Finance ▾
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                        Finance
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
                     </button>
 
-                    <div class="dropdown-menu">
-                        <a href="/finance/">Finance Overview</a>
-                        <a href="/finance/taxes/">Taxes</a>
-                        <a href="/finance/budgeting/">Budgeting</a>
-                        <a href="/finance/credit-debt/">Credit &amp; Debt</a>
-                        <a href="/finance/investing/">Investing</a>
-                        <a href="/finance/insurance/">Insurance</a>
+                    <div class="pm-dropdown-menu">
+
+                        <span class="pm-dropdown-label">
+                            Explore
+                        </span>
+
+                        <a href="/finance/">
+                            <span>Finance Overview</span>
+                        </a>
+
+                        <a href="/income/">
+                            <span>Income & Earnings</span>
+                        </a>
+
+                        <a href="/finance/budgeting/">
+                            <span>Budgeting Guides</span>
+                        </a>
+
                     </div>
+
                 </div>
+
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                        Calculators
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="pm-dropdown-menu">
+
+                        <span class="pm-dropdown-label">
+                            Paycheck tools
+                        </span>
+
+                        <a href="/paycheck-tax-calculator/">
+                            Paycheck Tax Calculator
+                        </a>
+
+                        <a href="/monthly-paycheck-calculator/">
+                            Monthly Paycheck Calculator
+                        </a>
+
+                        <a href="/take-home-pay-calculator/">
+                            Take-Home Pay Calculator
+                        </a>
+
+                        <a href="/hourly-paycheck-calculator/">
+                            Hourly Paycheck Calculator
+                        </a>
+
+                        <a href="/overtime-pay-calculator/">
+                            Overtime Pay Calculator
+                        </a>
+
+                        <a href="/salary-paycheck-calculator/">
+                            Salary Paycheck Calculator
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <a class="pm-nav-link" href="/finance/">
+                    Learn
+                </a>
+
             </nav>
+
+            <div class="pm-nav-spacer"></div>
+
+            <button class="pm-search-button" id="searchToggle" type="button" aria-label="Open search"
+                aria-expanded="false" aria-controls="searchPanel">
+
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="m20 20-4-4"></path>
+
+                </svg>
+
+            </button>
+
+            <a class="pm-header-cta" href="/paycheck-tax-calculator/">
+                Calculate paycheck
+            </a>
+
+            <button class="pm-mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation"
+                aria-expanded="false" aria-controls="mobileNav">
+                <svg id="mobileMenuIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <path d="M4 6h16" />
+                    <path d="M4 12h16" />
+                    <path d="M4 18h16" />
+                </svg>
+            </button>
+
         </div>
+
+        <!-- SEARCH PANEL -->
+
+        <div class="pm-search-panel" id="searchPanel">
+
+            <div class="pm-search-inner">
+
+                <div class="pm-search-field">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="m20 20-4-4" />
+                    </svg>
+
+                    <input id="siteSearch" class="pm-search-input" type="search" autocomplete="off"
+                        placeholder="Search PaycheckMint..." aria-label="Search PaycheckMint">
+
+                    <button class="pm-search-close" id="searchClose" type="button" aria-label="Close search">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 6l12 12" />
+                            <path d="M18 6 6 18" />
+                        </svg>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="pm-search-results" id="searchResults"></div>
+
+        </div>
+
+        <!-- MOBILE NAV -->
+
+        <nav class="pm-mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+
+            <div class="pm-mobile-nav-inner">
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a href="/income/">
+                    Income
+                </a>
+
+                <button class="pm-mobile-finance-button" id="mobileFinanceToggle" type="button" aria-expanded="false">
+                    <span>Finance</span>
+
+                    <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m6 9 6 6 6-6" />
+                    </svg>
+                </button>
+
+                <div class="pm-mobile-finance-links" id="mobileFinanceLinks">
+
+                    <a href="/finance/">
+                        Finance Overview
+                    </a>
+
+                    <a href="/income/">
+                        Income & Earnings
+                    </a>
+
+                </div>
+
+                <a href="/paycheck-tax-calculator/">
+                    Paycheck Tax Calculator
+                </a>
+
+                <a href="/take-home-pay-calculator/">
+                    Take-Home Pay Calculator
+                </a>
+
+                <a href="/hourly-paycheck-calculator/">
+                    Hourly Paycheck Calculator
+                </a>
+
+                <a href="/overtime-pay-calculator/">
+                    Overtime Pay Calculator
+                </a>
+
+                <a href="/salary-paycheck-calculator/">
+                    Salary Paycheck Calculator
+                </a>
+
+                <a href="/weekly-paycheck-calculator/">
+                    Weekly Paycheck Calculator
+                </a>
+
+                <a href="/biweekly-paycheck-calculator/">
+                    Biweekly Paycheck Calculator
+                </a>
+
+                <a href="/monthly-paycheck-calculator/">
+                    Monthly Paycheck Calculator
+                </a>
+
+                <div class="pm-mobile-search-row">
+
+                    <button class="pm-button-secondary" id="mobileSearchButton" type="button">
+                        Search PaycheckMint
+                    </button>
+
+                </div>
+
+            </div>
+
+        </nav>
 
     </header>
 
-    <main class="page-wrap">
 
-        <div class="breadcrumbs">
-            <a href="/">Home</a>
-            <span>›</span>
-            <a href="/finance/">Finance</a>
-            <span>›</span>
-            <a href="/finance/investing/">Investing</a>
-            <span>›</span>
-            401(k)
-        </div>
+    <main>
 
-        <section class="hero">
-            <span class="eyebrow">RETIREMENT INVESTING</span>
+        <!-- =========================================================
+         HERO
+    ========================================================= -->
 
-            <h1>What Is a 401(k)? How It Works, Contributions &amp; Rules</h1>
+        <section class="invest-hero">
 
-            <p class="hero-text">
-                A 401(k) can be one of the main ways employees save and invest for retirement. Learn how 401(k)
-                contributions work, the difference between traditional and Roth 401(k)s, employer matching,
-                investment choices, 2026 contribution limits, withdrawals, rollovers and more.
-            </p>
+            <div class="pm-page invest-hero-grid">
 
-            <div class="quick-answer">
-                <strong>Quick answer:</strong>
-                A 401(k) is an employer-sponsored retirement plan that allows eligible employees to contribute part
-                of their paycheck to a retirement account and invest that money using the choices available through
-                the plan. Depending on the contribution type, tax benefits may apply when money goes into the
-                account or when qualified withdrawals are made.
+                <div>
+
+                    <div class="eyebrow">
+                        Investing Guide
+                    </div>
+
+                    <h1 class="hero-title">
+                        401(k) Plans: Build Retirement Savings <span>One Paycheck at a Time</span>
+                    </h1>
+
+                    <p class="hero-copy">
+                        A 401(k) can turn regular payroll contributions into long-term
+                        retirement savings. Learn how contributions, employer matching,
+                        traditional and Roth options, vesting, investment choices and
+                        fees fit together.
+                    </p>
+
+                    <div class="hero-actions">
+
+                        <a class="btn btn-primary" href="#calculator">
+                            Estimate Contributions
+                        </a>
+
+                        <a class="btn btn-secondary" href="/finance/investing/">
+                            Investing Guide
+                        </a>
+
+                    </div>
+
+                    <div class="hero-trust">
+                        <span>Practical examples</span>
+                        <span>Contribution calculator</span>
+                        <span>Beginner-friendly</span>
+                    </div>
+
+                </div>
+
+
+                <div class="retirement-card">
+
+                    <div class="visual-top">
+
+                        <div>
+                            <div class="visual-label">
+                                Retirement snapshot
+                            </div>
+
+                            <div class="visual-title">
+                                Your 401(k) can grow with every paycheck
+                            </div>
+                        </div>
+
+                        <div class="visual-badge">
+                            Long-term
+                        </div>
+
+                    </div>
+
+                    <div class="retirement-balance">
+
+                        <div class="balance-label">
+                            Illustrative account progress
+                        </div>
+
+                        <div class="balance-number">
+                            $42,800
+                        </div>
+
+                    </div>
+
+                    <div class="visual-bar">
+                        <span></span>
+                    </div>
+
+                    <div class="visual-stats">
+
+                        <div class="visual-stat">
+                            <small>Employee</small>
+                            <strong>$350/mo</strong>
+                        </div>
+
+                        <div class="visual-stat">
+                            <small>Employer</small>
+                            <strong>$175/mo</strong>
+                        </div>
+
+                        <div class="visual-stat">
+                            <small>Total</small>
+                            <strong>$525/mo</strong>
+                        </div>
+
+                    </div>
+
+                    <p class="visual-note">
+                        Illustration only. Actual results depend on contributions,
+                        employer plan rules, investment performance, fees, taxes and
+                        how long the money remains invested.
+                    </p>
+
+                </div>
+
             </div>
+
         </section>
 
-        <div class="layout">
+
+        <div class="pm-page content-layout">
+
             <article class="article">
-                <h2 id="what-is-401k">What Is a 401(k)?</h2>
 
-                <p>
-                    A 401(k) is an employer-sponsored retirement plan that allows eligible employees to save money
-                    from their paychecks for retirement. The plan is named after Section 401(k) of the Internal
-                    Revenue Code.
-                </p>
+                <!-- =================================================
+                 QUICK ANSWER
+            ================================================= -->
 
-                <p>
-                    Instead of receiving all of your wages as take-home pay, you can generally elect to have part of
-                    your compensation contributed to your 401(k) through payroll. The money can then be invested
-                    using the investment options available in your employer's plan.
-                </p>
+                <section class="article-section" id="quick-answer">
 
-                <p>
-                    A 401(k) is therefore both a retirement savings vehicle and a workplace investing arrangement.
-                    The account itself is not a single investment. Your plan may offer mutual funds, index funds,
-                    target-date funds, stable value investments or other options.
-                </p>
+                    <h2>What Is a 401(k)?</h2>
 
-                <div class="info-box">
-                    <strong>Important distinction:</strong>
-                    A 401(k) is the retirement account or plan. Stocks, bonds, mutual funds, ETFs and other assets
-                    are investments that may be held in certain retirement accounts. The exact choices depend on the
-                    plan.
-                </div>
-
-                <h2 id="how-it-works">How Does a 401(k) Work?</h2>
-
-                <p>
-                    A typical 401(k) works through your employer's payroll system. You choose a contribution
-                    percentage or dollar amount, subject to plan and IRS limits, and the contribution is deducted
-                    from your paycheck.
-                </p>
-
-                <div class="step-grid">
-                    <div class="step-card">
-                        <span class="step-number">1</span>
-
-                        <h3>Enroll in the Plan</h3>
+                    <div class="lead-box">
 
                         <p>
-                            If your employer offers a 401(k) and you are eligible, you can enroll according to the
-                            plan's rules.
+                            <strong>A 401(k) is an employer-sponsored retirement plan
+                                that lets eligible employees save and invest money through
+                                payroll deductions.</strong>
                         </p>
-                    </div>
 
-                    <div class="step-card">
-                        <span class="step-number">2</span>
-
-                        <h3>Choose Your Contribution</h3>
-
-                        <p>
-                            You decide how much of your paycheck to contribute, subject to the plan's rules and
-                            annual IRS limits.
-                        </p>
-                    </div>
-
-                    <div class="step-card">
-                        <span class="step-number">3</span>
-
-                        <h3>Select Investments</h3>
-
-                        <p>
-                            Your contribution is placed into investments selected from the options provided by your
+                        <p style="margin-bottom:0;">
+                            Instead of manually transferring money after every paycheck,
+                            your contribution is typically taken directly from your
+                            paycheck and deposited into your retirement account. The
+                            money can then be invested in the options offered by your
                             employer's plan.
                         </p>
+
                     </div>
 
-                    <div class="step-card">
-                        <span class="step-number">4</span>
+                    <div class="answer-grid">
 
-                        <h3>Keep Contributing</h3>
+                        <div class="answer-card">
+
+                            <div class="answer-icon">💵</div>
+
+                            <strong>Payroll contributions</strong>
+
+                            <p>
+                                You choose a contribution amount or percentage and
+                                contributions are generally made automatically from
+                                your paycheck.
+                            </p>
+
+                        </div>
+
+                        <div class="answer-card">
+
+                            <div class="answer-icon">🏢</div>
+
+                            <strong>Employer contributions</strong>
+
+                            <p>
+                                Some employers add matching or other contributions
+                                according to the plan's rules.
+                            </p>
+
+                        </div>
+
+                        <div class="answer-card">
+
+                            <div class="answer-icon">📈</div>
+
+                            <strong>Invested for retirement</strong>
+
+                            <p>
+                                Your account can hold investments selected from the
+                                choices available in your employer's plan.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                 HOW IT WORKS
+            ================================================= -->
+
+                <section class="article-section" id="how-it-works">
+
+                    <h2>How Does a 401(k) Work?</h2>
+
+                    <p>
+                        A typical 401(k) starts with a decision about how much of your
+                        paycheck you want to contribute. Your employer's plan then
+                        directs those contributions into your 401(k) account.
+                    </p>
+
+                    <p>
+                        You generally select investments from the choices available
+                        through the plan. Over time, additional contributions and
+                        investment returns can change the account balance.
+                    </p>
+
+                    <p>
+                        Some employers also contribute money. Employer contributions
+                        may be subject to a vesting schedule, meaning the amount you
+                        are entitled to keep if you leave the company can depend on
+                        how long you have worked there and the plan's rules.
+                    </p>
+
+                    <div class="steps">
+
+                        <div class="step">
+
+                            <div class="step-number">1</div>
+
+                            <div>
+                                <h3>Choose your contribution</h3>
+
+                                <p>
+                                    Your plan may let you contribute a percentage of
+                                    your eligible pay or another permitted amount.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="step">
+
+                            <div class="step-number">2</div>
+
+                            <div>
+                                <h3>Money comes from your paycheck</h3>
+
+                                <p>
+                                    Contributions are generally deducted automatically
+                                    through payroll according to your election.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="step">
+
+                            <div class="step-number">3</div>
+
+                            <div>
+                                <h3>Employer contributions may be added</h3>
+
+                                <p>
+                                    If your plan offers a match or other employer
+                                    contribution, additional money may enter your
+                                    account under the plan's rules.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="step">
+
+                            <div class="step-number">4</div>
+
+                            <div>
+                                <h3>Select investments</h3>
+
+                                <p>
+                                    Your contribution is not automatically the same
+                                    thing as an investment. You normally need to select
+                                    investments from the options offered by the plan.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="step">
+
+                            <div class="step-number">5</div>
+
+                            <div>
+                                <h3>Review periodically</h3>
+
+                                <p>
+                                    Review your contribution rate, investments, fees,
+                                    beneficiaries and plan changes as your circumstances
+                                    change.
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                 EMPLOYER MATCH
+            ================================================= -->
+
+                <section class="article-section" id="employer-match">
+
+                    <h2>What Is a 401(k) Employer Match?</h2>
+
+                    <p>
+                        An employer match is money an employer contributes to your
+                        retirement account based on your own contributions. The exact
+                        formula varies by employer.
+                    </p>
+
+                    <p>
+                        For example, a plan might contribute a specified amount for
+                        each dollar you contribute, up to a particular percentage of
+                        eligible compensation. Another employer may use a different
+                        formula.
+                    </p>
+
+                    <div class="example-box">
+
+                        <strong>Illustrative example:</strong>
+
+                        <p style="margin:8px 0 0;">
+                            Suppose an employee contributes $300 per month and the
+                            employer contributes another $150 under its matching formula.
+                            The account would receive $450 from those two sources for
+                            that month, before considering investment gains or losses
+                            and any applicable fees.
+                        </p>
+
+                    </div>
+
+                    <p>
+                        Because matching formulas differ, read the plan's summary or
+                        benefits materials instead of assuming that every employer
+                        uses the same match.
+                    </p>
+
+                </section>
+
+
+                <!-- =================================================
+                 CALCULATOR
+            ================================================= -->
+
+                <section class="article-section" id="calculator">
+
+                    <h2>401(k) Contribution Calculator</h2>
+
+                    <p>
+                        Use this simple calculator to estimate how much you could
+                        contribute based on your annual salary and contribution rate.
+                        You can also include an illustrative employer contribution.
+                    </p>
+
+                    <div class="calculator">
+
+                        <div class="calculator-heading">
+
+                            <h3>Estimate your annual 401(k) contributions</h3>
+
+                            <p>
+                                This is a budgeting estimate, not a projection of
+                                investment returns or future retirement income.
+                            </p>
+
+                        </div>
+
+                        <div class="calculator-grid">
+
+                            <div class="field">
+
+                                <label for="salary">
+                                    Annual salary
+                                </label>
+
+                                <input id="salary" type="number" min="0" step="1000" value="60000">
+
+                            </div>
+
+                            <div class="field">
+
+                                <label for="employeeRate">
+                                    Your contribution (%)
+                                </label>
+
+                                <input id="employeeRate" type="number" min="0" step="0.1" value="6">
+
+                            </div>
+
+                            <div class="field">
+
+                                <label for="employerRate">
+                                    Illustrative employer contribution (%)
+                                </label>
+
+                                <input id="employerRate" type="number" min="0" step="0.1" value="3">
+
+                            </div>
+
+                            <div class="field">
+
+                                <label for="payPeriods">
+                                    Pay periods per year
+                                </label>
+
+                                <select id="payPeriods">
+
+                                    <option value="12">
+                                        Monthly — 12
+                                    </option>
+
+                                    <option value="24">
+                                        Twice monthly — 24
+                                    </option>
+
+                                    <option value="26" selected>
+                                        Biweekly — 26
+                                    </option>
+
+                                    <option value="52">
+                                        Weekly — 52
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="calc-actions">
+
+                            <button class="calc-button" type="button" id="calculate401k">
+                                Calculate
+                            </button>
+
+                            <button class="reset-button" type="button" id="reset401k">
+                                Reset
+                            </button>
+
+                        </div>
+
+                        <div class="calculator-results" aria-live="polite">
+
+                            <div class="result-card">
+
+                                <small>Your annual contribution</small>
+
+                                <strong id="employeeResult">
+                                    $3,600
+                                </strong>
+
+                            </div>
+
+                            <div class="result-card">
+
+                                <small>Employer contribution</small>
+
+                                <strong id="employerResult">
+                                    $1,800
+                                </strong>
+
+                            </div>
+
+                            <div class="result-card">
+
+                                <small>Total annual contributions</small>
+
+                                <strong id="totalResult">
+                                    $5,400
+                                </strong>
+
+                            </div>
+
+                            <div class="result-card">
+
+                                <small>Your contribution / paycheck</small>
+
+                                <strong id="perPaycheckResult">
+                                    $138
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                        <div class="calculator-status" id="calculatorStatus">
+                            Employer contributions are illustrative and may not represent
+                            your actual plan's matching formula.
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                 TRADITIONAL VS ROTH
+            ================================================= -->
+
+                <section class="article-section" id="traditional-vs-roth">
+
+                    <h2>Traditional 401(k) vs. Roth 401(k)</h2>
+
+                    <p>
+                        Some employers offer both traditional and Roth 401(k)
+                        contributions. The biggest difference is generally when the
+                        contribution receives its tax treatment.
+                    </p>
+
+                    <div class="table-wrap">
+
+                        <table class="comparison-table">
+
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>Traditional 401(k)</th>
+                                    <th>Roth 401(k)</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>Contribution tax treatment</td>
+                                    <td>
+                                        Contributions generally receive their
+                                        applicable tax treatment before retirement.
+                                    </td>
+                                    <td>
+                                        Contributions are generally made with
+                                        after-tax dollars.
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Taxes when contributing</td>
+                                    <td>
+                                        Generally reduces current taxable income
+                                        under applicable rules.
+                                    </td>
+                                    <td>
+                                        Does not generally provide the same
+                                        current-income tax treatment.
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Retirement withdrawals</td>
+                                    <td>
+                                        Generally taxable according to applicable
+                                        retirement-account rules.
+                                    </td>
+                                    <td>
+                                        Qualified withdrawals can receive favorable
+                                        tax treatment when applicable requirements
+                                        are satisfied.
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Who determines availability?</td>
+                                    <td>
+                                        Depends on the employer's plan.
+                                    </td>
+                                    <td>
+                                        Depends on whether the employer offers
+                                        a Roth feature.
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <p>
+                        There is no universal answer about which tax treatment is
+                        better for every person. Income, tax situation, expected
+                        future tax rates, retirement timing and other factors can
+                        affect the decision.
+                    </p>
+
+                </section>
+
+
+                <!-- =================================================
+                 HOW MUCH
+            ================================================= -->
+
+                <section class="article-section" id="how-much">
+
+                    <h2>How Much Should You Contribute to a 401(k)?</h2>
+
+                    <p>
+                        The right contribution amount depends on your income,
+                        household expenses, employer plan, other savings, debt,
+                        emergency reserves and retirement goals.
+                    </p>
+
+                    <p>
+                        Instead of starting with an arbitrary percentage, consider
+                        these questions:
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            Does your employer offer a matching contribution?
+                        </li>
+
+                        <li>
+                            What contribution level can your current budget support?
+                        </li>
+
+                        <li>
+                            Do you have enough cash reserves for foreseeable expenses?
+                        </li>
+
+                        <li>
+                            Are you carrying high-interest debt that needs attention?
+                        </li>
+
+                        <li>
+                            Are you saving for other near-term goals?
+                        </li>
+
+                        <li>
+                            Are you likely to increase your contribution as your
+                            income rises?
+                        </li>
+
+                    </ul>
+
+                    <div class="priority-box">
+
+                        <h3>A practical way to think about your contribution</h3>
 
                         <p>
-                            Contributions can continue through payroll while you remain eligible and employed under
-                            the plan.
+                            Start with a contribution amount you can consistently
+                            maintain. Understand the employer's matching rules, then
+                            review your overall budget before increasing contributions.
                         </p>
+
+                        <p style="margin-bottom:0;">
+                            A contribution rate that fits your actual cash flow is
+                            more useful than a target you repeatedly have to stop or
+                            reverse.
+                        </p>
+
                     </div>
-                </div>
 
-                <p>
-                    Because contributions are automated through payroll, a 401(k) can make retirement saving part of
-                    your regular financial routine. Your paycheck is reduced by the amount you contribute, while the
-                    contribution is directed into the retirement account.
-                </p>
+                </section>
 
-                <h2 id="traditional-vs-roth">Traditional 401(k) vs. Roth 401(k)</h2>
 
-                <p>
-                    Employers may offer traditional 401(k) contributions, Roth 401(k) contributions, or both. The
-                    main difference is when the contributions receive their tax treatment.
-                </p>
+                <!-- =================================================
+                 INVESTMENTS
+            ================================================= -->
 
-                <div class="comparison-wrap">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Feature</th>
-                                <th>Traditional 401(k)</th>
-                                <th>Roth 401(k)</th>
-                            </tr>
-                        </thead>
+                <section class="article-section" id="investments">
 
-                        <tbody>
-                            <tr>
-                                <td>Contribution type</td>
-                                <td>Generally pre-tax</td>
-                                <td>After-tax</td>
-                            </tr>
+                    <h2>How Are 401(k) Contributions Invested?</h2>
 
-                            <tr>
-                                <td>Current federal income tax treatment</td>
-                                <td>
-                                    Contributions generally aren't included in current federal taxable income,
-                                    subject to applicable rules.
-                                </td>
-                                <td>Contributions generally do not reduce current federal taxable income.</td>
-                            </tr>
+                    <p>
+                        A 401(k) account is a retirement account, but the money inside
+                        the account still needs to be invested according to your plan's
+                        available choices.
+                    </p>
 
-                            <tr>
-                                <td>Taxes on qualified withdrawals</td>
-                                <td>Generally taxable as ordinary income.</td>
-                                <td>Qualified withdrawals are generally tax-free under applicable rules.</td>
-                            </tr>
+                    <p>
+                        Employer plans commonly provide a menu of investment options.
+                        Depending on the plan, these may include stock funds, bond
+                        funds, target-date funds, stable-value options or other
+                        investments.
+                    </p>
 
-                            <tr>
-                                <td>Availability</td>
-                                <td>Common, but depends on the employer's plan.</td>
-                                <td>Only available if the employer's plan offers the Roth feature.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                    <h3>Target-date funds</h3>
 
-                <p>
-                    Whether traditional or Roth contributions make more sense depends on factors such as your
-                    current tax situation, expected future tax situation, income, retirement goals and other
-                    accounts.
-                </p>
+                    <p>
+                        A target-date fund is designed around an approximate retirement
+                        year. Its investment mix typically changes over time according
+                        to the fund's strategy.
+                    </p>
 
-                <p>
-                    It is also possible for a plan to allow both types of contributions, subject to applicable
-                    annual limits and plan rules.
-                </p>
+                    <h3>Stock and bond funds</h3>
 
-                <h2 id="employer-match">What Is a 401(k) Employer Match?</h2>
+                    <p>
+                        Some plans allow employees to build their own allocation from
+                        stock and bond funds. The appropriate mix depends on factors
+                        such as time horizon, risk tolerance and overall financial
+                        situation.
+                    </p>
 
-                <p>
-                    Some employers contribute money to an employee's 401(k) when the employee contributes. This is
-                    commonly called an employer match.
-                </p>
+                    <h3>Do not ignore fees</h3>
 
-                <p>
-                    The matching formula varies by employer. For example, a plan might match a percentage of
-                    employee contributions up to a specified percentage of compensation.
-                </p>
+                    <p>
+                        Investment expenses and plan administration fees can reduce
+                        the amount of money that remains invested. Compare the fees
+                        and investment options available in your actual plan rather
+                        than focusing only on past performance.
+                    </p>
 
-                <div class="highlight">
-                    <strong>Check your plan's matching formula.</strong>
-                    If your employer provides matching contributions, read the plan information carefully so you
-                    understand how much the employer contributes, what percentage of your pay is considered, and
-                    whether any vesting requirements apply.
-                </div>
+                </section>
 
-                <p>
-                    Employer contributions are separate from the amount you personally defer from your paycheck.
-                    Different annual limits can apply to employee contributions and total contributions to the
-                    account.
-                </p>
 
-                <h2 id="contribution-limit">401(k) Contribution Limits for 2026</h2>
+                <!-- =================================================
+                 VESTING
+            ================================================= -->
 
-                <p>
-                    The IRS sets annual limits on 401(k) contributions. For 2026, the basic employee
-                    elective-deferral limit for most 401(k) plans is <strong>$24,500</strong>. This limit applies to
-                    traditional and Roth employee contributions in the aggregate.
-                </p>
+                <section class="article-section" id="vesting">
 
-                <div class="limit-card">
-                    <div class="limit-number">$24,500</div>
+                    <h2>What Does 401(k) Vesting Mean?</h2>
 
-                    <div class="limit-label">2026 basic employee elective-deferral limit</div>
+                    <p>
+                        Vesting refers to your ownership of employer-provided
+                        contributions.
+                    </p>
 
-                    <div class="limit-grid">
-                        <div class="mini-limit">
-                            <strong>$8,000</strong>
-                            <span> General catch-up contribution for eligible participants age 50 or older </span>
-                        </div>
+                    <p>
+                        Your own contributions generally belong to you under the
+                        applicable retirement-plan rules. Employer contributions can
+                        have a separate vesting schedule.
+                    </p>
 
-                        <div class="mini-limit">
-                            <strong>$11,250</strong>
-                            <span> Higher catch-up limit for eligible participants ages 60 through 63 </span>
-                        </div>
+                    <p>
+                        Some plans provide immediate vesting, while others may use
+                        a graded or cliff vesting schedule. If you are changing jobs,
+                        check the plan documents to understand how much of the
+                        employer contribution is vested.
+                    </p>
 
-                        <div class="mini-limit">
-                            <strong>$72,000</strong>
+                    <div class="example-box">
+
+                        <strong>Why this matters:</strong>
+
+                        <p style="margin:8px 0 0;">
+                            Two employees could have identical account balances but
+                            different amounts of vested employer contributions if
+                            their plan rules and employment periods differ.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                 CONTRIBUTION TYPES
+            ================================================= -->
+
+                <section class="article-section" id="contribution-types">
+
+                    <h2>Common Types of 401(k) Contributions</h2>
+
+                    <div class="expense-grid">
+
+                        <div class="expense-card">
+                            <strong>Traditional employee contributions</strong>
                             <span>
-                                2026 defined-contribution annual additions limit, before applicable catch-up amounts
+                                Contributions made through payroll with the tax
+                                treatment provided under traditional 401(k) rules.
                             </span>
                         </div>
+
+                        <div class="expense-card">
+                            <strong>Roth employee contributions</strong>
+                            <span>
+                                After-tax employee contributions when the employer's
+                                plan offers a Roth 401(k) feature.
+                            </span>
+                        </div>
+
+                        <div class="expense-card">
+                            <strong>Employer matching contributions</strong>
+                            <span>
+                                Employer money contributed according to the plan's
+                                matching formula.
+                            </span>
+                        </div>
+
+                        <div class="expense-card">
+                            <strong>Other employer contributions</strong>
+                            <span>
+                                Some employers may make contributions that do not
+                                depend on an employee contribution in the same way
+                                a match does.
+                            </span>
+                        </div>
+
                     </div>
-                </div>
 
-                <p>
-                    The IRS states that the 2026 basic elective-deferral limit is $24,500. Participants age 50 or
-                    older may generally make an additional $8,000 catch-up contribution when permitted by the plan.
-                    A higher $11,250 catch-up limit applies for participants ages 60 through 63 under the applicable
-                    rules.
-                </p>
+                </section>
 
-                <p>
-                    The total amount that can be added to a defined-contribution account can be subject to a
-                    separate annual limit. For 2026, the IRS lists $72,000 as the general defined-contribution
-                    limit, before catch-up contributions.
-                </p>
 
-                <p>
-                    Contribution limits can change with cost-of-living adjustments, and your employer's plan may
-                    impose additional restrictions. Always check current IRS guidance and your plan documents.
-                </p>
+                <!-- =================================================
+                 PAYCHECK IMPACT
+            ================================================= -->
 
-                <h2 id="paycheck">How a 401(k) Affects Your Paycheck</h2>
+                <section class="article-section" id="paycheck">
 
-                <p>
-                    A 401(k) contribution can change your take-home pay because money is directed from your paycheck
-                    into your retirement account.
-                </p>
-
-                <p>
-                    With a traditional 401(k), an employee contribution generally reduces the amount of wages
-                    subject to current federal income tax. It does not generally avoid Social Security and Medicare
-                    taxes on wages.
-                </p>
-
-                <p>
-                    Roth 401(k) contributions are made with after-tax dollars, so they generally do not reduce
-                    current federal taxable income.
-                </p>
-
-                <div class="info-box">
-                    <strong>Example:</strong>
-                    Suppose your gross paycheck is $2,500 and you contribute 5% to a 401(k). A $125 contribution
-                    would be directed toward your retirement account. Your actual take-home pay would not simply
-                    fall by exactly $125 because the tax treatment of the contribution and your other payroll
-                    deductions affect the final paycheck.
-                </div>
-
-                <p>
-                    Use the
-                    <a href="/paycheck-tax-calculator/"> Paycheck Tax Calculator </a>
-                    to estimate how paycheck deductions can affect take-home pay.
-                </p>
-
-                <h2 id="investments">What Can You Invest in With a 401(k)?</h2>
-
-                <p>
-                    Your employer and plan provider determine the investment menu available inside your 401(k).
-                    Common options can include:
-                </p>
-
-                <ul>
-                    <li>Stock mutual funds</li>
-                    <li>Bond funds</li>
-                    <li>Broad-market index funds</li>
-                    <li>Target-date funds</li>
-                    <li>Stable value funds</li>
-                    <li>Other investment options specified by the plan</li>
-                </ul>
-
-                <p>
-                    Not every 401(k) offers the same investments. Two employers can have very different investment
-                    menus, fees and plan features.
-                </p>
-
-                <p>
-                    A target-date fund, for example, is designed around an approximate retirement date and generally
-                    changes its investment mix over time. A broad-market index fund attempts to track a particular
-                    market index.
-                </p>
-
-                <p>
-                    Investment selection should be considered alongside your time horizon, risk tolerance,
-                    diversification needs and the other investments you already own.
-                </p>
-
-                <p>
-                    Learn more with the
-                    <a href="/finance/investing/investing-for-beginners/"> Investing for Beginners Guide </a>.
-                </p>
-
-                <h2 id="fees">401(k) Fees and Expenses</h2>
-
-                <p>
-                    A 401(k) is not automatically free. Your plan and its investment options can involve different
-                    fees and expenses.
-                </p>
-
-                <p>Depending on the plan, costs may include:</p>
-
-                <ul>
-                    <li>Investment expense ratios</li>
-                    <li>Administrative expenses</li>
-                    <li>Recordkeeping expenses</li>
-                    <li>Individual service fees</li>
-                    <li>Advisory or managed-account fees</li>
-                </ul>
-
-                <p>
-                    Fees can reduce the amount of money that remains invested, so understanding the costs associated
-                    with your plan is an important part of evaluating your retirement strategy.
-                </p>
-
-                <p>
-                    Review your plan's fee disclosures and investment information rather than assuming every 401(k)
-                    has the same costs.
-                </p>
-
-                <h2 id="vesting">What Is 401(k) Vesting?</h2>
-
-                <p>
-                    Vesting determines when you have ownership of certain employer contributions to your retirement
-                    account.
-                </p>
-
-                <p>
-                    Your own contributions are generally yours, while employer contributions can be subject to a
-                    vesting schedule under the plan.
-                </p>
-
-                <p>
-                    For example, an employer may use immediate vesting or a schedule under which employer
-                    contributions become fully vested after a specified period.
-                </p>
-
-                <div class="info-box">
-                    <strong>Why vesting matters:</strong>
-                    If you leave a job before you are fully vested in employer contributions, you may not be
-                    entitled to keep the entire employer-funded amount. Check your plan's Summary Plan Description
-                    or other plan documents for the exact rules.
-                </div>
-
-                <h2 id="withdrawals">401(k) Withdrawal Rules</h2>
-
-                <p>
-                    A 401(k) is designed primarily for retirement, so federal rules generally place restrictions on
-                    taking money out before retirement.
-                </p>
-
-                <p>
-                    In general, a distribution taken before age 59½ can be subject to ordinary income tax and an
-                    additional 10% tax unless an exception applies. The actual tax treatment depends on the type of
-                    contribution, distribution and applicable exception.
-                </p>
-
-                <p>
-                    Some retirement plans may also allow loans or certain hardship or other permitted distributions.
-                    These features are governed by the specific plan and federal rules.
-                </p>
-
-                <p>
-                    Early access can also have an opportunity cost: money removed from a retirement account is no
-                    longer available to potentially grow through investment returns.
-                </p>
-
-                <div class="highlight">
-                    <strong>Before taking a withdrawal:</strong>
-                    Check your plan rules, understand the potential taxes and penalties, and consider how removing
-                    the money could affect your long-term retirement savings.
-                </div>
-
-                <h2 id="rmd">Required Minimum Distributions</h2>
-
-                <p>
-                    Traditional retirement accounts can be subject to required minimum distribution (RMD) rules.
-                    Under current federal rules, many owners of traditional IRAs and workplace retirement plans must
-                    begin taking required distributions at a specified age.
-                </p>
-
-                <p>
-                    The applicable age and rules depend on factors such as birth year, account type and current law.
-                    Some workplace-plan participants may have special rules if they continue working, including
-                    rules related to ownership of the employer.
-                </p>
-
-                <p>
-                    Because RMD rules can change, use current IRS guidance when determining when distributions are
-                    required.
-                </p>
-
-                <h2 id="job-change">What Happens to a 401(k) When You Change Jobs?</h2>
-
-                <p>Changing employers does not necessarily mean you have to cash out your old 401(k).</p>
-
-                <p>Depending on the circumstances and plan rules, possible choices can include:</p>
-
-                <ul>
-                    <li>Leaving the money in your former employer's plan, if permitted.</li>
-                    <li>Rolling the balance into your new employer's eligible retirement plan.</li>
-                    <li>Rolling the balance into an IRA.</li>
-                    <li>Taking a distribution, subject to applicable tax rules.</li>
-                </ul>
-
-                <p>
-                    A direct rollover can help avoid current taxation that can occur with an improperly handled
-                    distribution. The details depend on the type of account, destination account and transaction.
-                </p>
-
-                <p>
-                    Before moving retirement assets, compare investment choices, fees, services, tax considerations
-                    and withdrawal rules.
-                </p>
-
-                <h2 id="rollover">What Is a 401(k) Rollover?</h2>
-
-                <p>
-                    A rollover generally means moving retirement money from one eligible retirement account or plan
-                    to another.
-                </p>
-
-                <p>
-                    Common situations include moving money from a former employer's 401(k) to a new employer's
-                    retirement plan or to an IRA.
-                </p>
-
-                <p>
-                    There are different rollover methods and tax rules. A direct rollover generally sends the
-                    retirement funds directly to the receiving plan or account, while an indirect rollover can
-                    involve the participant receiving the money before redepositing it.
-                </p>
-
-                <p>
-                    Because mistakes can create taxes or penalties, confirm the rollover requirements with the plan
-                    administrator and receiving institution before initiating a transaction.
-                </p>
-
-                <h2 id="loan">Can You Borrow From a 401(k)?</h2>
-
-                <p>
-                    Some 401(k) plans permit participants to take loans, but a 401(k) loan is not available from
-                    every plan.
-                </p>
-
-                <p>
-                    If a plan allows loans, the plan documents determine the applicable loan amount, repayment
-                    period, interest terms and other conditions.
-                </p>
-
-                <p>
-                    A loan also reduces the amount of money remaining invested while the loan is outstanding. If you
-                    leave your employer, the repayment rules can become especially important.
-                </p>
-
-                <p>
-                    A retirement-plan loan should therefore be considered carefully rather than treated as ordinary
-                    spending money.
-                </p>
-
-                <h2 id="advantages">Potential Advantages of a 401(k)</h2>
-
-                <ul>
-                    <li>
-                        <strong>Payroll automation:</strong>
-                        contributions can be deducted automatically from your paycheck.
-                    </li>
-
-                    <li>
-                        <strong>Tax advantages:</strong>
-                        traditional and Roth contributions can provide different tax treatment depending on the
-                        account and applicable rules.
-                    </li>
-
-                    <li>
-                        <strong>Employer contributions:</strong>
-                        some employers match employee contributions.
-                    </li>
-
-                    <li>
-                        <strong>Retirement-focused investing:</strong>
-                        the account is designed specifically for long-term retirement savings.
-                    </li>
-
-                    <li>
-                        <strong>Investment choices:</strong>
-                        plans commonly offer multiple investment options.
-                    </li>
-                </ul>
-
-                <h2 id="limitations">Potential Limitations of a 401(k)</h2>
-
-                <ul>
-                    <li>Investment choices are limited to the options selected by the plan.</li>
-
-                    <li>Withdrawals can be restricted and may result in taxes or penalties.</li>
-
-                    <li>Plans can have different fees and administrative costs.</li>
-
-                    <li>Employer matching contributions are not available in every plan.</li>
-
-                    <li>Employer contributions may have vesting requirements.</li>
-
-                    <li>Contribution limits apply.</li>
-                </ul>
-
-                <h2 id="how-much">How Much Should You Contribute to a 401(k)?</h2>
-
-                <p>
-                    There is no contribution percentage that is appropriate for every employee. Your contribution
-                    should fit your income, expenses, emergency savings, debt obligations, retirement goals and
-                    employer plan.
-                </p>
-
-                <p>
-                    If your employer offers matching contributions, understand the formula and requirements before
-                    deciding how much to contribute.
-                </p>
-
-                <p>
-                    You can also think about your contribution as a percentage of gross pay rather than only as a
-                    dollar amount. This can make it easier to increase contributions when your income rises.
-                </p>
-
-                <div class="info-box">
-                    <strong>Simple starting framework:</strong>
-                    Review your employer match, choose a contribution amount that fits your current budget, and
-                    consider increasing your contribution gradually as your income grows.
-                </div>
-
-                <p>
-                    To understand how retirement contributions interact with your paycheck, use the
-                    <a href="/paycheck-tax-calculator/"> Paycheck Tax Calculator </a>.
-                </p>
-
-                <h2 id="mistakes">Common 401(k) Mistakes to Avoid</h2>
-
-                <h3>Not checking the employer match</h3>
-
-                <p>
-                    If your employer offers matching contributions, make sure you understand how the match works and
-                    what requirements apply.
-                </p>
-
-                <h3>Ignoring investment selections</h3>
-
-                <p>
-                    Contributing money to a 401(k) does not automatically mean you have selected an investment
-                    strategy. Check where your money is actually invested.
-                </p>
-
-                <h3>Ignoring fees</h3>
-
-                <p>
-                    Compare the costs of available investment options and understand the administrative fees charged
-                    by the plan.
-                </p>
-
-                <h3>Forgetting about old accounts</h3>
-
-                <p>
-                    If you change jobs, review what happens to your previous 401(k) instead of automatically taking
-                    a cash distribution.
-                </p>
-
-                <h3>Contributing beyond the applicable limit</h3>
-
-                <p>
-                    Keep track of your employee contributions, especially if you participate in more than one
-                    employer plan during the year.
-                </p>
-
-                <h3>Treating retirement savings as emergency cash</h3>
-
-                <p>
-                    Early withdrawals can have tax consequences and can reduce the money available for future
-                    retirement needs.
-                </p>
-
-                <h2 id="beginner">401(k) for Beginners: A Simple Checklist</h2>
-
-                <p>
-                    If you are enrolling in a 401(k) for the first time, you can use this checklist to organize the
-                    basics:
-                </p>
-
-                <ol>
-                    <li>Confirm whether your employer offers a 401(k).</li>
-                    <li>Check when you become eligible to participate.</li>
-                    <li>Review the employer matching formula, if any.</li>
-                    <li>Choose between available traditional and Roth contribution options.</li>
-                    <li>Set a contribution amount that fits your budget.</li>
-                    <li>Review the investment options offered by the plan.</li>
-                    <li>Check investment and account fees.</li>
-                    <li>Understand the vesting schedule for employer contributions.</li>
-                    <li>Review your contribution periodically.</li>
-                    <li>Revisit your account when you change jobs or your financial situation changes.</li>
-                </ol>
-
-                <h2 id="faq">401(k) Frequently Asked Questions</h2>
-
-                <div class="faq-item">
-                    <h3>What is a 401(k)?</h3>
+                    <h2>How a 401(k) Affects Your Paycheck</h2>
 
                     <p>
-                        A 401(k) is an employer-sponsored retirement plan that lets eligible employees contribute
-                        part of their pay to a retirement account and invest the money using the options offered by
-                        the plan.
+                        Increasing a 401(k) contribution changes the amount of money
+                        available from each paycheck. The exact effect on take-home
+                        pay depends on whether the contribution is traditional or
+                        Roth and on your overall tax situation.
                     </p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>How does a 401(k) work?</h3>
 
                     <p>
-                        You generally choose how much of your paycheck to contribute. The contribution is processed
-                        through payroll and the money can be invested according to your selections from the plan's
-                        available investment options.
+                        A traditional contribution can reduce taxable wages for
+                        applicable federal income-tax purposes, while payroll taxes
+                        and other deductions can have different treatment. Roth
+                        contributions generally do not provide the same current
+                        federal income-tax treatment.
                     </p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>What is the 401(k) contribution limit for 2026?</h3>
 
                     <p>
-                        The basic employee elective-deferral limit for most 401(k) plans is $24,500 in 2026.
-                        Eligible participants may also have catch-up contribution opportunities subject to age, plan
-                        and IRS rules.
+                        Because payroll taxes and state rules can differ, use your
+                        actual paycheck information when deciding how a contribution
+                        change affects your monthly budget.
                     </p>
-                </div>
 
-                <div class="faq-item">
-                    <h3>What is the difference between a traditional 401(k) and a Roth 401(k)?</h3>
-
-                    <p>
-                        Traditional 401(k) contributions generally receive tax treatment before retirement, with
-                        taxes generally due on withdrawals. Roth 401(k) contributions are made with after-tax
-                        dollars, and qualified Roth withdrawals can generally be tax-free under applicable rules.
-                    </p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>Does an employer have to match 401(k) contributions?</h3>
-
-                    <p>
-                        No. Employer matching contributions depend on the employer's plan. Some employers match a
-                        portion of employee contributions according to a specified formula and limit.
-                    </p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>Can I withdraw money from my 401(k) before retirement?</h3>
-
-                    <p>
-                        Some plans permit certain withdrawals or loans, but early access can result in income taxes
-                        and potentially an additional tax unless an exception applies.
-                    </p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>What happens to my 401(k) when I change jobs?</h3>
-
-                    <p>
-                        Depending on the plan and circumstances, you may be able to leave the money in the old plan,
-                        roll it into another eligible retirement plan or IRA, or take a distribution subject to
-                        applicable rules.
-                    </p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>Is a 401(k) an investment?</h3>
-
-                    <p>
-                        No. A 401(k) is a retirement plan or account. The money inside the account can be invested
-                        in the investments made available by your employer's plan.
-                    </p>
-                </div>
-
-                <h2 id="related">Related PaycheckMint Resources</h2>
-
-                <div class="related-grid">
-                    <a class="related-card" href="/finance/investing/investing-for-beginners/">
-                        <strong>Investing for Beginners</strong>
-                        Learn the basics of investing, risk, diversification and choosing investments.
+                    <a class="btn btn-secondary" href="/paycheck-tax-calculator/">
+                        Calculate Your Paycheck
                     </a>
 
-                    <a class="related-card" href="/finance/investing/compound-interest-calculator/">
-                        <strong>Compound Interest Calculator</strong>
-                        Explore hypothetical long-term growth with recurring contributions.
-                    </a>
+                </section>
 
-                    <a class="related-card" href="/finance/investing/">
-                        <strong>Investing Overview</strong>
-                        Explore PaycheckMint investing guides and calculators.
-                    </a>
 
-                    <a class="related-card" href="/finance/budgeting/monthly-budget/">
-                        <strong>Monthly Budget</strong>
-                        Organize income, expenses, savings and investing contributions.
-                    </a>
+                <!-- =================================================
+                 INCREASING CONTRIBUTIONS
+            ================================================= -->
 
-                    <a class="related-card" href="/finance/budgeting/emergency-fund/">
-                        <strong>Emergency Fund</strong>
-                        Learn how to plan an emergency savings target.
-                    </a>
+                <section class="article-section" id="increase">
 
-                    <a class="related-card" href="/paycheck-tax-calculator/">
-                        <strong>Paycheck Tax Calculator</strong>
-                        Estimate taxes, deductions and take-home pay.
-                    </a>
-                </div>
+                    <h2>Ways to Increase Your 401(k) Contributions</h2>
 
-                <div class="disclaimer">
-                    <strong>Important:</strong>
-                    This article is for general educational and informational purposes and is not individualized
-                    investment, tax, legal or financial advice. Retirement-plan rules, contribution limits, tax
-                    treatment and withdrawal rules can change. Your employer's plan may have additional requirements
-                    or restrictions. Check current IRS guidance and your plan documents before making retirement
-                    decisions.
-                </div>
+                    <p>
+                        You do not necessarily need to make a large contribution
+                        change all at once. Gradual increases can make a higher
+                        savings rate easier to incorporate into your budget.
+                    </p>
+
+                    <ol>
+
+                        <li>
+                            <strong>Increase after a raise:</strong>
+                            Directing part of a pay increase toward retirement can
+                            reduce the effect on your existing spending plan.
+                        </li>
+
+                        <li>
+                            <strong>Review your contribution annually:</strong>
+                            Check your percentage when you receive a new salary or
+                            benefits enrollment information.
+                        </li>
+
+                        <li>
+                            <strong>Automate the decision:</strong>
+                            Payroll deductions make retirement contributions automatic.
+                        </li>
+
+                        <li>
+                            <strong>Check your emergency savings:</strong>
+                            Increasing retirement contributions should be considered
+                            alongside your need for accessible cash.
+                        </li>
+
+                        <li>
+                            <strong>Review your investments:</strong>
+                            A higher contribution does not fix an investment allocation
+                            that does not match your goals or risk tolerance.
+                        </li>
+
+                    </ol>
+
+                </section>
+
+
+                <!-- =================================================
+                 JOB CHANGE
+            ================================================= -->
+
+                <section class="article-section" id="job-change">
+
+                    <h2>What Happens to Your 401(k) When You Change Jobs?</h2>
+
+                    <p>
+                        Leaving an employer does not automatically mean your
+                        retirement savings disappear. Your available choices depend
+                        on the plan, your new employer and applicable retirement
+                        account rules.
+                    </p>
+
+                    <p>
+                        Depending on the circumstances, possible options can include
+                        leaving the money in the former employer's plan, moving it
+                        to a new employer plan when permitted, or completing another
+                        eligible rollover.
+                    </p>
+
+                    <p>
+                        Before moving money, review fees, investment choices,
+                        withdrawal rules and the tax consequences of the transaction.
+                        A rollover can have important tax and administrative details.
+                    </p>
+
+                </section>
+
+
+                <!-- =================================================
+                 MISTAKES
+            ================================================= -->
+
+                <section class="article-section" id="mistakes">
+
+                    <h2>Common 401(k) Mistakes to Avoid</h2>
+
+                    <h3>1. Not checking the employer match</h3>
+
+                    <p>
+                        If your employer provides matching contributions, understand
+                        exactly how the formula works and what conditions apply.
+                    </p>
+
+                    <h3>2. Treating the account as automatically invested</h3>
+
+                    <p>
+                        Money entering a 401(k) does not necessarily mean you have
+                        selected an appropriate investment allocation. Check how
+                        your contributions are being invested.
+                    </p>
+
+                    <h3>3. Ignoring fees</h3>
+
+                    <p>
+                        Even small recurring investment or administrative costs can
+                        affect long-term account growth.
+                    </p>
+
+                    <h3>4. Forgetting about old retirement accounts</h3>
+
+                    <p>
+                        Job changes can leave people with multiple retirement accounts.
+                        Keep track of former employer accounts and understand their
+                        fees, investment choices and available options.
+                    </p>
+
+                    <h3>5. Chasing recent performance</h3>
+
+                    <p>
+                        A fund's recent performance does not guarantee future results.
+                        Consider the investment's role in your overall allocation
+                        rather than choosing solely from the latest return numbers.
+                    </p>
+
+                    <h3>6. Increasing contributions without checking cash flow</h3>
+
+                    <p>
+                        Retirement savings matter, but your budget also needs to
+                        accommodate current bills, emergency savings and other
+                        financial priorities.
+                    </p>
+
+                </section>
+
+
+                <!-- =================================================
+                 CHECKLIST
+            ================================================= -->
+
+                <section class="article-section" id="checklist">
+
+                    <h2>401(k) Checklist</h2>
+
+                    <div class="lead-box">
+
+                        <ul style="margin-bottom:0;">
+
+                            <li>
+                                Check whether your employer offers a 401(k).
+                            </li>
+
+                            <li>
+                                Understand the employer matching formula.
+                            </li>
+
+                            <li>
+                                Review the traditional and Roth options available.
+                            </li>
+
+                            <li>
+                                Choose a contribution rate that fits your budget.
+                            </li>
+
+                            <li>
+                                Confirm how your contributions are invested.
+                            </li>
+
+                            <li>
+                                Review investment expenses and plan fees.
+                            </li>
+
+                            <li>
+                                Understand the vesting rules for employer contributions.
+                            </li>
+
+                            <li>
+                                Keep your beneficiaries up to date.
+                            </li>
+
+                            <li>
+                                Revisit your contribution rate as your income changes.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                 RELATED
+            ================================================= -->
+
+                <section class="article-section" id="related">
+
+                    <h2>Related Investing &amp; Finance Guides</h2>
+
+                    <div class="answer-grid">
+
+                        <div class="answer-card">
+
+                            <div class="answer-icon">📊</div>
+
+                            <strong>Investing Guide</strong>
+
+                            <p>
+                                Explore PaycheckMint's broader investing resources
+                                and retirement topics.
+                            </p>
+
+                            <a href="/finance/investing/">
+                                Explore investing →
+                            </a>
+
+                        </div>
+
+                        <div class="answer-card">
+
+                            <div class="answer-icon">💰</div>
+
+                            <strong>Build a Budget</strong>
+
+                            <p>
+                                Create a spending plan that gives retirement savings
+                                a place in your monthly cash flow.
+                            </p>
+
+                            <a href="/finance/budgeting/how-to-make-a-budget/">
+                                Build a budget →
+                            </a>
+
+                        </div>
+
+                        <div class="answer-card">
+
+                            <div class="answer-icon">💵</div>
+
+                            <strong>Paycheck Calculator</strong>
+
+                            <p>
+                                See how deductions and contributions can affect
+                                your estimated take-home pay.
+                            </p>
+
+                            <a href="/paycheck-tax-calculator/">
+                                Calculate paycheck →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                 FAQ
+            ================================================= -->
+
+                <section class="article-section" id="faq">
+
+                    <h2>401(k) Frequently Asked Questions</h2>
+
+                    <div class="faq-list">
+
+                        <details class="faq-item">
+
+                            <summary>
+                                What is a 401(k)?
+                            </summary>
+
+                            <div class="faq-answer">
+
+                                <p>
+                                    A 401(k) is an employer-sponsored retirement plan
+                                    that allows eligible employees to save through
+                                    payroll deductions and invest those contributions
+                                    for retirement.
+                                </p>
+
+                            </div>
+
+                        </details>
+
+
+                        <details class="faq-item">
+
+                            <summary>
+                                What is an employer 401(k) match?
+                            </summary>
+
+                            <div class="faq-answer">
+
+                                <p>
+                                    An employer match is money an employer contributes
+                                    to your retirement account according to the plan's
+                                    rules, often based on how much you contribute.
+                                </p>
+
+                            </div>
+
+                        </details>
+
+
+                        <details class="faq-item">
+
+                            <summary>
+                                What is the difference between a traditional and Roth 401(k)?
+                            </summary>
+
+                            <div class="faq-answer">
+
+                                <p>
+                                    Traditional contributions generally receive their
+                                    applicable tax treatment before retirement, while
+                                    Roth contributions are generally made with
+                                    after-tax dollars. Withdrawal rules and tax
+                                    treatment depend on applicable requirements.
+                                </p>
+
+                            </div>
+
+                        </details>
+
+
+                        <details class="faq-item">
+
+                            <summary>
+                                How much should I contribute to my 401(k)?
+                            </summary>
+
+                            <div class="faq-answer">
+
+                                <p>
+                                    There is no universal percentage. Consider your
+                                    employer match, income, current expenses, emergency
+                                    savings, debt, other goals and retirement timeline.
+                                    Choose a contribution amount you can maintain.
+                                </p>
+
+                            </div>
+
+                        </details>
+
+
+                        <details class="faq-item">
+
+                            <summary>
+                                What does vesting mean in a 401(k)?
+                            </summary>
+
+                            <div class="faq-answer">
+
+                                <p>
+                                    Vesting determines when employer-provided
+                                    contributions become fully yours under the plan's
+                                    rules. Your own contributions generally have
+                                    different ownership rules.
+                                </p>
+
+                            </div>
+
+                        </details>
+
+
+                        <details class="faq-item">
+
+                            <summary>
+                                Can I have both traditional and Roth 401(k) contributions?
+                            </summary>
+
+                            <div class="faq-answer">
+
+                                <p>
+                                    Some employer plans allow both types of employee
+                                    contributions. Availability and applicable limits
+                                    depend on the plan and current retirement-account
+                                    rules.
+                                </p>
+
+                            </div>
+
+                        </details>
+
+
+                        <details class="faq-item">
+
+                            <summary>
+                                Is a 401(k) the same as a savings account?
+                            </summary>
+
+                            <div class="faq-answer">
+
+                                <p>
+                                    No. A 401(k) is a retirement account designed for
+                                    long-term investing and has specific tax and
+                                    withdrawal rules. A regular savings account is
+                                    generally designed for accessible cash and
+                                    near-term needs.
+                                </p>
+
+                            </div>
+
+                        </details>
+
+
+                        <details class="faq-item">
+
+                            <summary>
+                                What happens to my 401(k) if I leave my job?
+                            </summary>
+
+                            <div class="faq-answer">
+
+                                <p>
+                                    Depending on your circumstances, you may be able
+                                    to leave the account in the former employer's plan,
+                                    move it to a new employer's plan when permitted,
+                                    or use another eligible rollover option. Review
+                                    the tax and investment consequences before making
+                                    a decision.
+                                </p>
+
+                            </div>
+
+                        </details>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                 METHODOLOGY
+            ================================================= -->
+
+                <section class="article-section" id="methodology">
+
+                    <div class="methodology">
+
+                        <h3>About this guide</h3>
+
+                        <p>
+                            PaycheckMint uses simple contribution math in the
+                            calculator above. It does not estimate investment returns,
+                            future account values, retirement income or tax liability.
+                        </p>
+
+                        <p>
+                            Employer contribution examples are illustrative because
+                            401(k) matching formulas, eligibility rules, vesting
+                            schedules, investment menus and fees vary by employer plan.
+                        </p>
+
+                        <p>
+                            This page is for general educational purposes and is not
+                            personalized financial, tax or investment advice. Review
+                            your plan documents and consider qualified professional
+                            advice for decisions specific to your situation.
+                        </p>
+
+                    </div>
+
+                </section>
+
             </article>
 
-            <aside class="toc" aria-label="Table of contents">
-                <p class="toc-title">On this page</p>
 
-                <a href="#what-is-401k">What Is a 401(k)?</a>
-                <a href="#how-it-works">How a 401(k) Works</a>
-                <a href="#traditional-vs-roth">Traditional vs. Roth 401(k)</a>
-                <a href="#employer-match">Employer Match</a>
-                <a href="#contribution-limit">2026 Contribution Limits</a>
-                <a href="#paycheck">Effect on Your Paycheck</a>
-                <a href="#investments">Investment Options</a>
-                <a href="#fees">401(k) Fees</a>
-                <a href="#vesting">Vesting</a>
-                <a href="#withdrawals">Withdrawal Rules</a>
-                <a href="#rmd">Required Distributions</a>
-                <a href="#job-change">Changing Jobs</a>
-                <a href="#rollover">401(k) Rollovers</a>
-                <a href="#loan">401(k) Loans</a>
-                <a href="#advantages">Potential Advantages</a>
-                <a href="#limitations">Potential Limitations</a>
-                <a href="#how-much">How Much to Contribute</a>
-                <a href="#mistakes">Common Mistakes</a>
-                <a href="#beginner">Beginner Checklist</a>
-                <a href="#faq">FAQ</a>
+            <!-- =====================================================
+             SIDEBAR
+        ====================================================== -->
+
+            <aside class="sidebar">
+
+                <div class="side-card">
+
+                    <h3>Investing Guide</h3>
+
+                    <nav class="side-links">
+
+                        <a href="/finance/investing/">
+                            Investing Overview
+                        </a>
+
+                        <a href="#quick-answer">
+                            What Is a 401(k)?
+                        </a>
+
+                        <a href="#employer-match">
+                            Employer Match
+                        </a>
+
+                        <a href="#calculator">
+                            Contribution Calculator
+                        </a>
+
+                        <a href="#traditional-vs-roth">
+                            Traditional vs. Roth
+                        </a>
+
+                        <a href="#investments">
+                            Investment Choices
+                        </a>
+
+                        <a href="#vesting">
+                            Vesting
+                        </a>
+
+                        <a href="#faq">
+                            401(k) FAQ
+                        </a>
+
+                    </nav>
+
+                </div>
+
+
+                <div class="side-card">
+
+                    <h3>Related Guides</h3>
+
+                    <nav class="side-links">
+
+                        <a href="/finance/budgeting/">
+                            Budgeting
+                        </a>
+
+                        <a href="/finance/budgeting/how-to-make-a-budget/">
+                            How to Make a Budget
+                        </a>
+
+                        <a href="/finance/budgeting/emergency-fund/">
+                            Emergency Fund
+                        </a>
+
+                        <a href="/paycheck-tax-calculator/">
+                            Paycheck Calculator
+                        </a>
+
+                    </nav>
+
+                </div>
+
+
+                <div class="side-tip">
+
+                    <strong>Remember</strong>
+
+                    <p>
+                        A 401(k) contribution is only one part of a retirement plan.
+                        Consider your overall cash flow, other savings, investments,
+                        taxes and long-term goals.
+                    </p>
+
+                </div>
+
             </aside>
+
         </div>
 
     </main>
 
-    <footer>
 
-        <div class="footer-inner">
-            <div class="footer-grid">
-                <div>
-                    <div class="footer-brand"><a class="brand" href="/">Paycheck<span>Mint</span></a>
+    <!-- =============================================================
+     FOOTER
+============================================================= -->
+
+    <footer class="pm-footer">
+
+        <div class="pm-footer-inner">
+
+            <div class="pm-footer-main">
+
+                <div class="pm-footer-grid">
+
+                    <div class="pm-footer-brand-column">
+
+                        <a class="pm-footer-brand" href="/">
+                            Paycheck<span>Mint</span>
+                        </a>
+
+                        <p class="pm-footer-description">
+                            Practical personal finance guides, paycheck tools,
+                            and calculators to help you make informed money decisions.
+                        </p>
+
                     </div>
 
-                    <p class="footer-description">
-                        Simple calculators, guides and educational resources for understanding pay, budgeting,
-                        taxes, credit, debt, saving and investing in the U.S.
-                    </p>
+                    <div>
+                        <h3 class="pm-footer-heading">Money</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/income/">Income</a></li>
+                            <li><a href="/paycheck-tax-calculator/">Paycheck Calculator</a></li>
+                            <li><a href="/take-home-pay-calculator/">Take-Home Pay</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Finance</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/finance/taxes/">Taxes</a></li>
+                            <li><a href="/finance/budgeting/">Budgeting</a></li>
+                            <li><a href="/finance/credit-debt/">Credit &amp; Debt</a></li>
+                            <li><a href="/finance/investing/">Investing</a></li>
+                            <li><a href="/finance/insurance/">Insurance</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Company</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/contact/">Contact</a></li>
+                            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms</a></li>
+                        </ul>
+                    </div>
+
                 </div>
 
-                <div class="footer-column">
-                    <h3>Calculators</h3>
+            </div>
 
-                    <a href="/paycheck-tax-calculator/">Paycheck Calculator</a>
-                    <a href="/hourly-paycheck-calculator/">Hourly Paycheck Calculator</a>
-                    <a href="/salary-paycheck-calculator/">Salary Paycheck Calculator</a>
-                    <a href="/overtime-pay-calculator/">Overtime Calculator</a>
+            <div class="pm-footer-bottom">
+
+                <div class="pm-footer-copyright">
+                    © 2026 PaycheckMint. All rights reserved.
                 </div>
 
-                <div class="footer-column">
-                    <h3>Finance</h3>
-
-                    <a href="/finance/">Finance Overview</a>
-                    <a href="/finance/taxes/">Taxes</a>
-                    <a href="/finance/budgeting/">Budgeting</a>
-                    <a href="/finance/credit-debt/">Credit &amp; Debt</a>
-                    <a href="/finance/investing/">Investing</a>
-                </div>
-
-                <div class="footer-column">
-                    <h3>PaycheckMint</h3>
-
-                    <a href="/about/">About</a>
-                    <a href="/contact/">Contact</a>
-                    <a href="/privacy-policy/">Privacy</a>
+                <div class="pm-footer-legal">
+                    <a href="/privacy-policy/">Privacy Policy</a>
                     <a href="/terms/">Terms</a>
+                    <a href="/contact/">Contact</a>
                 </div>
+
             </div>
 
-            <div class="footer-bottom">
-                <span>© 2026 PaycheckMint. All rights reserved.</span>
-                <span>Educational estimates only — not financial advice.</span>
-            </div>
         </div>
 
     </footer>
 
+
     <script>
-        (function () {
-            const menuButton = document.querySelector(".mobile-menu-toggle");
-            const mainNav = document.querySelector(".main-nav");
-            const financeDropdown = document.querySelector(".nav-dropdown");
-            const financeToggle = document.querySelector(".finance-toggle");
 
-            if (!menuButton || !mainNav) return;
+        /* =========================================================
+           401(K) CALCULATOR
+        ========================================================= */
 
-            menuButton.addEventListener("click", function () {
-                const isOpen = mainNav.classList.toggle("menu-open");
+        const salaryInput =
+            document.getElementById("salary");
 
-                menuButton.setAttribute("aria-expanded", String(isOpen));
+        const employeeRateInput =
+            document.getElementById("employeeRate");
 
-                menuButton.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
-            });
+        const employerRateInput =
+            document.getElementById("employerRate");
 
-            if (financeToggle && financeDropdown) {
-                financeToggle.addEventListener("click", function (event) {
-                    event.stopPropagation();
+        const payPeriodsInput =
+            document.getElementById("payPeriods");
 
-                    const isOpen = financeDropdown.classList.toggle("open");
+        const employeeResult =
+            document.getElementById("employeeResult");
 
-                    financeToggle.setAttribute("aria-expanded", String(isOpen));
-                });
+        const employerResult =
+            document.getElementById("employerResult");
+
+        const totalResult =
+            document.getElementById("totalResult");
+
+        const perPaycheckResult =
+            document.getElementById("perPaycheckResult");
+
+        const calculatorStatus =
+            document.getElementById("calculatorStatus");
+
+
+        function money(value) {
+
+            return Number(value || 0).toLocaleString(
+                "en-US",
+                {
+                    style: "currency",
+                    currency: "USD",
+                    maximumFractionDigits: 0
+                }
+            );
+
+        }
+
+
+        function calculate401k() {
+
+            const salary =
+                Math.max(
+                    parseFloat(salaryInput.value) || 0,
+                    0
+                );
+
+            const employeeRate =
+                Math.max(
+                    parseFloat(employeeRateInput.value) || 0,
+                    0
+                );
+
+            const employerRate =
+                Math.max(
+                    parseFloat(employerRateInput.value) || 0,
+                    0
+                );
+
+            const payPeriods =
+                parseInt(payPeriodsInput.value, 10) || 26;
+
+
+            const employeeAnnual =
+                salary * (employeeRate / 100);
+
+            const employerAnnual =
+                salary * (employerRate / 100);
+
+            const totalAnnual =
+                employeeAnnual + employerAnnual;
+
+            const employeePerPaycheck =
+                employeeAnnual / payPeriods;
+
+
+            employeeResult.textContent =
+                money(employeeAnnual);
+
+            employerResult.textContent =
+                money(employerAnnual);
+
+            totalResult.textContent =
+                money(totalAnnual);
+
+            perPaycheckResult.textContent =
+                money(employeePerPaycheck);
+
+
+            if (salary <= 0) {
+
+                calculatorStatus.textContent =
+                    "Enter an annual salary greater than $0 to estimate contributions.";
+
+                return;
+
             }
 
+
+            calculatorStatus.textContent =
+                "Illustration: " +
+                money(employeeAnnual) +
+                " from you plus " +
+                money(employerAnnual) +
+                " from the employer over a year, assuming the entered percentages apply to the full salary.";
+        }
+
+
+        document
+            .getElementById("calculate401k")
+            .addEventListener(
+                "click",
+                calculate401k
+            );
+
+
+        [
+            salaryInput,
+            employeeRateInput,
+            employerRateInput,
+            payPeriodsInput
+        ].forEach(function (input) {
+
+            input.addEventListener(
+                "input",
+                calculate401k
+            );
+
+            input.addEventListener(
+                "change",
+                calculate401k
+            );
+
+        });
+
+
+        document
+            .getElementById("reset401k")
+            .addEventListener(
+                "click",
+                function () {
+
+                    salaryInput.value = "60000";
+                    employeeRateInput.value = "6";
+                    employerRateInput.value = "3";
+                    payPeriodsInput.value = "26";
+
+                    calculate401k();
+
+                }
+            );
+
+
+        calculate401k();
+    </script>
+
+    <script>
+        (function () {
+            "use strict";
+
+            /* ==========================================================================
+               1. ASYNC COMPONENT LOADER
+               ========================================================================== */
+            document.addEventListener("DOMContentLoaded", function () {
+                loadSharedComponents();
+            });
+
+            async function loadSharedComponents() {
+                const navbar = document.getElementById("site-navbar");
+                const footer = document.getElementById("site-footer");
+
+                try {
+                    const requests = [];
+
+                    if (navbar) {
+                        requests.push(
+                            fetch("/components/navbar.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Navbar 404"))
+                                .then(html => { navbar.innerHTML = html; })
+                        );
+                    }
+
+                    if (footer) {
+                        requests.push(
+                            fetch("/components/footer.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Footer 404"))
+                                .then(html => { footer.innerHTML = html; })
+                        );
+                    }
+
+                    await Promise.all(requests);
+                    // Re-bind focus or initial state if required after injection
+                    setupScrollHeader();
+                } catch (error) {
+                    console.error("Component loading error:", error);
+                    setupScrollHeader();
+                }
+            }
+
+            /* ==========================================================================
+               2. EVENT DELEGATION (Handles dynamic elements automatically)
+               ========================================================================== */
             document.addEventListener("click", function (event) {
-                if (financeDropdown && !financeDropdown.contains(event.target)) {
-                    financeDropdown.classList.remove("open");
 
-                    if (financeToggle) {
-                        financeToggle.setAttribute("aria-expanded", "false");
+                // --- DESKTOP DROPDOWNS ---
+                const dropdownBtn = event.target.closest(".pm-nav-dropdown-button");
+                if (dropdownBtn) {
+                    event.stopPropagation();
+                    const currentDropdown = dropdownBtn.closest(".pm-nav-dropdown");
+                    const isOpen = currentDropdown.classList.contains("is-open");
+
+                    // Close all dropdowns
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
+                    });
+
+                    // Toggle selected dropdown
+                    if (!isOpen) {
+                        currentDropdown.classList.add("is-open");
+                        dropdownBtn.setAttribute("aria-expanded", "true");
+                    }
+                    return;
+                }
+
+                // Close desktop dropdowns when clicking outside
+                if (!event.target.closest(".pm-nav-dropdown")) {
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
+                    });
+                }
+
+                // --- MOBILE NAV TOGGLE ---
+                const mobileToggle = event.target.closest("#mobileToggle");
+                if (mobileToggle) {
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) {
+                        const isOpen = mobileNav.classList.toggle("is-open");
+                        mobileToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
+                }
+
+                // --- MOBILE SUBMENU TOGGLE ---
+                const mobileFinanceToggle = event.target.closest("#mobileFinanceToggle");
+                if (mobileFinanceToggle) {
+                    event.stopPropagation();
+                    const mobileFinanceLinks = document.getElementById("mobileFinanceLinks");
+                    if (mobileFinanceLinks) {
+                        const isOpen = mobileFinanceLinks.classList.toggle("is-open");
+                        mobileFinanceToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
+                }
+
+                // --- SEARCH TOGGLE (OPEN / CLOSE) ---
+                const searchToggle = event.target.closest("#searchToggle");
+                const mobileSearchBtn = event.target.closest("#mobileSearchButton");
+                const searchClose = event.target.closest("#searchClose");
+                const searchPanel = document.getElementById("searchPanel");
+
+                if (searchToggle || mobileSearchBtn) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) mobileNav.classList.remove("is-open");
+
+                    if (searchPanel) {
+                        if (searchPanel.classList.contains("is-open") && searchToggle) {
+                            closeSearch();
+                        } else {
+                            openSearch();
+                        }
+                    }
+                    return;
+                }
+
+                if (searchClose) {
+                    event.preventDefault();
+                    closeSearch();
+                    return;
+                }
+
+                // Close search panel when clicking outside of it
+                if (searchPanel && searchPanel.classList.contains("is-open")) {
+                    if (!searchPanel.contains(event.target)) {
+                        closeSearch();
                     }
                 }
             });
 
-            mainNav.querySelectorAll("a").forEach(function (link) {
-                link.addEventListener("click", function () {
-                    mainNav.classList.remove("menu-open");
+            /* ==========================================================================
+               3. SEARCH HELPER FUNCTIONS & LIVE FILTERING
+               ========================================================================== */
+            function openSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchToggle = document.getElementById("searchToggle");
 
-                    menuButton.setAttribute("aria-expanded", "false");
+                if (!searchPanel) return;
+                searchPanel.classList.add("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "true");
+                    searchToggle.setAttribute("aria-label", "Close search");
+                }
+                if (searchInput) setTimeout(() => searchInput.focus(), 100);
+            }
 
-                    menuButton.setAttribute("aria-label", "Open navigation menu");
-                });
-            });
+            function closeSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchResults = document.getElementById("searchResults");
+                const searchToggle = document.getElementById("searchToggle");
 
-            window.addEventListener("resize", function () {
-                if (window.innerWidth > 850) {
-                    mainNav.classList.remove("menu-open");
+                if (!searchPanel) return;
+                searchPanel.classList.remove("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "false");
+                    searchToggle.setAttribute("aria-label", "Open search");
+                }
+                if (searchInput) searchInput.value = "";
+                if (searchResults) searchResults.innerHTML = "";
+            }
 
-                    if (financeDropdown) {
-                        financeDropdown.classList.remove("open");
-                    }
-
-                    menuButton.setAttribute("aria-expanded", "false");
-
-                    if (financeToggle) {
-                        financeToggle.setAttribute("aria-expanded", "false");
-                    }
+            // Keyboard Shortcuts (Escape Key)
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closeSearch();
                 }
             });
+
+            // Live Search Typing Input Event
+            document.addEventListener("input", function (event) {
+                if (event.target.id !== "siteSearch") return;
+
+                const query = event.target.value.trim().toLowerCase();
+                const searchResults = document.getElementById("searchResults");
+                if (!searchResults) return;
+
+                if (query.length === 0) {
+                    searchResults.innerHTML = "";
+                    return;
+                }
+
+                const searchablePages = [
+                    { title: "Paycheck Tax Calculator", url: "/paycheck-tax-calculator/", description: "Calculate accurate net pay and taxes." },
+                    { title: "Take-Home Pay Calculator", url: "/take-home-pay-calculator/", description: "Estimate your actual paycheck total after deductions." },
+                    { title: "Hourly Paycheck Calculator", url: "/hourly-paycheck-calculator/", description: "Calculate income based on hourly wage and hours worked." },
+                    { title: "Overtime Pay Calculator", url: "/overtime-pay-calculator/", description: "Compute overtime rates and total extra wages." },
+                    { title: "Salary Paycheck Calculator", url: "/salary-paycheck-calculator/", description: "Break down annual salary into per-paycheck earnings." },
+                    { title: "Income Overview", url: "/income/", description: "Learn about taxable income, gross wages, and take-home pay." },
+                    { title: "Finance Overview", url: "/finance/", description: "Guides on managing personal finances and budgeting strategies." },
+                    { title: "Budgeting Guides", url: "/finance/budgeting/", description: "Strategies for budgeting your paycheck effectively." }
+                ];
+
+                const matches = searchablePages.filter(page =>
+                    page.title.toLowerCase().includes(query) ||
+                    page.description.toLowerCase().includes(query)
+                );
+
+                if (matches.length === 0) {
+                    searchResults.innerHTML = `<p class="pm-search-no-results">No results found for "${escapeHTML(query)}"</p>`;
+                    return;
+                }
+
+                searchResults.innerHTML = matches.map(item => `
+            <a href="${item.url}" class="pm-search-result-item">
+                <span class="pm-search-result-title">${escapeHTML(item.title)}</span>
+                <span class="pm-search-result-desc">${escapeHTML(item.description)}</span>
+            </a>
+        `).join("");
+            });
+
+            function escapeHTML(str) {
+                return str.replace(/[&<>'"]/g, tag => ({
+                    '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+                }[tag] || tag));
+            }
+
+            /* ==========================================================================
+               4. SCROLL SHADOW
+               ========================================================================== */
+            function setupScrollHeader() {
+                const header = document.getElementById("site-header");
+                if (!header) return;
+
+                window.addEventListener("scroll", function () {
+                    if (window.scrollY > 20) {
+                        header.classList.add("is-scrolled");
+                    } else {
+                        header.classList.remove("is-scrolled");
+                    }
+                }, { passive: true });
+            }
+
         })();
     </script>
+
 </body>
 
 </html>

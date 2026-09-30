@@ -1,1435 +1,4302 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
 
-    <title>Budgeting Guide: How to Create a Budget & Manage Money | PaycheckMint</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Budgeting Guide: How to Make a Budget, Save Money & Manage Spending | PaycheckMint</title>
 
     <meta name="description"
-        content="Learn how to create a budget, manage monthly expenses, plan your paycheck, save money, pay down debt, and choose a budgeting method that fits your financial goals." />
-    <meta name="keywords"
-        content="budgeting, budgeting guide, how to make a budget, monthly budget, paycheck budget, budgeting methods, personal budgeting, 50/30/20 budget" />
+        content="Learn how to create and manage a budget, control spending, plan bills, save for emergencies, reduce debt, and choose a budgeting method that fits your household.">
 
-    <link rel="canonical" href="https://paycheckmint.com/finance/budgeting/" />
+    <link rel="canonical" href="https://paycheckmint.com/finance/budgeting/">
 
-    <meta name="robots" content="index, follow" />
+    <link rel="icon" href="/icon.ico">
+
+    <meta name="robots" content="index, follow">
+
+    <meta name="theme-color" content="#176B5B">
+
+
+    <!-- Open Graph -->
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:title"
+        content="Budgeting Guide: How to Make a Budget, Save Money & Manage Spending | PaycheckMint">
+
+    <meta property="og:description"
+        content="Practical budgeting guides covering monthly budgets, paycheck budgeting, the 50/30/20 rule, emergency funds, sinking funds, debt, and more.">
+
+    <meta property="og:url" content="https://paycheckmint.com/finance/budgeting/">
+
+    <meta property="og:site_name" content="PaycheckMint">
+
+
+    <!-- Twitter -->
+
+    <meta name="twitter:card" content="summary">
+
+    <meta name="twitter:title"
+        content="Budgeting Guide: How to Make a Budget | PaycheckMint">
+
+    <meta name="twitter:description"
+        content="Learn practical ways to build a budget, manage spending, save money, and plan for financial goals.">
+
+
+    <link rel="stylesheet" href="/style.css">
+
 
     <style>
-        :root {
-            --bg: #f6f5f1;
-            --surface: #ffffff;
-            --surface-soft: #faf9f6;
 
-            --ink: #191919;
-            --muted: #74736f;
-            --muted-light: #999791;
+        /* =========================================================
+           PAYCHECKMINT
+           BUDGETING HUB — PAGE SPECIFIC CSS
+        ========================================================= */
 
-            --line: #deddd8;
-            --line-dark: #cbc9c3;
-
-            --accent: #5954d9;
-            --accent-dark: #4843c4;
-            --accent-soft: #efeeff;
-
-            --success: #24734d;
-
-            --radius: 18px;
-            --shadow: 0 8px 30px rgba(20, 20, 20, 0.05);
-
-            --max-width: 1120px;
+        .budget-page {
+            min-height: 100vh;
+            background: var(--page-bg, #f7f8f6);
+            color: var(--text, #17201d);
         }
 
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            font-family:
-                Inter,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                Roboto,
-                Arial,
-                sans-serif;
-            background: var(--bg);
-            color: var(--ink);
-            line-height: 1.7;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        img {
-            max-width: 100%;
-        }
-
-        .container {
-            width: min(100% - 32px, var(--max-width));
+        .budget-container {
+            width: min(calc(100% - 40px), 1200px);
             margin: 0 auto;
         }
 
-        /* =========================
-           HEADER
-        ========================== */
 
-        .site-header {
-            background: rgba(255, 255, 255, 0.96);
-            border-bottom: 1px solid var(--line);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(12px);
+        /* =========================================================
+           BREADCRUMB
+        ========================================================= */
+
+        .budget-breadcrumb {
+            padding-top: 27px;
+            margin-bottom: 14px;
         }
 
-        .header-inner {
-            min-height: 72px;
+        .budget-breadcrumb ol {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
-            justify-content: space-between;
-            gap: 28px;
+            gap: 7px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            color: #687771;
+            font-size: 13px;
         }
 
-        .logo {
-            font-size: 1.35rem;
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            white-space: nowrap;
+        .budget-breadcrumb a {
+            color: var(--primary, #176b5b);
+            text-decoration: none;
+            font-weight: 650;
         }
 
-        .logo span {
-            color: var(--accent);
+        .budget-breadcrumb a:hover {
+            text-decoration: underline;
         }
 
-        .main-nav {
-            display: flex;
-            align-items: center;
-            gap: 5px;
+        .budget-breadcrumb .separator {
+            color: #a1aca8;
         }
 
-        .main-nav>a,
-        .nav-dropdown>button {
-            border: 0;
-            background: transparent;
-            padding: 10px 12px;
-            border-radius: 9px;
-            font: inherit;
-            font-size: 0.94rem;
-            color: var(--ink);
-            cursor: pointer;
-        }
 
-        .main-nav>a:hover,
-        .nav-dropdown>button:hover {
-            background: var(--accent-soft);
-            color: var(--accent);
-        }
-
-        .nav-dropdown {
-            position: relative;
-        }
-
-        .nav-dropdown>button::after {
-            content: "⌄";
-            margin-left: 6px;
-            font-size: 0.75rem;
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: calc(100% + 8px);
-            right: 0;
-            min-width: 215px;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            padding: 8px;
-            display: none;
-        }
-
-        .nav-dropdown:hover .dropdown-menu,
-        .nav-dropdown:focus-within .dropdown-menu {
-            display: block;
-        }
-
-        .dropdown-menu a {
-            display: block;
-            padding: 9px 11px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-        }
-
-        .dropdown-menu a:hover {
-            background: var(--accent-soft);
-            color: var(--accent);
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-            border: 1px solid var(--line);
-            background: var(--surface);
-            border-radius: 10px;
-            padding: 9px 11px;
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
-
-        /* =========================
+        /* =========================================================
            HERO
-        ========================== */
+        ========================================================= */
 
-        .hero {
-            padding: 78px 0 64px;
-            background: radial-gradient(circle at 85% 15%, rgba(89, 84, 217, 0.1), transparent 32%);
+        .budget-hero {
+            padding: 20px 0 53px;
         }
 
-        .hero-grid {
+        .budget-hero-grid {
             display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
+            grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
             gap: 55px;
             align-items: center;
         }
 
-        .eyebrow {
-            display: inline-block;
-            color: var(--accent);
-            background: var(--accent-soft);
-            padding: 6px 11px;
+        .budget-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 17px;
+            padding: 8px 13px;
+            border: 1px solid rgba(23, 107, 91, .13);
             border-radius: 999px;
-            font-size: 0.78rem;
-            font-weight: 750;
-            letter-spacing: 0.03em;
-            text-transform: uppercase;
+            background: rgba(23, 107, 91, .07);
+            color: var(--primary, #176b5b);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: .025em;
         }
 
-        h1 {
-            margin: 17px 0 18px;
-            font-size: clamp(2.25rem, 5vw, 4rem);
-            line-height: 1.05;
-            letter-spacing: -0.055em;
-            max-width: 760px;
+        .budget-eyebrow::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent, #c9922e);
         }
 
-        .hero-text {
-            max-width: 680px;
-            color: var(--muted);
-            font-size: 1.08rem;
+        .budget-hero h1 {
+            max-width: 780px;
+            margin: 0 0 20px;
+            color: var(--text, #17201d);
+            font-size: clamp(42px, 5.4vw, 68px);
+            line-height: 1.02;
+            letter-spacing: -.045em;
         }
 
-        .hero-actions {
+        .budget-hero-intro {
+            max-width: 710px;
+            margin: 0;
+            color: var(--text-secondary, #64756f);
+            font-size: 18px;
+            line-height: 1.72;
+        }
+
+
+        /* HERO ACTIONS */
+
+        .budget-hero-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 28px;
+            gap: 11px;
+            margin-top: 26px;
         }
 
-        .btn {
+        .budget-hero-primary,
+        .budget-hero-secondary {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-height: 46px;
-            padding: 0 18px;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 0.93rem;
-            border: 1px solid var(--line-dark);
-            transition: 0.2s ease;
+            min-height: 47px;
+            padding: 0 19px;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: .18s ease;
         }
 
-        .btn-primary {
-            background: var(--accent);
+        .budget-hero-primary {
+            background: var(--primary, #176b5b);
             color: #fff;
-            border-color: var(--accent);
+            box-shadow: 0 7px 20px rgba(23, 107, 91, .16);
         }
 
-        .btn-primary:hover {
-            background: var(--accent-dark);
+        .budget-hero-primary:hover {
+            background: var(--primary-dark, #0f5145);
+            transform: translateY(-1px);
         }
 
-        .btn-secondary {
-            background: var(--surface);
+        .budget-hero-secondary {
+            background: #fff;
+            border: 1px solid var(--border, #dfe6e2);
+            color: var(--text, #17201d);
         }
 
-        .btn-secondary:hover {
-            border-color: var(--accent);
-            color: var(--accent);
+        .budget-hero-secondary:hover {
+            border-color: rgba(23, 107, 91, .35);
+            color: var(--primary, #176b5b);
         }
 
-        .budget-preview {
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 22px;
-            box-shadow: var(--shadow);
-            padding: 25px;
+
+        /* HERO BENEFITS */
+
+        .budget-hero-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin: 24px 0 0;
+            padding: 0;
+            list-style: none;
         }
 
-        .preview-header {
+        .budget-hero-benefits li {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
+            gap: 7px;
+            color: var(--text-secondary, #64756f);
+            font-size: 13px;
+            font-weight: 650;
         }
 
-        .preview-title {
-            font-weight: 800;
+        .budget-hero-benefits li::before {
+            content: "✓";
+            color: var(--primary, #176b5b);
+            font-weight: 900;
         }
 
-        .preview-income {
-            color: var(--muted);
-            font-size: 0.86rem;
+
+        /* =========================================================
+           HERO SNAPSHOT
+        ========================================================= */
+
+        .budget-hero-visual {
+            position: relative;
         }
 
-        .budget-row {
-            margin: 15px 0;
+        .budget-snapshot {
+            position: relative;
+            padding: 25px;
+            overflow: hidden;
+            background: linear-gradient(145deg, #ffffff 0%, #f8fbf9 100%);
+            border: 1px solid var(--border, #dfe6e2);
+            border-radius: 22px;
+            box-shadow:
+                0 20px 55px rgba(23, 51, 45, .10),
+                0 3px 12px rgba(23, 51, 45, .04);
         }
 
-        .budget-row-top {
+        .budget-snapshot::before {
+            content: "";
+            position: absolute;
+            top: -85px;
+            right: -85px;
+            width: 190px;
+            height: 190px;
+            border-radius: 50%;
+            background: rgba(201, 146, 46, .08);
+        }
+
+        .budget-snapshot-top {
+            position: relative;
             display: flex;
+            align-items: flex-start;
             justify-content: space-between;
             gap: 15px;
-            font-size: 0.88rem;
-            margin-bottom: 7px;
+            margin-bottom: 22px;
         }
 
-        .budget-bar {
-            height: 9px;
-            border-radius: 999px;
-            background: #e8e7e2;
-            overflow: hidden;
+        .budget-snapshot-label {
+            margin-bottom: 5px;
+            color: var(--text-secondary, #64756f);
+            font-size: 12px;
+            font-weight: 750;
+            text-transform: uppercase;
+            letter-spacing: .07em;
         }
 
-        .budget-fill {
-            height: 100%;
-            background: var(--accent);
-            border-radius: inherit;
-        }
-
-        .preview-note {
-            margin-top: 20px;
-            padding-top: 18px;
-            border-top: 1px solid var(--line);
-            color: var(--muted);
-            font-size: 0.85rem;
-        }
-
-        /* =========================
-           GENERAL SECTIONS
-        ========================== */
-
-        .section {
-            padding: 70px 0;
-        }
-
-        .section-alt {
-            background: var(--surface);
-            border-top: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
-        }
-
-        .section-heading {
-            max-width: 760px;
-            margin-bottom: 32px;
-        }
-
-        .section-heading h2 {
-            margin: 0 0 10px;
-            font-size: clamp(1.7rem, 3vw, 2.4rem);
-            line-height: 1.15;
-            letter-spacing: -0.04em;
-        }
-
-        .section-heading p {
+        .budget-snapshot-title {
             margin: 0;
-            color: var(--muted);
-        }
-
-        /* =========================
-           CARDS
-        ========================== */
-
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-        }
-
-        .card {
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 24px;
-            transition:
-                transform 0.2s ease,
-                box-shadow 0.2s ease,
-                border-color 0.2s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            border-color: #c9c6f3;
-            box-shadow: var(--shadow);
-        }
-
-        .card-icon {
-            width: 42px;
-            height: 42px;
-            display: grid;
-            place-items: center;
-            border-radius: 11px;
-            background: var(--accent-soft);
-            color: var(--accent);
+            color: var(--text, #17201d);
+            font-size: 21px;
             font-weight: 800;
-            margin-bottom: 15px;
         }
 
-        .card h3 {
-            margin: 0 0 8px;
-            font-size: 1.08rem;
-            line-height: 1.35;
+        .budget-snapshot-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 43px;
+            height: 43px;
+            border-radius: 12px;
+            background: rgba(23, 107, 91, .09);
+            color: var(--primary, #176b5b);
         }
 
-        .card p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 0.92rem;
+        .budget-snapshot-icon svg {
+            width: 22px;
+            height: 22px;
         }
 
-        .card-link {
-            display: inline-block;
-            margin-top: 14px;
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 0.88rem;
-        }
 
-        /* =========================
-           STEPS
-        ========================== */
+        /* HERO SUMMARY */
 
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
-        }
-
-        .step {
+        .budget-summary {
             position: relative;
-            background: var(--surface-soft);
-            border: 1px solid var(--line);
-            border-radius: 16px;
-            padding: 22px;
-        }
-
-        .step-number {
-            color: var(--accent);
-            font-size: 0.78rem;
-            font-weight: 800;
-            margin-bottom: 12px;
-        }
-
-        .step h3 {
-            margin: 0 0 7px;
-            font-size: 1rem;
-        }
-
-        .step p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 0.88rem;
-        }
-
-        /* =========================
-           METHODS
-        ========================== */
-
-        .method-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
+            gap: 10px;
+            margin-bottom: 18px;
         }
 
-        .method {
-            border: 1px solid var(--line);
-            border-radius: 16px;
-            padding: 22px;
-            background: var(--surface);
+        .budget-summary-box {
+            padding: 15px;
+            background: #fff;
+            border: 1px solid var(--border, #dfe6e2);
+            border-radius: 12px;
         }
 
-        .method h3 {
-            margin: 0 0 8px;
-            font-size: 1.05rem;
+        .budget-summary-box span {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-secondary, #64756f);
+            font-size: 12px;
         }
 
-        .method p {
+        .budget-summary-box strong {
+            display: block;
+            color: var(--text, #17201d);
+            font-size: 20px;
+        }
+
+
+        /* HERO EXPENSE LIST */
+
+        .budget-expense-list {
+            position: relative;
+            display: grid;
+            gap: 11px;
+        }
+
+        .budget-expense-row {
+            display: grid;
+            grid-template-columns: 10px minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .budget-expense-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+        }
+
+        .budget-expense-dot.fixed {
+            background: var(--primary, #176b5b);
+        }
+
+        .budget-expense-dot.variable {
+            background: var(--accent, #c9922e);
+        }
+
+        .budget-expense-dot.saving {
+            background: #91aaa2;
+        }
+
+        .budget-expense-name {
+            color: var(--text, #17201d);
+            font-size: 13px;
+            font-weight: 650;
+        }
+
+        .budget-expense-value {
+            color: var(--text-secondary, #64756f);
+            font-size: 13px;
+            font-weight: 750;
+        }
+
+        .budget-progress {
+            position: relative;
+            height: 7px;
+            margin-top: 19px;
+            overflow: hidden;
+            border-radius: 999px;
+            background: #e7ece9;
+        }
+
+        .budget-progress span {
+            display: block;
+            width: 87%;
+            height: 100%;
+            border-radius: inherit;
+            background: var(--primary, #176b5b);
+        }
+
+        .budget-snapshot-note {
+            position: relative;
+            margin: 13px 0 0;
+            color: var(--text-secondary, #64756f);
+            font-size: 12px;
+            line-height: 1.55;
+        }
+
+
+        /* =========================================================
+           MAIN CONTENT
+        ========================================================= */
+
+        .budget-main {
+            padding-bottom: 75px;
+        }
+
+        .budget-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 285px;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .budget-content {
+            min-width: 0;
+        }
+
+        .budget-section {
+            margin-bottom: 52px;
+        }
+
+        .budget-section h2 {
+            margin: 0 0 16px;
+            color: var(--text, #17201d);
+            font-size: clamp(27px, 3vw, 36px);
+            line-height: 1.2;
+            letter-spacing: -.025em;
+        }
+
+        .budget-section h3 {
+            margin: 27px 0 10px;
+            color: var(--text, #17201d);
+            font-size: 21px;
+            line-height: 1.3;
+        }
+
+        .budget-section p {
+            margin: 0 0 16px;
+            color: var(--text-secondary, #64756f);
+            font-size: 16px;
+            line-height: 1.75;
+        }
+
+        .budget-section ul,
+        .budget-section ol {
+            margin: 15px 0;
+            padding-left: 23px;
+            color: var(--text-secondary, #64756f);
+        }
+
+        .budget-section li {
+            margin: 8px 0;
+            line-height: 1.65;
+        }
+
+        .budget-section a {
+            color: var(--primary, #176b5b);
+            font-weight: 650;
+        }
+
+
+        /* =========================================================
+           QUICK ANSWER
+        ========================================================= */
+
+        .budget-answer {
+            margin-bottom: 45px;
+            padding: 27px 29px;
+            background: #fff;
+            border: 1px solid var(--border, #dfe6e2);
+            border-left: 5px solid var(--primary, #176b5b);
+            border-radius: 13px;
+        }
+
+        .budget-answer-label {
+            margin-bottom: 8px;
+            color: var(--primary, #176b5b);
+            font-size: 12px;
+            font-weight: 850;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+        }
+
+        .budget-answer p {
             margin: 0;
-            color: var(--muted);
-            font-size: 0.91rem;
+            color: var(--text, #17201d);
+            font-size: 17px;
+            line-height: 1.72;
         }
 
-        /* =========================
-           CALCULATOR CTA
-        ========================== */
 
-        .tool-banner {
-            background: var(--accent-soft);
-            border: 1px solid #d9d7fa;
-            border-radius: 22px;
-            padding: 34px;
+        /* =========================================================
+           FEATURED GUIDES
+        ========================================================= */
+
+        .budget-featured-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 23px;
+        }
+
+        .budget-featured-card {
+            position: relative;
+            display: block;
+            min-height: 190px;
+            padding: 23px;
+            overflow: hidden;
+            background: #fff;
+            border: 1px solid var(--border, #dfe6e2);
+            border-radius: 16px;
+            text-decoration: none !important;
+            transition:
+                transform .18s ease,
+                box-shadow .18s ease,
+                border-color .18s ease;
+        }
+
+        .budget-featured-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(23, 107, 91, .3);
+            box-shadow: 0 12px 30px rgba(23, 51, 45, .08);
+        }
+
+        .budget-featured-card::after {
+            content: "";
+            position: absolute;
+            right: -40px;
+            bottom: -50px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(23, 107, 91, .055);
+        }
+
+        .budget-featured-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            margin-bottom: 16px;
+            border-radius: 9px;
+            background: rgba(23, 107, 91, .09);
+            color: var(--primary, #176b5b);
+            font-size: 12px;
+            font-weight: 850;
+        }
+
+        .budget-featured-card h3 {
+            position: relative;
+            z-index: 2;
+            margin: 0 0 8px;
+            color: var(--text, #17201d);
+            font-size: 19px;
+            line-height: 1.3;
+        }
+
+        .budget-featured-card p {
+            position: relative;
+            z-index: 2;
+            max-width: 430px;
+            margin: 0;
+            color: var(--text-secondary, #64756f);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .budget-featured-arrow {
+            position: absolute;
+            z-index: 3;
+            top: 20px;
+            right: 20px;
+            color: var(--primary, #176b5b);
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+
+        /* =========================================================
+           GUIDE GROUPS
+        ========================================================= */
+
+        .budget-guide-groups {
+            display: grid;
+            gap: 18px;
+            margin-top: 28px;
+        }
+
+        .budget-guide-group {
+            padding: 22px;
+            background: #fff;
+            border: 1px solid var(--border, #dfe6e2);
+            border-radius: 15px;
+        }
+
+        .budget-guide-group-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 30px;
+            gap: 20px;
+            margin-bottom: 14px;
         }
 
-        .tool-banner h2 {
-            margin: 0 0 8px;
-            font-size: 1.8rem;
-            letter-spacing: -0.035em;
+        .budget-guide-group-title {
+            margin: 0 !important;
+            color: var(--text, #17201d);
+            font-size: 18px !important;
         }
 
-        .tool-banner p {
-            margin: 0;
-            color: var(--muted);
-            max-width: 650px;
+        .budget-guide-group-description {
+            margin: 3px 0 0 !important;
+            color: var(--text-secondary, #64756f);
+            font-size: 13px !important;
+            line-height: 1.5 !important;
         }
 
-        /* =========================
-           ARTICLE CONTENT
-        ========================== */
-
-        .content {
-            max-width: 850px;
+        .budget-guide-count {
+            flex: 0 0 auto;
+            padding: 5px 9px;
+            border-radius: 999px;
+            background: var(--surface-soft, #eef5f2);
+            color: var(--primary, #176b5b);
+            font-size: 11px;
+            font-weight: 800;
         }
 
-        .content h2 {
-            font-size: 1.8rem;
-            letter-spacing: -0.035em;
-            margin: 0 0 14px;
-        }
-
-        .content h3 {
-            font-size: 1.2rem;
-            margin-top: 30px;
-            margin-bottom: 8px;
-        }
-
-        .content p {
-            color: #4e4d49;
-        }
-
-        .content ul {
-            color: #4e4d49;
-            padding-left: 22px;
-        }
-
-        .tip-box {
-            margin: 25px 0;
-            padding: 20px;
-            border-left: 4px solid var(--accent);
-            background: var(--accent-soft);
-            border-radius: 0 12px 12px 0;
-        }
-
-        /* =========================
-           FAQ
-        ========================== */
-
-        .faq {
-            max-width: 850px;
-        }
-
-        .faq details {
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            margin-bottom: 10px;
-            padding: 0 18px;
-        }
-
-        .faq summary {
-            cursor: pointer;
-            padding: 17px 0;
-            font-weight: 700;
-        }
-
-        .faq details p {
-            margin: 0 0 17px;
-            color: var(--muted);
-            font-size: 0.92rem;
-        }
-
-        /* =========================
-           FOOTER
-        ========================== */
-
-        .site-footer {
-            margin-top: 30px;
-            border-top: 1px solid var(--line);
-            background: var(--surface-soft);
-        }
-
-        .footer-inner {
-            padding: 48px 0 25px;
+        .budget-guide-links {
             display: grid;
-            grid-template-columns: 1.4fr 1fr 1fr 1fr;
-            gap: 35px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            border-top: 1px solid var(--border, #dfe6e2);
         }
 
-        .footer-brand p {
-            color: #0c0707;
-            max-width: 330px;
-            font-size: 0.88rem;
+        .budget-guide-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            min-width: 0;
+            padding: 14px 8px;
+            border-bottom: 1px solid var(--border, #dfe6e2);
+            color: var(--text, #17201d) !important;
+            font-size: 14px;
+            font-weight: 700 !important;
+            text-decoration: none !important;
         }
 
-        .footer-column h3 {
-            margin: 0 0 13px;
-            color: #070505;
-            font-size: 0.95rem;
+        .budget-guide-link:nth-child(odd) {
+            padding-left: 0;
+            padding-right: 18px;
         }
 
-        .footer-column a {
-            display: block;
-            color: #080505;
-            font-size: 0.86rem;
-            margin: 7px 0;
+        .budget-guide-link:nth-child(even) {
+            padding-left: 18px;
+            border-left: 1px solid var(--border, #dfe6e2);
         }
 
-        .footer-column a:hover {
-            color: var(--accent);
+        .budget-guide-link:hover {
+            color: var(--primary, #176b5b) !important;
         }
 
-        .footer-bottom {
-            border-top: 1px solid #363636;
-            padding: 18px 0;
-            color: #020101;
-            font-size: 0.8rem;
+        .budget-guide-link span {
+            flex: 0 0 auto;
+            color: #9aa7a2;
+            font-size: 15px;
+        }
+
+        .budget-guide-link:nth-last-child(-n+2) {
+            border-bottom: 0;
+        }
+
+
+        /* =========================================================
+           TABLES
+        ========================================================= */
+
+        .budget-table-wrap {
+            margin: 22px 0;
+            overflow-x: auto;
+            border: 1px solid var(--border, #dfe6e2);
+            border-radius: 12px;
+            background: #fff;
+        }
+
+        .budget-table {
+            width: 100%;
+            min-width: 560px;
+            border-collapse: collapse;
+        }
+
+        .budget-table th,
+        .budget-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border, #dfe6e2);
+            text-align: left;
+            vertical-align: top;
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        .budget-table th {
+            background: var(--surface-soft, #eef5f2);
+            color: var(--text, #17201d);
+            font-weight: 800;
+        }
+
+        .budget-table td {
+            color: var(--text-secondary, #64756f);
+        }
+
+        .budget-table tr:last-child td {
+            border-bottom: 0;
+        }
+
+
+        /* =========================================================
+           FORMULA
+        ========================================================= */
+
+        .budget-formula {
+            margin: 22px 0;
+            padding: 21px;
+            background: var(--surface-soft, #eef5f2);
+            border: 1px solid var(--border, #dfe6e2);
+            border-radius: 12px;
             text-align: center;
         }
 
-        /* =========================
-           MOBILE
-        ========================== */
+        .budget-formula strong {
+            color: var(--primary-dark, #0f5145);
+            font-size: 18px;
+        }
 
-        @media (max-width: 850px) {
-            .header-inner {
-                min-height: 64px;
+
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
+
+        .budget-sidebar {
+            position: sticky;
+            top: 96px;
+            align-self: start;
+            height: max-content;
+        }
+
+        .budget-sidebar-card {
+            margin-bottom: 18px;
+            padding: 21px;
+            background: #fff;
+            border: 1px solid var(--border, #dfe6e2);
+            border-radius: 14px;
+        }
+
+        .budget-sidebar-card h2,
+        .budget-sidebar-card h3 {
+            margin: 0 0 13px;
+            color: var(--text, #17201d);
+            font-size: 17px;
+        }
+
+        .budget-sidebar-links {
+            display: grid;
+            gap: 2px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .budget-sidebar-links a {
+            display: block;
+            padding: 7px 0;
+            color: var(--text-secondary, #64756f);
+            font-size: 13px;
+            line-height: 1.4;
+            text-decoration: none;
+        }
+
+        .budget-sidebar-links a:hover {
+            color: var(--primary, #176b5b);
+        }
+
+        .budget-sidebar-links .active {
+            color: var(--primary, #176b5b);
+            font-weight: 800;
+        }
+
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .budget-cta {
+            margin: 30px 0;
+            padding: 28px;
+            background: var(--primary, #176b5b);
+            border-radius: 15px;
+        }
+
+        .budget-cta h3 {
+            margin: 0 0 8px;
+            color: #fff;
+            font-size: 22px;
+        }
+
+        .budget-cta p {
+            margin: 0 0 17px;
+            color: rgba(255,255,255,.86);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .budget-cta a {
+            display: inline-flex;
+            align-items: center;
+            padding: 11px 17px;
+            border-radius: 8px;
+            background: #fff;
+            color: var(--primary-dark, #0f5145);
+            font-size: 14px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+
+        /* =========================================================
+           FAQ
+        ========================================================= */
+
+        .budget-faq {
+            display: grid;
+            gap: 10px;
+        }
+
+        .budget-faq-item {
+            overflow: hidden;
+            background: #fff;
+            border: 1px solid var(--border, #dfe6e2);
+            border-radius: 11px;
+        }
+
+        .budget-faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            width: 100%;
+            padding: 17px 19px;
+            border: 0;
+            background: transparent;
+            color: var(--text, #17201d);
+            font: inherit;
+            font-size: 15px;
+            font-weight: 750;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .budget-faq-icon {
+            flex: 0 0 auto;
+            color: var(--primary, #176b5b);
+            font-size: 20px;
+            transition: transform .2s ease;
+        }
+
+        .budget-faq-answer {
+            display: none;
+            padding: 0 19px 18px;
+        }
+
+        .budget-faq-answer p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .budget-faq-item.open .budget-faq-answer {
+            display: block;
+        }
+
+        .budget-faq-item.open .budget-faq-icon {
+            transform: rotate(45deg);
+        }
+
+
+        /* =========================================================
+           SOURCES
+        ========================================================= */
+
+        .budget-sources {
+            padding-top: 5px;
+            border-top: 1px solid var(--border, #dfe6e2);
+        }
+
+        .budget-sources ul {
+            margin-bottom: 0;
+        }
+
+        .budget-disclaimer {
+            margin-top: 25px;
+            padding: 18px;
+            background: var(--surface-soft, #eef5f2);
+            border-radius: 10px;
+        }
+
+        .budget-disclaimer p {
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.65;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 950px) {
+
+            .budget-hero-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
             }
 
-            .mobile-menu-toggle {
-                display: block;
+            .budget-hero-visual {
+                max-width: 620px;
             }
 
-            .main-nav {
-                position: absolute;
-                top: 64px;
-                left: 16px;
-                right: 16px;
-                display: none;
-                flex-direction: column;
-                align-items: stretch;
-                gap: 3px;
-                padding: 10px;
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: 14px;
-                box-shadow: var(--shadow);
+            .budget-layout {
+                grid-template-columns: 1fr;
             }
 
-            .main-nav.active {
-                display: flex;
-            }
-
-            .main-nav>a,
-            .nav-dropdown>button {
-                width: 100%;
-                text-align: left;
-            }
-
-            .nav-dropdown {
-                width: 100%;
-            }
-
-            .dropdown-menu {
+            .budget-sidebar {
                 position: static;
-                display: none;
-                box-shadow: none;
-                border: 0;
-                padding: 3px 0 3px 12px;
+                order: 2;
             }
 
-            .nav-dropdown.open .dropdown-menu {
-                display: block;
-            }
-
-            .hero-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .card-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .steps {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .footer-inner {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
 
-        @media (max-width: 580px) {
-            .container {
-                width: min(100% - 24px, var(--max-width));
+
+        @media (max-width: 700px) {
+
+            .budget-container {
+                width: min(calc(100% - 28px), 1200px);
             }
 
-            .hero {
-                padding: 55px 0 45px;
-            }
-
-            .section {
-                padding: 52px 0;
-            }
-
-            h1 {
-                font-size: 2.35rem;
-            }
-
-            .card-grid,
-            .method-grid,
-            .steps {
+            .budget-featured-grid {
                 grid-template-columns: 1fr;
             }
 
-            .tool-banner {
-                padding: 25px;
-                flex-direction: column;
-                align-items: flex-start;
+            .budget-featured-card {
+                min-height: auto;
             }
 
-            .footer-inner {
-                grid-template-columns: 1fr;
-                gap: 25px;
+            .budget-guide-group {
+                padding: 18px;
             }
+
+            .budget-guide-links {
+                grid-template-columns: 1fr;
+            }
+
+            .budget-guide-link,
+            .budget-guide-link:nth-child(odd),
+            .budget-guide-link:nth-child(even) {
+                padding: 13px 0;
+                border-left: 0;
+            }
+
+            .budget-guide-link:last-child {
+                border-bottom: 0;
+            }
+
         }
+
+
+        @media (max-width: 600px) {
+
+            .budget-breadcrumb {
+                padding-top: 20px;
+            }
+
+            .budget-hero {
+                padding-top: 10px;
+                padding-bottom: 38px;
+            }
+
+            .budget-hero h1 {
+                font-size: 40px;
+                line-height: 1.04;
+            }
+
+            .budget-hero-intro {
+                font-size: 16px;
+                line-height: 1.65;
+            }
+
+            .budget-hero-actions {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+            .budget-hero-primary,
+            .budget-hero-secondary {
+                width: 100%;
+            }
+
+            .budget-hero-benefits {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .budget-snapshot {
+                padding: 19px;
+                border-radius: 17px;
+            }
+
+            .budget-summary {
+                gap: 8px;
+            }
+
+            .budget-summary-box {
+                padding: 12px;
+            }
+
+            .budget-section {
+                margin-bottom: 40px;
+            }
+
+            .budget-section h2 {
+                font-size: 27px;
+            }
+
+            .budget-answer {
+                padding: 21px;
+            }
+
+            .budget-cta {
+                padding: 23px;
+            }
+
+        }
+
+
+        @media (max-width: 380px) {
+
+            .budget-hero h1 {
+                font-size: 35px;
+            }
+
+            .budget-hero-benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .budget-summary {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
     </style>
 
-    <!-- FAQ Schema -->
+
+    <!-- =========================================================
+         COLLECTION PAGE SCHEMA
+    ========================================================= -->
+
     <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Budgeting Guide",
+        "url": "https://paycheckmint.com/finance/budgeting/",
+        "description": "Practical budgeting guides covering spending plans, saving, emergency funds, debt, and household budgeting.",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "PaycheckMint",
+            "url": "https://paycheckmint.com/"
+        }
+    }
+    </script>
+
+
+    <!-- =========================================================
+         BREADCRUMB SCHEMA
+    ========================================================= -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
             {
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": [
-                    {
-                        "@type": "Question",
-                        "name": "What is budgeting?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Budgeting is the process of planning how you will use your income to cover expenses, save money, pay debt, and work toward financial goals."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "How do I make a monthly budget?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Start with your expected take-home income, list your regular and irregular expenses, set savings and debt goals, compare spending with income, and adjust the plan until your expenses fit within your available money."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "What is the 50/30/20 budget rule?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "The 50/30/20 budgeting approach generally divides after-tax income into three groups: needs, wants, and savings or debt payments. It is a guideline rather than a requirement, and actual percentages may need to change based on income and expenses."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Should I budget based on gross income or take-home pay?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Most household spending budgets are easier to manage using take-home pay because it reflects the money available after taxes and payroll deductions."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "How much should I save each month?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "There is no single savings amount that works for everyone. Your target depends on income, expenses, debt, emergency savings, and financial goals. A budget can help you choose an amount that is realistic and sustainable."
-                        }
-                    }
-                ]
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://paycheckmint.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Finance",
+                "item": "https://paycheckmint.com/finance/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Budgeting",
+                "item": "https://paycheckmint.com/finance/budgeting/"
             }
-        </script>
+        ]
+    }
+    </script>
+
+
+    <!-- =========================================================
+         FAQ SCHEMA
+    ========================================================= -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the purpose of a budget?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A budget gives you a plan for how your income will be used for essential expenses, discretionary spending, savings, and debt payments."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much should I save each month?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "There is no single savings percentage that works for every household. A useful target depends on income, essential expenses, existing savings, debt obligations, and financial goals."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What budgeting method should I use?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The appropriate budgeting method depends on how you receive income, how predictable your expenses are, and how detailed you want your plan to be. Common methods include zero-based budgeting, 50/30/20 budgeting, paycheck budgeting, and envelope budgeting."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should savings be included in a budget?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Including savings as a planned category makes it easier to account for financial goals instead of treating savings as whatever remains at the end of the month."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How often should I review my budget?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A budget can be reviewed around each paycheck or at least monthly, with a more detailed review whenever income, major bills, debt, household circumstances, or financial goals change."
+                }
+            }
+        ]
+    }
+    </script>
+
 </head>
 
-<body>
-    <header class="site-header">
-        <div class="container header-inner">
-            <a href="/" class="logo"> Paycheck<span>Mint</span> </a>
 
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation" aria-expanded="false">
-                ☰
+<body>
+
+
+    <!-- =========================================================
+         HEADER
+    ========================================================= -->
+
+    <header class="pm-header" id="site-header">
+
+        <div class="pm-header-inner">
+
+            <a class="pm-brand" href="/" aria-label="PaycheckMint home">
+                Paycheck<span>Mint</span>
+            </a>
+
+
+            <nav class="pm-desktop-nav" aria-label="Main navigation">
+
+                <a class="pm-nav-link" href="/income/">
+                    Income
+                </a>
+
+
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button"
+                        type="button"
+                        aria-expanded="false">
+
+                        Finance
+
+                        <svg class="pm-chevron"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2">
+
+                            <path d="m6 9 6 6 6-6"/>
+
+                        </svg>
+
+                    </button>
+
+
+                    <div class="pm-dropdown-menu">
+
+                        <span class="pm-dropdown-label">
+                            Explore
+                        </span>
+
+                        <a href="/finance/">
+                            Finance Overview
+                        </a>
+
+                        <a href="/income/">
+                            Income &amp; Earnings
+                        </a>
+
+                        <a href="/finance/budgeting/">
+                            Budgeting Guides
+                        </a>
+
+                        <a href="/finance/taxes/">
+                            Taxes
+                        </a>
+
+                        <a href="/finance/credit-debt/">
+                            Credit &amp; Debt
+                        </a>
+
+                        <a href="/finance/investing/">
+                            Investing
+                        </a>
+
+                        <a href="/finance/insurance/">
+                            Insurance
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button"
+                        type="button"
+                        aria-expanded="false">
+
+                        Calculators
+
+                        <svg class="pm-chevron"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2">
+
+                            <path d="m6 9 6 6 6-6"/>
+
+                        </svg>
+
+                    </button>
+
+
+                    <div class="pm-dropdown-menu">
+
+                        <span class="pm-dropdown-label">
+                            Paycheck tools
+                        </span>
+
+                        <a href="/paycheck-tax-calculator/">
+                            Paycheck Tax Calculator
+                        </a>
+
+                        <a href="/take-home-pay-calculator/">
+                            Take-Home Pay Calculator
+                        </a>
+
+                        <a href="/hourly-paycheck-calculator/">
+                            Hourly Paycheck Calculator
+                        </a>
+
+                        <a href="/overtime-pay-calculator/">
+                            Overtime Pay Calculator
+                        </a>
+
+                        <a href="/salary-paycheck-calculator/">
+                            Salary Paycheck Calculator
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <a class="pm-nav-link" href="/finance/">
+                    Learn
+                </a>
+
+            </nav>
+
+
+            <div class="pm-nav-spacer"></div>
+
+
+            <!-- SEARCH -->
+
+            <button class="pm-search-button"
+                id="searchToggle"
+                type="button"
+                aria-label="Open search"
+                aria-expanded="false"
+                aria-controls="searchPanel">
+
+                <svg viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                    <circle cx="11" cy="11" r="7"></circle>
+
+                    <path d="m20 20-4-4"></path>
+
+                </svg>
+
             </button>
 
-            <nav class="main-nav" id="mainNav">
-                <a href="/">Home</a>
 
-                <a href="/paycheck-calculator/">Paycheck Calculator</a>
+            <a class="pm-header-cta"
+                href="/paycheck-tax-calculator/">
 
-                <a href="/income/">Income</a>
+                Calculate paycheck
 
-                <div class="nav-dropdown" id="financeDropdown">
-                    <button type="button" aria-expanded="false">Finance</button>
+            </a>
 
-                    <div class="dropdown-menu">
-                        <a href="/finance/">Finance Overview</a>
 
-                        <a href="/finance/taxes/">Taxes</a>
+            <!-- MOBILE -->
 
-                        <a href="/finance/budgeting/"> Budgeting </a>
+            <button class="pm-mobile-toggle"
+                id="mobileToggle"
+                type="button"
+                aria-label="Open navigation"
+                aria-expanded="false"
+                aria-controls="mobileNav">
 
-                        <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+                <svg id="mobileMenuIcon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round">
 
-                        <a href="/finance/investing/"> Investing </a>
+                    <path d="M4 6h16"/>
+                    <path d="M4 12h16"/>
+                    <path d="M4 18h16"/>
 
-                        <a href="/finance/insurance/"> Insurance </a>
-                    </div>
-                </div>
-            </nav>
+                </svg>
+
+            </button>
+
         </div>
+
+
+        <!-- SEARCH PANEL -->
+
+        <div class="pm-search-panel" id="searchPanel">
+
+            <div class="pm-search-inner">
+
+                <div class="pm-search-field">
+
+                    <svg viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2">
+
+                        <circle cx="11" cy="11" r="7"/>
+
+                        <path d="m20 20-4-4"/>
+
+                    </svg>
+
+
+                    <input id="siteSearch"
+                        class="pm-search-input"
+                        type="search"
+                        autocomplete="off"
+                        placeholder="Search PaycheckMint..."
+                        aria-label="Search PaycheckMint">
+
+
+                    <button class="pm-search-close"
+                        id="searchClose"
+                        type="button"
+                        aria-label="Close search">
+
+                        <svg viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2">
+
+                            <path d="M6 6l12 12"/>
+                            <path d="M18 6 6 18"/>
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="pm-search-results"
+                id="searchResults">
+            </div>
+
+        </div>
+
+
+        <!-- MOBILE NAV -->
+
+        <nav class="pm-mobile-nav"
+            id="mobileNav"
+            aria-label="Mobile navigation">
+
+            <div class="pm-mobile-nav-inner">
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a href="/income/">
+                    Income
+                </a>
+
+
+                <button class="pm-mobile-finance-button"
+                    id="mobileFinanceToggle"
+                    type="button"
+                    aria-expanded="false">
+
+                    <span>Finance</span>
+
+                    <svg class="pm-chevron"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2">
+
+                        <path d="m6 9 6 6 6-6"/>
+
+                    </svg>
+
+                </button>
+
+
+                <div class="pm-mobile-finance-links"
+                    id="mobileFinanceLinks">
+
+                    <a href="/finance/">
+                        Finance Overview
+                    </a>
+
+                    <a href="/finance/budgeting/">
+                        Budgeting
+                    </a>
+
+                    <a href="/finance/taxes/">
+                        Taxes
+                    </a>
+
+                    <a href="/finance/credit-debt/">
+                        Credit &amp; Debt
+                    </a>
+
+                    <a href="/finance/investing/">
+                        Investing
+                    </a>
+
+                    <a href="/finance/insurance/">
+                        Insurance
+                    </a>
+
+                </div>
+
+
+                <a href="/paycheck-tax-calculator/">
+                    Paycheck Tax Calculator
+                </a>
+
+                <a href="/take-home-pay-calculator/">
+                    Take-Home Pay Calculator
+                </a>
+
+                <a href="/hourly-paycheck-calculator/">
+                    Hourly Paycheck Calculator
+                </a>
+
+                <a href="/overtime-pay-calculator/">
+                    Overtime Pay Calculator
+                </a>
+
+                <a href="/salary-paycheck-calculator/">
+                    Salary Paycheck Calculator
+                </a>
+
+
+                <div class="pm-mobile-search-row">
+
+                    <button class="pm-button-secondary"
+                        id="mobileSearchButton"
+                        type="button">
+
+                        Search PaycheckMint
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </nav>
+
     </header>
 
-    <main>
-        <!-- HERO -->
 
-        <section class="hero">
-            <div class="container hero-grid">
-                <div>
-                    <span class="eyebrow"> PaycheckMint Budgeting </span>
+    <!-- =========================================================
+         PAGE
+    ========================================================= -->
 
-                    <h1>Build a Budget That Works for Your Money</h1>
+    <main class="budget-page">
 
-                    <p class="hero-text">
-                        Learn how to plan your spending, manage monthly expenses, budget your paycheck, build
-                        savings, and make progress toward your financial goals with practical budgeting guides and
-                        tools.
-                    </p>
+        <div class="budget-container">
 
-                    <div class="hero-actions">
-                        <a href="/finance/budgeting/paycheck-budget/" class="btn btn-primary">
-                            Budget Your Paycheck
+
+            <!-- BREADCRUMB -->
+
+            <nav class="budget-breadcrumb"
+                aria-label="Breadcrumb">
+
+                <ol>
+
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    <li class="separator">/</li>
+
+                    <li>
+                        <a href="/finance/">
+                            Finance
                         </a>
+                    </li>
 
-                        <a href="#budgeting-guides" class="btn btn-secondary"> Explore Budgeting Guides </a>
-                    </div>
-                </div>
+                    <li class="separator">/</li>
 
-                <div class="budget-preview">
-                    <div class="preview-header">
-                        <div class="preview-title">Example Monthly Budget</div>
+                    <li aria-current="page">
+                        Budgeting
+                    </li>
 
-                        <div class="preview-income">$5,000 take-home pay</div>
-                    </div>
+                </ol>
 
-                    <div class="budget-row">
-                        <div class="budget-row-top">
-                            <span>Needs</span>
-                            <strong>$2,500</strong>
+            </nav>
+
+
+            <!-- =====================================================
+                 HERO
+            ====================================================== -->
+
+            <section class="budget-hero">
+
+                <div class="budget-hero-grid">
+
+
+                    <div class="budget-hero-copy">
+
+                        <div class="budget-eyebrow">
+                            Personal Finance Guide
                         </div>
 
-                        <div class="budget-bar">
-                            <div class="budget-fill" style="width: 50%"></div>
+
+                        <h1>
+                            Budgeting That Gives Every Dollar a Purpose
+                        </h1>
+
+
+                        <p class="budget-hero-intro">
+                            Learn how to build a realistic budget, manage
+                            recurring bills, control flexible spending,
+                            prepare for irregular expenses, and make room
+                            for savings and financial goals.
+                        </p>
+
+
+                        <div class="budget-hero-actions">
+
+                            <a class="budget-hero-primary"
+                                href="/finance/budgeting/how-to-make-a-budget/">
+
+                                Start a Budget →
+
+                            </a>
+
+
+                            <a class="budget-hero-secondary"
+                                href="/finance/budgeting/fixed-vs-variable-expenses/">
+
+                                Understand Your Expenses
+
+                            </a>
+
                         </div>
+
+
+                        <ul class="budget-hero-benefits">
+
+                            <li>
+                                Practical examples
+                            </li>
+
+                            <li>
+                                Simple budgeting methods
+                            </li>
+
+                            <li>
+                                Household-friendly guidance
+                            </li>
+
+                        </ul>
+
                     </div>
 
-                    <div class="budget-row">
-                        <div class="budget-row-top">
-                            <span>Wants</span>
-                            <strong>$1,500</strong>
+
+                    <!-- HERO VISUAL -->
+
+                    <div class="budget-hero-visual">
+
+                        <div class="budget-snapshot">
+
+                            <div class="budget-snapshot-top">
+
+                                <div>
+
+                                    <div class="budget-snapshot-label">
+                                        Monthly money plan
+                                    </div>
+
+                                    <h2 class="budget-snapshot-title">
+                                        Example Budget
+                                    </h2>
+
+                                </div>
+
+
+                                <div class="budget-snapshot-icon">
+
+                                    <svg viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round">
+
+                                        <rect x="3"
+                                            y="5"
+                                            width="18"
+                                            height="15"
+                                            rx="2"></rect>
+
+                                        <path d="M7 9h10"></path>
+
+                                        <path d="M7 13h4"></path>
+
+                                        <path d="M7 17h7"></path>
+
+                                    </svg>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="budget-summary">
+
+                                <div class="budget-summary-box">
+
+                                    <span>
+                                        Take-home income
+                                    </span>
+
+                                    <strong>
+                                        $4,500
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="budget-summary-box">
+
+                                    <span>
+                                        Planned spending
+                                    </span>
+
+                                    <strong>
+                                        $3,900
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="budget-expense-list">
+
+                                <div class="budget-expense-row">
+
+                                    <span class="budget-expense-dot fixed"></span>
+
+                                    <span class="budget-expense-name">
+                                        Fixed expenses
+                                    </span>
+
+                                    <span class="budget-expense-value">
+                                        $2,250
+                                    </span>
+
+                                </div>
+
+
+                                <div class="budget-expense-row">
+
+                                    <span class="budget-expense-dot variable"></span>
+
+                                    <span class="budget-expense-name">
+                                        Variable expenses
+                                    </span>
+
+                                    <span class="budget-expense-value">
+                                        $1,350
+                                    </span>
+
+                                </div>
+
+
+                                <div class="budget-expense-row">
+
+                                    <span class="budget-expense-dot saving"></span>
+
+                                    <span class="budget-expense-name">
+                                        Savings &amp; goals
+                                    </span>
+
+                                    <span class="budget-expense-value">
+                                        $600
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="budget-progress">
+                                <span></span>
+                            </div>
+
+
+                            <p class="budget-snapshot-note">
+                                A budget is a plan, not a prediction.
+                                Update it when your income, bills, or
+                                spending patterns change.
+                            </p>
+
                         </div>
 
-                        <div class="budget-bar">
-                            <div class="budget-fill" style="width: 30%"></div>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 MAIN
+            ====================================================== -->
+
+            <section class="budget-main">
+
+                <div class="budget-layout">
+
+
+                    <article class="budget-content">
+
+
+                        <!-- QUICK ANSWER -->
+
+                        <div class="budget-answer">
+
+                            <div class="budget-answer-label">
+                                Quick answer
+                            </div>
+
+                            <p>
+                                A budget is a plan for how you will use your
+                                income during a specific period. It helps you
+                                assign money to essential expenses, discretionary
+                                spending, savings, and debt payments before the
+                                money is spent. A useful budget should be realistic
+                                enough to follow and flexible enough to change
+                                when your income or expenses change.
+                            </p>
+
                         </div>
-                    </div>
 
-                    <div class="budget-row">
-                        <div class="budget-row-top">
-                            <span>Savings &amp; Debt</span>
-                            <strong>$1,000</strong>
+
+                        <!-- WHY BUDGETING -->
+
+                        <section class="budget-section">
+
+                            <h2>
+                                Why budgeting matters
+                            </h2>
+
+                            <p>
+                                Budgeting is not simply about cutting expenses.
+                                It is a way to understand where your money goes
+                                and decide what you want it to accomplish.
+                            </p>
+
+                            <p>
+                                A good budget can help you plan recurring bills,
+                                prepare for irregular expenses, build savings,
+                                make debt payments, and identify spending that
+                                does not fit your current priorities.
+                            </p>
+
+                            <p>
+                                The right system can differ from one household
+                                to another. Someone paid once a month may prefer
+                                a monthly budget, while someone paid weekly or
+                                biweekly may find paycheck budgeting easier.
+                            </p>
+
+                        </section>
+
+
+                        <!-- =================================================
+                             GUIDE DIRECTORY
+                        ================================================= -->
+
+                        <section class="budget-section">
+
+                            <h2>
+                                Explore the budgeting guides
+                            </h2>
+
+                            <p>
+                                Start with a featured guide or browse the
+                                categories below. The guides cover the main
+                                decisions involved in building and maintaining
+                                a household budget.
+                            </p>
+
+
+                            <!-- FEATURED GUIDES -->
+
+                            <div class="budget-featured-grid">
+
+
+                                <a class="budget-featured-card"
+                                    href="/finance/budgeting/how-to-make-a-budget/">
+
+                                    <span class="budget-featured-number">
+                                        01
+                                    </span>
+
+                                    <span class="budget-featured-arrow">
+                                        →
+                                    </span>
+
+                                    <h3>
+                                        How to Make a Budget
+                                    </h3>
+
+                                    <p>
+                                        Build a practical budget from your
+                                        income, bills, spending, savings,
+                                        and financial goals.
+                                    </p>
+
+                                </a>
+
+
+                                <a class="budget-featured-card"
+                                    href="/finance/budgeting/monthly-budget/">
+
+                                    <span class="budget-featured-number">
+                                        02
+                                    </span>
+
+                                    <span class="budget-featured-arrow">
+                                        →
+                                    </span>
+
+                                    <h3>
+                                        Monthly Budget
+                                    </h3>
+
+                                    <p>
+                                        Organize recurring bills, flexible
+                                        spending, savings, and irregular
+                                        expenses into one monthly plan.
+                                    </p>
+
+                                </a>
+
+
+                                <a class="budget-featured-card"
+                                    href="/finance/budgeting/paycheck-budget/">
+
+                                    <span class="budget-featured-number">
+                                        03
+                                    </span>
+
+                                    <span class="budget-featured-arrow">
+                                        →
+                                    </span>
+
+                                    <h3>
+                                        Budget by Paycheck
+                                    </h3>
+
+                                    <p>
+                                        Match bills and spending with the
+                                        timing of weekly, biweekly, or
+                                        monthly paychecks.
+                                    </p>
+
+                                </a>
+
+
+                                <a class="budget-featured-card"
+                                    href="/finance/budgeting/emergency-fund/">
+
+                                    <span class="budget-featured-number">
+                                        04
+                                    </span>
+
+                                    <span class="budget-featured-arrow">
+                                        →
+                                    </span>
+
+                                    <h3>
+                                        Emergency Fund
+                                    </h3>
+
+                                    <p>
+                                        Understand how emergency savings
+                                        fits into a broader household
+                                        budget.
+                                    </p>
+
+                                </a>
+
+                            </div>
+
+
+                            <!-- GUIDE GROUPS -->
+
+                            <div class="budget-guide-groups">
+
+
+                                <!-- BUILD -->
+
+                                <div class="budget-guide-group">
+
+                                    <div class="budget-guide-group-header">
+
+                                        <div>
+
+                                            <h3 class="budget-guide-group-title">
+                                                Build &amp; Organize a Budget
+                                            </h3>
+
+                                            <p class="budget-guide-group-description">
+                                                Start with the fundamentals
+                                                and choose a budgeting system.
+                                            </p>
+
+                                        </div>
+
+                                        <span class="budget-guide-count">
+                                            5 guides
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="budget-guide-links">
+
+                                        <a class="budget-guide-link"
+                                            href="/finance/budgeting/how-to-make-a-budget/">
+
+                                            How to Make a Budget
+
+                                            <span>→</span>
+
+                                        </a>
+
+
+                                        <a class="budget-guide-link"
+                                            href="/finance/budgeting/monthly-budget/">
+
+                                            Monthly Budget
+
+                                            <span>→</span>
+
+                                        </a>
+
+
+                                        <a class="budget-guide-link"
+                                            href="/finance/budgeting/50-30-20-rule/">
+
+                                            50/30/20 Budget
+
+                                            <span>→</span>
+
+                                        </a>
+
+
+                                        <a class="budget-guide-link"
+                                            href="/finance/budgeting/zero-based-budget/">
+
+                                            Zero-Based Budget
+
+                                            <span>→</span>
+
+                                        </a>
+
+
+                                        <a class="budget-guide-link"
+                                            href="/finance/budgeting/paycheck-budget/">
+
+                                            Paycheck Budgeting
+
+                                            <span>→</span>
+
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- SPENDING -->
+
+                                <div class="budget-guide-group">
+
+                                    <div class="budget-guide-group-header">
+
+                                        <div>
+
+                                            <h3 class="budget-guide-group-title">
+                                                Understand Your Spending
+                                            </h3>
+
+                                            <p class="budget-guide-group-description">
+                                                Learn how to classify expenses
+                                                and make spending decisions.
+                                            </p>
+
+                                        </div>
+
+                                        <span class="budget-guide-count">
+                                            3 guides
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="budget-guide-links">
+
+                                        <a class="budget-guide-link"
+                                            href="/finance/budgeting/envelope-budget/">
+
+                                            Envelope Budgeting
+
+                                            <span>→</span>
+
+                                        </a>
+
+
+                                        <a class="budget-guide-link"
+                                            href="/finance/budgeting/fixed-vs-variable-expenses/">
+
+                                            Fixed vs. Variable Expenses
+
+                                            <span>→</span>
+
+                                        </a>
+
+
+                                        <a class="budget-guide-link"
+                                            href="/finance/budgeting/needs-vs-wants/">
+
+                                            Needs vs. Wants
+
+                                            <span>→</span>
+
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- SAVING -->
+
+                                <div class="budget-guide-group">
+
+                                    <div class="budget-guide-group-header">
+
+                                        <div>
+
+                                            <h3 class="budget-guide-group-title">
+                                                Saving &amp; Planning Ahead
+                                            </h3>
+
+                                            <p class="budget-guide-group-description">
+                                                Prepare for emergencies,
+                                                annual bills, and future goals.
+                                            </p>
+
+                                        </div>
+
+                                        <span class="budget-guide-count">
+                                            3 guides
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="budget-guide-links">
+
+                                        <a class="budget-guide-link"
+                                            href="/finance/budgeting/how-much-should-i-save/">
+
+                                            How Much Should I Save?
+
+                                            <span>→</span>
+
+                                        </a>
+
+
+                                        <a class="budget-guide-link"
+                                            href="/finance/budgeting/emergency-fund/">
+
+                                            Emergency Fund
+
+                                            <span>→</span>
+
+                                        </a>
+
+
+                                        <a class="budget-guide-link"
+                                            href="/finance/budgeting/sinking-funds/">
+
+                                            Sinking Funds
+
+                                            <span>→</span>
+
+                                        </a>
+
+                                        <a class="budget-guide-link"
+                                            href="/finance/budgeting/paycheck-to-paycheck/">
+
+                                            Paycheck to Paycheck
+
+                                            <span>→</span>
+
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- DEBT -->
+
+                                <div class="budget-guide-group">
+
+                                    <div class="budget-guide-group-header">
+
+                                        <div>
+
+                                            <h3 class="budget-guide-group-title">
+                                                Debt &amp; Household Budgeting
+                                            </h3>
+
+                                            <p class="budget-guide-group-description">
+                                                Budget around debt payments,
+                                                relationships, and household needs.
+                                            </p>
+
+                                        </div>
+
+                                        <span class="budget-guide-count">
+                                            4 guides
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="budget-guide-links">
+
+                                        <a class="budget-guide-link"
+                                            href="/finance/budgeting/debt-budget/">
+
+                                            Debt Budget
+
+                                            <span>→</span>
+
+                                        </a>
+
+
+                                        <a class="budget-guide-link"
+                                            href="/finance/budgeting/budgeting-for-couples/">
+
+                                            Budgeting as a Couple
+
+                                            <span>→</span>
+
+                                        </a>
+
+
+                                        <a class="budget-guide-link"
+                                            href="/finance/budgeting/family-budget/">
+
+                                            Family Budget
+
+                                            <span>→</span>
+
+                                        </a>
+
+
+                                        <a class="budget-guide-link"
+                                            href="/finance/budgeting/budget-after-raise/">
+
+                                            Budget After a Raise
+
+                                            <span>→</span>
+
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- INCOME -->
+
+                                <div class="budget-guide-group">
+
+                                    <div class="budget-guide-group-header">
+
+                                        <div>
+
+                                            <h3 class="budget-guide-group-title">
+                                                Different Income Situations
+                                            </h3>
+
+                                            <p class="budget-guide-group-description">
+                                                Explore budgeting approaches
+                                                for different income circumstances.
+                                            </p>
+
+                                        </div>
+
+                                        <span class="budget-guide-count">
+                                            1 guide
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="budget-guide-links">
+
+                                        <a class="budget-guide-link"
+                                            href="/finance/budgeting/budget-for-low-income/">
+
+                                            Budget for Low Income
+
+                                            <span>→</span>
+
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- HOW TO MAKE -->
+
+                        <section class="budget-section">
+
+                            <h2>
+                                How to make a budget
+                            </h2>
+
+                            <p>
+                                A practical budget starts with your actual
+                                income and expenses rather than an idealized
+                                spending plan.
+                            </p>
+
+                            <ol>
+
+                                <li>
+                                    <strong>Calculate your usable income.</strong>
+                                    Start with the money you actually expect
+                                    to receive during the budgeting period.
+                                </li>
+
+                                <li>
+                                    <strong>List essential expenses.</strong>
+                                    Include housing, utilities, groceries,
+                                    transportation, insurance, minimum debt
+                                    payments, and other necessary costs.
+                                </li>
+
+                                <li>
+                                    <strong>Add savings and financial goals.</strong>
+                                    Include emergency savings, retirement,
+                                    planned purchases, or other goals.
+                                </li>
+
+                                <li>
+                                    <strong>Plan discretionary spending.</strong>
+                                    Account for entertainment, dining out,
+                                    hobbies, subscriptions, and other optional
+                                    purchases.
+                                </li>
+
+                                <li>
+                                    <strong>Compare your plan with your income.</strong>
+                                    If planned expenses exceed income, identify
+                                    categories that can be adjusted.
+                                </li>
+
+                                <li>
+                                    <strong>Review the budget regularly.</strong>
+                                    Update the plan when income, bills, or
+                                    priorities change.
+                                </li>
+
+                            </ol>
+
+                            <p>
+                                For a step-by-step process, read the
+                                <a href="/finance/budgeting/how-to-make-a-budget/">
+                                    complete guide to making a budget
+                                </a>.
+                            </p>
+
+                        </section>
+
+
+                        <!-- FORMULA -->
+
+                        <section class="budget-section">
+
+                            <h2>
+                                Basic budget formula
+                            </h2>
+
+                            <p>
+                                At its simplest, a budget compares the income
+                                available for the period with the expenses,
+                                savings, and debt payments you plan to make.
+                            </p>
+
+                            <div class="budget-formula">
+
+                                <strong>
+                                    Income − Expenses − Savings − Debt Payments
+                                    = Remaining Money
+                                </strong>
+
+                            </div>
+
+                            <p>
+                                A positive amount can provide additional
+                                flexibility, while a negative amount means
+                                the plan needs to be adjusted before the
+                                spending occurs.
+                            </p>
+
+                        </section>
+
+
+                        <!-- 50/30/20 -->
+
+                        <section class="budget-section">
+
+                            <h2>
+                                50/30/20 budgeting
+                            </h2>
+
+                            <p>
+                                The 50/30/20 framework is one way to organize
+                                spending. It generally divides after-tax income
+                                into three broad categories: needs, wants, and
+                                savings or debt payments.
+                            </p>
+
+
+                            <div class="budget-table-wrap">
+
+                                <table class="budget-table">
+
+                                    <thead>
+
+                                        <tr>
+                                            <th>Category</th>
+                                            <th>Framework share</th>
+                                            <th>Examples</th>
+                                        </tr>
+
+                                    </thead>
+
+
+                                    <tbody>
+
+                                        <tr>
+
+                                            <td>
+                                                Needs
+                                            </td>
+
+                                            <td>
+                                                50%
+                                            </td>
+
+                                            <td>
+                                                Housing, utilities, groceries,
+                                                transportation, insurance, and
+                                                other essential expenses.
+                                            </td>
+
+                                        </tr>
+
+
+                                        <tr>
+
+                                            <td>
+                                                Wants
+                                            </td>
+
+                                            <td>
+                                                30%
+                                            </td>
+
+                                            <td>
+                                                Dining out, entertainment,
+                                                hobbies, travel, and other
+                                                discretionary spending.
+                                            </td>
+
+                                        </tr>
+
+
+                                        <tr>
+
+                                            <td>
+                                                Savings and debt
+                                            </td>
+
+                                            <td>
+                                                20%
+                                            </td>
+
+                                            <td>
+                                                Savings, retirement contributions,
+                                                and qualifying debt payments.
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+
+                            <p>
+                                These percentages are a framework rather than
+                                a requirement. Housing costs, income, debt,
+                                family size, location, and financial priorities
+                                can result in different allocations.
+                            </p>
+
+
+                            <p>
+
+                                Read the
+                                <a href="/finance/budgeting/50-30-20-rule/">
+                                    complete 50/30/20 guide
+                                </a>
+                                for more detail.
+
+                            </p>
+
+                        </section>
+
+
+                        <!-- METHODS -->
+
+                        <section class="budget-section">
+
+                            <h2>
+                                Popular budgeting methods
+                            </h2>
+
+                            <p>
+                                Different budgeting systems solve different
+                                problems. You can also change methods as your
+                                income or financial situation changes.
+                            </p>
+
+
+                            <h3>
+                                Zero-based budgeting
+                            </h3>
+
+                            <p>
+                                Zero-based budgeting assigns planned income to
+                                expenses, savings, debt payments, and other
+                                purposes until the planned income is fully
+                                allocated.
+                            </p>
+
+
+                            <h3>
+                                Paycheck budgeting
+                            </h3>
+
+                            <p>
+                                Paycheck budgeting organizes expenses around
+                                the dates you receive income. It can be useful
+                                when bills and paychecks do not line up neatly
+                                with a calendar month.
+                            </p>
+
+
+                            <h3>
+                                Envelope budgeting
+                            </h3>
+
+                            <p>
+                                Envelope budgeting gives spending categories
+                                defined limits. It can be implemented with
+                                physical cash or digital categories.
+                            </p>
+
+
+                            <p>
+                                Explore the
+                                <a href="/finance/budgeting/envelope-budget/">
+                                    envelope budgeting guide
+                                </a>
+                                for a detailed explanation.
+                            </p>
+
+                        </section>
+
+
+                        <!-- PAYCHECK -->
+
+                        <section class="budget-section">
+
+                            <h2>
+                                Budgeting around your paycheck
+                            </h2>
+
+                            <p>
+                                If you receive a paycheck every week, every two
+                                weeks, twice a month, or once a month, the timing
+                                of your income can affect how you organize bills.
+                            </p>
+
+                            <p>
+                                Start by identifying which bills are due before
+                                each paycheck arrives. Then assign part of each
+                                paycheck to upcoming expenses, savings, and
+                                discretionary spending.
+                            </p>
+
+                            <p>
+                                Your
+                                <a href="/paycheck-tax-calculator/">
+                                    paycheck tax calculator
+                                </a>
+                                can help estimate take-home pay when you are
+                                building a paycheck-based budget.
+                            </p>
+
+                        </section>
+
+
+                        <!-- EMERGENCY -->
+
+                        <section class="budget-section">
+
+                            <h2>
+                                Include an emergency fund
+                            </h2>
+
+                            <p>
+                                An emergency fund is money set aside for
+                                unexpected expenses or financial disruptions.
+                                Examples can include an urgent repair,
+                                unexpected medical expenses, or temporary
+                                loss of income.
+                            </p>
+
+                            <p>
+                                Instead of treating every unexpected expense
+                                as a surprise, include emergency savings as
+                                part of your broader money plan.
+                            </p>
+
+                            <p>
+                                See the
+                                <a href="/finance/budgeting/emergency-fund/">
+                                    emergency fund guide
+                                </a>
+                                for more information.
+                            </p>
+
+                        </section>
+
+
+                        <!-- SINKING FUNDS -->
+
+                        <section class="budget-section">
+
+                            <h2>
+                                Plan for irregular expenses
+                            </h2>
+
+                            <p>
+                                Not every expense occurs every month. Annual
+                                insurance premiums, holiday spending, vehicle
+                                maintenance, school costs, and planned repairs
+                                can make a monthly budget look unexpectedly
+                                expensive when the bill arrives.
+                            </p>
+
+                            <p>
+                                A sinking fund spreads an expected cost over
+                                several months instead of waiting until the
+                                entire bill is due.
+                            </p>
+
+
+                            <div class="budget-formula">
+
+                                <strong>
+                                    Annual or Periodic Cost ÷ Months Until Due
+                                    = Monthly Amount to Set Aside
+                                </strong>
+
+                            </div>
+
+
+                            <p>
+                                For example, if you expect a $600 expense in
+                                12 months, setting aside $50 per month would
+                                build the planned amount before the expense
+                                arrives, assuming the money remains available.
+                            </p>
+
+
+                            <p>
+                                Read the
+                                <a href="/finance/budgeting/sinking-funds/">
+                                    sinking funds guide
+                                </a>
+                                for more planning ideas.
+                            </p>
+
+                        </section>
+
+
+                        <!-- UNBALANCED -->
+
+                        <section class="budget-section">
+
+                            <h2>
+                                What if your budget does not balance?
+                            </h2>
+
+                            <p>
+                                If planned spending is greater than available
+                                income, identify where the gap comes from
+                                before simply assigning arbitrary spending
+                                limits.
+                            </p>
+
+                            <ul>
+
+                                <li>
+                                    Check whether all income and expenses
+                                    were included.
+                                </li>
+
+                                <li>
+                                    Separate essential expenses from optional
+                                    spending.
+                                </li>
+
+                                <li>
+                                    Look for recurring expenses that are no
+                                    longer useful.
+                                </li>
+
+                                <li>
+                                    Review variable categories such as food,
+                                    transportation, and entertainment.
+                                </li>
+
+                                <li>
+                                    Look for annual or irregular expenses
+                                    that were omitted.
+                                </li>
+
+                                <li>
+                                    If debt payments are significant, create
+                                    a dedicated debt category instead of
+                                    treating them as miscellaneous spending.
+                                </li>
+
+                            </ul>
+
+                        </section>
+
+
+                        <!-- REVIEW -->
+
+                        <section class="budget-section">
+
+                            <h2>
+                                How often should you review your budget?
+                            </h2>
+
+                            <p>
+                                Check your budget often enough to catch problems
+                                before they become difficult to fix. A quick
+                                review around each paycheck can work well for
+                                people with frequent pay periods, while a
+                                monthly review may be sufficient for others.
+                            </p>
+
+                            <p>
+                                Perform a more detailed review whenever your
+                                income, housing costs, debt payments, family
+                                situation, insurance costs, or financial goals
+                                change.
+                            </p>
+
+                        </section>
+
+
+                        <!-- MISTAKES -->
+
+                        <section class="budget-section">
+
+                            <h2>
+                                Common budgeting mistakes
+                            </h2>
+
+                            <ul>
+
+                                <li>
+                                    Creating a budget based on unrealistic
+                                    spending assumptions.
+                                </li>
+
+                                <li>
+                                    Forgetting irregular or annual expenses.
+                                </li>
+
+                                <li>
+                                    Treating savings as whatever money happens
+                                    to remain at the end of the month.
+                                </li>
+
+                                <li>
+                                    Creating so many categories that the budget
+                                    becomes difficult to maintain.
+                                </li>
+
+                                <li>
+                                    Never adjusting the budget when circumstances
+                                    change.
+                                </li>
+
+                                <li>
+                                    Focusing only on reducing spending instead
+                                    of considering income, debt, savings, and
+                                    goals together.
+                                </li>
+
+                            </ul>
+
+                        </section>
+
+
+                        <!-- CONTINUE -->
+
+                        <section class="budget-section">
+
+                            <h2>
+                                Continue learning
+                            </h2>
+
+                            <p>
+                                Once you understand the basics, use the
+                                specialized guides below to work on a specific
+                                part of your budget.
+                            </p>
+
+
+                            <div class="budget-table-wrap">
+
+                                <table class="budget-table">
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th>
+                                                If you want to...
+                                            </th>
+
+                                            <th>
+                                                Read this guide
+                                            </th>
+
+                                        </tr>
+
+                                    </thead>
+
+
+                                    <tbody>
+
+                                        <tr>
+
+                                            <td>
+                                                Create your first budget
+                                            </td>
+
+                                            <td>
+                                                <a href="/finance/budgeting/how-to-make-a-budget/">
+                                                    How to Make a Budget
+                                                </a>
+                                            </td>
+
+                                        </tr>
+
+
+                                        <tr>
+
+                                            <td>
+                                                Understand fixed and variable costs
+                                            </td>
+
+                                            <td>
+                                                <a href="/finance/budgeting/fixed-vs-variable-expenses/">
+                                                    Fixed vs. Variable Expenses
+                                                </a>
+                                            </td>
+
+                                        </tr>
+
+
+                                        <tr>
+
+                                            <td>
+                                                Organize spending by paycheck
+                                            </td>
+
+                                            <td>
+                                                <a href="/finance/budgeting/paycheck-budget/">
+                                                    Paycheck Budgeting
+                                                </a>
+                                            </td>
+
+                                        </tr>
+
+
+                                        <tr>
+
+                                            <td>
+                                                Build emergency savings
+                                            </td>
+
+                                            <td>
+                                                <a href="/finance/budgeting/emergency-fund/">
+                                                    Emergency Fund
+                                                </a>
+                                            </td>
+
+                                        </tr>
+
+
+                                        <tr>
+
+                                            <td>
+                                                Plan for irregular expenses
+                                            </td>
+
+                                            <td>
+                                                <a href="/finance/budgeting/sinking-funds/">
+                                                    Sinking Funds
+                                                </a>
+                                            </td>
+
+                                        </tr>
+
+
+                                        <tr>
+
+                                            <td>
+                                                Manage debt within a budget
+                                            </td>
+
+                                            <td>
+                                                <a href="/finance/budgeting/debt-budget/">
+                                                    Debt Budget
+                                                </a>
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- CTA -->
+
+                        <div class="budget-cta">
+
+                            <h3>
+                                Know your take-home pay first
+                            </h3>
+
+                            <p>
+                                A realistic budget starts with the income you
+                                actually expect to receive. Estimate your
+                                paycheck after taxes and deductions before
+                                assigning money to your budget categories.
+                            </p>
+
+                            <a href="/paycheck-tax-calculator/">
+                                Use the Paycheck Tax Calculator →
+                            </a>
+
                         </div>
 
-                        <div class="budget-bar">
-                            <div class="budget-fill" style="width: 20%"></div>
+
+                        <!-- FAQ -->
+
+                        <section class="budget-section">
+
+                            <h2>
+                                Budgeting FAQs
+                            </h2>
+
+
+                            <div class="budget-faq">
+
+
+                                <div class="budget-faq-item">
+
+                                    <button class="budget-faq-question"
+                                        type="button"
+                                        aria-expanded="false">
+
+                                        <span>
+                                            What is the purpose of a budget?
+                                        </span>
+
+                                        <span class="budget-faq-icon"
+                                            aria-hidden="true">
+                                            +
+                                        </span>
+
+                                    </button>
+
+
+                                    <div class="budget-faq-answer">
+
+                                        <p>
+                                            A budget gives you a plan for how
+                                            your income will be used for
+                                            essential expenses, discretionary
+                                            spending, savings, and debt payments.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="budget-faq-item">
+
+                                    <button class="budget-faq-question"
+                                        type="button"
+                                        aria-expanded="false">
+
+                                        <span>
+                                            How much should I save each month?
+                                        </span>
+
+                                        <span class="budget-faq-icon"
+                                            aria-hidden="true">
+                                            +
+                                        </span>
+
+                                    </button>
+
+
+                                    <div class="budget-faq-answer">
+
+                                        <p>
+                                            There is no single savings percentage
+                                            that works for every household.
+                                            Your target can depend on income,
+                                            essential expenses, existing savings,
+                                            debt, and financial goals.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="budget-faq-item">
+
+                                    <button class="budget-faq-question"
+                                        type="button"
+                                        aria-expanded="false">
+
+                                        <span>
+                                            Which budgeting method should I use?
+                                        </span>
+
+                                        <span class="budget-faq-icon"
+                                            aria-hidden="true">
+                                            +
+                                        </span>
+
+                                    </button>
+
+
+                                    <div class="budget-faq-answer">
+
+                                        <p>
+                                            It depends on how you receive income,
+                                            how predictable your expenses are,
+                                            and how detailed you want your plan
+                                            to be. Common approaches include
+                                            zero-based budgeting, 50/30/20,
+                                            paycheck budgeting, and envelope
+                                            budgeting.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="budget-faq-item">
+
+                                    <button class="budget-faq-question"
+                                        type="button"
+                                        aria-expanded="false">
+
+                                        <span>
+                                            Should savings be included in a budget?
+                                        </span>
+
+                                        <span class="budget-faq-icon"
+                                            aria-hidden="true">
+                                            +
+                                        </span>
+
+                                    </button>
+
+
+                                    <div class="budget-faq-answer">
+
+                                        <p>
+                                            Yes. Including savings as a planned
+                                            budget category makes it easier to
+                                            treat financial goals as part of
+                                            your regular money plan rather than
+                                            relying only on whatever remains.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="budget-faq-item">
+
+                                    <button class="budget-faq-question"
+                                        type="button"
+                                        aria-expanded="false">
+
+                                        <span>
+                                            How often should I review my budget?
+                                        </span>
+
+                                        <span class="budget-faq-icon"
+                                            aria-hidden="true">
+                                            +
+                                        </span>
+
+                                    </button>
+
+
+                                    <div class="budget-faq-answer">
+
+                                        <p>
+                                            You can review a budget around each
+                                            paycheck or at least monthly. A more
+                                            detailed review is useful whenever
+                                            your income, major expenses, debt,
+                                            household situation, or financial
+                                            goals change.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- SOURCES -->
+
+                        <section class="budget-section budget-sources">
+
+                            <h2>
+                                Sources and methodology
+                            </h2>
+
+                            <p>
+                                PaycheckMint budgeting guides are intended for
+                                general educational purposes. Budgeting decisions
+                                can vary depending on income, expenses, household
+                                size, location, debt, savings, and financial goals.
+                            </p>
+
+                            <ul>
+
+                                <li>
+                                    U.S. Consumer Financial Protection Bureau
+                                    resources on budgeting and managing money.
+                                </li>
+
+                                <li>
+                                    Consumer.gov resources on making a budget
+                                    and managing household expenses.
+                                </li>
+
+                            </ul>
+
+
+                            <div class="budget-disclaimer">
+
+                                <p>
+                                    <strong>Important:</strong>
+                                    PaycheckMint provides general financial
+                                    education and tools. The information on
+                                    this page is not individualized financial,
+                                    tax, legal, or investment advice.
+                                </p>
+
+                            </div>
+
+                        </section>
+
+
+                    </article>
+
+
+                    <!-- =================================================
+                         SIDEBAR
+                    ================================================== -->
+
+                    <aside class="budget-sidebar">
+
+
+                        <div class="budget-sidebar-card">
+
+                            <h2>
+                                Budgeting
+                            </h2>
+
+
+                            <ul class="budget-sidebar-links">
+
+                                <li>
+                                    <a class="active"
+                                        href="/finance/budgeting/">
+                                        Budgeting Guide
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/budgeting/how-to-make-a-budget/">
+                                        How to Make a Budget
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/budgeting/monthly-budget/">
+                                        Monthly Budget
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/budgeting/paycheck-to-paycheck/">
+                                        Paycheck to Paycheck
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/budgeting/50-30-20-rule/">
+                                        50/30/20 Budget
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/budgeting/zero-based-budget/">
+                                        Zero-Based Budget
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/budgeting/paycheck-budget/">
+                                        Paycheck Budgeting
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/budgeting/envelope-budget/">
+                                        Envelope Budgeting
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/budgeting/fixed-vs-variable-expenses/">
+                                        Fixed vs. Variable Expenses
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/budgeting/needs-vs-wants/">
+                                        Needs vs. Wants
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/budgeting/how-much-should-i-save/">
+                                        How Much Should I Save?
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/budgeting/emergency-fund/">
+                                        Emergency Fund
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/budgeting/sinking-funds/">
+                                        Sinking Funds
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/budgeting/debt-budget/">
+                                        Debt Budget
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/budgeting/budgeting-for-couples/">
+                                        Budgeting as a Couple
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/budgeting/family-budget/">
+                                        Family Budget
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/budgeting/budget-after-raise/">
+                                        Budget After a Raise
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/budgeting/budget-for-low-income/">
+                                        Budget for Low Income
+                                    </a>
+                                </li>
+
+                            </ul>
+
                         </div>
-                    </div>
 
-                    <p class="preview-note">
-                        This is an example, not a recommended allocation for everyone. Your budget should reflect
-                        your income, expenses, priorities, and financial goals.
-                    </p>
-                </div>
-            </div>
-        </section>
 
-        <!-- WHAT IS BUDGETING -->
+                        <div class="budget-sidebar-card">
 
-        <section class="section section-alt">
-            <div class="container content">
-                <h2>What Is Budgeting?</h2>
+                            <h3>
+                                Related Finance
+                            </h3>
 
-                <p>
-                    Budgeting is the process of making a plan for how you will use your money. A budget helps you
-                    compare your income with your expected expenses and decide how much you want to put toward
-                    everyday spending, savings, debt payments, and other financial goals.
-                </p>
 
-                <p>
-                    A useful budget does not have to be complicated. The goal is to create a spending plan that
-                    reflects the money you actually have available and can realistically follow.
-                </p>
+                            <ul class="budget-sidebar-links">
 
-                <div class="tip-box">
-                    <strong>Start with take-home pay.</strong>
-                    <br />
-                    For most household spending plans, take-home pay is more useful than gross pay because it
-                    represents money available after taxes and payroll deductions.
-                </div>
-            </div>
-        </section>
+                                <li>
+                                    <a href="/finance/">
+                                        Finance
+                                    </a>
+                                </li>
 
-        <!-- HOW TO MAKE BUDGET -->
+                                <li>
+                                    <a href="/finance/taxes/">
+                                        Taxes
+                                    </a>
+                                </li>
 
-        <section class="section">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>How to Create a Budget</h2>
+                                <li>
+                                    <a href="/finance/credit-debt/">
+                                        Credit &amp; Debt
+                                    </a>
+                                </li>
 
-                    <p>
-                        A simple budgeting process can help you see where your money is going and decide what you
-                        want to change.
-                    </p>
-                </div>
+                                <li>
+                                    <a href="/finance/investing/">
+                                        Investing
+                                    </a>
+                                </li>
 
-                <div class="steps">
-                    <div class="step">
-                        <div class="step-number">STEP 01</div>
+                                <li>
+                                    <a href="/finance/insurance/">
+                                        Insurance
+                                    </a>
+                                </li>
 
-                        <h3>Calculate Your Income</h3>
+                            </ul>
 
-                        <p>Start with your expected take-home income for the month or budgeting period.</p>
-                    </div>
+                        </div>
 
-                    <div class="step">
-                        <div class="step-number">STEP 02</div>
 
-                        <h3>List Your Expenses</h3>
+                    </aside>
 
-                        <p>
-                            Include housing, food, transportation, utilities, subscriptions, debt payments, and
-                            other expenses.
-                        </p>
-                    </div>
-
-                    <div class="step">
-                        <div class="step-number">STEP 03</div>
-
-                        <h3>Set Your Priorities</h3>
-
-                        <p>
-                            Decide how much you want to allocate toward savings, debt payments, and other financial
-                            goals.
-                        </p>
-                    </div>
-
-                    <div class="step">
-                        <div class="step-number">STEP 04</div>
-
-                        <h3>Review and Adjust</h3>
-
-                        <p>
-                            Compare your plan with your actual spending and make changes when your income or
-                            expenses change.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- BUDGETING METHODS -->
-
-        <section class="section section-alt" id="budgeting-guides">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>Popular Budgeting Methods</h2>
-
-                    <p>
-                        Different budgeting methods work for different people. Learn how each approach works before
-                        choosing one.
-                    </p>
                 </div>
 
-                <div class="method-grid">
-                    <a href="/finance/budgeting/50-30-20-rule/" class="method">
-                        <h3>50/30/20 Budget</h3>
+            </section>
 
-                        <p>
-                            A simple framework that divides after-tax income into needs, wants, and savings or debt
-                            payments.
-                        </p>
-
-                        <span class="card-link"> Learn about 50/30/20 → </span>
-                    </a>
-
-                    <a href="/finance/budgeting/zero-based-budget/" class="method">
-                        <h3>Zero-Based Budgeting</h3>
-
-                        <p>
-                            Give every dollar of planned income a purpose so that your income minus planned spending
-                            and allocations reaches zero.
-                        </p>
-
-                        <span class="card-link"> Learn zero-based budgeting → </span>
-                    </a>
-
-                    <a href="/finance/budgeting/paycheck-budget/" class="method">
-                        <h3>Paycheck Budgeting</h3>
-
-                        <p>Build your spending plan around the paychecks you actually receive.</p>
-
-                        <span class="card-link"> Learn paycheck budgeting → </span>
-                    </a>
-
-                    <a href="/finance/budgeting/envelope-budget/" class="method">
-                        <h3>Envelope Budgeting</h3>
-
-                        <p>
-                            Set spending limits for categories and track how much money remains available in each
-                            category.
-                        </p>
-
-                        <span class="card-link"> Learn envelope budgeting → </span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- TOP GUIDES -->
-
-        <section class="section">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>Budgeting Guides</h2>
-
-                    <p>Practical guides for creating a budget, controlling expenses, and managing your money.</p>
-                </div>
-
-                <div class="card-grid">
-                    <article class="card">
-                        <div class="card-icon">01</div>
-
-                        <h3>How to Make a Budget</h3>
-
-                        <p>A step-by-step guide to building a realistic monthly spending plan.</p>
-
-                        <a class="card-link" href="/finance/budgeting/how-to-make-a-budget/"> Read guide → </a>
-                    </article>
-
-                    <article class="card">
-                        <div class="card-icon">02</div>
-
-                        <h3>Monthly Budget</h3>
-
-                        <p>Learn how to organize monthly income, expenses, savings, and debt payments.</p>
-
-                        <a class="card-link" href="/finance/budgeting/monthly-budget/"> Read guide → </a>
-                    </article>
-
-                    <article class="card">
-                        <div class="card-icon">03</div>
-
-                        <h3>Fixed vs. Variable Expenses</h3>
-
-                        <p>
-                            Understand the difference between predictable expenses and costs that change from month
-                            to month.
-                        </p>
-
-                        <a class="card-link" href="/finance/budgeting/fixed-vs-variable-expenses/">
-                            Read guide →
-                        </a>
-                    </article>
-
-                    <article class="card">
-                        <div class="card-icon">04</div>
-
-                        <h3>Needs vs. Wants</h3>
-
-                        <p>Learn how separating needs from wants can make it easier to prioritize spending.</p>
-
-                        <a class="card-link" href="/finance/budgeting/needs-vs-wants/"> Read guide → </a>
-                    </article>
-
-                    <article class="card">
-                        <div class="card-icon">05</div>
-
-                        <h3>How Much Should I Save?</h3>
-
-                        <p>Factors to consider when deciding how much of your income to allocate toward savings.</p>
-
-                        <a class="card-link" href="/finance/budgeting/how-much-should-i-save/"> Read guide → </a>
-                    </article>
-
-                    <article class="card">
-                        <div class="card-icon">06</div>
-
-                        <h3>Stop Living Paycheck to Paycheck</h3>
-
-                        <p>
-                            Practical budgeting strategies for creating more room between your income and expenses.
-                        </p>
-
-                        <a class="card-link" href="/finance/budgeting/paycheck-to-paycheck/"> Read guide → </a>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- BUDGETING BY SITUATION -->
-
-        <section class="section section-alt">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>Budgeting for Different Situations</h2>
-
-                    <p>
-                        Your ideal spending plan can change depending on your income, household, expenses, and
-                        financial goals.
-                    </p>
-                </div>
-
-                <div class="card-grid">
-                    <a href="/finance/budgeting/budget-for-low-income/" class="card">
-                        <div class="card-icon">$</div>
-
-                        <h3>Budgeting on a Low Income</h3>
-
-                        <p>
-                            Strategies for prioritizing essential expenses and financial goals when money is
-                            limited.
-                        </p>
-                    </a>
-
-                    <a href="/finance/budgeting/budgeting-for-couples/" class="card">
-                        <div class="card-icon">2</div>
-
-                        <h3>Budgeting as a Couple</h3>
-
-                        <p>
-                            Ways couples can organize shared expenses, individual spending, savings, and financial
-                            goals.
-                        </p>
-                    </a>
-
-                    <a href="/finance/budgeting/family-budget/" class="card">
-                        <div class="card-icon">F</div>
-
-                        <h3>Family Budget</h3>
-
-                        <p>
-                            Build a household spending plan around income, housing, food, childcare, transportation,
-                            and savings.
-                        </p>
-                    </a>
-
-                    <a href="/finance/budgeting/budget-after-raise/" class="card">
-                        <div class="card-icon">↑</div>
-
-                        <h3>Budgeting After a Raise</h3>
-
-                        <p>
-                            Plan what to do with additional income without letting lifestyle expenses automatically
-                            rise.
-                        </p>
-                    </a>
-
-                    <a href="/finance/budgeting/debt-budget/" class="card">
-                        <div class="card-icon">D</div>
-
-                        <h3>Budgeting With Debt</h3>
-
-                        <p>
-                            Include debt payments in your budget while maintaining essential expenses and savings
-                            priorities.
-                        </p>
-                    </a>
-
-                    <a href="/finance/budgeting/emergency-fund/" class="card">
-                        <div class="card-icon">E</div>
-
-                        <h3>Emergency Fund Budget</h3>
-
-                        <p>Understand how emergency savings can fit into your overall spending plan.</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- TOOL CTA -->
-
-        <section class="section">
-            <div class="container">
-                <div class="tool-banner">
-                    <div>
-                        <h2>Start With Your Take-Home Pay</h2>
-
-                        <p>
-                            Your paycheck is the starting point for a realistic budget. Estimate your take-home pay
-                            first, then use your available income to plan expenses, savings, and debt payments.
-                        </p>
-                    </div>
-
-                    <a href="/take-home-pay-calculator/" class="btn btn-primary"> Calculate Take-Home Pay </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- SAVING & DEBT -->
-
-        <section class="section section-alt">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>Budgeting for Savings and Debt</h2>
-
-                    <p>
-                        A budget can help you decide how much money is available for both current expenses and
-                        future financial goals.
-                    </p>
-                </div>
-
-                <div class="card-grid">
-                    <a href="/finance/budgeting/emergency-fund/" class="card">
-                        <div class="card-icon">EF</div>
-
-                        <h3>Emergency Fund</h3>
-
-                        <p>Learn how emergency savings can help cover unexpected expenses.</p>
-
-                        <span class="card-link"> Explore emergency funds → </span>
-                    </a>
-
-                    <a href="/finance/budgeting/sinking-funds/" class="card">
-                        <div class="card-icon">SF</div>
-
-                        <h3>Sinking Funds</h3>
-
-                        <p>
-                            Set aside money over time for planned expenses such as annual bills, travel, or large
-                            purchases.
-                        </p>
-
-                        <span class="card-link"> Learn about sinking funds → </span>
-                    </a>
-
-                    <a href="/finance/credit-debt/" class="card">
-                        <div class="card-icon">D</div>
-
-                        <h3>Credit &amp; Debt</h3>
-
-                        <p>
-                            Explore debt repayment, credit cards, interest, and other topics that connect with your
-                            budget.
-                        </p>
-
-                        <span class="card-link"> Explore credit &amp; debt → </span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ -->
-
-        <section class="section">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>Budgeting FAQs</h2>
-
-                    <p>Answers to common questions about creating and managing a personal budget.</p>
-                </div>
-
-                <div class="faq">
-                    <details>
-                        <summary>What is budgeting?</summary>
-
-                        <p>
-                            Budgeting is the process of planning how you will use your income to cover expenses,
-                            save money, pay debt, and work toward financial goals.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>How do I make a monthly budget?</summary>
-
-                        <p>
-                            Start with your expected take-home income. List your regular and irregular expenses, set
-                            savings and debt goals, compare your planned spending with your income, and adjust the
-                            plan until it is realistic.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>What is the 50/30/20 budget rule?</summary>
-
-                        <p>
-                            The 50/30/20 approach generally divides after-tax income into needs, wants, and savings
-                            or debt payments. It is a budgeting guideline rather than a requirement, and actual
-                            percentages may need to change based on individual circumstances.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>Should I budget using gross income or take-home pay?</summary>
-
-                        <p>
-                            Take-home pay is generally easier to use for a household spending budget because it
-                            reflects the money available after taxes and payroll deductions.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>How much should I save each month?</summary>
-
-                        <p>
-                            There is no universal savings amount. Your target can depend on income, essential
-                            expenses, debt, emergency savings, and financial goals. The important part is choosing
-                            an amount that is realistic and sustainable.
-                        </p>
-                    </details>
-                </div>
-            </div>
-        </section>
-
-        <!-- DISCLAIMER -->
-
-        <section class="section">
-            <div class="container content">
-                <h2>Budgeting Disclaimer</h2>
-
-                <p>
-                    The budgeting information and examples on PaycheckMint are provided for general educational
-                    purposes. Budget percentages, spending examples, and financial strategies are not personalized
-                    financial advice and may not be appropriate for every household. Your actual income, expenses,
-                    taxes, debt, savings goals, and financial circumstances should be considered when creating a
-                    budget.
-                </p>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container footer-inner">
-            <div class="footer-brand">
-                <div class="logo">Paycheck<span>Mint</span></div>
-
-                <p>
-                    Practical calculators, guides, and resources to help you understand your paycheck and make
-                    informed financial decisions.
-                </p>
-            </div>
-
-            <div class="footer-column">
-                <h3>Paycheck</h3>
-
-                <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
-
-                <a href="/hourly-paycheck-calculator/"> Hourly Paycheck Calculator </a>
-
-                <a href="/salary-paycheck-calculator/"> Salary Paycheck Calculator </a>
-
-                <a href="/overtime-pay-calculator/"> Overtime Calculator </a>
-            </div>
-
-            <div class="footer-column">
-                <h3>Finance</h3>
-
-                <a href="/finance/"> Finance Overview </a>
-
-                <a href="/finance/taxes/"> Taxes </a>
-
-                <a href="/finance/budgeting/"> Budgeting </a>
-
-                <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
-            </div>
-
-            <div class="footer-column">
-                <h3>PaycheckMint</h3>
-
-                <a href="/about/"> About </a>
-
-                <a href="/contact/"> Contact </a>
-
-                <a href="/privacy-policy/"> Privacy </a>
-
-                <a href="/terms/"> Terms </a>
-            </div>
         </div>
 
-        <div class="footer-bottom">© 2026 PaycheckMint. All rights reserved.</div>
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer class="pm-footer">
+
+        <div class="pm-footer-inner">
+
+            <div class="pm-footer-main">
+
+                <div class="pm-footer-grid">
+
+
+                    <div class="pm-footer-brand-column">
+
+                        <a class="pm-footer-brand"
+                            href="/">
+
+                            Paycheck<span>Mint</span>
+
+                        </a>
+
+
+                        <p class="pm-footer-description">
+                            Practical personal finance guides, paycheck tools,
+                            and calculators to help you make informed money decisions.
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3 class="pm-footer-heading">
+                            Money
+                        </h3>
+
+                        <ul class="pm-footer-links">
+
+                            <li>
+                                <a href="/income/">
+                                    Income
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/paycheck-tax-calculator/">
+                                    Paycheck Calculator
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/take-home-pay-calculator/">
+                                    Take-Home Pay
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3 class="pm-footer-heading">
+                            Finance
+                        </h3>
+
+                        <ul class="pm-footer-links">
+
+                            <li>
+                                <a href="/finance/taxes/">
+                                    Taxes
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/finance/budgeting/">
+                                    Budgeting
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/finance/credit-debt/">
+                                    Credit &amp; Debt
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/finance/investing/">
+                                    Investing
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/finance/insurance/">
+                                    Insurance
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3 class="pm-footer-heading">
+                            Company
+                        </h3>
+
+                        <ul class="pm-footer-links">
+
+                            <li>
+                                <a href="/about/">
+                                    About
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/contact/">
+                                    Contact
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/privacy-policy/">
+                                    Privacy Policy
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/terms/">
+                                    Terms
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <div class="pm-footer-bottom">
+
+                <div class="pm-footer-copyright">
+                    © 2026 PaycheckMint. All rights reserved.
+                </div>
+
+
+                <div class="pm-footer-legal">
+
+                    <a href="/privacy-policy/">
+                        Privacy Policy
+                    </a>
+
+                    <a href="/terms/">
+                        Terms
+                    </a>
+
+                    <a href="/contact/">
+                        Contact
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </footer>
 
+
+    <!-- =========================================================
+         PAGE JAVASCRIPT
+    ========================================================= -->
+
     <script>
-        const mobileMenuToggle = document.getElementById("mobileMenuToggle");
 
-        const mainNav = document.getElementById("mainNav");
+        document.addEventListener("DOMContentLoaded", function () {
 
-        const financeDropdown = document.getElementById("financeDropdown");
 
-        const financeButton = financeDropdown ? financeDropdown.querySelector("button") : null;
+            /* =====================================================
+               FAQ
+            ===================================================== */
 
-        mobileMenuToggle.addEventListener("click", function () {
-            const isOpen = mainNav.classList.toggle("active");
+            const questions =
+                document.querySelectorAll(".budget-faq-question");
 
-            mobileMenuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-        });
 
-        if (financeButton) {
-            financeButton.addEventListener("click", function (event) {
-                event.preventDefault();
+            questions.forEach(function (button) {
 
-                if (window.innerWidth <= 850) {
-                    const isOpen = financeDropdown.classList.toggle("open");
+                button.addEventListener("click", function () {
 
-                    financeButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
-                }
+                    const item =
+                        button.closest(".budget-faq-item");
+
+                    const isOpen =
+                        item.classList.contains("open");
+
+
+                    document
+                        .querySelectorAll(".budget-faq-item")
+                        .forEach(function (otherItem) {
+
+                            otherItem.classList.remove("open");
+
+                            const otherButton =
+                                otherItem.querySelector(
+                                    ".budget-faq-question"
+                                );
+
+                            if (otherButton) {
+
+                                otherButton.setAttribute(
+                                    "aria-expanded",
+                                    "false"
+                                );
+
+                            }
+
+                        });
+
+
+                    if (!isOpen) {
+
+                        item.classList.add("open");
+
+                        button.setAttribute(
+                            "aria-expanded",
+                            "true"
+                        );
+
+                    }
+
+                });
+
             });
-        }
 
-        window.addEventListener("resize", function () {
-            if (window.innerWidth > 850) {
-                mainNav.classList.remove("active");
 
-                financeDropdown.classList.remove("open");
+            /* =====================================================
+               DESKTOP DROPDOWNS
+            ===================================================== */
 
-                mobileMenuToggle.setAttribute("aria-expanded", "false");
+            document.addEventListener("click", function (event) {
 
-                financeButton.setAttribute("aria-expanded", "false");
+                const dropdownButton =
+                    event.target.closest(
+                        ".pm-nav-dropdown-button"
+                    );
+
+
+                if (dropdownButton) {
+
+                    event.stopPropagation();
+
+                    const dropdown =
+                        dropdownButton.closest(
+                            ".pm-nav-dropdown"
+                        );
+
+                    const wasOpen =
+                        dropdown.classList.contains("is-open");
+
+
+                    document
+                        .querySelectorAll(".pm-nav-dropdown")
+                        .forEach(function (item) {
+
+                            item.classList.remove("is-open");
+
+                            const button =
+                                item.querySelector(
+                                    ".pm-nav-dropdown-button"
+                                );
+
+                            if (button) {
+
+                                button.setAttribute(
+                                    "aria-expanded",
+                                    "false"
+                                );
+
+                            }
+
+                        });
+
+
+                    if (!wasOpen) {
+
+                        dropdown.classList.add("is-open");
+
+                        dropdownButton.setAttribute(
+                            "aria-expanded",
+                            "true"
+                        );
+
+                    }
+
+                    return;
+
+                }
+
+
+                if (!event.target.closest(".pm-nav-dropdown")) {
+
+                    document
+                        .querySelectorAll(".pm-nav-dropdown")
+                        .forEach(function (item) {
+
+                            item.classList.remove("is-open");
+
+                            const button =
+                                item.querySelector(
+                                    ".pm-nav-dropdown-button"
+                                );
+
+                            if (button) {
+
+                                button.setAttribute(
+                                    "aria-expanded",
+                                    "false"
+                                );
+
+                            }
+
+                        });
+
+                }
+
+            });
+
+
+            /* =====================================================
+               MOBILE NAV
+            ===================================================== */
+
+            const mobileToggle =
+                document.getElementById("mobileToggle");
+
+            const mobileNav =
+                document.getElementById("mobileNav");
+
+
+            if (mobileToggle && mobileNav) {
+
+                mobileToggle.addEventListener(
+                    "click",
+                    function (event) {
+
+                        event.stopPropagation();
+
+                        const isOpen =
+                            mobileNav.classList.toggle("is-open");
+
+                        mobileToggle.setAttribute(
+                            "aria-expanded",
+                            isOpen ? "true" : "false"
+                        );
+
+                    }
+                );
+
             }
+
+
+            /* =====================================================
+               MOBILE FINANCE SUBMENU
+            ===================================================== */
+
+            const mobileFinanceToggle =
+                document.getElementById(
+                    "mobileFinanceToggle"
+                );
+
+            const mobileFinanceLinks =
+                document.getElementById(
+                    "mobileFinanceLinks"
+                );
+
+
+            if (
+                mobileFinanceToggle &&
+                mobileFinanceLinks
+            ) {
+
+                mobileFinanceToggle.addEventListener(
+                    "click",
+                    function () {
+
+                        const isOpen =
+                            mobileFinanceLinks.classList.toggle(
+                                "is-open"
+                            );
+
+                        mobileFinanceToggle.setAttribute(
+                            "aria-expanded",
+                            isOpen ? "true" : "false"
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               SEARCH
+            ===================================================== */
+
+            const searchToggle =
+                document.getElementById("searchToggle");
+
+            const searchPanel =
+                document.getElementById("searchPanel");
+
+            const searchClose =
+                document.getElementById("searchClose");
+
+            const searchInput =
+                document.getElementById("siteSearch");
+
+            const searchResults =
+                document.getElementById("searchResults");
+
+            const mobileSearchButton =
+                document.getElementById(
+                    "mobileSearchButton"
+                );
+
+
+            const searchablePages = [
+
+                {
+                    title: "Paycheck Tax Calculator",
+                    url: "/paycheck-tax-calculator/",
+                    description: "Calculate estimated take-home pay and taxes."
+                },
+
+                {
+                    title: "Take-Home Pay Calculator",
+                    url: "/take-home-pay-calculator/",
+                    description: "Estimate your paycheck after taxes and deductions."
+                },
+
+                {
+                    title: "Hourly Paycheck Calculator",
+                    url: "/hourly-paycheck-calculator/",
+                    description: "Estimate paycheck income from hourly wages."
+                },
+
+                {
+                    title: "Overtime Pay Calculator",
+                    url: "/overtime-pay-calculator/",
+                    description: "Calculate overtime pay and total wages."
+                },
+
+                {
+                    title: "Salary Paycheck Calculator",
+                    url: "/salary-paycheck-calculator/",
+                    description: "Break annual salary into paycheck amounts."
+                },
+
+                {
+                    title: "Income Guides",
+                    url: "/income/",
+                    description: "Learn about income, wages, gross pay, and take-home pay."
+                },
+
+                {
+                    title: "Finance",
+                    url: "/finance/",
+                    description: "Explore personal finance guides."
+                },
+
+                {
+                    title: "Budgeting",
+                    url: "/finance/budgeting/",
+                    description: "Learn how to build and manage a household budget."
+                },
+
+                {
+                    title: "How to Make a Budget",
+                    url: "/finance/budgeting/how-to-make-a-budget/",
+                    description: "Create a practical budget from your income and expenses."
+                },
+
+                {
+                    title: "Fixed vs. Variable Expenses",
+                    url: "/finance/budgeting/fixed-vs-variable-expenses/",
+                    description: "Understand fixed, variable, mixed, and irregular expenses."
+                },
+
+                {
+                    title: "Envelope Budgeting",
+                    url: "/finance/budgeting/envelope-budget/",
+                    description: "Use spending categories to manage variable expenses."
+                },
+
+                {
+                    title: "Emergency Fund",
+                    url: "/finance/budgeting/emergency-fund/",
+                    description: "Learn how emergency savings fits into a budget."
+                }
+
+            ];
+
+
+            function openSearch() {
+
+                if (!searchPanel) return;
+
+                searchPanel.classList.add("is-open");
+
+                if (searchToggle) {
+
+                    searchToggle.setAttribute(
+                        "aria-expanded",
+                        "true"
+                    );
+
+                    searchToggle.setAttribute(
+                        "aria-label",
+                        "Close search"
+                    );
+
+                }
+
+                setTimeout(function () {
+
+                    if (searchInput) {
+                        searchInput.focus();
+                    }
+
+                }, 80);
+
+            }
+
+
+            function closeSearch() {
+
+                if (!searchPanel) return;
+
+                searchPanel.classList.remove("is-open");
+
+                if (searchToggle) {
+
+                    searchToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                    searchToggle.setAttribute(
+                        "aria-label",
+                        "Open search"
+                    );
+
+                }
+
+                if (searchInput) {
+                    searchInput.value = "";
+                }
+
+                if (searchResults) {
+                    searchResults.innerHTML = "";
+                }
+
+            }
+
+
+            if (searchToggle) {
+
+                searchToggle.addEventListener(
+                    "click",
+                    function () {
+
+                        if (
+                            searchPanel &&
+                            searchPanel.classList.contains(
+                                "is-open"
+                            )
+                        ) {
+
+                            closeSearch();
+
+                        } else {
+
+                            openSearch();
+
+                        }
+
+                    }
+                );
+
+            }
+
+
+            if (searchClose) {
+
+                searchClose.addEventListener(
+                    "click",
+                    closeSearch
+                );
+
+            }
+
+
+            if (mobileSearchButton) {
+
+                mobileSearchButton.addEventListener(
+                    "click",
+                    function () {
+
+                        if (mobileNav) {
+                            mobileNav.classList.remove(
+                                "is-open"
+                            );
+                        }
+
+                        openSearch();
+
+                    }
+                );
+
+            }
+
+
+            if (searchInput) {
+
+                searchInput.addEventListener(
+                    "input",
+                    function () {
+
+                        const query =
+                            searchInput.value
+                                .trim()
+                                .toLowerCase();
+
+
+                        if (!searchResults) return;
+
+
+                        if (!query) {
+
+                            searchResults.innerHTML = "";
+
+                            return;
+
+                        }
+
+
+                        const matches =
+                            searchablePages.filter(
+                                function (page) {
+
+                                    return (
+                                        page.title
+                                            .toLowerCase()
+                                            .includes(query) ||
+
+                                        page.description
+                                            .toLowerCase()
+                                            .includes(query)
+                                    );
+
+                                }
+                            );
+
+
+                        if (!matches.length) {
+
+                            searchResults.innerHTML =
+                                '<p class="pm-search-no-results">' +
+                                'No results found for "' +
+                                escapeHTML(query) +
+                                '"</p>';
+
+                            return;
+
+                        }
+
+
+                        searchResults.innerHTML =
+                            matches
+                                .map(function (page) {
+
+                                    return `
+                                        <a href="${page.url}"
+                                           class="pm-search-result-item">
+
+                                            <span class="pm-search-result-title">
+                                                ${escapeHTML(page.title)}
+                                            </span>
+
+                                            <span class="pm-search-result-desc">
+                                                ${escapeHTML(page.description)}
+                                            </span>
+
+                                        </a>
+                                    `;
+
+                                })
+                                .join("");
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               CLOSE SEARCH WITH ESCAPE
+            ===================================================== */
+
+            document.addEventListener(
+                "keydown",
+                function (event) {
+
+                    if (event.key === "Escape") {
+                        closeSearch();
+                    }
+
+                }
+            );
+
+
+            /* =====================================================
+               CLOSE MOBILE NAV WHEN CLICKING A LINK
+            ===================================================== */
+
+            if (mobileNav) {
+
+                mobileNav.addEventListener(
+                    "click",
+                    function (event) {
+
+                        const link =
+                            event.target.closest("a");
+
+                        if (link && mobileNav) {
+
+                            mobileNav.classList.remove(
+                                "is-open"
+                            );
+
+                            if (mobileToggle) {
+
+                                mobileToggle.setAttribute(
+                                    "aria-expanded",
+                                    "false"
+                                );
+
+                            }
+
+                        }
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               CLOSE SEARCH OUTSIDE PANEL
+            ===================================================== */
+
+            document.addEventListener(
+                "click",
+                function (event) {
+
+                    if (
+                        searchPanel &&
+                        searchPanel.classList.contains(
+                            "is-open"
+                        )
+                    ) {
+
+                        if (
+                            !searchPanel.contains(event.target) &&
+                            !event.target.closest(
+                                "#searchToggle"
+                            ) &&
+                            !event.target.closest(
+                                "#mobileSearchButton"
+                            )
+                        ) {
+
+                            closeSearch();
+
+                        }
+
+                    }
+
+                }
+            );
+
+
+            /* =====================================================
+               HEADER SCROLL STATE
+            ===================================================== */
+
+            const header =
+                document.getElementById("site-header");
+
+
+            if (header) {
+
+                function updateHeader() {
+
+                    if (window.scrollY > 20) {
+
+                        header.classList.add(
+                            "is-scrolled"
+                        );
+
+                    } else {
+
+                        header.classList.remove(
+                            "is-scrolled"
+                        );
+
+                    }
+
+                }
+
+
+                updateHeader();
+
+
+                window.addEventListener(
+                    "scroll",
+                    updateHeader,
+                    {
+                        passive: true
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               HTML ESCAPE
+            ===================================================== */
+
+            function escapeHTML(value) {
+
+                return value.replace(
+                    /[&<>'"]/g,
+                    function (character) {
+
+                        const entities = {
+
+                            "&": "&amp;",
+                            "<": "&lt;",
+                            ">": "&gt;",
+                            "'": "&#39;",
+                            '"': "&quot;"
+
+                        };
+
+                        return entities[character];
+
+                    }
+                );
+
+            }
+
         });
+
     </script>
+
 </body>
 
 </html>

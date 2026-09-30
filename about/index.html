@@ -1,341 +1,1858 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
 
-        <title>About PaycheckMint | Simple 2026 Paycheck Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta
-            name="description"
-            content="Learn about PaycheckMint, a simple online paycheck calculator designed to help you estimate take-home pay, taxes, deductions, and net income."
-        />
+    <title>About PaycheckMint | Personal Finance Tools & Guides</title>
 
-        <meta name="robots" content="index, follow" />
-        <meta name="author" content="PaycheckMint" />
+    <meta name="description"
+        content="Learn about PaycheckMint, a U.S. personal finance resource providing paycheck calculators, financial guides, budgeting resources, tax information, and practical money tools.">
 
-        <link rel="canonical" href="/about/" />
-        <link rel="icon" href="/icon.ico" />
+    <link rel="canonical" href="https://paycheckmint.com/about/">
+    <link rel="icon" href="/icon.ico">
 
-        <link rel="stylesheet" href="/legal.css" />
+    <meta name="robots" content="index, follow">
 
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="About PaycheckMint" />
-        <meta
-            property="og:description"
-            content="Learn about PaycheckMint and our goal of making paycheck estimates simple and understandable."
-        />
-        <meta property="og:url" content="/about/" />
-        <meta property="og:site_name" content="PaycheckMint" />
+    <meta property="og:type" content="website">
 
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="About PaycheckMint" />
-        <meta name="twitter:description" content="Learn about PaycheckMint, a simple online paycheck calculator." />
-    </head>
+    <meta property="og:title" content="About PaycheckMint | Personal Finance Tools & Guides">
 
-    <body>
-        <header class="site-header">
-            <div class="container header-inner">
-                <a class="logo" href="/" aria-label="PaycheckMint home"> PaycheckMint </a>
+    <meta property="og:description"
+        content="Learn about PaycheckMint and our approach to practical personal finance education, calculators, budgeting resources, and financial guides.">
 
-                <button
-                    class="mobile-menu-toggle"
-                    type="button"
-                    aria-label="Open navigation"
-                    aria-expanded="false"
-                    aria-controls="main-navigation"
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+    <meta property="og:url" content="https://paycheckmint.com/about/">
 
-                <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
-                    <a href="/">Home</a>
+    <meta property="og:site_name" content="PaycheckMint">
 
-                    <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+    <meta name="twitter:card" content="summary">
 
-                    <a href="/income/"> Income </a>
+    <meta name="twitter:title" content="About PaycheckMint">
 
-                    <div class="nav-dropdown">
-                        <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
-                            Finance
-                            <span class="dropdown-arrow">▾</span>
-                        </button>
+    <meta name="twitter:description"
+        content="Practical personal finance tools and educational resources from PaycheckMint.">
 
-                        <div class="nav-dropdown-menu">
-                            <a href="/finance/"> Finance Overview </a>
+    <link rel="stylesheet" href="/style.css">
 
-                            <a href="/finance/taxes/"> Taxes </a>
+    <style>
+        /* =========================================================
+           PAYCHECKMINT
+           ABOUT PAGE
+        ========================================================= */
 
-                            <a href="/finance/budgeting/"> Budgeting &amp; Saving </a>
+        .about-page {
+            background: var(--page-bg, #f6f7f4);
+            color: var(--text, #17332d);
+            min-height: 100vh;
+        }
 
-                            <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+        .about-container {
+            width: min(calc(100% - 40px),
+                    var(--site-max-width, 1200px));
+            margin: 0 auto;
+        }
 
-                            <a href="/finance/investing/"> Investing &amp; Retirement </a>
+        /* =========================================================
+           BREADCRUMB
+        ========================================================= */
 
-                            <a href="/finance/insurance/"> Insurance </a>
-                        </div>
+        .about-breadcrumb {
+            padding-top: 28px;
+            margin-bottom: 18px;
+        }
+
+        .about-breadcrumb ol {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            color: var(--text-secondary, #64756f);
+            font-size: 14px;
+        }
+
+        .about-breadcrumb a {
+            color: var(--primary, #176b5b);
+            text-decoration: none;
+        }
+
+        .about-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .about-breadcrumb .separator {
+            color: #9aa7a2;
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .about-hero {
+            padding: 35px 0 65px;
+        }
+
+        .about-hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.5fr) minmax(280px, .7fr);
+            gap: 55px;
+            align-items: center;
+        }
+
+        .about-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: rgba(23, 107, 91, .08);
+            color: var(--primary, #176b5b);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: .03em;
+            text-transform: uppercase;
+        }
+
+        .about-hero h1 {
+            max-width: 800px;
+            margin: 0 0 20px;
+            color: var(--text, #17332d);
+            font-size: clamp(38px, 5vw, 60px);
+            line-height: 1.04;
+            letter-spacing: -.04em;
+        }
+
+        .about-hero-intro {
+            max-width: 760px;
+            margin: 0;
+            color: var(--text-secondary, #64756f);
+            font-size: 19px;
+            line-height: 1.75;
+        }
+
+        .about-hero-card {
+            padding: 28px;
+            background: var(--surface, #fff);
+            border: 1px solid var(--border, #dfe6e2);
+            border-radius: 18px;
+            box-shadow: var(--shadow-sm,
+                    0 6px 24px rgba(23, 51, 45, .06));
+        }
+
+        .about-hero-card h2 {
+            margin: 0 0 10px;
+            color: var(--text, #17332d);
+            font-size: 22px;
+        }
+
+        .about-hero-card p {
+            margin: 0;
+            color: var(--text-secondary, #64756f);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .about-stat-list {
+            display: grid;
+            gap: 12px;
+            margin: 22px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .about-stat-list li {
+            padding-top: 12px;
+            border-top: 1px solid var(--border, #dfe6e2);
+        }
+
+        .about-stat-list strong {
+            display: block;
+            margin-bottom: 3px;
+            color: var(--primary, #176b5b);
+            font-size: 15px;
+        }
+
+        .about-stat-list span {
+            color: var(--text-secondary, #64756f);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* =========================================================
+           CONTENT LAYOUT
+        ========================================================= */
+
+        .about-main {
+            padding-bottom: 75px;
+        }
+
+        .about-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 285px;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .about-content {
+            min-width: 0;
+        }
+
+        .about-section {
+            margin-bottom: 55px;
+        }
+
+        .about-section h2 {
+            margin: 0 0 17px;
+            color: var(--text, #17332d);
+            font-size: clamp(27px, 3vw, 36px);
+            line-height: 1.2;
+            letter-spacing: -.025em;
+        }
+
+        .about-section h3 {
+            margin: 28px 0 10px;
+            color: var(--text, #17332d);
+            font-size: 21px;
+            line-height: 1.3;
+        }
+
+        .about-section p {
+            max-width: 820px;
+            margin: 0 0 17px;
+            color: var(--text-secondary, #64756f);
+            font-size: 16px;
+            line-height: 1.78;
+        }
+
+        .about-section ul {
+            margin: 18px 0;
+            padding-left: 23px;
+            color: var(--text-secondary, #64756f);
+        }
+
+        .about-section li {
+            margin: 9px 0;
+            line-height: 1.65;
+        }
+
+        .about-section a {
+            color: var(--primary, #176b5b);
+            font-weight: 650;
+        }
+
+        /* =========================================================
+           QUICK ANSWER
+        ========================================================= */
+
+        .about-answer {
+            margin-bottom: 50px;
+            padding: 26px 28px;
+            background: var(--surface, #fff);
+            border: 1px solid var(--border, #dfe6e2);
+            border-left: 5px solid var(--primary, #176b5b);
+            border-radius: 12px;
+        }
+
+        .about-answer-label {
+            margin-bottom: 8px;
+            color: var(--primary, #176b5b);
+            font-size: 12px;
+            font-weight: 850;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+        }
+
+        .about-answer p {
+            max-width: none;
+            margin: 0;
+            color: var(--text, #17332d);
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* =========================================================
+           VALUE CARDS
+        ========================================================= */
+
+        .about-values {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 25px;
+        }
+
+        .about-value-card {
+            padding: 23px;
+            background: var(--surface, #fff);
+            border: 1px solid var(--border, #dfe6e2);
+            border-radius: 14px;
+        }
+
+        .about-value-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            background: rgba(23, 107, 91, .08);
+            color: var(--primary, #176b5b);
+            font-weight: 850;
+        }
+
+        .about-value-card h3 {
+            margin: 0 0 8px;
+            font-size: 18px;
+        }
+
+        .about-value-card p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        /* =========================================================
+           TOPIC GRID
+        ========================================================= */
+
+        .about-topic-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .about-topic-link {
+            display: block;
+            padding: 18px;
+            background: var(--surface, #fff);
+            border: 1px solid var(--border, #dfe6e2);
+            border-radius: 12px;
+            color: var(--text, #17332d);
+            text-decoration: none;
+            transition:
+                transform .18s ease,
+                border-color .18s ease,
+                box-shadow .18s ease;
+        }
+
+        .about-topic-link:hover {
+            transform: translateY(-2px);
+            border-color: rgba(23, 107, 91, .35);
+            box-shadow: 0 9px 25px rgba(23, 51, 45, .07);
+        }
+
+        .about-topic-link strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--primary, #176b5b);
+            font-size: 15px;
+        }
+
+        .about-topic-link span {
+            color: var(--text-secondary, #64756f);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
+
+        .about-sidebar {
+            position: sticky;
+            top: 25px;
+        }
+
+        .about-sidebar-card {
+            margin-bottom: 18px;
+            padding: 21px;
+            background: var(--surface, #fff);
+            border: 1px solid var(--border, #dfe6e2);
+            border-radius: 14px;
+        }
+
+        .about-sidebar-card h2,
+        .about-sidebar-card h3 {
+            margin: 0 0 13px;
+            color: var(--text, #17332d);
+            font-size: 17px;
+        }
+
+        .about-sidebar-links {
+            display: grid;
+            gap: 4px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .about-sidebar-links a {
+            display: block;
+            padding: 8px 0;
+            color: var(--text-secondary, #64756f);
+            font-size: 14px;
+            line-height: 1.45;
+            text-decoration: none;
+        }
+
+        .about-sidebar-links a:hover {
+            color: var(--primary, #176b5b);
+        }
+
+        .about-sidebar-links .active {
+            color: var(--primary, #176b5b);
+            font-weight: 800;
+        }
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .about-cta {
+            margin-top: 30px;
+            padding: 29px;
+            background: var(--primary, #176b5b);
+            border-radius: 15px;
+        }
+
+        .about-cta h2 {
+            margin: 0 0 9px;
+            color: #fff;
+            font-size: 23px;
+        }
+
+        .about-cta p {
+            margin: 0 0 18px;
+            color: rgba(255, 255, 255, .88);
+            font-size: 15px;
+            line-height: 1.65;
+        }
+
+        .about-cta-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .about-cta-links a {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 15px;
+            border-radius: 8px;
+            background: #fff;
+            color: var(--primary-dark, #0f5145);
+            font-size: 14px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        /* =========================================================
+           DISCLAIMER
+        ========================================================= */
+
+        .about-disclaimer {
+            margin-top: 25px;
+            padding: 19px;
+            background: var(--surface-soft, #f0f4f1);
+            border-radius: 10px;
+        }
+
+        .about-disclaimer p {
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.65;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 950px) {
+
+            .about-hero-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .about-hero-card {
+                max-width: 600px;
+            }
+
+            .about-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .about-sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .about-container {
+                width: min(calc(100% - 28px),
+                        var(--site-max-width, 1200px));
+            }
+
+            .about-breadcrumb {
+                padding-top: 20px;
+            }
+
+            .about-hero {
+                padding-top: 15px;
+                padding-bottom: 40px;
+            }
+
+            .about-hero h1 {
+                font-size: 37px;
+            }
+
+            .about-hero-intro {
+                font-size: 16px;
+            }
+
+            .about-values,
+            .about-topic-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-section {
+                margin-bottom: 42px;
+            }
+
+            .about-section h2 {
+                font-size: 28px;
+            }
+
+            .about-answer {
+                padding: 21px;
+            }
+
+            .about-cta-links {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .about-cta-links a {
+                justify-content: center;
+            }
+        }
+    </style>
+
+    <!-- AboutPage schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "About PaycheckMint",
+        "url": "https://paycheckmint.com/about/",
+        "description": "Learn about PaycheckMint and its personal finance tools, guides, calculators, and educational resources.",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "PaycheckMint",
+            "url": "https://paycheckmint.com/"
+        }
+    }
+    </script>
+
+    <!-- Breadcrumb schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://paycheckmint.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "About",
+                "item": "https://paycheckmint.com/about/"
+            }
+        ]
+    }
+    </script>
+
+</head>
+
+<body>
+    <header class="pm-header" id="site-header">
+
+        <div class="pm-header-inner">
+
+            <a class="pm-brand" href="/" aria-label="PaycheckMint home">
+                Paycheck<span>Mint</span>
+            </a>
+
+            <nav class="pm-desktop-nav" aria-label="Main navigation">
+
+                <a class="pm-nav-link" href="/income/">
+                    Income
+                </a>
+
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                        Finance
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="pm-dropdown-menu">
+
+                        <span class="pm-dropdown-label">
+                            Explore
+                        </span>
+
+                        <a href="/finance/">
+                            <span>Finance Overview</span>
+                        </a>
+
+                        <a href="/income/">
+                            <span>Income & Earnings</span>
+                        </a>
+
+                        <a href="/finance/budgeting/">
+                            <span>Budgeting Guides</span>
+                        </a>
+
                     </div>
-                </nav>
-            </div>
-        </header>
 
-        <main class="legal-container">
-            <section class="legal-hero">
-                <p class="eyebrow">ABOUT PAYCHECKMINT</p>
-
-                <h1>Making paycheck estimates easier to understand.</h1>
-
-                <p class="legal-intro">
-                    PaycheckMint is an online paycheck calculator designed to help people estimate their take-home pay
-                    and understand where their earnings go.
-                </p>
-            </section>
-
-            <section class="legal-section">
-                <h2>What is PaycheckMint?</h2>
-
-                <p>
-                    PaycheckMint is a simple online tool for estimating take-home pay from salary or hourly income. The
-                    calculator considers common payroll deductions such as federal income tax, Social Security,
-                    Medicare, state taxes, and other deductions.
-                </p>
-
-                <p>
-                    Our goal is to make paycheck calculations easier to explore without requiring users to work through
-                    complicated tax tables or payroll calculations themselves.
-                </p>
-            </section>
-
-            <section class="legal-section">
-                <h2>Our goal</h2>
-
-                <p>
-                    Paycheck calculations can become confusing when taxes, deductions, pay frequency, and benefits are
-                    all involved. PaycheckMint was created to provide a clear starting point for understanding estimated
-                    take-home pay.
-                </p>
-
-                <p>
-                    We focus on a clean interface, straightforward explanations, and useful breakdowns so you can
-                    quickly see how gross income can differ from the amount you may take home.
-                </p>
-            </section>
-
-            <section class="legal-section">
-                <h2>What you can calculate</h2>
-
-                <p>
-                    The PaycheckMint calculator can be used to estimate different types of pay and common payroll
-                    deductions.
-                </p>
-
-                <ul>
-                    <li>Salary and hourly income</li>
-                    <li>Weekly, biweekly, semimonthly, monthly, and annual pay</li>
-                    <li>Federal income tax estimates</li>
-                    <li>Social Security and Medicare taxes</li>
-                    <li>State tax estimates</li>
-                    <li>Pre-tax deductions</li>
-                    <li>Post-tax deductions</li>
-                    <li>Retirement contributions</li>
-                    <li>Health-related deductions</li>
-                    <li>Additional withholding adjustments</li>
-                </ul>
-            </section>
-
-            <section class="legal-section">
-                <h2>Built for clarity</h2>
-
-                <p>
-                    PaycheckMint is intentionally designed to stay simple. Instead of overwhelming users with
-                    unnecessary settings, the calculator provides the most useful inputs first and keeps additional
-                    options available when they are needed.
-                </p>
-
-                <p>
-                    Results include an estimated take-home amount along with a visual breakdown of taxes and deductions,
-                    making it easier to understand how gross pay becomes net pay.
-                </p>
-            </section>
-
-            <section class="legal-section">
-                <h2>How our estimates work</h2>
-
-                <p>
-                    PaycheckMint uses tax and payroll information to produce an estimated calculation based on the
-                    information entered by the user.
-                </p>
-
-                <p>
-                    The result is intended as an estimate rather than an exact prediction of a future paycheck. Actual
-                    payroll withholding can vary depending on factors such as Form W-4 elections, employer benefits,
-                    local taxes, payroll settings, year-to-date earnings, and other individual circumstances.
-                </p>
-
-                <p>
-                    For tax-related information, PaycheckMint refers users to official government resources, including
-                    the Internal Revenue Service.
-                </p>
-            </section>
-
-            <section class="legal-section">
-                <h2>Our approach to information</h2>
-
-                <p>
-                    We aim to make the information on PaycheckMint useful, understandable, and transparent. When tax
-                    information changes, we work to update the calculator and related explanations accordingly.
-                </p>
-
-                <p>
-                    Because tax rules and payroll requirements can change, users should verify important tax decisions
-                    with official government sources or a qualified tax professional.
-                </p>
-            </section>
-
-            <section class="legal-section">
-                <h2>Privacy and your information</h2>
-
-                <p>
-                    PaycheckMint is designed to let you use the calculator without creating an account. The calculator
-                    does not require you to provide sensitive financial information such as bank account numbers or
-                    payment card details.
-                </p>
-
-                <p>
-                    For more information about how the website handles information, please review our
-                    <a href="/privacy-policy/">Privacy Policy</a>.
-                </p>
-            </section>
-
-            <section class="legal-section">
-                <h2>Independent calculator</h2>
-
-                <p>
-                    PaycheckMint is an independent online calculator and is not affiliated with or endorsed by the
-                    Internal Revenue Service, the U.S. Department of the Treasury, or any state tax authority.
-                </p>
-
-                <p>
-                    References to government tax information are provided to help users understand the basis of paycheck
-                    and tax calculations.
-                </p>
-            </section>
-
-            <section class="legal-section">
-                <h2>Questions or feedback?</h2>
-
-                <p>
-                    If you find an issue with the calculator, have a suggestion, or want to report incorrect
-                    information, we'd like to hear from you.
-                </p>
-
-                <p>
-                    Visit our
-                    <a href="/contact/">Contact page</a>
-                    to get in touch with PaycheckMint.
-                </p>
-            </section>
-
-            <section class="legal-section legal-note">
-                <h2>Important note</h2>
-
-                <p>
-                    PaycheckMint provides estimates for informational and planning purposes only. It does not provide
-                    tax, legal, accounting, or financial advice.
-                </p>
-            </section>
-        </main>
-
-        <footer class="site-footer">
-            <div class="footer-inner">
-                <div class="footer-brand">
-                    <strong>PaycheckMint</strong>
-                    <p>Simple tools for understanding your paycheck.</p>
                 </div>
 
-                <nav class="footer-links" aria-label="Footer navigation">
-                    <a href="/privacy-policy/">Privacy</a>
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                        Calculators
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="pm-dropdown-menu">
+
+                        <span class="pm-dropdown-label">
+                            Paycheck tools
+                        </span>
+
+                        <a href="/paycheck-tax-calculator/">
+                            Paycheck Tax Calculator
+                        </a>
+
+                        <a href="/take-home-pay-calculator/">
+                            Take-Home Pay Calculator
+                        </a>
+
+                        <a href="/hourly-paycheck-calculator/">
+                            Hourly Paycheck Calculator
+                        </a>
+
+                        <a href="/overtime-pay-calculator/">
+                            Overtime Pay Calculator
+                        </a>
+
+                        <a href="/salary-paycheck-calculator/">
+                            Salary Paycheck Calculator
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <a class="pm-nav-link" href="/finance/">
+                    Learn
+                </a>
+
+            </nav>
+
+            <div class="pm-nav-spacer"></div>
+
+            <button class="pm-search-button" id="searchToggle" type="button" aria-label="Open search"
+                aria-expanded="false" aria-controls="searchPanel">
+
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="m20 20-4-4"></path>
+
+                </svg>
+
+            </button>
+
+            <a class="pm-header-cta" href="/paycheck-tax-calculator/">
+                Calculate paycheck
+            </a>
+
+            <button class="pm-mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation"
+                aria-expanded="false" aria-controls="mobileNav">
+                <svg id="mobileMenuIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <path d="M4 6h16" />
+                    <path d="M4 12h16" />
+                    <path d="M4 18h16" />
+                </svg>
+            </button>
+
+        </div>
+
+        <!-- SEARCH PANEL -->
+
+        <div class="pm-search-panel" id="searchPanel">
+
+            <div class="pm-search-inner">
+
+                <div class="pm-search-field">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="m20 20-4-4" />
+                    </svg>
+
+                    <input id="siteSearch" class="pm-search-input" type="search" autocomplete="off"
+                        placeholder="Search PaycheckMint..." aria-label="Search PaycheckMint">
+
+                    <button class="pm-search-close" id="searchClose" type="button" aria-label="Close search">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 6l12 12" />
+                            <path d="M18 6 6 18" />
+                        </svg>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="pm-search-results" id="searchResults"></div>
+
+        </div>
+
+        <!-- MOBILE NAV -->
+
+        <nav class="pm-mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+
+            <div class="pm-mobile-nav-inner">
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a href="/income/">
+                    Income
+                </a>
+
+                <button class="pm-mobile-finance-button" id="mobileFinanceToggle" type="button" aria-expanded="false">
+                    <span>Finance</span>
+
+                    <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m6 9 6 6 6-6" />
+                    </svg>
+                </button>
+
+                <div class="pm-mobile-finance-links" id="mobileFinanceLinks">
+
+                    <a href="/finance/">
+                        Finance Overview
+                    </a>
+
+                    <a href="/income/">
+                        Income & Earnings
+                    </a>
+
+                </div>
+
+                <a href="/paycheck-tax-calculator/">
+                    Paycheck Tax Calculator
+                </a>
+
+                <a href="/take-home-pay-calculator/">
+                    Take-Home Pay Calculator
+                </a>
+
+                <a href="/hourly-paycheck-calculator/">
+                    Hourly Paycheck Calculator
+                </a>
+
+                <a href="/overtime-pay-calculator/">
+                    Overtime Pay Calculator
+                </a>
+
+                <a href="/salary-paycheck-calculator/">
+                    Salary Paycheck Calculator
+                </a>
+
+                <a href="/weekly-paycheck-calculator/">
+                    Weekly Paycheck Calculator
+                </a>
+
+                <a href="/biweekly-paycheck-calculator/">
+                    Biweekly Paycheck Calculator
+                </a>
+
+                <a href="/monthly-paycheck-calculator/">
+                    Monthly Paycheck Calculator
+                </a>
+
+                <div class="pm-mobile-search-row">
+
+                    <button class="pm-button-secondary" id="mobileSearchButton" type="button">
+                        Search PaycheckMint
+                    </button>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <main class="about-page">
+
+        <div class="about-container">
+
+            <!-- =====================================================
+             BREADCRUMB
+        ====================================================== -->
+
+            <nav class="about-breadcrumb" aria-label="Breadcrumb">
+
+                <ol>
+
+                    <li>
+                        <a href="/">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="separator">
+                        /
+                    </li>
+
+                    <li aria-current="page">
+                        About
+                    </li>
+
+                </ol>
+
+            </nav>
+
+
+            <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+            <section class="about-hero">
+
+                <div class="about-hero-grid">
+
+                    <div>
+
+                        <div class="about-eyebrow">
+                            About PaycheckMint
+                        </div>
+
+                        <h1>
+                            Practical tools and guides for everyday money decisions.
+                        </h1>
+
+                        <p class="about-hero-intro">
+                            PaycheckMint is a U.S.-focused personal finance
+                            resource designed to make money topics easier to
+                            understand. We provide calculators, explanations,
+                            budgeting guides, and practical resources that help
+                            people better understand their income, taxes,
+                            spending, saving, debt, and other personal finance
+                            topics.
+                        </p>
+
+                    </div>
+
+
+                    <aside class="about-hero-card">
+
+                        <h2>
+                            What you'll find here
+                        </h2>
+
+                        <p>
+                            PaycheckMint brings financial information and
+                            practical tools together in one place.
+                        </p>
+
+                        <ul class="about-stat-list">
+
+                            <li>
+                                <strong>Paycheck tools</strong>
+                                <span>
+                                    Estimate pay, taxes, deductions, and
+                                    take-home income.
+                                </span>
+                            </li>
+
+                            <li>
+                                <strong>Finance guides</strong>
+                                <span>
+                                    Learn concepts through straightforward
+                                    explanations and examples.
+                                </span>
+                            </li>
+
+                            <li>
+                                <strong>Budgeting resources</strong>
+                                <span>
+                                    Build practical spending, saving, and
+                                    debt plans.
+                                </span>
+                            </li>
+
+                        </ul>
+
+                    </aside>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+             MAIN CONTENT
+        ====================================================== -->
+
+            <section class="about-main">
+
+                <div class="about-layout">
+
+                    <article class="about-content">
+
+                        <!-- QUICK ANSWER -->
+
+                        <div class="about-answer">
+
+                            <div class="about-answer-label">
+                                About PaycheckMint
+                            </div>
+
+                            <p>
+                                PaycheckMint helps people understand and manage
+                                everyday personal finances through accessible
+                                financial education, practical calculators, and
+                                organized guides. Our goal is to explain financial
+                                topics clearly enough that readers can understand
+                                the numbers behind their money decisions.
+                            </p>
+
+                        </div>
+
+
+                        <!-- OUR PURPOSE -->
+
+                        <section class="about-section">
+
+                            <h2>
+                                Why PaycheckMint exists
+                            </h2>
+
+                            <p>
+                                Personal finance can become complicated quickly.
+                                A paycheck can involve federal taxes, state
+                                taxes, Social Security, Medicare, benefits,
+                                retirement contributions, and other deductions.
+                                Beyond paychecks, people also have to make
+                                decisions about budgeting, saving, debt,
+                                investing, insurance, and taxes.
+                            </p>
+
+                            <p>
+                                PaycheckMint is designed to organize these topics
+                                into practical resources that are easier to
+                                navigate and understand.
+                            </p>
+
+                            <p>
+                                Instead of presenting a number without context,
+                                our goal is to explain what the number means,
+                                how it is calculated, what can affect it, and
+                                where the reader can learn more.
+                            </p>
+
+                        </section>
+
+
+                        <!-- WHAT WE COVER -->
+
+                        <section class="about-section">
+
+                            <h2>
+                                What PaycheckMint covers
+                            </h2>
+
+                            <p>
+                                PaycheckMint is expanding beyond paycheck
+                                calculations into broader U.S. personal finance.
+                                Our resources are organized around several
+                                major areas.
+                            </p>
+
+
+                            <div class="about-topic-grid">
+
+                                <a class="about-topic-link" href="/paycheck-tax-calculator/">
+
+                                    <strong>
+                                        Paycheck & Income
+                                    </strong>
+
+                                    <span>
+                                        Understand gross pay, net pay, taxes,
+                                        deductions, salary, hourly income, and
+                                        take-home pay.
+                                    </span>
+
+                                </a>
+
+
+                                <a class="about-topic-link" href="/finance/taxes/">
+
+                                    <strong>
+                                        Taxes
+                                    </strong>
+
+                                    <span>
+                                        Learn about federal, state, payroll, and
+                                        other common personal tax concepts.
+                                    </span>
+
+                                </a>
+
+
+                                <a class="about-topic-link" href="/finance/budgeting/">
+
+                                    <strong>
+                                        Budgeting
+                                    </strong>
+
+                                    <span>
+                                        Explore budgeting methods, spending
+                                        plans, savings, emergency funds, and
+                                        household budgeting.
+                                    </span>
+
+                                </a>
+
+
+                                <a class="about-topic-link" href="/finance/credit-debt/">
+
+                                    <strong>
+                                        Credit & Debt
+                                    </strong>
+
+                                    <span>
+                                        Learn about credit, debt management,
+                                        payments, and related financial concepts.
+                                    </span>
+
+                                </a>
+
+
+                                <a class="about-topic-link" href="/finance/investing/">
+
+                                    <strong>
+                                        Investing
+                                    </strong>
+
+                                    <span>
+                                        Understand common investing concepts,
+                                        accounts, strategies, and terminology.
+                                    </span>
+
+                                </a>
+
+
+                                <a class="about-topic-link" href="/finance/insurance/">
+
+                                    <strong>
+                                        Insurance
+                                    </strong>
+
+                                    <span>
+                                        Learn the basics of insurance and how
+                                        different types of coverage work.
+                                    </span>
+
+                                </a>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- OUR APPROACH -->
+
+                        <section class="about-section">
+
+                            <h2>
+                                Our approach to financial information
+                            </h2>
+
+                            <p>
+                                Financial information is more useful when readers
+                                can understand how it applies to their situation.
+                                We therefore aim to build pages around explanations
+                                rather than simply publishing isolated numbers or
+                                calculator inputs.
+                            </p>
+
+
+                            <div class="about-values">
+
+                                <div class="about-value-card">
+
+                                    <div class="about-value-icon">
+                                        01
+                                    </div>
+
+                                    <h3>
+                                        Clear explanations
+                                    </h3>
+
+                                    <p>
+                                        Financial terminology can be difficult
+                                        when it is presented without context.
+                                        We explain important terms in plain
+                                        language before going deeper.
+                                    </p>
+
+                                </div>
+
+
+                                <div class="about-value-card">
+
+                                    <div class="about-value-icon">
+                                        02
+                                    </div>
+
+                                    <h3>
+                                        Practical examples
+                                    </h3>
+
+                                    <p>
+                                        Where useful, our guides use formulas,
+                                        examples, tables, and scenarios to show
+                                        how a financial concept works.
+                                    </p>
+
+                                </div>
+
+
+                                <div class="about-value-card">
+
+                                    <div class="about-value-icon">
+                                        03
+                                    </div>
+
+                                    <h3>
+                                        Useful tools
+                                    </h3>
+
+                                    <p>
+                                        Calculators are designed to support
+                                        financial understanding rather than
+                                        replace the explanation surrounding them.
+                                    </p>
+
+                                </div>
+
+
+                                <div class="about-value-card">
+
+                                    <div class="about-value-icon">
+                                        04
+                                    </div>
+
+                                    <h3>
+                                        Responsible context
+                                    </h3>
+
+                                    <p>
+                                        Personal finance depends on individual
+                                        circumstances. Our educational content
+                                        explains general concepts without
+                                        pretending every situation is identical.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- CALCULATORS -->
+
+                        <section class="about-section">
+
+                            <h2>
+                                Our calculators
+                            </h2>
+
+                            <p>
+                                PaycheckMint provides calculators to help users
+                                estimate common paycheck and income figures.
+                                These tools are intended to make financial
+                                concepts easier to explore and to provide useful
+                                estimates for planning.
+                            </p>
+
+                            <p>
+                                Depending on the calculator, results can be
+                                affected by factors such as filing status,
+                                location, pay frequency, income, deductions,
+                                withholding, and other inputs.
+                            </p>
+
+                            <p>
+                                Start with the
+                                <a href="/paycheck-tax-calculator/">
+                                    Paycheck Tax Calculator
+                                </a>
+                                or explore the available
+                                <a href="/">
+                                    PaycheckMint tools
+                                </a>.
+                            </p>
+
+                        </section>
+
+
+                        <!-- ACCURACY -->
+
+                        <section class="about-section">
+
+                            <h2>
+                                About accuracy and estimates
+                            </h2>
+
+                            <p>
+                                Financial calculations can depend on changing
+                                tax rules, individual circumstances, employer
+                                policies, benefit elections, deductions, and
+                                jurisdiction-specific requirements.
+                            </p>
+
+                            <p>
+                                For that reason, PaycheckMint calculators should
+                                be treated as estimates for educational and
+                                planning purposes. A calculator result should
+                                not be treated as an official tax calculation,
+                                payroll statement, or guarantee of the amount
+                                you will actually receive.
+                            </p>
+
+                            <p>
+                                When a financial decision has significant
+                                consequences, verify the relevant information
+                                with the appropriate government agency,
+                                employer, tax professional, financial professional,
+                                or other qualified source.
+                            </p>
+
+                        </section>
+
+
+                        <!-- SOURCES -->
+
+                        <section class="about-section">
+
+                            <h2>
+                                Sources and references
+                            </h2>
+
+                            <p>
+                                PaycheckMint aims to use authoritative sources
+                                when developing educational material, especially
+                                for subjects involving taxes, payroll, government
+                                programs, and financial regulations.
+                            </p>
+
+                            <p>
+                                Depending on the subject, useful primary sources
+                                can include federal and state government agencies,
+                                official tax authorities, and established
+                                consumer-finance resources.
+                            </p>
+
+                            <p>
+                                Readers should check the applicable official
+                                source when they need information for a specific
+                                filing, legal requirement, tax situation, or
+                                financial decision.
+                            </p>
+
+                        </section>
+
+
+                        <!-- CONTACT -->
+
+                        <section class="about-section">
+
+                            <h2>
+                                Questions or feedback?
+                            </h2>
+
+                            <p>
+                                If you find an error, have a question about a
+                                page, or have feedback about a calculator,
+                                PaycheckMint provides a
+                                <a href="/contact/">
+                                    contact page
+                                </a>
+                                where you can get in touch.
+                            </p>
+
+                            <p>
+                                Feedback helps us identify unclear explanations,
+                                outdated information, and areas where a tool or
+                                guide could be more useful.
+                            </p>
+
+                        </section>
+
+
+                        <!-- CTA -->
+
+                        <section class="about-cta">
+
+                            <h2>
+                                Explore PaycheckMint
+                            </h2>
+
+                            <p>
+                                Start with a paycheck calculation or browse our
+                                personal finance guides to learn more about
+                                managing income, spending, saving, debt, taxes,
+                                and other financial topics.
+                            </p>
+
+                            <div class="about-cta-links">
+
+                                <a href="/paycheck-tax-calculator/">
+                                    Paycheck Calculator
+                                </a>
+
+                                <a href="/finance/">
+                                    Finance Guides
+                                </a>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- DISCLAIMER -->
+
+                        <div class="about-disclaimer">
+
+                            <p>
+                                <strong>Financial information disclaimer:</strong>
+                                PaycheckMint provides general educational
+                                information and financial tools. Content and
+                                calculator results are not individualized
+                                financial, tax, legal, accounting, or investment
+                                advice. Information may change as laws, tax rules,
+                                rates, and other circumstances change.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =================================================
+                     SIDEBAR
+                ================================================== -->
+
+                    <aside class="about-sidebar">
+
+                        <div class="about-sidebar-card">
+
+                            <h2>
+                                PaycheckMint
+                            </h2>
+
+                            <ul class="about-sidebar-links">
+
+                                <li>
+                                    <a class="active" href="/about/">
+                                        About
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/contact/">
+                                        Contact
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/privacy-policy/">
+                                        Privacy Policy
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/terms/">
+                                        Terms
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+
+                        <div class="about-sidebar-card">
+
+                            <h3>
+                                Explore Finance
+                            </h3>
+
+                            <ul class="about-sidebar-links">
+
+                                <li>
+                                    <a href="/finance/">
+                                        Finance
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/taxes/">
+                                        Taxes
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/budgeting/">
+                                        Budgeting
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/credit-debt/">
+                                        Credit & Debt
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/investing/">
+                                        Investing
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/finance/insurance/">
+                                        Insurance
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+
+                        <div class="about-sidebar-card">
+
+                            <h3>
+                                Paycheck Tools
+                            </h3>
+
+                            <ul class="about-sidebar-links">
+
+                                <li>
+                                    <a href="/paycheck-tax-calculator/">
+                                        Paycheck Tax Calculator
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/hourly-paycheck-calculator/">
+                                        Hourly Paycheck Calculator
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/salary-paycheck-calculator/">
+                                        Salary Paycheck Calculator
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/overtime-pay-calculator/">
+                                        Overtime Pay Calculator
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/weekly-paycheck-calculator/">
+                                        Weekly Paycheck Calculator
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/biweekly-paycheck-calculator/">
+                                        Biweekly Paycheck Calculator
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </aside>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <footer class="pm-footer">
+
+        <div class="pm-footer-inner">
+
+            <div class="pm-footer-main">
+
+                <div class="pm-footer-grid">
+
+                    <div class="pm-footer-brand-column">
+
+                        <a class="pm-footer-brand" href="/">
+                            Paycheck<span>Mint</span>
+                        </a>
+
+                        <p class="pm-footer-description">
+                            Practical personal finance guides, paycheck tools,
+                            and calculators to help you make informed money decisions.
+                        </p>
+
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Money</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/income/">Income</a></li>
+                            <li><a href="/paycheck-tax-calculator/">Paycheck Calculator</a></li>
+                            <li><a href="/take-home-pay-calculator/">Take-Home Pay</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Finance</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/finance/taxes/">Taxes</a></li>
+                            <li><a href="/finance/budgeting/">Budgeting</a></li>
+                            <li><a href="/finance/credit-debt/">Credit &amp; Debt</a></li>
+                            <li><a href="/finance/investing/">Investing</a></li>
+                            <li><a href="/finance/insurance/">Insurance</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Company</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/contact/">Contact</a></li>
+                            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="pm-footer-bottom">
+
+                <div class="pm-footer-copyright">
+                    © 2026 PaycheckMint. All rights reserved.
+                </div>
+
+                <div class="pm-footer-legal">
+                    <a href="/privacy-policy/">Privacy Policy</a>
                     <a href="/terms/">Terms</a>
                     <a href="/contact/">Contact</a>
-                </nav>
+                </div>
 
-                <p class="footer-copy">© 2026 PaycheckMint. All rights reserved.</p>
             </div>
-        </footer>
 
-        <script>
+        </div>
+
+    </footer>
+
+    <script>
+        (function () {
+            "use strict";
+
+            /* ==========================================================================
+               1. ASYNC COMPONENT LOADER
+               ========================================================================== */
             document.addEventListener("DOMContentLoaded", function () {
-                const menuToggle = document.querySelector(".mobile-menu-toggle");
+                loadSharedComponents();
+            });
 
-                const mainNav = document.querySelector(".main-nav");
+            async function loadSharedComponents() {
+                const navbar = document.getElementById("site-navbar");
+                const footer = document.getElementById("site-footer");
 
-                const dropdown = document.querySelector(".nav-dropdown");
+                try {
+                    const requests = [];
 
-                const dropdownToggle = document.querySelector(".nav-dropdown-toggle");
+                    if (navbar) {
+                        requests.push(
+                            fetch("/components/navbar.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Navbar 404"))
+                                .then(html => { navbar.innerHTML = html; })
+                        );
+                    }
 
-                /* Mobile menu */
+                    if (footer) {
+                        requests.push(
+                            fetch("/components/footer.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Footer 404"))
+                                .then(html => { footer.innerHTML = html; })
+                        );
+                    }
 
-                if (menuToggle && mainNav) {
-                    menuToggle.addEventListener("click", function (event) {
-                        event.stopPropagation();
+                    await Promise.all(requests);
+                    // Re-bind focus or initial state if required after injection
+                    setupScrollHeader();
+                } catch (error) {
+                    console.error("Component loading error:", error);
+                    setupScrollHeader();
+                }
+            }
 
-                        const isOpen = mainNav.classList.toggle("mobile-open");
+            /* ==========================================================================
+               2. EVENT DELEGATION (Handles dynamic elements automatically)
+               ========================================================================== */
+            document.addEventListener("click", function (event) {
 
-                        menuToggle.classList.toggle("open", isOpen);
+                // --- DESKTOP DROPDOWNS ---
+                const dropdownBtn = event.target.closest(".pm-nav-dropdown-button");
+                if (dropdownBtn) {
+                    event.stopPropagation();
+                    const currentDropdown = dropdownBtn.closest(".pm-nav-dropdown");
+                    const isOpen = currentDropdown.classList.contains("is-open");
 
-                        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    // Close all dropdowns
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
+                    });
 
-                        menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+                    // Toggle selected dropdown
+                    if (!isOpen) {
+                        currentDropdown.classList.add("is-open");
+                        dropdownBtn.setAttribute("aria-expanded", "true");
+                    }
+                    return;
+                }
+
+                // Close desktop dropdowns when clicking outside
+                if (!event.target.closest(".pm-nav-dropdown")) {
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
                     });
                 }
 
-                /* Finance dropdown */
-
-                if (dropdown && dropdownToggle) {
-                    dropdownToggle.addEventListener("click", function (event) {
-                        event.stopPropagation();
-
-                        const isOpen = dropdown.classList.toggle("open");
-
-                        dropdownToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-                    });
+                // --- MOBILE NAV TOGGLE ---
+                const mobileToggle = event.target.closest("#mobileToggle");
+                if (mobileToggle) {
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) {
+                        const isOpen = mobileNav.classList.toggle("is-open");
+                        mobileToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
                 }
 
-                /* Close when clicking outside */
-
-                document.addEventListener("click", function () {
-                    if (mainNav) {
-                        mainNav.classList.remove("mobile-open");
+                // --- MOBILE SUBMENU TOGGLE ---
+                const mobileFinanceToggle = event.target.closest("#mobileFinanceToggle");
+                if (mobileFinanceToggle) {
+                    event.stopPropagation();
+                    const mobileFinanceLinks = document.getElementById("mobileFinanceLinks");
+                    if (mobileFinanceLinks) {
+                        const isOpen = mobileFinanceLinks.classList.toggle("is-open");
+                        mobileFinanceToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
                     }
+                    return;
+                }
 
-                    if (menuToggle) {
-                        menuToggle.classList.remove("open");
+                // --- SEARCH TOGGLE (OPEN / CLOSE) ---
+                const searchToggle = event.target.closest("#searchToggle");
+                const mobileSearchBtn = event.target.closest("#mobileSearchButton");
+                const searchClose = event.target.closest("#searchClose");
+                const searchPanel = document.getElementById("searchPanel");
 
-                        menuToggle.setAttribute("aria-expanded", "false");
+                if (searchToggle || mobileSearchBtn) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) mobileNav.classList.remove("is-open");
 
-                        menuToggle.setAttribute("aria-label", "Open navigation");
+                    if (searchPanel) {
+                        if (searchPanel.classList.contains("is-open") && searchToggle) {
+                            closeSearch();
+                        } else {
+                            openSearch();
+                        }
                     }
+                    return;
+                }
 
-                    if (dropdown) {
-                        dropdown.classList.remove("open");
+                if (searchClose) {
+                    event.preventDefault();
+                    closeSearch();
+                    return;
+                }
+
+                // Close search panel when clicking outside of it
+                if (searchPanel && searchPanel.classList.contains("is-open")) {
+                    if (!searchPanel.contains(event.target)) {
+                        closeSearch();
                     }
-
-                    if (dropdownToggle) {
-                        dropdownToggle.setAttribute("aria-expanded", "false");
-                    }
-                });
-
-                /* Don't close menu when clicking inside it */
-
-                if (mainNav) {
-                    mainNav.addEventListener("click", function (event) {
-                        event.stopPropagation();
-                    });
                 }
             });
-        </script>
-    </body>
+
+            /* ==========================================================================
+               3. SEARCH HELPER FUNCTIONS & LIVE FILTERING
+               ========================================================================== */
+            function openSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchToggle = document.getElementById("searchToggle");
+
+                if (!searchPanel) return;
+                searchPanel.classList.add("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "true");
+                    searchToggle.setAttribute("aria-label", "Close search");
+                }
+                if (searchInput) setTimeout(() => searchInput.focus(), 100);
+            }
+
+            function closeSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchResults = document.getElementById("searchResults");
+                const searchToggle = document.getElementById("searchToggle");
+
+                if (!searchPanel) return;
+                searchPanel.classList.remove("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "false");
+                    searchToggle.setAttribute("aria-label", "Open search");
+                }
+                if (searchInput) searchInput.value = "";
+                if (searchResults) searchResults.innerHTML = "";
+            }
+
+            // Keyboard Shortcuts (Escape Key)
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closeSearch();
+                }
+            });
+
+            // Live Search Typing Input Event
+            document.addEventListener("input", function (event) {
+                if (event.target.id !== "siteSearch") return;
+
+                const query = event.target.value.trim().toLowerCase();
+                const searchResults = document.getElementById("searchResults");
+                if (!searchResults) return;
+
+                if (query.length === 0) {
+                    searchResults.innerHTML = "";
+                    return;
+                }
+
+                const searchablePages = [
+                    { title: "Paycheck Tax Calculator", url: "/paycheck-tax-calculator/", description: "Calculate accurate net pay and taxes." },
+                    { title: "Take-Home Pay Calculator", url: "/take-home-pay-calculator/", description: "Estimate your actual paycheck total after deductions." },
+                    { title: "Hourly Paycheck Calculator", url: "/hourly-paycheck-calculator/", description: "Calculate income based on hourly wage and hours worked." },
+                    { title: "Overtime Pay Calculator", url: "/overtime-pay-calculator/", description: "Compute overtime rates and total extra wages." },
+                    { title: "Salary Paycheck Calculator", url: "/salary-paycheck-calculator/", description: "Break down annual salary into per-paycheck earnings." },
+                    { title: "Income Overview", url: "/income/", description: "Learn about taxable income, gross wages, and take-home pay." },
+                    { title: "Finance Overview", url: "/finance/", description: "Guides on managing personal finances and budgeting strategies." },
+                    { title: "Budgeting Guides", url: "/finance/budgeting/", description: "Strategies for budgeting your paycheck effectively." }
+                ];
+
+                const matches = searchablePages.filter(page =>
+                    page.title.toLowerCase().includes(query) ||
+                    page.description.toLowerCase().includes(query)
+                );
+
+                if (matches.length === 0) {
+                    searchResults.innerHTML = `<p class="pm-search-no-results">No results found for "${escapeHTML(query)}"</p>`;
+                    return;
+                }
+
+                searchResults.innerHTML = matches.map(item => `
+            <a href="${item.url}" class="pm-search-result-item">
+                <span class="pm-search-result-title">${escapeHTML(item.title)}</span>
+                <span class="pm-search-result-desc">${escapeHTML(item.description)}</span>
+            </a>
+        `).join("");
+            });
+
+            function escapeHTML(str) {
+                return str.replace(/[&<>'"]/g, tag => ({
+                    '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+                }[tag] || tag));
+            }
+
+            /* ==========================================================================
+               4. SCROLL SHADOW
+               ========================================================================== */
+            function setupScrollHeader() {
+                const header = document.getElementById("site-header");
+                if (!header) return;
+
+                window.addEventListener("scroll", function () {
+                    if (window.scrollY > 20) {
+                        header.classList.add("is-scrolled");
+                    } else {
+                        header.classList.remove("is-scrolled");
+                    }
+                }, { passive: true });
+            }
+
+        })();
+    </script>
+
+</body>
+
 </html>

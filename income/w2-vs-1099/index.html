@@ -1,61 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>W-2 vs 1099 Income: Taxes, Pay, Benefits & Differences | PaycheckMint</title>
+    <title>W-2 vs 1099: What’s the Difference? | PaycheckMint</title>
 
     <meta name="description"
-        content="Compare W-2 and 1099 income. Learn the differences between employees and independent contractors, including taxes, withholding, benefits, deductions, self-employment tax and take-home pay." />
-
+        content="Learn the difference between W-2 employees and 1099 independent contractors, including taxes, benefits, deductions, paperwork, and take-home pay.">
     <meta name="keywords"
-        content="W-2 vs 1099 income, 1099 vs W-2, W-2 employee vs independent contractor, W-2 vs 1099 taxes, 1099 take home pay, W-2 take home pay, 1099 self employment tax" />
+        content="W-2 vs 1099, W2 vs 1099, employee vs independent contractor, 1099 contractor vs W2, W2 employee taxes, 1099 taxes">
 
-    <link rel="canonical" href="https://paymintcheck.vercel.app/w2-vs-1099-income/" />
+    <link rel="canonical" href="https://paycheckmint.com/w2-vs-1099/">
 
-    <meta name="robots" content="index, follow" />
-
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="W-2 vs 1099 Income: Taxes, Pay, Benefits & Differences" />
+    <meta property="og:title" content="W-2 vs 1099: What’s the Difference?">
     <meta property="og:description"
-        content="Understand the differences between W-2 employees and independent contractors, including taxes, benefits, deductions, withholding and take-home pay." />
-    <meta property="og:url" content="https://paymintcheck.vercel.app/w2-vs-1099-income/" />
-    <meta property="og:site_name" content="PaycheckMint" />
+        content="Compare W-2 employees and 1099 independent contractors, including taxes, benefits, deductions, and take-home pay.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://paycheckmint.com/w2-vs-1099/">
 
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="W-2 vs 1099 Income" />
-    <meta name="twitter:description"
-        content="Compare W-2 employees and 1099 independent contractors by taxes, pay, benefits, deductions and take-home pay." />
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/icon.ico">
 
     <style>
         :root {
-            --bg: #f6f5f1;
+            --bg: #f5f3ec;
             --surface: #ffffff;
-            --surface-soft: #faf9f6;
+            --surface-soft: #faf8f1;
 
-            --ink: #191919;
-            --muted: #74736f;
-            --muted-light: #999791;
+            --ink: #18221f;
+            --muted: #6d7773;
+            --muted-light: #8b938f;
 
-            --line: #deddd8;
-            --line-dark: #cbc9c3;
+            --line: #dddcd4;
+            --line-dark: #cbc9c0;
 
-            --accent: #5954d9;
-            --accent-dark: #4843c4;
-            --accent-soft: #efefff;
+            --primary: #176B5B;
+            --primary-dark: #0F5145;
+            --primary-soft: #e8f2ef;
 
-            --success: #24734a;
-            --warning: #9a6a00;
+            --gold: #D4A72C;
+            --gold-soft: #fbf3d9;
+
+            --danger-soft: #f8eaea;
+            --shadow: 0 10px 35px rgba(24, 34, 31, 0.07);
 
             --radius: 16px;
-            --max-width: 1080px;
         }
 
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         html {
@@ -63,9 +60,6 @@
         }
 
         body {
-            margin: 0;
-            background: var(--bg);
-            color: var(--ink);
             font-family:
                 Inter,
                 ui-sans-serif,
@@ -74,107 +68,83 @@
                 BlinkMacSystemFont,
                 "Segoe UI",
                 sans-serif;
+            background: var(--bg);
+            color: var(--ink);
             line-height: 1.7;
         }
 
         a {
-            color: var(--accent);
+            color: inherit;
+            text-decoration: none;
         }
 
-        .container {
-            width: min(calc(100% - 32px), var(--max-width));
-            margin: 0 auto;
+        img {
+            max-width: 100%;
+            display: block;
         }
 
         /* =========================
-           HEADER
+           NAVBAR
         ========================= */
 
         .site-header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(246, 245, 241, 0.95);
+            background: rgba(255, 255, 255, 0.96);
             border-bottom: 1px solid var(--line);
             backdrop-filter: blur(12px);
         }
 
-        .header-inner {
-            min-height: 68px;
+        .nav-container {
+            max-width: 1180px;
+            margin: 0 auto;
+            min-height: 72px;
+            padding: 0 22px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 24px;
-            position: relative;
+            gap: 30px;
         }
 
-        .logo {
-            display: inline-flex;
-            align-items: center;
-            color: var(--ink);
-            text-decoration: none;
-            font-size: 21px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
+        .brand {
+            font-size: 24px;
+            font-weight: 850;
+            letter-spacing: -0.7px;
+            color: var(--primary);
             white-space: nowrap;
         }
 
-        .mobile-menu-toggle {
-            display: none;
-            width: 42px;
-            height: 42px;
-            border: 1px solid var(--line);
-            background: var(--surface);
-            border-radius: 10px;
-            padding: 0;
-            cursor: pointer;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .mobile-menu-toggle span {
-            display: block;
-            width: 18px;
-            height: 2px;
-            background: var(--ink);
-            border-radius: 2px;
-            transition: 0.2s ease;
-        }
-
-        .mobile-menu-toggle.open span:nth-child(1) {
-            transform: translateY(7px) rotate(45deg);
-        }
-
-        .mobile-menu-toggle.open span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-menu-toggle.open span:nth-child(3) {
-            transform: translateY(-7px) rotate(-45deg);
+        .brand span {
+            color: var(--gold);
         }
 
         .main-nav {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
 
         .main-nav>a,
         .nav-dropdown-toggle {
-            text-decoration: none;
-            color: #565550;
-            font-size: 14px;
-            font-weight: 600;
-            padding: 9px 11px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 13px;
             border-radius: 9px;
+
+            font-size: 14px;
+            font-weight: 650;
+            color: #39423f;
+
+            transition: 0.2s ease;
         }
 
         .main-nav>a:hover,
         .nav-dropdown-toggle:hover {
-            color: var(--accent);
-            background: var(--accent-soft);
+            color: var(--primary);
+            background: var(--primary-soft);
         }
 
         .nav-dropdown {
@@ -185,38 +155,80 @@
             border: 0;
             background: transparent;
             cursor: pointer;
-            font: inherit;
+            font-family: inherit;
         }
 
-        .nav-dropdown-menu {
-            display: none;
+        .dropdown-arrow {
+            font-size: 11px;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-dropdown:hover .dropdown-arrow,
+        .nav-dropdown.open .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
             position: absolute;
             top: calc(100% + 8px);
             right: 0;
-            min-width: 220px;
-            padding: 7px;
+
+            min-width: 215px;
+            padding: 8px;
+
             background: var(--surface);
             border: 1px solid var(--line);
-            border-radius: 12px;
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+            border-radius: 13px;
+            box-shadow: var(--shadow);
+
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-5px);
+            transition: 0.2s ease;
         }
 
-        .nav-dropdown.open .nav-dropdown-menu {
-            display: flex;
-            flex-direction: column;
+        .nav-dropdown:hover .dropdown-menu,
+        .nav-dropdown.open .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
         }
 
-        .nav-dropdown-menu a {
-            padding: 9px 10px;
+        .dropdown-menu a {
+            display: block;
+            padding: 9px 11px;
             border-radius: 8px;
-            text-decoration: none;
-            color: #565550;
+
             font-size: 13px;
+            font-weight: 600;
+            color: #4c5652;
         }
 
-        .nav-dropdown-menu a:hover {
-            background: var(--accent-soft);
-            color: var(--accent);
+        .dropdown-menu a:hover {
+            background: var(--primary-soft);
+            color: var(--primary);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+
+            border: 0;
+            background: transparent;
+            color: var(--ink);
+
+            font-size: 26px;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .page {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 44px 22px 80px;
         }
 
         /* =========================
@@ -224,407 +236,464 @@
         ========================= */
 
         .hero {
-            padding: 72px 0 46px;
+            background:
+                linear-gradient(135deg,
+                    rgba(23, 107, 91, 0.97),
+                    rgba(15, 81, 69, 0.98));
+
+            color: #fff;
+            border-radius: 24px;
+            padding: 46px 48px;
+            margin-bottom: 28px;
+
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero-inner {
-            max-width: 850px;
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            right: -90px;
+            top: -90px;
+
+            border: 45px solid rgba(255, 255, 255, 0.07);
+            border-radius: 50%;
         }
 
         .eyebrow {
             display: inline-flex;
-            padding: 6px 10px;
-            background: var(--accent-soft);
-            color: var(--accent-dark);
-            border-radius: 999px;
+            align-items: center;
+            gap: 7px;
+
             font-size: 12px;
             font-weight: 800;
-            letter-spacing: 0.04em;
             text-transform: uppercase;
+            letter-spacing: 1px;
+
+            color: #f7dc83;
+            margin-bottom: 12px;
         }
 
-        h1 {
-            margin: 16px 0 18px;
-            font-size: clamp(36px, 6vw, 58px);
-            line-height: 1.05;
-            letter-spacing: -2.4px;
+        .hero h1 {
+            max-width: 820px;
+            font-size: clamp(32px, 4vw, 50px);
+            line-height: 1.08;
+            letter-spacing: -1.5px;
+            margin-bottom: 17px;
         }
 
-        .hero-lead {
-            margin: 0;
-            max-width: 790px;
-            color: var(--muted);
-            font-size: 18px;
+        .hero p {
+            max-width: 820px;
+            color: rgba(255, 255, 255, 0.86);
+            font-size: 17px;
         }
 
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 26px;
+        .quick-answer {
+            margin-top: 25px;
+            max-width: 850px;
+
+            padding: 17px 19px;
+
+            background: rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 13px;
+
+            font-size: 15px;
         }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 44px;
-            padding: 10px 16px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 750;
-            border: 1px solid var(--line-dark);
-        }
-
-        .btn-primary {
-            background: var(--accent);
+        .quick-answer strong {
             color: #fff;
-            border-color: var(--accent);
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-dark);
-        }
-
-        .btn-secondary {
-            background: var(--surface);
-            color: var(--ink);
         }
 
         /* =========================
-           LAYOUT
+           MAIN LAYOUT
         ========================= */
 
         .content-layout {
             display: grid;
-            grid-template-columns: minmax(0, 1fr) 280px;
-            gap: 26px;
+            grid-template-columns: minmax(0, 1fr) 265px;
+            gap: 28px;
             align-items: start;
-            padding-bottom: 70px;
         }
 
         .article {
             min-width: 0;
-        }
-
-        .article-section {
             background: var(--surface);
             border: 1px solid var(--line);
             border-radius: var(--radius);
-            padding: 30px;
-            margin-bottom: 20px;
+            padding: 34px 38px;
         }
 
-        .article-section h2 {
-            margin: 0 0 14px;
-            font-size: 27px;
+        .article h2 {
+            font-size: 28px;
             line-height: 1.25;
-            letter-spacing: -0.7px;
+            letter-spacing: -0.5px;
+            margin: 34px 0 13px;
+            color: var(--ink);
         }
 
-        .article-section h3 {
-            margin: 25px 0 9px;
-            font-size: 19px;
+        .article h2:first-child {
+            margin-top: 0;
+        }
+
+        .article h3 {
+            font-size: 20px;
             line-height: 1.35;
+            margin: 26px 0 9px;
         }
 
-        .article-section p {
-            margin: 0 0 15px;
+        .article p {
+            margin-bottom: 15px;
+            color: #4f5a56;
+            font-size: 15.5px;
         }
 
-        .article-section ul,
-        .article-section ol {
-            padding-left: 22px;
+        .article ul,
+        .article ol {
+            padding-left: 23px;
+            margin: 10px 0 20px;
         }
 
-        .article-section li {
-            margin-bottom: 9px;
+        .article li {
+            margin-bottom: 8px;
+            color: #4f5a56;
+            font-size: 15px;
         }
 
-        .muted {
-            color: var(--muted);
-        }
-
-        /* =========================
-           QUICK ANSWER
-        ========================= */
-
-        .quick-answer {
-            background: var(--accent-soft);
-            border: 1px solid #dcdcff;
-            border-radius: 14px;
-            padding: 22px;
-            margin-bottom: 22px;
-        }
-
-        .quick-answer strong {
-            display: block;
-            margin-bottom: 6px;
-            color: var(--accent-dark);
-        }
-
-        /* =========================
-           COMPARISON
-        ========================= */
-
-        .comparison {
-            overflow-x: auto;
-            margin: 20px 0;
-        }
-
-        .comparison table {
-            width: 100%;
-            min-width: 650px;
-            border-collapse: collapse;
-        }
-
-        .comparison th,
-        .comparison td {
-            padding: 14px;
-            border-bottom: 1px solid var(--line);
-            text-align: left;
-            vertical-align: top;
-        }
-
-        .comparison th {
-            background: var(--surface-soft);
-            font-size: 13px;
-        }
-
-        .comparison td:first-child {
-            font-weight: 750;
-            width: 25%;
-        }
-
-        /* =========================
-           CARDS
-        ========================= */
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .info-card {
-            padding: 18px;
-            background: var(--surface-soft);
-            border: 1px solid var(--line);
-            border-radius: 12px;
-        }
-
-        .info-card strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .info-card span {
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        /* =========================
-           FORMULA
-        ========================= */
-
-        .formula {
-            background: #191919;
-            color: #fff;
-            padding: 20px;
-            border-radius: 13px;
-            text-align: center;
-            font-weight: 750;
-            margin: 20px 0;
-        }
-
-        .formula small {
-            display: block;
-            color: #c8c8c8;
-            margin-top: 5px;
-            font-weight: 500;
-        }
-
-        /* =========================
-           CALLOUT
-        ========================= */
-
-        .callout {
-            border-left: 4px solid var(--accent);
-            background: var(--surface-soft);
-            padding: 17px 18px;
-            margin: 20px 0;
-            border-radius: 0 10px 10px 0;
-        }
-
-        .callout strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .warning {
-            border-left-color: var(--warning);
-        }
-
-        /* =========================
-           EXAMPLE
-        ========================= */
-
-        .example-box {
-            border: 1px solid var(--line-dark);
-            border-radius: 14px;
-            overflow: hidden;
-            margin: 22px 0;
-        }
-
-        .example-header {
-            background: #191919;
-            color: #fff;
-            padding: 16px 18px;
-            font-weight: 750;
-        }
-
-        .example-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            padding: 13px 18px;
-            border-bottom: 1px solid var(--line);
-        }
-
-        .example-row:last-child {
-            border-bottom: 0;
-        }
-
-        .example-row.total {
-            background: var(--accent-soft);
-            font-weight: 800;
+        .article strong {
+            color: var(--ink);
         }
 
         /* =========================
            SIDEBAR
+           IMPORTANT:
+           NO INTERNAL SCROLLING
         ========================= */
 
         .sidebar {
             position: sticky;
-            top: 88px;
+            top: 92px;
+            align-self: start;
+
+            width: 265px;
+
+            height: max-content;
+            max-height: none;
+            overflow: visible;
         }
 
-        .toc {
+        .side-card {
             background: var(--surface);
             border: 1px solid var(--line);
-            border-radius: 14px;
-            padding: 18px;
+            border-radius: 15px;
+            padding: 19px;
+            margin-bottom: 15px;
         }
 
-        .toc-title {
+        .side-card h3 {
+            font-size: 15px;
+            margin-bottom: 13px;
+            color: var(--ink);
+        }
+
+        .important-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .important-list li {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 11px;
+
+            color: #59635f;
+            font-size: 13px;
+            line-height: 1.45;
+        }
+
+        .important-list li::before {
+            content: "✓";
+
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            color: var(--primary);
+            font-weight: 900;
+        }
+
+        .side-cta {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        .side-cta h3 {
+            color: #fff;
+        }
+
+        .side-cta p {
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 13px;
+            line-height: 1.55;
+            margin-bottom: 13px;
+        }
+
+        .side-button {
+            display: inline-flex;
+            justify-content: center;
+            width: 100%;
+
+            padding: 10px 13px;
+
+            background: #fff;
+            color: var(--primary);
+
+            border-radius: 9px;
             font-size: 13px;
             font-weight: 800;
-            margin-bottom: 10px;
         }
 
-        .toc a {
-            display: block;
-            padding: 6px 0;
-            color: #5d5b56;
-            text-decoration: none;
+        .side-button:hover {
+            background: var(--gold-soft);
+        }
+
+        /* =========================
+           HIGHLIGHT BOX
+        ========================= */
+
+        .highlight {
+            background: var(--primary-soft);
+            border: 1px solid #cce3dc;
+            border-left: 4px solid var(--primary);
+
+            border-radius: 11px;
+            padding: 17px 18px;
+            margin: 20px 0;
+        }
+
+        .highlight strong {
+            color: var(--primary-dark);
+        }
+
+        .note {
+            background: var(--gold-soft);
+            border: 1px solid #eadcae;
+            border-radius: 11px;
+            padding: 17px 18px;
+            margin: 20px 0;
+
+            color: #655626;
+            font-size: 14px;
+        }
+
+        /* =========================
+           COMPARISON TABLE
+        ========================= */
+
+        .table-wrap {
+            width: 100%;
+            overflow-x: auto;
+            margin: 22px 0 26px;
+
+            border: 1px solid var(--line);
+            border-radius: 13px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            min-width: 650px;
+            border-collapse: collapse;
+            background: #fff;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 14px 15px;
+            border-bottom: 1px solid var(--line);
+            text-align: left;
+            vertical-align: top;
+            font-size: 14px;
+        }
+
+        .comparison-table th {
+            background: var(--surface-soft);
+            color: var(--ink);
             font-size: 13px;
-            line-height: 1.4;
+            font-weight: 800;
         }
 
-        .toc a:hover {
-            color: var(--accent);
+        .comparison-table th:nth-child(2) {
+            color: var(--primary);
         }
 
-        .sidebar-card {
-            margin-top: 14px;
-            padding: 18px;
-            background: var(--accent-soft);
-            border: 1px solid #dcdcff;
-            border-radius: 14px;
+        .comparison-table th:nth-child(3) {
+            color: #8c6b12;
         }
 
-        .sidebar-card strong {
-            display: block;
-            margin-bottom: 7px;
+        .comparison-table tr:last-child td {
+            border-bottom: 0;
         }
 
-        .sidebar-card p {
-            margin: 0 0 12px;
-            color: var(--muted);
+        .comparison-table td:first-child {
+            font-weight: 750;
+            color: var(--ink);
+            width: 24%;
+        }
+
+        /* =========================
+           TWO CARDS
+        ========================= */
+
+        .two-cards {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 15px;
+            margin: 22px 0;
+        }
+
+        .info-card {
+            border: 1px solid var(--line);
+            background: var(--surface-soft);
+            border-radius: 13px;
+            padding: 19px;
+        }
+
+        .info-card .icon {
+            width: 38px;
+            height: 38px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 10px;
+            background: var(--primary-soft);
+
+            font-size: 19px;
+            margin-bottom: 11px;
+        }
+
+        .info-card.contractor .icon {
+            background: var(--gold-soft);
+        }
+
+        .info-card h3 {
+            margin: 0 0 8px;
+            font-size: 17px;
+        }
+
+        .info-card p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* =========================
+           NUMBERED STEPS
+        ========================= */
+
+        .steps {
+            display: grid;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 34px 1fr;
+            gap: 12px;
+            align-items: start;
+        }
+
+        .step-number {
+            width: 34px;
+            height: 34px;
+
+            display: grid;
+            place-items: center;
+
+            background: var(--primary);
+            color: #fff;
+
+            border-radius: 50%;
+            font-weight: 800;
             font-size: 13px;
+        }
+
+        .step h3 {
+            margin: 1px 0 4px;
+            font-size: 16px;
+        }
+
+        .step p {
+            margin: 0;
+            font-size: 14px;
         }
 
         /* =========================
            FAQ
         ========================= */
 
-        .faq-item {
+        .faq {
             border-top: 1px solid var(--line);
+            margin-top: 25px;
         }
 
-        .faq-item:first-child {
-            border-top: 0;
-        }
-
-        .faq-question {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 15px;
+        .faq-item {
             padding: 17px 0;
-            background: transparent;
-            border: 0;
-            color: var(--ink);
-            text-align: left;
-            font: inherit;
-            font-weight: 750;
-            cursor: pointer;
+            border-bottom: 1px solid var(--line);
         }
 
-        .faq-icon {
-            color: var(--accent);
-            font-size: 20px;
+        .faq-item h3 {
+            margin: 0 0 7px;
+            font-size: 17px;
         }
 
-        .faq-answer {
-            display: none;
-            padding: 0 0 17px;
-            color: var(--muted);
-        }
-
-        .faq-item.open .faq-answer {
-            display: block;
+        .faq-item p {
+            margin: 0;
+            font-size: 14px;
         }
 
         /* =========================
-           CTA
+           RELATED
         ========================= */
 
-        .dark-cta {
-            background: #191919;
-            color: #fff;
-            border-radius: var(--radius);
-            padding: 32px;
-            margin-top: 20px;
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 18px;
         }
 
-        .dark-cta h2 {
-            margin: 0 0 10px;
-            font-size: 28px;
+        .related-card {
+            display: block;
+
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 15px;
+
+            background: var(--surface-soft);
+
+            transition: 0.2s ease;
         }
 
-        .dark-cta p {
-            color: #c8c8c8;
-            margin: 0 0 20px;
+        .related-card:hover {
+            border-color: #b8d3cb;
+            transform: translateY(-2px);
         }
 
-        .dark-cta .btn {
-            background: #fff;
-            color: #191919;
-            border-color: #fff;
+        .related-card strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+
+        .related-card span {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.45;
         }
 
         /* =========================
@@ -633,61 +702,48 @@
 
         .site-footer {
             border-top: 1px solid var(--line);
-            background: #efeee9;
+            background: var(--bg);
+            padding: 38px 22px;
         }
 
         .footer-inner {
-            padding: 46px 0 24px;
-        }
+            max-width: 1180px;
+            margin: 0 auto;
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr;
-            gap: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
         }
 
         .footer-brand {
-            font-size: 19px;
-            font-weight: 800;
+            font-weight: 850;
+            color: var(--primary);
+            font-size: 18px;
         }
 
-        .footer-description {
-            max-width: 400px;
+        .footer-brand span {
+            color: var(--gold);
+        }
+
+        .footer-copy {
             color: var(--muted);
-            font-size: 14px;
-        }
-
-        .footer-column {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 7px;
-        }
-
-        .footer-column h3 {
-            margin: 0 0 5px;
             font-size: 13px;
         }
 
-        .footer-column a {
+        .footer-links {
+            display: flex;
+            gap: 17px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
             color: var(--muted);
-            text-decoration: none;
             font-size: 13px;
         }
 
-        .footer-column a:hover {
-            color: var(--accent);
-        }
-
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            border-top: 1px solid var(--line);
-            margin-top: 30px;
-            padding-top: 18px;
-            color: var(--muted-light);
-            font-size: 12px;
+        .footer-links a:hover {
+            color: var(--primary);
         }
 
         /* =========================
@@ -695,1269 +751,1497 @@
         ========================= */
 
         @media (max-width: 900px) {
-            .content-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .sidebar {
-                position: static;
-                order: -1;
-            }
-
-            .toc {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 4px 15px;
-            }
-
-            .toc-title {
-                grid-column: 1 / -1;
-            }
-        }
-
-        @media (max-width: 700px) {
-            .header-inner {
-                min-height: 62px;
-            }
 
             .mobile-menu-toggle {
-                display: flex;
+                display: block;
             }
 
             .main-nav {
                 display: none;
+
                 position: absolute;
+                top: 72px;
                 left: 0;
                 right: 0;
-                top: calc(100% + 8px);
-                padding: 9px;
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: 13px;
-                box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+
+                background: #fff;
+                border-bottom: 1px solid var(--line);
+
+                padding: 10px 18px 18px;
+
                 flex-direction: column;
                 align-items: stretch;
-                gap: 3px;
+
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
             }
 
-            .main-nav.mobile-open {
+            .main-nav.active {
                 display: flex;
             }
 
             .main-nav>a,
             .nav-dropdown-toggle {
                 width: 100%;
-                text-align: left;
-                padding: 11px 12px;
+                justify-content: space-between;
+                padding: 12px;
             }
 
-            .nav-dropdown-menu {
+            .nav-dropdown {
+                width: 100%;
+            }
+
+            .dropdown-menu {
                 position: static;
-                min-width: 0;
+                width: 100%;
+
+                margin-top: 3px;
+
                 box-shadow: none;
                 border: 0;
-                border-top: 1px solid var(--line);
-                border-radius: 0;
-                margin-top: 4px;
-                padding: 5px 0 0 10px;
+                border-radius: 8px;
+
+                display: none;
+
+                opacity: 1;
+                visibility: visible;
+                transform: none;
             }
 
-            .nav-dropdown.open .nav-dropdown-menu {
-                display: flex;
-            }
-
-            .hero {
-                padding: 50px 0 32px;
-            }
-
-            h1 {
-                letter-spacing: -1.7px;
-            }
-
-            .hero-lead {
-                font-size: 16px;
-            }
-
-            .article-section {
-                padding: 22px;
-            }
-
-            .article-section h2 {
-                font-size: 24px;
-            }
-
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .toc {
+            .nav-dropdown.open .dropdown-menu {
                 display: block;
             }
 
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .footer-grid>div:first-child {
-                grid-column: 1 / -1;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 5px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                width: min(calc(100% - 22px), var(--max-width));
-            }
-
-            h1 {
-                font-size: 35px;
-            }
-
-            .article-section {
-                padding: 18px;
-                border-radius: 13px;
-            }
-
-            .example-row {
-                font-size: 14px;
-            }
-
-            .dark-cta {
-                padding: 23px;
-            }
-
-            .footer-grid {
+            .content-layout {
                 grid-template-columns: 1fr;
             }
 
-            .footer-grid>div:first-child {
-                grid-column: auto;
+            /* Sidebar remains non-scrollable on mobile */
+            .sidebar {
+                position: static;
+                width: 100%;
+                height: auto;
+                max-height: none;
+                overflow: visible;
+                order: -1;
+            }
+
+            .side-card {
+                margin-bottom: 14px;
+            }
+
+            .hero {
+                padding: 35px 27px;
+            }
+
+            .article {
+                padding: 28px 23px;
+            }
+        }
+
+        @media (max-width: 620px) {
+
+            .page {
+                padding: 25px 14px 55px;
+            }
+
+            .nav-container {
+                padding: 0 16px;
+            }
+
+            .hero {
+                border-radius: 18px;
+                padding: 29px 21px;
+            }
+
+            .hero h1 {
+                font-size: 33px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .article {
+                border-radius: 14px;
+                padding: 24px 18px;
+            }
+
+            .article h2 {
+                font-size: 24px;
+            }
+
+            .two-cards,
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
     </style>
 
-    <!-- Article Schema -->
+    <!-- Structured Data -->
     <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "W-2 vs 1099: What's the Difference?",
+        "description": "A practical comparison of W-2 employees and 1099 independent contractors, including taxes, benefits, deductions, and paperwork.",
+        "url": "https://paycheckmint.com/w2-vs-1099.html",
+        "publisher": {
+            "@type": "Organization",
+            "name": "PaycheckMint",
+            "url": "https://paycheckmint.com/"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
             {
-                "@context": "https://schema.org",
-                "@type": "Article",
-                "headline": "W-2 vs 1099 Income: Taxes, Pay, Benefits & Differences",
-                "description": "Compare W-2 employees and independent contractors by taxes, withholding, benefits, deductions and take-home pay.",
-                "author": {
-                    "@type": "Organization",
-                    "name": "PaycheckMint"
-                },
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "PaycheckMint"
-                },
-                "mainEntityOfPage": {
-                    "@type": "WebPage",
-                    "@id": "https://paymintcheck.vercel.app/w2-vs-1099-income/"
+                "@type": "Question",
+                "name": "Is a W-2 better than a 1099?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Neither arrangement is automatically better. A W-2 job generally provides payroll withholding and may include employer benefits, while 1099 work can provide more independence and business expense opportunities. The right fit depends on compensation, benefits, expenses, taxes, and how the work is structured."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do 1099 workers pay more taxes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A 1099 independent contractor generally handles their own income tax payments and may owe self-employment tax. The total tax difference depends on income, deductible business expenses, filing situation, and other factors."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can someone have both W-2 and 1099 income?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Someone can have a W-2 job while also earning income as an independent contractor or freelancer."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is 1099 income the same as salary?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. A 1099 payment generally represents contractor income rather than wages from an employer. Contractors are generally responsible for handling their own tax payments and business expenses."
                 }
             }
-        </script>
-
-    <!-- FAQ Schema -->
-    <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": [
-                    {
-                        "@type": "Question",
-                        "name": "What is the difference between W-2 and 1099 income?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "W-2 income generally comes from employee work, where the employer handles payroll withholding and reports wages on Form W-2. 1099-NEC income generally comes from independent contractor work, where the worker is self-employed and generally handles their own income and self-employment tax obligations."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Do 1099 workers pay more taxes than W-2 employees?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Independent contractors generally have self-employment tax responsibilities that employees do not pay in the same way. However, the total tax result depends on income, business expenses, deductions, benefits, withholding and other circumstances."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Do W-2 employees pay self-employment tax?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Employees generally pay Social Security and Medicare taxes through payroll withholding rather than self-employment tax."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Can I have both W-2 and 1099 income?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Yes. A person can receive W-2 income from employee work and 1099 income from separate independent contractor work when the underlying work relationships qualify for those classifications."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Is $30 an hour W-2 the same as $30 an hour 1099?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Not necessarily. A contractor may need to account for self-employment tax, business expenses, insurance, retirement savings, unpaid time and other costs that may be handled differently for an employee."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Do 1099 workers get benefits?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Independent contractors generally do not receive employee benefits from the client in the same way W-2 employees may. Contractors generally arrange their own insurance, retirement savings and other benefits."
-                        }
-                    }
-                ]
-            }
-        </script>
+        ]
+    }
+    </script>
 </head>
 
 <body>
-    <header class="site-header">
-        <div class="container header-inner">
-            <a class="logo" href="/" aria-label="PaycheckMint home"> PaycheckMint </a>
 
-            <button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"
-                aria-controls="main-navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+    <header class="pm-header" id="site-header">
 
-            <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
-                <a href="/">Home</a>
+        <div class="pm-header-inner">
 
-                <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+            <a class="pm-brand" href="/" aria-label="PaycheckMint home">
+                Paycheck<span>Mint</span>
+            </a>
 
-                <a href="/income/"> Income </a>
+            <nav class="pm-desktop-nav" aria-label="Main navigation">
 
-                <div class="nav-dropdown">
-                    <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+                <a class="pm-nav-link" href="/income/">
+                    Income
+                </a>
+
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
                         Finance
-                        <span class="dropdown-arrow">▾</span>
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
                     </button>
 
-                    <div class="nav-dropdown-menu">
-                        <a href="/finance/"> Finance Overview </a>
+                    <div class="pm-dropdown-menu">
 
-                        <a href="/finance/taxes/"> Taxes </a>
+                        <span class="pm-dropdown-label">
+                            Explore
+                        </span>
 
-                        <a href="/finance/budgeting/"> Budgeting &amp; Saving </a>
+                        <a href="/finance/">
+                            <span>Finance Overview</span>
+                        </a>
 
-                        <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+                        <a href="/income/">
+                            <span>Income & Earnings</span>
+                        </a>
 
-                        <a href="/finance/investing/"> Investing &amp; Retirement </a>
+                        <a href="/finance/budgeting/">
+                            <span>Budgeting Guides</span>
+                        </a>
 
-                        <a href="/finance/insurance/"> Insurance </a>
                     </div>
+
                 </div>
+
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                        Calculators
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="pm-dropdown-menu">
+
+                        <span class="pm-dropdown-label">
+                            Paycheck tools
+                        </span>
+
+                        <a href="/paycheck-tax-calculator/">
+                            Paycheck Tax Calculator
+                        </a>
+
+                        <a href="/monthly-paycheck-calculator/">
+                            Monthly Paycheck Calculator
+                        </a>
+
+                        <a href="/take-home-pay-calculator/">
+                            Take-Home Pay Calculator
+                        </a>
+
+                        <a href="/hourly-paycheck-calculator/">
+                            Hourly Paycheck Calculator
+                        </a>
+
+                        <a href="/overtime-pay-calculator/">
+                            Overtime Pay Calculator
+                        </a>
+
+                        <a href="/salary-paycheck-calculator/">
+                            Salary Paycheck Calculator
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <a class="pm-nav-link" href="/finance/">
+                    Learn
+                </a>
+
             </nav>
+
+            <div class="pm-nav-spacer"></div>
+
+            <button class="pm-search-button" id="searchToggle" type="button" aria-label="Open search"
+                aria-expanded="false" aria-controls="searchPanel">
+
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="m20 20-4-4"></path>
+
+                </svg>
+
+            </button>
+
+            <a class="pm-header-cta" href="/paycheck-tax-calculator/">
+                Calculate paycheck
+            </a>
+
+            <button class="pm-mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation"
+                aria-expanded="false" aria-controls="mobileNav">
+                <svg id="mobileMenuIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <path d="M4 6h16" />
+                    <path d="M4 12h16" />
+                    <path d="M4 18h16" />
+                </svg>
+            </button>
+
         </div>
+
+        <!-- SEARCH PANEL -->
+
+        <div class="pm-search-panel" id="searchPanel">
+
+            <div class="pm-search-inner">
+
+                <div class="pm-search-field">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="m20 20-4-4" />
+                    </svg>
+
+                    <input id="siteSearch" class="pm-search-input" type="search" autocomplete="off"
+                        placeholder="Search PaycheckMint..." aria-label="Search PaycheckMint">
+
+                    <button class="pm-search-close" id="searchClose" type="button" aria-label="Close search">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 6l12 12" />
+                            <path d="M18 6 6 18" />
+                        </svg>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="pm-search-results" id="searchResults"></div>
+
+        </div>
+
+        <!-- MOBILE NAV -->
+
+        <nav class="pm-mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+
+            <div class="pm-mobile-nav-inner">
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a href="/income/">
+                    Income
+                </a>
+
+                <button class="pm-mobile-finance-button" id="mobileFinanceToggle" type="button" aria-expanded="false">
+                    <span>Finance</span>
+
+                    <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m6 9 6 6 6-6" />
+                    </svg>
+                </button>
+
+                <div class="pm-mobile-finance-links" id="mobileFinanceLinks">
+
+                    <a href="/finance/">
+                        Finance Overview
+                    </a>
+
+                    <a href="/income/">
+                        Income & Earnings
+                    </a>
+
+                </div>
+
+                <a href="/paycheck-tax-calculator/">
+                    Paycheck Tax Calculator
+                </a>
+
+                <a href="/take-home-pay-calculator/">
+                    Take-Home Pay Calculator
+                </a>
+
+                <a href="/hourly-paycheck-calculator/">
+                    Hourly Paycheck Calculator
+                </a>
+
+                <a href="/overtime-pay-calculator/">
+                    Overtime Pay Calculator
+                </a>
+
+                <a href="/salary-paycheck-calculator/">
+                    Salary Paycheck Calculator
+                </a>
+
+                <a href="/weekly-paycheck-calculator/">
+                    Weekly Paycheck Calculator
+                </a>
+
+                <a href="/biweekly-paycheck-calculator/">
+                    Biweekly Paycheck Calculator
+                </a>
+
+                <a href="/monthly-paycheck-calculator/">
+                    Monthly Paycheck Calculator
+                </a>
+
+                <div class="pm-mobile-search-row">
+
+                    <button class="pm-button-secondary" id="mobileSearchButton" type="button">
+                        Search PaycheckMint
+                    </button>
+
+                </div>
+
+            </div>
+
+        </nav>
+
     </header>
 
-    <main>
+
+    <main class="page">
+
+        <!-- HERO -->
+
         <section class="hero">
-            <div class="container">
-                <div class="hero-inner">
-                    <span class="eyebrow"> Income Guide </span>
 
-                    <h1>W-2 vs 1099 Income</h1>
-
-                    <p class="hero-lead">
-                        Understand the difference between W-2 employee income and 1099 independent-contractor
-                        income, including taxes, withholding, benefits, deductions, expenses and take-home pay.
-                    </p>
-
-                    <div class="hero-actions">
-                        <a class="btn btn-primary" href="/take-home-pay-calculator/"> Calculate Take-Home Pay </a>
-
-                        <a class="btn btn-secondary" href="#comparison"> Compare W-2 &amp; 1099 </a>
-                    </div>
-                </div>
+            <div class="eyebrow">
+                PAY &amp; INCOME GUIDE
             </div>
+
+            <h1>W-2 vs 1099: What's the Difference?</h1>
+
+            <p>
+                W-2 employees and 1099 independent contractors can earn similar
+                amounts of money, but the way they are paid, taxed, classified,
+                and provided benefits can be very different.
+            </p>
+
+            <div class="quick-answer">
+                <strong>Quick answer:</strong>
+                A W-2 generally means you work as an employee and your employer
+                handles payroll withholding. A 1099 arrangement generally means
+                you work as an independent contractor and are responsible for
+                managing your own taxes and business expenses.
+            </div>
+
         </section>
 
-        <div class="container">
-            <div class="content-layout">
-                <article class="article">
-                    <!-- QUICK ANSWER -->
 
-                    <section class="article-section">
-                        <div class="quick-answer">
-                            <strong> Quick answer </strong>
+        <div class="content-layout">
 
-                            <div>
-                                A W-2 generally relates to employee income, while a 1099-NEC generally reports
-                                qualifying nonemployee compensation paid to an independent contractor. W-2 employees
-                                generally have payroll taxes withheld by their employer. Independent contractors
-                                generally handle their own income and self-employment tax payments.
-                            </div>
-                        </div>
+            <!-- ARTICLE -->
 
-                        <p>
-                            The terms "W-2 worker" and "1099 worker" are common shorthand, but the forms themselves
-                            do not create the worker classification. The actual relationship between the worker and
-                            the business determines whether the work is generally treated as employee or
-                            independent-contractor work.
-                        </p>
-                    </section>
+            <article class="article">
 
-                    <!-- COMPARISON -->
+                <h2>W-2 vs 1099 at a glance</h2>
 
-                    <section class="article-section" id="comparison">
-                        <h2>W-2 vs 1099 at a Glance</h2>
+                <p>
+                    The biggest difference between W-2 and 1099 work is the
+                    relationship between the worker and the business paying them.
+                    A W-2 worker is generally an employee. A person receiving
+                    contractor compensation reported on Form 1099-NEC is generally
+                    working as an independent contractor.
+                </p>
 
-                        <div class="comparison">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Category</th>
+                <p>
+                    This distinction affects more than the tax form you receive.
+                    It can affect payroll withholding, Social Security and
+                    Medicare taxes, employee benefits, business expenses,
+                    recordkeeping, and how you plan for your tax bill.
+                </p>
 
-                                        <th>W-2 employee</th>
+                <div class="table-wrap">
 
-                                        <th>1099 independent contractor</th>
-                                    </tr>
-                                </thead>
+                    <table class="comparison-table">
 
-                                <tbody>
-                                    <tr>
-                                        <td>Worker status</td>
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>W-2 Employee</th>
+                                <th>1099 Contractor</th>
+                            </tr>
+                        </thead>
 
-                                        <td>Employee</td>
+                        <tbody>
 
-                                        <td>Generally self-employed / independent contractor</td>
-                                    </tr>
+                            <tr>
+                                <td>Worker status</td>
+                                <td>Generally an employee</td>
+                                <td>Generally an independent contractor</td>
+                            </tr>
 
-                                    <tr>
-                                        <td>Main tax form</td>
+                            <tr>
+                                <td>How you're paid</td>
+                                <td>Usually through payroll</td>
+                                <td>Usually through contractor payments or invoices</td>
+                            </tr>
 
-                                        <td>Form W-2</td>
+                            <tr>
+                                <td>Income tax withholding</td>
+                                <td>Generally withheld from paychecks</td>
+                                <td>Generally not withheld from ordinary contractor payments</td>
+                            </tr>
 
-                                        <td>Commonly Form 1099-NEC</td>
-                                    </tr>
+                            <tr>
+                                <td>Social Security &amp; Medicare</td>
+                                <td>Employee and employer generally share payroll taxes</td>
+                                <td>Contractor generally handles self-employment tax obligations</td>
+                            </tr>
 
-                                    <tr>
-                                        <td>Federal withholding</td>
+                            <tr>
+                                <td>Employee benefits</td>
+                                <td>May include health insurance, retirement plans, PTO and other benefits</td>
+                                <td>Usually responsible for obtaining benefits independently</td>
+                            </tr>
 
-                                        <td>Generally withheld through payroll</td>
+                            <tr>
+                                <td>Business expenses</td>
+                                <td>Generally limited compared with a business owner</td>
+                                <td>May have deductible business expenses when eligible</td>
+                            </tr>
 
-                                        <td>
-                                            Generally not withheld, except situations such as backup withholding
-                                        </td>
-                                    </tr>
+                            <tr>
+                                <td>Tax paperwork</td>
+                                <td>Generally receives Form W-2</td>
+                                <td>May receive Form 1099-NEC for qualifying nonemployee compensation</td>
+                            </tr>
 
-                                    <tr>
-                                        <td>Social Security &amp; Medicare</td>
+                            <tr>
+                                <td>Work independence</td>
+                                <td>Employer generally controls more aspects of the job</td>
+                                <td>Contractor generally has greater independence over how work is performed</td>
+                            </tr>
 
-                                        <td>
-                                            Employee portion withheld from wages; employer generally pays matching
-                                            amounts
-                                        </td>
+                        </tbody>
 
-                                        <td>
-                                            Self-employment tax generally applies to net earnings from
-                                            self-employment
-                                        </td>
-                                    </tr>
+                    </table>
 
-                                    <tr>
-                                        <td>Benefits</td>
+                </div>
 
-                                        <td>May receive employer benefits</td>
 
-                                        <td>Generally arranged by the contractor</td>
-                                    </tr>
+                <h2>What is a W-2 employee?</h2>
 
-                                    <tr>
-                                        <td>Business expenses</td>
+                <p>
+                    A W-2 employee works for an employer as part of an employment
+                    relationship. The employer generally runs payroll, withholds
+                    applicable taxes from wages, and reports the employee's annual
+                    wages and withholding on Form W-2.
+                </p>
 
-                                        <td>Treatment differs from independent-business expenses</td>
+                <p>
+                    Your paycheck may therefore show several amounts being
+                    withheld before you receive your take-home pay. Federal
+                    income tax, Social Security, Medicare, and possibly state or
+                    local taxes can affect the amount deposited into your bank
+                    account.
+                </p>
 
-                                        <td>Qualifying business expenses may generally be deductible</td>
-                                    </tr>
+                <div class="two-cards">
 
-                                    <tr>
-                                        <td>Tax planning</td>
+                    <div class="info-card">
 
-                                        <td>Payroll withholding handles much of the regular tax payment process</td>
+                        <div class="icon">💼</div>
 
-                                        <td>Contractor generally needs to plan for tax payments</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </section>
-
-                    <!-- FORMS -->
-
-                    <section class="article-section">
-                        <h2>W-2 vs 1099: What Do the Forms Actually Mean?</h2>
-
-                        <h3>What is a W-2?</h3>
-
-                        <p>
-                            Form W-2, Wage and Tax Statement, is used by employers to report employee wages and
-                            information such as income tax, Social Security and Medicare taxes withheld.
-                        </p>
+                        <h3>Employee structure</h3>
 
                         <p>
-                            Employees generally use their W-2 information when preparing their annual federal and
-                            state tax returns.
+                            The employer generally determines important parts of
+                            the work relationship, including duties, schedules,
+                            procedures, and how work is performed.
                         </p>
 
-                        <h3>What is a 1099-NEC?</h3>
-
-                        <p>
-                            Form 1099-NEC is used to report qualifying nonemployee compensation. An independent
-                            contractor may receive 1099-NEC forms from businesses that paid the contractor for
-                            services.
-                        </p>
-
-                        <div class="callout">
-                            <strong> Important distinction: </strong>
-                            "1099" is not a job classification by itself. A 1099-NEC is an information return.
-                            Whether someone is an employee or independent contractor depends on the underlying work
-                            relationship.
-                        </div>
-                    </section>
-
-                    <!-- W2 -->
-
-                    <section class="article-section">
-                        <h2>How W-2 Employee Income Works</h2>
-
-                        <p>
-                            When you are an employee, your employer generally runs your compensation through
-                            payroll. Taxes are generally withheld from your wages and the employer handles required
-                            payroll reporting.
-                        </p>
-
-                        <div class="info-grid">
-                            <div class="info-card">
-                                <strong> Regular paycheck </strong>
-
-                                <span> Employees commonly receive wages on a regular payroll schedule. </span>
-                            </div>
-
-                            <div class="info-card">
-                                <strong> Tax withholding </strong>
-
-                                <span>
-                                    Federal income tax and applicable payroll taxes are generally withheld.
-                                </span>
-                            </div>
-
-                            <div class="info-card">
-                                <strong> Employer payroll responsibilities </strong>
-
-                                <span>
-                                    The employer handles required payroll reporting and employer-side payroll taxes.
-                                </span>
-                            </div>
-
-                            <div class="info-card">
-                                <strong> Employee benefits </strong>
-
-                                <span>
-                                    Depending on the employer, benefits can include health insurance, retirement
-                                    plans and paid leave.
-                                </span>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- 1099 -->
-
-                    <section class="article-section">
-                        <h2>How 1099 Contractor Income Works</h2>
-
-                        <p>
-                            An independent contractor generally operates as a self-employed person rather than as an
-                            employee of the client. The contractor is generally responsible for tracking income and
-                            expenses and handling the related tax obligations.
-                        </p>
-
-                        <p>
-                            Contractors can include freelancers, consultants, independent tradespeople, certain gig
-                            workers and other people operating an independent business.
-                        </p>
-
-                        <div class="info-grid">
-                            <div class="info-card">
-                                <strong> Client payments </strong>
-
-                                <span>
-                                    A contractor generally receives payment for services rather than employee wages
-                                    through payroll.
-                                </span>
-                            </div>
-
-                            <div class="info-card">
-                                <strong> Limited withholding </strong>
-
-                                <span>
-                                    Federal income tax generally isn't withheld from ordinary contractor payments.
-                                </span>
-                            </div>
-
-                            <div class="info-card">
-                                <strong> Business expenses </strong>
-
-                                <span>
-                                    Qualifying ordinary and necessary business expenses can affect taxable business
-                                    income.
-                                </span>
-                            </div>
-
-                            <div class="info-card">
-                                <strong> Self-employment taxes </strong>
-
-                                <span>
-                                    Net earnings from self-employment can be subject to self-employment tax.
-                                </span>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- TAX -->
-
-                    <section class="article-section">
-                        <h2>W-2 vs 1099 Taxes</h2>
-
-                        <p>One of the biggest practical differences is how taxes are paid during the year.</p>
-
-                        <h3>W-2 tax withholding</h3>
-
-                        <p>
-                            For employees, the employer generally withholds federal income tax and the employee's
-                            Social Security and Medicare taxes from wages. State and local withholding may also
-                            apply depending on the location.
-                        </p>
-
-                        <h3>1099 tax payments</h3>
-
-                        <p>
-                            Independent contractors generally don't have ordinary employee payroll withholding from
-                            their client payments. They generally need to set aside money for income taxes and
-                            self-employment tax and may need to make estimated tax payments during the year.
-                        </p>
-
-                        <div class="formula">
-                            Contractor income − qualifying business expenses = net business earnings
-                        </div>
-
-                        <p>
-                            Estimated tax is generally used to pay tax on income that isn't sufficiently covered by
-                            withholding. The IRS explains that people in business for themselves generally may need
-                            estimated tax payments. :contentReference[oaicite:5]{index=5}
-                        </p>
-                    </section>
-
-                    <!-- SELF EMPLOYMENT -->
-
-                    <section class="article-section">
-                        <h2>What Is Self-Employment Tax?</h2>
-
-                        <p>
-                            Self-employment tax generally covers Social Security and Medicare taxes for people who
-                            are self-employed.
-                        </p>
-
-                        <p>
-                            This is an important difference when comparing contractor income with employee wages. An
-                            employee generally pays the employee share of Social Security and Medicare through
-                            payroll withholding, while a self-employed person generally calculates self-employment
-                            tax on qualifying net earnings.
-                        </p>
-
-                        <div class="callout">
-                            <strong> Don't compare only the advertised hourly rate. </strong>
-
-                            A contractor's rate may need to cover taxes, business expenses, insurance, retirement
-                            savings and unpaid time that an employee may receive differently through an employer.
-                        </div>
-                    </section>
-
-                    <!-- BENEFITS -->
-
-                    <section class="article-section">
-                        <h2>W-2 Benefits vs 1099 Benefits</h2>
-
-                        <p>
-                            Compensation is more than the amount shown on a rate or invoice. Benefits can make a
-                            significant difference in the overall value of a work arrangement.
-                        </p>
-
-                        <div class="comparison">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Benefit</th>
-
-                                        <th>W-2 employee</th>
-
-                                        <th>Independent contractor</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <td>Health insurance</td>
-
-                                        <td>Employer may offer a plan</td>
-
-                                        <td>Usually arranged independently</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Retirement plan</td>
-
-                                        <td>Employer may offer a 401(k) or another plan</td>
-
-                                        <td>Contractor generally arranges retirement savings</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Paid vacation</td>
-
-                                        <td>May be provided by employer</td>
-
-                                        <td>Usually unpaid time unless built into contractor pricing</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Sick leave</td>
-
-                                        <td>May be available depending on employer and applicable law</td>
-
-                                        <td>Generally self-funded</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Work equipment</td>
-
-                                        <td>Employer may provide equipment</td>
-
-                                        <td>Contractor may need to provide equipment</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </section>
-
-                    <!-- EXPENSES -->
-
-                    <section class="article-section">
-                        <h2>1099 Business Expenses and Deductions</h2>
-
-                        <p>
-                            Independent contractors generally operate a business, which means they can have costs
-                            associated with earning their income.
-                        </p>
-
-                        <p>
-                            Depending on the circumstances and applicable tax rules, business expenses may include
-                            items such as equipment, supplies, business software, qualifying business travel,
-                            business-use vehicle costs, or qualifying home-office expenses.
-                        </p>
-
-                        <p>
-                            A business expense is not automatically deductible simply because a contractor paid it.
-                            The expense must meet the applicable requirements.
-                        </p>
-
-                        <div class="callout">
-                            <strong> Keep records. </strong>
-
-                            Contractors should maintain appropriate records of business income and expenses rather
-                            than estimating expenses from memory at tax time.
-                        </div>
-                    </section>
-
-                    <!-- RATE -->
-
-                    <section class="article-section" id="hourly-rate">
-                        <h2>Why a $30 W-2 Rate Is Not the Same as a $30 1099 Rate</h2>
-
-                        <p>
-                            Looking only at the hourly rate can make two work offers appear equivalent when their
-                            financial structures are not.
-                        </p>
-
-                        <div class="example-box">
-                            <div class="example-header">Simplified example</div>
-
-                            <div class="example-row">
-                                <span> W-2 hourly rate </span>
-
-                                <strong> $30/hour </strong>
-                            </div>
-
-                            <div class="example-row">
-                                <span> 1099 hourly rate </span>
-
-                                <strong> $30/hour </strong>
-                            </div>
-
-                            <div class="example-row">
-                                <span> Contractor business costs </span>
-
-                                <strong> May apply </strong>
-                            </div>
-
-                            <div class="example-row">
-                                <span> Employee benefits </span>
-
-                                <strong> May be available to W-2 employee </strong>
-                            </div>
-
-                            <div class="example-row total">
-                                <span> Financial comparison </span>
-
-                                <strong> Requires more than rate alone </strong>
-                            </div>
-                        </div>
-
-                        <p>
-                            A proper comparison can include taxes, health insurance, retirement contributions, paid
-                            time off, equipment, business expenses, unpaid administrative time and the number of
-                            hours actually available for paid work.
-                        </p>
-                    </section>
-
-                    <!-- TAKE HOME -->
-
-                    <section class="article-section">
-                        <h2>W-2 vs 1099 Take-Home Pay</h2>
-
-                        <p>
-                            Take-home pay is particularly important when comparing employment arrangements because
-                            the amount billed or earned is not necessarily the amount available to spend.
-                        </p>
-
-                        <h3>W-2 employee</h3>
-
-                        <div class="formula">
-                            Gross W-2 Pay − Payroll Taxes − Other Withholding − Employee Deductions = Net Pay
-                        </div>
-
-                        <h3>1099 contractor</h3>
-
-                        <div class="formula">
-                            Contractor Revenue − Business Expenses − Taxes − Self-Employment Tax = Remaining Income
-                        </div>
-
-                        <p>
-                            These formulas are simplified. Actual tax calculations depend on filing status, income,
-                            deductions, location, business expenses and other circumstances.
-                        </p>
-                    </section>
-
-                    <!-- CLASSIFICATION -->
-
-                    <section class="article-section">
-                        <h2>How Is a Worker Classified as W-2 or 1099?</h2>
-
-                        <p>
-                            A company generally cannot simply choose whichever label it prefers. Worker
-                            classification depends on the facts of the relationship and applicable federal and state
-                            rules.
-                        </p>
-
-                        <p>The IRS describes three broad categories in its common-law approach:</p>
-
-                        <div class="info-grid">
-                            <div class="info-card">
-                                <strong> Behavioral control </strong>
-
-                                <span>
-                                    Who controls how the work is performed, including instructions and training?
-                                </span>
-                            </div>
-
-                            <div class="info-card">
-                                <strong> Financial control </strong>
-
-                                <span>
-                                    Who controls business and financial aspects such as expenses, investment and
-                                    opportunity for profit or loss?
-                                </span>
-                            </div>
-
-                            <div class="info-card">
-                                <strong> Type of relationship </strong>
-
-                                <span>
-                                    Contracts, benefits, permanency and other aspects of the relationship can
-                                    matter.
-                                </span>
-                            </div>
-
-                            <div class="info-card">
-                                <strong> State rules </strong>
-
-                                <span>
-                                    Some states apply additional worker-classification tests or requirements.
-                                </span>
-                            </div>
-                        </div>
-
-                        <p>
-                            No single factor necessarily determines federal classification. The IRS says the entire
-                            relationship should be considered. :contentReference[oaicite:6]{index=6}
-                        </p>
-                    </section>
-
-                    <!-- BOTH -->
-
-                    <section class="article-section">
-                        <h2>Can You Have Both W-2 and 1099 Income?</h2>
-
-                        <p>
-                            Yes. A person can receive W-2 income from one job and 1099 income from separate
-                            independent-contractor work.
-                        </p>
-
-                        <p>
-                            For example, someone could work as an employee during the week and operate a separate
-                            freelance business on weekends.
-                        </p>
-
-                        <p>
-                            The IRS also provides an example of a person who performs employee work for an entity
-                            while separately providing different services through an independent business.
-                            :contentReference[oaicite:7]{index=7}
-                        </p>
-
-                        <div class="callout">
-                            <strong> Keep the activities separate. </strong>
-
-                            When someone has both types of income, accurate records help distinguish employee wages
-                            from independent-business income and expenses.
-                        </div>
-                    </section>
-
-                    <!-- COMMON MISTAKES -->
-
-                    <section class="article-section">
-                        <h2>Common W-2 vs 1099 Mistakes</h2>
-
-                        <ul>
-                            <li>
-                                <strong>Thinking 1099 is a job type.</strong>
-                                A 1099 is an information return; the underlying relationship determines worker
-                                classification.
-                            </li>
-
-                            <li>
-                                <strong>Comparing hourly rates only.</strong>
-                                Benefits, taxes, expenses and unpaid time can change the overall financial picture.
-                            </li>
-
-                            <li>
-                                <strong>Spending all contractor income.</strong>
-                                Contractors may need to reserve part of their income for taxes.
-                            </li>
-
-                            <li>
-                                <strong>Ignoring business expenses.</strong>
-                                Contractors should track qualifying expenses and keep supporting records.
-                            </li>
-
-                            <li>
-                                <strong>Assuming a contract decides everything.</strong>
-                                A written agreement is relevant, but the actual relationship and applicable
-                                classification rules matter.
-                            </li>
-
-                            <li>
-                                <strong>Assuming every contractor receives exactly the same tax treatment.</strong>
-                                Tax treatment depends on the person's circumstances, income and applicable rules.
-                            </li>
-                        </ul>
-                    </section>
-
-                    <!-- CALCULATORS -->
-
-                    <section class="article-section">
-                        <h2>PaycheckMint Calculators</h2>
-
-                        <p>
-                            If you are comparing employment income, start with the calculator that matches the type
-                            of pay you receive.
-                        </p>
-
-                        <div class="info-grid">
-                            <div class="info-card">
-                                <strong>
-                                    <a href="/take-home-pay-calculator/"> Take-Home Pay Calculator </a>
-                                </strong>
-
-                                <span>
-                                    Estimate how much of your earnings may remain after taxes and deductions.
-                                </span>
-                            </div>
-
-                            <div class="info-card">
-                                <strong>
-                                    <a href="/hourly-paycheck-calculator/"> Hourly Paycheck Calculator </a>
-                                </strong>
-
-                                <span> Estimate a paycheck from an hourly wage. </span>
-                            </div>
-
-                            <div class="info-card">
-                                <strong>
-                                    <a href="/salary-paycheck-calculator/"> Salary Paycheck Calculator </a>
-                                </strong>
-
-                                <span> Estimate paycheck amounts from an annual salary. </span>
-                            </div>
-
-                            <div class="info-card">
-                                <strong>
-                                    <a href="/paycheck-tax-calculator/"> Paycheck Tax Calculator </a>
-                                </strong>
-
-                                <span> Estimate federal and other paycheck taxes. </span>
-                            </div>
-
-                            <div class="info-card">
-                                <strong>
-                                    <a href="/overtime-pay-calculator/"> Overtime Pay Calculator </a>
-                                </strong>
-
-                                <span> Estimate additional earnings from overtime hours. </span>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- FAQ -->
-
-                    <section class="article-section" id="faq">
-                        <h2>W-2 vs 1099 FAQs</h2>
-
-                        <div class="faq-item open">
-                            <button class="faq-question" type="button">
-                                <span> What is the difference between W-2 and 1099 income? </span>
-
-                                <span class="faq-icon"> − </span>
-                            </button>
-
-                            <div class="faq-answer">
-                                W-2 income generally comes from employee work, where the employer handles payroll
-                                withholding and reports wages on Form W-2. 1099-NEC income generally comes from
-                                independent contractor work, where the worker is self-employed and generally handles
-                                the related tax obligations.
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <button class="faq-question" type="button">
-                                <span> Do 1099 workers pay more taxes than W-2 employees? </span>
-
-                                <span class="faq-icon"> + </span>
-                            </button>
-
-                            <div class="faq-answer">
-                                Independent contractors generally have self-employment tax responsibilities that
-                                employees do not pay in the same way. However, the total tax result depends on
-                                income, business expenses, deductions, withholding, benefits and other
-                                circumstances.
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <button class="faq-question" type="button">
-                                <span> Do W-2 employees pay self-employment tax? </span>
-
-                                <span class="faq-icon"> + </span>
-                            </button>
-
-                            <div class="faq-answer">
-                                Employees generally pay Social Security and Medicare taxes through payroll
-                                withholding rather than self-employment tax.
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <button class="faq-question" type="button">
-                                <span> Can I have both W-2 and 1099 income? </span>
-
-                                <span class="faq-icon"> + </span>
-                            </button>
-
-                            <div class="faq-answer">
-                                Yes. A person can have W-2 employee income and 1099 contractor income from separate
-                                qualifying work arrangements.
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <button class="faq-question" type="button">
-                                <span> Is $30 an hour W-2 the same as $30 an hour 1099? </span>
-
-                                <span class="faq-icon"> + </span>
-                            </button>
-
-                            <div class="faq-answer">
-                                Not necessarily. A contractor may need to account for self-employment tax, business
-                                expenses, insurance, retirement savings and unpaid time that may be treated
-                                differently for an employee.
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <button class="faq-question" type="button">
-                                <span> Do 1099 workers get employee benefits? </span>
-
-                                <span class="faq-icon"> + </span>
-                            </button>
-
-                            <div class="faq-answer">
-                                Independent contractors generally do not receive employee benefits from their
-                                clients in the same way employees may receive employer-sponsored benefits.
-                                Contractors generally arrange their own benefits.
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <button class="faq-question" type="button">
-                                <span> Why is my 1099 amount different from my take-home pay? </span>
-
-                                <span class="faq-icon"> + </span>
-                            </button>
-
-                            <div class="faq-answer">
-                                A 1099-NEC generally reports payments rather than a final take-home amount.
-                                Contractors may need to account for business expenses and taxes separately.
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- CTA -->
-
-                    <section class="dark-cta">
-                        <h2>Estimate your take-home pay</h2>
-
-                        <p>
-                            Use PaycheckMint to estimate paycheck taxes and take-home income based on your earnings.
-                        </p>
-
-                        <a class="btn" href="/take-home-pay-calculator/"> Open Take-Home Pay Calculator </a>
-                    </section>
-
-                    <!-- DISCLAIMER -->
-
-                    <section class="article-section" style="margin-top: 20px">
-                        <p class="muted" style="font-size: 13px">
-                            <strong>Disclaimer:</strong>
-                            PaycheckMint provides general educational information and paycheck estimates. Tax
-                            treatment depends on your individual circumstances and applicable federal, state and
-                            local rules. This page is not tax, legal, accounting or financial advice. For
-                            worker-classification questions or complex tax situations, consult the applicable
-                            government guidance or a qualified professional.
-                        </p>
-                    </section>
-                </article>
-
-                <!-- SIDEBAR -->
-
-                <aside class="sidebar">
-                    <div class="toc">
-                        <div class="toc-title">On this page</div>
-
-                        <a href="#comparison"> W-2 vs 1099 comparison </a>
-
-                        <a href="#hourly-rate"> Hourly-rate comparison </a>
-
-                        <a href="#faq"> FAQs </a>
-
-                        <a href="#comparison"> Tax differences </a>
-
-                        <a href="#hourly-rate"> Take-home pay </a>
-
-                        <a href="#faq"> Common questions </a>
                     </div>
 
-                    <div class="sidebar-card">
-                        <strong> Calculate take-home pay </strong>
+                    <div class="info-card">
 
-                        <p>Estimate taxes and deductions from your paycheck.</p>
+                        <div class="icon">💰</div>
 
-                        <a class="btn btn-primary" href="/take-home-pay-calculator/" style="width: 100%">
-                            Take-Home Calculator
-                        </a>
+                        <h3>Payroll withholding</h3>
+
+                        <p>
+                            Taxes are generally withheld from each paycheck,
+                            making tax payments less visible than they are for
+                            many independent contractors.
+                        </p>
+
                     </div>
-                </aside>
-            </div>
+
+                </div>
+
+
+                <h2>What is a 1099 independent contractor?</h2>
+
+                <p>
+                    An independent contractor generally operates independently
+                    rather than as an employee of the business paying them.
+                    Freelancers, consultants, certain gig workers, and other
+                    self-employed individuals may receive contractor income.
+                </p>
+
+                <p>
+                    Instead of receiving a traditional payroll paycheck, a
+                    contractor may invoice a client or receive payments according
+                    to an independent contractor agreement.
+                </p>
+
+                <p>
+                    Contractor income is often received before federal income
+                    tax and self-employment tax are set aside. This means the
+                    amount deposited into your account should not automatically
+                    be treated as your spendable take-home pay.
+                </p>
+
+                <div class="highlight">
+
+                    <strong>Important:</strong>
+                    Getting a 1099 does not by itself determine whether someone
+                    is legally an independent contractor. Worker classification
+                    depends on the facts of the working relationship, including
+                    the degree of control and independence involved.
+
+                </div>
+
+
+                <h2>W-2 vs 1099 taxes</h2>
+
+                <p>
+                    Taxes are one of the most important differences to understand.
+                    The amount you receive from a client or employer is not
+                    necessarily the same as the amount you can safely spend.
+                </p>
+
+                <h3>How taxes generally work for W-2 employees</h3>
+
+                <p>
+                    A W-2 employee generally has taxes withheld from each
+                    paycheck. The employer also generally has its own payroll-tax
+                    responsibilities.
+                </p>
+
+                <p>
+                    This withholding is one reason a W-2 employee may receive a
+                    smaller net paycheck than their stated gross wage.
+                </p>
+
+                <h3>How taxes generally work for 1099 contractors</h3>
+
+                <p>
+                    Independent contractors generally receive payments without
+                    the same regular payroll withholding that applies to
+                    employees. They may therefore need to set aside money for
+                    federal and state taxes and, when applicable, make estimated
+                    tax payments.
+                </p>
+
+                <p>
+                    Self-employment tax can also apply to net earnings from
+                    self-employment. The actual tax situation depends on the
+                    person's income, expenses, filing situation, and other
+                    factors.
+                </p>
+
+                <div class="note">
+                    <strong>Planning tip:</strong>
+                    If you are paid as a contractor, consider treating part of
+                    every payment as money reserved for taxes rather than as
+                    immediately available spending money.
+                </div>
+
+
+                <h2>Why a $60,000 W-2 job isn't necessarily equal to $60,000 of 1099 income</h2>
+
+                <p>
+                    Comparing only the headline income can be misleading.
+                    Suppose two opportunities both advertise $60,000 per year.
+                    One is a W-2 position and the other pays $60,000 as an
+                    independent contractor.
+                </p>
+
+                <p>
+                    The contractor may need to account for taxes, health
+                    insurance, retirement savings, software, equipment,
+                    professional fees, unpaid administrative time, and other
+                    costs that an employee may receive partially or fully from
+                    an employer.
+                </p>
+
+                <p>
+                    At the same time, contractor work can offer greater
+                    flexibility and may allow legitimate business expenses to be
+                    considered when determining taxable business income.
+                </p>
+
+                <p>
+                    The practical comparison is therefore the <strong>total
+                        compensation and total costs</strong>, not just the number
+                    shown on an offer letter or invoice.
+                </p>
+
+
+                <h2>Benefits: W-2 vs 1099</h2>
+
+                <p>
+                    Benefits can make a substantial difference when comparing
+                    employment arrangements.
+                </p>
+
+                <div class="table-wrap">
+
+                    <table class="comparison-table">
+
+                        <thead>
+                            <tr>
+                                <th>Benefit or cost</th>
+                                <th>W-2</th>
+                                <th>1099</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Health insurance</td>
+                                <td>Employer may offer a plan</td>
+                                <td>Usually arranged independently</td>
+                            </tr>
+
+                            <tr>
+                                <td>Retirement plan</td>
+                                <td>Employer may offer a 401(k) or other plan</td>
+                                <td>Contractor generally chooses their own retirement arrangement</td>
+                            </tr>
+
+                            <tr>
+                                <td>Paid time off</td>
+                                <td>May be included</td>
+                                <td>Usually unpaid unless built into the contract</td>
+                            </tr>
+
+                            <tr>
+                                <td>Equipment</td>
+                                <td>Employer may provide equipment</td>
+                                <td>Contractor may need to provide equipment</td>
+                            </tr>
+
+                            <tr>
+                                <td>Business expenses</td>
+                                <td>Employer generally pays ordinary business costs</td>
+                                <td>Contractor may have eligible business expenses</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <h2>How to compare a W-2 offer with a 1099 offer</h2>
+
+                <p>
+                    If you have a choice between employment and contract work,
+                    compare the complete financial picture rather than focusing
+                    only on hourly or annual pay.
+                </p>
+
+                <div class="steps">
+
+                    <div class="step">
+
+                        <div class="step-number">1</div>
+
+                        <div>
+                            <h3>Compare gross compensation</h3>
+
+                            <p>
+                                Start with the annual or hourly amount each
+                                opportunity actually pays.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="step">
+
+                        <div class="step-number">2</div>
+
+                        <div>
+                            <h3>Account for benefits</h3>
+
+                            <p>
+                                Estimate the value of health insurance,
+                                retirement contributions, paid time off, bonuses,
+                                and other benefits.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="step">
+
+                        <div class="step-number">3</div>
+
+                        <div>
+                            <h3>Estimate taxes</h3>
+
+                            <p>
+                                Consider income tax, payroll or self-employment
+                                tax, and state or local taxes that may apply.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="step">
+
+                        <div class="step-number">4</div>
+
+                        <div>
+                            <h3>Subtract work-related costs</h3>
+
+                            <p>
+                                Consider equipment, insurance, software,
+                                professional services, travel, and other costs
+                                required to earn the income.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="step">
+
+                        <div class="step-number">5</div>
+
+                        <div>
+                            <h3>Compare flexibility</h3>
+
+                            <p>
+                                Consider scheduling freedom, client requirements,
+                                job stability, and how much control you have over
+                                your work.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <h2>Can you have both W-2 and 1099 income?</h2>
+
+                <p>
+                    Yes. It is possible to have a regular W-2 job and also earn
+                    money from freelance work, consulting, a side business, or
+                    another independent contracting activity.
+                </p>
+
+                <p>
+                    In that situation, your W-2 income and contractor income are
+                    handled differently for tax purposes. Good recordkeeping is
+                    especially important because you need to track your business
+                    income and eligible expenses separately.
+                </p>
+
+                <p>
+                    This arrangement is common among people who use freelance
+                    work or a side hustle to create an additional source of
+                    income.
+                </p>
+
+
+                <h2>Common W-2 vs 1099 mistakes</h2>
+
+                <ul>
+
+                    <li>
+                        <strong>Comparing only the advertised pay:</strong>
+                        Benefits, taxes, expenses, and unpaid time can change the
+                        real value of an offer.
+                    </li>
+
+                    <li>
+                        <strong>Spending all contractor payments:</strong>
+                        A 1099 payment may include money that needs to be reserved
+                        for taxes.
+                    </li>
+
+                    <li>
+                        <strong>Ignoring business expenses:</strong>
+                        Contractors should maintain appropriate records of
+                        business-related expenses.
+                    </li>
+
+                    <li>
+                        <strong>Assuming the form determines classification:</strong>
+                        Worker classification depends on the actual working
+                        relationship, not simply the tax form issued.
+                    </li>
+
+                    <li>
+                        <strong>Forgetting benefits:</strong>
+                        Health insurance, retirement contributions, paid leave,
+                        and other benefits can have significant value.
+                    </li>
+
+                </ul>
+
+
+                <h2>W-2 vs 1099: Which should you choose?</h2>
+
+                <p>
+                    There is no universal answer. The better fit depends on the
+                    specific compensation package, taxes, benefits, expenses,
+                    flexibility, stability, and work arrangement.
+                </p>
+
+                <p>
+                    A W-2 arrangement can make payroll and tax withholding more
+                    straightforward and may include employer-sponsored benefits.
+                    A 1099 arrangement can provide more independence and may make
+                    sense for people who operate a genuine independent business.
+                </p>
+
+                <p>
+                    Before comparing two opportunities, calculate the complete
+                    financial picture rather than treating the W-2 and 1099
+                    headline amounts as directly interchangeable.
+                </p>
+
+
+                <h2>Frequently asked questions</h2>
+
+                <div class="faq">
+
+                    <div class="faq-item">
+
+                        <h3>Is a W-2 better than a 1099?</h3>
+
+                        <p>
+                            Neither arrangement is automatically better. W-2
+                            employment may provide payroll withholding and
+                            employer benefits, while 1099 work may provide greater
+                            independence. Compare the complete compensation,
+                            expenses, taxes, and work arrangement.
+                        </p>
+
+                    </div>
+
+                    <div class="faq-item">
+
+                        <h3>Do 1099 workers pay more taxes?</h3>
+
+                        <p>
+                            A 1099 contractor generally handles their own income
+                            tax payments and may owe self-employment tax. The
+                            actual amount depends on income, expenses, filing
+                            situation, and other factors.
+                        </p>
+
+                    </div>
+
+                    <div class="faq-item">
+
+                        <h3>Can you be W-2 and 1099 at the same time?</h3>
+
+                        <p>
+                            Yes. You can have a W-2 job while also earning
+                            independent contractor income from freelance work,
+                            consulting, or another business activity.
+                        </p>
+
+                    </div>
+
+                    <div class="faq-item">
+
+                        <h3>Is 1099 income the same as salary?</h3>
+
+                        <p>
+                            No. 1099 contractor income is generally not treated
+                            the same way as wages from an employer. Contractors
+                            generally have additional responsibility for taxes
+                            and business expenses.
+                        </p>
+
+                    </div>
+
+                    <div class="faq-item">
+
+                        <h3>Can a 1099 contractor be paid hourly?</h3>
+
+                        <p>
+                            Yes. An independent contractor can be paid by the
+                            hour, by the project, by a milestone, or under another
+                            agreed payment structure.
+                        </p>
+
+                    </div>
+
+                    <div class="faq-item">
+
+                        <h3>Does receiving a 1099 automatically make someone a contractor?</h3>
+
+                        <p>
+                            No. The actual facts and circumstances of the working
+                            relationship are important when determining whether
+                            someone is an employee or an independent contractor.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <h2>Related PaycheckMint guides</h2>
+
+                <div class="related-grid">
+
+                    <a class="related-card" href="/salary-vs-hourly-pay.html">
+
+                        <strong>Salary vs Hourly Pay</strong>
+
+                        <span>
+                            Understand how salary and hourly compensation differ.
+                        </span>
+
+                    </a>
+
+                    <a class="related-card" href="/side-hustle-income.html">
+
+                        <strong>Side Hustle Income</strong>
+
+                        <span>
+                            Learn how to think about income, expenses, and taxes
+                            from side work.
+                        </span>
+
+                    </a>
+
+                    <a class="related-card" href="/hourly-paycheck-calculator.html">
+
+                        <strong>Hourly Paycheck Calculator</strong>
+
+                        <span>
+                            Estimate paycheck amounts from hourly wages.
+                        </span>
+
+                    </a>
+
+                    <a class="related-card" href="/salary-paycheck-calculator.html">
+
+                        <strong>Salary Paycheck Calculator</strong>
+
+                        <span>
+                            Estimate take-home pay from an annual salary.
+                        </span>
+
+                    </a>
+
+                    <a class="related-card" href="/paycheck-tax-calculator/">
+
+                        <strong>Paycheck Tax Calculator</strong>
+
+                        <span>
+                            Estimate taxes and take-home pay from a paycheck.
+                        </span>
+
+                    </a>
+
+                    <a class="related-card" href="/how-to-read-paystub.html">
+
+                        <strong>How to Read a Pay Stub</strong>
+
+                        <span>
+                            Understand gross pay, deductions, taxes, and net pay.
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+                <div class="note" style="margin-top: 28px;">
+
+                    <strong>Disclaimer:</strong>
+                    PaycheckMint provides general educational information and
+                    estimates. Tax rules and worker-classification requirements
+                    can vary based on individual circumstances and location.
+                    For advice about your specific situation, consider consulting
+                    a qualified tax professional.
+
+                </div>
+
+            </article>
+
+
+            <!-- SIDEBAR -->
+
+            <aside class="sidebar">
+
+                <div class="side-card">
+
+                    <h3>Important points</h3>
+
+                    <ul class="important-list">
+
+                        <li>
+                            W-2 generally means employee.
+                        </li>
+
+                        <li>
+                            1099-NEC generally relates to nonemployee compensation.
+                        </li>
+
+                        <li>
+                            W-2 pay usually has payroll withholding.
+                        </li>
+
+                        <li>
+                            Contractors generally plan for their own tax payments.
+                        </li>
+
+                        <li>
+                            Benefits can make two offers with the same pay very different.
+                        </li>
+
+                        <li>
+                            Contractor income is not automatically spendable take-home pay.
+                        </li>
+
+                        <li>
+                            Worker classification depends on the actual relationship.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="side-card side-cta">
+
+                    <h3>Check your paycheck</h3>
+
+                    <p>
+                        Estimate taxes and take-home pay for a regular paycheck
+                        with the PaycheckMint calculator.
+                    </p>
+
+                    <a class="side-button" href="/paycheck-tax-calculator/">
+                        Open Calculator
+                    </a>
+
+                </div>
+
+            </aside>
+
         </div>
+
     </main>
+    <footer class="pm-footer">
 
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-inner">
-                <div class="footer-grid">
-                    <div>
-                        <div class="footer-brand">PaycheckMint</div>
+        <div class="pm-footer-inner">
 
-                        <p class="footer-description">
-                            Free paycheck and income calculators to help you estimate take-home pay, taxes, salary,
-                            hourly wages, and overtime.
+            <div class="pm-footer-main">
+
+                <div class="pm-footer-grid">
+
+                    <div class="pm-footer-brand-column">
+
+                        <a class="pm-footer-brand" href="/">
+                            Paycheck<span>Mint</span>
+                        </a>
+
+                        <p class="pm-footer-description">
+                            Practical personal finance guides, paycheck tools,
+                            and calculators to help you make informed money decisions.
                         </p>
+
                     </div>
 
-                    <div class="footer-column">
-                        <h3>Calculators</h3>
+                    <div>
+                        <h3 class="pm-footer-heading">Money</h3>
 
-                        <a href="/take-home-pay-calculator/"> Take-Home Pay </a>
-
-                        <a href="/salary-paycheck-calculator/"> Salary Paycheck </a>
-
-                        <a href="/hourly-paycheck-calculator/"> Hourly Paycheck </a>
-
-                        <a href="/paycheck-tax-calculator/"> Paycheck Tax </a>
-
-                        <a href="/overtime-pay-calculator/"> Overtime Pay </a>
+                        <ul class="pm-footer-links">
+                            <li><a href="/income/">Income</a></li>
+                            <li><a href="/paycheck-tax-calculator/">Paycheck Calculator</a></li>
+                            <li><a href="/take-home-pay-calculator/">Take-Home Pay</a></li>
+                        </ul>
                     </div>
 
-                    <div class="footer-column">
-                        <h3>PaycheckMint</h3>
+                    <div>
+                        <h3 class="pm-footer-heading">Finance</h3>
 
-                        <a href="/"> Home </a>
-
-                        <a href="/about/"> About </a>
-
-                        <a href="/faq/"> FAQ </a>
-
-                        <a href="/contact/"> Contact </a>
-
-                        <a href="/privacy-policy/"> Privacy </a>
-
-                        <a href="/terms/"> Terms </a>
+                        <ul class="pm-footer-links">
+                            <li><a href="/finance/taxes/">Taxes</a></li>
+                            <li><a href="/finance/budgeting/">Budgeting</a></li>
+                            <li><a href="/finance/credit-debt/">Credit &amp; Debt</a></li>
+                            <li><a href="/finance/investing/">Investing</a></li>
+                            <li><a href="/finance/insurance/">Insurance</a></li>
+                        </ul>
                     </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Company</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/contact/">Contact</a></li>
+                            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms</a></li>
+                        </ul>
+                    </div>
+
                 </div>
 
-                <div class="footer-bottom">
-                    <span> © 2026 PaycheckMint. Free online paycheck tools. </span>
-
-                    <span> Estimates are for informational purposes. </span>
-                </div>
             </div>
+
+            <div class="pm-footer-bottom">
+
+                <div class="pm-footer-copyright">
+                    © 2026 PaycheckMint. All rights reserved.
+                </div>
+
+                <div class="pm-footer-legal">
+                    <a href="/privacy-policy/">Privacy Policy</a>
+                    <a href="/terms/">Terms</a>
+                    <a href="/contact/">Contact</a>
+                </div>
+
+            </div>
+
         </div>
+
     </footer>
 
+
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const header = document.querySelector(".site-header");
+        (function () {
+            "use strict";
 
-            if (!header) return;
-
-            const menuToggle = header.querySelector(".mobile-menu-toggle");
-
-            const mainNav = header.querySelector(".main-nav");
-
-            const dropdown = header.querySelector(".nav-dropdown");
-
-            const dropdownToggle = header.querySelector(".nav-dropdown-toggle");
-
-            function closeMenu() {
-                if (mainNav) {
-                    mainNav.classList.remove("mobile-open");
-                }
-
-                if (menuToggle) {
-                    menuToggle.classList.remove("open");
-
-                    menuToggle.setAttribute("aria-expanded", "false");
-
-                    menuToggle.setAttribute("aria-label", "Open navigation");
-                }
-            }
-
-            function closeDropdown() {
-                if (dropdown) {
-                    dropdown.classList.remove("open");
-                }
-
-                if (dropdownToggle) {
-                    dropdownToggle.setAttribute("aria-expanded", "false");
-                }
-            }
-
-            if (menuToggle && mainNav) {
-                menuToggle.addEventListener("click", function (event) {
-                    event.stopPropagation();
-
-                    const open = mainNav.classList.toggle("mobile-open");
-
-                    menuToggle.classList.toggle("open", open);
-
-                    menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
-
-                    menuToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
-                });
-            }
-
-            if (dropdown && dropdownToggle) {
-                dropdownToggle.addEventListener("click", function (event) {
-                    event.stopPropagation();
-
-                    const open = dropdown.classList.toggle("open");
-
-                    dropdownToggle.setAttribute("aria-expanded", open ? "true" : "false");
-                });
-            }
-
-            document.addEventListener("click", function (event) {
-                if (!header.contains(event.target)) {
-                    closeMenu();
-                    closeDropdown();
-                }
+            /* ==========================================================================
+               1. ASYNC COMPONENT LOADER
+               ========================================================================== */
+            document.addEventListener("DOMContentLoaded", function () {
+                loadSharedComponents();
             });
 
-            if (mainNav) {
-                mainNav.querySelectorAll("a").forEach(function (link) {
-                    link.addEventListener("click", function () {
-                        closeMenu();
-                        closeDropdown();
-                    });
-                });
-            }
+            async function loadSharedComponents() {
+                const navbar = document.getElementById("site-navbar");
+                const footer = document.getElementById("site-footer");
 
-            window.addEventListener("resize", function () {
-                if (window.innerWidth > 700) {
-                    closeMenu();
-                    closeDropdown();
-                }
-            });
+                try {
+                    const requests = [];
 
-            /* FAQ */
-
-            document.querySelectorAll(".faq-question").forEach(function (button) {
-                button.addEventListener("click", function () {
-                    const item = button.closest(".faq-item");
-
-                    const icon = button.querySelector(".faq-icon");
-
-                    const isOpen = item.classList.toggle("open");
-
-                    if (icon) {
-                        icon.textContent = isOpen ? "−" : "+";
+                    if (navbar) {
+                        requests.push(
+                            fetch("/components/navbar.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Navbar 404"))
+                                .then(html => { navbar.innerHTML = html; })
+                        );
                     }
-                });
+
+                    if (footer) {
+                        requests.push(
+                            fetch("/components/footer.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Footer 404"))
+                                .then(html => { footer.innerHTML = html; })
+                        );
+                    }
+
+                    await Promise.all(requests);
+                    // Re-bind focus or initial state if required after injection
+                    setupScrollHeader();
+                } catch (error) {
+                    console.error("Component loading error:", error);
+                    setupScrollHeader();
+                }
+            }
+
+            /* ==========================================================================
+               2. EVENT DELEGATION (Handles dynamic elements automatically)
+               ========================================================================== */
+            document.addEventListener("click", function (event) {
+
+                // --- DESKTOP DROPDOWNS ---
+                const dropdownBtn = event.target.closest(".pm-nav-dropdown-button");
+                if (dropdownBtn) {
+                    event.stopPropagation();
+                    const currentDropdown = dropdownBtn.closest(".pm-nav-dropdown");
+                    const isOpen = currentDropdown.classList.contains("is-open");
+
+                    // Close all dropdowns
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
+                    });
+
+                    // Toggle selected dropdown
+                    if (!isOpen) {
+                        currentDropdown.classList.add("is-open");
+                        dropdownBtn.setAttribute("aria-expanded", "true");
+                    }
+                    return;
+                }
+
+                // Close desktop dropdowns when clicking outside
+                if (!event.target.closest(".pm-nav-dropdown")) {
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
+                    });
+                }
+
+                // --- MOBILE NAV TOGGLE ---
+                const mobileToggle = event.target.closest("#mobileToggle");
+                if (mobileToggle) {
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) {
+                        const isOpen = mobileNav.classList.toggle("is-open");
+                        mobileToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
+                }
+
+                // --- MOBILE SUBMENU TOGGLE ---
+                const mobileFinanceToggle = event.target.closest("#mobileFinanceToggle");
+                if (mobileFinanceToggle) {
+                    event.stopPropagation();
+                    const mobileFinanceLinks = document.getElementById("mobileFinanceLinks");
+                    if (mobileFinanceLinks) {
+                        const isOpen = mobileFinanceLinks.classList.toggle("is-open");
+                        mobileFinanceToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
+                }
+
+                // --- SEARCH TOGGLE (OPEN / CLOSE) ---
+                const searchToggle = event.target.closest("#searchToggle");
+                const mobileSearchBtn = event.target.closest("#mobileSearchButton");
+                const searchClose = event.target.closest("#searchClose");
+                const searchPanel = document.getElementById("searchPanel");
+
+                if (searchToggle || mobileSearchBtn) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) mobileNav.classList.remove("is-open");
+
+                    if (searchPanel) {
+                        if (searchPanel.classList.contains("is-open") && searchToggle) {
+                            closeSearch();
+                        } else {
+                            openSearch();
+                        }
+                    }
+                    return;
+                }
+
+                if (searchClose) {
+                    event.preventDefault();
+                    closeSearch();
+                    return;
+                }
+
+                // Close search panel when clicking outside of it
+                if (searchPanel && searchPanel.classList.contains("is-open")) {
+                    if (!searchPanel.contains(event.target)) {
+                        closeSearch();
+                    }
+                }
             });
-        });
+
+            /* ==========================================================================
+               3. SEARCH HELPER FUNCTIONS & LIVE FILTERING
+               ========================================================================== */
+            function openSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchToggle = document.getElementById("searchToggle");
+
+                if (!searchPanel) return;
+                searchPanel.classList.add("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "true");
+                    searchToggle.setAttribute("aria-label", "Close search");
+                }
+                if (searchInput) setTimeout(() => searchInput.focus(), 100);
+            }
+
+            function closeSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchResults = document.getElementById("searchResults");
+                const searchToggle = document.getElementById("searchToggle");
+
+                if (!searchPanel) return;
+                searchPanel.classList.remove("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "false");
+                    searchToggle.setAttribute("aria-label", "Open search");
+                }
+                if (searchInput) searchInput.value = "";
+                if (searchResults) searchResults.innerHTML = "";
+            }
+
+            // Keyboard Shortcuts (Escape Key)
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closeSearch();
+                }
+            });
+
+            // Live Search Typing Input Event
+            document.addEventListener("input", function (event) {
+                if (event.target.id !== "siteSearch") return;
+
+                const query = event.target.value.trim().toLowerCase();
+                const searchResults = document.getElementById("searchResults");
+                if (!searchResults) return;
+
+                if (query.length === 0) {
+                    searchResults.innerHTML = "";
+                    return;
+                }
+
+                const searchablePages = [
+                    { title: "Paycheck Tax Calculator", url: "/paycheck-tax-calculator/", description: "Calculate accurate net pay and taxes." },
+                    { title: "Take-Home Pay Calculator", url: "/take-home-pay-calculator/", description: "Estimate your actual paycheck total after deductions." },
+                    { title: "Hourly Paycheck Calculator", url: "/hourly-paycheck-calculator/", description: "Calculate income based on hourly wage and hours worked." },
+                    { title: "Overtime Pay Calculator", url: "/overtime-pay-calculator/", description: "Compute overtime rates and total extra wages." },
+                    { title: "Salary Paycheck Calculator", url: "/salary-paycheck-calculator/", description: "Break down annual salary into per-paycheck earnings." },
+                    { title: "Income Overview", url: "/income/", description: "Learn about taxable income, gross wages, and take-home pay." },
+                    { title: "Finance Overview", url: "/finance/", description: "Guides on managing personal finances and budgeting strategies." },
+                    { title: "Budgeting Guides", url: "/finance/budgeting/", description: "Strategies for budgeting your paycheck effectively." }
+                ];
+
+                const matches = searchablePages.filter(page =>
+                    page.title.toLowerCase().includes(query) ||
+                    page.description.toLowerCase().includes(query)
+                );
+
+                if (matches.length === 0) {
+                    searchResults.innerHTML = `<p class="pm-search-no-results">No results found for "${escapeHTML(query)}"</p>`;
+                    return;
+                }
+
+                searchResults.innerHTML = matches.map(item => `
+            <a href="${item.url}" class="pm-search-result-item">
+                <span class="pm-search-result-title">${escapeHTML(item.title)}</span>
+                <span class="pm-search-result-desc">${escapeHTML(item.description)}</span>
+            </a>
+        `).join("");
+            });
+
+            function escapeHTML(str) {
+                return str.replace(/[&<>'"]/g, tag => ({
+                    '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+                }[tag] || tag));
+            }
+
+            /* ==========================================================================
+               4. SCROLL SHADOW
+               ========================================================================== */
+            function setupScrollHeader() {
+                const header = document.getElementById("site-header");
+                if (!header) return;
+
+                window.addEventListener("scroll", function () {
+                    if (window.scrollY > 20) {
+                        header.classList.add("is-scrolled");
+                    } else {
+                        header.classList.remove("is-scrolled");
+                    }
+                }, { passive: true });
+            }
+
+        })();
     </script>
+
 </body>
 
 </html>

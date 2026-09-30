@@ -1,1946 +1,2513 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
 
-    <title>Taxes Guide: Income Tax, Withholding, Deductions & Credits | PaycheckMint</title>
+    <title>Taxes Guide: Federal Income Tax, Withholding, Deductions & Credits | PaycheckMint</title>
 
     <meta name="description"
-        content="Learn how U.S. taxes work, including federal income tax, state taxes, payroll taxes, tax brackets, withholding, deductions, credits, taxable income, and estimated taxes." />
+        content="Learn how U.S. taxes work, including federal income tax, tax brackets, withholding, deductions, tax credits, filing status, and paycheck taxes. Practical tax guides from PaycheckMint.">
 
-    <meta name="keywords"
-        content="taxes, income tax, federal income tax, payroll taxes, tax withholding, tax brackets, tax deductions, tax credits, taxable income" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="robots" content="index, follow" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="canonical" href="https://paycheckmint.com/finance/taxes/">
+    <link rel="icon" href="/icon.ico" />
 
-    <link rel="canonical" href="https://paymintcheck.vercel.app/finance/taxes/" />
+    <meta name="robots" content="index, follow">
 
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Taxes Guide: Income Tax, Withholding, Deductions & Credits" />
+    <meta name="theme-color" content="#176B5B">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title"
+        content="Taxes Guide: Federal Income Tax, Withholding, Deductions & Credits | PaycheckMint">
     <meta property="og:description"
-        content="A simple guide to U.S. taxes, tax withholding, payroll taxes, deductions, credits, taxable income, and estimated taxes." />
-    <meta property="og:url" content="https://paymintcheck.vercel.app/finance/taxes/" />
-    <meta property="og:site_name" content="PaycheckMint" />
+        content="Understand U.S. taxes with practical guides covering income tax, tax brackets, withholding, deductions, credits, and filing.">
+    <meta property="og:url" content="https://paycheckmint.com/finance/taxes/">
+    <meta property="og:site_name" content="PaycheckMint">
 
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Taxes Guide | PaycheckMint" />
-    <meta name="twitter:description"
-        content="Understand income taxes, payroll taxes, withholding, deductions, credits, taxable income, and more." />
+    <link rel="stylesheet" href="/style.css">
 
     <style>
-        :root {
-            --bg: #f6f5f1;
-            --surface: #ffffff;
-            --surface-soft: #faf9f6;
+        /* =========================================================
+           PAYCHECKMINT — TAXES PAGE
+           Page-specific styles only
+        ========================================================= */
 
-            --ink: #191919;
-            --muted: #74736f;
-            --muted-light: #999791;
-
-            --line: #deddd8;
-            --line-dark: #cbc9c3;
-
-            --accent: #5954d9;
-            --accent-dark: #4843c4;
-            --accent-soft: #efefff;
-
-            --success: #24734a;
-
-            --radius: 16px;
-            --max-width: 1080px;
+        .tax-page {
+            background: var(--page-bg);
         }
 
-        * {
-            box-sizing: border-box;
+        .tax-hero {
+            padding: 72px 0 56px;
+            border-bottom: 1px solid var(--border);
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            background: var(--bg);
-            color: var(--ink);
-            font-family:
-                Inter,
-                ui-sans-serif,
-                system-ui,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                sans-serif;
-            line-height: 1.7;
-        }
-
-        a {
-            color: inherit;
-        }
-
-        .container {
-            width: min(var(--max-width), calc(100% - 40px));
+        .tax-hero-inner {
+            max-width: var(--site-max-width);
             margin: 0 auto;
+            padding: 0 var(--page-padding-desktop);
         }
 
-        /* =========================
-           HEADER
-        ========================= */
-
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(246, 245, 241, 0.95);
-            border-bottom: 1px solid var(--line);
-            backdrop-filter: blur(12px);
-        }
-
-        .header-inner {
-            min-height: 68px;
+        .tax-breadcrumb {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-            position: relative;
-        }
-
-        .logo {
-            font-size: 1.35rem;
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            white-space: nowrap;
-            color: #000;
-            text-decoration: none;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-            width: 42px;
-            height: 42px;
-            border: 1px solid var(--line);
-            background: var(--surface);
-            border-radius: 10px;
-            padding: 0;
-            cursor: pointer;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .mobile-menu-toggle span {
-            display: block;
-            width: 18px;
-            height: 2px;
-            background: var(--ink);
-            border-radius: 2px;
-            transition: 0.2s ease;
-        }
-
-        .mobile-menu-toggle.open span:nth-child(1) {
-            transform: translateY(7px) rotate(45deg);
-        }
-
-        .mobile-menu-toggle.open span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-menu-toggle.open span:nth-child(3) {
-            transform: translateY(-7px) rotate(-45deg);
-        }
-
-        .main-nav {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .main-nav>a,
-        .nav-dropdown-toggle {
-            text-decoration: none;
-            color: #565550;
+            gap: 8px;
+            margin-bottom: 24px;
+            color: var(--text-muted);
             font-size: 14px;
-            font-weight: 600;
-            padding: 9px 11px;
-            border-radius: 9px;
         }
 
-        .main-nav>a:hover,
-        .nav-dropdown-toggle:hover {
-            color: var(--accent);
-            background: var(--accent-soft);
-        }
-
-        .nav-dropdown {
-            position: relative;
-        }
-
-        .nav-dropdown-toggle {
-            border: 0;
-            background: transparent;
-            cursor: pointer;
-            font: inherit;
-        }
-
-        .dropdown-arrow {
-            margin-left: 4px;
-            font-size: 11px;
-        }
-
-        .nav-dropdown-menu {
-            display: none;
-            position: absolute;
-            top: calc(100% + 8px);
-            right: 0;
-            min-width: 220px;
-            padding: 7px;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
-        }
-
-        .nav-dropdown.open .nav-dropdown-menu {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .nav-dropdown-menu a {
-            padding: 9px 10px;
-            border-radius: 8px;
+        .tax-breadcrumb a {
+            color: var(--primary);
             text-decoration: none;
-            color: #565550;
-            font-size: 13px;
+            font-weight: 600;
         }
 
-        .nav-dropdown-menu a:hover {
-            background: var(--accent-soft);
-            color: var(--accent);
+        .tax-breadcrumb a:hover {
+            text-decoration: underline;
         }
 
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            padding: 78px 0 62px;
-        }
-
-        .hero-grid {
+        .tax-hero-grid {
             display: grid;
-            grid-template-columns: 1.25fr 0.75fr;
+            grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.75fr);
             gap: 48px;
             align-items: center;
         }
 
-        .eyebrow {
+        .tax-eyebrow {
             display: inline-flex;
             align-items: center;
-            padding: 6px 10px;
-            border-radius: 999px;
-            background: var(--accent-soft);
-            color: var(--accent);
-            font-size: 12px;
+            gap: 8px;
+            margin-bottom: 16px;
+            color: var(--primary);
+            font-size: 13px;
             font-weight: 800;
-            letter-spacing: 0.04em;
+            letter-spacing: .08em;
             text-transform: uppercase;
-            margin-bottom: 18px;
         }
 
-        h1 {
-            margin: 0 0 18px;
-            max-width: 780px;
-            font-size: clamp(38px, 6vw, 64px);
-            line-height: 1.04;
-            letter-spacing: -2.7px;
+        .tax-eyebrow::before {
+            content: "";
+            width: 28px;
+            height: 2px;
+            background: var(--accent);
         }
 
-        .hero-copy {
-            max-width: 690px;
-            color: var(--muted);
-            font-size: 18px;
+        .tax-hero h1 {
+            max-width: 760px;
+            margin: 0 0 20px;
+            color: var(--text);
+            font-size: clamp(38px, 5vw, 60px);
+            line-height: 1.05;
+            letter-spacing: -0.035em;
+        }
+
+        .tax-hero-lead {
+            max-width: 720px;
             margin: 0;
+            color: var(--text-secondary);
+            font-size: 19px;
+            line-height: 1.7;
         }
 
-        .hero-actions {
+        .tax-hero-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
             margin-top: 28px;
         }
 
-        .button {
+        .tax-primary-button,
+        .tax-secondary-button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             min-height: 46px;
-            padding: 0 17px;
-            border-radius: 11px;
-            text-decoration: none;
-            font-size: 14px;
+            padding: 0 20px;
+            border-radius: var(--radius-sm);
+            font-size: 15px;
             font-weight: 750;
-            border: 1px solid var(--line-dark);
-            background: var(--surface);
+            text-decoration: none;
+            transition: transform var(--transition-fast),
+                background var(--transition-fast),
+                border-color var(--transition-fast);
         }
 
-        .button.primary {
+        .tax-primary-button {
+            background: var(--primary);
             color: #fff;
-            background: var(--accent);
-            border-color: var(--accent);
         }
 
-        .button.primary:hover {
-            background: var(--accent-dark);
-        }
-
-        .button:hover {
-            border-color: var(--accent);
-        }
-
-        .hero-card {
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 20px;
-            padding: 24px;
-        }
-
-        .hero-card-label {
-            color: var(--muted-light);
-            font-size: 12px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 12px;
-        }
-
-        .tax-flow {
-            display: grid;
-            gap: 9px;
-        }
-
-        .tax-flow-item {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            padding: 12px 13px;
-            background: var(--surface-soft);
-            border: 1px solid var(--line);
-            border-radius: 10px;
-            font-size: 13px;
-        }
-
-        .tax-flow-item span:last-child {
-            color: var(--muted);
-            text-align: right;
-        }
-
-        /* =========================
-           GENERAL CONTENT
-        ========================= */
-
-        main {
-            padding-bottom: 70px;
-        }
-
-        .section {
-            padding: 54px 0;
-        }
-
-        .section-heading {
-            max-width: 720px;
-            margin-bottom: 28px;
-        }
-
-        .section-heading h2 {
-            margin: 0 0 10px;
-            font-size: clamp(27px, 4vw, 38px);
-            line-height: 1.15;
-            letter-spacing: -1.2px;
-        }
-
-        .section-heading p {
-            margin: 0;
-            color: var(--muted);
-        }
-
-        .prose {
-            max-width: 820px;
-        }
-
-        .prose h3 {
-            margin: 30px 0 8px;
-            font-size: 21px;
-            letter-spacing: -0.4px;
-        }
-
-        .prose p {
-            color: #55544f;
-            margin: 0 0 15px;
-        }
-
-        .prose ul {
-            color: #55544f;
-            padding-left: 21px;
-        }
-
-        .prose li {
-            margin: 6px 0;
-        }
-
-        .soft-section {
-            background: var(--surface-soft);
-            border-top: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
-        }
-
-        /* =========================
-           TAX TYPES
-        ========================= */
-
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-
-        .card {
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 21px;
-        }
-
-        .card h3 {
-            margin: 0 0 8px;
-            font-size: 18px;
-            letter-spacing: -0.3px;
-        }
-
-        .card p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        .card a {
-            display: inline-block;
-            margin-top: 13px;
-            color: var(--accent);
-            font-size: 13px;
-            font-weight: 750;
-            text-decoration: none;
-        }
-
-        .card a:hover {
-            text-decoration: underline;
-        }
-
-        /* =========================
-           TAX FLOW
-        ========================= */
-
-        .flow-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 10px;
-        }
-
-        .flow-item {
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            padding: 19px 14px;
-            text-align: center;
-        }
-
-        .flow-number {
-            width: 30px;
-            height: 30px;
-            margin: 0 auto 10px;
-            display: grid;
-            place-items: center;
-            border-radius: 50%;
-            background: var(--accent-soft);
-            color: var(--accent);
-            font-size: 12px;
-            font-weight: 800;
-        }
-
-        .flow-item strong {
-            display: block;
-            font-size: 14px;
-        }
-
-        .flow-item span {
-            display: block;
-            margin-top: 4px;
-            color: var(--muted);
-            font-size: 12px;
-        }
-
-        /* =========================
-           COMPARISON
-        ========================= */
-
-        .comparison {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            overflow: hidden;
-        }
-
-        .comparison th,
-        .comparison td {
-            padding: 14px 15px;
-            border-bottom: 1px solid var(--line);
-            text-align: left;
-            font-size: 14px;
-            vertical-align: top;
-        }
-
-        .comparison th {
-            background: var(--surface-soft);
-            font-weight: 800;
-        }
-
-        .comparison tr:last-child td {
-            border-bottom: 0;
-        }
-
-        /* =========================
-           LINK CARDS
-        ========================= */
-
-        .link-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-
-        .link-card {
-            display: block;
-            text-decoration: none;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            padding: 17px;
-        }
-
-        .link-card:hover {
-            border-color: var(--accent);
+        .tax-primary-button:hover {
+            background: var(--primary-dark);
+            color: #fff;
             transform: translateY(-1px);
         }
 
-        .link-card strong {
-            display: block;
-            font-size: 15px;
-            margin-bottom: 4px;
+        .tax-secondary-button {
+            background: var(--surface);
+            color: var(--primary);
+            border: 1px solid var(--border-strong);
         }
 
-        .link-card span {
-            color: var(--muted);
+        .tax-secondary-button:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .tax-hero-card {
+            padding: 28px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .tax-hero-card-label {
+            margin-bottom: 10px;
+            color: var(--text-muted);
             font-size: 13px;
-        }
-
-        /* =========================
-           CHECKLIST
-        ========================= */
-
-        .checklist {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 11px;
-            max-width: 800px;
-        }
-
-        .check-item {
-            display: flex;
-            gap: 11px;
-            align-items: flex-start;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            padding: 14px;
-        }
-
-        .check {
-            flex: 0 0 24px;
-            height: 24px;
-            display: grid;
-            place-items: center;
-            border-radius: 7px;
-            background: var(--accent-soft);
-            color: var(--accent);
-            font-size: 12px;
-            font-weight: 900;
-        }
-
-        .check-item span:last-child {
-            color: #55544f;
-            font-size: 14px;
-        }
-
-        /* =========================
-           FAQ
-        ========================= */
-
-        .faq {
-            max-width: 820px;
-        }
-
-        .faq details {
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            margin-bottom: 9px;
-            overflow: hidden;
-        }
-
-        .faq summary {
-            cursor: pointer;
-            padding: 17px 18px;
-            font-size: 15px;
             font-weight: 750;
-            list-style: none;
+            text-transform: uppercase;
+            letter-spacing: .06em;
         }
 
-        .faq summary::-webkit-details-marker {
-            display: none;
+        .tax-hero-card h2 {
+            margin: 0 0 14px;
+            font-size: 24px;
+            line-height: 1.25;
         }
 
-        .faq summary::after {
-            content: "+";
-            float: right;
-            color: var(--muted);
+        .tax-hero-card p {
+            margin: 0;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        .tax-content {
+            padding: 64px 0 80px;
+        }
+
+        .tax-layout {
+            max-width: var(--site-max-width);
+            margin: 0 auto;
+            padding: 0 var(--page-padding-desktop);
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) var(--sidebar-width);
+            gap: var(--content-gap);
+            align-items: start;
+        }
+
+        .tax-article {
+            min-width: 0;
+        }
+
+        .tax-section {
+            margin-bottom: 64px;
+        }
+
+        .tax-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .tax-section h2 {
+            margin: 0 0 18px;
+            color: var(--text);
+            font-size: clamp(28px, 3vw, 38px);
+            line-height: 1.18;
+            letter-spacing: -0.025em;
+        }
+
+        .tax-section h3 {
+            margin: 30px 0 12px;
+            color: var(--text);
+            font-size: 21px;
+            line-height: 1.3;
+        }
+
+        .tax-section p {
+            margin: 0 0 18px;
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.75;
+        }
+
+        .tax-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .tax-answer {
+            margin-bottom: 40px;
+            padding: 24px 26px;
+            background: var(--surface-soft);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+
+        .tax-answer strong {
+            color: var(--text);
+        }
+
+        .tax-answer p {
+            margin: 0;
+        }
+
+        .tax-topic-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 28px;
+        }
+
+        .tax-topic-card {
+            display: block;
+            padding: 22px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            transition: transform var(--transition-fast),
+                box-shadow var(--transition-fast),
+                border-color var(--transition-fast);
+        }
+
+        .tax-topic-card:hover {
+            border-color: var(--border-strong);
+            box-shadow: var(--shadow-sm);
+            transform: translateY(-2px);
+        }
+
+        .tax-topic-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            margin-bottom: 16px;
+            background: var(--surface-soft);
+            color: var(--primary);
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .tax-topic-card h3 {
+            margin: 0 0 8px;
+            color: var(--text);
             font-size: 18px;
         }
 
-        .faq details[open] summary::after {
-            content: "−";
-        }
-
-        .faq-answer {
-            padding: 0 18px 18px;
-            color: var(--muted);
+        .tax-topic-card p {
+            margin: 0;
+            color: var(--text-secondary);
             font-size: 14px;
+            line-height: 1.6;
         }
 
-        /* =========================
-           CTA
-        ========================= */
-
-        .cta {
-            padding: 60px 0;
+        .tax-table-wrap {
+            overflow-x: auto;
+            margin: 24px 0;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            background: var(--surface);
         }
 
-        .cta-box {
-            background: #191919;
+        .tax-table {
+            width: 100%;
+            min-width: 620px;
+            border-collapse: collapse;
+        }
+
+        .tax-table th,
+        .tax-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .tax-table th {
+            background: var(--surface-soft);
+            color: var(--text);
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .tax-table td {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .tax-table tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .tax-table strong {
+            color: var(--text);
+        }
+
+        .tax-note {
+            margin-top: 16px;
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .tax-checklist {
+            display: grid;
+            gap: 12px;
+            margin: 24px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .tax-checklist li {
+            position: relative;
+            padding: 16px 18px 16px 48px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .tax-checklist li::before {
+            content: "✓";
+            position: absolute;
+            left: 17px;
+            top: 15px;
+            color: var(--success);
+            font-weight: 900;
+        }
+
+        .tax-callout {
+            padding: 24px;
+            margin: 28px 0;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tax-callout h3 {
+            margin: 0 0 10px;
+        }
+
+        .tax-callout p {
+            margin-bottom: 0;
+        }
+
+        .tax-sidebar {
+            position: sticky;
+            top: 96px;
+        }
+
+        .tax-sidebar-card {
+            position: sticky;
+            padding: 22px;
+            margin-bottom: 18px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+        }
+
+        .tax-sidebar-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .tax-sidebar-card h2,
+        .tax-sidebar-card h3 {
+            margin: 0 0 14px;
+            color: var(--text);
+            font-size: 18px;
+        }
+
+        .tax-sidebar-links {
+            display: grid;
+            gap: 4px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .tax-sidebar-links a {
+            display: block;
+            padding: 9px 0;
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.4;
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tax-sidebar-links li:last-child a {
+            border-bottom: 0;
+        }
+
+        .tax-sidebar-links a:hover {
+            color: var(--primary);
+        }
+
+        .tax-tool-card {
+            background: var(--primary);
+            border-color: var(--primary);
             color: #fff;
-            border-radius: 20px;
-            padding: 42px;
+        }
+
+        .tax-tool-card h3 {
+            color: #fff;
+        }
+
+        .tax-tool-card p {
+            margin: 0 0 16px;
+            color: rgba(255, 255, 255, .82);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .tax-tool-card a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+            padding: 0 15px;
+            border-radius: var(--radius-sm);
+            background: #fff;
+            color: var(--primary-dark);
+            font-size: 14px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .tax-faq {
+            border-top: 1px solid var(--border);
+        }
+
+        .tax-faq-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tax-faq-question {
+            width: 100%;
+            padding: 20px 4px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 30px;
-        }
-
-        .cta-box h2 {
-            margin: 0 0 8px;
-            font-size: 30px;
-            line-height: 1.15;
-            letter-spacing: -1px;
-        }
-
-        .cta-box p {
-            margin: 0;
-            color: #b8b7b3;
-            max-width: 640px;
-        }
-
-        .cta-box .button {
-            flex-shrink: 0;
-            background: #fff;
-            border-color: #fff;
-            color: #191919;
-        }
-
-        /* =========================
-           DISCLAIMER
-        ========================= */
-
-        .disclaimer {
-            margin-top: 24px;
-            padding: 17px 18px;
-            background: var(--surface-soft);
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        .site-footer {
-            border-top: 1px solid var(--line);
-            background: var(--surface-soft);
-        }
-
-        .footer-inner {
-            padding: 48px 0 25px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.4fr 1fr 1fr;
-            gap: 40px;
-        }
-
-        .footer-brand {
-            font-size: 20px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-
-        .footer-description {
-            max-width: 430px;
-            color: var(--muted);
-            font-size: 13px;
-            margin: 10px 0 0;
-        }
-
-        .footer-column {
-            display: flex;
-            flex-direction: column;
-            gap: 7px;
-        }
-
-        .footer-column h3 {
-            margin: 0 0 6px;
-            font-size: 13px;
-        }
-
-        .footer-column a {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 13px;
-        }
-
-        .footer-column a:hover {
-            color: var(--accent);
-        }
-
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
             gap: 20px;
-            border-top: 1px solid var(--line);
-            margin-top: 35px;
-            padding-top: 18px;
-            color: var(--muted-light);
-            font-size: 12px;
+            border: 0;
+            background: transparent;
+            color: var(--text);
+            text-align: left;
+            font: inherit;
+            font-weight: 750;
+            cursor: pointer;
         }
 
-        /* =========================
-           RESPONSIVE
-        ========================= */
+        .tax-faq-icon {
+            flex: 0 0 auto;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-strong);
+            border-radius: 50%;
+            color: var(--primary);
+            font-size: 18px;
+            transition: transform var(--transition-fast);
+        }
 
-        @media (max-width: 850px) {
-            .hero-grid {
+        .tax-faq-answer {
+            display: none;
+            padding: 0 4px 20px;
+        }
+
+        .tax-faq-answer p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .tax-faq-item.is-open .tax-faq-answer {
+            display: block;
+        }
+
+        .tax-faq-item.is-open .tax-faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .tax-sources {
+            padding-top: 28px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tax-sources ul {
+            margin: 16px 0 0;
+            padding-left: 20px;
+        }
+
+        .tax-sources li {
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .tax-sources a {
+            color: var(--primary);
+        }
+
+        .tax-disclaimer {
+            margin-top: 28px;
+            padding: 18px 20px;
+            background: var(--surface-soft);
+            border-radius: var(--radius-md);
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.65;
+        }
+
+        @media (max-width: 1024px) {
+            .tax-hero-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
             }
 
-            .card-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .tax-hero-card {
+                max-width: 680px;
             }
 
-            .flow-grid {
-                grid-template-columns: repeat(3, 1fr);
+            .tax-layout {
+                grid-template-columns: 1fr;
             }
 
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
+            .tax-sidebar {
+                position: sticky;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 18px;
             }
 
-            .footer-grid>div:first-child {
+            .tax-sidebar-card {
+                margin-bottom: 0;
+            }
+
+            .tax-tool-card {
                 grid-column: 1 / -1;
             }
         }
 
-        @media (max-width: 700px) {
-            .container {
-                width: min(100% - 28px, var(--max-width));
+        @media (max-width: 767px) {
+            .tax-hero {
+                padding: 48px 0 42px;
             }
 
-            .header-inner {
-                min-height: 62px;
+            .tax-hero-inner,
+            .tax-layout {
+                padding-left: var(--page-padding-mobile);
+                padding-right: var(--page-padding-mobile);
             }
 
-            .mobile-menu-toggle {
-                display: flex;
+            .tax-hero h1 {
+                font-size: 38px;
             }
 
-            .main-nav {
-                display: none;
-                position: absolute;
-                left: 0;
-                right: 0;
-                top: calc(100% + 8px);
-                padding: 9px;
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: 13px;
-                box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
-                flex-direction: column;
-                align-items: stretch;
-                gap: 3px;
+            .tax-hero-lead {
+                font-size: 17px;
             }
 
-            .main-nav.mobile-open {
-                display: flex;
+            .tax-content {
+                padding: 48px 0 60px;
             }
 
-            .main-nav>a,
-            .nav-dropdown-toggle {
-                width: 100%;
-                text-align: left;
-                padding: 11px 12px;
+            .tax-section {
+                margin-bottom: 48px;
             }
 
-            .nav-dropdown-menu {
-                position: static;
-                min-width: 0;
-                box-shadow: none;
-                border: 0;
-                border-top: 1px solid var(--line);
-                border-radius: 0;
-                margin-top: 4px;
-                padding: 5px 0 0 10px;
-            }
-
-            .nav-dropdown.open .nav-dropdown-menu {
-                display: flex;
-            }
-
-            .hero {
-                padding: 55px 0 42px;
-            }
-
-            h1 {
-                letter-spacing: -1.8px;
-            }
-
-            .hero-copy {
-                font-size: 16px;
-            }
-
-            .card-grid,
-            .link-grid,
-            .checklist {
+            .tax-topic-grid {
                 grid-template-columns: 1fr;
             }
 
-            .flow-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .cta-box {
-                padding: 30px 23px;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .footer-grid {
+            .tax-sidebar {
                 grid-template-columns: 1fr;
-                gap: 28px;
             }
 
-            .footer-grid>div:first-child {
+            .tax-tool-card {
                 grid-column: auto;
             }
 
-            .footer-bottom {
-                flex-direction: column;
-                gap: 6px;
-            }
-        }
-
-        @media (max-width: 430px) {
-            .flow-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-actions {
+            .tax-hero-actions {
                 flex-direction: column;
             }
 
-            .hero-actions .button {
+            .tax-primary-button,
+            .tax-secondary-button {
                 width: 100%;
-            }
-
-            .comparison {
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
-            }
-
-            .cta-box h2 {
-                font-size: 25px;
             }
         }
     </style>
 
-    <!-- WebPage Schema -->
     <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Taxes Guide",
+        "url": "https://paycheckmint.com/finance/taxes/",
+        "description": "Practical guides to U.S. taxes, including federal income tax, withholding, deductions, credits and filing.",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "PaycheckMint",
+            "url": "https://paycheckmint.com/"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
             {
-                "@context": "https://schema.org",
-                "@type": "WebPage",
-                "name": "Taxes Guide",
-                "url": "https://paymintcheck.vercel.app/finance/taxes/",
-                "description": "A practical guide to U.S. taxes, including income tax, payroll taxes, withholding, deductions, credits, taxable income and estimated taxes.",
-                "isPartOf": {
-                    "@type": "WebSite",
-                    "name": "PaycheckMint",
-                    "url": "https://paymintcheck.vercel.app/"
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://paycheckmint.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Finance",
+                "item": "https://paycheckmint.com/finance/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Taxes",
+                "item": "https://paycheckmint.com/finance/taxes/"
+            }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is federal income tax?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Federal income tax is a tax imposed by the U.S. federal government on taxable income. For employees, federal income tax is generally collected throughout the year through paycheck withholding."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a tax bracket?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A tax bracket is a range of taxable income subject to a particular marginal federal income tax rate. Moving into a higher bracket does not mean all of your income is taxed at that higher rate."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between a tax deduction and a tax credit?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A deduction reduces the amount of income subject to tax, while a tax credit directly reduces the amount of tax owed. Some credits can be refundable."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is tax withholding?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Tax withholding is money an employer generally takes from an employee's paycheck and sends to the IRS toward the employee's federal income tax obligation."
                 }
             }
-        </script>
-
-    <!-- Breadcrumb Schema -->
-    <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Home",
-                        "item": "https://paymintcheck.vercel.app/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Finance",
-                        "item": "https://paymintcheck.vercel.app/finance/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 3,
-                        "name": "Taxes",
-                        "item": "https://paymintcheck.vercel.app/finance/taxes/"
-                    }
-                ]
-            }
-        </script>
-
-    <!-- FAQ Schema -->
-    <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": [
-                    {
-                        "@type": "Question",
-                        "name": "What is income tax?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Income tax is a tax imposed on taxable income. In the United States, federal income tax applies under federal law, while some states and local governments also impose income taxes."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "What are payroll taxes?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Payroll taxes are taxes associated with employment income. Social Security and Medicare taxes are commonly withheld from employee pay, while federal income tax withholding is calculated separately."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "What is tax withholding?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Tax withholding is money withheld from certain payments, such as employee wages, and sent to the government toward the person's tax liability."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "What is taxable income?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Taxable income is the portion of income that is subject to tax after applicable adjustments and deductions. Most income is taxable unless an exclusion or exemption applies."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "What is the difference between a tax deduction and a tax credit?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "A tax deduction generally reduces taxable income, while a tax credit directly reduces the amount of tax owed. Some tax credits may also be refundable."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Why is my take-home pay lower than my salary?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Take-home pay is lower than gross salary because taxes and other deductions can be taken from earnings before the remaining amount is paid to you."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "What are estimated taxes?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Estimated taxes are payments made during the year when income tax and certain other taxes are not fully covered by withholding. They can be relevant to self-employed people and people with other income."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Does every state have an individual income tax?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "No. State individual income-tax systems differ, and some states do not impose a broad individual income tax. Local income taxes can also apply in some locations."
-                        }
-                    }
-                ]
-            }
-        </script>
+        ]
+    }
+    </script>
 </head>
 
-<body>
-    <header class="site-header">
-        <div class="container header-inner">
-            <a href="/" class="logo"> Paycheck<span>Mint</span> </a>
+<body class="tax-page">
 
-            <button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"
-                aria-controls="main-navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+    <header class="pm-header" id="site-header">
 
-            <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
-                <a href="/">Home</a>
+        <div class="pm-header-inner">
 
-                <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+            <a class="pm-brand" href="/" aria-label="PaycheckMint home">
+                Paycheck<span>Mint</span>
+            </a>
 
-                <a href="/income/"> Income </a>
+            <nav class="pm-desktop-nav" aria-label="Main navigation">
 
-                <div class="nav-dropdown">
-                    <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+                <a class="pm-nav-link" href="/income/">
+                    Income
+                </a>
+
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
                         Finance
-                        <span class="dropdown-arrow">▾</span>
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
                     </button>
 
-                    <div class="nav-dropdown-menu">
-                        <a href="/finance/"> Finance Overview </a>
+                    <div class="pm-dropdown-menu">
 
-                        <a href="/finance/taxes/"> Taxes </a>
+                        <span class="pm-dropdown-label">
+                            Explore
+                        </span>
 
-                        <a href="/finance/budgeting/"> Budgeting &amp; Saving </a>
+                        <a href="/finance/">
+                            <span>Finance Overview</span>
+                        </a>
 
-                        <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+                        <a href="/income/">
+                            <span>Income & Earnings</span>
+                        </a>
 
-                        <a href="/finance/investing/"> Investing &amp; Retirement </a>
+                        <a href="/finance/budgeting/">
+                            <span>Budgeting Guides</span>
+                        </a>
 
-                        <a href="/finance/insurance/"> Insurance </a>
                     </div>
+
                 </div>
+
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                        Calculators
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="pm-dropdown-menu">
+
+                        <span class="pm-dropdown-label">
+                            Paycheck tools
+                        </span>
+
+                        <a href="/paycheck-tax-calculator/">
+                            Paycheck Tax Calculator
+                        </a>
+
+                        <a href="/take-home-pay-calculator/">
+                            Take-Home Pay Calculator
+                        </a>
+
+                        <a href="/hourly-paycheck-calculator/">
+                            Hourly Paycheck Calculator
+                        </a>
+
+                        <a href="/overtime-pay-calculator/">
+                            Overtime Pay Calculator
+                        </a>
+
+                        <a href="/salary-paycheck-calculator/">
+                            Salary Paycheck Calculator
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <a class="pm-nav-link" href="/finance/">
+                    Learn
+                </a>
+
             </nav>
+
+            <div class="pm-nav-spacer"></div>
+
+            <button class="pm-search-button" id="searchToggle" type="button" aria-label="Open search"
+                aria-expanded="false" aria-controls="searchPanel">
+
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="m20 20-4-4"></path>
+
+                </svg>
+
+            </button>
+
+            <a class="pm-header-cta" href="/paycheck-tax-calculator/">
+                Calculate paycheck
+            </a>
+
+            <button class="pm-mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation"
+                aria-expanded="false" aria-controls="mobileNav">
+                <svg id="mobileMenuIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <path d="M4 6h16" />
+                    <path d="M4 12h16" />
+                    <path d="M4 18h16" />
+                </svg>
+            </button>
+
         </div>
+
+        <!-- SEARCH PANEL -->
+
+        <div class="pm-search-panel" id="searchPanel">
+
+            <div class="pm-search-inner">
+
+                <div class="pm-search-field">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="m20 20-4-4" />
+                    </svg>
+
+                    <input id="siteSearch" class="pm-search-input" type="search" autocomplete="off"
+                        placeholder="Search PaycheckMint..." aria-label="Search PaycheckMint">
+
+                    <button class="pm-search-close" id="searchClose" type="button" aria-label="Close search">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 6l12 12" />
+                            <path d="M18 6 6 18" />
+                        </svg>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="pm-search-results" id="searchResults"></div>
+
+        </div>
+
+        <!-- MOBILE NAV -->
+
+        <nav class="pm-mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+
+            <div class="pm-mobile-nav-inner">
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a href="/income/">
+                    Income
+                </a>
+
+                <button class="pm-mobile-finance-button" id="mobileFinanceToggle" type="button" aria-expanded="false">
+                    <span>Finance</span>
+
+                    <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m6 9 6 6 6-6" />
+                    </svg>
+                </button>
+
+                <div class="pm-mobile-finance-links" id="mobileFinanceLinks">
+
+                    <a href="/finance/">
+                        Finance Overview
+                    </a>
+
+                    <a href="/income/">
+                        Income & Earnings
+                    </a>
+
+                </div>
+
+                <a href="/paycheck-tax-calculator/">
+                    Paycheck Tax Calculator
+                </a>
+
+                <a href="/take-home-pay-calculator/">
+                    Take-Home Pay Calculator
+                </a>
+
+                <a href="/hourly-paycheck-calculator/">
+                    Hourly Paycheck Calculator
+                </a>
+
+                <a href="/overtime-pay-calculator/">
+                    Overtime Pay Calculator
+                </a>
+
+                <a href="/salary-paycheck-calculator/">
+                    Salary Paycheck Calculator
+                </a>
+
+                <a href="/weekly-paycheck-calculator/">
+                    Weekly Paycheck Calculator
+                </a>
+
+                <a href="/biweekly-paycheck-calculator/">
+                    Biweekly Paycheck Calculator
+                </a>
+
+                <a href="/monthly-paycheck-calculator/">
+                    Monthly Paycheck Calculator
+                </a>
+
+                <div class="pm-mobile-search-row">
+
+                    <button class="pm-button-secondary" id="mobileSearchButton" type="button">
+                        Search PaycheckMint
+                    </button>
+
+                </div>
+
+            </div>
+
+        </nav>
+
     </header>
 
     <main>
-        <!-- HERO -->
-        <section class="hero">
-            <div class="container">
-                <div class="hero-grid">
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section class="tax-hero">
+            <div class="tax-hero-inner">
+
+                <nav class="tax-breadcrumb" aria-label="Breadcrumb">
+                    <a href="/">Home</a>
+                    <span>/</span>
+                    <a href="/finance/">Finance</a>
+                    <span>/</span>
+                    <span>Taxes</span>
+                </nav>
+
+                <div class="tax-hero-grid">
+
                     <div>
-                        <div class="eyebrow">Finance · Taxes</div>
 
-                        <h1>Taxes: A Simple Guide to U.S. Taxes</h1>
+                        <div class="tax-eyebrow">
+                            U.S. Tax Guide
+                        </div>
 
-                        <p class="hero-copy">
-                            Understand how income taxes, payroll taxes, withholding, tax brackets, deductions,
-                            credits, and taxable income affect your money and your paycheck.
+                        <h1>
+                            Understand Your Taxes Before Tax Season
+                        </h1>
+
+                        <p class="tax-hero-lead">
+                            Learn how federal income tax, tax brackets, paycheck withholding,
+                            deductions, credits, and filing work in the United States.
+                            PaycheckMint brings the major tax concepts together in one
+                            practical guide.
                         </p>
 
-                        <div class="hero-actions">
-                            <a class="button primary" href="/paycheck-tax-calculator/">
-                                Calculate Paycheck Taxes
+                        <div class="tax-hero-actions">
+                            <a class="tax-primary-button" href="/paycheck-tax-calculator/">
+                                Calculate Your Paycheck
                             </a>
 
-                            <a class="button" href="/income/what-is-taxable-income/"> Learn About Taxable Income </a>
+                            <a class="tax-secondary-button" href="#tax-topics">
+                                Explore Tax Topics
+                            </a>
                         </div>
+
                     </div>
 
-                    <aside class="hero-card">
-                        <div class="hero-card-label">How your paycheck is affected</div>
+                    <aside class="tax-hero-card">
 
-                        <div class="tax-flow">
-                            <div class="tax-flow-item">
-                                <strong>Gross pay</strong>
-                                <span>Total earnings</span>
-                            </div>
-
-                            <div class="tax-flow-item">
-                                <strong>Taxable income</strong>
-                                <span>Income subject to tax</span>
-                            </div>
-
-                            <div class="tax-flow-item">
-                                <strong>Withholding</strong>
-                                <span>Paid during the year</span>
-                            </div>
-
-                            <div class="tax-flow-item">
-                                <strong>Deductions</strong>
-                                <span>Reduce taxable income</span>
-                            </div>
-
-                            <div class="tax-flow-item">
-                                <strong>Take-home pay</strong>
-                                <span>Amount you receive</span>
-                            </div>
+                        <div class="tax-hero-card-label">
+                            Quick answer
                         </div>
+
+                        <h2>
+                            What actually determines your tax?
+                        </h2>
+
+                        <p>
+                            Your federal income tax generally depends on taxable income,
+                            filing status, deductions, credits, and the applicable tax
+                            rules. Your paycheck withholding is a separate calculation
+                            designed to collect tax during the year.
+                        </p>
+
                     </aside>
+
                 </div>
+
             </div>
         </section>
 
-        <!-- INTRO -->
-        <section class="section soft-section">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>What Are Taxes?</h2>
 
-                    <p>
-                        Taxes are payments collected by governments to fund public programs and services. The U.S.
-                        tax system includes several different types of taxes, and the rules depend on the type of
-                        income, taxpayer, and jurisdiction.
-                    </p>
-                </div>
+        <!-- =====================================================
+             MAIN CONTENT
+        ====================================================== -->
 
-                <div class="prose">
-                    <p>
-                        For workers, the taxes you notice most often are federal income tax and payroll taxes
-                        withheld from your paycheck. Depending on where you live and work, state or local income
-                        taxes may also affect your pay.
-                    </p>
+        <section class="tax-content">
 
-                    <p>
-                        Your paycheck is not necessarily the same as the amount you ultimately owe for the year.
-                        Withholding is generally a payment toward your tax liability. Your final tax liability is
-                        determined when your tax return is prepared.
-                    </p>
+            <div class="tax-layout">
 
-                    <p>
-                        The IRS explains that most income is taxable unless it is specifically excluded by law.
-                        Taxable income can include employment income, self-employment income, investment income, and
-                        other forms of income.
-                    </p>
-                </div>
-            </div>
-        </section>
+                <article class="tax-article">
 
-        <!-- TYPES OF TAXES -->
-        <section class="section">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>Main Types of Taxes</h2>
+                    <!-- Direct answer -->
 
-                    <p>
-                        Different taxes apply to different types of income, purchases, property, and financial
-                        activity.
-                    </p>
-                </div>
+                    <section class="tax-section">
 
-                <div class="card-grid">
-                    <article class="card">
-                        <h3>Federal Income Tax</h3>
-                        <p>Federal income tax is based on taxable income under federal tax rules.</p>
-                        <a href="/paycheck-tax-calculator/"> Calculate paycheck taxes → </a>
-                    </article>
+                        <div class="tax-answer">
 
-                    <article class="card">
-                        <h3>State Income Tax</h3>
-                        <p>
-                            State income-tax rules vary by state. Some states have no broad individual income tax.
-                        </p>
-                    </article>
+                            <p>
+                                <strong>Taxes are not simply a percentage of your salary.</strong>
+                                Federal income tax is calculated using taxable income and
+                                progressive tax rates, while your actual paycheck can also
+                                include Social Security, Medicare, state taxes, local taxes,
+                                and other deductions. Understanding the difference between
+                                income, taxable income, tax liability, and withholding makes
+                                your paycheck much easier to understand.
+                            </p>
 
-                    <article class="card">
-                        <h3>Local Income Tax</h3>
-                        <p>
-                            Some cities, counties, or other local jurisdictions impose income taxes in addition to
-                            state taxes.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Social Security Tax</h3>
-                        <p>Social Security tax is one of the payroll taxes associated with employment.</p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Medicare Tax</h3>
-                        <p>
-                            Medicare tax is another payroll tax generally associated with employee wages and
-                            self-employment.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Self-Employment Tax</h3>
-                        <p>
-                            Self-employed workers may have additional tax responsibilities because taxes are not
-                            handled through ordinary employee withholding.
-                        </p>
-                        <a href="/income/w2-vs-1099/"> W-2 vs 1099 income → </a>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- FEDERAL VS STATE -->
-        <section class="section soft-section">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>Federal vs. State Income Tax</h2>
-
-                    <p>
-                        Federal and state income taxes are separate systems. Your state of residence, work location,
-                        income, and applicable state rules can affect what you owe.
-                    </p>
-                </div>
-
-                <table class="comparison">
-                    <thead>
-                        <tr>
-                            <th>Feature</th>
-                            <th>Federal Income Tax</th>
-                            <th>State Income Tax</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td>Government</td>
-                            <td>U.S. federal government</td>
-                            <td>State government</td>
-                        </tr>
-
-                        <tr>
-                            <td>Rules</td>
-                            <td>Federal tax law</td>
-                            <td>State-specific tax law</td>
-                        </tr>
-
-                        <tr>
-                            <td>Applies nationwide?</td>
-                            <td>Federal rules apply nationwide</td>
-                            <td>Rules differ by state</td>
-                        </tr>
-
-                        <tr>
-                            <td>Withholding</td>
-                            <td>Often withheld from employee wages</td>
-                            <td>May be withheld depending on the state</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- TAXABLE INCOME -->
-        <section class="section">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>How Taxable Income Works</h2>
-
-                    <p>
-                        Taxable income is not always the same as your total earnings. Applicable adjustments and
-                        deductions can affect the amount subject to tax.
-                    </p>
-                </div>
-
-                <div class="flow-grid">
-                    <div class="flow-item">
-                        <div class="flow-number">1</div>
-                        <strong>Gross income</strong>
-                        <span>Total income before adjustments</span>
-                    </div>
-
-                    <div class="flow-item">
-                        <div class="flow-number">2</div>
-                        <strong>Adjustments</strong>
-                        <span>Applicable adjustments to income</span>
-                    </div>
-
-                    <div class="flow-item">
-                        <div class="flow-number">3</div>
-                        <strong>AGI</strong>
-                        <span>Adjusted gross income</span>
-                    </div>
-
-                    <div class="flow-item">
-                        <div class="flow-number">4</div>
-                        <strong>Deductions</strong>
-                        <span>Applicable deductions</span>
-                    </div>
-
-                    <div class="flow-item">
-                        <div class="flow-number">5</div>
-                        <strong>Taxable income</strong>
-                        <span>Amount used to calculate tax</span>
-                    </div>
-                </div>
-
-                <div class="hero-actions">
-                    <a class="button primary" href="/income/what-is-taxable-income/"> What Is Taxable Income? </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- TAX BRACKETS -->
-        <section class="section soft-section">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>Tax Brackets Explained</h2>
-
-                    <p>
-                        Federal individual income tax uses a progressive rate structure. Understanding marginal and
-                        effective tax rates helps explain why a higher tax bracket does not mean all of your income
-                        is taxed at that rate.
-                    </p>
-                </div>
-
-                <div class="prose">
-                    <h3>Marginal tax rate</h3>
-
-                    <p>
-                        Your marginal tax rate is the rate that applies to the next portion of taxable income within
-                        the applicable bracket.
-                    </p>
-
-                    <h3>Effective tax rate</h3>
-
-                    <p>
-                        Your effective tax rate represents the overall tax relative to the relevant income amount.
-                        It can be lower than your highest marginal rate because different portions of taxable income
-                        can be taxed at different rates.
-                    </p>
-
-                    <h3>Why this matters</h3>
-
-                    <p>Tax brackets should not be interpreted as one rate that applies to every dollar you earn.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- WITHHOLDING -->
-        <section class="section">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>Tax Withholding</h2>
-
-                    <p>Tax withholding is one of the main ways employees pay federal income tax during the year.</p>
-                </div>
-
-                <div class="prose">
-                    <p>
-                        When you receive employee wages, your employer generally withholds federal income tax based
-                        on information such as your pay and the information provided on Form W-4.
-                    </p>
-
-                    <p>
-                        The IRS explains that withholding can also apply to certain other payments. If your
-                        withholding is too high or too low compared with your eventual tax liability, your tax
-                        return may result in a refund or an amount due.
-                    </p>
-
-                    <h3>Why withholding affects your paycheck</h3>
-
-                    <p>
-                        Withholding reduces the amount of money you receive in each paycheck. It does not
-                        necessarily represent your final tax liability for the year.
-                    </p>
-
-                    <div class="hero-actions">
-                        <a class="button primary" href="/paycheck-tax-calculator/"> Estimate Paycheck Taxes </a>
-
-                        <a class="button" href="/take-home-pay-calculator/"> Calculate Take-Home Pay </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- DEDUCTIONS AND CREDITS -->
-        <section class="section soft-section">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>Tax Deductions vs. Tax Credits</h2>
-
-                    <p>Deductions and credits both provide tax benefits, but they work differently.</p>
-                </div>
-
-                <div class="card-grid">
-                    <article class="card">
-                        <h3>Tax Deduction</h3>
-
-                        <p>A deduction generally reduces the amount of income that is subject to tax.</p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Tax Credit</h3>
-
-                        <p>
-                            A credit generally reduces the amount of tax owed after the relevant tax has been
-                            calculated.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Refundable Credit</h3>
-
-                        <p>
-                            Some credits can provide a refund when the credit exceeds the remaining tax liability,
-                            subject to the rules for that credit.
-                        </p>
-                    </article>
-                </div>
-
-                <div class="prose">
-                    <p>
-                        The IRS distinguishes the two concepts clearly: deductions reduce taxable income, while
-                        credits reduce tax. Eligibility and limitations depend on the specific deduction or credit.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- PAYROLL TAX -->
-        <section class="section">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>Payroll Taxes</h2>
-
-                    <p>
-                        Payroll taxes are an important reason your take-home pay can be lower than your gross wages.
-                    </p>
-                </div>
-
-                <div class="prose">
-                    <p>
-                        Social Security and Medicare taxes are commonly withheld from employee pay. Federal income
-                        tax withholding is calculated separately from these payroll taxes.
-                    </p>
-
-                    <p>
-                        Your pay stub may therefore show several separate tax amounts rather than one single "tax"
-                        deduction.
-                    </p>
-
-                    <p>
-                        Understanding these deductions can make it easier to compare gross pay with net or take-home
-                        pay.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ESTIMATED TAX -->
-        <section class="section soft-section">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>Estimated Taxes</h2>
-
-                    <p>Not everyone pays taxes entirely through paycheck withholding.</p>
-                </div>
-
-                <div class="prose">
-                    <p>
-                        The IRS describes federal income tax as a pay-as-you-go system. Employees often pay through
-                        withholding, while people with income that is not fully covered by withholding may need
-                        estimated tax payments.
-                    </p>
-
-                    <p>
-                        Estimated taxes can be particularly relevant to self-employed people and people receiving
-                        certain types of income such as interest, dividends, capital gains, rents, or royalties.
-                    </p>
-
-                    <p>
-                        The amount and timing of estimated payments depend on individual circumstances and
-                        applicable tax rules.
-                    </p>
-
-                    <div class="hero-actions">
-                        <a class="button" href="/income/w2-vs-1099/"> W-2 vs. 1099 Income </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- REFUND VS LIABILITY -->
-        <section class="section">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>Tax Refund vs. Tax Liability</h2>
-
-                    <p>A tax refund and your tax liability are two different concepts.</p>
-                </div>
-
-                <div class="card-grid">
-                    <article class="card">
-                        <h3>Tax Liability</h3>
-
-                        <p>
-                            The amount of tax you are responsible for under the applicable tax rules after
-                            considering relevant income, deductions, credits, and other factors.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Tax Withheld</h3>
-
-                        <p>
-                            Amounts already paid toward your tax obligation during the year through withholding or
-                            other payments.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Tax Refund</h3>
-
-                        <p>
-                            A refund can result when the amount paid toward your tax obligation exceeds the amount
-                            ultimately owed, subject to the applicable return calculation.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- W2 VS 1099 -->
-        <section class="section soft-section">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>Taxes for W-2 and 1099 Income</h2>
-
-                    <p>
-                        Employees and independent contractors can have different tax payment and reporting
-                        responsibilities.
-                    </p>
-                </div>
-
-                <div class="prose">
-                    <p>
-                        Employees generally have taxes withheld from their wages. Independent contractors generally
-                        receive payments without ordinary employee withholding and may need to handle their own
-                        income-tax and self-employment-tax payments.
-                    </p>
-
-                    <p>
-                        The distinction between employees and independent contractors depends on the actual working
-                        relationship and applicable rules, not simply on which tax form is received.
-                    </p>
-
-                    <a class="button primary" href="/income/w2-vs-1099/"> Read W-2 vs. 1099 Income </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- TAX CHECKLIST -->
-        <section class="section">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>Simple Tax Checklist</h2>
-
-                    <p>
-                        Use these questions to understand your tax situation before working through a tax return or
-                        paycheck estimate.
-                    </p>
-                </div>
-
-                <div class="checklist">
-                    <div class="check-item">
-                        <span class="check">✓</span>
-                        <span>Know your sources of income.</span>
-                    </div>
-
-                    <div class="check-item">
-                        <span class="check">✓</span>
-                        <span>Understand the taxes shown on your pay stub.</span>
-                    </div>
-
-                    <div class="check-item">
-                        <span class="check">✓</span>
-                        <span>Review your federal income-tax withholding.</span>
-                    </div>
-
-                    <div class="check-item">
-                        <span class="check">✓</span>
-                        <span>Understand taxable income and deductions.</span>
-                    </div>
-
-                    <div class="check-item">
-                        <span class="check">✓</span>
-                        <span>Check whether applicable tax credits may apply.</span>
-                    </div>
-
-                    <div class="check-item">
-                        <span class="check">✓</span>
-                        <span>Consider whether estimated tax payments apply.</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PAYCHECK CALCULATORS -->
-        <section class="section soft-section">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>PaycheckMint Tax & Pay Calculators</h2>
-
-                    <p>
-                        Use PaycheckMint calculators to estimate taxes and understand how deductions can affect
-                        take-home pay.
-                    </p>
-                </div>
-
-                <div class="link-grid">
-                    <a class="link-card" href="/paycheck-tax-calculator/">
-                        <strong>Paycheck Tax Calculator</strong>
-                        <span> Estimate federal, payroll, state, and other paycheck taxes. </span>
-                    </a>
-
-                    <a class="link-card" href="/take-home-pay-calculator/">
-                        <strong>Take-Home Pay Calculator</strong>
-                        <span> Estimate how much of your gross pay you may receive. </span>
-                    </a>
-
-                    <a class="link-card" href="/salary-paycheck-calculator/">
-                        <strong>Salary Paycheck Calculator</strong>
-                        <span> Estimate paycheck amounts from an annual salary. </span>
-                    </a>
-
-                    <a class="link-card" href="/hourly-paycheck-calculator/">
-                        <strong>Hourly Paycheck Calculator</strong>
-                        <span> Estimate pay and deductions from hourly wages. </span>
-                    </a>
-
-                    <a class="link-card" href="/overtime-pay-calculator/">
-                        <strong>Overtime Pay Calculator</strong>
-                        <span> Estimate overtime earnings and overall gross pay. </span>
-                    </a>
-
-                    <a class="link-card" href="/income/what-is-taxable-income/">
-                        <strong>What Is Taxable Income?</strong>
-                        <span> Learn how taxable income differs from total income. </span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- RELATED GUIDES -->
-        <section class="section">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>Related PaycheckMint Guides</h2>
-
-                    <p>Continue learning about income, pay, and taxes.</p>
-                </div>
-
-                <div class="link-grid">
-                    <a class="link-card" href="/income/what-is-net-income/">
-                        <strong>What Is Net Income?</strong>
-                        <span> Understand income after applicable deductions and expenses. </span>
-                    </a>
-
-                    <a class="link-card" href="/income/what-is-take-home-pay/">
-                        <strong>What Is Take-Home Pay?</strong>
-                        <span> Learn how gross earnings become the amount you receive. </span>
-                    </a>
-
-                    <a class="link-card" href="/income/salary-vs-hourly-pay/">
-                        <strong>Salary vs. Hourly Pay</strong>
-                        <span> Compare the two common ways employees are paid. </span>
-                    </a>
-
-                    <a class="link-card" href="/income/w2-vs-1099/">
-                        <strong>W-2 vs. 1099 Income</strong>
-                        <span> Understand key differences between employee and contractor income. </span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ -->
-        <section class="section soft-section">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>Taxes FAQs</h2>
-
-                    <p>Common questions about income taxes and paychecks.</p>
-                </div>
-
-                <div class="faq">
-                    <details>
-                        <summary>What is income tax?</summary>
-
-                        <div class="faq-answer">
-                            Income tax is a tax imposed on taxable income. Federal income tax applies under federal
-                            law, while some states and local governments also impose income taxes.
                         </div>
-                    </details>
 
-                    <details>
-                        <summary>What are payroll taxes?</summary>
+                        <h2>
+                            How U.S. taxes work
+                        </h2>
 
-                        <div class="faq-answer">
-                            Payroll taxes are taxes associated with employment. Social Security and Medicare taxes
-                            are commonly withheld from employee pay, while federal income-tax withholding is
-                            calculated separately.
+                        <p>
+                            Most employees encounter taxes in two places: throughout the
+                            year on each paycheck and when they file a federal tax return.
+                            Employers generally withhold federal income tax from employee
+                            paychecks and send those amounts to the IRS.
+                        </p>
+
+                        <p>
+                            At tax filing time, your tax return compares your actual tax
+                            liability with the amounts already paid through withholding and
+                            other payments. Depending on the result, you may receive a
+                            refund or have additional tax to pay.
+                        </p>
+
+                    </section>
+
+
+                    <!-- Topics -->
+
+                    <section class="tax-section" id="tax-topics">
+
+                        <h2>
+                            Tax topics to understand
+                        </h2>
+
+                        <p>
+                            Start with the concept that matches your question. These topics
+                            cover the parts of the U.S. tax system most relevant to employees,
+                            households, and everyday personal finances.
+                        </p>
+
+                        <div class="tax-topic-grid">
+
+                            <a class="tax-topic-card" href="#federal-income-tax">
+                                <div class="tax-topic-icon">$</div>
+                                <h3>Federal Income Tax</h3>
+                                <p>
+                                    Understand taxable income, marginal rates, and how
+                                    federal income tax affects your earnings.
+                                </p>
+                            </a>
+
+                            <a class="tax-topic-card" href="#tax-brackets">
+                                <div class="tax-topic-icon">%</div>
+                                <h3>Tax Brackets</h3>
+                                <p>
+                                    Learn how progressive tax rates work and why your
+                                    entire income is not taxed at one rate.
+                                </p>
+                            </a>
+
+                            <a class="tax-topic-card" href="#withholding">
+                                <div class="tax-topic-icon">↔</div>
+                                <h3>Tax Withholding</h3>
+                                <p>
+                                    See how federal income tax withholding works on
+                                    employee paychecks.
+                                </p>
+                            </a>
+
+                            <a class="tax-topic-card" href="#deductions">
+                                <div class="tax-topic-icon">−</div>
+                                <h3>Deductions</h3>
+                                <p>
+                                    Understand the standard deduction, itemized deductions,
+                                    and how deductions affect taxable income.
+                                </p>
+                            </a>
+
+                            <a class="tax-topic-card" href="#credits">
+                                <div class="tax-topic-icon">+</div>
+                                <h3>Tax Credits</h3>
+                                <p>
+                                    Learn how tax credits can directly reduce the tax you
+                                    owe and how refundable credits work.
+                                </p>
+                            </a>
+
+                            <a class="tax-topic-card" href="#filing">
+                                <div class="tax-topic-icon">✓</div>
+                                <h3>Filing Taxes</h3>
+                                <p>
+                                    Understand the basic process of preparing and filing
+                                    an individual federal tax return.
+                                </p>
+                            </a>
+
                         </div>
-                    </details>
 
-                    <details>
-                        <summary>What is tax withholding?</summary>
+                    </section>
 
-                        <div class="faq-answer">
-                            Tax withholding is money withheld from certain payments, such as employee wages, and
-                            sent to the government toward the person's tax liability.
+
+                    <!-- Federal income tax -->
+
+                    <section class="tax-section" id="federal-income-tax">
+
+                        <h2>
+                            What is federal income tax?
+                        </h2>
+
+                        <p>
+                            Federal income tax is a tax imposed by the U.S. federal government
+                            on taxable income. For employees, it is generally collected
+                            throughout the year through withholding from paychecks.
+                        </p>
+
+                        <p>
+                            The amount of federal income tax you ultimately owe depends on
+                            your taxable income, filing status, deductions, credits, and
+                            other applicable rules.
+                        </p>
+
+                        <div class="tax-callout">
+
+                            <h3>
+                                Gross income is not the same as taxable income
+                            </h3>
+
+                            <p>
+                                Your gross income is the income you receive before certain
+                                adjustments and deductions. Taxable income is the amount
+                                that remains subject to federal income tax after applicable
+                                adjustments and deductions.
+                            </p>
+
                         </div>
-                    </details>
 
-                    <details>
-                        <summary>What is taxable income?</summary>
+                    </section>
 
-                        <div class="faq-answer">
-                            Taxable income is the portion of income subject to tax after applicable adjustments and
-                            deductions. Most income is taxable unless an exclusion or exemption applies.
+
+                    <!-- 2026 brackets -->
+
+                    <section class="tax-section" id="tax-brackets">
+
+                        <h2>
+                            2026 federal income tax brackets
+                        </h2>
+
+                        <p>
+                            Federal income tax uses progressive marginal rates. For tax year
+                            2026, the federal individual income tax rates are 10%, 12%, 22%,
+                            24%, 32%, 35%, and 37%.
+                        </p>
+
+                        <p>
+                            The table below shows the 2026 brackets for three common filing
+                            statuses. These are based on taxable income, not simply your
+                            gross salary. :contentReference[oaicite:1]{index=1}
+                        </p>
+
+                        <div class="tax-table-wrap">
+
+                            <table class="tax-table">
+
+                                <thead>
+                                    <tr>
+                                        <th>Tax rate</th>
+                                        <th>Single</th>
+                                        <th>Married filing jointly</th>
+                                        <th>Head of household</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td><strong>10%</strong></td>
+                                        <td>$0 – $12,400</td>
+                                        <td>$0 – $24,800</td>
+                                        <td>$0 – $17,700</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>12%</strong></td>
+                                        <td>$12,401 – $50,400</td>
+                                        <td>$24,801 – $100,800</td>
+                                        <td>$17,701 – $67,450</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>22%</strong></td>
+                                        <td>$50,401 – $105,700</td>
+                                        <td>$100,801 – $211,400</td>
+                                        <td>$67,451 – $105,700</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>24%</strong></td>
+                                        <td>$105,701 – $201,775</td>
+                                        <td>$211,401 – $403,550</td>
+                                        <td>$105,701 – $201,750</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>32%</strong></td>
+                                        <td>$201,776 – $256,225</td>
+                                        <td>$403,551 – $512,450</td>
+                                        <td>$201,751 – $256,200</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>35%</strong></td>
+                                        <td>$256,226 – $640,600</td>
+                                        <td>$512,451 – $768,700</td>
+                                        <td>$256,201 – $640,600</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>37%</strong></td>
+                                        <td>$640,601+</td>
+                                        <td>$768,701+</td>
+                                        <td>$640,601+</td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
                         </div>
-                    </details>
 
-                    <details>
-                        <summary>What is the difference between a tax deduction and a tax credit?</summary>
+                        <p class="tax-note">
+                            These are 2026 federal marginal brackets. State and local income
+                            taxes can use different rules and rates.
+                        </p>
 
-                        <div class="faq-answer">
-                            A deduction generally reduces taxable income, while a tax credit generally reduces the
-                            amount of tax owed. Some credits can be refundable.
+                        <h3>
+                            Does moving into a higher bracket tax all your income at that rate?
+                        </h3>
+
+                        <p>
+                            No. Federal income tax brackets are marginal. Different portions
+                            of your taxable income are taxed at different rates. Reaching a
+                            higher bracket does not mean your entire taxable income suddenly
+                            becomes subject to that higher rate.
+                        </p>
+
+                    </section>
+
+
+                    <!-- Standard deduction -->
+
+                    <section class="tax-section" id="deductions">
+
+                        <h2>
+                            Tax deductions
+                        </h2>
+
+                        <p>
+                            A tax deduction reduces the amount of income subject to tax.
+                            The IRS describes the standard deduction as a set amount that
+                            most taxpayers can subtract based on filing status.
+                        </p>
+
+                        <p>
+                            Taxpayers may instead itemize certain qualifying expenses when
+                            doing so produces a larger deduction. The appropriate choice
+                            depends on the taxpayer's circumstances. :contentReference[oaicite:2]{index=2}
+                        </p>
+
+                        <h3>
+                            2026 standard deduction
+                        </h3>
+
+                        <div class="tax-table-wrap">
+
+                            <table class="tax-table">
+
+                                <thead>
+                                    <tr>
+                                        <th>Filing status</th>
+                                        <th>2026 standard deduction</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>Single</td>
+                                        <td><strong>$16,100</strong></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Married filing separately</td>
+                                        <td><strong>$16,100</strong></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Married filing jointly</td>
+                                        <td><strong>$32,200</strong></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Head of household</td>
+                                        <td><strong>$24,150</strong></td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
                         </div>
-                    </details>
 
-                    <details>
-                        <summary>Why is my take-home pay lower than my salary?</summary>
+                        <p>
+                            The IRS lists these amounts for tax year 2026. Additional rules
+                            can apply to taxpayers who are older, blind, dependents, or who
+                            have other circumstances. :contentReference[oaicite:3]{index=3}
+                        </p>
 
-                        <div class="faq-answer">
-                            Take-home pay is lower than gross salary because taxes and other deductions can be taken
-                            from earnings before the remaining amount is paid to you.
+                    </section>
+
+
+                    <!-- Credits -->
+
+                    <section class="tax-section" id="credits">
+
+                        <h2>
+                            Tax credits
+                        </h2>
+
+                        <p>
+                            A tax credit works differently from a deduction. A credit directly
+                            reduces the amount of tax owed, while a deduction reduces taxable
+                            income.
+                        </p>
+
+                        <p>
+                            Some tax credits are refundable, which means a qualifying taxpayer
+                            may receive a refund even when the credit is larger than the
+                            remaining tax liability. :contentReference[oaicite:4]{index=4}
+                        </p>
+
+                        <h3>
+                            Examples of individual tax credits
+                        </h3>
+
+                        <ul class="tax-checklist">
+
+                            <li>
+                                Earned Income Tax Credit for qualifying workers and families.
+                            </li>
+
+                            <li>
+                                Child Tax Credit for taxpayers with qualifying children.
+                            </li>
+
+                            <li>
+                                Child and Dependent Care Credit for certain qualifying care
+                                expenses.
+                            </li>
+
+                            <li>
+                                Education credits for qualifying higher-education expenses.
+                            </li>
+
+                            <li>
+                                Retirement savings-related tax benefits for eligible taxpayers.
+                            </li>
+
+                            <li>
+                                Certain clean vehicle and home energy-related tax benefits
+                                when eligibility requirements are met.
+                            </li>
+
+                        </ul>
+
+                    </section>
+
+
+                    <!-- Withholding -->
+
+                    <section class="tax-section" id="withholding">
+
+                        <h2>
+                            How tax withholding works
+                        </h2>
+
+                        <p>
+                            Federal income tax is generally a pay-as-you-go tax. Employees
+                            usually pay it during the year through withholding from their
+                            paychecks. Self-employed individuals and others without enough
+                            withholding may need to make estimated tax payments.
+                        </p>
+
+                        <p>
+                            Your employer uses information from your Form W-4 along with
+                            payroll information to determine federal income tax withholding.
+                            The IRS recommends checking withholding when tax laws or major
+                            life circumstances change. :contentReference[oaicite:5]{index=5}
+                        </p>
+
+                        <h3>
+                            When should you review withholding?
+                        </h3>
+
+                        <ul class="tax-checklist">
+
+                            <li>
+                                You start or stop a job.
+                            </li>
+
+                            <li>
+                                You get married or divorced.
+                            </li>
+
+                            <li>
+                                You have a child or another major dependent change.
+                            </li>
+
+                            <li>
+                                You start a second job or your spouse starts or stops working.
+                            </li>
+
+                            <li>
+                                You receive substantial income that is not subject to normal
+                                paycheck withholding.
+                            </li>
+
+                            <li>
+                                Tax laws or your personal deductions or credits change.
+                            </li>
+
+                        </ul>
+
+                    </section>
+
+
+                    <!-- Paycheck taxes -->
+
+                    <section class="tax-section">
+
+                        <h2>
+                            Taxes that can appear on your paycheck
+                        </h2>
+
+                        <p>
+                            Federal income tax is only one part of the deductions that may
+                            appear on a paycheck. Your payroll statement can contain several
+                            different taxes and deductions.
+                        </p>
+
+                        <div class="tax-table-wrap">
+
+                            <table class="tax-table">
+
+                                <thead>
+                                    <tr>
+                                        <th>Paycheck item</th>
+                                        <th>What it generally represents</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td><strong>Federal income tax</strong></td>
+                                        <td>
+                                            Federal income tax withheld from your earnings
+                                            based on payroll information.
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>Social Security</strong></td>
+                                        <td>
+                                            Employee payroll tax that helps fund Social
+                                            Security programs.
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>Medicare</strong></td>
+                                        <td>
+                                            Employee payroll tax that helps fund Medicare.
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>State income tax</strong></td>
+                                        <td>
+                                            State-level income tax where applicable.
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>Local tax</strong></td>
+                                        <td>
+                                            Certain cities, counties, or local jurisdictions
+                                            may impose additional taxes.
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>Other deductions</strong></td>
+                                        <td>
+                                            Items such as retirement contributions, health
+                                            insurance, or other employer-plan deductions.
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
                         </div>
-                    </details>
 
-                    <details>
-                        <summary>What are estimated taxes?</summary>
+                        <p>
+                            This is why your gross pay can be substantially different from
+                            your take-home pay.
+                        </p>
 
-                        <div class="faq-answer">
-                            Estimated taxes are payments made during the year when income tax and certain other
-                            taxes are not fully covered by withholding. They can be relevant to self-employed people
-                            and people with other income.
+                    </section>
+
+
+                    <!-- Filing -->
+
+                    <section class="tax-section" id="filing">
+
+                        <h2>
+                            How to prepare for filing taxes
+                        </h2>
+
+                        <p>
+                            Filing your tax return becomes easier when you collect the
+                            necessary information before starting. The exact documents you
+                            need depend on your income, deductions, investments, family
+                            situation, and other circumstances.
+                        </p>
+
+                        <ul class="tax-checklist">
+
+                            <li>
+                                Gather your wage and income documents, such as Form W-2
+                                and applicable Form 1099 documents.
+                            </li>
+
+                            <li>
+                                Review your filing status and dependent information.
+                            </li>
+
+                            <li>
+                                Gather records supporting deductions or credits you intend
+                                to claim.
+                            </li>
+
+                            <li>
+                                Review retirement contributions, health-related information,
+                                investment income, and other applicable tax documents.
+                            </li>
+
+                            <li>
+                                Compare your withholding and estimated payments with your
+                                expected tax liability.
+                            </li>
+
+                            <li>
+                                Keep copies of your return and supporting records.
+                            </li>
+
+                        </ul>
+
+                    </section>
+
+
+                    <!-- Practical distinction -->
+
+                    <section class="tax-section">
+
+                        <h2>
+                            Tax liability vs. tax withholding vs. refund
+                        </h2>
+
+                        <p>
+                            These three terms are often confused, but they describe different
+                            parts of the tax process.
+                        </p>
+
+                        <div class="tax-table-wrap">
+
+                            <table class="tax-table">
+
+                                <thead>
+                                    <tr>
+                                        <th>Term</th>
+                                        <th>Meaning</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td><strong>Tax liability</strong></td>
+                                        <td>
+                                            The amount of tax you ultimately owe based on
+                                            your tax return and applicable rules.
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>Tax withholding</strong></td>
+                                        <td>
+                                            Amounts paid toward your tax liability during
+                                            the year, generally from your paycheck.
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>Tax refund</strong></td>
+                                        <td>
+                                            Generally occurs when your payments and refundable
+                                            credits exceed the amount you owe.
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
                         </div>
-                    </details>
 
-                    <details>
-                        <summary>Does every state have an individual income tax?</summary>
+                    </section>
 
-                        <div class="faq-answer">
-                            No. State individual income-tax systems differ, and some states do not impose a broad
-                            individual income tax. Local income taxes can also apply in some locations.
+
+                    <!-- Mistakes -->
+
+                    <section class="tax-section">
+
+                        <h2>
+                            Common tax mistakes to avoid
+                        </h2>
+
+                        <ul class="tax-checklist">
+
+                            <li>
+                                Assuming your highest tax bracket applies to all of your
+                                income.
+                            </li>
+
+                            <li>
+                                Confusing paycheck withholding with your final tax liability.
+                            </li>
+
+                            <li>
+                                Forgetting income from a second job, freelance work,
+                                investments, or other sources.
+                            </li>
+
+                            <li>
+                                Treating a tax deduction and a tax credit as if they work
+                                the same way.
+                            </li>
+
+                            <li>
+                                Ignoring changes in withholding after a major life event.
+                            </li>
+
+                            <li>
+                                Using outdated tax brackets or deduction amounts for the
+                                current tax year.
+                            </li>
+
+                        </ul>
+
+                    </section>
+
+
+                    <!-- Calculator CTA -->
+
+                    <section class="tax-section">
+
+                        <div class="tax-callout">
+
+                            <h3>
+                                Want to see how taxes affect your paycheck?
+                            </h3>
+
+                            <p>
+                                Use the PaycheckMint Paycheck Tax Calculator to estimate
+                                federal, state, and other paycheck deductions based on
+                                your income and pay frequency.
+                            </p>
+
+                            <div class="tax-hero-actions">
+                                <a class="tax-primary-button" href="/paycheck-tax-calculator/">
+                                    Use the Paycheck Tax Calculator
+                                </a>
+
+                                <a class="tax-secondary-button" href="/take-home-pay-calculator/">
+                                    Calculate Take-Home Pay
+                                </a>
+                            </div>
+
                         </div>
-                    </details>
-                </div>
-            </div>
-        </section>
 
-        <!-- CTA -->
-        <section class="cta">
-            <div class="container">
-                <div class="cta-box">
-                    <div>
-                        <h2>See how taxes can affect your paycheck.</h2>
+                    </section>
 
-                        <p>Use the PaycheckMint calculator to estimate your paycheck taxes and take-home pay.</p>
+
+                    <!-- FAQ -->
+
+                    <section class="tax-section" id="faq">
+
+                        <h2>
+                            Taxes FAQ
+                        </h2>
+
+                        <div class="tax-faq">
+
+                            <div class="tax-faq-item">
+
+                                <button class="tax-faq-question" type="button" aria-expanded="false">
+
+                                    <span>
+                                        What is federal income tax?
+                                    </span>
+
+                                    <span class="tax-faq-icon">
+                                        +
+                                    </span>
+
+                                </button>
+
+                                <div class="tax-faq-answer">
+                                    <p>
+                                        Federal income tax is a tax imposed by the U.S.
+                                        federal government on taxable income. Employees
+                                        generally pay it throughout the year through
+                                        paycheck withholding.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="tax-faq-item">
+
+                                <button class="tax-faq-question" type="button" aria-expanded="false">
+
+                                    <span>
+                                        What is a tax bracket?
+                                    </span>
+
+                                    <span class="tax-faq-icon">
+                                        +
+                                    </span>
+
+                                </button>
+
+                                <div class="tax-faq-answer">
+                                    <p>
+                                        A tax bracket is a range of taxable income subject
+                                        to a particular marginal federal income tax rate.
+                                        Because the federal system is progressive, different
+                                        portions of taxable income can be taxed at different
+                                        rates.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="tax-faq-item">
+
+                                <button class="tax-faq-question" type="button" aria-expanded="false">
+
+                                    <span>
+                                        What is the difference between a deduction and a credit?
+                                    </span>
+
+                                    <span class="tax-faq-icon">
+                                        +
+                                    </span>
+
+                                </button>
+
+                                <div class="tax-faq-answer">
+                                    <p>
+                                        A deduction reduces taxable income, while a tax credit
+                                        directly reduces the amount of tax owed. Some credits
+                                        can be refundable.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="tax-faq-item">
+
+                                <button class="tax-faq-question" type="button" aria-expanded="false">
+
+                                    <span>
+                                        Why is my tax withholding different from my final tax?
+                                    </span>
+
+                                    <span class="tax-faq-icon">
+                                        +
+                                    </span>
+
+                                </button>
+
+                                <div class="tax-faq-answer">
+                                    <p>
+                                        Withholding is a payment toward your expected tax
+                                        liability during the year. Your final tax liability
+                                        is determined when your tax return is calculated.
+                                        The difference can result in either a refund or
+                                        additional tax due.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="tax-faq-item">
+
+                                <button class="tax-faq-question" type="button" aria-expanded="false">
+
+                                    <span>
+                                        What is the 2026 standard deduction?
+                                    </span>
+
+                                    <span class="tax-faq-icon">
+                                        +
+                                    </span>
+
+                                </button>
+
+                                <div class="tax-faq-answer">
+                                    <p>
+                                        For tax year 2026, the standard deduction is
+                                        $16,100 for single filers and married individuals
+                                        filing separately, $32,200 for married couples
+                                        filing jointly, and $24,150 for heads of household.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="tax-faq-item">
+
+                                <button class="tax-faq-question" type="button" aria-expanded="false">
+
+                                    <span>
+                                        Does PaycheckMint provide tax advice?
+                                    </span>
+
+                                    <span class="tax-faq-icon">
+                                        +
+                                    </span>
+
+                                </button>
+
+                                <div class="tax-faq-answer">
+                                    <p>
+                                        PaycheckMint provides educational information and
+                                        calculator estimates. It is not a substitute for
+                                        individualized tax, legal, accounting, or financial
+                                        advice. For important tax decisions, verify current
+                                        rules with the IRS or a qualified professional.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- Sources -->
+
+                    <section class="tax-section tax-sources">
+
+                        <h2>
+                            Tax sources and references
+                        </h2>
+
+                        <p>
+                            PaycheckMint uses government resources as references for
+                            tax-related educational content. Tax rules can change, so
+                            verify important information against current official guidance.
+                        </p>
+
+                        <ul>
+
+                            <li>
+                                <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer">
+                                    Internal Revenue Service
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.irs.gov/individuals/employees/tax-withholding" target="_blank"
+                                    rel="noopener noreferrer">
+                                    IRS — Tax Withholding
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.irs.gov/credits-and-deductions-for-individuals" target="_blank"
+                                    rel="noopener noreferrer">
+                                    IRS — Credits and Deductions for Individuals
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.irs.gov/publications/p505" target="_blank"
+                                    rel="noopener noreferrer">
+                                    IRS Publication 505 — Tax Withholding and Estimated Tax
+                                </a>
+                            </li>
+
+                        </ul>
+
+                        <div class="tax-disclaimer">
+                            <strong>Important:</strong>
+                            This page is for general educational and informational purposes.
+                            PaycheckMint is not affiliated with or endorsed by the IRS,
+                            U.S. Department of the Treasury, or any state tax authority.
+                            Tax laws and individual circumstances can change. Verify
+                            important tax information using current official sources or
+                            consult a qualified tax professional.
+                        </div>
+
+                    </section>
+
+                </article>
+
+
+                <!-- =================================================
+                     SIDEBAR
+                ================================================== -->
+
+                <aside class="tax-sidebar">
+
+                    <div class="tax-sidebar-card">
+
+                        <h2>
+                            On this page
+                        </h2>
+
+                        <ul class="tax-sidebar-links">
+
+                            <li>
+                                <a href="#tax-topics">
+                                    Tax topics
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#federal-income-tax">
+                                    Federal income tax
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#tax-brackets">
+                                    2026 tax brackets
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#deductions">
+                                    Tax deductions
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#credits">
+                                    Tax credits
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#withholding">
+                                    Tax withholding
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#filing">
+                                    Filing taxes
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#faq">
+                                    FAQ
+                                </a>
+                            </li>
+
+                        </ul>
+
                     </div>
 
-                    <a class="button" href="/paycheck-tax-calculator/"> Calculate My Paycheck </a>
-                </div>
+
+                    <div class="tax-sidebar-card tax-tool-card">
+
+                        <h3>
+                            Estimate your paycheck taxes
+                        </h3>
+
+                        <p>
+                            See an estimated breakdown of federal, state, and other
+                            paycheck deductions based on your income.
+                        </p>
+
+                        <a href="/paycheck-tax-calculator/">
+                            Calculate paycheck
+                        </a>
+
+                    </div>
+
+
+                    <div class="tax-sidebar-card">
+
+                        <h3>
+                            Related guides
+                        </h3>
+
+                        <ul class="tax-sidebar-links">
+
+                            <li>
+                                <a href="/income/">
+                                    Income & Earnings
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/take-home-pay-calculator/">
+                                    Take-Home Pay Calculator
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/paycheck-tax-calculator/">
+                                    Paycheck Tax Calculator
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/finance/budgeting/">
+                                    Budgeting Guides
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </aside>
+
             </div>
+
         </section>
 
-        <!-- DISCLAIMER -->
-        <section class="container">
-            <div class="disclaimer">
-                <strong>Financial information:</strong>
-                PaycheckMint provides educational information and calculator estimates. Tax rules can vary by
-                individual circumstances, location, income type, filing status, and tax year. This page is not tax,
-                legal, or financial advice. For decisions about your individual tax situation, consult the IRS, your
-                state tax authority, or a qualified tax professional.
-            </div>
-        </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-inner">
-                <div class="footer-grid">
-                    <div>
-                        <div class="footer-brand"><a href="/" class="logo"> Paycheck<span>Mint</span> </a></div>
 
-                        <p class="footer-description">
-                            Free paycheck and income calculators to help you estimate take-home pay, taxes, salary,
-                            hourly wages, and overtime.
+    <footer class="pm-footer">
+
+        <div class="pm-footer-inner">
+
+            <div class="pm-footer-main">
+
+                <div class="pm-footer-grid">
+
+                    <div class="pm-footer-brand-column">
+
+                        <a class="pm-footer-brand" href="/">
+                            Paycheck<span>Mint</span>
+                        </a>
+
+                        <p class="pm-footer-description">
+                            Practical personal finance guides, paycheck tools,
+                            and calculators to help you make informed money decisions.
                         </p>
+
                     </div>
 
-                    <div class="footer-column">
-                        <h3>Calculators</h3>
+                    <div>
+                        <h3 class="pm-footer-heading">Money</h3>
 
-                        <a href="/take-home-pay-calculator/"> Take-Home Pay </a>
-
-                        <a href="/salary-paycheck-calculator/"> Salary Paycheck </a>
-
-                        <a href="/hourly-paycheck-calculator/"> Hourly Paycheck </a>
-
-                        <a href="/paycheck-tax-calculator/"> Paycheck Tax </a>
-
-                        <a href="/overtime-pay-calculator/"> Overtime Pay </a>
+                        <ul class="pm-footer-links">
+                            <li><a href="/income/">Income</a></li>
+                            <li><a href="/paycheck-tax-calculator/">Paycheck Calculator</a></li>
+                            <li><a href="/take-home-pay-calculator/">Take-Home Pay</a></li>
+                        </ul>
                     </div>
 
-                    <div class="footer-column">
-                        <h3>PaycheckMint</h3>
+                    <div>
+                        <h3 class="pm-footer-heading">Finance</h3>
 
-                        <a href="/"> Home </a>
-
-                        <a href="/about/"> About </a>
-
-                        <a href="/#faq/"> FAQ </a>
-
-                        <a href="/contact/"> Contact </a>
-
-                        <a href="/privacy-policy/"> Privacy </a>
-
-                        <a href="/terms/"> Terms </a>
+                        <ul class="pm-footer-links">
+                            <li><a href="/finance/taxes/">Taxes</a></li>
+                            <li><a href="/finance/budgeting/">Budgeting</a></li>
+                            <li><a href="/finance/credit-debt/">Credit &amp; Debt</a></li>
+                            <li><a href="/finance/investing/">Investing</a></li>
+                            <li><a href="/finance/insurance/">Insurance</a></li>
+                        </ul>
                     </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Company</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/contact/">Contact</a></li>
+                            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms</a></li>
+                        </ul>
+                    </div>
+
                 </div>
 
-                <div class="footer-bottom">
-                    <span> © 2026 PaycheckMint. Free online paycheck tools. </span>
-
-                    <span> Estimates are for informational purposes. </span>
-                </div>
             </div>
+
+            <div class="pm-footer-bottom">
+
+                <div class="pm-footer-copyright">
+                    © 2026 PaycheckMint. All rights reserved.
+                </div>
+
+                <div class="pm-footer-legal">
+                    <a href="/privacy-policy/">Privacy Policy</a>
+                    <a href="/terms/">Terms</a>
+                    <a href="/contact/">Contact</a>
+                </div>
+
+            </div>
+
         </div>
+
     </footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const header = document.querySelector(".site-header");
+        (function () {
+            "use strict";
 
-            if (!header) return;
+            /* ==========================================================================
+               1. ASYNC COMPONENT LOADER
+               ========================================================================== */
+            document.addEventListener("DOMContentLoaded", function () {
+                loadSharedComponents();
+            });
 
-            const menuToggle = header.querySelector(".mobile-menu-toggle");
+            async function loadSharedComponents() {
+                const navbar = document.getElementById("site-navbar");
+                const footer = document.getElementById("site-footer");
 
-            const mainNav = header.querySelector(".main-nav");
+                try {
+                    const requests = [];
 
-            const dropdown = header.querySelector(".nav-dropdown");
+                    if (navbar) {
+                        requests.push(
+                            fetch("/components/navbar.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Navbar 404"))
+                                .then(html => { navbar.innerHTML = html; })
+                        );
+                    }
 
-            const dropdownToggle = header.querySelector(".nav-dropdown-toggle");
+                    if (footer) {
+                        requests.push(
+                            fetch("/components/footer.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Footer 404"))
+                                .then(html => { footer.innerHTML = html; })
+                        );
+                    }
 
-            function closeMenu() {
-                if (mainNav) {
-                    mainNav.classList.remove("mobile-open");
-                }
-
-                if (menuToggle) {
-                    menuToggle.classList.remove("open");
-
-                    menuToggle.setAttribute("aria-expanded", "false");
-
-                    menuToggle.setAttribute("aria-label", "Open navigation");
+                    await Promise.all(requests);
+                    // Re-bind focus or initial state if required after injection
+                    setupScrollHeader();
+                } catch (error) {
+                    console.error("Component loading error:", error);
+                    setupScrollHeader();
                 }
             }
 
-            function closeDropdown() {
-                if (dropdown) {
-                    dropdown.classList.remove("open");
-                }
-
-                if (dropdownToggle) {
-                    dropdownToggle.setAttribute("aria-expanded", "false");
-                }
-            }
-
-            if (menuToggle && mainNav) {
-                menuToggle.addEventListener("click", function (event) {
-                    event.stopPropagation();
-
-                    const open = mainNav.classList.toggle("mobile-open");
-
-                    menuToggle.classList.toggle("open", open);
-
-                    menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
-
-                    menuToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
-                });
-            }
-
-            if (dropdown && dropdownToggle) {
-                dropdownToggle.addEventListener("click", function (event) {
-                    event.stopPropagation();
-
-                    const open = dropdown.classList.toggle("open");
-
-                    dropdownToggle.setAttribute("aria-expanded", open ? "true" : "false");
-                });
-            }
-
+            /* ==========================================================================
+               2. EVENT DELEGATION (Handles dynamic elements automatically)
+               ========================================================================== */
             document.addEventListener("click", function (event) {
-                if (!header.contains(event.target)) {
-                    closeMenu();
-                    closeDropdown();
+
+                // --- DESKTOP DROPDOWNS ---
+                const dropdownBtn = event.target.closest(".pm-nav-dropdown-button");
+                if (dropdownBtn) {
+                    event.stopPropagation();
+                    const currentDropdown = dropdownBtn.closest(".pm-nav-dropdown");
+                    const isOpen = currentDropdown.classList.contains("is-open");
+
+                    // Close all dropdowns
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
+                    });
+
+                    // Toggle selected dropdown
+                    if (!isOpen) {
+                        currentDropdown.classList.add("is-open");
+                        dropdownBtn.setAttribute("aria-expanded", "true");
+                    }
+                    return;
+                }
+
+                // Close desktop dropdowns when clicking outside
+                if (!event.target.closest(".pm-nav-dropdown")) {
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
+                    });
+                }
+
+                // --- MOBILE NAV TOGGLE ---
+                const mobileToggle = event.target.closest("#mobileToggle");
+                if (mobileToggle) {
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) {
+                        const isOpen = mobileNav.classList.toggle("is-open");
+                        mobileToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
+                }
+
+                // --- MOBILE SUBMENU TOGGLE ---
+                const mobileFinanceToggle = event.target.closest("#mobileFinanceToggle");
+                if (mobileFinanceToggle) {
+                    event.stopPropagation();
+                    const mobileFinanceLinks = document.getElementById("mobileFinanceLinks");
+                    if (mobileFinanceLinks) {
+                        const isOpen = mobileFinanceLinks.classList.toggle("is-open");
+                        mobileFinanceToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
+                }
+
+                // --- SEARCH TOGGLE (OPEN / CLOSE) ---
+                const searchToggle = event.target.closest("#searchToggle");
+                const mobileSearchBtn = event.target.closest("#mobileSearchButton");
+                const searchClose = event.target.closest("#searchClose");
+                const searchPanel = document.getElementById("searchPanel");
+
+                if (searchToggle || mobileSearchBtn) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) mobileNav.classList.remove("is-open");
+
+                    if (searchPanel) {
+                        if (searchPanel.classList.contains("is-open") && searchToggle) {
+                            closeSearch();
+                        } else {
+                            openSearch();
+                        }
+                    }
+                    return;
+                }
+
+                if (searchClose) {
+                    event.preventDefault();
+                    closeSearch();
+                    return;
+                }
+
+                // Close search panel when clicking outside of it
+                if (searchPanel && searchPanel.classList.contains("is-open")) {
+                    if (!searchPanel.contains(event.target)) {
+                        closeSearch();
+                    }
                 }
             });
 
-            if (mainNav) {
-                mainNav.querySelectorAll("a").forEach(function (link) {
-                    link.addEventListener("click", function () {
-                        closeMenu();
-                        closeDropdown();
-                    });
-                });
+            /* ==========================================================================
+               3. SEARCH HELPER FUNCTIONS & LIVE FILTERING
+               ========================================================================== */
+            function openSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchToggle = document.getElementById("searchToggle");
+
+                if (!searchPanel) return;
+                searchPanel.classList.add("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "true");
+                    searchToggle.setAttribute("aria-label", "Close search");
+                }
+                if (searchInput) setTimeout(() => searchInput.focus(), 100);
             }
 
-            window.addEventListener("resize", function () {
-                if (window.innerWidth > 700) {
-                    closeMenu();
-                    closeDropdown();
+            function closeSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchResults = document.getElementById("searchResults");
+                const searchToggle = document.getElementById("searchToggle");
+
+                if (!searchPanel) return;
+                searchPanel.classList.remove("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "false");
+                    searchToggle.setAttribute("aria-label", "Open search");
+                }
+                if (searchInput) searchInput.value = "";
+                if (searchResults) searchResults.innerHTML = "";
+            }
+
+            // Keyboard Shortcuts (Escape Key)
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closeSearch();
                 }
             });
+
+            // Live Search Typing Input Event
+            document.addEventListener("input", function (event) {
+                if (event.target.id !== "siteSearch") return;
+
+                const query = event.target.value.trim().toLowerCase();
+                const searchResults = document.getElementById("searchResults");
+                if (!searchResults) return;
+
+                if (query.length === 0) {
+                    searchResults.innerHTML = "";
+                    return;
+                }
+
+                const searchablePages = [
+                    { title: "Paycheck Tax Calculator", url: "/paycheck-tax-calculator/", description: "Calculate accurate net pay and taxes." },
+                    { title: "Take-Home Pay Calculator", url: "/take-home-pay-calculator/", description: "Estimate your actual paycheck total after deductions." },
+                    { title: "Hourly Paycheck Calculator", url: "/hourly-paycheck-calculator/", description: "Calculate income based on hourly wage and hours worked." },
+                    { title: "Overtime Pay Calculator", url: "/overtime-pay-calculator/", description: "Compute overtime rates and total extra wages." },
+                    { title: "Salary Paycheck Calculator", url: "/salary-paycheck-calculator/", description: "Break down annual salary into per-paycheck earnings." },
+                    { title: "Income Overview", url: "/income/", description: "Learn about taxable income, gross wages, and take-home pay." },
+                    { title: "Finance Overview", url: "/finance/", description: "Guides on managing personal finances and budgeting strategies." },
+                    { title: "Budgeting Guides", url: "/finance/budgeting/", description: "Strategies for budgeting your paycheck effectively." }
+                ];
+
+                const matches = searchablePages.filter(page =>
+                    page.title.toLowerCase().includes(query) ||
+                    page.description.toLowerCase().includes(query)
+                );
+
+                if (matches.length === 0) {
+                    searchResults.innerHTML = `<p class="pm-search-no-results">No results found for "${escapeHTML(query)}"</p>`;
+                    return;
+                }
+
+                searchResults.innerHTML = matches.map(item => `
+            <a href="${item.url}" class="pm-search-result-item">
+                <span class="pm-search-result-title">${escapeHTML(item.title)}</span>
+                <span class="pm-search-result-desc">${escapeHTML(item.description)}</span>
+            </a>
+        `).join("");
+            });
+
+            function escapeHTML(str) {
+                return str.replace(/[&<>'"]/g, tag => ({
+                    '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+                }[tag] || tag));
+            }
+
+            /* ==========================================================================
+               4. SCROLL SHADOW
+               ========================================================================== */
+            function setupScrollHeader() {
+                const header = document.getElementById("site-header");
+                if (!header) return;
+
+                window.addEventListener("scroll", function () {
+                    if (window.scrollY > 20) {
+                        header.classList.add("is-scrolled");
+                    } else {
+                        header.classList.remove("is-scrolled");
+                    }
+                }, { passive: true });
+            }
+
+        })();
+    </script>
+
+    <!-- =========================================================
+         PAGE-SPECIFIC JAVASCRIPT ONLY
+         No navbar/footer/search/mobile-menu code here.
+    ========================================================== -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const faqItems = document.querySelectorAll(".tax-faq-item");
+
+            faqItems.forEach(function (item) {
+
+                const button = item.querySelector(".tax-faq-question");
+
+                if (!button) return;
+
+                button.addEventListener("click", function () {
+
+                    const isOpen = item.classList.contains("is-open");
+
+                    faqItems.forEach(function (otherItem) {
+
+                        otherItem.classList.remove("is-open");
+
+                        const otherButton =
+                            otherItem.querySelector(".tax-faq-question");
+
+                        if (otherButton) {
+                            otherButton.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+                        }
+
+                    });
+
+                    if (!isOpen) {
+
+                        item.classList.add("is-open");
+
+                        button.setAttribute(
+                            "aria-expanded",
+                            "true"
+                        );
+
+                    }
+
+                });
+
+            });
+
         });
     </script>
+
 </body>
 
 </html>

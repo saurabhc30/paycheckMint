@@ -1,1421 +1,2994 @@
-<!doctype html>
-<html lang="en-US">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Gross Pay vs. Net Pay: What's the Difference? | PaycheckMint</title>
+    <title>Gross Pay vs Net Pay: What's the Difference? | PaycheckMint</title>
+
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/icon.ico" type="image/x-icon">
 
     <meta name="description"
-        content="Learn the difference between gross pay and net pay. See how taxes, pre-tax and post-tax deductions, overtime, pay frequency, and benefits affect your take-home pay in the U.S." />
+        content="Gross pay vs net pay explained with a simple paycheck example. Learn what gross pay means, what reduces your paycheck, and how net pay is calculated.">
 
-    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://paycheckmint.vercel.app/gross-pay-vs-net-pay/">
 
-    <link rel="canonical" href="https://paycheckmint.com/gross-pay-vs-net-pay/" />
-
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Gross Pay vs. Net Pay: What's the Difference? | PaycheckMint" />
+    <meta property="og:title" content="Gross Pay vs Net Pay | PaycheckMint">
     <meta property="og:description"
-        content="Understand gross pay, net pay, paycheck deductions, taxes, overtime, pay frequency, and take-home pay in the U.S." />
-    <meta property="og:url" content="https://paycheckmint.com/gross-pay-vs-net-pay/" />
-    <meta property="og:site_name" content="PaycheckMint" />
-
-    <link rel="stylesheet" href="/style.css" />
+        content="Understand the difference between gross pay and net pay with simple examples and paycheck breakdowns.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://paycheckmint.vercel.app/gross-pay-vs-net-pay/">
 
     <style>
-        /* =========================================
-           Article Page
-        ========================================= */
+        /* =========================================================
+   PAYCHECKMINT — GROSS PAY VS NET PAY
+   Modern Finance Theme
+========================================================= */
 
-        .article-page {
-            padding: 48px 20px 0;
+        :root {
+            --orange: #e89138;
+            --orange-soft: #fff2e4;
+
+            --red: #c95353;
+            --red-soft: #fff0f0;
+
+            --green: #2b8b61;
+            --green-soft: #e9f7ef;
+
+            --shadow-sm: 0 5px 20px rgba(22, 22, 22, .04);
+            --shadow: 0 14px 40px rgba(22, 22, 22, .07);
+
+            --radius-sm: 12px;
+            --radius: 18px;
+            --radius-lg: 26px;
+
+            --max-width: 1180px;
         }
 
-        .article-container {
-            max-width: 850px;
-            margin: 0 auto;
-        }
+        /* RESET */
 
-        .article-header {
-            margin-bottom: 38px;
-        }
-
-        .article-kicker {
-            margin: 0 0 10px;
-            color: var(--accent);
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-        }
-
-        .article-header h1 {
-            margin: 0 0 16px;
-            color: var(--ink);
-            font-size: clamp(34px, 5vw, 50px);
-            line-height: 1.08;
-            letter-spacing: -0.035em;
-        }
-
-        .article-intro {
-            max-width: 740px;
+        * {
+            box-sizing: border-box;
             margin: 0;
-            color: var(--muted);
-            font-size: 18px;
-            line-height: 1.7;
+            padding: 0;
         }
 
-        .article-content {
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
             color: var(--ink);
-            font-size: 16px;
-            line-height: 1.75;
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+            line-height: 1.65;
         }
 
-        .article-content h2 {
-            margin: 48px 0 16px;
-            color: var(--ink);
-            font-size: 28px;
-            line-height: 1.25;
-            letter-spacing: -0.02em;
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
-        .article-content h3 {
-            margin: 30px 0 12px;
-            color: var(--ink);
-            font-size: 20px;
-            line-height: 1.35;
+        button {
+            font: inherit;
         }
 
-        .article-content p {
-            margin: 0 0 18px;
+
+
+        /* Navigation */
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
 
-        .article-content ul,
-        .article-content ol {
-            margin: 0 0 22px;
-            padding-left: 24px;
+        .main-nav>a,
+        .finance-toggle {
+            border: 0;
+            background: transparent;
+
+            padding: 9px 13px;
+
+            color: var(--ink-soft);
+
+            border-radius: 9px;
+
+            font-size: 14px;
+            font-weight: 650;
+
+            cursor: pointer;
+
+            transition: .2s ease;
         }
 
-        .article-content li {
-            margin-bottom: 9px;
+        .main-nav>a:hover,
+        .finance-toggle:hover {
+            background: #eae9e4;
         }
 
-        .article-content strong {
-            color: var(--ink);
+        .finance-dropdown {
+            position: relative;
         }
 
-        .article-content a {
-            color: var(--accent);
-            text-decoration: underline;
-            text-underline-offset: 3px;
-        }
+        .finance-menu {
+            display: none;
 
-        .article-content a:hover {
-            color: var(--accent-dark);
-        }
+            position: absolute;
 
-        /* =========================================
-           Definition Box
-        ========================================= */
+            right: 0;
+            top: calc(100% + 9px);
 
-        .definition-box {
-            margin: 28px 0;
-            padding: 24px;
-            background: var(--surface-soft);
-            border: 1px solid var(--line);
-            border-radius: 12px;
-        }
+            width: 235px;
 
-        .definition-box strong {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 17px;
-        }
+            padding: 8px;
 
-        .definition-box p {
-            margin: 0;
-        }
-
-        /* =========================================
-           Comparison Table
-        ========================================= */
-
-        .table-wrap {
-            margin: 28px 0;
-            overflow-x: auto;
-            border: 1px solid var(--line);
-            border-radius: 12px;
             background: var(--surface);
+
+            border: 1px solid var(--line);
+            border-radius: 14px;
+
+            box-shadow: var(--shadow);
         }
 
-        .comparison-table {
-            width: 100%;
-            min-width: 620px;
-            border-collapse: collapse;
+        .finance-dropdown:hover .finance-menu,
+        .finance-dropdown.open .finance-menu {
+            display: block;
         }
 
-        .comparison-table th,
-        .comparison-table td {
-            padding: 15px 16px;
-            border-bottom: 1px solid var(--line);
-            text-align: left;
-            vertical-align: top;
+        .finance-menu a {
+            display: block;
+
+            padding: 10px 12px;
+
+            border-radius: 9px;
+
+            color: var(--ink-soft);
+
+            font-size: 14px;
         }
 
-        .comparison-table th {
+        .finance-menu a:hover {
             background: var(--surface-soft);
-            color: var(--ink);
-            font-size: 14px;
-            font-weight: 700;
+            color: var(--primary);
         }
 
-        .comparison-table td {
+        /* Mobile */
+
+        .mobile-toggle {
+            display: none;
+
+            border: 0;
+            background: transparent;
+
+            font-size: 26px;
+
+            cursor: pointer;
+        }
+
+        /* =========================================================
+   PAGE
+========================================================= */
+
+        .page {
+            max-width: var(--max-width);
+            margin: auto;
+            padding: 34px 24px 80px;
+        }
+
+        /* Breadcrumb */
+
+        .breadcrumbs {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            margin-bottom: 26px;
+
+            font-size: 13px;
             color: var(--muted);
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--primary);
+        }
+
+        /* =========================================================
+   HERO
+========================================================= */
+
+        .hero {
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 54px;
+
+            border-radius: var(--radius-lg);
+
+            background:
+                radial-gradient(circle at 85% 20%,
+                    rgba(89, 84, 217, .14),
+                    transparent 30%),
+                radial-gradient(circle at 10% 90%,
+                    rgba(23, 107, 91, .13),
+                    transparent 30%),
+                var(--surface);
+
+            border: 1px solid var(--line);
+
+            box-shadow: var(--shadow);
+
+            margin-bottom: 30px;
+        }
+
+        .hero-grid {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.1fr) minmax(360px, .9fr);
+
+            gap: 50px;
+
+            align-items: center;
+        }
+
+        .hero-label {
+            display: inline-flex;
+
+            align-items: center;
+            gap: 7px;
+
+            padding: 7px 11px;
+
+            background: var(--primary-soft);
+
+            color: var(--primary-dark);
+
+            border-radius: 999px;
+
+            font-size: 12px;
+            font-weight: 800;
+
+            text-transform: uppercase;
+            letter-spacing: .05em;
+
+            margin-bottom: 18px;
+        }
+
+        .hero-label span {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: var(--primary);
+        }
+
+        .hero h1 {
+            max-width: 690px;
+
+            font-size: clamp(38px, 5vw, 62px);
+
+            line-height: 1.04;
+
+            letter-spacing: -2.8px;
+
+            margin-bottom: 20px;
+        }
+
+        .hero-description {
+            max-width: 680px;
+
+            color: var(--muted);
+
+            font-size: 18px;
+        }
+
+        /* Hero visual */
+
+        .pay-flow {
+            background: var(--surface-soft);
+
+            border: 1px solid var(--line);
+
+            border-radius: 20px;
+
+            padding: 22px;
+
+            box-shadow: var(--shadow-sm);
+        }
+
+        .flow-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 18px;
+
+            font-size: 13px;
+            font-weight: 750;
+        }
+
+        .flow-title span {
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .money-card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+
+            padding: 16px;
+
+            border-radius: 14px;
+
+            background: var(--surface);
+
+            border: 1px solid var(--line);
+
+            margin-bottom: 10px;
+        }
+
+        .money-icon {
+            width: 43px;
+            height: 43px;
+
+            flex: 0 0 43px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 12px;
+
+            font-size: 20px;
+        }
+
+        .money-card.gross .money-icon {
+            background: var(--accent-soft);
+        }
+
+        .money-card.deductions .money-icon {
+            background: var(--orange-soft);
+        }
+
+        .money-card.net .money-icon {
+            background: var(--green-soft);
+        }
+
+        .money-info {
+            flex: 1;
+        }
+
+        .money-info small {
+            display: block;
+
+            color: var(--muted);
+
+            font-size: 12px;
+        }
+
+        .money-info strong {
+            font-size: 20px;
+            letter-spacing: -.4px;
+        }
+
+        .flow-arrow {
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            margin: -3px 0;
+        }
+
+        /* =========================================================
+   MAIN GRID
+========================================================= */
+
+        .content-layout {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr) 290px;
+
+            gap: 28px;
+
+            align-items: start;
+        }
+
+        .article {
+            min-width: 0;
+        }
+
+        .article-section {
+            background: var(--surface);
+
+            border: 1px solid var(--line);
+
+            border-radius: var(--radius);
+
+            padding: 34px;
+
+            margin-bottom: 22px;
+
+            box-shadow: var(--shadow-sm);
+        }
+
+        .article-section h2 {
+            font-size: 28px;
+
+            line-height: 1.2;
+
+            letter-spacing: -.8px;
+
+            margin-bottom: 14px;
+        }
+
+        .article-section h3 {
+            font-size: 19px;
+
+            margin: 26px 0 9px;
+        }
+
+        .article-section p {
+            color: var(--ink-soft);
+
+            margin-bottom: 15px;
+        }
+
+        .article-section ul {
+            padding-left: 21px;
+
+            color: var(--ink-soft);
+        }
+
+        .article-section li {
+            margin: 7px 0;
+        }
+
+        /* =========================================================
+   ANSWER CARD
+========================================================= */
+
+        .answer-card {
+            display: grid;
+
+            grid-template-columns: 55px 1fr;
+
+            gap: 17px;
+
+            padding: 20px;
+
+            background:
+                linear-gradient(135deg,
+                    #edf8f4,
+                    #f7fbfa);
+
+            border: 1px solid #d6ebe3;
+
+            border-radius: 16px;
+
+            margin-bottom: 26px;
+        }
+
+        .answer-icon {
+            width: 55px;
+            height: 55px;
+
+            display: grid;
+            place-items: center;
+
+            background: var(--primary);
+
+            color: white;
+
+            border-radius: 15px;
+
+            font-size: 24px;
+        }
+
+        .answer-card strong {
+            display: block;
+
+            margin-bottom: 4px;
+
+            color: var(--primary-dark);
+
             font-size: 14px;
         }
 
-        .comparison-table tr:last-child td {
+        .answer-card p {
+            margin: 0;
+
+            font-size: 15px;
+        }
+
+        /* =========================================================
+   COMPARISON CARDS
+========================================================= */
+
+        .compare-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 16px;
+
+            margin-top: 25px;
+        }
+
+        .compare-card {
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 25px;
+
+            border-radius: 18px;
+
+            border: 1px solid var(--line);
+        }
+
+        .compare-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 100px;
+            height: 100px;
+
+            right: -40px;
+            top: -40px;
+
+            border-radius: 50%;
+        }
+
+        .compare-card.gross {
+            background: linear-gradient(145deg,
+                    #f2f0ff,
+                    #faf9ff);
+        }
+
+        .compare-card.gross::after {
+            background: rgba(89, 84, 217, .09);
+        }
+
+        .compare-card.net {
+            background: linear-gradient(145deg,
+                    #eaf8f0,
+                    #f9fcfa);
+        }
+
+        .compare-card.net::after {
+            background: rgba(43, 139, 97, .09);
+        }
+
+        .compare-top {
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin-bottom: 18px;
+        }
+
+        .compare-icon {
+            width: 43px;
+            height: 43px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 12px;
+
+            font-size: 19px;
+        }
+
+        .gross .compare-icon {
+            background: #dfdcff;
+            color: var(--accent);
+        }
+
+        .net .compare-icon {
+            background: #d8f1e2;
+            color: var(--green);
+        }
+
+        .compare-card h3 {
+            margin: 0;
+
+            font-size: 21px;
+        }
+
+        .compare-card p {
+            color: var(--muted);
+
+            font-size: 14px;
+
+            margin: 0;
+        }
+
+        /* =========================================================
+   PAYCHECK BREAKDOWN
+========================================================= */
+
+        .breakdown {
+            margin-top: 25px;
+
+            padding: 23px;
+
+            background: var(--surface-soft);
+
+            border: 1px solid var(--line);
+
+            border-radius: 17px;
+        }
+
+        .breakdown-head {
+            display: flex;
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 20px;
+        }
+
+        .breakdown-head strong {
+            font-size: 16px;
+        }
+
+        .breakdown-head span {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .bar {
+            display: flex;
+
+            height: 14px;
+
+            overflow: hidden;
+
+            border-radius: 999px;
+
+            background: #eceae5;
+
+            margin-bottom: 20px;
+        }
+
+        .bar-gross {
+            width: 61%;
+
+            background: var(--primary);
+        }
+
+        .bar-deductions {
+            width: 39%;
+
+            background: var(--orange);
+        }
+
+        .breakdown-row {
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            padding: 9px 0;
+
+            border-bottom: 1px solid var(--line);
+        }
+
+        .breakdown-row:last-child {
             border-bottom: 0;
         }
 
-        /* =========================================
-           Formula
-        ========================================= */
+        .breakdown-dot {
+            width: 10px;
+            height: 10px;
+
+            border-radius: 50%;
+        }
+
+        .breakdown-dot.gross {
+            background: var(--primary);
+        }
+
+        .breakdown-dot.tax {
+            background: var(--orange);
+        }
+
+        .breakdown-dot.other {
+            background: var(--accent);
+        }
+
+        .breakdown-row span:nth-child(2) {
+            flex: 1;
+
+            font-size: 14px;
+
+            color: var(--muted);
+        }
+
+        .breakdown-row strong {
+            font-size: 14px;
+        }
+
+        /* =========================================================
+   FORMULA
+========================================================= */
 
         .formula-box {
-            margin: 26px 0;
-            padding: 20px;
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            background: var(--surface);
-            text-align: center;
-            font-size: 18px;
-            font-weight: 700;
-        }
+            margin-top: 22px;
 
-        /* =========================================
-           Paycheck Flow
-        ========================================= */
+            padding: 23px;
 
-        .pay-flow {
-            margin: 28px 0;
-            padding: 24px;
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            background: var(--surface-soft);
+            background: #181918;
+
+            color: white;
+
+            border-radius: 17px;
+
             text-align: center;
         }
 
-        .pay-flow-step {
-            display: inline-block;
-            margin: 5px 0;
-            padding: 10px 15px;
+        .formula-label {
+            color: #a9aaa6;
+
+            text-transform: uppercase;
+
+            font-size: 11px;
+
+            letter-spacing: .08em;
+
+            margin-bottom: 8px;
+        }
+
+        .formula {
+            font-size: 19px;
+
+            font-weight: 750;
+
+            letter-spacing: -.3px;
+        }
+
+        /* =========================================================
+   MINI FACT CARDS
+========================================================= */
+
+        .fact-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 13px;
+
+            margin-top: 22px;
+        }
+
+        .fact {
+            padding: 19px;
+
             border: 1px solid var(--line);
-            border-radius: 8px;
-            background: var(--surface);
-            color: var(--ink);
-            font-size: 14px;
-            font-weight: 600;
-        }
 
-        .pay-flow-arrow {
-            margin: 0 5px;
-            color: var(--muted);
-            font-weight: 700;
-        }
-
-        /* =========================================
-           Example Pay Stub
-        ========================================= */
-
-        .paystub {
-            max-width: 650px;
-            margin: 28px auto;
-            padding: 22px;
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            background: var(--surface);
-        }
-
-        .paystub-title {
-            margin-bottom: 18px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid var(--line);
-            font-weight: 700;
-        }
-
-        .paystub-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            padding: 9px 0;
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        .paystub-row.total {
-            margin-top: 8px;
-            padding-top: 14px;
-            border-top: 1px solid var(--line-dark);
-            color: var(--ink);
-            font-weight: 700;
-        }
-
-        /* =========================================
-           Note Box
-        ========================================= */
-
-        .note-box {
-            margin: 28px 0;
-            padding: 20px 22px;
-            border-left: 4px solid var(--accent);
             background: var(--surface-soft);
-            border-radius: 0 10px 10px 0;
+
+            border-radius: 15px;
         }
 
-        .note-box p {
+        .fact-icon {
+            width: 38px;
+            height: 38px;
+
+            display: grid;
+            place-items: center;
+
+            background: var(--accent-soft);
+
+            color: var(--accent);
+
+            border-radius: 11px;
+
+            margin-bottom: 12px;
+
+            font-size: 17px;
+        }
+
+        .fact strong {
+            display: block;
+
+            font-size: 14px;
+
+            margin-bottom: 4px;
+        }
+
+        .fact p {
             margin: 0;
-        }
 
-        /* =========================================
-           CTA
-        ========================================= */
+            font-size: 13px;
 
-        .article-cta {
-            margin: 52px 0 20px;
-            padding: 30px;
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            background: var(--surface-soft);
-            text-align: center;
-        }
-
-        .article-cta h2 {
-            margin: 0 0 10px;
-            font-size: 25px;
-        }
-
-        .article-cta p {
-            max-width: 620px;
-            margin: 0 auto 20px;
             color: var(--muted);
         }
 
-        .article-button {
-            display: inline-block;
-            padding: 11px 18px;
-            border-radius: 8px;
-            background: var(--accent);
-            color: #fff !important;
+        /* =========================================================
+   EXAMPLE
+========================================================= */
+
+        .example {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 17px;
+
+            margin-top: 22px;
+        }
+
+        .example-card {
+            padding: 23px;
+
+            border-radius: 16px;
+
+            border: 1px solid var(--line);
+
+            background: var(--surface-soft);
+        }
+
+        .example-card h3 {
+            margin: 0 0 17px;
+        }
+
+        .example-number {
+            font-size: 32px;
+
+            font-weight: 850;
+
+            letter-spacing: -1px;
+
+            margin-bottom: 8px;
+        }
+
+        .example-card p {
+            margin: 0;
+
+            color: var(--muted);
+
             font-size: 14px;
-            font-weight: 700;
-            text-decoration: none !important;
         }
 
-        .article-button:hover {
-            background: var(--accent-dark);
+        /* =========================================================
+   CALCULATOR CTA
+========================================================= */
+
+        .calculator-cta {
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 31px;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(135deg,
+                    var(--primary-dark),
+                    var(--primary));
+
+            color: white;
+
+            margin-top: 22px;
         }
 
-        /* =========================================
-           FAQ
-        ========================================= */
+        .calculator-cta::after {
+            content: "✓";
 
-        .faq-list {
+            position: absolute;
+
+            right: 25px;
+            top: 10px;
+
+            font-size: 100px;
+
+            color: rgba(255, 255, 255, .05);
+
+            font-weight: 900;
+        }
+
+        .calculator-cta h3 {
+            font-size: 24px;
+
+            margin: 0 0 8px;
+        }
+
+        .calculator-cta p {
+            max-width: 620px;
+
+            color: rgba(255, 255, 255, .78);
+
+            margin-bottom: 19px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 11px 17px;
+
+            background: white;
+
+            color: var(--primary-dark);
+
+            border-radius: 10px;
+
+            font-weight: 750;
+
+            font-size: 14px;
+
+            transition: .2s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, .15);
+        }
+
+        /* =========================================================
+   FAQ
+========================================================= */
+
+        .faq {
+            display: grid;
+
+            gap: 9px;
+
             margin-top: 20px;
         }
 
-        .faq-item {
-            padding: 20px 0;
-            border-bottom: 1px solid var(--line);
+        .faq details {
+            border: 1px solid var(--line);
+
+            border-radius: 13px;
+
+            background: var(--surface-soft);
+
+            padding: 0 17px;
         }
 
-        .faq-item:first-child {
-            border-top: 1px solid var(--line);
-        }
+        .faq summary {
+            list-style: none;
 
-        .faq-question {
-            margin: 0 0 8px;
-            color: var(--ink);
-            font-size: 17px;
+            cursor: pointer;
+
+            padding: 16px 0;
+
             font-weight: 700;
+
+            font-size: 15px;
         }
 
-        .faq-answer {
+        .faq summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq summary::after {
+            content: "+";
+
+            float: right;
+
+            color: var(--primary);
+
+            font-size: 21px;
+        }
+
+        .faq details[open] summary::after {
+            content: "−";
+        }
+
+        .faq details p {
+            padding-bottom: 16px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+
             margin: 0;
+        }
+
+        /* =========================================================
+   SIDEBAR
+========================================================= */
+
+        .sidebar {
+            position: sticky;
+
+            top: 94px;
+        }
+
+        .side-card {
+            background: var(--surface);
+
+            border: 1px solid var(--line);
+
+            border-radius: 17px;
+
+            padding: 20px;
+
+            margin-bottom: 16px;
+
+            box-shadow: var(--shadow-sm);
+        }
+
+        .side-card h3 {
+            font-size: 15px;
+
+            margin-bottom: 12px;
+        }
+
+        .toc a {
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 8px 0;
+
             color: var(--muted);
+
+            font-size: 13px;
         }
 
-        /* =========================================
-           Sources
-        ========================================= */
+        .toc a::before {
+            content: "";
 
-        .sources {
-            margin-top: 50px;
-            padding-top: 28px;
-            border-top: 1px solid var(--line);
+            width: 5px;
+            height: 5px;
+
+            flex: 0 0 5px;
+
+            background: #c5c3bc;
+
+            border-radius: 50%;
         }
 
-        .sources h2 {
-            margin-top: 0;
+        .toc a:hover {
+            color: var(--primary);
         }
 
-        .sources ul {
+        .side-tool {
+            background:
+                linear-gradient(145deg,
+                    #f0faf6,
+                    #ffffff);
+        }
+
+        .side-tool-icon {
+            width: 43px;
+            height: 43px;
+
+            display: grid;
+            place-items: center;
+
+            background: var(--primary);
+
+            color: white;
+
+            border-radius: 12px;
+
+            margin-bottom: 12px;
+        }
+
+        .side-tool p {
             color: var(--muted);
+
+            font-size: 13px;
+
+            margin-bottom: 14px;
         }
 
-        .sources a {
-            word-break: break-word;
+        .side-button {
+            display: block;
+
+            text-align: center;
+
+            padding: 10px;
+
+            background: var(--primary);
+
+            color: white;
+
+            border-radius: 9px;
+
+            font-size: 13px;
+
+            font-weight: 750;
         }
 
-        /* =========================================
-           Footer
-        ========================================= */
+        .side-button:hover {
+            background: var(--primary-dark);
+        }
+
+        /* =========================================================
+   SOURCE / NOTE
+========================================================= */
+
+        .source-note {
+            padding: 18px;
+
+            background: var(--surface-soft);
+
+            border: 1px solid var(--line);
+
+            border-radius: 14px;
+
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+        .source-note a {
+            color: var(--primary);
+
+            text-decoration: underline;
+        }
+
+        /* =========================================================
+   FOOTER
+========================================================= */
 
         .site-footer {
-            margin-top: 70px;
-            padding: 32px 20px 26px;
-            background: var(--surface);
             border-top: 1px solid var(--line);
+
+            background: var(--bg);
         }
 
-        .site-footer .container {
-            max-width: 1040px;
-            margin: 0 auto;
+        .footer-inner {
+            max-width: var(--max-width);
+
+            margin: auto;
+
+            padding: 34px 24px;
 
             display: flex;
-            align-items: center;
+
             justify-content: space-between;
-            gap: 24px;
-        }
 
-        .site-footer p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 13px;
-            line-height: 1.6;
-        }
-
-        .site-footer nav {
-            display: flex;
             align-items: center;
-            justify-content: flex-end;
-            flex-wrap: wrap;
-            gap: 18px;
+
+            gap: 25px;
         }
 
-        .site-footer nav a {
+        .footer-brand {
+            font-size: 18px;
+
+            font-weight: 800;
+        }
+
+        .footer-brand span {
+            color: var(--primary);
+        }
+
+        .footer-copy {
+            margin-top: 4px;
+
             color: var(--muted);
+
+            font-size: 12px;
+        }
+
+        .footer-links {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 17px;
+
+            color: var(--muted);
+
             font-size: 13px;
-            line-height: 1.5;
-            text-decoration: none;
-            transition: color 0.15s ease;
         }
 
-        .site-footer nav a:hover {
-            color: var(--accent);
+        .footer-links a:hover {
+            color: var(--primary);
         }
 
-        /* =========================================
-           Mobile
-        ========================================= */
+        /* =========================================================
+   MOBILE
+========================================================= */
 
-        @media (max-width: 700px) {
-            .article-page {
-                padding: 32px 15px 0;
+        @media (max-width: 900px) {
+
+            .hero {
+                padding: 36px;
             }
 
-            .article-header {
-                margin-bottom: 30px;
+            .hero-grid {
+                grid-template-columns: 1fr;
             }
 
-            .article-header h1 {
-                font-size: 34px;
+            .content-layout {
+                grid-template-columns: 1fr;
             }
 
-            .article-intro {
-                font-size: 16px;
-                line-height: 1.65;
+            .sidebar {
+                position: static;
             }
 
-            .article-content {
-                font-size: 15px;
-                line-height: 1.7;
+        }
+
+        @media (max-width: 720px) {
+
+            .site-header {
+                height: 68px;
             }
 
-            .article-content h2 {
-                margin-top: 38px;
-                font-size: 24px;
+            .header-inner {
+                padding: 0 16px;
             }
 
-            .article-content h3 {
-                font-size: 19px;
-            }
-
-            .definition-box,
-            .note-box,
-            .article-cta {
-                padding: 20px;
-            }
-
-            .pay-flow {
-                padding: 18px 12px;
-            }
-
-            .pay-flow-step {
+            .mobile-toggle {
                 display: block;
-                margin: 7px 0;
             }
 
-            .pay-flow-arrow {
-                display: block;
-                margin: 0;
-                transform: rotate(90deg);
-            }
+            .main-nav {
+                display: none;
 
-            .paystub {
-                padding: 18px;
-            }
+                position: absolute;
 
-            .site-footer {
-                margin-top: 50px;
-                padding: 28px 15px 24px;
-            }
+                left: 0;
+                right: 0;
 
-            .site-footer .container {
+                top: 68px;
+
+                padding: 10px 16px 16px;
+
+                background: var(--surface);
+
+                border-bottom: 1px solid var(--line);
+
+                box-shadow: 0 12px 30px rgba(0, 0, 0, .06);
+
                 flex-direction: column;
-                align-items: flex-start;
-                gap: 16px;
+
+                align-items: stretch;
             }
 
-            .site-footer p {
-                font-size: 12px;
+            .main-nav.active {
+                display: flex;
             }
 
-            .site-footer nav {
+            .main-nav>a,
+            .finance-toggle {
                 width: 100%;
-                justify-content: flex-start;
-                gap: 10px 18px;
+
+                text-align: left;
+
+                padding: 12px;
             }
 
-            .site-footer nav a {
-                font-size: 13px;
+            .finance-dropdown {
+                width: 100%;
             }
+
+            .finance-menu {
+                position: static;
+
+                width: 100%;
+
+                box-shadow: none;
+
+                border: 0;
+
+                border-top: 1px solid var(--line);
+
+                border-radius: 0;
+
+                margin-top: 4px;
+            }
+
+            .page {
+                padding: 25px 15px 55px;
+            }
+
+            .hero {
+                padding: 28px 21px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+
+                letter-spacing: -1.8px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .article-section {
+                padding: 23px 19px;
+            }
+
+            .compare-grid,
+            .example {
+                grid-template-columns: 1fr;
+            }
+
+            .fact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
         }
     </style>
 
-    <!-- FAQ Structured Data -->
+    <!-- FAQ STRUCTURED DATA -->
+
     <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": [
-                    {
-                        "@type": "Question",
-                        "name": "Is gross pay before taxes?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Generally, gross pay is your earnings before payroll taxes and other deductions are taken from your paycheck."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Is net pay the same as take-home pay?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Yes. In a typical paycheck context, net pay is the amount remaining after applicable taxes and deductions and is commonly called take-home pay."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "How do I calculate net pay from gross pay?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "A simplified calculation is net pay equals gross pay minus applicable taxes and other deductions. The actual calculation depends on the employee's withholding and deductions."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Why is my net pay lower than my gross pay?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Net pay is lower because payroll taxes and other deductions can be withheld from gross pay before the remaining amount is paid to the employee."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Can two people with the same salary have different net pay?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Yes. Different tax withholding, benefits, retirement contributions, state or local taxes, and other deductions can cause employees with the same gross salary to receive different net pay."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "What is the difference between biweekly and semimonthly pay?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Biweekly pay generally occurs 26 times per year, while semimonthly pay generally occurs 24 times per year."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Does overtime increase gross pay?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Yes. Applicable overtime earnings increase gross pay. The resulting net pay depends on taxes and other deductions."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Where can I find gross pay and net pay on my pay stub?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Your pay stub normally identifies earnings and deductions and provides a net pay or take-home amount. The exact layout varies by employer and payroll provider."
-                        }
-                    }
-                ]
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What is gross pay?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Gross pay is the amount you earn before applicable taxes and other payroll deductions are taken out."
             }
-        </script>
+        },
+        {
+            "@type": "Question",
+            "name": "What is net pay?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Net pay is the amount remaining after applicable payroll taxes and other deductions have been withheld."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is net pay the same as take-home pay?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Net pay and take-home pay are commonly used to describe the amount an employee receives after applicable payroll deductions."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Why is my net pay lower than my gross pay?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Net pay is usually lower because payroll taxes and other deductions are taken from gross earnings before the employee receives the paycheck."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can two employees with the same gross pay have different net pay?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Differences in tax withholding, benefits, retirement contributions, state or local taxes, and other deductions can result in different net pay."
+            }
+        }
+    ]
+}
+</script>
+
 </head>
 
 <body>
-    <!-- =========================================
-         NAVBAR
-    ========================================== -->
 
-    <header class="site-header">
-        <div class="container header-inner">
-            <a href="/" class="logo" aria-label="PaycheckMint Home"> PaycheckMint </a>
+    <!-- ======================================================
+     NAVBAR
+====================================================== -->
 
-            <button class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"
-                aria-controls="main-navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+    <header class="pm-header" id="site-header">
 
-            <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
-                <a href="/">Home</a>
+        <div class="pm-header-inner">
 
-                <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+            <a class="pm-brand" href="/" aria-label="PaycheckMint home">
+                Paycheck<span>Mint</span>
+            </a>
 
-                <a href="/income/"> Income </a>
+            <nav class="pm-desktop-nav" aria-label="Main navigation">
 
-                <div class="nav-dropdown">
-                    <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+                <a class="pm-nav-link" href="/income/">
+                    Income
+                </a>
+
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
                         Finance
-                        <span aria-hidden="true">⌄</span>
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
                     </button>
 
-                    <div class="nav-dropdown-menu">
-                        <a href="/finance/"> Finance </a>
+                    <div class="pm-dropdown-menu">
 
-                        <a href="/finance/taxes/"> Taxes </a>
+                        <span class="pm-dropdown-label">
+                            Explore
+                        </span>
 
-                        <a href="/finance/budgeting/"> Budgeting </a>
+                        <a href="/finance/">
+                            <span>Finance Overview</span>
+                        </a>
 
-                        <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+                        <a href="/income/">
+                            <span>Income & Earnings</span>
+                        </a>
 
-                        <a href="/finance/investing/"> Investing </a>
+                        <a href="/finance/budgeting/">
+                            <span>Budgeting Guides</span>
+                        </a>
 
-                        <a href="/finance/insurance/"> Insurance </a>
                     </div>
+
                 </div>
+
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                        Calculators
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="pm-dropdown-menu">
+
+                        <span class="pm-dropdown-label">
+                            Paycheck tools
+                        </span>
+
+                        <a href="/paycheck-tax-calculator/">
+                            Paycheck Tax Calculator
+                        </a>
+
+                        <a href="/monthly-paycheck-calculator/">
+                            Monthly Paycheck Calculator
+                        </a>
+
+                        <a href="/take-home-pay-calculator/">
+                            Take-Home Pay Calculator
+                        </a>
+
+                        <a href="/hourly-paycheck-calculator/">
+                            Hourly Paycheck Calculator
+                        </a>
+
+                        <a href="/overtime-pay-calculator/">
+                            Overtime Pay Calculator
+                        </a>
+
+                        <a href="/salary-paycheck-calculator/">
+                            Salary Paycheck Calculator
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <a class="pm-nav-link" href="/finance/">
+                    Learn
+                </a>
+
             </nav>
+
+            <div class="pm-nav-spacer"></div>
+
+            <button class="pm-search-button" id="searchToggle" type="button" aria-label="Open search"
+                aria-expanded="false" aria-controls="searchPanel">
+
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="m20 20-4-4"></path>
+
+                </svg>
+
+            </button>
+
+            <a class="pm-header-cta" href="/paycheck-tax-calculator/">
+                Calculate paycheck
+            </a>
+
+            <button class="pm-mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation"
+                aria-expanded="false" aria-controls="mobileNav">
+                <svg id="mobileMenuIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <path d="M4 6h16" />
+                    <path d="M4 12h16" />
+                    <path d="M4 18h16" />
+                </svg>
+            </button>
+
         </div>
+
+        <!-- SEARCH PANEL -->
+
+        <div class="pm-search-panel" id="searchPanel">
+
+            <div class="pm-search-inner">
+
+                <div class="pm-search-field">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="m20 20-4-4" />
+                    </svg>
+
+                    <input id="siteSearch" class="pm-search-input" type="search" autocomplete="off"
+                        placeholder="Search PaycheckMint..." aria-label="Search PaycheckMint">
+
+                    <button class="pm-search-close" id="searchClose" type="button" aria-label="Close search">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 6l12 12" />
+                            <path d="M18 6 6 18" />
+                        </svg>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="pm-search-results" id="searchResults"></div>
+
+        </div>
+
+        <!-- MOBILE NAV -->
+
+        <nav class="pm-mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+
+            <div class="pm-mobile-nav-inner">
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a href="/income/">
+                    Income
+                </a>
+
+                <button class="pm-mobile-finance-button" id="mobileFinanceToggle" type="button" aria-expanded="false">
+                    <span>Finance</span>
+
+                    <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m6 9 6 6 6-6" />
+                    </svg>
+                </button>
+
+                <div class="pm-mobile-finance-links" id="mobileFinanceLinks">
+
+                    <a href="/finance/">
+                        Finance Overview
+                    </a>
+
+                    <a href="/income/">
+                        Income & Earnings
+                    </a>
+
+                </div>
+
+                <a href="/paycheck-tax-calculator/">
+                    Paycheck Tax Calculator
+                </a>
+
+                <a href="/take-home-pay-calculator/">
+                    Take-Home Pay Calculator
+                </a>
+
+                <a href="/hourly-paycheck-calculator/">
+                    Hourly Paycheck Calculator
+                </a>
+
+                <a href="/overtime-pay-calculator/">
+                    Overtime Pay Calculator
+                </a>
+
+                <a href="/salary-paycheck-calculator/">
+                    Salary Paycheck Calculator
+                </a>
+
+                <a href="/weekly-paycheck-calculator/">
+                    Weekly Paycheck Calculator
+                </a>
+
+                <a href="/biweekly-paycheck-calculator/">
+                    Biweekly Paycheck Calculator
+                </a>
+
+                <a href="/monthly-paycheck-calculator/">
+                    Monthly Paycheck Calculator
+                </a>
+
+                <div class="pm-mobile-search-row">
+
+                    <button class="pm-button-secondary" id="mobileSearchButton" type="button">
+                        Search PaycheckMint
+                    </button>
+
+                </div>
+
+            </div>
+
+        </nav>
+
     </header>
 
-    <!-- =========================================
-         ARTICLE
-    ========================================== -->
 
-    <main class="article-page">
-        <article class="article-container">
-            <header class="article-header">
-                <p class="article-kicker">Paycheck Guide</p>
+    <!-- ======================================================
+     PAGE
+====================================================== -->
 
-                <h1>Gross Pay vs. Net Pay: What's the Difference?</h1>
+    <main class="page">
 
-                <p class="article-intro">
-                    Gross pay is what you earn before payroll deductions. Net pay is what remains after applicable
-                    taxes and other deductions are taken out. Learn how gross pay and net pay work, how they appear
-                    on a paycheck, and why your take-home pay can be different from your salary.
-                </p>
-            </header>
+        <div class="breadcrumbs">
 
-            <div class="article-content">
-                <!-- INTRO -->
+            <a href="/">Home</a>
 
-                <div class="definition-box">
-                    <strong>Quick answer</strong>
+            <span>›</span>
+
+            <a href="/income/">Income</a>
+
+            <span>›</span>
+
+            <span>Gross Pay vs Net Pay</span>
+
+        </div>
+
+
+        <!-- ==================================================
+         HERO
+    ================================================== -->
+
+        <section class="hero">
+
+            <div class="hero-grid">
+
+                <div>
+
+                    <div class="hero-label">
+                        <span></span>
+                        Paycheck Basics
+                    </div>
+
+                    <h1>
+                        Gross Pay vs<br>
+                        Net Pay
+                    </h1>
+
+                    <p class="hero-description">
+                        Your salary or hourly wage isn't necessarily the amount
+                        that lands in your bank account. See exactly how gross
+                        earnings become your take-home pay.
+                    </p>
+
+                </div>
+
+
+                <div class="pay-flow">
+
+                    <div class="flow-title">
+                        <strong>Your paycheck, simplified</strong>
+                        <span>Example</span>
+                    </div>
+
+                    <div class="money-card gross">
+
+                        <div class="money-icon">
+                            💰
+                        </div>
+
+                        <div class="money-info">
+                            <small>Gross pay</small>
+                            <strong>$2,500</strong>
+                        </div>
+
+                        <strong>100%</strong>
+
+                    </div>
+
+                    <div class="flow-arrow">
+                        ↓ deductions
+                    </div>
+
+                    <div class="money-card deductions">
+
+                        <div class="money-icon">
+                            🧾
+                        </div>
+
+                        <div class="money-info">
+                            <small>Taxes & deductions</small>
+                            <strong>− $600</strong>
+                        </div>
+
+                    </div>
+
+                    <div class="flow-arrow">
+                        ↓
+                    </div>
+
+                    <div class="money-card net">
+
+                        <div class="money-icon">
+                            ✓
+                        </div>
+
+                        <div class="money-info">
+                            <small>Net pay</small>
+                            <strong>$1,900</strong>
+                        </div>
+
+                        <strong>76%</strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+         CONTENT
+    ================================================== -->
+
+        <div class="content-layout">
+
+
+            <article class="article">
+
+
+                <!-- QUICK ANSWER -->
+
+                <section class="article-section" id="gross-pay">
+
+                    <div class="answer-card">
+
+                        <div class="answer-icon">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <strong>The short answer</strong>
+
+                            <p>
+                                <b>Gross pay</b> is what you earn before payroll
+                                deductions. <b>Net pay</b> is what remains after
+                                applicable taxes and other deductions.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <h2>
+                        The difference in one glance
+                    </h2>
 
                     <p>
-                        <strong>Gross pay</strong> is your total earnings before taxes and other payroll deductions.
-                        <strong>Net pay</strong> is the amount left after applicable deductions and is commonly
-                        called your <strong>take-home pay</strong>.
+                        Think of your paycheck as a journey. Your earnings start
+                        as gross pay. Payroll taxes and other deductions are then
+                        taken out, leaving the amount you actually receive:
+                        net pay.
                     </p>
-                </div>
+
+
+                    <div class="compare-grid">
+
+                        <div class="compare-card gross">
+
+                            <div class="compare-top">
+
+                                <div class="compare-icon">
+                                    ↑
+                                </div>
+
+                                <div>
+                                    <h3>Gross Pay</h3>
+                                </div>
+
+                            </div>
+
+                            <p>
+                                The total earnings you receive before applicable
+                                taxes and other payroll deductions.
+                            </p>
+
+                        </div>
+
+
+                        <div class="compare-card net">
+
+                            <div class="compare-top">
+
+                                <div class="compare-icon">
+                                    ↓
+                                </div>
+
+                                <div>
+                                    <h3>Net Pay</h3>
+                                </div>
+
+                            </div>
+
+                            <p>
+                                The amount left after applicable taxes and
+                                deductions are withheld from your earnings.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- PAYCHECK BREAKDOWN -->
+
+                <section class="article-section" id="paycheck-breakdown">
+
+                    <h2>
+                        Where does the difference go?
+                    </h2>
+
+                    <p>
+                        The gap between gross pay and net pay can include federal
+                        income tax withholding, Social Security and Medicare
+                        taxes, state or local taxes where applicable, and other
+                        payroll deductions.
+                    </p>
+
+                    <div class="breakdown">
+
+                        <div class="breakdown-head">
+
+                            <strong>
+                                Example $2,500 paycheck
+                            </strong>
+
+                            <span>
+                                Before vs. after deductions
+                            </span>
+
+                        </div>
+
+                        <div class="bar">
+
+                            <div class="bar-gross"></div>
+                            <div class="bar-deductions"></div>
+
+                        </div>
+
+                        <div class="breakdown-row">
+
+                            <span class="breakdown-dot gross"></span>
+
+                            <span>
+                                Net pay
+                            </span>
+
+                            <strong>
+                                $1,900
+                            </strong>
+
+                        </div>
+
+                        <div class="breakdown-row">
+
+                            <span class="breakdown-dot tax"></span>
+
+                            <span>
+                                Taxes
+                            </span>
+
+                            <strong>
+                                $400
+                            </strong>
+
+                        </div>
+
+                        <div class="breakdown-row">
+
+                            <span class="breakdown-dot other"></span>
+
+                            <span>
+                                Other deductions
+                            </span>
+
+                            <strong>
+                                $200
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
 
                 <!-- GROSS PAY -->
 
-                <h2>What Is Gross Pay?</h2>
+                <section class="article-section" id="gross-pay">
 
-                <p>
-                    Gross pay is the total amount you earn before taxes and other deductions are taken from your
-                    paycheck. It can include your regular wages or salary as well as applicable overtime, bonuses,
-                    commissions, and other compensation.
-                </p>
+                    <h2>
+                        What counts as gross pay?
+                    </h2>
 
-                <p>
-                    For an hourly employee, gross pay generally starts with the hourly rate multiplied by hours
-                    worked. For a salaried employee, gross pay for a paycheck is generally based on annual salary
-                    divided across the employee's pay periods.
-                </p>
+                    <p>
+                        Gross pay generally represents the earnings attributed to
+                        your work before applicable payroll deductions. Depending
+                        on how you're paid, that can include more than your normal
+                        hourly or salary amount.
+                    </p>
 
-                <h3>Hourly gross pay</h3>
 
-                <div class="formula-box">Hourly Rate × Hours Worked = Regular Gross Pay</div>
+                    <div class="fact-grid">
 
-                <p>
-                    If an employee earns $25 per hour and works 40 hours, regular gross pay would be $1,000 before
-                    applicable taxes and deductions.
-                </p>
+                        <div class="fact">
 
-                <h3>Salary gross pay</h3>
+                            <div class="fact-icon">
+                                $
+                            </div>
 
-                <div class="formula-box">Annual Salary ÷ Number of Pay Periods = Regular Gross Pay</div>
+                            <strong>
+                                Regular wages
+                            </strong>
 
-                <p>
-                    For example, a $60,000 annual salary paid biweekly would generally produce 26 regular pay
-                    periods:
-                </p>
+                            <p>
+                                Your normal hourly earnings or salary.
+                            </p>
 
-                <div class="formula-box">$60,000 ÷ 26 = $2,307.69</div>
+                        </div>
 
-                <p>This is gross pay for the regular paycheck before applicable deductions.</p>
+
+                        <div class="fact">
+
+                            <div class="fact-icon">
+                                ⏱
+                            </div>
+
+                            <strong>
+                                Overtime
+                            </strong>
+
+                            <p>
+                                Additional earnings from eligible overtime work.
+                            </p>
+
+                        </div>
+
+
+                        <div class="fact">
+
+                            <div class="fact-icon">
+                                +
+                            </div>
+
+                            <strong>
+                                Extra earnings
+                            </strong>
+
+                            <p>
+                                Bonuses, commissions and certain other compensation.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
 
                 <!-- NET PAY -->
 
-                <h2>What Is Net Pay?</h2>
+                <section class="article-section" id="net-pay">
 
-                <p>
-                    Net pay is the amount that remains after applicable payroll taxes and other deductions are taken
-                    from gross pay. It is commonly referred to as <strong>take-home pay</strong>.
-                </p>
+                    <h2>
+                        What is deducted before you receive your pay?
+                    </h2>
 
-                <p>
-                    Your net pay is generally the amount shown as the paycheck payment or direct-deposit amount,
-                    although the exact terminology and presentation can vary between payroll systems.
-                </p>
-
-                <div class="formula-box">Net Pay = Gross Pay − Taxes − Other Deductions</div>
-
-                <p>
-                    The formula above is a simplified explanation. Actual payroll calculations can involve different
-                    tax rules, pre-tax deductions, post-tax deductions, benefits, and other circumstances.
-                </p>
-
-                <!-- COMPARISON -->
-
-                <h2>Gross Pay vs. Net Pay</h2>
-
-                <p>
-                    The easiest way to understand the difference is to think of gross pay as the starting amount and
-                    net pay as the amount that remains after applicable payroll deductions.
-                </p>
-
-                <div class="table-wrap">
-                    <table class="comparison-table">
-                        <thead>
-                            <tr>
-                                <th>Gross Pay</th>
-                                <th>Net Pay</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>Total earnings before deductions</td>
-                                <td>Amount remaining after applicable deductions</td>
-                            </tr>
-
-                            <tr>
-                                <td>Includes regular wages or salary</td>
-                                <td>Represents take-home pay</td>
-                            </tr>
-
-                            <tr>
-                                <td>Can include overtime and bonuses</td>
-                                <td>Can be reduced by taxes and other deductions</td>
-                            </tr>
-
-                            <tr>
-                                <td>Starting point for many payroll calculations</td>
-                                <td>Amount generally available to receive or deposit</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- FLOW -->
-
-                <h2>How Gross Pay Becomes Net Pay</h2>
-
-                <p>
-                    A paycheck can be viewed as a sequence that starts with gross earnings and ends with the
-                    employee's net pay.
-                </p>
-
-                <div class="pay-flow">
-                    <div class="pay-flow-step">Gross Pay</div>
-
-                    <span class="pay-flow-arrow">→</span>
-
-                    <div class="pay-flow-step">Pre-Tax Deductions</div>
-
-                    <span class="pay-flow-arrow">→</span>
-
-                    <div class="pay-flow-step">Applicable Tax Withholding</div>
-
-                    <span class="pay-flow-arrow">→</span>
-
-                    <div class="pay-flow-step">Post-Tax Deductions</div>
-
-                    <span class="pay-flow-arrow">→</span>
-
-                    <div class="pay-flow-step">Net Pay</div>
-                </div>
-
-                <p>
-                    Not every paycheck contains every type of deduction. Which deductions apply depends on the
-                    employee, employer, benefits, location, elections, and other circumstances.
-                </p>
-
-                <!-- DEDUCTIONS -->
-
-                <h2>What Can Be Deducted From Gross Pay?</h2>
-
-                <p>Several types of deductions can reduce the amount that eventually becomes net pay.</p>
-
-                <h3>Payroll taxes</h3>
-
-                <ul>
-                    <li>Federal income tax withholding</li>
-                    <li>Social Security tax</li>
-                    <li>Medicare tax</li>
-                    <li>State income tax where applicable</li>
-                    <li>Local income taxes where applicable</li>
-                </ul>
-
-                <h3>Employee benefits</h3>
-
-                <ul>
-                    <li>Health insurance premiums</li>
-                    <li>Dental insurance</li>
-                    <li>Vision insurance</li>
-                    <li>Other employer-sponsored benefits</li>
-                </ul>
-
-                <h3>Retirement and other deductions</h3>
-
-                <ul>
-                    <li>401(k) or other retirement contributions</li>
-                    <li>HSA or FSA contributions</li>
-                    <li>Eligible voluntary deductions</li>
-                    <li>Certain wage garnishments or other required deductions</li>
-                </ul>
-
-                <!-- PRE-TAX / POST-TAX -->
-
-                <h2>Pre-Tax vs. Post-Tax Deductions</h2>
-
-                <p>
-                    One important part of understanding a paycheck is knowing that deductions do not necessarily
-                    affect the paycheck in exactly the same way.
-                </p>
-
-                <p>
-                    Some deductions can be taken on a pre-tax basis, depending on the type of deduction and
-                    applicable rules. Other deductions are taken after applicable taxes have been calculated.
-                </p>
-
-                <div class="note-box">
                     <p>
-                        <strong>Why this matters:</strong>
-                        A $100 deduction does not necessarily reduce every employee's take-home pay by exactly the
-                        same amount. The treatment of the deduction can affect the applicable tax calculation.
+                        Your employer may withhold several types of taxes and
+                        deductions from your paycheck. The exact combination
+                        depends on your circumstances and payroll elections.
                     </p>
-                </div>
+
+
+                    <div class="fact-grid">
+
+                        <div class="fact">
+
+                            <div class="fact-icon">
+                                %
+                            </div>
+
+                            <strong>
+                                Federal income tax
+                            </strong>
+
+                            <p>
+                                Federal withholding is influenced by your earnings
+                                and Form W-4 information.
+                            </p>
+
+                        </div>
+
+
+                        <div class="fact">
+
+                            <div class="fact-icon">
+                                🛡
+                            </div>
+
+                            <strong>
+                                Social Security
+                            </strong>
+
+                            <p>
+                                Employee payroll tax withheld from applicable wages.
+                            </p>
+
+                        </div>
+
+
+                        <div class="fact">
+
+                            <div class="fact-icon">
+                                +
+                            </div>
+
+                            <strong>
+                                Other deductions
+                            </strong>
+
+                            <p>
+                                Benefits, retirement contributions and other
+                                authorized deductions can also affect net pay.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- FORMULA -->
+
+                <section class="article-section" id="formula">
+
+                    <h2>
+                        How is net pay calculated?
+                    </h2>
+
+                    <p>
+                        The basic relationship is straightforward:
+                    </p>
+
+                    <div class="formula-box">
+
+                        <div class="formula-label">
+                            Basic paycheck formula
+                        </div>
+
+                        <div class="formula">
+                            Gross Pay − Taxes − Deductions = Net Pay
+                        </div>
+
+                    </div>
+
+                    <p style="margin-top:20px;">
+                        Actual payroll calculations can be more complicated because
+                        different taxes and deductions can apply to different types
+                        of compensation.
+                    </p>
+
+                </section>
+
 
                 <!-- EXAMPLE -->
 
-                <h2>Gross Pay vs. Net Pay Example</h2>
+                <section class="article-section" id="example">
 
-                <p>
-                    Suppose an employee has gross pay of $2,500 for a paycheck. Assume the employee has $500 in
-                    total taxes and other deductions for this simplified example.
-                </p>
+                    <h2>
+                        Gross pay vs net pay example
+                    </h2>
 
-                <div class="formula-box">$2,500 Gross Pay − $500 Deductions = $2,000 Net Pay</div>
-
-                <p>The employee's gross pay is $2,500, while the simplified take-home amount is $2,000.</p>
-
-                <p>
-                    Actual payroll calculations are more complicated because withholding and deductions depend on
-                    the employee's circumstances.
-                </p>
-
-                <!-- SAME SALARY DIFFERENT NET -->
-
-                <h2>Why Can Two People With the Same Salary Have Different Net Pay?</h2>
-
-                <p>
-                    Two employees can have the same gross salary but receive different amounts in their paychecks.
-                </p>
-
-                <p>This can happen because their payroll deductions and withholding elections are different.</p>
-
-                <ul>
-                    <li>Different federal tax withholding</li>
-                    <li>Different state or local tax situations</li>
-                    <li>Different health insurance premiums</li>
-                    <li>Different retirement contributions</li>
-                    <li>Different HSA or FSA contributions</li>
-                    <li>Different voluntary deductions</li>
-                    <li>Other applicable payroll deductions</li>
-                </ul>
-
-                <p>
-                    Therefore, salary alone does not tell you exactly how much money will appear in your bank
-                    account.
-                </p>
-
-                <!-- PAY FREQUENCY -->
-
-                <h2>How Pay Frequency Affects Gross and Net Pay</h2>
-
-                <p>
-                    Your annual salary does not change simply because you are paid on a different schedule, but the
-                    amount of each individual paycheck does.
-                </p>
-
-                <div class="table-wrap">
-                    <table class="comparison-table">
-                        <thead>
-                            <tr>
-                                <th>Pay Frequency</th>
-                                <th>Typical Pay Periods Per Year</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>Weekly</td>
-                                <td>52</td>
-                            </tr>
-
-                            <tr>
-                                <td>Biweekly</td>
-                                <td>26</td>
-                            </tr>
-
-                            <tr>
-                                <td>Semimonthly</td>
-                                <td>24</td>
-                            </tr>
-
-                            <tr>
-                                <td>Monthly</td>
-                                <td>12</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <p>
-                    For example, an employee earning $52,000 per year would generally have a different regular gross
-                    paycheck under a biweekly schedule than under a semimonthly schedule.
-                </p>
-
-                <div class="note-box">
                     <p>
-                        <strong>Biweekly and semimonthly are different.</strong>
-                        Biweekly pay generally occurs every two weeks and typically results in 26 pay periods.
-                        Semimonthly pay generally occurs twice per month and typically results in 24 pay periods.
+                        Imagine an employee earns $2,500 during a particular pay
+                        period.
                     </p>
-                </div>
 
-                <!-- OVERTIME -->
 
-                <h2>How Overtime Changes Gross and Net Pay</h2>
+                    <div class="example">
 
-                <p>Overtime can increase an hourly employee's gross pay for a paycheck.</p>
+                        <div class="example-card">
 
-                <p>
-                    For example, if an employee earns $20 per hour and receives an applicable overtime rate of 1.5
-                    times the regular rate, the overtime rate would be:
-                </p>
+                            <h3>
+                                Gross pay
+                            </h3>
 
-                <div class="formula-box">$20 × 1.5 = $30 per overtime hour</div>
+                            <div class="example-number">
+                                $2,500
+                            </div>
 
-                <p>
-                    If the employee works five overtime hours, those additional earnings increase gross pay. The
-                    employee will not necessarily receive the entire additional gross amount as net pay because
-                    applicable taxes and deductions can also affect the paycheck.
-                </p>
+                            <p>
+                                This is the employee's earnings before the
+                                deductions shown in this example.
+                            </p>
 
-                <!-- BONUS -->
+                        </div>
 
-                <h2>What Happens to Bonuses and Commissions?</h2>
 
-                <p>
-                    Bonuses and commissions can increase an employee's gross earnings. The amount ultimately
-                    received can be lower after applicable withholding and deductions.
-                </p>
+                        <div class="example-card">
 
-                <p>
-                    This is one reason a bonus can appear much larger on a paycheck's earnings section than the
-                    amount that is ultimately deposited into a bank account.
-                </p>
+                            <h3>
+                                Net pay
+                            </h3>
 
-                <!-- PAY STUB -->
+                            <div class="example-number">
+                                $1,900
+                            </div>
 
-                <h2>Where Do Gross Pay and Net Pay Appear on a Pay Stub?</h2>
+                            <p>
+                                This is the amount remaining after $600 of
+                                example taxes and deductions.
+                            </p>
 
-                <p>
-                    Your pay stub normally provides information about your earnings, taxes, deductions, and the
-                    amount paid to you. The exact layout and terminology depend on your employer and payroll
-                    provider.
-                </p>
+                        </div>
 
-                <div class="paystub">
-                    <div class="paystub-title">Simplified Pay Stub Example</div>
-
-                    <div class="paystub-row">
-                        <span>Gross Pay</span>
-                        <span>$2,500</span>
                     </div>
 
-                    <div class="paystub-row">
-                        <span>Federal Tax</span>
-                        <span>− $250</span>
+
+                    <div class="breakdown" style="margin-top:18px;">
+
+                        <div class="breakdown-row">
+
+                            <span class="breakdown-dot gross"></span>
+
+                            <span>
+                                Gross pay
+                            </span>
+
+                            <strong>
+                                $2,500
+                            </strong>
+
+                        </div>
+
+                        <div class="breakdown-row">
+
+                            <span class="breakdown-dot tax"></span>
+
+                            <span>
+                                Example taxes
+                            </span>
+
+                            <strong>
+                                − $400
+                            </strong>
+
+                        </div>
+
+                        <div class="breakdown-row">
+
+                            <span class="breakdown-dot other"></span>
+
+                            <span>
+                                Example deductions
+                            </span>
+
+                            <strong>
+                                − $200
+                            </strong>
+
+                        </div>
+
+                        <div class="breakdown-row">
+
+                            <span class="breakdown-dot gross"></span>
+
+                            <span>
+                                Net pay
+                            </span>
+
+                            <strong>
+                                $1,900
+                            </strong>
+
+                        </div>
+
                     </div>
 
-                    <div class="paystub-row">
-                        <span>Social Security</span>
-                        <span>− $155</span>
+                    <p style="margin-top:18px;">
+                        This is a simplified illustration, not a tax calculation.
+                        Actual withholding varies by employee, pay period,
+                        location, tax elections and deductions.
+                    </p>
+
+                </section>
+
+
+                <!-- SAME GROSS DIFFERENT NET -->
+
+                <section class="article-section">
+
+                    <h2>
+                        Why two people can have the same gross pay but different net pay
+                    </h2>
+
+                    <p>
+                        Gross pay alone doesn't tell you exactly how much will
+                        reach your bank account.
+                    </p>
+
+                    <p>
+                        Two employees earning the same amount can have different
+                        net pay because their withholding and payroll deductions
+                        may not be identical.
+                    </p>
+
+
+                    <div class="fact-grid">
+
+                        <div class="fact">
+
+                            <div class="fact-icon">
+                                1
+                            </div>
+
+                            <strong>
+                                Tax withholding
+                            </strong>
+
+                            <p>
+                                Form W-4 information can affect federal income tax
+                                withholding.
+                            </p>
+
+                        </div>
+
+
+                        <div class="fact">
+
+                            <div class="fact-icon">
+                                2
+                            </div>
+
+                            <strong>
+                                Benefits
+                            </strong>
+
+                            <p>
+                                Health insurance and other employee benefits can
+                                change deductions.
+                            </p>
+
+                        </div>
+
+
+                        <div class="fact">
+
+                            <div class="fact-icon">
+                                3
+                            </div>
+
+                            <strong>
+                                Retirement
+                            </strong>
+
+                            <p>
+                                Contributions to workplace retirement plans can
+                                affect current take-home pay.
+                            </p>
+
+                        </div>
+
                     </div>
 
-                    <div class="paystub-row">
-                        <span>Medicare</span>
-                        <span>− $36</span>
+                </section>
+
+
+                <!-- BUDGET -->
+
+                <section class="article-section" id="budget">
+
+                    <h2>
+                        Which number should you use for your budget?
+                    </h2>
+
+                    <p>
+                        For everyday budgeting, net pay is usually the more useful
+                        number because it represents the amount available after
+                        payroll deductions.
+                    </p>
+
+                    <p>
+                        Gross pay is still important when comparing salaries,
+                        evaluating compensation and understanding your total
+                        earnings.
+                    </p>
+
+                    <div class="compare-grid">
+
+                        <div class="compare-card gross">
+
+                            <div class="compare-top">
+
+                                <div class="compare-icon">
+                                    $
+                                </div>
+
+                                <h3>
+                                    Use gross pay for
+                                </h3>
+
+                            </div>
+
+                            <p>
+                                Comparing salaries, understanding earnings,
+                                reviewing compensation and estimating annual wages.
+                            </p>
+
+                        </div>
+
+
+                        <div class="compare-card net">
+
+                            <div class="compare-top">
+
+                                <div class="compare-icon">
+                                    ✓
+                                </div>
+
+                                <h3>
+                                    Use net pay for
+                                </h3>
+
+                            </div>
+
+                            <p>
+                                Budgeting, planning expenses and estimating the
+                                money you'll actually receive.
+                            </p>
+
+                        </div>
+
                     </div>
 
-                    <div class="paystub-row">
-                        <span>Health Insurance</span>
-                        <span>− $75</span>
-                    </div>
+                </section>
 
-                    <div class="paystub-row">
-                        <span>Retirement Contribution</span>
-                        <span>− $100</span>
-                    </div>
-
-                    <div class="paystub-row total">
-                        <span>Net Pay</span>
-                        <span>$1,884</span>
-                    </div>
-                </div>
-
-                <p>
-                    The numbers above are only an illustrative example and do not represent a standard withholding
-                    amount.
-                </p>
-
-                <!-- NET PAY AND BUDGET -->
-
-                <h2>Why Is Net Pay More Useful for Personal Budgeting?</h2>
-
-                <p>
-                    Gross pay tells you how much you earn before deductions, but net pay is generally closer to the
-                    amount you actually have available from a paycheck for expenses and savings.
-                </p>
-
-                <p>
-                    When creating a household budget, people commonly need to consider their actual take-home pay
-                    rather than simply multiplying their annual salary.
-                </p>
-
-                <p>
-                    Your budget can then account for expenses such as housing, food, transportation, insurance, debt
-                    payments, savings, and other spending.
-                </p>
-
-                <!-- GROSS VS GROSS INCOME -->
-
-                <h2>Gross Pay vs. Gross Income</h2>
-
-                <p>
-                    The terms <strong>gross pay</strong> and <strong>gross income</strong> can overlap, but they are
-                    not always used in exactly the same way.
-                </p>
-
-                <p>
-                    Gross pay commonly describes an employee's earnings for a particular paycheck or pay period.
-                    Gross income can refer more broadly to income before applicable deductions over a period of
-                    time.
-                </p>
-
-                <p>
-                    For example, an employee could receive $2,000 of gross pay every two weeks. Over 26 pay periods,
-                    that would represent $52,000 in gross annual pay.
-                </p>
-
-                <!-- NET PAY VS NET INCOME -->
-
-                <h2>Net Pay vs. Net Income</h2>
-
-                <p>
-                    Net pay and net income are related terms but can have different meanings depending on context.
-                </p>
-
-                <p>
-                    In a paycheck context, <strong>net pay</strong> usually refers to the amount left after
-                    applicable payroll deductions and is commonly called take-home pay.
-                </p>
-
-                <p>
-                    <strong>Net income</strong> can have a broader personal finance or accounting meaning. If you
-                    want to understand that term in more detail, see our guide:
-                    <a href="/income/what-is-net-income/"> What Is Net Income? </a>
-                </p>
-
-                <!-- TAXABLE INCOME -->
-
-                <h2>Is Gross Pay the Same as Taxable Income?</h2>
-
-                <p>
-                    Not necessarily. Gross pay is the employee's earnings before deductions, while taxable wages or
-                    income used for a particular tax calculation can depend on the type of compensation, applicable
-                    exclusions, and qualifying deductions.
-                </p>
-
-                <p>
-                    This is why looking only at a gross-pay number may not tell you exactly how much income will be
-                    subject to every tax or withholding calculation.
-                </p>
-
-                <!-- CALCULATING -->
-
-                <h2>How to Calculate Net Pay From Gross Pay</h2>
-
-                <p>A simplified way to think about the calculation is:</p>
-
-                <div class="formula-box">Net Pay = Gross Pay − Applicable Taxes − Other Deductions</div>
-
-                <p>A practical calculation can follow these steps:</p>
-
-                <ol>
-                    <li>Determine the employee's gross pay for the pay period.</li>
-                    <li>Identify applicable pre-tax deductions.</li>
-                    <li>Determine applicable payroll tax withholding.</li>
-                    <li>Identify applicable post-tax deductions.</li>
-                    <li>Subtract applicable taxes and deductions from gross pay.</li>
-                    <li>The remaining amount is the employee's net pay.</li>
-                </ol>
-
-                <p>
-                    The actual calculation should account for the employee's specific withholding and deduction
-                    circumstances.
-                </p>
-
-                <!-- WHY DIFFERENT -->
-
-                <h2>Why Is My Net Pay Different From My Salary?</h2>
-
-                <p>
-                    Your salary is generally a gross compensation figure, while your paycheck's net pay is the
-                    amount remaining after applicable deductions.
-                </p>
-
-                <p>
-                    For example, someone earning a $60,000 annual salary will not normally receive $60,000 directly
-                    in their bank account. The annual salary represents gross compensation, while the actual money
-                    received over the year is affected by taxes, benefits, retirement contributions, and other
-                    deductions.
-                </p>
 
                 <!-- CTA -->
 
-                <section class="article-cta">
-                    <h2>Want to Estimate Your Take-Home Pay?</h2>
+                <section class="article-section">
 
-                    <p>
-                        Use the PaycheckMint paycheck calculator to estimate taxes, deductions, and take-home pay
-                        based on your paycheck information.
-                    </p>
+                    <div class="calculator-cta">
 
-                    <a class="article-button" href="/paycheck-tax-calculator/"> Calculate Your Paycheck </a>
+                        <h3>
+                            Want to see your actual paycheck estimate?
+                        </h3>
+
+                        <p>
+                            Enter your pay, location and deductions in the
+                            PaycheckMint calculator to estimate taxes and
+                            take-home pay.
+                        </p>
+
+                        <a href="/paycheck-tax-calculator/" class="cta-button">
+
+                            Calculate My Paycheck
+                            →
+                        </a>
+
+                    </div>
+
                 </section>
+
 
                 <!-- FAQ -->
 
-                <h2>Frequently Asked Questions</h2>
+                <section class="article-section" id="faq">
 
-                <div class="faq-list">
-                    <div class="faq-item">
-                        <h3 class="faq-question">Is gross pay before taxes?</h3>
+                    <h2>
+                        Frequently asked questions
+                    </h2>
 
-                        <p class="faq-answer">
-                            Generally, yes. Gross pay is the employee's earnings before payroll taxes and other
-                            deductions are taken from the paycheck.
-                        </p>
+                    <div class="faq">
+
+                        <details>
+
+                            <summary>
+                                What is gross pay?
+                            </summary>
+
+                            <p>
+                                Gross pay is the amount you earn before applicable
+                                taxes and other payroll deductions are taken out.
+                            </p>
+
+                        </details>
+
+
+                        <details>
+
+                            <summary>
+                                What is net pay?
+                            </summary>
+
+                            <p>
+                                Net pay is the amount remaining after applicable
+                                payroll taxes and other deductions have been
+                                withheld.
+                            </p>
+
+                        </details>
+
+
+                        <details>
+
+                            <summary>
+                                Is net pay the same as take-home pay?
+                            </summary>
+
+                            <p>
+                                The terms net pay and take-home pay are commonly
+                                used to describe the amount an employee receives
+                                after applicable payroll deductions.
+                            </p>
+
+                        </details>
+
+
+                        <details>
+
+                            <summary>
+                                Why is my net pay lower than my gross pay?
+                            </summary>
+
+                            <p>
+                                Payroll taxes and other deductions are generally
+                                taken from gross earnings before the remaining
+                                amount is paid to you.
+                            </p>
+
+                        </details>
+
+
+                        <details>
+
+                            <summary>
+                                Can two people with the same gross pay have different net pay?
+                            </summary>
+
+                            <p>
+                                Yes. Tax withholding, benefits, retirement
+                                contributions, state or local taxes and other
+                                deductions can differ between employees.
+                            </p>
+
+                        </details>
+
+
+                        <details>
+
+                            <summary>
+                                Is gross pay the same as taxable income?
+                            </summary>
+
+                            <p>
+                                Not necessarily. Payroll and tax rules determine
+                                which types of compensation are subject to
+                                particular taxes.
+                            </p>
+
+                        </details>
+
                     </div>
 
-                    <div class="faq-item">
-                        <h3 class="faq-question">Is net pay the same as take-home pay?</h3>
+                </section>
 
-                        <p class="faq-answer">
-                            In a typical paycheck context, yes. Net pay is the amount remaining after applicable
-                            taxes and deductions and is commonly called take-home pay.
-                        </p>
-                    </div>
-
-                    <div class="faq-item">
-                        <h3 class="faq-question">How do I calculate net pay from gross pay?</h3>
-
-                        <p class="faq-answer">
-                            A simplified calculation is gross pay minus applicable taxes and other deductions.
-                            Actual payroll calculations depend on the employee's withholding and deduction
-                            circumstances.
-                        </p>
-                    </div>
-
-                    <div class="faq-item">
-                        <h3 class="faq-question">Why is my net pay lower than my gross pay?</h3>
-
-                        <p class="faq-answer">
-                            Taxes and other applicable deductions are withheld from gross pay before the remaining
-                            amount is paid to the employee.
-                        </p>
-                    </div>
-
-                    <div class="faq-item">
-                        <h3 class="faq-question">Can two people with the same salary have different net pay?</h3>
-
-                        <p class="faq-answer">
-                            Yes. Different tax withholding, benefits, retirement contributions, state or local
-                            taxes, and other deductions can result in different net pay.
-                        </p>
-                    </div>
-
-                    <div class="faq-item">
-                        <h3 class="faq-question">What is the difference between biweekly and semimonthly pay?</h3>
-
-                        <p class="faq-answer">
-                            Biweekly pay generally occurs 26 times per year, while semimonthly pay generally occurs
-                            24 times per year.
-                        </p>
-                    </div>
-
-                    <div class="faq-item">
-                        <h3 class="faq-question">Does overtime increase gross pay?</h3>
-
-                        <p class="faq-answer">
-                            Yes. Applicable overtime earnings increase gross pay. The resulting net pay depends on
-                            taxes and other deductions.
-                        </p>
-                    </div>
-
-                    <div class="faq-item">
-                        <h3 class="faq-question">Where can I find gross pay and net pay on my pay stub?</h3>
-
-                        <p class="faq-answer">
-                            Your pay stub normally identifies earnings, deductions, and a net-pay or take-home
-                            amount. The exact layout varies by employer and payroll provider.
-                        </p>
-                    </div>
-                </div>
 
                 <!-- SOURCES -->
 
-                <section class="sources">
-                    <h2>Sources</h2>
+                <section class="article-section">
 
-                    <p>This guide was informed by the following U.S. payroll and employment resources:</p>
+                    <h2>
+                        Sources & notes
+                    </h2>
 
-                    <ul>
-                        <li>
-                            <a href="https://www.adp.com/resources/articles-and-insights/articles/g/gross-pay-vs-net-pay.aspx"
-                                target="_blank" rel="noopener noreferrer">
-                                ADP — Gross Pay vs. Net Pay
+                    <div class="source-note">
+
+                        <p>
+                            General payroll definitions on this page are based on
+                            U.S. government guidance from the Internal Revenue
+                            Service.
+                        </p>
+
+                        <p style="margin-top:10px;">
+                            <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer">
+                                IRS.gov
                             </a>
-                        </li>
+                        </p>
 
-                        <li>
-                            <a href="https://www.paycor.com/resource-center/hr-glossary/gross-vs-net-pay/"
-                                target="_blank" rel="noopener noreferrer">
-                                Paycor — Gross vs. Net Pay
-                            </a>
-                        </li>
+                        <p style="margin-top:10px;">
+                            PaycheckMint calculations are estimates. Actual
+                            withholding can vary based on your earnings,
+                            pay frequency, Form W-4 information, state and local
+                            rules, benefits and other deductions.
+                        </p>
 
-                        <li>
-                            <a href="https://choosework.ssa.gov/blog/2025-04-01-gross-vs-net-income-whats-the-difference.html"
-                                target="_blank" rel="noopener noreferrer">
-                                Social Security Administration / Ticket to Work — Gross vs. Net Income
-                            </a>
-                        </li>
+                    </div>
 
-                        <li>
-                            <a href="https://tdx.sdbor.edu/TDClient/33/Portal/KB/Article/260/Gross-Income-vs-Net-Income"
-                                target="_blank" rel="noopener noreferrer">
-                                South Dakota Board of Regents — Gross Income vs. Net Income
-                            </a>
-                        </li>
-                    </ul>
                 </section>
-            </div>
-        </article>
+
+
+            </article>
+
+
+            <!-- ==================================================
+             SIDEBAR
+        ================================================== -->
+
+            <aside class="sidebar">
+
+
+                <div class="side-card">
+
+                    <h3>
+                        On this page
+                    </h3>
+
+                    <nav class="toc">
+
+                        <a href="#top">
+                            Gross vs net
+                        </a>
+
+                        <a href="#gross-pay">
+                            Gross pay
+                        </a>
+
+                        <a href="#net-pay">
+                            Net pay
+                        </a>
+
+                        <a href="#formula">
+                            Net pay formula
+                        </a>
+
+                        <a href="#example">
+                            Paycheck example
+                        </a>
+
+                        <a href="#faq">
+                            FAQs
+                        </a>
+
+                    </nav>
+
+                </div>
+
+
+                <div class="side-card side-tool">
+
+                    <div class="side-tool-icon">
+                        $
+                    </div>
+
+                    <h3>
+                        Check your paycheck
+                    </h3>
+
+                    <p>
+                        Estimate your taxes, deductions and take-home pay.
+                    </p>
+
+                    <a href="/paycheck-tax-calculator/" class="side-button">
+
+                        Paycheck Calculator
+
+                    </a>
+
+                </div>
+
+
+                <div class="side-card">
+
+                    <h3>
+                        Related guides
+                    </h3>
+
+                    <nav class="toc">
+
+                        <a href="/income/">
+                            Income Guide
+                        </a>
+
+                        <a href="/salary-paycheck-calculator/">
+                            Salary Paycheck Calculator
+                        </a>
+
+                        <a href="/hourly-paycheck-calculator/">
+                            Hourly Paycheck Calculator
+                        </a>
+
+                        <a href="/monthly-paycheck-calculator/">
+                            Monthly Paycheck Calculator
+                        </a>
+
+                    </nav>
+
+                </div>
+
+
+            </aside>
+
+        </div>
+
     </main>
 
-    <!-- =========================================
-         FOOTER
-    ========================================== -->
 
-    <footer class="site-footer">
-        <div class="container">
-            <p>© 2026 PaycheckMint. Free personal finance tools and education.</p>
+    <!-- ======================================================
+     FOOTER
+====================================================== -->
 
-            <nav aria-label="Footer navigation">
-                <a href="/about/">About</a>
+    <footer class="pm-footer">
 
-                <a href="/contact/">Contact</a>
+        <div class="pm-footer-inner">
 
-                <a href="/privacy-policy/">Privacy</a>
+            <div class="pm-footer-main">
 
-                <a href="/terms/">Terms</a>
-            </nav>
+                <div class="pm-footer-grid">
+
+                    <div class="pm-footer-brand-column">
+
+                        <a class="pm-footer-brand" href="/">
+                            Paycheck<span>Mint</span>
+                        </a>
+
+                        <p class="pm-footer-description">
+                            Practical personal finance guides, paycheck tools,
+                            and calculators to help you make informed money decisions.
+                        </p>
+
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Money</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/income/">Income</a></li>
+                            <li><a href="/paycheck-tax-calculator/">Paycheck Calculator</a></li>
+                            <li><a href="/take-home-pay-calculator/">Take-Home Pay</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Finance</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/finance/taxes/">Taxes</a></li>
+                            <li><a href="/finance/budgeting/">Budgeting</a></li>
+                            <li><a href="/finance/credit-debt/">Credit &amp; Debt</a></li>
+                            <li><a href="/finance/investing/">Investing</a></li>
+                            <li><a href="/finance/insurance/">Insurance</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Company</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/contact/">Contact</a></li>
+                            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="pm-footer-bottom">
+
+                <div class="pm-footer-copyright">
+                    © 2026 PaycheckMint. All rights reserved.
+                </div>
+
+                <div class="pm-footer-legal">
+                    <a href="/privacy-policy/">Privacy Policy</a>
+                    <a href="/terms/">Terms</a>
+                    <a href="/contact/">Contact</a>
+                </div>
+
+            </div>
+
         </div>
+
     </footer>
 
-    <!-- =========================================
-         NAVIGATION SCRIPT
-    ========================================== -->
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const header = document.querySelector(".site-header");
+        (function () {
+            "use strict";
 
-            if (!header) return;
+            /* ==========================================================================
+               1. ASYNC COMPONENT LOADER
+               ========================================================================== */
+            document.addEventListener("DOMContentLoaded", function () {
+                loadSharedComponents();
+            });
 
-            const menuToggle = header.querySelector(".mobile-menu-toggle");
+            async function loadSharedComponents() {
+                const navbar = document.getElementById("site-navbar");
+                const footer = document.getElementById("site-footer");
 
-            const mainNav = header.querySelector(".main-nav");
+                try {
+                    const requests = [];
 
-            const dropdown = header.querySelector(".nav-dropdown");
+                    if (navbar) {
+                        requests.push(
+                            fetch("/components/navbar.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Navbar 404"))
+                                .then(html => { navbar.innerHTML = html; })
+                        );
+                    }
 
-            const dropdownToggle = header.querySelector(".nav-dropdown-toggle");
+                    if (footer) {
+                        requests.push(
+                            fetch("/components/footer.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Footer 404"))
+                                .then(html => { footer.innerHTML = html; })
+                        );
+                    }
 
-            /* =========================================
-           MOBILE MENU
-        ========================================= */
-
-            if (menuToggle && mainNav) {
-                menuToggle.addEventListener("click", function (event) {
-                    event.stopPropagation();
-
-                    const open = mainNav.classList.toggle("mobile-open");
-
-                    menuToggle.classList.toggle("open", open);
-
-                    menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
-
-                    menuToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
-                });
+                    await Promise.all(requests);
+                    // Re-bind focus or initial state if required after injection
+                    setupScrollHeader();
+                } catch (error) {
+                    console.error("Component loading error:", error);
+                    setupScrollHeader();
+                }
             }
 
-            /* =========================================
-           FINANCE DROPDOWN
-        ========================================= */
-
-            if (dropdown && dropdownToggle) {
-                dropdownToggle.addEventListener("click", function (event) {
-                    event.stopPropagation();
-
-                    const open = dropdown.classList.toggle("open");
-
-                    dropdownToggle.setAttribute("aria-expanded", open ? "true" : "false");
-                });
-            }
-
-            /* =========================================
-           CLOSE OUTSIDE
-        ========================================= */
-
+            /* ==========================================================================
+               2. EVENT DELEGATION (Handles dynamic elements automatically)
+               ========================================================================== */
             document.addEventListener("click", function (event) {
-                if (header.contains(event.target)) {
+
+                // --- DESKTOP DROPDOWNS ---
+                const dropdownBtn = event.target.closest(".pm-nav-dropdown-button");
+                if (dropdownBtn) {
+                    event.stopPropagation();
+                    const currentDropdown = dropdownBtn.closest(".pm-nav-dropdown");
+                    const isOpen = currentDropdown.classList.contains("is-open");
+
+                    // Close all dropdowns
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
+                    });
+
+                    // Toggle selected dropdown
+                    if (!isOpen) {
+                        currentDropdown.classList.add("is-open");
+                        dropdownBtn.setAttribute("aria-expanded", "true");
+                    }
                     return;
                 }
 
-                if (mainNav) {
-                    mainNav.classList.remove("mobile-open");
+                // Close desktop dropdowns when clicking outside
+                if (!event.target.closest(".pm-nav-dropdown")) {
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
+                    });
                 }
 
-                if (menuToggle) {
-                    menuToggle.classList.remove("open");
-
-                    menuToggle.setAttribute("aria-expanded", "false");
-
-                    menuToggle.setAttribute("aria-label", "Open navigation");
+                // --- MOBILE NAV TOGGLE ---
+                const mobileToggle = event.target.closest("#mobileToggle");
+                if (mobileToggle) {
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) {
+                        const isOpen = mobileNav.classList.toggle("is-open");
+                        mobileToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
                 }
 
-                if (dropdown) {
-                    dropdown.classList.remove("open");
+                // --- MOBILE SUBMENU TOGGLE ---
+                const mobileFinanceToggle = event.target.closest("#mobileFinanceToggle");
+                if (mobileFinanceToggle) {
+                    event.stopPropagation();
+                    const mobileFinanceLinks = document.getElementById("mobileFinanceLinks");
+                    if (mobileFinanceLinks) {
+                        const isOpen = mobileFinanceLinks.classList.toggle("is-open");
+                        mobileFinanceToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
                 }
 
-                if (dropdownToggle) {
-                    dropdownToggle.setAttribute("aria-expanded", "false");
+                // --- SEARCH TOGGLE (OPEN / CLOSE) ---
+                const searchToggle = event.target.closest("#searchToggle");
+                const mobileSearchBtn = event.target.closest("#mobileSearchButton");
+                const searchClose = event.target.closest("#searchClose");
+                const searchPanel = document.getElementById("searchPanel");
+
+                if (searchToggle || mobileSearchBtn) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) mobileNav.classList.remove("is-open");
+
+                    if (searchPanel) {
+                        if (searchPanel.classList.contains("is-open") && searchToggle) {
+                            closeSearch();
+                        } else {
+                            openSearch();
+                        }
+                    }
+                    return;
+                }
+
+                if (searchClose) {
+                    event.preventDefault();
+                    closeSearch();
+                    return;
+                }
+
+                // Close search panel when clicking outside of it
+                if (searchPanel && searchPanel.classList.contains("is-open")) {
+                    if (!searchPanel.contains(event.target)) {
+                        closeSearch();
+                    }
                 }
             });
 
-            /* =========================================
-           CLOSE AFTER LINK CLICK
-        ========================================= */
+            /* ==========================================================================
+               3. SEARCH HELPER FUNCTIONS & LIVE FILTERING
+               ========================================================================== */
+            function openSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchToggle = document.getElementById("searchToggle");
 
-            if (mainNav) {
-                mainNav.querySelectorAll("a").forEach(function (link) {
-                    link.addEventListener("click", function () {
-                        mainNav.classList.remove("mobile-open");
-
-                        if (menuToggle) {
-                            menuToggle.classList.remove("open");
-
-                            menuToggle.setAttribute("aria-expanded", "false");
-                        }
-                    });
-                });
+                if (!searchPanel) return;
+                searchPanel.classList.add("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "true");
+                    searchToggle.setAttribute("aria-label", "Close search");
+                }
+                if (searchInput) setTimeout(() => searchInput.focus(), 100);
             }
 
-            /* =========================================
-           CLOSE MOBILE MENU WHEN RESIZING
-        ========================================= */
+            function closeSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchResults = document.getElementById("searchResults");
+                const searchToggle = document.getElementById("searchToggle");
 
-            window.addEventListener("resize", function () {
-                if (window.innerWidth > 700) {
-                    if (mainNav) {
-                        mainNav.classList.remove("mobile-open");
-                    }
+                if (!searchPanel) return;
+                searchPanel.classList.remove("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "false");
+                    searchToggle.setAttribute("aria-label", "Open search");
+                }
+                if (searchInput) searchInput.value = "";
+                if (searchResults) searchResults.innerHTML = "";
+            }
 
-                    if (menuToggle) {
-                        menuToggle.classList.remove("open");
-
-                        menuToggle.setAttribute("aria-expanded", "false");
-                    }
+            // Keyboard Shortcuts (Escape Key)
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closeSearch();
                 }
             });
-        });
+
+            // Live Search Typing Input Event
+            document.addEventListener("input", function (event) {
+                if (event.target.id !== "siteSearch") return;
+
+                const query = event.target.value.trim().toLowerCase();
+                const searchResults = document.getElementById("searchResults");
+                if (!searchResults) return;
+
+                if (query.length === 0) {
+                    searchResults.innerHTML = "";
+                    return;
+                }
+
+                const searchablePages = [
+                    { title: "Paycheck Tax Calculator", url: "/paycheck-tax-calculator/", description: "Calculate accurate net pay and taxes." },
+                    { title: "Take-Home Pay Calculator", url: "/take-home-pay-calculator/", description: "Estimate your actual paycheck total after deductions." },
+                    { title: "Hourly Paycheck Calculator", url: "/hourly-paycheck-calculator/", description: "Calculate income based on hourly wage and hours worked." },
+                    { title: "Overtime Pay Calculator", url: "/overtime-pay-calculator/", description: "Compute overtime rates and total extra wages." },
+                    { title: "Salary Paycheck Calculator", url: "/salary-paycheck-calculator/", description: "Break down annual salary into per-paycheck earnings." },
+                    { title: "Income Overview", url: "/income/", description: "Learn about taxable income, gross wages, and take-home pay." },
+                    { title: "Finance Overview", url: "/finance/", description: "Guides on managing personal finances and budgeting strategies." },
+                    { title: "Budgeting Guides", url: "/finance/budgeting/", description: "Strategies for budgeting your paycheck effectively." }
+                ];
+
+                const matches = searchablePages.filter(page =>
+                    page.title.toLowerCase().includes(query) ||
+                    page.description.toLowerCase().includes(query)
+                );
+
+                if (matches.length === 0) {
+                    searchResults.innerHTML = `<p class="pm-search-no-results">No results found for "${escapeHTML(query)}"</p>`;
+                    return;
+                }
+
+                searchResults.innerHTML = matches.map(item => `
+            <a href="${item.url}" class="pm-search-result-item">
+                <span class="pm-search-result-title">${escapeHTML(item.title)}</span>
+                <span class="pm-search-result-desc">${escapeHTML(item.description)}</span>
+            </a>
+        `).join("");
+            });
+
+            function escapeHTML(str) {
+                return str.replace(/[&<>'"]/g, tag => ({
+                    '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+                }[tag] || tag));
+            }
+
+            /* ==========================================================================
+               4. SCROLL SHADOW
+               ========================================================================== */
+            function setupScrollHeader() {
+                const header = document.getElementById("site-header");
+                if (!header) return;
+
+                window.addEventListener("scroll", function () {
+                    if (window.scrollY > 20) {
+                        header.classList.add("is-scrolled");
+                    } else {
+                        header.classList.remove("is-scrolled");
+                    }
+                }, { passive: true });
+            }
+
+        })();
     </script>
+
 </body>
 
 </html>

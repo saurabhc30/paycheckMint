@@ -1,1940 +1,2825 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Emergency Fund: How Much Should You Save? | PaycheckMint</title>
 
     <meta name="description"
-        content="Learn what an emergency fund is, how much to save, where to keep emergency savings, what counts as an emergency, and how to build an emergency fund on any budget." />
+        content="Learn how much to save for an emergency fund, what expenses to include, where to keep emergency savings, and how to build your fund on any budget.">
 
-    <meta name="keywords"
-        content="emergency fund, emergency fund calculator, how much emergency fund should I have, emergency savings, emergency fund by age, how to build an emergency fund, emergency fund goal" />
+    <meta name="robots" content="index, follow">
 
-    <link rel="canonical" href="https://paycheckmint.com/finance/budgeting/emergency-fund/" />
+    <link rel="canonical" href="https://paycheckmint.com/finance/budgeting/emergency-fund/">
 
-    <meta property="og:title" content="Emergency Fund: How Much Should You Save? | PaycheckMint" />
+    <meta property="og:title" content="Emergency Fund: How Much Should You Save? | PaycheckMint">
+
     <meta property="og:description"
-        content="Calculate an emergency fund target based on your essential monthly expenses and learn practical ways to build emergency savings." />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://paycheckmint.com/finance/budgeting/emergency-fund/" />
+        content="Learn how to calculate an emergency-fund target, build savings, decide what counts as an emergency, and choose where to keep your money.">
+
+    <meta property="og:type" content="article">
+
+    <meta property="og:url" content="https://paycheckmint.com/finance/budgeting/emergency-fund/">
+
+    <meta property="og:site_name" content="PaycheckMint">
+
+    <meta name="theme-color" content="#176B5B">
+
+    <link rel="icon" href="/icon.ico">
+
+    <!-- Global stylesheet -->
+    <link rel="stylesheet" href="/style.css">
 
     <style>
-        :root {
-            --bg: #f6f5f1;
-            --surface: #ffffff;
-            --surface-soft: #faf9f6;
-            --ink: #191919;
-            --muted: #74736f;
-            --muted-light: #999791;
-            --line: #deddd8;
-            --line-dark: #cbc9c3;
-            --accent: #5954d9;
-            --accent-dark: #4843c4;
-            --accent-soft: #eeedff;
-            --success: #287a4d;
-            --danger: #b94a48;
-            --shadow: 0 10px 30px rgba(25, 25, 25, 0.06);
-            --radius: 16px;
+        /* =========================================================
+           EMERGENCY FUND PAGE
+        ========================================================= */
+
+        .emergency-page {
+            background: var(--bg, #F7F8F6);
+            color: var(--text, #17201D);
         }
 
-        * {
-            box-sizing: border-box;
+        .page-shell {
+            width: min(1200px, calc(100% - 40px));
+            margin: 0 auto;
         }
 
-        html {
-            scroll-behavior: smooth;
+        /* =========================================================
+           BREADCRUMB
+        ========================================================= */
+
+        .breadcrumbs {
+            padding: 28px 0 12px;
+            font-size: 14px;
+            color: #68736f;
         }
 
-        body {
-            margin: 0;
-            background: var(--bg);
-            color: var(--ink);
-            font-family:
-                Inter,
-                ui-sans-serif,
-                system-ui,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                sans-serif;
-            line-height: 1.65;
-            overflow-x: hidden;
-        }
-
-        .logo {
-            font-size: 1.35rem;
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            white-space: nowrap;
-            color: #000;
+        .breadcrumbs a {
+            color: #176B5B;
             text-decoration: none;
         }
 
-        .logo span {
-            color: var(--accent);
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        a:hover {
+        .breadcrumbs a:hover {
             text-decoration: underline;
         }
 
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(246, 245, 241, 0.96);
-            border-bottom: 1px solid var(--line);
-            backdrop-filter: blur(12px);
+        .breadcrumb-separator {
+            margin: 0 8px;
+            color: #a2aaa6;
         }
 
-        .header-inner {
-            width: min(1180px, calc(100% - 32px));
-            margin: 0 auto;
-            min-height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .article-hero {
+            padding: 18px 0 38px;
         }
 
-        .brand {
-            color: var(--ink);
-            font-size: 1.28rem;
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            white-space: nowrap;
-        }
-
-        .brand:hover {
-            text-decoration: none;
-        }
-
-        .main-nav {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .main-nav>a,
-        .dropdown-toggle {
-            border: 0;
-            background: transparent;
-            color: var(--ink);
-            padding: 10px 12px;
-            border-radius: 9px;
-            font: inherit;
-            font-size: 0.94rem;
-            cursor: pointer;
-        }
-
-        .main-nav>a:hover,
-        .dropdown-toggle:hover {
-            background: var(--surface);
-            text-decoration: none;
-        }
-
-        .nav-dropdown {
-            position: relative;
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: calc(100% + 7px);
-            right: 0;
-            min-width: 220px;
-            padding: 8px;
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            background: var(--surface);
-            box-shadow: var(--shadow);
-            display: none;
-        }
-
-        .nav-dropdown.open .dropdown-menu {
-            display: block;
-        }
-
-        .dropdown-menu a {
-            display: block;
-            padding: 10px 12px;
-            color: var(--ink);
-            border-radius: 8px;
-            font-size: 0.92rem;
-        }
-
-        .dropdown-menu a:hover {
-            background: var(--surface-soft);
-            text-decoration: none;
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-            border: 1px solid var(--line);
-            background: var(--surface);
-            color: var(--ink);
-            width: 42px;
-            height: 42px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
-
-        .page-wrap {
-            width: min(1180px, calc(100% - 32px));
-            margin: 0 auto;
-        }
-
-        .breadcrumb {
-            padding: 26px 0 12px;
-            color: var(--muted);
-            font-size: 0.88rem;
-        }
-
-        .breadcrumb a {
-            color: var(--muted);
-        }
-
-        .hero {
-            padding: 20px 0 30px;
-            max-width: 850px;
-        }
-
-        .eyebrow {
+        .article-kicker {
             display: inline-flex;
-            padding: 6px 10px;
-            border-radius: 999px;
-            background: var(--accent-soft);
-            color: var(--accent-dark);
-            font-size: 0.8rem;
-            font-weight: 750;
+            align-items: center;
+            gap: 7px;
             margin-bottom: 14px;
-        }
-
-        h1,
-        h2,
-        h3 {
-            line-height: 1.2;
-            letter-spacing: -0.035em;
-        }
-
-        h1 {
-            font-size: clamp(2rem, 5vw, 3.45rem);
-            margin: 0 0 16px;
-            max-width: 850px;
-        }
-
-        h2 {
-            font-size: clamp(1.55rem, 3vw, 2.1rem);
-            margin: 46px 0 16px;
-        }
-
-        h3 {
-            font-size: 1.2rem;
-            margin: 25px 0 9px;
-        }
-
-        p {
-            margin: 0 0 17px;
-        }
-
-        .lead {
-            color: #4e4d49;
-            font-size: 1.1rem;
-            max-width: 800px;
-        }
-
-        .quick-answer {
-            margin: 20px 0;
-            padding: 18px 20px;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-left: 4px solid var(--accent);
-            border-radius: 12px;
-        }
-
-        .quick-answer strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .layout {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) 310px;
-            gap: 38px;
-            align-items: start;
-        }
-
-        .article {
-            min-width: 0;
-        }
-
-        .card {
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
-
-        .calculator {
-            padding: 24px;
-            margin: 8px 0 42px;
-        }
-
-        .calculator h2 {
-            margin-top: 0;
-        }
-
-        .calculator-intro {
-            color: var(--muted);
-            margin-bottom: 22px;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 14px;
-        }
-
-        .field {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .field.full {
-            grid-column: 1 / -1;
-        }
-
-        label {
-            font-size: 0.86rem;
+            color: #176B5B;
+            font-size: 14px;
             font-weight: 700;
+            letter-spacing: .02em;
         }
 
-        input,
-        select {
-            width: 100%;
-            border: 1px solid var(--line-dark);
-            background: #fff;
-            color: var(--ink);
-            border-radius: 9px;
-            padding: 11px 12px;
-            font: inherit;
-            outline: none;
+        .article-kicker::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #C9922E;
         }
 
-        input:focus,
-        select:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(89, 84, 217, 0.1);
+        .article-hero h1 {
+            max-width: 850px;
+            margin: 0 0 16px;
+            font-size: clamp(38px, 5vw, 58px);
+            line-height: 1.08;
+            letter-spacing: -0.035em;
+            color: #17201D;
         }
 
-        .field-note {
-            color: var(--muted-light);
-            font-size: 0.75rem;
+        .article-intro {
+            max-width: 820px;
+            margin: 0;
+            color: #5f6965;
+            font-size: 20px;
+            line-height: 1.7;
         }
 
-        .results {
-            margin-top: 24px;
+        /* =========================================================
+           MAIN LAYOUT
+        ========================================================= */
+
+        .content-layout {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 10px;
+            grid-template-columns: minmax(0, 1fr) 300px;
+            gap: 48px;
+            align-items: start;
+            padding-bottom: 70px;
         }
 
-        .result-box {
-            padding: 15px;
-            background: var(--surface-soft);
-            border: 1px solid var(--line);
-            border-radius: 11px;
+        .article-content {
+            min-width: 0;
+            max-width: 780px;
         }
 
-        .result-box.highlight {
-            background: var(--accent-soft);
-            border-color: #d9d7ff;
-        }
-
-        .result-label {
-            color: var(--muted);
-            font-size: 0.78rem;
-            margin-bottom: 3px;
-        }
-
-        .result-value {
-            font-size: 1.25rem;
-            font-weight: 800;
-        }
-
-        .result-note {
-            color: var(--muted);
-            font-size: 0.75rem;
-            margin-top: 3px;
-        }
-
-        .calculator-status {
-            margin-top: 15px;
-            padding: 12px 14px;
-            border-radius: 10px;
-            background: var(--surface-soft);
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
-        .calculator-status.success {
-            color: var(--success);
-            background: #eef8f2;
-        }
-
-        .calculator-status.warning {
-            color: var(--danger);
-            background: #fff1f0;
-        }
-
-        .progress {
-            margin-top: 18px;
-        }
-
-        .progress-head {
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-            color: var(--muted);
-            font-size: 0.8rem;
-            margin-bottom: 7px;
-        }
-
-        .bar {
-            height: 10px;
-            background: #e9e8e3;
-            border-radius: 99px;
-            overflow: hidden;
-        }
-
-        .bar-fill {
-            height: 100%;
-            width: 0;
-            background: var(--accent);
-            border-radius: inherit;
-            transition: width 0.25s ease;
-        }
+        /* IMPORTANT:
+           Sidebar has no height, max-height or overflow-y.
+           It only sticks naturally while its grid container permits.
+        */
 
         .sidebar {
             position: sticky;
-            top: 92px;
+            top: 96px;
+            align-self: start;
+            height: max-content;
         }
 
-        .side-card {
-            padding: 20px;
-            margin-bottom: 16px;
+        /* =========================================================
+           QUICK ANSWER
+        ========================================================= */
+
+        .quick-answer {
+            margin: 0 0 34px;
+            padding: 26px 28px;
+            background: #EEF5F2;
+            border: 1px solid #d7e7e1;
+            border-radius: 16px;
         }
 
-        .side-card h3 {
-            margin-top: 0;
-            font-size: 1.05rem;
+        .quick-answer-label {
+            margin-bottom: 9px;
+            color: #176B5B;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .07em;
         }
 
-        .toc a {
-            display: block;
-            padding: 6px 0;
-            color: var(--muted);
-            font-size: 0.88rem;
+        .quick-answer p {
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.7;
+            color: #26332e;
         }
 
-        .toc a:hover {
-            color: var(--accent);
-            text-decoration: none;
+        /* =========================================================
+           ARTICLE TYPOGRAPHY
+        ========================================================= */
+
+        .article-content h2 {
+            margin: 52px 0 18px;
+            font-size: 32px;
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+            color: #17201D;
         }
 
-        .cta {
-            background: var(--accent);
-            color: white;
-            border: 0;
+        .article-content h3 {
+            margin: 34px 0 12px;
+            font-size: 23px;
+            line-height: 1.3;
+            color: #17201D;
         }
 
-        .cta h3,
-        .cta p {
-            color: white;
+        .article-content p {
+            margin: 0 0 18px;
+            font-size: 17px;
+            line-height: 1.78;
+            color: #46524e;
         }
 
-        .cta a {
-            display: inline-block;
-            background: white;
-            color: var(--accent-dark);
-            padding: 9px 13px;
-            border-radius: 8px;
-            font-weight: 750;
-            font-size: 0.86rem;
+        .article-content strong {
+            color: #26332e;
         }
 
-        .info-grid {
+        .article-content a {
+            color: #176B5B;
+            font-weight: 650;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 0 0 22px;
+            padding-left: 24px;
+        }
+
+        .article-content li {
+            margin: 9px 0;
+            color: #46524e;
+            font-size: 16.5px;
+            line-height: 1.65;
+        }
+
+        /* =========================================================
+           CALCULATOR
+        ========================================================= */
+
+        .calculator-card {
+            margin: 36px 0 42px;
+            padding: 28px;
+            background: #fff;
+            border: 1px solid #dfe6e2;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(23, 32, 29, 0.05);
+        }
+
+        .calculator-heading {
+            margin-bottom: 24px;
+        }
+
+        .calculator-heading h2 {
+            margin: 0 0 8px;
+            font-size: 30px;
+        }
+
+        .calculator-heading p {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .calculator-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 16px;
-            margin: 22px 0;
         }
 
-        .info-box {
-            padding: 19px;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 12px;
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
         }
 
-        .info-box h3 {
-            margin-top: 0;
+        .form-group.full {
+            grid-column: 1 / -1;
         }
 
-        .checklist {
-            padding-left: 21px;
+        .form-group label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #34413c;
         }
 
-        .checklist li {
-            margin-bottom: 9px;
-        }
-
-        .table-wrap {
-            overflow-x: auto;
-            margin: 20px 0;
-            border: 1px solid var(--line);
-            border-radius: 12px;
-        }
-
-        table {
+        .form-group input,
+        .form-group select {
             width: 100%;
-            min-width: 620px;
-            border-collapse: collapse;
-            background: var(--surface);
+            box-sizing: border-box;
+            min-height: 46px;
+            padding: 10px 12px;
+            border: 1px solid #cfd9d5;
+            border-radius: 9px;
+            background: #fff;
+            color: #17201D;
+            font-size: 16px;
+            outline: none;
         }
 
-        th,
-        td {
-            padding: 12px 14px;
-            text-align: left;
-            border-bottom: 1px solid var(--line);
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #176B5B;
+            box-shadow: 0 0 0 3px rgba(23, 107, 91, .1);
         }
 
-        th {
-            background: var(--surface-soft);
-            font-size: 0.85rem;
+        .field-help {
+            font-size: 12px;
+            color: #77817d;
+            line-height: 1.45;
         }
 
-        td {
-            font-size: 0.9rem;
+        .calculator-button {
+            margin-top: 20px;
+            width: 100%;
+            min-height: 50px;
+            border: 0;
+            border-radius: 10px;
+            background: #176B5B;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 750;
+            cursor: pointer;
+            transition: background .2s ease, transform .2s ease;
         }
 
-        tr:last-child td {
-            border-bottom: 0;
+        .calculator-button:hover {
+            background: #0F5145;
+            transform: translateY(-1px);
         }
 
-        .callout {
-            margin: 24px 0;
-            padding: 19px 20px;
-            border: 1px solid var(--line);
-            background: var(--surface);
-            border-radius: 12px;
-        }
-
-        .callout strong {
-            color: var(--ink);
-        }
-
-        .example-budget {
+        .calculator-results {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 12px;
-            margin: 20px 0;
+            margin-top: 24px;
         }
 
-        .example-item {
-            padding: 15px;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 10px;
+        .result-box {
+            padding: 18px;
+            border-radius: 12px;
+            background: #F7F8F6;
+            border: 1px solid #e1e7e4;
         }
 
-        .example-item span {
+        .result-box.highlight {
+            background: #EEF5F2;
+            border-color: #d4e7df;
+        }
+
+        .result-label {
             display: block;
-            color: var(--muted);
-            font-size: 0.8rem;
+            margin-bottom: 6px;
+            color: #69746f;
+            font-size: 13px;
+            font-weight: 650;
         }
 
-        .example-item strong {
-            font-size: 1.1rem;
+        .result-value {
+            color: #176B5B;
+            font-size: 25px;
+            font-weight: 800;
+            line-height: 1.2;
         }
 
-        .milestone-grid {
+        .progress-wrap {
+            margin-top: 20px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #64706b;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            overflow: hidden;
+            border-radius: 99px;
+            background: #e5ebe8;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            border-radius: inherit;
+            background: #176B5B;
+            transition: width .35s ease;
+        }
+
+        .calculator-note {
+            margin-top: 16px;
+            color: #77817d;
+            font-size: 12px;
+            line-height: 1.55;
+        }
+
+        /* =========================================================
+           FEATURE CARDS
+        ========================================================= */
+
+        .feature-grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 12px;
-            margin: 22px 0;
+            gap: 15px;
+            margin: 25px 0 35px;
         }
 
-        .milestone {
-            padding: 18px;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 12px;
+        .feature-card {
+            padding: 22px;
+            background: #fff;
+            border: 1px solid #dfe6e2;
+            border-radius: 14px;
         }
 
-        .milestone-number {
-            display: block;
-            color: var(--accent);
-            font-size: 0.78rem;
+        .feature-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            margin-bottom: 15px;
+            border-radius: 11px;
+            background: #EEF5F2;
+            color: #176B5B;
+            font-size: 20px;
             font-weight: 800;
-            margin-bottom: 5px;
         }
 
-        .milestone h3 {
-            margin-top: 0;
+        .feature-card h3 {
+            margin: 0 0 8px;
+            font-size: 19px;
         }
 
-        .faq {
-            border-top: 1px solid var(--line);
+        .feature-card p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.6;
         }
 
-        .faq details {
-            border-bottom: 1px solid var(--line);
-            padding: 15px 0;
+        /* =========================================================
+           TABLES
+        ========================================================= */
+
+        .table-wrap {
+            margin: 24px 0 30px;
+            overflow-x: auto;
+            border: 1px solid #dfe6e2;
+            border-radius: 12px;
+            background: #fff;
         }
 
-        .faq summary {
-            cursor: pointer;
+        .comparison-table {
+            width: 100%;
+            min-width: 560px;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #e7ecea;
+            text-align: left;
+            vertical-align: top;
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        .comparison-table th {
+            background: #F7F8F6;
+            color: #26332e;
             font-weight: 750;
         }
 
-        .disclaimer {
-            margin-top: 40px;
-            padding: 17px;
-            color: var(--muted);
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 11px;
-            font-size: 0.82rem;
+        .comparison-table td {
+            color: #52605b;
         }
 
-        footer {
-            margin-top: 70px;
-            border-top: 1px solid var(--line);
-            background: var(--bg);
+        .comparison-table tr:last-child td {
+            border-bottom: 0;
         }
 
-        .footer-inner {
-            width: min(1180px, calc(100% - 32px));
-            margin: 0 auto;
-            padding: 40px 0 24px;
+        /* =========================================================
+           CALLOUTS
+        ========================================================= */
+
+        .info-callout {
+            margin: 28px 0;
+            padding: 22px 24px;
+            border-left: 4px solid #C9922E;
+            border-radius: 0 12px 12px 0;
+            background: #fffaf0;
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.4fr repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .footer-brand {
-            font-weight: 800;
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-        }
-
-        .footer-copy {
-            color: var(--muted);
-            max-width: 350px;
-            font-size: 0.87rem;
-        }
-
-        footer h3 {
-            font-size: 0.9rem;
-            margin: 0 0 10px;
-        }
-
-        footer a {
+        .info-callout strong {
             display: block;
-            color: var(--muted);
-            font-size: 0.85rem;
-            margin: 6px 0;
+            margin-bottom: 6px;
+            color: #5a461e;
         }
 
-        .copyright {
-            border-top: 1px solid var(--line);
-            margin-top: 28px;
-            padding-top: 18px;
-            color: var(--muted);
-            font-size: 0.78rem;
+        .info-callout p {
+            margin: 0;
+            font-size: 15px;
         }
 
-        @media (max-width: 850px) {
-            .mobile-menu-toggle {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-            }
+        .formula-box {
+            margin: 25px 0;
+            padding: 23px;
+            background: #17201D;
+            color: #fff;
+            border-radius: 14px;
+        }
 
-            .main-nav {
-                position: absolute;
-                top: 70px;
-                left: 16px;
-                right: 16px;
-                display: none;
-                flex-direction: column;
-                align-items: stretch;
-                padding: 10px;
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: 13px;
-                box-shadow: var(--shadow);
-            }
+        .formula-label {
+            margin-bottom: 8px;
+            color: #b9cbc4;
+            font-size: 12px;
+            font-weight: 750;
+            text-transform: uppercase;
+            letter-spacing: .07em;
+        }
 
-            .main-nav.menu-open {
-                display: flex;
-            }
+        .formula {
+            font-size: 21px;
+            font-weight: 750;
+            line-height: 1.5;
+        }
 
-            .main-nav>a,
-            .dropdown-toggle {
-                width: 100%;
-                text-align: left;
-                padding: 12px;
-            }
+        /* =========================================================
+           FAQ
+        ========================================================= */
 
-            .nav-dropdown {
-                width: 100%;
-            }
+        .faq-list {
+            margin-top: 20px;
+            border-top: 1px solid #dfe6e2;
+        }
 
-            .dropdown-menu {
-                position: static;
-                box-shadow: none;
-                border: 0;
-                background: var(--surface-soft);
-                margin: 2px 0 5px;
-                display: none;
-            }
+        .faq-item {
+            padding: 22px 0;
+            border-bottom: 1px solid #dfe6e2;
+        }
 
-            .nav-dropdown.open .dropdown-menu {
-                display: block;
-            }
+        .faq-item h3 {
+            margin: 0 0 9px;
+            font-size: 19px;
+        }
 
-            .layout {
+        .faq-item p {
+            margin: 0;
+            font-size: 15.5px;
+        }
+
+        /* =========================================================
+           RELATED
+        ========================================================= */
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 22px;
+        }
+
+        .related-card {
+            display: block;
+            padding: 20px;
+            border: 1px solid #dfe6e2;
+            border-radius: 13px;
+            background: #fff;
+            text-decoration: none !important;
+            transition: transform .2s ease, border-color .2s ease;
+        }
+
+        .related-card:hover {
+            transform: translateY(-2px);
+            border-color: #b7cec5;
+        }
+
+        .related-card strong {
+            display: block;
+            margin-bottom: 6px;
+            color: #176B5B;
+            font-size: 17px;
+        }
+
+        .related-card span {
+            display: block;
+            color: #68736f;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* =========================================================
+           SOURCES / DISCLAIMER
+        ========================================================= */
+
+        .sources-box {
+            margin-top: 50px;
+            padding-top: 28px;
+            border-top: 1px solid #dfe6e2;
+        }
+
+        .sources-box h2 {
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        .sources-box ul {
+            margin-bottom: 20px;
+        }
+
+        .sources-box li {
+            font-size: 14px;
+        }
+
+        .disclaimer {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 12px;
+            background: #eef1ef;
+            color: #68736f;
+            font-size: 13px;
+            line-height: 1.65;
+        }
+
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
+
+        .sidebar-card {
+            padding: 22px;
+            background: #fff;
+            border: 1px solid #dfe6e2;
+            border-radius: 15px;
+        }
+
+        .sidebar-card+.sidebar-card {
+            margin-top: 15px;
+        }
+
+        .sidebar-title {
+            margin: 0 0 14px;
+            font-size: 16px;
+            font-weight: 800;
+            color: #17201D;
+        }
+
+        .sidebar-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar-list li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar-list a {
+            display: block;
+            padding: 8px 0;
+            color: #53605b;
+            font-size: 14px;
+            line-height: 1.4;
+            text-decoration: none;
+        }
+
+        .sidebar-list a:hover {
+            color: #176B5B;
+        }
+
+        .sidebar-tip {
+            margin: 0;
+            color: #66726d;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .sidebar-cta {
+            display: block;
+            margin-top: 14px;
+            padding: 12px 14px;
+            border-radius: 9px;
+            background: #176B5B;
+            color: #fff !important;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 750;
+            text-decoration: none !important;
+        }
+
+        .sidebar-cta:hover {
+            background: #0F5145;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 900px) {
+            .content-layout {
                 grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .article-content {
+                max-width: none;
             }
 
             .sidebar {
                 position: static;
             }
 
-            .milestone-grid {
-                grid-template-columns: 1fr;
+            .sidebar-card {
+                max-width: none;
             }
 
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .feature-grid {
+                grid-template-columns: 1fr;
             }
         }
 
-        @media (max-width: 600px) {
-
-            .header-inner,
-            .page-wrap,
-            .footer-inner {
-                width: min(100% - 22px, 1180px);
+        @media (max-width: 680px) {
+            .page-shell {
+                width: min(100% - 28px, 1200px);
             }
 
-            h1 {
-                font-size: 2.15rem;
+            .breadcrumbs {
+                padding-top: 20px;
+                font-size: 13px;
             }
 
-            .hero {
-                padding-top: 12px;
+            .article-hero {
+                padding-top: 14px;
+                padding-bottom: 28px;
             }
 
-            .form-grid,
-            .results,
-            .info-grid,
-            .example-budget {
+            .article-hero h1 {
+                font-size: 38px;
+            }
+
+            .article-intro {
+                font-size: 17px;
+                line-height: 1.65;
+            }
+
+            .quick-answer {
+                padding: 21px;
+            }
+
+            .quick-answer p {
+                font-size: 16px;
+            }
+
+            .article-content h2 {
+                margin-top: 42px;
+                font-size: 28px;
+            }
+
+            .article-content p {
+                font-size: 16px;
+            }
+
+            .calculator-card {
+                padding: 20px;
+            }
+
+            .calculator-grid,
+            .calculator-results,
+            .related-grid {
                 grid-template-columns: 1fr;
             }
 
-            .calculator {
-                padding: 17px;
+            .form-group.full {
+                grid-column: auto;
             }
 
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 20px;
-            }
-
-            .breadcrumb {
-                padding-top: 18px;
-            }
-        }
-
-        @media (max-width: 390px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
+            .formula {
+                font-size: 18px;
             }
         }
     </style>
 
+    <!-- Article Schema -->
     <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Emergency Fund: How Much Should You Save?",
+        "description": "Learn how much to save for an emergency fund, what expenses to include, where to keep emergency savings, and how to build your fund.",
+        "url": "https://paycheckmint.com/finance/budgeting/emergency-fund/",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://paycheckmint.com/finance/budgeting/emergency-fund/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "PaycheckMint",
+            "url": "https://paycheckmint.com/"
+        }
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
             {
-                "@context": "https://schema.org",
-                "@type": "Article",
-                "headline": "Emergency Fund: How Much Should You Save?",
-                "description": "Learn what an emergency fund is, how much to save, where to keep emergency savings, and how to build an emergency fund.",
-                "author": {
-                    "@type": "Organization",
-                    "name": "PaycheckMint"
-                },
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "PaycheckMint"
-                },
-                "mainEntityOfPage": {
-                    "@type": "WebPage",
-                    "@id": "https://paycheckmint.com/finance/budgeting/emergency-fund/"
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://paycheckmint.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Budgeting",
+                "item": "https://paycheckmint.com/finance/budgeting/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Emergency Fund",
+                "item": "https://paycheckmint.com/finance/budgeting/emergency-fund/"
+            }
+        ]
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is an emergency fund?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "An emergency fund is money set aside specifically for unexpected expenses or financial emergencies, such as an unexpected repair, medical expense or loss of income."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much should I have in an emergency fund?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "There is no universal amount. Three to six months of essential living expenses is a common longer-term planning benchmark, but the appropriate amount depends on income stability, household responsibilities, expenses and other circumstances."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should I have a $1,000 emergency fund?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A $1,000 balance can be used as an initial savings milestone, but it is not a universal final target. Your longer-term emergency fund may need to be larger depending on your essential expenses and circumstances."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where should I keep my emergency fund?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Emergency savings are generally kept somewhere safe, accessible and liquid. A dedicated savings account at a bank or credit union is one common option."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What counts as an emergency expense?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Examples include unexpected medical expenses, essential car or home repairs, emergency travel and a sudden loss of income. Planned purchases and routine expenses generally belong in a regular budget or sinking fund."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How can I build an emergency fund on a tight budget?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Start with an amount you can consistently save, automate contributions when practical, review cash flow, use occasional windfalls and increase your contribution when your financial situation allows."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should I pay off debt or build an emergency fund first?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The appropriate balance depends on your debt, interest costs, current savings, income stability and upcoming expenses. A small emergency reserve can help prevent an unexpected expense from immediately becoming new debt."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What happens if I use my emergency fund?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Using your emergency fund for a genuine emergency is one of its purposes. After the immediate expense is handled, update your budget and work toward rebuilding the fund."
                 }
             }
-        </script>
-
-    <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Home",
-                        "item": "https://paycheckmint.com/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Finance",
-                        "item": "https://paycheckmint.com/finance/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 3,
-                        "name": "Budgeting",
-                        "item": "https://paycheckmint.com/finance/budgeting/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 4,
-                        "name": "Emergency Fund",
-                        "item": "https://paycheckmint.com/finance/budgeting/emergency-fund/"
-                    }
-                ]
-            }
-        </script>
-
-    <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": [
-                    {
-                        "@type": "Question",
-                        "name": "What is an emergency fund?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "An emergency fund is money set aside specifically for unexpected expenses or financial emergencies, such as an unexpected repair, medical bill, or loss of income."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "How much should I have in an emergency fund?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "There is no single amount for everyone. A common longer-term benchmark is three to six months of essential living expenses, while a smaller initial savings milestone can still provide useful protection."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Should I have a $1,000 emergency fund?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "A $1,000 savings milestone can be a useful starting point, but it is not a universal requirement or sufficient target for every household. Your longer-term goal should reflect your essential expenses and circumstances."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Where should I keep my emergency fund?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Emergency savings are generally kept somewhere safe, accessible and liquid, such as a dedicated bank or credit union savings account. The appropriate account depends on your needs, access requirements, fees and applicable protections."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "What counts as an emergency expense?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Examples include unexpected medical costs, essential car or home repairs, necessary emergency travel and a sudden loss of income. Routine monthly expenses and planned purchases generally belong in the normal budget instead."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "How can I build an emergency fund on a tight budget?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Start with an amount you can consistently save, automate contributions when practical, use occasional windfalls for savings, review cash flow, and increase contributions when your income or expenses allow."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Should I pay off debt or build an emergency fund first?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "The balance between debt repayment and emergency savings depends on the type and cost of debt, your existing cash reserves, income stability and upcoming expenses. A small cash buffer can reduce the need to borrow for unexpected costs."
-                        }
-                    }
-                ]
-            }
-        </script>
-
+        ]
+    }
+    </script>
 </head>
 
-<body>
-    <header class="site-header">
-        <div class="header-inner">
-            <a href="/" class="logo"> Paycheck<span>Mint</span> </a>
+<body class="emergency-page">
 
-            <button class="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"
-                aria-controls="main-navigation">
-                ☰
+    <!-- =========================================================
+         NAVBAR
+         ========================================================= -->
+
+    <header class="pm-header" id="site-header">
+
+        <div class="pm-header-inner">
+
+            <a class="pm-brand" href="/" aria-label="PaycheckMint home">
+                Paycheck<span>Mint</span>
+            </a>
+
+            <nav class="pm-desktop-nav" aria-label="Main navigation">
+
+                <a class="pm-nav-link" href="/income/">
+                    Income
+                </a>
+
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                        Finance
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="pm-dropdown-menu">
+
+                        <span class="pm-dropdown-label">
+                            Explore
+                        </span>
+
+                        <a href="/finance/">
+                            <span>Finance Overview</span>
+                        </a>
+
+                        <a href="/income/">
+                            <span>Income & Earnings</span>
+                        </a>
+
+                        <a href="/finance/budgeting/">
+                            <span>Budgeting Guides</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                        Calculators
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="pm-dropdown-menu">
+
+                        <span class="pm-dropdown-label">
+                            Paycheck tools
+                        </span>
+
+                        <a href="/paycheck-tax-calculator/">
+                            Paycheck Tax Calculator
+                        </a>
+
+                        <a href="/monthly-paycheck-calculator/">
+                            Monthly Paycheck Calculator
+                        </a>
+
+                        <a href="/take-home-pay-calculator/">
+                            Take-Home Pay Calculator
+                        </a>
+
+                        <a href="/hourly-paycheck-calculator/">
+                            Hourly Paycheck Calculator
+                        </a>
+
+                        <a href="/overtime-pay-calculator/">
+                            Overtime Pay Calculator
+                        </a>
+
+                        <a href="/salary-paycheck-calculator/">
+                            Salary Paycheck Calculator
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <a class="pm-nav-link" href="/finance/">
+                    Learn
+                </a>
+
+            </nav>
+
+            <div class="pm-nav-spacer"></div>
+
+            <button class="pm-search-button" id="searchToggle" type="button" aria-label="Open search"
+                aria-expanded="false" aria-controls="searchPanel">
+
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="m20 20-4-4"></path>
+
+                </svg>
+
             </button>
 
-            <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
-                <a href="/">Home</a>
+            <a class="pm-header-cta" href="/paycheck-tax-calculator/">
+                Calculate paycheck
+            </a>
 
-                <a href="/paycheck-tax-calculator/">Paycheck Calculator</a>
+            <button class="pm-mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation"
+                aria-expanded="false" aria-controls="mobileNav">
+                <svg id="mobileMenuIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <path d="M4 6h16" />
+                    <path d="M4 12h16" />
+                    <path d="M4 18h16" />
+                </svg>
+            </button>
 
-                <a href="/income/">Income</a>
-
-                <div class="nav-dropdown">
-                    <button class="dropdown-toggle" type="button" aria-expanded="false">Finance ▾</button>
-
-                    <div class="dropdown-menu">
-                        <a href="/finance/">Finance Overview</a>
-                        <a href="/finance/taxes/">Taxes</a>
-                        <a href="/finance/budgeting/">Budgeting</a>
-                        <a href="/finance/credit-debt/">Credit &amp; Debt</a>
-                        <a href="/finance/investing/">Investing</a>
-                        <a href="/finance/insurance/">Insurance</a>
-                    </div>
-                </div>
-            </nav>
         </div>
+
+        <!-- SEARCH PANEL -->
+
+        <div class="pm-search-panel" id="searchPanel">
+
+            <div class="pm-search-inner">
+
+                <div class="pm-search-field">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="m20 20-4-4" />
+                    </svg>
+
+                    <input id="siteSearch" class="pm-search-input" type="search" autocomplete="off"
+                        placeholder="Search PaycheckMint..." aria-label="Search PaycheckMint">
+
+                    <button class="pm-search-close" id="searchClose" type="button" aria-label="Close search">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 6l12 12" />
+                            <path d="M18 6 6 18" />
+                        </svg>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="pm-search-results" id="searchResults"></div>
+
+        </div>
+
+        <!-- MOBILE NAV -->
+
+        <nav class="pm-mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+
+            <div class="pm-mobile-nav-inner">
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a href="/income/">
+                    Income
+                </a>
+
+                <button class="pm-mobile-finance-button" id="mobileFinanceToggle" type="button" aria-expanded="false">
+                    <span>Finance</span>
+
+                    <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m6 9 6 6 6-6" />
+                    </svg>
+                </button>
+
+                <div class="pm-mobile-finance-links" id="mobileFinanceLinks">
+
+                    <a href="/finance/">
+                        Finance Overview
+                    </a>
+
+                    <a href="/income/">
+                        Income & Earnings
+                    </a>
+
+                </div>
+
+                <a href="/paycheck-tax-calculator/">
+                    Paycheck Tax Calculator
+                </a>
+
+                <a href="/take-home-pay-calculator/">
+                    Take-Home Pay Calculator
+                </a>
+
+                <a href="/hourly-paycheck-calculator/">
+                    Hourly Paycheck Calculator
+                </a>
+
+                <a href="/overtime-pay-calculator/">
+                    Overtime Pay Calculator
+                </a>
+
+                <a href="/salary-paycheck-calculator/">
+                    Salary Paycheck Calculator
+                </a>
+
+                <a href="/weekly-paycheck-calculator/">
+                    Weekly Paycheck Calculator
+                </a>
+
+                <a href="/biweekly-paycheck-calculator/">
+                    Biweekly Paycheck Calculator
+                </a>
+
+                <a href="/monthly-paycheck-calculator/">
+                    Monthly Paycheck Calculator
+                </a>
+
+                <div class="pm-mobile-search-row">
+
+                    <button class="pm-button-secondary" id="mobileSearchButton" type="button">
+                        Search PaycheckMint
+                    </button>
+
+                </div>
+
+            </div>
+
+        </nav>
 
     </header>
 
-    <main class="page-wrap">
 
-        <div class="breadcrumb">
-            <a href="/">Home</a>
-            <span> / </span>
-            <a href="/finance/">Finance</a>
-            <span> / </span>
-            <a href="/finance/budgeting/">Budgeting</a>
-            <span> / Emergency Fund</span>
-        </div>
+    <!-- =========================================================
+         MAIN
+         ========================================================= -->
 
-        <section class="hero">
-            <span class="eyebrow">Budgeting &amp; Savings</span>
+    <main>
 
-            <h1>Emergency Fund: How Much Should You Save?</h1>
+        <div class="page-shell">
 
-            <p class="lead">
-                An emergency fund is money set aside for unexpected expenses or a sudden loss of income. Learn how
-                to calculate an emergency savings target, decide what counts as an emergency, choose where to keep
-                the money, and build your savings even when your budget is tight.
-            </p>
+            <!-- Breadcrumb -->
+            <div class="breadcrumbs">
+                <a href="/">Home</a>
+                <span class="breadcrumb-separator">/</span>
 
-            <div class="quick-answer">
-                <strong>Quick answer</strong>
-                There is no single emergency-fund amount that works for everyone. A common longer-term benchmark is
-                several months of essential expenses, but even a smaller amount can provide useful protection
-                against an unexpected financial shock. CFPB specifically notes that starting with even a small
-                amount can help.
+                <a href="/finance/budgeting/">
+                    Budgeting
+                </a>
+
+                <span class="breadcrumb-separator">/</span>
+
+                <span>Emergency Fund</span>
             </div>
-        </section>
 
-        <div class="layout">
-            <article class="article">
-                <section class="calculator card" id="emergency-fund-calculator">
-                    <h2>Emergency Fund Calculator</h2>
 
-                    <p class="calculator-intro">
-                        Enter your essential monthly expenses, current emergency savings, and monthly contribution
-                        to estimate your emergency-fund target and how long it could take to reach it.
-                    </p>
+            <!-- Hero -->
+            <section class="article-hero">
 
-                    <div class="form-grid">
-                        <div class="field">
-                            <label for="housing">Housing</label>
-                            <input id="housing" type="number" min="0" step="50" value="1500" />
-                        </div>
-
-                        <div class="field">
-                            <label for="utilities">Utilities</label>
-                            <input id="utilities" type="number" min="0" step="25" value="250" />
-                        </div>
-
-                        <div class="field">
-                            <label for="groceries">Groceries</label>
-                            <input id="groceries" type="number" min="0" step="25" value="500" />
-                        </div>
-
-                        <div class="field">
-                            <label for="transportation">Transportation</label>
-                            <input id="transportation" type="number" min="0" step="25" value="350" />
-                        </div>
-
-                        <div class="field">
-                            <label for="insurance">Insurance</label>
-                            <input id="insurance" type="number" min="0" step="25" value="250" />
-                        </div>
-
-                        <div class="field">
-                            <label for="healthcare">Healthcare</label>
-                            <input id="healthcare" type="number" min="0" step="25" value="200" />
-                        </div>
-
-                        <div class="field">
-                            <label for="childcare">Childcare / family essentials</label>
-                            <input id="childcare" type="number" min="0" step="25" value="0" />
-                        </div>
-
-                        <div class="field">
-                            <label for="debt">Minimum debt payments</label>
-                            <input id="debt" type="number" min="0" step="25" value="400" />
-                        </div>
-
-                        <div class="field">
-                            <label for="otherEssential">Other essential expenses</label>
-                            <input id="otherEssential" type="number" min="0" step="25" value="200" />
-                        </div>
-
-                        <div class="field">
-                            <label for="currentSavings">Current emergency savings</label>
-                            <input id="currentSavings" type="number" min="0" step="50" value="1000" />
-                        </div>
-
-                        <div class="field">
-                            <label for="monthlySaving">Monthly emergency-fund contribution</label>
-                            <input id="monthlySaving" type="number" min="0" step="25" value="300" />
-                            <span class="field-note">Amount you plan to add each month.</span>
-                        </div>
-
-                        <div class="field">
-                            <label for="monthsTarget">Target months of essential expenses</label>
-                            <select id="monthsTarget">
-                                <option value="1">1 month</option>
-                                <option value="3">3 months</option>
-                                <option value="4">4 months</option>
-                                <option value="5">5 months</option>
-                                <option value="6" selected>6 months</option>
-                                <option value="9">9 months</option>
-                                <option value="12">12 months</option>
-                            </select>
-                            <span class="field-note">Use a target that fits your circumstances.</span>
-                        </div>
-                    </div>
-
-                    <div class="results">
-                        <div class="result-box">
-                            <div class="result-label">Essential monthly expenses</div>
-                            <div class="result-value" id="essentialTotal">$3,650</div>
-                        </div>
-
-                        <div class="result-box">
-                            <div class="result-label">Selected target</div>
-                            <div class="result-value" id="targetMonths">6 months</div>
-                        </div>
-
-                        <div class="result-box highlight">
-                            <div class="result-label">Emergency-fund target</div>
-                            <div class="result-value" id="targetAmount">$21,900</div>
-                        </div>
-
-                        <div class="result-box">
-                            <div class="result-label">Current emergency savings</div>
-                            <div class="result-value" id="currentResult">$1,000</div>
-                        </div>
-
-                        <div class="result-box highlight">
-                            <div class="result-label">Amount still needed</div>
-                            <div class="result-value" id="amountNeeded">$20,900</div>
-                        </div>
-
-                        <div class="result-box">
-                            <div class="result-label">Estimated months to target</div>
-                            <div class="result-value" id="monthsToGoal">70 months</div>
-                        </div>
-                    </div>
-
-                    <div class="progress">
-                        <div class="progress-head">
-                            <span>Emergency-fund progress</span>
-                            <strong id="progressPercent">4.6%</strong>
-                        </div>
-
-                        <div class="bar">
-                            <div class="bar-fill" id="progressBar"></div>
-                        </div>
-                    </div>
-
-                    <div class="calculator-status" id="calculatorStatus">
-                        Your emergency-fund target is based on your essential monthly expenses multiplied by the
-                        selected number of months.
-                    </div>
-                </section>
-
-                <h2 id="what-is-emergency-fund">What Is an Emergency Fund?</h2>
-
-                <p>
-                    An emergency fund is money reserved for unexpected expenses or financial emergencies. It is
-                    different from money you save for a planned purchase because the purpose is to have cash
-                    available when something unexpected happens.
-                </p>
-
-                <p>
-                    Examples can include an unexpected medical bill, essential car repair, home repair, emergency
-                    travel or a sudden loss of income. The Consumer Financial Protection Bureau describes emergency
-                    savings as a cash reserve for unplanned expenses and financial emergencies.
-                </p>
-
-                <div class="info-grid">
-                    <div class="info-box">
-                        <h3>Unexpected expense</h3>
-                        <p>
-                            A necessary repair, medical expense or other cost that was not part of your normal
-                            monthly spending plan.
-                        </p>
-                    </div>
-
-                    <div class="info-box">
-                        <h3>Income disruption</h3>
-                        <p>
-                            A job loss, reduction in hours or other event that temporarily reduces the money
-                            available for essential bills.
-                        </p>
-                    </div>
-
-                    <div class="info-box">
-                        <h3>Dedicated savings</h3>
-                        <p>
-                            Money separated from everyday spending so its purpose is clear when an emergency occurs.
-                        </p>
-                    </div>
-
-                    <div class="info-box">
-                        <h3>Financial buffer</h3>
-                        <p>
-                            A reserve that can reduce the need to immediately rely on new debt when an unexpected
-                            cost appears.
-                        </p>
-                    </div>
+                <div class="article-kicker">
+                    Budgeting &amp; Savings
                 </div>
 
-                <h2 id="how-much">How Much Should an Emergency Fund Be?</h2>
+                <h1>
+                    Emergency Fund: How Much Should You Save?
+                </h1>
 
-                <p>
-                    There is no universal emergency-fund number. The appropriate target depends on your essential
-                    expenses, income stability, household responsibilities, insurance, access to other resources and
-                    how flexible your spending is.
+                <p class="article-intro">
+                    An emergency fund is money set aside for unexpected
+                    expenses or a sudden loss of income. Learn how to
+                    calculate an emergency-savings target, decide what
+                    counts as an emergency, choose where to keep the money,
+                    and build savings even when your budget is tight.
                 </p>
 
-                <p>
-                    Fidelity currently suggests starting with $1,000 and then working toward three to six months of
-                    essential living expenses. Vanguard also describes three to six months of expenses as a common
-                    longer-term benchmark while emphasizing that individual circumstances can change the amount
-                    needed.
-                </p>
+            </section>
 
-                <div class="milestone-grid">
-                    <div class="milestone">
-                        <span class="milestone-number">STARTING POINT</span>
-                        <h3>First savings milestone</h3>
+
+            <!-- Content + Sidebar -->
+            <div class="content-layout">
+
+                <!-- =================================================
+                     ARTICLE
+                     ================================================= -->
+
+                <article class="article-content">
+
+                    <!-- Quick Answer -->
+                    <div class="quick-answer">
+
+                        <div class="quick-answer-label">
+                            Quick answer
+                        </div>
+
                         <p>
-                            A smaller cash reserve can provide some protection while you work toward a larger
-                            emergency-fund target.
+                            There is no single emergency-fund amount that
+                            works for everyone. A common longer-term
+                            benchmark is <strong>three to six months of
+                                essential expenses</strong>, but even a smaller
+                            amount can provide useful protection against an
+                            unexpected financial shock.
                         </p>
+
                     </div>
 
-                    <div class="milestone">
-                        <span class="milestone-number">MEDIUM GOAL</span>
-                        <h3>Several weeks or months</h3>
-                        <p>
-                            Build enough savings to handle more substantial unexpected expenses without immediately
-                            borrowing.
+
+                    <!-- =================================================
+                         CALCULATOR
+                         ================================================= -->
+
+                    <section class="calculator-card" id="calculator">
+
+                        <div class="calculator-heading">
+                            <h2>Emergency Fund Calculator</h2>
+
+                            <p>
+                                Enter your essential monthly expenses,
+                                current emergency savings and monthly
+                                contribution to estimate your emergency
+                                fund target and how long it could take
+                                to reach it.
+                            </p>
+                        </div>
+
+                        <div class="calculator-grid">
+
+                            <div class="form-group">
+                                <label for="housing">
+                                    Housing
+                                </label>
+
+                                <input id="housing" type="number" min="0" step="50" value="1500" inputmode="decimal">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="utilities">
+                                    Utilities
+                                </label>
+
+                                <input id="utilities" type="number" min="0" step="25" value="250" inputmode="decimal">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="groceries">
+                                    Groceries
+                                </label>
+
+                                <input id="groceries" type="number" min="0" step="25" value="500" inputmode="decimal">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="transportation">
+                                    Transportation
+                                </label>
+
+                                <input id="transportation" type="number" min="0" step="25" value="300"
+                                    inputmode="decimal">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="insurance">
+                                    Insurance
+                                </label>
+
+                                <input id="insurance" type="number" min="0" step="25" value="250" inputmode="decimal">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="healthcare">
+                                    Healthcare
+                                </label>
+
+                                <input id="healthcare" type="number" min="0" step="25" value="150" inputmode="decimal">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="childcare">
+                                    Childcare / Family Essentials
+                                </label>
+
+                                <input id="childcare" type="number" min="0" step="25" value="0" inputmode="decimal">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="debt">
+                                    Minimum Debt Payments
+                                </label>
+
+                                <input id="debt" type="number" min="0" step="25" value="300" inputmode="decimal">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="other">
+                                    Other Essential Expenses
+                                </label>
+
+                                <input id="other" type="number" min="0" step="25" value="100" inputmode="decimal">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="currentSavings">
+                                    Current Emergency Savings
+                                </label>
+
+                                <input id="currentSavings" type="number" min="0" step="100" value="1000"
+                                    inputmode="decimal">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="monthlyContribution">
+                                    Monthly Emergency-Fund Contribution
+                                </label>
+
+                                <input id="monthlyContribution" type="number" min="0" step="25" value="500"
+                                    inputmode="decimal">
+
+                                <span class="field-help">
+                                    Amount you plan to add each month.
+                                </span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="targetMonths">
+                                    Target Months of Essential Expenses
+                                </label>
+
+                                <select id="targetMonths">
+                                    <option value="1">1 month</option>
+                                    <option value="3">3 months</option>
+                                    <option value="4">4 months</option>
+                                    <option value="6" selected>6 months</option>
+                                    <option value="9">9 months</option>
+                                    <option value="12">12 months</option>
+                                </select>
+
+                                <span class="field-help">
+                                    Choose a target that fits your circumstances.
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <button class="calculator-button" id="calculateEmergencyFund" type="button">
+                            Calculate Emergency Fund
+                        </button>
+
+
+                        <div class="calculator-results" aria-live="polite">
+
+                            <div class="result-box">
+                                <span class="result-label">
+                                    Essential monthly expenses
+                                </span>
+
+                                <span class="result-value" id="monthlyExpensesResult">
+                                    $3,350
+                                </span>
+                            </div>
+
+
+                            <div class="result-box">
+                                <span class="result-label">
+                                    Selected target
+                                </span>
+
+                                <span class="result-value" id="targetMonthsResult">
+                                    6 months
+                                </span>
+                            </div>
+
+
+                            <div class="result-box highlight">
+                                <span class="result-label">
+                                    Emergency-fund target
+                                </span>
+
+                                <span class="result-value" id="targetResult">
+                                    $20,100
+                                </span>
+                            </div>
+
+
+                            <div class="result-box">
+                                <span class="result-label">
+                                    Current emergency savings
+                                </span>
+
+                                <span class="result-value" id="currentSavingsResult">
+                                    $1,000
+                                </span>
+                            </div>
+
+
+                            <div class="result-box">
+                                <span class="result-label">
+                                    Amount still needed
+                                </span>
+
+                                <span class="result-value" id="remainingResult">
+                                    $19,100
+                                </span>
+                            </div>
+
+
+                            <div class="result-box">
+                                <span class="result-label">
+                                    Estimated months to target
+                                </span>
+
+                                <span class="result-value" id="monthsToGoalResult">
+                                    38 months
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="progress-wrap">
+
+                            <div class="progress-header">
+                                <span>Emergency-fund progress</span>
+
+                                <strong id="progressText">
+                                    5.0%
+                                </strong>
+                            </div>
+
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+
+                        </div>
+
+
+                        <p class="calculator-note">
+                            The estimate uses essential monthly expenses
+                            multiplied by your selected target months.
+                            It does not account for interest, taxes on
+                            interest, changing expenses, withdrawals,
+                            irregular contributions or changes in income.
                         </p>
-                    </div>
 
-                    <div class="milestone">
-                        <span class="milestone-number">LONGER-TERM</span>
-                        <h3>Three to six months</h3>
-                        <p>A common benchmark for protecting against a more significant income disruption.</p>
-                    </div>
-                </div>
+                    </section>
 
-                <p>
-                    These are planning benchmarks, not requirements. Someone with stable dual income and flexible
-                    expenses may have different needs from someone with variable income, dependents or limited
-                    ability to reduce essential costs.
-                </p>
 
-                <h2 id="essential-expenses">What Counts as an Essential Expense?</h2>
+                    <!-- =================================================
+                         WHAT IS EMERGENCY FUND
+                         ================================================= -->
 
-                <p>
-                    An emergency fund designed around months of expenses should generally focus on costs you would
-                    still need to cover during a financial disruption.
-                </p>
-
-                <div class="table-wrap">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Usually essential</th>
-                                <th>Usually discretionary</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>Housing</td>
-                                <td>Dining out</td>
-                            </tr>
-
-                            <tr>
-                                <td>Utilities</td>
-                                <td>Entertainment</td>
-                            </tr>
-
-                            <tr>
-                                <td>Groceries</td>
-                                <td>Travel</td>
-                            </tr>
-
-                            <tr>
-                                <td>Transportation</td>
-                                <td>Nonessential shopping</td>
-                            </tr>
-
-                            <tr>
-                                <td>Insurance</td>
-                                <td>Optional subscriptions</td>
-                            </tr>
-
-                            <tr>
-                                <td>Healthcare</td>
-                                <td>Hobbies and upgrades</td>
-                            </tr>
-
-                            <tr>
-                                <td>Minimum debt payments</td>
-                                <td>Extra debt payments</td>
-                            </tr>
-
-                            <tr>
-                                <td>Necessary family or childcare costs</td>
-                                <td>Other optional spending</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <p>
-                    This distinction is useful because a six-month emergency fund does not necessarily mean saving
-                    six months of your normal lifestyle spending. Vanguard specifically recommends focusing on
-                    critical living expenses when estimating a longer-term emergency reserve.
-                </p>
-
-                <h2 id="calculator-method">How the Emergency Fund Calculator Works</h2>
-
-                <p>The PaycheckMint calculator uses a simple planning formula:</p>
-
-                <div class="callout">
-                    <strong>Emergency-fund target = Essential monthly expenses × Target number of months</strong>
-                </div>
-
-                <p>
-                    For example, if your essential expenses are $3,500 per month and you choose a six-month target:
-                </p>
-
-                <div class="callout">
-                    <strong>$3,500 × 6 = $21,000 emergency-fund target</strong>
-                </div>
-
-                <p>
-                    The calculator then subtracts your existing emergency savings to show how much remains. If you
-                    enter a monthly contribution, it also provides a simple estimate of how many months it could
-                    take to reach the target.
-                </p>
-
-                <p>
-                    The estimate does not account for interest earned, taxes on interest, changing expenses,
-                    withdrawals, irregular contributions or changes in income.
-                </p>
-
-                <h2 id="build">How to Build an Emergency Fund</h2>
-
-                <h3>1. Set a specific target</h3>
-
-                <p>
-                    A specific target is easier to plan for than simply deciding that you should “save more.” Start
-                    with a milestone that feels achievable and then increase it as your financial situation
-                    improves.
-                </p>
-
-                <h3>2. Review your essential expenses</h3>
-
-                <p>
-                    Use your actual bills and spending history. Look at housing, transportation, food, insurance,
-                    healthcare, debt minimums and other costs you would need to maintain during an income
-                    disruption.
-                </p>
-
-                <p>
-                    Your
-                    <a href="/finance/budgeting/monthly-budget/">monthly budget</a>
-                    can help you identify these expenses.
-                </p>
-
-                <h3>3. Choose a monthly savings amount</h3>
-
-                <p>
-                    Pick an amount you can consistently contribute without causing you to miss essential bills. A
-                    smaller recurring contribution can be more useful than an ambitious target that repeatedly gets
-                    skipped.
-                </p>
-
-                <h3>4. Automate when practical</h3>
-
-                <p>
-                    Automatic recurring transfers can make saving more consistent. CFPB specifically identifies
-                    automatic transfers as one way to establish a regular savings habit.
-                </p>
-
-                <p>
-                    Check your checking-account balance and transfer timing so an automatic contribution does not
-                    cause overdrafts or interfere with upcoming bills.
-                </p>
-
-                <h3>5. Use one-time opportunities</h3>
-
-                <p>
-                    Tax refunds, bonuses, gifts or other unexpected inflows can sometimes provide an opportunity to
-                    accelerate an emergency-fund goal. CFPB recommends considering one-time opportunities as one
-                    possible way to build savings.
-                </p>
-
-                <h3>6. Increase the contribution when you can</h3>
-
-                <p>
-                    A raise, paid-off loan or reduced recurring expense can create additional room in the budget.
-                    You can direct some or all of that additional cash flow toward emergency savings without
-                    changing your basic lifestyle immediately.
-                </p>
-
-                <h2 id="tight-budget">How to Build an Emergency Fund on a Tight Budget</h2>
-
-                <p>
-                    Saving can be difficult when most of your income already goes toward necessary expenses. That
-                    does not mean you need to wait until you can afford a large monthly contribution.
-                </p>
-
-                <ul class="checklist">
-                    <li>Start with a small amount that you can repeat.</li>
-                    <li>Review the timing of income and bills.</li>
-                    <li>Look for recurring expenses that can realistically be reduced.</li>
-                    <li>Send part of occasional windfalls to emergency savings.</li>
-                    <li>Consider splitting direct deposits if your employer supports it.</li>
-                    <li>Increase the contribution when income rises.</li>
-                    <li>Track progress toward a specific milestone.</li>
-                </ul>
-
-                <p>
-                    CFPB notes that even small amounts can provide some financial protection and recommends
-                    approaches such as building a savings habit, managing cash flow, using one-time opportunities
-                    and automating savings.
-                </p>
-
-                <h2 id="where">Where Should You Keep an Emergency Fund?</h2>
-
-                <p>
-                    Emergency savings generally need to be accessible when you actually need them. Vanguard
-                    emphasizes liquidity and stability for emergency savings, while Fidelity also discusses keeping
-                    emergency money accessible rather than exposing it to unnecessary market risk.
-                </p>
-
-                <p>
-                    A dedicated savings account at a bank or credit union can make the purpose of the money clear
-                    while keeping it separate from everyday spending.
-                </p>
-
-                <div class="info-grid">
-                    <div class="info-box">
-                        <h3>Accessibility</h3>
-                        <p>You should be able to access the money when a genuine emergency occurs.</p>
-                    </div>
-
-                    <div class="info-box">
-                        <h3>Separation</h3>
-                        <p>
-                            Keeping emergency savings separate from everyday spending can make it easier to avoid
-                            accidental use.
-                        </p>
-                    </div>
-
-                    <div class="info-box">
-                        <h3>Safety</h3>
-                        <p>
-                            Consider the safety and applicable protections of the account where the money is held.
-                        </p>
-                    </div>
-
-                    <div class="info-box">
-                        <h3>Liquidity</h3>
-                        <p>
-                            Emergency money generally should not depend on selling a volatile investment at a
-                            particular time.
-                        </p>
-                    </div>
-                </div>
-
-                <p>
-                    Interest rates and account terms can change, so compare the current account's access rules,
-                    fees, minimums and applicable deposit protections before choosing where to keep your savings.
-                </p>
-
-                <h2 id="emergency">What Counts as an Emergency?</h2>
-
-                <p>
-                    An emergency is generally an unexpected, necessary expense or financial event that your regular
-                    monthly budget was not designed to handle.
-                </p>
-
-                <div class="table-wrap">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Potential emergency</th>
-                                <th>Why it may qualify</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>Unexpected medical expense</td>
-                                <td>Necessary cost that was not part of the normal budget.</td>
-                            </tr>
-
-                            <tr>
-                                <td>Essential car repair</td>
-                                <td>May be necessary for transportation to work or other essential activities.</td>
-                            </tr>
-
-                            <tr>
-                                <td>Urgent home repair</td>
-                                <td>Necessary repair that cannot reasonably wait.</td>
-                            </tr>
-
-                            <tr>
-                                <td>Loss of income</td>
-                                <td>Temporary reserve can help cover essential expenses.</td>
-                            </tr>
-
-                            <tr>
-                                <td>Emergency travel</td>
-                                <td>Unexpected travel caused by a serious family or personal situation.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <p>
-                    A planned vacation, routine holiday shopping, a predictable annual bill or a planned purchase
-                    usually belongs in a regular budget or sinking fund rather than being treated as an emergency.
-                </p>
-
-                <p>
-                    If you use your emergency fund, that does not mean the fund failed. The purpose of the money is
-                    to be available when a genuine emergency occurs. CFPB recommends rebuilding the savings after it
-                    is used.
-                </p>
-
-                <h2 id="debt">Emergency Fund vs. Paying Off Debt</h2>
-
-                <p>
-                    Building savings and paying debt can compete for the same dollars. The appropriate balance
-                    depends on the type and cost of the debt, your current savings, income stability and expected
-                    expenses.
-                </p>
-
-                <p>
-                    If you have no cash reserve at all, building some emergency savings may reduce the chance that
-                    the next unexpected expense immediately becomes new debt. On the other hand, high-interest debt
-                    can become increasingly expensive when balances remain outstanding.
-                </p>
-
-                <p>
-                    One practical way to organize the two goals is to establish an initial cash buffer, continue
-                    making required debt payments, and then decide how aggressively to divide additional money
-                    between emergency savings and debt repayment.
-                </p>
-
-                <p>
-                    See the
-                    <a href="/finance/budgeting/debt-budget/">Debt Budget guide</a>
-                    for a more detailed approach to organizing debt payments alongside your monthly expenses.
-                </p>
-
-                <h2 id="example">Emergency Fund Example</h2>
-
-                <p>
-                    Suppose your essential monthly expenses total $4,000. You currently have $2,500 in emergency
-                    savings and want to work toward a six-month target.
-                </p>
-
-                <div class="example-budget">
-                    <div class="example-item">
-                        <span>Essential monthly expenses</span>
-                        <strong>$4,000</strong>
-                    </div>
-
-                    <div class="example-item">
-                        <span>Target</span>
-                        <strong>6 months</strong>
-                    </div>
-
-                    <div class="example-item">
-                        <span>Target emergency fund</span>
-                        <strong>$24,000</strong>
-                    </div>
-
-                    <div class="example-item">
-                        <span>Current savings</span>
-                        <strong>$2,500</strong>
-                    </div>
-
-                    <div class="example-item">
-                        <span>Still needed</span>
-                        <strong>$21,500</strong>
-                    </div>
-
-                    <div class="example-item">
-                        <span>Monthly contribution</span>
-                        <strong>$500</strong>
-                    </div>
-                </div>
-
-                <p>
-                    At a constant $500 monthly contribution and ignoring interest and withdrawals, the remaining
-                    $21,500 would take about 43 months to save. That timeline is not a reason to avoid starting. You
-                    can reach smaller milestones along the way and increase contributions when your cash flow
-                    improves.
-                </p>
-
-                <h2 id="different-situations">Your Emergency Fund May Need to Be Different</h2>
-
-                <p>
-                    A multi-month target is only a framework. Your circumstances can affect how much cash reserve
-                    makes sense.
-                </p>
-
-                <div class="info-grid">
-                    <div class="info-box">
-                        <h3>Variable income</h3>
-                        <p>
-                            Freelancers, contractors and commission-based workers may need more flexibility because
-                            monthly income can fluctuate.
-                        </p>
-                    </div>
-
-                    <div class="info-box">
-                        <h3>Dependents</h3>
-                        <p>
-                            A household supporting children or other dependents may have essential expenses that are
-                            harder to reduce quickly.
-                        </p>
-                    </div>
-
-                    <div class="info-box">
-                        <h3>Single income</h3>
-                        <p>
-                            If one income supports the household, a prolonged income interruption can have a larger
-                            effect on the budget.
-                        </p>
-                    </div>
-
-                    <div class="info-box">
-                        <h3>Flexible expenses</h3>
-                        <p>
-                            A household that can quickly reduce discretionary spending may have different
-                            cash-reserve needs from one with less flexibility.
-                        </p>
-                    </div>
-                </div>
-
-                <p>
-                    Vanguard identifies factors including income structure, dependents, income variability, spending
-                    flexibility, job security and insurance when considering emergency-savings needs.
-                </p>
-
-                <h2 id="mistakes">Common Emergency Fund Mistakes</h2>
-
-                <div class="info-grid">
-                    <div class="info-box">
-                        <h3>Waiting for the perfect amount</h3>
-                        <p>A small starting balance can still provide some protection.</p>
-                    </div>
-
-                    <div class="info-box">
-                        <h3>Using normal savings as emergency savings</h3>
-                        <p>Separate accounts can make it clearer which money is available for emergencies.</p>
-                    </div>
-
-                    <div class="info-box">
-                        <h3>Counting every expense</h3>
-                        <p>
-                            A multi-month target generally focuses on essential expenses, not every discretionary
-                            purchase.
-                        </p>
-                    </div>
-
-                    <div class="info-box">
-                        <h3>Investing the emergency fund aggressively</h3>
-                        <p>
-                            Emergency money generally needs liquidity and stability more than long-term investment
-                            growth.
-                        </p>
-                    </div>
-
-                    <div class="info-box">
-                        <h3>Never using it</h3>
-                        <p>A fund exists for genuine emergencies. If you use it, rebuild it afterward.</p>
-                    </div>
-
-                    <div class="info-box">
-                        <h3>Ignoring cash flow</h3>
-                        <p>A savings target needs to fit the timing of your actual income and bills.</p>
-                    </div>
-                </div>
-
-                <h2 id="action-plan">Simple Emergency Fund Action Plan</h2>
-
-                <ol class="checklist">
-                    <li>Calculate your essential monthly expenses.</li>
-                    <li>Choose an initial savings milestone.</li>
-                    <li>Set a longer-term target based on your circumstances.</li>
-                    <li>Open or designate a separate savings location if appropriate.</li>
-                    <li>Choose a monthly contribution you can realistically maintain.</li>
-                    <li>Automate contributions when practical.</li>
-                    <li>Use occasional windfalls to accelerate the goal when appropriate.</li>
-                    <li>Review the target when your income, expenses or household changes.</li>
-                    <li>Use the fund for genuine emergencies and rebuild it afterward.</li>
-                </ol>
-
-                <h2 id="related">Related PaycheckMint Budgeting Guides</h2>
-
-                <p>
-                    Emergency savings works best as part of a broader household budget. These PaycheckMint guides
-                    can help you organize the rest of the plan:
-                </p>
-
-                <ul class="checklist">
-                    <li>
-                        <a href="/finance/budgeting/">Budgeting Guide</a> — understand the basics of creating a
-                        budget.
-                    </li>
-
-                    <li>
-                        <a href="/finance/budgeting/monthly-budget/">Monthly Budget</a> — organize monthly income
-                        and expenses.
-                    </li>
-
-                    <li>
-                        <a href="/finance/budgeting/paycheck-budget/">Paycheck Budgeting</a> — plan expenses around
-                        your paydays.
-                    </li>
-
-                    <li>
-                        <a href="/finance/budgeting/debt-budget/">Debt Budget</a> — organize debt payments alongside
-                        your other expenses.
-                    </li>
-
-                    <li>
-                        <a href="/finance/budgeting/zero-based-budget/">Zero-Based Budget</a> — give each dollar a
-                        planned purpose.
-                    </li>
-
-                    <li>
-                        <a href="/finance/budgeting/50-30-20-rule/">50/30/20 Budget</a> — explore a
-                        percentage-based budgeting framework.
-                    </li>
-
-                    <li>
-                        <a href="/finance/budgeting/needs-vs-wants/">Needs vs. Wants</a> — identify essential and
-                        discretionary spending.
-                    </li>
-                </ul>
-
-                <h2 id="faq">Emergency Fund FAQ</h2>
-
-                <div class="faq">
-                    <details>
-                        <summary>What is an emergency fund?</summary>
-                        <p>
-                            An emergency fund is money set aside specifically for unexpected expenses or financial
-                            emergencies, such as an unexpected repair, medical expense or loss of income.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>How much should I have in an emergency fund?</summary>
-                        <p>
-                            There is no universal amount. A common longer-term benchmark is three to six months of
-                            essential living expenses, but your target should reflect your income, household and
-                            expenses.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>Should I have a $1,000 emergency fund?</summary>
-                        <p>
-                            $1,000 can be a useful initial milestone, and Fidelity currently uses it as a starting
-                            guideline. It is not a universal final target, however. A longer-term target may need to
-                            be much larger depending on your essential expenses and circumstances.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>Where should I keep my emergency fund?</summary>
-                        <p>
-                            Emergency savings are generally kept somewhere safe, accessible and liquid. A dedicated
-                            savings account at a bank or credit union is one common approach.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>What counts as an emergency expense?</summary>
-                        <p>
-                            Examples include unexpected medical expenses, essential car or home repairs, emergency
-                            travel and a sudden loss of income. Planned purchases and routine monthly bills
-                            generally belong in your regular budget instead.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>How can I build an emergency fund on a tight budget?</summary>
-                        <p>
-                            Start with an amount you can consistently save, automate it when practical, review your
-                            cash flow, use occasional windfalls and increase the contribution when your financial
-                            situation allows.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>Should I pay off debt or build an emergency fund first?</summary>
-                        <p>
-                            It depends on your debt, interest costs, current savings, income stability and upcoming
-                            expenses. A small emergency reserve can help prevent an unexpected expense from
-                            immediately becoming new debt.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>What happens if I use my emergency fund?</summary>
-                        <p>
-                            Using it for a genuine emergency is one of its purposes. Once the immediate expense is
-                            handled, update your budget and work toward rebuilding the fund.
-                        </p>
-                    </details>
-                </div>
-
-                <div class="disclaimer">
-                    <strong>PaycheckMint disclaimer:</strong>
-                    This page and calculator are for general educational and planning purposes. Calculator results
-                    are estimates and do not account for every household's circumstances, taxes, interest, account
-                    terms, insurance coverage or financial obligations. Emergency-fund needs vary by individual
-                    situation. Consider qualified professional advice when appropriate.
-                </div>
-            </article>
-
-            <aside class="sidebar">
-                <div class="side-card card cta">
-                    <h3>Calculate your emergency fund</h3>
+                    <h2 id="what-is-an-emergency-fund">
+                        What Is an Emergency Fund?
+                    </h2>
 
                     <p>
-                        Estimate a savings target using your essential monthly expenses and selected number of
-                        months.
+                        An emergency fund is money reserved for unexpected
+                        expenses or financial emergencies. It is different
+                        from money you save for a planned purchase because
+                        the purpose is to have cash available when something
+                        unexpected happens.
                     </p>
 
-                    <a href="#emergency-fund-calculator"> Use calculator </a>
-                </div>
+                    <p>
+                        Examples can include an unexpected medical bill,
+                        essential car repair, urgent home repair, emergency
+                        travel or a sudden loss of income.
+                    </p>
 
-                <div class="side-card card">
-                    <h3>On this page</h3>
 
-                    <nav class="toc">
-                        <a href="#what-is-emergency-fund">What Is an Emergency Fund?</a>
-                        <a href="#how-much">How Much Should You Save?</a>
-                        <a href="#essential-expenses">Essential Expenses</a>
-                        <a href="#calculator-method">Calculator Method</a>
-                        <a href="#build">How to Build One</a>
-                        <a href="#tight-budget">Tight Budget</a>
-                        <a href="#where">Where to Keep It</a>
-                        <a href="#emergency">What Counts as an Emergency?</a>
-                        <a href="#debt">Emergency Fund vs. Debt</a>
-                        <a href="#example">Example</a>
-                        <a href="#different-situations">Different Situations</a>
-                        <a href="#mistakes">Common Mistakes</a>
-                        <a href="#faq">FAQ</a>
-                    </nav>
-                </div>
+                    <div class="feature-grid">
 
-                <div class="side-card card">
-                    <h3>Related budgeting guides</h3>
+                        <div class="feature-card">
 
-                    <a href="/finance/budgeting/">Budgeting Guide</a>
-                    <a href="/finance/budgeting/monthly-budget/">Monthly Budget</a>
-                    <a href="/finance/budgeting/paycheck-budget/">Paycheck Budget</a>
-                    <a href="/finance/budgeting/debt-budget/">Debt Budget</a>
-                    <a href="/finance/budgeting/zero-based-budget/">Zero-Based Budget</a>
-                    <a href="/finance/budgeting/50-30-20-rule/">50/30/20 Budget</a>
-                    <a href="/finance/budgeting/needs-vs-wants/">Needs vs. Wants</a>
-                </div>
-            </aside>
+                            <div class="feature-icon">!</div>
+
+                            <h3>Unexpected Expense</h3>
+
+                            <p>
+                                A necessary repair, medical expense or
+                                other cost that was not part of your
+                                normal monthly spending plan.
+                            </p>
+
+                        </div>
+
+
+                        <div class="feature-card">
+
+                            <div class="feature-icon">$</div>
+
+                            <h3>Income Disruption</h3>
+
+                            <p>
+                                A job loss, reduction in hours or another
+                                event that temporarily reduces money
+                                available for essential bills.
+                            </p>
+
+                        </div>
+
+
+                        <div class="feature-card">
+
+                            <div class="feature-icon">✓</div>
+
+                            <h3>Financial Buffer</h3>
+
+                            <p>
+                                A reserve that can reduce the need to
+                                immediately rely on new debt when an
+                                unexpected cost appears.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         HOW MUCH
+                         ================================================= -->
+
+                    <h2 id="how-much">
+                        How Much Should an Emergency Fund Be?
+                    </h2>
+
+                    <p>
+                        There is no universal emergency-fund number. The
+                        appropriate target depends on your essential
+                        expenses, income stability, household
+                        responsibilities, insurance, access to other
+                        resources and how flexible your spending is.
+                    </p>
+
+                    <p>
+                        A common longer-term planning benchmark is
+                        <strong>three to six months of essential living
+                            expenses</strong>. FINRA describes three to six
+                        months as a useful goal while also noting that
+                        starting with any amount you can afford can help.
+                    </p>
+
+                    <div class="info-callout">
+
+                        <strong>
+                            Your emergency fund is a planning target, not a
+                            universal rule.
+                        </strong>
+
+                        <p>
+                            Someone with stable income, two earners and
+                            flexible expenses may have different needs from
+                            someone with variable income, dependents or
+                            limited ability to reduce essential costs.
+                        </p>
+
+                    </div>
+
+
+                    <h3>Three useful milestones</h3>
+
+                    <div class="table-wrap">
+
+                        <table class="comparison-table">
+
+                            <thead>
+                                <tr>
+                                    <th>Milestone</th>
+                                    <th>Purpose</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>
+                                        <strong>Initial buffer</strong>
+                                    </td>
+
+                                    <td>
+                                        Build a smaller cash reserve while
+                                        you establish the habit of saving.
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <strong>Several weeks or months</strong>
+                                    </td>
+
+                                    <td>
+                                        Increase your ability to absorb
+                                        larger unexpected expenses without
+                                        immediately borrowing.
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <strong>Three to six months</strong>
+                                    </td>
+
+                                    <td>
+                                        A common longer-term benchmark for
+                                        protecting against a more
+                                        significant income disruption.
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         ESSENTIAL EXPENSES
+                         ================================================= -->
+
+                    <h2 id="essential-expenses">
+                        What Counts as an Essential Expense?
+                    </h2>
+
+                    <p>
+                        When calculating an emergency fund based on several
+                        months of expenses, focus on costs you would still
+                        need to cover during a financial disruption.
+                    </p>
+
+                    <div class="table-wrap">
+
+                        <table class="comparison-table">
+
+                            <thead>
+                                <tr>
+                                    <th>Usually essential</th>
+                                    <th>Usually discretionary</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>Housing</td>
+                                    <td>Dining out</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Utilities</td>
+                                    <td>Entertainment</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Groceries</td>
+                                    <td>Travel</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Transportation</td>
+                                    <td>Nonessential shopping</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Insurance</td>
+                                    <td>Optional subscriptions</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Healthcare</td>
+                                    <td>Hobbies and upgrades</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Minimum debt payments</td>
+                                    <td>Extra debt payments</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Necessary childcare or family costs</td>
+                                    <td>Other optional spending</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <p>
+                        This distinction matters because a six-month
+                        emergency fund does not necessarily mean saving six
+                        months of your normal lifestyle spending. A target
+                        based on essential expenses can be more useful when
+                        estimating how much you would need during an income
+                        disruption.
+                    </p>
+
+
+                    <!-- =================================================
+                         FORMULA
+                         ================================================= -->
+
+                    <div class="formula-box">
+
+                        <div class="formula-label">
+                            Emergency Fund Formula
+                        </div>
+
+                        <div class="formula">
+                            Emergency-fund target =
+                            Essential monthly expenses × Target months
+                        </div>
+
+                    </div>
+
+
+                    <h3>Example</h3>
+
+                    <p>
+                        Suppose your essential expenses are
+                        <strong>$3,500 per month</strong> and you choose a
+                        six-month target:
+                    </p>
+
+                    <p>
+                        <strong>$3,500 × 6 = $21,000</strong>
+                    </p>
+
+                    <p>
+                        If you already have $4,000 saved, you would have
+                        $17,000 remaining to reach that target.
+                    </p>
+
+
+                    <!-- =================================================
+                         BUILD FUND
+                         ================================================= -->
+
+                    <h2 id="how-to-build">
+                        How to Build an Emergency Fund
+                    </h2>
+
+                    <h3>1. Set a specific target</h3>
+
+                    <p>
+                        A specific target is easier to plan for than simply
+                        deciding that you should "save more." Start with a
+                        milestone that feels achievable and increase it as
+                        your financial situation improves.
+                    </p>
+
+
+                    <h3>2. Review your essential expenses</h3>
+
+                    <p>
+                        Use your actual bills and spending history. Look at
+                        housing, transportation, food, insurance,
+                        healthcare, minimum debt payments and other costs
+                        you would need to maintain during an income
+                        disruption.
+                    </p>
+
+                    <p>
+                        Your
+                        <a href="/finance/budgeting/monthly-budget/">
+                            monthly budget
+                        </a>
+                        can help you identify these expenses.
+                    </p>
+
+
+                    <h3>3. Choose a realistic monthly savings amount</h3>
+
+                    <p>
+                        Pick an amount you can consistently contribute
+                        without causing you to miss essential bills. A
+                        smaller recurring contribution can be more useful
+                        than an ambitious target that repeatedly gets
+                        skipped.
+                    </p>
+
+
+                    <h3>4. Automate when practical</h3>
+
+                    <p>
+                        Automatic recurring transfers can make saving more
+                        consistent. Check your checking-account balance and
+                        transfer timing so an automatic contribution does
+                        not cause overdrafts or interfere with upcoming
+                        bills.
+                    </p>
+
+
+                    <h3>5. Use one-time opportunities</h3>
+
+                    <p>
+                        Tax refunds, bonuses, gifts or other unexpected
+                        inflows can sometimes provide an opportunity to
+                        accelerate an emergency-fund goal.
+                    </p>
+
+
+                    <h3>6. Increase the contribution when you can</h3>
+
+                    <p>
+                        A raise, paid-off loan or reduced recurring expense
+                        can create additional room in your budget. You can
+                        direct some of that additional cash flow toward
+                        emergency savings.
+                    </p>
+
+
+                    <!-- =================================================
+                         TIGHT BUDGET
+                         ================================================= -->
+
+                    <h2 id="tight-budget">
+                        How to Build an Emergency Fund on a Tight Budget
+                    </h2>
+
+                    <p>
+                        Saving can be difficult when most of your income
+                        already goes toward necessary expenses. You do not
+                        need to wait until you can afford a large monthly
+                        contribution.
+                    </p>
+
+                    <ul>
+                        <li>
+                            Start with a small amount that you can repeat.
+                        </li>
+
+                        <li>
+                            Review the timing of income and bills.
+                        </li>
+
+                        <li>
+                            Look for recurring expenses that can realistically
+                            be reduced.
+                        </li>
+
+                        <li>
+                            Send part of occasional windfalls to emergency
+                            savings.
+                        </li>
+
+                        <li>
+                            Consider splitting direct deposits if your
+                            employer supports it.
+                        </li>
+
+                        <li>
+                            Increase the contribution when income rises.
+                        </li>
+
+                        <li>
+                            Track progress toward a specific milestone.
+                        </li>
+                    </ul>
+
+                    <p>
+                        Even a small savings balance can provide some
+                        protection against a financial shock. The important
+                        part is choosing a savings amount that fits your
+                        actual cash flow and maintaining the habit.
+                    </p>
+
+
+                    <!-- =================================================
+                         WHERE TO KEEP
+                         ================================================= -->
+
+                    <h2 id="where-to-keep">
+                        Where Should You Keep an Emergency Fund?
+                    </h2>
+
+                    <p>
+                        Emergency savings generally need to be accessible
+                        when you actually need them. The goal is usually
+                        liquidity and stability rather than maximizing
+                        investment returns.
+                    </p>
+
+                    <div class="feature-grid">
+
+                        <div class="feature-card">
+
+                            <div class="feature-icon">↗</div>
+
+                            <h3>Accessibility</h3>
+
+                            <p>
+                                You should be able to access the money when
+                                a genuine emergency occurs.
+                            </p>
+
+                        </div>
+
+
+                        <div class="feature-card">
+
+                            <div class="feature-icon">▣</div>
+
+                            <h3>Separation</h3>
+
+                            <p>
+                                Keeping emergency savings separate from
+                                everyday spending can make the purpose of
+                                the money clearer.
+                            </p>
+
+                        </div>
+
+
+                        <div class="feature-card">
+
+                            <div class="feature-icon">◆</div>
+
+                            <h3>Safety</h3>
+
+                            <p>
+                                Consider the safety, fees, access rules and
+                                applicable protections of the account where
+                                you keep your savings.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <p>
+                        A dedicated savings account at a bank or credit
+                        union is one common approach. Compare the current
+                        account's access rules, fees, minimums and
+                        applicable deposit protections before choosing where
+                        to keep your money.
+                    </p>
+
+                    <p>
+                        Emergency savings generally should not depend on
+                        selling a volatile investment at a particular time.
+                    </p>
+
+
+                    <!-- =================================================
+                         WHAT COUNTS AS EMERGENCY
+                         ================================================= -->
+
+                    <h2 id="what-counts">
+                        What Counts as an Emergency?
+                    </h2>
+
+                    <p>
+                        An emergency is generally an unexpected, necessary
+                        expense or financial event that your regular
+                        monthly budget was not designed to handle.
+                    </p>
+
+                    <div class="table-wrap">
+
+                        <table class="comparison-table">
+
+                            <thead>
+                                <tr>
+                                    <th>Potential emergency</th>
+                                    <th>Why it may qualify</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>Unexpected medical expense</td>
+                                    <td>
+                                        Necessary cost that was not part of
+                                        the normal budget.
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Essential car repair</td>
+                                    <td>
+                                        May be necessary for transportation
+                                        to work or other essential activities.
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Urgent home repair</td>
+                                    <td>
+                                        Necessary repair that cannot
+                                        reasonably wait.
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Loss of income</td>
+                                    <td>
+                                        Savings can help cover essential
+                                        expenses during an income disruption.
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Emergency travel</td>
+                                    <td>
+                                        Unexpected travel caused by a
+                                        serious family or personal situation.
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <p>
+                        A planned vacation, routine holiday shopping,
+                        predictable annual bill or planned purchase
+                        usually belongs in a regular budget or sinking fund
+                        instead of being treated as an emergency.
+                    </p>
+
+                    <p>
+                        If you use your emergency fund, that does not mean
+                        the fund failed. The purpose of the money is to be
+                        available when a genuine emergency occurs. After the
+                        immediate expense is handled, work toward rebuilding
+                        the balance.
+                    </p>
+
+
+                    <!-- =================================================
+                         DEBT
+                         ================================================= -->
+
+                    <h2 id="debt">
+                        Emergency Fund vs. Paying Off Debt
+                    </h2>
+
+                    <p>
+                        Building savings and paying debt can compete for the
+                        same dollars. The appropriate balance depends on the
+                        type and cost of the debt, your current savings,
+                        income stability and expected expenses.
+                    </p>
+
+                    <p>
+                        If you have no cash reserve at all, building some
+                        emergency savings may reduce the chance that the
+                        next unexpected expense immediately becomes new
+                        debt. At the same time, high-interest debt can become
+                        increasingly expensive while balances remain
+                        outstanding.
+                    </p>
+
+                    <p>
+                        One practical way to organize the two goals is to
+                        establish an initial cash buffer, continue making
+                        required debt payments, and then decide how
+                        aggressively to divide additional money between
+                        emergency savings and debt repayment.
+                    </p>
+
+                    <p>
+                        See the
+                        <a href="/finance/credit-debt/">
+                            Credit &amp; Debt section
+                        </a>
+                        for more guidance on organizing debt alongside your
+                        budget.
+                    </p>
+
+
+                    <!-- =================================================
+                         EXAMPLE
+                         ================================================= -->
+
+                    <h2 id="example">
+                        Emergency Fund Example
+                    </h2>
+
+                    <p>
+                        Suppose your essential monthly expenses total
+                        <strong>$4,000</strong>. You currently have
+                        <strong>$2,500</strong> in emergency savings and want
+                        to work toward a six-month target.
+                    </p>
+
+                    <div class="table-wrap">
+
+                        <table class="comparison-table">
+
+                            <tbody>
+
+                                <tr>
+                                    <th>Essential monthly expenses</th>
+                                    <td>$4,000</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Target</th>
+                                    <td>6 months</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Target emergency fund</th>
+                                    <td>$24,000</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Current savings</th>
+                                    <td>$2,500</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Still needed</th>
+                                    <td>$21,500</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Monthly contribution</th>
+                                    <td>$500</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <p>
+                        At a constant $500 monthly contribution, and ignoring
+                        interest and withdrawals, the remaining $21,500 would
+                        take about <strong>43 months</strong> to save.
+                    </p>
+
+                    <p>
+                        That timeline is not a reason to avoid starting.
+                        You can reach smaller milestones along the way and
+                        increase contributions when your cash flow improves.
+                    </p>
+
+
+                    <!-- =================================================
+                         CIRCUMSTANCES
+                         ================================================= -->
+
+                    <h2 id="circumstances">
+                        Your Emergency Fund May Need to Be Different
+                    </h2>
+
+                    <p>
+                        A multi-month target is only a framework. Your
+                        circumstances can affect how much cash reserve makes
+                        sense.
+                    </p>
+
+                    <h3>Variable income</h3>
+
+                    <p>
+                        Freelancers, contractors and commission-based workers
+                        may need more flexibility because monthly income can
+                        fluctuate.
+                    </p>
+
+                    <h3>Dependents</h3>
+
+                    <p>
+                        A household supporting children or other dependents
+                        may have essential expenses that are harder to reduce
+                        quickly.
+                    </p>
+
+                    <h3>Single income</h3>
+
+                    <p>
+                        If one income supports the household, a prolonged
+                        income interruption can have a larger effect on the
+                        budget.
+                    </p>
+
+                    <h3>Flexible expenses</h3>
+
+                    <p>
+                        A household that can quickly reduce discretionary
+                        spending may have different cash-reserve needs from
+                        one with less flexibility.
+                    </p>
+
+
+                    <!-- =================================================
+                         MISTAKES
+                         ================================================= -->
+
+                    <h2 id="mistakes">
+                        Common Emergency Fund Mistakes
+                    </h2>
+
+                    <h3>Waiting for the perfect amount</h3>
+
+                    <p>
+                        A small starting balance can still provide some
+                        protection. Waiting until you can save thousands of
+                        dollars may delay the benefit of having a cash
+                        reserve.
+                    </p>
+
+                    <h3>Using normal savings as emergency savings</h3>
+
+                    <p>
+                        Separate accounts can make it clearer which money is
+                        available for emergencies and which money is intended
+                        for planned purchases.
+                    </p>
+
+                    <h3>Counting every expense</h3>
+
+                    <p>
+                        A multi-month target generally focuses on essential
+                        expenses rather than every discretionary purchase.
+                    </p>
+
+                    <h3>Investing the emergency fund aggressively</h3>
+
+                    <p>
+                        Emergency money generally needs liquidity and
+                        stability more than long-term investment growth.
+                    </p>
+
+                    <h3>Never using it</h3>
+
+                    <p>
+                        A fund exists for genuine emergencies. If you need
+                        to use it for one, use the money and rebuild the
+                        balance afterward.
+                    </p>
+
+                    <h3>Ignoring cash flow</h3>
+
+                    <p>
+                        A savings target needs to fit the timing of your
+                        actual income and bills. A contribution that looks
+                        reasonable on paper may not work if it leaves too
+                        little money for upcoming expenses.
+                    </p>
+
+
+                    <!-- =================================================
+                         ACTION PLAN
+                         ================================================= -->
+
+                    <h2 id="action-plan">
+                        Simple Emergency Fund Action Plan
+                    </h2>
+
+                    <ol>
+                        <li>
+                            Calculate your essential monthly expenses.
+                        </li>
+
+                        <li>
+                            Choose an initial savings milestone.
+                        </li>
+
+                        <li>
+                            Set a longer-term target based on your
+                            circumstances.
+                        </li>
+
+                        <li>
+                            Open or designate a separate savings location
+                            if appropriate.
+                        </li>
+
+                        <li>
+                            Choose a monthly contribution you can realistically
+                            maintain.
+                        </li>
+
+                        <li>
+                            Automate contributions when practical.
+                        </li>
+
+                        <li>
+                            Use occasional windfalls to accelerate the goal
+                            when appropriate.
+                        </li>
+
+                        <li>
+                            Review the target when your income, expenses or
+                            household changes.
+                        </li>
+
+                        <li>
+                            Use the fund for genuine emergencies and rebuild
+                            it afterward.
+                        </li>
+                    </ol>
+
+
+                    <!-- =================================================
+                         FAQ
+                         ================================================= -->
+
+                    <h2 id="faq">
+                        Emergency Fund FAQ
+                    </h2>
+
+                    <div class="faq-list">
+
+                        <div class="faq-item">
+
+                            <h3>
+                                What is an emergency fund?
+                            </h3>
+
+                            <p>
+                                An emergency fund is money set aside
+                                specifically for unexpected expenses or
+                                financial emergencies, such as an unexpected
+                                repair, medical expense or loss of income.
+                            </p>
+
+                        </div>
+
+
+                        <div class="faq-item">
+
+                            <h3>
+                                How much should I have in an emergency fund?
+                            </h3>
+
+                            <p>
+                                There is no universal amount. Three to six
+                                months of essential living expenses is a
+                                common longer-term benchmark, but your target
+                                should reflect your income, household,
+                                expenses and financial circumstances.
+                            </p>
+
+                        </div>
+
+
+                        <div class="faq-item">
+
+                            <h3>
+                                Should I have a $1,000 emergency fund?
+                            </h3>
+
+                            <p>
+                                $1,000 can be a useful initial milestone, but
+                                it is not a universal final target. A
+                                longer-term emergency fund may need to be much
+                                larger depending on your essential expenses
+                                and circumstances.
+                            </p>
+
+                        </div>
+
+
+                        <div class="faq-item">
+
+                            <h3>
+                                Where should I keep my emergency fund?
+                            </h3>
+
+                            <p>
+                                Emergency savings are generally kept somewhere
+                                safe, accessible and liquid. A dedicated
+                                savings account at a bank or credit union is
+                                one common approach.
+                            </p>
+
+                        </div>
+
+
+                        <div class="faq-item">
+
+                            <h3>
+                                What counts as an emergency expense?
+                            </h3>
+
+                            <p>
+                                Examples include unexpected medical expenses,
+                                essential car or home repairs, emergency
+                                travel and a sudden loss of income. Planned
+                                purchases and routine expenses generally
+                                belong in your regular budget instead.
+                            </p>
+
+                        </div>
+
+
+                        <div class="faq-item">
+
+                            <h3>
+                                How can I build an emergency fund on a tight
+                                budget?
+                            </h3>
+
+                            <p>
+                                Start with an amount you can consistently
+                                save, automate it when practical, review your
+                                cash flow, use occasional windfalls and
+                                increase the contribution when your financial
+                                situation allows.
+                            </p>
+
+                        </div>
+
+
+                        <div class="faq-item">
+
+                            <h3>
+                                Should I pay off debt or build an emergency
+                                fund first?
+                            </h3>
+
+                            <p>
+                                It depends on your debt, interest costs,
+                                current savings, income stability and upcoming
+                                expenses. A small emergency reserve can help
+                                prevent an unexpected expense from immediately
+                                becoming new debt.
+                            </p>
+
+                        </div>
+
+
+                        <div class="faq-item">
+
+                            <h3>
+                                What happens if I use my emergency fund?
+                            </h3>
+
+                            <p>
+                                Using it for a genuine emergency is one of its
+                                purposes. Once the immediate expense is
+                                handled, update your budget and work toward
+                                rebuilding the fund.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         RELATED GUIDES
+                         ================================================= -->
+
+                    <h2 id="related">
+                        Related Budgeting Guides
+                    </h2>
+
+                    <div class="related-grid">
+
+                        <a class="related-card" href="/finance/budgeting/">
+                            <strong>
+                                Budgeting Guide
+                            </strong>
+
+                            <span>
+                                Learn how to organize income, expenses,
+                                savings and financial goals.
+                            </span>
+                        </a>
+
+
+                        <a class="related-card" href="/finance/budgeting/monthly-budget/">
+                            <strong>
+                                Monthly Budget
+                            </strong>
+
+                            <span>
+                                Build a realistic monthly spending plan
+                                around your take-home income.
+                            </span>
+                        </a>
+
+
+                        <a class="related-card" href="/finance/budgeting/paycheck-budget/">
+                            <strong>
+                                Paycheck Budgeting
+                            </strong>
+
+                            <span>
+                                Plan bills, savings and spending around
+                                the paychecks you actually receive.
+                            </span>
+                        </a>
+
+
+                        <a class="related-card" href="/finance/budgeting/zero-based-budget/">
+                            <strong>
+                                Zero-Based Budgeting
+                            </strong>
+
+                            <span>
+                                Give every dollar of planned income a
+                                specific job.
+                            </span>
+                        </a>
+
+
+                        <a class="related-card" href="/finance/budgeting/50-30-20-rule/">
+                            <strong>
+                                50/30/20 Budget Rule
+                            </strong>
+
+                            <span>
+                                Explore a simple framework for needs, wants,
+                                savings and debt.
+                            </span>
+                        </a>
+
+
+                        <a class="related-card" href="/finance/credit-debt/">
+                            <strong>
+                                Credit &amp; Debt
+                            </strong>
+
+                            <span>
+                                Learn about debt payments, borrowing costs
+                                and credit-related topics.
+                            </span>
+                        </a>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         SOURCES
+                         ================================================= -->
+
+                    <div class="sources-box">
+
+                        <h2>
+                            Sources &amp; Methodology
+                        </h2>
+
+                        <p>
+                            This page uses general emergency-savings
+                            principles discussed by U.S. consumer-finance
+                            organizations, including the Consumer Financial
+                            Protection Bureau and FINRA.
+                        </p>
+
+                        <ul>
+
+                            <li>
+                                Consumer Financial Protection Bureau —
+                                emergency savings guidance.
+                            </li>
+
+                            <li>
+                                FINRA — financial hardship and emergency-fund
+                                guidance.
+                            </li>
+
+                        </ul>
+
+                        <div class="disclaimer">
+                            <strong>PaycheckMint disclaimer:</strong>
+                            This page and calculator are for general
+                            educational and planning purposes. Calculator
+                            results are estimates and do not account for
+                            every household's circumstances, interest,
+                            account terms, insurance coverage or financial
+                            obligations. Emergency-fund needs vary by
+                            individual situation. Consider qualified
+                            professional advice when appropriate.
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =================================================
+                     SIDEBAR
+                     ================================================= -->
+
+                <aside class="sidebar">
+
+                    <div class="sidebar-card">
+
+                        <h2 class="sidebar-title">
+                            On This Page
+                        </h2>
+
+                        <ul class="sidebar-list">
+
+                            <li>
+                                <a href="#calculator">
+                                    Emergency Fund Calculator
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#what-is-an-emergency-fund">
+                                    What Is an Emergency Fund?
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#how-much">
+                                    How Much Should You Save?
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#essential-expenses">
+                                    Essential Expenses
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#how-to-build">
+                                    How to Build One
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#where-to-keep">
+                                    Where to Keep It
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#what-counts">
+                                    What Counts as an Emergency?
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#mistakes">
+                                    Common Mistakes
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#faq">
+                                    FAQ
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="sidebar-card">
+
+                        <h2 class="sidebar-title">
+                            Budgeting Tools
+                        </h2>
+
+                        <p class="sidebar-tip">
+                            Your emergency fund works best when it is part
+                            of a broader spending and savings plan.
+                        </p>
+
+                        <a class="sidebar-cta" href="/finance/budgeting/monthly-budget/">
+                            Build a Monthly Budget
+                        </a>
+
+                    </div>
+
+
+                    <div class="sidebar-card">
+
+                        <h2 class="sidebar-title">
+                            Helpful Guides
+                        </h2>
+
+                        <ul class="sidebar-list">
+
+                            <li>
+                                <a href="/finance/budgeting/paycheck-budget/">
+                                    Paycheck Budgeting
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/finance/budgeting/zero-based-budget/">
+                                    Zero-Based Budget
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/finance/budgeting/50-30-20-rule/">
+                                    50/30/20 Rule
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/finance/credit-debt/">
+                                    Credit &amp; Debt
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
         </div>
 
     </main>
 
-    <footer>
 
-        <div class="footer-inner">
-            <div class="footer-grid">
-                <div>
-                    <div class="footer-brand"><a href="/" class="logo"> Paycheck<span>Mint</span> </a>
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer class="pm-footer">
+
+        <div class="pm-footer-inner">
+
+            <div class="pm-footer-main">
+
+                <div class="pm-footer-grid">
+
+                    <div class="pm-footer-brand-column">
+
+                        <a class="pm-footer-brand" href="/">
+                            Paycheck<span>Mint</span>
+                        </a>
+
+                        <p class="pm-footer-description">
+                            Practical personal finance guides, paycheck tools,
+                            and calculators to help you make informed money decisions.
+                        </p>
+
                     </div>
 
-                    <p class="footer-copy">
-                        Practical U.S. personal finance calculators, guides and tools designed to help you
-                        understand your income, spending, taxes, debt and financial goals.
-                    </p>
+                    <div>
+                        <h3 class="pm-footer-heading">Money</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/income/">Income</a></li>
+                            <li><a href="/paycheck-tax-calculator/">Paycheck Calculator</a></li>
+                            <li><a href="/take-home-pay-calculator/">Take-Home Pay</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Finance</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/finance/taxes/">Taxes</a></li>
+                            <li><a href="/finance/budgeting/">Budgeting</a></li>
+                            <li><a href="/finance/credit-debt/">Credit &amp; Debt</a></li>
+                            <li><a href="/finance/investing/">Investing</a></li>
+                            <li><a href="/finance/insurance/">Insurance</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Company</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/contact/">Contact</a></li>
+                            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms</a></li>
+                        </ul>
+                    </div>
+
                 </div>
 
-                <div>
-                    <h3>Calculators</h3>
+            </div>
 
-                    <a href="/paycheck-tax-calculator/">Paycheck Calculator</a>
-                    <a href="/hourly-paycheck-calculator/">Hourly Paycheck</a>
-                    <a href="/salary-paycheck-calculator/">Salary Paycheck</a>
-                    <a href="/overtime-pay-calculator/">Overtime Pay</a>
-                    <a href="/paycheck-tax-calculator/">Paycheck Tax</a>
+            <div class="pm-footer-bottom">
+
+                <div class="pm-footer-copyright">
+                    © 2026 PaycheckMint. All rights reserved.
                 </div>
 
-                <div>
-                    <h3>Finance</h3>
-
-                    <a href="/finance/">Finance Overview</a>
-                    <a href="/finance/taxes/">Taxes</a>
-                    <a href="/finance/budgeting/">Budgeting</a>
-                    <a href="/finance/credit-debt/">Credit &amp; Debt</a>
-                    <a href="/finance/investing/">Investing</a>
-                    <a href="/finance/insurance/">Insurance</a>
-                </div>
-
-                <div>
-                    <h3>PaycheckMint</h3>
-
-                    <a href="/about/">About</a>
-                    <a href="/contact/">Contact</a>
-                    <a href="/privacy-policy/">Privacy</a>
+                <div class="pm-footer-legal">
+                    <a href="/privacy-policy/">Privacy Policy</a>
                     <a href="/terms/">Terms</a>
+                    <a href="/contact/">Contact</a>
                 </div>
+
             </div>
 
-            <div class="copyright">
-                © 2026 PaycheckMint. Estimates are for educational purposes and may not reflect your actual
-                financial situation.
-            </div>
         </div>
 
     </footer>
 
+    <!-- =========================================================
+         CALCULATOR + NAVIGATION SCRIPT
+         ========================================================= -->
+
     <script>
         (function () {
-            const mobileToggle = document.querySelector(".mobile-menu-toggle");
 
-            const mainNav = document.querySelector(".main-nav");
+            "use strict";
 
-            const dropdown = document.querySelector(".nav-dropdown");
+            /* =====================================================
+               EMERGENCY FUND CALCULATOR
+            ===================================================== */
 
-            const dropdownToggle = document.querySelector(".dropdown-toggle");
-
-            if (mobileToggle && mainNav) {
-                mobileToggle.addEventListener("click", function () {
-                    const open = mainNav.classList.toggle("menu-open");
-
-                    mobileToggle.setAttribute("aria-expanded", String(open));
-
-                    mobileToggle.setAttribute(
-                        "aria-label",
-                        open ? "Close navigation menu" : "Open navigation menu"
-                    );
-
-                    if (!open && dropdown) {
-                        dropdown.classList.remove("open");
-
-                        if (dropdownToggle) {
-                            dropdownToggle.setAttribute("aria-expanded", "false");
-                        }
-                    }
-                });
-            }
-
-            if (dropdown && dropdownToggle) {
-                dropdownToggle.addEventListener("click", function (event) {
-                    event.stopPropagation();
-
-                    const open = dropdown.classList.toggle("open");
-
-                    dropdownToggle.setAttribute("aria-expanded", String(open));
-                });
-            }
-
-            document.addEventListener("click", function (event) {
-                if (dropdown && !dropdown.contains(event.target)) {
-                    dropdown.classList.remove("open");
-
-                    if (dropdownToggle) {
-                        dropdownToggle.setAttribute("aria-expanded", "false");
-                    }
-                }
-            });
-
-            window.addEventListener("resize", function () {
-                if (window.innerWidth > 850 && mainNav) {
-                    mainNav.classList.remove("menu-open");
-
-                    if (mobileToggle) {
-                        mobileToggle.setAttribute("aria-expanded", "false");
-                    }
-                }
-            });
-        })();
-
-        (function () {
-            const ids = [
+            const fields = [
                 "housing",
                 "utilities",
                 "groceries",
@@ -1943,136 +2828,560 @@
                 "healthcare",
                 "childcare",
                 "debt",
-                "otherEssential",
-                "currentSavings",
-                "monthlySaving",
-                "monthsTarget",
+                "other"
             ];
 
-            const money = new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD",
-                maximumFractionDigits: 0,
-            });
 
-            function value(id) {
-                const element = document.getElementById(id);
+            const moneyFormatter =
+                new Intl.NumberFormat(
+                    "en-US",
+                    {
+                        style: "currency",
+                        currency: "USD",
+                        maximumFractionDigits: 0
+                    }
+                );
 
-                if (!element) return 0;
 
-                const number = Number(element.value);
+            function getNumber(id) {
 
-                return Number.isFinite(number) && number > 0 ? number : 0;
+                const element =
+                    document.getElementById(id);
+
+                if (!element) {
+                    return 0;
+                }
+
+                const value =
+                    parseFloat(element.value);
+
+                if (!Number.isFinite(value) || value < 0) {
+                    return 0;
+                }
+
+                return value;
+
             }
 
-            function update() {
-                const essentialTotal =
-                    value("housing") +
-                    value("utilities") +
-                    value("groceries") +
-                    value("transportation") +
-                    value("insurance") +
-                    value("healthcare") +
-                    value("childcare") +
-                    value("debt") +
-                    value("otherEssential");
 
-                const currentSavings = value("currentSavings");
+            function calculateEmergencyFund() {
 
-                const monthlySaving = value("monthlySaving");
+                let monthlyExpenses = 0;
 
-                const targetMonths = Math.max(1, Number(document.getElementById("monthsTarget").value));
 
-                const targetAmount = essentialTotal * targetMonths;
+                fields.forEach(function (field) {
 
-                const amountNeeded = Math.max(0, targetAmount - currentSavings);
+                    monthlyExpenses +=
+                        getNumber(field);
+
+                });
+
+
+                const currentSavings =
+                    getNumber("currentSavings");
+
+
+                const monthlyContribution =
+                    getNumber("monthlyContribution");
+
+
+                const targetMonthsElement =
+                    document.getElementById("targetMonths");
+
+
+                const targetMonths =
+                    targetMonthsElement
+                        ? parseFloat(targetMonthsElement.value)
+                        : 6;
+
+
+                const target =
+                    monthlyExpenses * targetMonths;
+
+
+                const remaining =
+                    Math.max(
+                        target - currentSavings,
+                        0
+                    );
+
 
                 let monthsToGoal = 0;
 
-                if (amountNeeded > 0 && monthlySaving > 0) {
-                    monthsToGoal = Math.ceil(amountNeeded / monthlySaving);
+
+                if (remaining <= 0) {
+
+                    monthsToGoal = 0;
+
+                } else if (monthlyContribution > 0) {
+
+                    monthsToGoal =
+                        Math.ceil(
+                            remaining /
+                            monthlyContribution
+                        );
+
+                } else {
+
+                    monthsToGoal = null;
+
                 }
 
-                const progressPercent = targetAmount > 0 ? Math.min(100, (currentSavings / targetAmount) * 100) : 0;
 
-                document.getElementById("essentialTotal").textContent = money.format(essentialTotal);
+                let progress = 0;
 
-                document.getElementById("targetMonths").textContent =
-                    targetMonths + (targetMonths === 1 ? " month" : " months");
 
-                document.getElementById("targetAmount").textContent = money.format(targetAmount);
+                if (target > 0) {
 
-                document.getElementById("currentResult").textContent = money.format(currentSavings);
+                    progress =
+                        (currentSavings / target) * 100;
 
-                document.getElementById("amountNeeded").textContent = money.format(amountNeeded);
+                    progress =
+                        Math.min(
+                            Math.max(progress, 0),
+                            100
+                        );
 
-                document.getElementById("monthsToGoal").textContent =
-                    amountNeeded === 0
-                        ? "Goal reached"
-                        : monthlySaving > 0
-                            ? monthsToGoal + " months"
-                            : "Enter savings";
-
-                document.getElementById("progressPercent").textContent = progressPercent.toFixed(1) + "%";
-
-                document.getElementById("progressBar").style.width = progressPercent + "%";
-
-                const status = document.getElementById("calculatorStatus");
-
-                status.className = "calculator-status";
-
-                if (essentialTotal <= 0) {
-                    status.textContent =
-                        "Enter your essential monthly expenses to calculate an emergency-fund target.";
-
-                    return;
                 }
 
-                if (currentSavings >= targetAmount) {
-                    status.classList.add("success");
 
-                    status.textContent =
-                        "Your current emergency savings meet or exceed the selected target. You can adjust the target or keep building additional reserves based on your circumstances.";
+                const monthlyResult =
+                    document.getElementById(
+                        "monthlyExpensesResult"
+                    );
 
-                    return;
+                const targetMonthsResult =
+                    document.getElementById(
+                        "targetMonthsResult"
+                    );
+
+                const targetResult =
+                    document.getElementById(
+                        "targetResult"
+                    );
+
+                const currentResult =
+                    document.getElementById(
+                        "currentSavingsResult"
+                    );
+
+                const remainingResult =
+                    document.getElementById(
+                        "remainingResult"
+                    );
+
+                const monthsResult =
+                    document.getElementById(
+                        "monthsToGoalResult"
+                    );
+
+                const progressText =
+                    document.getElementById(
+                        "progressText"
+                    );
+
+                const progressFill =
+                    document.getElementById(
+                        "progressFill"
+                    );
+
+
+                if (monthlyResult) {
+
+                    monthlyResult.textContent =
+                        moneyFormatter.format(
+                            monthlyExpenses
+                        );
+
                 }
 
-                if (monthlySaving <= 0) {
-                    status.classList.add("warning");
 
-                    status.textContent =
-                        "Your target is " +
-                        money.format(targetAmount) +
-                        ". Enter a monthly contribution to estimate how long it could take to reach it.";
+                if (targetMonthsResult) {
 
-                    return;
+                    targetMonthsResult.textContent =
+                        targetMonths +
+                        (
+                            targetMonths === 1
+                                ? " month"
+                                : " months"
+                        );
+
                 }
 
-                status.classList.add("success");
 
-                status.textContent =
-                    "You need approximately " +
-                    money.format(amountNeeded) +
-                    " more to reach your selected target. At " +
-                    money.format(monthlySaving) +
-                    " per month, the simple estimate is about " +
-                    monthsToGoal +
-                    " months.";
+                if (targetResult) {
+
+                    targetResult.textContent =
+                        moneyFormatter.format(
+                            target
+                        );
+
+                }
+
+
+                if (currentResult) {
+
+                    currentResult.textContent =
+                        moneyFormatter.format(
+                            currentSavings
+                        );
+
+                }
+
+
+                if (remainingResult) {
+
+                    remainingResult.textContent =
+                        moneyFormatter.format(
+                            remaining
+                        );
+
+                }
+
+
+                if (monthsResult) {
+
+                    if (remaining <= 0) {
+
+                        monthsResult.textContent =
+                            "Target reached";
+
+                    } else if (
+                        monthlyContribution <= 0
+                    ) {
+
+                        monthsResult.textContent =
+                            "Enter contribution";
+
+                    } else {
+
+                        monthsResult.textContent =
+                            monthsToGoal +
+                            (
+                                monthsToGoal === 1
+                                    ? " month"
+                                    : " months"
+                            );
+
+                    }
+
+                }
+
+
+                if (progressText) {
+
+                    progressText.textContent =
+                        progress.toFixed(1) +
+                        "%";
+
+                }
+
+
+                if (progressFill) {
+
+                    progressFill.style.width =
+                        progress + "%";
+
+                }
+
             }
 
-            ids.forEach(function (id) {
-                const element = document.getElementById(id);
 
-                if (element) {
-                    element.addEventListener("input", update);
+            const calculateButton =
+                document.getElementById(
+                    "calculateEmergencyFund"
+                );
 
-                    element.addEventListener("change", update);
+
+            if (calculateButton) {
+
+                calculateButton.addEventListener(
+                    "click",
+                    calculateEmergencyFund
+                );
+
+            }
+
+
+            fields
+                .concat([
+                    "currentSavings",
+                    "monthlyContribution",
+                    "targetMonths"
+                ])
+                .forEach(function (id) {
+
+                    const element =
+                        document.getElementById(id);
+
+                    if (!element) {
+                        return;
+                    }
+
+                    element.addEventListener(
+                        "input",
+                        calculateEmergencyFund
+                    );
+
+                    element.addEventListener(
+                        "change",
+                        calculateEmergencyFund
+                    );
+
+                });
+
+
+            calculateEmergencyFund();
+
+        })();
+    </script>
+
+    <script>
+        (function () {
+            "use strict";
+
+            /* ==========================================================================
+               1. ASYNC COMPONENT LOADER
+               ========================================================================== */
+            document.addEventListener("DOMContentLoaded", function () {
+                loadSharedComponents();
+            });
+
+            async function loadSharedComponents() {
+                const navbar = document.getElementById("site-navbar");
+                const footer = document.getElementById("site-footer");
+
+                try {
+                    const requests = [];
+
+                    if (navbar) {
+                        requests.push(
+                            fetch("/components/navbar.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Navbar 404"))
+                                .then(html => { navbar.innerHTML = html; })
+                        );
+                    }
+
+                    if (footer) {
+                        requests.push(
+                            fetch("/components/footer.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Footer 404"))
+                                .then(html => { footer.innerHTML = html; })
+                        );
+                    }
+
+                    await Promise.all(requests);
+                    // Re-bind focus or initial state if required after injection
+                    setupScrollHeader();
+                } catch (error) {
+                    console.error("Component loading error:", error);
+                    setupScrollHeader();
+                }
+            }
+
+            /* ==========================================================================
+               2. EVENT DELEGATION (Handles dynamic elements automatically)
+               ========================================================================== */
+            document.addEventListener("click", function (event) {
+
+                // --- DESKTOP DROPDOWNS ---
+                const dropdownBtn = event.target.closest(".pm-nav-dropdown-button");
+                if (dropdownBtn) {
+                    event.stopPropagation();
+                    const currentDropdown = dropdownBtn.closest(".pm-nav-dropdown");
+                    const isOpen = currentDropdown.classList.contains("is-open");
+
+                    // Close all dropdowns
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
+                    });
+
+                    // Toggle selected dropdown
+                    if (!isOpen) {
+                        currentDropdown.classList.add("is-open");
+                        dropdownBtn.setAttribute("aria-expanded", "true");
+                    }
+                    return;
+                }
+
+                // Close desktop dropdowns when clicking outside
+                if (!event.target.closest(".pm-nav-dropdown")) {
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
+                    });
+                }
+
+                // --- MOBILE NAV TOGGLE ---
+                const mobileToggle = event.target.closest("#mobileToggle");
+                if (mobileToggle) {
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) {
+                        const isOpen = mobileNav.classList.toggle("is-open");
+                        mobileToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
+                }
+
+                // --- MOBILE SUBMENU TOGGLE ---
+                const mobileFinanceToggle = event.target.closest("#mobileFinanceToggle");
+                if (mobileFinanceToggle) {
+                    event.stopPropagation();
+                    const mobileFinanceLinks = document.getElementById("mobileFinanceLinks");
+                    if (mobileFinanceLinks) {
+                        const isOpen = mobileFinanceLinks.classList.toggle("is-open");
+                        mobileFinanceToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
+                }
+
+                // --- SEARCH TOGGLE (OPEN / CLOSE) ---
+                const searchToggle = event.target.closest("#searchToggle");
+                const mobileSearchBtn = event.target.closest("#mobileSearchButton");
+                const searchClose = event.target.closest("#searchClose");
+                const searchPanel = document.getElementById("searchPanel");
+
+                if (searchToggle || mobileSearchBtn) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) mobileNav.classList.remove("is-open");
+
+                    if (searchPanel) {
+                        if (searchPanel.classList.contains("is-open") && searchToggle) {
+                            closeSearch();
+                        } else {
+                            openSearch();
+                        }
+                    }
+                    return;
+                }
+
+                if (searchClose) {
+                    event.preventDefault();
+                    closeSearch();
+                    return;
+                }
+
+                // Close search panel when clicking outside of it
+                if (searchPanel && searchPanel.classList.contains("is-open")) {
+                    if (!searchPanel.contains(event.target)) {
+                        closeSearch();
+                    }
                 }
             });
 
-            update();
+            /* ==========================================================================
+               3. SEARCH HELPER FUNCTIONS & LIVE FILTERING
+               ========================================================================== */
+            function openSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchToggle = document.getElementById("searchToggle");
+
+                if (!searchPanel) return;
+                searchPanel.classList.add("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "true");
+                    searchToggle.setAttribute("aria-label", "Close search");
+                }
+                if (searchInput) setTimeout(() => searchInput.focus(), 100);
+            }
+
+            function closeSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchResults = document.getElementById("searchResults");
+                const searchToggle = document.getElementById("searchToggle");
+
+                if (!searchPanel) return;
+                searchPanel.classList.remove("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "false");
+                    searchToggle.setAttribute("aria-label", "Open search");
+                }
+                if (searchInput) searchInput.value = "";
+                if (searchResults) searchResults.innerHTML = "";
+            }
+
+            // Keyboard Shortcuts (Escape Key)
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closeSearch();
+                }
+            });
+
+            // Live Search Typing Input Event
+            document.addEventListener("input", function (event) {
+                if (event.target.id !== "siteSearch") return;
+
+                const query = event.target.value.trim().toLowerCase();
+                const searchResults = document.getElementById("searchResults");
+                if (!searchResults) return;
+
+                if (query.length === 0) {
+                    searchResults.innerHTML = "";
+                    return;
+                }
+
+                const searchablePages = [
+                    { title: "Paycheck Tax Calculator", url: "/paycheck-tax-calculator/", description: "Calculate accurate net pay and taxes." },
+                    { title: "Take-Home Pay Calculator", url: "/take-home-pay-calculator/", description: "Estimate your actual paycheck total after deductions." },
+                    { title: "Hourly Paycheck Calculator", url: "/hourly-paycheck-calculator/", description: "Calculate income based on hourly wage and hours worked." },
+                    { title: "Overtime Pay Calculator", url: "/overtime-pay-calculator/", description: "Compute overtime rates and total extra wages." },
+                    { title: "Salary Paycheck Calculator", url: "/salary-paycheck-calculator/", description: "Break down annual salary into per-paycheck earnings." },
+                    { title: "Income Overview", url: "/income/", description: "Learn about taxable income, gross wages, and take-home pay." },
+                    { title: "Finance Overview", url: "/finance/", description: "Guides on managing personal finances and budgeting strategies." },
+                    { title: "Budgeting Guides", url: "/finance/budgeting/", description: "Strategies for budgeting your paycheck effectively." }
+                ];
+
+                const matches = searchablePages.filter(page =>
+                    page.title.toLowerCase().includes(query) ||
+                    page.description.toLowerCase().includes(query)
+                );
+
+                if (matches.length === 0) {
+                    searchResults.innerHTML = `<p class="pm-search-no-results">No results found for "${escapeHTML(query)}"</p>`;
+                    return;
+                }
+
+                searchResults.innerHTML = matches.map(item => `
+            <a href="${item.url}" class="pm-search-result-item">
+                <span class="pm-search-result-title">${escapeHTML(item.title)}</span>
+                <span class="pm-search-result-desc">${escapeHTML(item.description)}</span>
+            </a>
+        `).join("");
+            });
+
+            function escapeHTML(str) {
+                return str.replace(/[&<>'"]/g, tag => ({
+                    '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+                }[tag] || tag));
+            }
+
+            /* ==========================================================================
+               4. SCROLL SHADOW
+               ========================================================================== */
+            function setupScrollHeader() {
+                const header = document.getElementById("site-header");
+                if (!header) return;
+
+                window.addEventListener("scroll", function () {
+                    if (window.scrollY > 20) {
+                        header.classList.add("is-scrolled");
+                    } else {
+                        header.classList.remove("is-scrolled");
+                    }
+                }, { passive: true });
+            }
+
         })();
     </script>
+
 </body>
 
 </html>

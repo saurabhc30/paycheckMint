@@ -1,1415 +1,1794 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        
-        <title>50/30/20 Budget Rule: Calculator, Examples & How It Works | PaycheckMint</title>
+<head>
+    <meta charset="UTF-8">
 
-        <meta
-            name="description"
-            content="Learn how the 50/30/20 budget rule works with a free calculator, examples, spending categories, savings guidance, and practical budgeting tips."
-        />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta
-            name="keywords"
-            content="50/30/20 budget rule, 50/30/20 budget calculator, 50 30 20 budget, 50/30/20 rule, 50/30/20 budget examples, how does the 50/30/20 rule work"
-        />
+    <title>50/30/20 Budget Rule: Calculator, Examples & How It Works | PaycheckMint</title>
 
-        <meta name="robots" content="index, follow" />
+    <meta name="description"
+        content="Learn how the 50/30/20 budget rule works with a calculator, examples, needs vs. wants guidance, variable-income tips, 401(k) considerations, formulas, and practical budgeting steps.">
 
-        <link rel="canonical" href="https://paycheckmint.com/finance/budgeting/50-30-20-rule/" />
+    <link rel="canonical" href="https://paycheckmint.com/finance/budgeting/50-30-20-rule/">
 
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="50/30/20 Budget Rule: Calculator, Examples & How It Works" />
-        <meta
-            property="og:description"
-            content="Use the PaycheckMint 50/30/20 calculator to see how take-home pay could be divided between needs, wants, and savings or extra debt payments."
-        />
-        <meta property="og:url" content="https://paycheckmint.com/finance/budgeting/50-30-20-rule/" />
+    <meta name="robots" content="index, follow">
 
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="50/30/20 Budget Rule | PaycheckMint" />
-        <meta
-            name="twitter:description"
-            content="Learn the 50/30/20 budget rule and calculate target amounts for needs, wants, and savings."
-        />
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="50/30/20 Budget Rule: Calculator, Examples & How It Works">
+    <meta property="og:description"
+        content="Calculate 50/30/20 budget targets and learn how to apply the rule to needs, wants, savings, debt, variable income and retirement.">
+    <meta property="og:url" content="https://paycheckmint.com/finance/budgeting/50-30-20-rule/">
+    <meta property="og:site_name" content="PaycheckMint">
 
-        <style>
-            :root {
-                --bg: #f6f5f1;
-                --surface: #ffffff;
-                --surface-soft: #faf9f6;
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="50/30/20 Budget Rule: Calculator, Examples & How It Works">
+    <meta name="twitter:description"
+        content="Use the 50/30/20 rule to organize take-home income into needs, wants, and savings or debt payments.">
 
-                --ink: #191919;
-                --muted: #74736f;
-                --muted-light: #999791;
+    <meta name="theme-color" content="#176B5B">
 
-                --line: #deddd8;
-                --line-dark: #cbc9c3;
+    <link rel="icon" href="/icon.ico">
 
-                --accent: #5954d9;
-                --accent-dark: #4843c0;
-                --accent-soft: #eeedff;
+    <link rel="stylesheet" href="/style.css">
 
-                --success: #247a4d;
-                --shadow: 0 10px 30px rgba(25, 25, 25, 0.06);
+    <style>
+        /* =========================================================
+           50/30/20 RULE — PAGE STYLES
+        ========================================================= */
 
-                --radius: 16px;
-                --max-width: 1120px;
+        .budget-page {
+            background: #F7F8F6;
+            color: #17201D;
+        }
+
+        .budget-page *,
+        .budget-page *::before,
+        .budget-page *::after {
+            box-sizing: border-box;
+        }
+
+        .budget-container {
+            width: min(1200px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .budget-hero {
+            padding: 58px 0 42px;
+        }
+
+        .budget-breadcrumbs {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 22px;
+            color: #69736F;
+            font-size: 14px;
+        }
+
+        .budget-breadcrumbs a {
+            color: #176B5B;
+            text-decoration: none;
+        }
+
+        .budget-breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+
+        .budget-breadcrumb-separator {
+            color: #A3AAA7;
+        }
+
+        .budget-hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 330px;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .budget-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 11px;
+            border-radius: 999px;
+            background: #EEF5F2;
+            color: #176B5B;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: .02em;
+            margin-bottom: 16px;
+        }
+
+        .budget-hero h1 {
+            max-width: 820px;
+            margin: 0 0 18px;
+            font-size: clamp(36px, 5vw, 58px);
+            line-height: 1.04;
+            letter-spacing: -0.045em;
+            color: #17201D;
+        }
+
+        .budget-hero-lead {
+            max-width: 760px;
+            margin: 0;
+            color: #58635F;
+            font-size: 19px;
+            line-height: 1.7;
+        }
+
+        .budget-hero-note {
+            margin-top: 22px;
+            padding: 16px 18px;
+            border-left: 4px solid #C9922E;
+            background: #FFFDF8;
+            border-radius: 0 12px 12px 0;
+            color: #4C514E;
+            line-height: 1.65;
+            font-size: 14px;
+        }
+
+        .budget-hero-note strong {
+            color: #17201D;
+        }
+
+        .budget-rule-visual {
+            background: #FFFFFF;
+            border: 1px solid #E2E8E5;
+            border-radius: 22px;
+            padding: 24px;
+            box-shadow: 0 12px 35px rgba(15, 81, 69, .07);
+        }
+
+        .budget-rule-visual-title {
+            margin: 0 0 18px;
+            color: #59635F;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+        }
+
+        .budget-rule-row {
+            display: grid;
+            grid-template-columns: 62px 1fr;
+            gap: 13px;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .budget-rule-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .budget-rule-percent {
+            font-size: 25px;
+            font-weight: 900;
+            color: #176B5B;
+        }
+
+        .budget-rule-row:nth-child(3) .budget-rule-percent {
+            color: #A16D13;
+        }
+
+        .budget-rule-bar {
+            height: 12px;
+            overflow: hidden;
+            border-radius: 999px;
+            background: #EEF1EF;
+        }
+
+        .budget-rule-fill {
+            height: 100%;
+            border-radius: inherit;
+            background: #176B5B;
+        }
+
+        .budget-rule-row:nth-child(3) .budget-rule-fill {
+            background: #C9922E;
+        }
+
+        .budget-rule-label {
+            margin-top: 5px;
+            color: #69736F;
+            font-size: 13px;
+        }
+
+        /* =========================================================
+           MAIN LAYOUT
+        ========================================================= */
+
+        .budget-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 780px) 300px;
+            gap: 48px;
+            align-items: start;
+            padding-bottom: 70px;
+        }
+
+        .budget-article {
+            min-width: 0;
+        }
+
+        .budget-section {
+            margin-bottom: 52px;
+        }
+
+        .budget-section h2 {
+            margin: 0 0 16px;
+            color: #17201D;
+            font-size: clamp(27px, 3vw, 36px);
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+        }
+
+        .budget-section h3 {
+            margin: 30px 0 12px;
+            color: #17201D;
+            font-size: 21px;
+            line-height: 1.3;
+        }
+
+        .budget-section p {
+            margin: 0 0 17px;
+            color: #46524D;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .budget-section ul,
+        .budget-section ol {
+            margin: 15px 0 20px;
+            padding-left: 23px;
+        }
+
+        .budget-section li {
+            margin: 8px 0;
+            color: #46524D;
+            line-height: 1.7;
+        }
+
+        .budget-section a {
+            color: #176B5B;
+            font-weight: 700;
+        }
+
+        /* =========================================================
+           QUICK ANSWER
+        ========================================================= */
+
+        .quick-answer {
+            padding: 25px 27px;
+            margin-bottom: 45px;
+            border: 1px solid #DDE8E3;
+            border-radius: 18px;
+            background: #FFFFFF;
+            box-shadow: 0 8px 25px rgba(23, 107, 91, .045);
+        }
+
+        .quick-answer-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            color: #176B5B;
+            font-size: 13px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: .07em;
+        }
+
+        .quick-answer p {
+            margin: 0;
+            color: #35413D;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* =========================================================
+           CALCULATOR
+        ========================================================= */
+
+        .budget-calculator {
+            margin: 0 0 55px;
+            border: 1px solid #DDE6E2;
+            border-radius: 22px;
+            overflow: hidden;
+            background: #FFFFFF;
+            box-shadow: 0 14px 40px rgba(15, 81, 69, .08);
+        }
+
+        .calculator-header {
+            padding: 26px 28px;
+            background: #0F5145;
+            color: #FFFFFF;
+        }
+
+        .calculator-header h2 {
+            margin: 0 0 7px;
+            color: #FFFFFF;
+            font-size: 27px;
+        }
+
+        .calculator-header p {
+            margin: 0;
+            color: rgba(255, 255, 255, .82);
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .calculator-body {
+            padding: 28px;
+        }
+
+        .calculator-input-group {
+            margin-bottom: 25px;
+        }
+
+        .calculator-input-group label {
+            display: block;
+            margin-bottom: 9px;
+            color: #26312D;
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .income-input-wrap {
+            position: relative;
+        }
+
+        .income-symbol {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #66716D;
+            font-weight: 700;
+        }
+
+        #monthlyIncome {
+            width: 100%;
+            height: 52px;
+            padding: 0 15px 0 34px;
+            border: 1px solid #CBD8D3;
+            border-radius: 11px;
+            outline: none;
+            color: #17201D;
+            background: #FFFFFF;
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        #monthlyIncome:focus {
+            border-color: #176B5B;
+            box-shadow: 0 0 0 3px rgba(23, 107, 91, .10);
+        }
+
+        .calculator-results {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 13px;
+        }
+
+        .result-card {
+            padding: 20px 17px;
+            border: 1px solid #E1E8E5;
+            border-radius: 15px;
+            background: #F8FAF9;
+        }
+
+        .result-percent {
+            margin-bottom: 6px;
+            color: #176B5B;
+            font-size: 13px;
+            font-weight: 900;
+        }
+
+        .result-card:nth-child(3) .result-percent {
+            color: #A16D13;
+        }
+
+        .result-card h3 {
+            margin: 0 0 5px;
+            font-size: 15px;
+            color: #33403B;
+        }
+
+        .result-amount {
+            color: #17201D;
+            font-size: 25px;
+            font-weight: 900;
+        }
+
+        .result-description {
+            margin-top: 7px;
+            color: #6A7470;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .calculator-disclaimer {
+            margin: 20px 0 0;
+            color: #6A7470;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* =========================================================
+           BASIC IDEA CARDS
+        ========================================================= */
+
+        .rule-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin: 25px 0;
+        }
+
+        .rule-card {
+            padding: 23px;
+            border: 1px solid #E0E7E4;
+            border-radius: 16px;
+            background: #FFFFFF;
+        }
+
+        .rule-card-percent {
+            color: #176B5B;
+            font-size: 30px;
+            font-weight: 900;
+        }
+
+        .rule-card:nth-child(3) .rule-card-percent {
+            color: #A16D13;
+        }
+
+        .rule-card h3 {
+            margin: 7px 0 8px;
+            font-size: 18px;
+        }
+
+        .rule-card p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* =========================================================
+           CALLOUTS
+        ========================================================= */
+
+        .info-callout {
+            margin: 25px 0;
+            padding: 21px 23px;
+            border-radius: 15px;
+            border: 1px solid #DCE8E3;
+            background: #EEF5F2;
+        }
+
+        .info-callout strong {
+            display: block;
+            margin-bottom: 6px;
+            color: #0F5145;
+        }
+
+        .info-callout p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .warning-callout {
+            margin: 25px 0;
+            padding: 21px 23px;
+            border-radius: 15px;
+            border: 1px solid #E9DEC7;
+            background: #FFF9ED;
+        }
+
+        .warning-callout strong {
+            display: block;
+            margin-bottom: 6px;
+            color: #8B6217;
+        }
+
+        .warning-callout p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* =========================================================
+           TABLES
+        ========================================================= */
+
+        .table-wrap {
+            width: 100%;
+            overflow-x: auto;
+            margin: 22px 0 28px;
+            border: 1px solid #DFE6E3;
+            border-radius: 15px;
+            background: #FFFFFF;
+        }
+
+        .budget-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 580px;
+        }
+
+        .budget-table th,
+        .budget-table td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid #E8ECEA;
+            color: #43504B;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .budget-table th {
+            background: #F1F6F4;
+            color: #26352F;
+            font-weight: 900;
+        }
+
+        .budget-table tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .budget-table td strong {
+            color: #17201D;
+        }
+
+        /* =========================================================
+           FORMULA
+        ========================================================= */
+
+        .formula-box {
+            margin: 25px 0;
+            padding: 24px;
+            border-radius: 17px;
+            background: #17201D;
+            color: #FFFFFF;
+        }
+
+        .formula-box h3 {
+            margin: 0 0 16px;
+            color: #FFFFFF;
+        }
+
+        .formula-line {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .12);
+            color: #E9EFEC;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .formula-line:last-child {
+            border-bottom: 0;
+        }
+
+        .formula-line strong {
+            color: #FFFFFF;
+        }
+
+        /* =========================================================
+           STEPS
+        ========================================================= */
+
+        .steps {
+            display: grid;
+            gap: 13px;
+            margin: 25px 0;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 42px 1fr;
+            gap: 14px;
+            padding: 19px;
+            border: 1px solid #E0E7E4;
+            border-radius: 15px;
+            background: #FFFFFF;
+        }
+
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #EEF5F2;
+            color: #176B5B;
+            font-weight: 900;
+        }
+
+        .step h3 {
+            margin: 1px 0 5px;
+            font-size: 17px;
+        }
+
+        .step p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* =========================================================
+           MISTAKES
+        ========================================================= */
+
+        .mistake-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 23px;
+        }
+
+        .mistake-card {
+            padding: 17px;
+            border: 1px solid #E3E9E6;
+            border-radius: 13px;
+            background: #FFFFFF;
+        }
+
+        .mistake-card strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #26332F;
+        }
+
+        .mistake-card span {
+            color: #65706C;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* =========================================================
+           FAQ
+        ========================================================= */
+
+        .faq-list {
+            display: grid;
+            gap: 10px;
+            margin-top: 22px;
+        }
+
+        .faq-item {
+            border: 1px solid #DEE6E2;
+            border-radius: 13px;
+            background: #FFFFFF;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            border: 0;
+            background: transparent;
+            color: #24312C;
+            text-align: left;
+            font: inherit;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .faq-icon {
+            flex: 0 0 auto;
+            color: #176B5B;
+            font-size: 21px;
+            line-height: 1;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 0 20px 19px;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* =========================================================
+           SOURCES / DISCLAIMER
+        ========================================================= */
+
+        .article-disclaimer {
+            margin-top: 48px;
+            padding: 22px;
+            border: 1px solid #E0E6E3;
+            border-radius: 15px;
+            background: #F8FAF9;
+        }
+
+        .article-disclaimer strong {
+            display: block;
+            margin-bottom: 7px;
+            color: #26332F;
+        }
+
+        .article-disclaimer p {
+            margin: 0;
+            color: #69736F;
+            font-size: 13px;
+            line-height: 1.65;
+        }
+
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
+
+        .budget-sidebar {
+            position: sticky;
+            top: 95px;
+            align-self: start;
+        }
+
+        .sidebar-card {
+            padding: 21px;
+            margin-bottom: 17px;
+            border: 1px solid #E0E7E4;
+            border-radius: 16px;
+            background: #FFFFFF;
+        }
+
+        .sidebar-card h3 {
+            margin: 0 0 13px;
+            color: #24312D;
+            font-size: 16px;
+        }
+
+        .sidebar-list {
+            display: grid;
+            gap: 8px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .sidebar-list a {
+            display: block;
+            padding: 7px 0;
+            color: #53605B;
+            text-decoration: none;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .sidebar-list a:hover {
+            color: #176B5B;
+        }
+
+        .sidebar-highlight {
+            background: #EEF5F2;
+            border-color: #D8E7E1;
+        }
+
+        .sidebar-highlight p {
+            margin: 0 0 13px;
+            color: #53605B;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .sidebar-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 42px;
+            padding: 10px 14px;
+            border-radius: 9px;
+            background: #176B5B;
+            color: #FFFFFF !important;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .sidebar-button:hover {
+            background: #0F5145;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1000px) {
+
+            .budget-hero-grid {
+                grid-template-columns: 1fr;
             }
 
-            * {
-                box-sizing: border-box;
+            .budget-rule-visual {
+                max-width: 520px;
             }
 
-            html {
-                scroll-behavior: smooth;
-                overflow-x: hidden;
+            .budget-layout {
+                grid-template-columns: 1fr;
             }
 
-            body {
-                margin: 0;
-                background: var(--bg);
-                color: var(--ink);
-                font-family:
-                    Inter,
-                    ui-sans-serif,
-                    system-ui,
-                    -apple-system,
-                    BlinkMacSystemFont,
-                    "Segoe UI",
-                    sans-serif;
-                line-height: 1.65;
-                overflow-x: hidden;
+            .budget-sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .budget-container {
+                width: min(100% - 28px, 780px);
             }
 
-            a {
-                color: inherit;
-                text-decoration: none;
+            .budget-hero {
+                padding: 35px 0 28px;
             }
 
-            button,
-            input {
-                font: inherit;
+            .budget-hero h1 {
+                font-size: 38px;
             }
 
-            .container {
-                width: min(var(--max-width), calc(100% - 32px));
-                margin: 0 auto;
+            .budget-hero-lead {
+                font-size: 17px;
             }
 
-            /* =========================
-       HEADER / NAVBAR
-    ========================= */
-
-            .site-header {
-                position: sticky;
-                top: 0;
-                z-index: 1000;
-                background: rgba(255, 255, 255, 0.97);
-                border-bottom: 1px solid var(--line);
-                backdrop-filter: blur(12px);
+            .budget-layout {
+                gap: 25px;
+                padding-bottom: 45px;
             }
 
-            .header-inner {
-                position: relative;
-                min-height: 68px;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 24px;
+            .budget-section {
+                margin-bottom: 40px;
             }
 
-            .brand {
-                display: inline-block;
-                color: var(--ink);
-                font-size: 24px;
-                font-weight: 800;
-                letter-spacing: -0.8px;
-                white-space: nowrap;
+            .budget-section h2 {
+                font-size: 28px;
             }
 
-            .brand span {
-                color: var(--accent);
-            }
-
-            .main-nav {
-                display: flex;
-                align-items: center;
-                gap: 4px;
-            }
-
-            .main-nav > a,
-            .nav-dropdown > button {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                min-height: 42px;
-                border: 0;
-                background: transparent;
-                padding: 10px 12px;
-                color: #3d3c39;
-                font-size: 14px;
-                font-weight: 600;
-                border-radius: 9px;
-                cursor: pointer;
-                white-space: nowrap;
-            }
-
-            .main-nav > a:hover,
-            .nav-dropdown > button:hover,
-            .main-nav > a:focus-visible,
-            .nav-dropdown > button:focus-visible {
-                background: var(--surface-soft);
-                color: var(--accent);
-                outline: none;
-            }
-
-            .nav-dropdown {
-                position: relative;
-            }
-
-            .dropdown-menu {
-                position: absolute;
-                top: calc(100% + 8px);
-                right: 0;
-                width: 230px;
-                padding: 8px;
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: 12px;
-                box-shadow: var(--shadow);
-                display: none;
-            }
-
-            .nav-dropdown.open .dropdown-menu {
-                display: block;
-            }
-
-            .dropdown-menu a {
-                display: block;
-                padding: 10px 11px;
-                border-radius: 8px;
-                font-size: 14px;
-                color: #41403d;
-            }
-
-            .dropdown-menu a:hover,
-            .dropdown-menu a:focus-visible {
-                background: var(--accent-soft);
-                color: var(--accent-dark);
-                outline: none;
-            }
-
-            .mobile-menu-toggle {
-                display: none;
-                width: 42px;
-                height: 42px;
-                padding: 0;
-                border: 1px solid var(--line);
-                background: white;
-                color: var(--ink);
-                border-radius: 10px;
-                cursor: pointer;
-                font-size: 21px;
-                line-height: 1;
-            }
-
-            .mobile-menu-toggle:hover,
-            .mobile-menu-toggle:focus-visible {
-                border-color: var(--accent);
-                color: var(--accent);
-                outline: none;
-            }
-
-            /* =========================
-       HERO
-    ========================= */
-
-            .hero {
-                padding: 66px 0 42px;
-            }
-
-            .hero-grid {
-                display: grid;
-                grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
-                gap: 48px;
-                align-items: center;
-            }
-
-            .eyebrow {
-                display: inline-flex;
-                padding: 6px 10px;
-                border-radius: 999px;
-                background: var(--accent-soft);
-                color: var(--accent-dark);
-                font-size: 12px;
-                font-weight: 800;
-                letter-spacing: 0.03em;
-                text-transform: uppercase;
-            }
-
-            h1 {
-                margin: 14px 0 18px;
-                font-size: clamp(36px, 5vw, 58px);
-                line-height: 1.05;
-                letter-spacing: -2px;
-            }
-
-            .hero p {
-                margin: 0;
-                max-width: 690px;
-                color: var(--muted);
-                font-size: 18px;
-            }
-
-            .hero-card {
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: 20px;
-                padding: 26px;
-                box-shadow: var(--shadow);
-            }
-
-            .hero-card h2 {
-                margin: 0 0 8px;
-                font-size: 21px;
-            }
-
-            .hero-card p {
-                margin-bottom: 20px;
-                font-size: 14px;
-            }
-
-            .mini-rule {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 8px;
-            }
-
-            .mini-rule div {
-                padding: 15px 8px;
-                text-align: center;
-                border: 1px solid var(--line);
-                border-radius: 12px;
-            }
-
-            .mini-rule strong {
-                display: block;
-                font-size: 25px;
-            }
-
-            .mini-rule span {
-                display: block;
-                margin-top: 3px;
-                color: var(--muted);
-                font-size: 12px;
-            }
-
-            /* =========================
-       CALCULATOR
-    ========================= */
-
-            .calculator-section {
-                padding: 20px 0 60px;
-            }
-
-            .calculator {
-                overflow: hidden;
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: 22px;
-                box-shadow: var(--shadow);
-            }
-
-            .calculator-header {
-                padding: 28px 30px;
-                background: var(--surface-soft);
-                border-bottom: 1px solid var(--line);
-            }
-
-            .calculator-header h2 {
-                margin: 0 0 5px;
-                font-size: 26px;
-            }
-
-            .calculator-header p {
-                margin: 0;
-                color: var(--muted);
-                font-size: 14px;
+            .rule-cards,
+            .calculator-results,
+            .mistake-grid {
+                grid-template-columns: 1fr;
             }
 
             .calculator-body {
-                padding: 30px;
-            }
-
-            .input-group {
-                max-width: 480px;
-            }
-
-            .input-group label {
-                display: block;
-                margin-bottom: 8px;
-                font-size: 14px;
-                font-weight: 700;
-            }
-
-            .input-wrap {
-                position: relative;
-            }
-
-            .input-wrap span {
-                position: absolute;
-                left: 15px;
-                top: 50%;
-                transform: translateY(-50%);
-                color: var(--muted);
-                font-weight: 700;
-                pointer-events: none;
-            }
-
-            .input-wrap input {
-                width: 100%;
-                padding: 14px 15px 14px 34px;
-                border: 1px solid var(--line-dark);
-                border-radius: 11px;
-                background: white;
-                color: var(--ink);
-                font-size: 17px;
-                outline: none;
-            }
-
-            .input-wrap input:focus {
-                border-color: var(--accent);
-                box-shadow: 0 0 0 3px var(--accent-soft);
-            }
-
-            .calculator-grid {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 14px;
-                margin-top: 25px;
-            }
-
-            .budget-card {
-                padding: 21px;
-                border: 1px solid var(--line);
-                border-radius: 15px;
-            }
-
-            .budget-card .percentage {
-                color: var(--muted);
-                font-size: 13px;
-                font-weight: 700;
-            }
-
-            .budget-card h3 {
-                margin: 4px 0 2px;
-                font-size: 17px;
-            }
-
-            .budget-card .amount {
-                font-size: 29px;
-                font-weight: 800;
-                letter-spacing: -0.7px;
-            }
-
-            .budget-card p {
-                margin: 8px 0 0;
-                color: var(--muted);
-                font-size: 13px;
-            }
-
-            .progress {
-                height: 8px;
-                margin-top: 16px;
-                background: #ecebe7;
-                border-radius: 999px;
-                overflow: hidden;
-            }
-
-            .progress span {
-                display: block;
-                height: 100%;
-                border-radius: inherit;
-                background: var(--accent);
-            }
-
-            .calculator-note {
-                margin: 22px 0 0;
-                color: var(--muted);
-                font-size: 13px;
-            }
-
-            /* =========================
-       CONTENT
-    ========================= */
-
-            .content-section {
-                padding: 50px 0;
-            }
-
-            .content-layout {
-                display: grid;
-                grid-template-columns: minmax(0, 1fr) 280px;
-                gap: 45px;
-                align-items: start;
-            }
-
-            .article {
-                min-width: 0;
-            }
-
-            .article h2 {
-                margin: 42px 0 14px;
-                font-size: 31px;
-                line-height: 1.2;
-                letter-spacing: -0.7px;
-                scroll-margin-top: 95px;
-            }
-
-            .article h2:first-child {
-                margin-top: 0;
-            }
-
-            .article h3 {
-                margin: 28px 0 9px;
-                font-size: 21px;
-            }
-
-            .article p {
-                margin: 0 0 17px;
-                color: #4d4c48;
-            }
-
-            .article ul,
-            .article ol {
-                padding-left: 23px;
-                color: #4d4c48;
-            }
-
-            .article li {
-                margin: 7px 0;
-            }
-
-            .highlight {
                 padding: 20px;
-                margin: 25px 0;
-                border-left: 4px solid var(--accent);
-                background: var(--accent-soft);
-                border-radius: 10px;
             }
 
-            .highlight p {
-                margin: 0 0 10px;
+            .calculator-header {
+                padding: 22px 20px;
             }
 
-            .highlight p:last-child {
-                margin-bottom: 0;
-            }
-
-            .definition-box {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 13px;
-                margin: 24px 0;
-            }
-
-            .definition-box > div {
+            .quick-answer {
                 padding: 20px;
-                background: white;
-                border: 1px solid var(--line);
-                border-radius: 14px;
             }
 
-            .definition-box strong {
-                display: block;
-                margin-bottom: 5px;
-                font-size: 23px;
+            .step {
+                grid-template-columns: 36px 1fr;
             }
 
-            .definition-box span {
-                color: var(--muted);
-                font-size: 13px;
+            .step-number {
+                width: 34px;
+                height: 34px;
             }
 
-            .example-table {
-                width: 100%;
-                margin: 22px 0;
-                border-collapse: collapse;
-                background: white;
-                border: 1px solid var(--line);
-            }
-
-            .example-table th,
-            .example-table td {
-                padding: 12px 14px;
-                text-align: left;
-                border-bottom: 1px solid var(--line);
-            }
-
-            .example-table th {
-                background: var(--surface-soft);
-                font-size: 13px;
-            }
-
-            .example-table td {
-                font-size: 14px;
-            }
-
-            .example-table tr:last-child td {
-                border-bottom: 0;
-            }
-
-            .check-list {
-                list-style: none;
-                padding-left: 0 !important;
-            }
-
-            .check-list li {
-                position: relative;
-                padding-left: 28px;
-            }
-
-            .check-list li::before {
-                content: "✓";
-                position: absolute;
-                left: 0;
-                top: 0;
-                color: var(--success);
-                font-weight: 800;
-            }
-
-            /* =========================
-       SIDEBAR / TOC
-    ========================= */
-
-            .sidebar {
-                position: sticky;
-                top: 90px;
-            }
-
-            .toc {
-                padding: 20px;
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: 14px;
-            }
-
-            .toc strong {
-                display: block;
-                margin-bottom: 10px;
-            }
-
-            .toc a {
-                display: block;
-                padding: 5px 0;
-                color: var(--muted);
-                font-size: 13px;
-            }
-
-            .toc a:hover {
-                color: var(--accent);
-            }
-
-            .sidebar-card {
-                margin-top: 16px;
-                padding: 20px;
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: 14px;
-            }
-
-            .sidebar-card h3 {
-                margin: 0 0 9px;
-                font-size: 16px;
-            }
-
-            .sidebar-card p {
-                margin: 0 0 13px;
-                color: var(--muted);
-                font-size: 13px;
-            }
-
-            .sidebar-card a {
-                display: block;
-                margin-top: 7px;
-                color: var(--accent-dark);
-                font-size: 13px;
-                font-weight: 700;
-            }
-
-            /* =========================
-       FAQ
-    ========================= */
-
-            .faq-section {
-                padding: 55px 0;
-                background: var(--surface);
-                border-top: 1px solid var(--line);
-                border-bottom: 1px solid var(--line);
-            }
-
-            .section-title {
-                margin: 0 0 26px;
-                font-size: 31px;
-                letter-spacing: -0.6px;
-            }
-
-            .faq {
-                border-top: 1px solid var(--line);
-            }
-
-            .faq-item {
-                border-bottom: 1px solid var(--line);
-            }
-
-            .faq-question {
-                width: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 20px;
-                padding: 18px 0;
-                border: 0;
-                background: transparent;
-                color: var(--ink);
-                text-align: left;
-                font-weight: 700;
-                cursor: pointer;
-            }
-
-            .faq-question span:last-child {
-                color: var(--muted);
-                font-size: 22px;
-            }
-
-            .faq-answer {
-                display: none;
-                padding: 0 0 18px;
-                color: var(--muted);
-                font-size: 14px;
-            }
-
-            .faq-item.open .faq-answer {
-                display: block;
-            }
-
-            /* =========================
-       CTA
-    ========================= */
-
-            .cta {
-                margin: 55px 0;
-                padding: 35px;
-                background: var(--accent);
-                color: white;
-                border-radius: 20px;
-                text-align: center;
-            }
-
-            .cta h2 {
-                margin: 0 0 9px;
-                font-size: 29px;
-            }
-
-            .cta p {
-                max-width: 650px;
-                margin: 0 auto 22px;
-                color: rgba(255, 255, 255, 0.86);
-            }
-
-            .cta a {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                padding: 11px 18px;
-                background: white;
-                color: var(--accent-dark);
-                border-radius: 10px;
-                font-size: 14px;
-                font-weight: 800;
-            }
-
-            .cta a:hover {
-                transform: translateY(-1px);
-            }
-
-            /* =========================
-       FOOTER
-    ========================= */
-
-            footer {
-                padding: 42px 0 25px;
-                background: var(--bg);
-                border-top: 1px solid var(--line);
-            }
-
-            .footer-grid {
-                display: grid;
-                grid-template-columns: 1.5fr 1fr 1fr 1fr;
-                gap: 30px;
-            }
-
-            .footer-description {
-                max-width: 360px;
+            .budget-sidebar {
                 margin-top: 10px;
-                color: var(--muted);
-                font-size: 13px;
             }
+        }
+    </style>
 
-            .footer-col h3 {
-                margin: 0 0 10px;
-                font-size: 14px;
-            }
-
-            .footer-col a {
-                display: block;
-                padding: 4px 0;
-                color: var(--muted);
-                font-size: 13px;
-            }
-
-            .footer-col a:hover {
-                color: var(--accent);
-            }
-
-            .footer-bottom {
-                margin-top: 35px;
-                padding-top: 18px;
-                border-top: 1px solid var(--line);
-                color: var(--muted-light);
-                font-size: 12px;
-            }
-
-            /* =========================
-       RESPONSIVE NAVBAR
-    ========================= */
-
-            @media (max-width: 850px) {
-                .mobile-menu-toggle {
-                    display: inline-grid;
-                    place-items: center;
-                    flex: 0 0 auto;
-                }
-
-                .main-nav {
-                    position: absolute;
-                    left: 0;
-                    right: 0;
-                    top: calc(100% + 8px);
-
-                    display: none;
-                    flex-direction: column;
-                    align-items: stretch;
-                    gap: 2px;
-
-                    padding: 10px;
-
-                    background: white;
-                    border: 1px solid var(--line);
-                    border-radius: 14px;
-                    box-shadow: var(--shadow);
-
-                    max-height: calc(100vh - 90px);
-                    overflow-y: auto;
-                    overflow-x: hidden;
-                }
-
-                .main-nav.open {
-                    display: flex;
-                }
-
-                .main-nav > a,
-                .nav-dropdown > button {
-                    width: 100%;
-                    min-height: 44px;
-                    justify-content: flex-start;
-                    text-align: left;
-                    padding: 12px;
-                }
-
-                .nav-dropdown {
-                    width: 100%;
-                }
-
-                .dropdown-menu {
-                    position: static;
-                    width: 100%;
-                    min-width: 0;
-                    margin: 2px 0 4px;
-                    padding: 4px;
-                    border: 0;
-                    box-shadow: none;
-                    background: var(--surface-soft);
-                }
-
-                .dropdown-menu a {
-                    padding: 11px 12px;
-                }
-
-                .hero-grid {
-                    grid-template-columns: 1fr;
-                }
-
-                .content-layout {
-                    grid-template-columns: 1fr;
-                }
-
-                .sidebar {
-                    position: static;
-                    order: -1;
-                }
-
-                .calculator-grid {
-                    grid-template-columns: 1fr;
-                }
-
-                .definition-box {
-                    grid-template-columns: 1fr;
-                }
-
-                .footer-grid {
-                    grid-template-columns: 1fr 1fr;
-                }
-            }
-
-            @media (max-width: 560px) {
-                .container {
-                    width: min(100% - 24px, var(--max-width));
-                }
-
-                .header-inner {
-                    min-height: 62px;
-                }
-
-                .hero {
-                    padding: 42px 0 30px;
-                }
-
-                h1 {
-                    font-size: 38px;
-                    letter-spacing: -1.4px;
-                }
-
-                .hero p {
-                    font-size: 16px;
-                }
-
-                .calculator-header,
-                .calculator-body {
-                    padding: 22px 18px;
-                }
-
-                .mini-rule {
-                    grid-template-columns: 1fr;
-                }
-
-                .example-table {
-                    display: block;
-                    overflow-x: auto;
-                    white-space: nowrap;
-                }
-
-                .footer-grid {
-                    grid-template-columns: 1fr;
-                }
-
-                .cta {
-                    padding: 28px 20px;
-                }
-
-                .article h2 {
-                    font-size: 27px;
-                }
-            }
-        </style>
-
-        <!-- FAQ Schema -->
-        <script type="application/ld+json">
+    <!-- FAQ structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
             {
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": [
-                    {
-                        "@type": "Question",
-                        "name": "What is the 50/30/20 budget rule?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "The 50/30/20 budget rule is a budgeting framework that allocates about 50% of take-home income to needs, 30% to wants, and 20% to savings or additional debt repayment."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Is the 50/30/20 rule based on gross or net income?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "The 50/30/20 rule is generally easier to apply using take-home pay because that is the money available for a monthly spending plan after payroll taxes and other amounts already withheld."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "How much is 50/30/20 on $5,000?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "On $5,000 of monthly take-home income, 50% is $2,500 for needs, 30% is $1,500 for wants, and 20% is $1,000 for savings or additional debt repayment."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "What if my needs are more than 50%?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "The 50/30/20 framework is a guideline rather than a requirement. If essential costs exceed 50%, you can review discretionary spending, major fixed expenses, or adjust the percentages to fit your circumstances."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Can I use the 50/30/20 rule with irregular income?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Yes. If your income changes from month to month, you can use a conservative monthly income estimate based on recent income or a lower typical month."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Does debt repayment count toward the 20%?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Minimum required debt payments are commonly treated as needs. Additional payments intended to reduce debt faster can be included in the savings and debt portion."
-                        }
-                    }
-                ]
-            }
-        </script>
-
-        <!-- Breadcrumb Schema -->
-        <script type="application/ld+json">
+                "@type": "Question",
+                "name": "What is the 50/30/20 budget rule?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The 50/30/20 budget rule is a budgeting framework that divides take-home income into approximately 50% needs, 30% wants, and 20% savings or additional debt repayment."
+                }
+            },
             {
-                "@context": "https://schema.org",
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Home",
-                        "item": "https://paycheckmint.com/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Finance",
-                        "item": "https://paycheckmint.com/finance/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 3,
-                        "name": "Budgeting",
-                        "item": "https://paycheckmint.com/finance/budgeting/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 4,
-                        "name": "50/30/20 Budget Rule",
-                        "item": "https://paycheckmint.com/finance/budgeting/50-30-20-rule/"
-                    }
-                ]
-            }
-        </script>
-
-        <!-- Article Schema -->
-        <script type="application/ld+json">
+                "@type": "Question",
+                "name": "Is 50/30/20 based on gross or net income?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It is generally easiest to apply the method to take-home pay because that is the amount available for a monthly spending plan."
+                }
+            },
             {
-                "@context": "https://schema.org",
-                "@type": "Article",
-                "headline": "50/30/20 Budget Rule: Calculator, Examples & How It Works",
-                "description": "Learn how the 50/30/20 budget rule works with a calculator, examples, spending categories, savings guidance, and practical budgeting tips.",
-                "author": {
-                    "@type": "Organization",
-                    "name": "PaycheckMint"
-                },
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "PaycheckMint"
-                },
-                "mainEntityOfPage": {
-                    "@type": "WebPage",
-                    "@id": "https://paycheckmint.com/finance/budgeting/50-30-20-rule/"
+                "@type": "Question",
+                "name": "How much is 50/30/20 on $5,000?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "On $5,000 of monthly take-home income, 50% is $2,500, 30% is $1,500 and 20% is $1,000."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What if my needs are more than 50%?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You can adjust the percentages to fit your circumstances. Review discretionary spending and major recurring expenses, but there is no requirement that every household fit exactly into 50/30/20."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use 50/30/20 with irregular income?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Consider using a conservative estimate based on recent income rather than budgeting around your highest-earning month."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does debt repayment count toward the 20%?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Minimum required debt payments are commonly treated as needs. Additional payments intended to pay debt down faster can be included in the savings and debt portion."
                 }
             }
-        </script>
-        
-    </head>
+        ]
+    }
+    </script>
 
-    <body>
-        
-        <!-- =========================
-     HEADER
-========================= -->
+</head>
 
-        <header class="site-header">
-            <div class="container header-inner">
-                <a class="brand" href="/">Paycheck<span>Mint</span></a>
+<body class="budget-page">
 
-                <button
-                    class="mobile-menu-toggle"
-                    id="mobileMenuToggle"
-                    type="button"
-                    aria-label="Open navigation menu"
-                    aria-expanded="false"
-                    aria-controls="mainNav"
-                >
-                    <span id="menuIcon">☰</span>
+    <!-- =========================================================
+         GLOBAL NAVBAR
+         =========================================================
+         If your project already uses the rebuilt global navbar,
+         keep that navbar here instead of duplicating it.
+    ========================================================= -->
+
+    <header class="pm-header" id="site-header">
+
+        <div class="pm-header-inner">
+
+            <a class="pm-brand" href="/" aria-label="PaycheckMint home">
+                Paycheck<span>Mint</span>
+            </a>
+
+            <nav class="pm-desktop-nav" aria-label="Main navigation">
+
+                <a class="pm-nav-link" href="/income/">
+                    Income
+                </a>
+
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                        Finance
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="pm-dropdown-menu">
+
+                        <span class="pm-dropdown-label">
+                            Explore
+                        </span>
+
+                        <a href="/finance/">
+                            <span>Finance Overview</span>
+                        </a>
+
+                        <a href="/income/">
+                            <span>Income & Earnings</span>
+                        </a>
+
+                        <a href="/finance/budgeting/">
+                            <span>Budgeting Guides</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                        Calculators
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="pm-dropdown-menu">
+
+                        <span class="pm-dropdown-label">
+                            Paycheck tools
+                        </span>
+
+                        <a href="/paycheck-tax-calculator/">
+                            Paycheck Tax Calculator
+                        </a>
+
+                        <a href="/monthly-paycheck-calculator/">
+                            Monthly Paycheck Calculator
+                        </a>
+
+                        <a href="/take-home-pay-calculator/">
+                            Take-Home Pay Calculator
+                        </a>
+
+                        <a href="/hourly-paycheck-calculator/">
+                            Hourly Paycheck Calculator
+                        </a>
+
+                        <a href="/overtime-pay-calculator/">
+                            Overtime Pay Calculator
+                        </a>
+
+                        <a href="/salary-paycheck-calculator/">
+                            Salary Paycheck Calculator
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <a class="pm-nav-link" href="/finance/">
+                    Learn
+                </a>
+
+            </nav>
+
+            <div class="pm-nav-spacer"></div>
+
+            <button class="pm-search-button" id="searchToggle" type="button" aria-label="Open search"
+                aria-expanded="false" aria-controls="searchPanel">
+
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="m20 20-4-4"></path>
+
+                </svg>
+
+            </button>
+
+            <a class="pm-header-cta" href="/paycheck-tax-calculator/">
+                Calculate paycheck
+            </a>
+
+            <button class="pm-mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation"
+                aria-expanded="false" aria-controls="mobileNav">
+                <svg id="mobileMenuIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <path d="M4 6h16" />
+                    <path d="M4 12h16" />
+                    <path d="M4 18h16" />
+                </svg>
+            </button>
+
+        </div>
+
+        <!-- SEARCH PANEL -->
+
+        <div class="pm-search-panel" id="searchPanel">
+
+            <div class="pm-search-inner">
+
+                <div class="pm-search-field">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="m20 20-4-4" />
+                    </svg>
+
+                    <input id="siteSearch" class="pm-search-input" type="search" autocomplete="off"
+                        placeholder="Search PaycheckMint..." aria-label="Search PaycheckMint">
+
+                    <button class="pm-search-close" id="searchClose" type="button" aria-label="Close search">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 6l12 12" />
+                            <path d="M18 6 6 18" />
+                        </svg>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="pm-search-results" id="searchResults"></div>
+
+        </div>
+
+        <!-- MOBILE NAV -->
+
+        <nav class="pm-mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+
+            <div class="pm-mobile-nav-inner">
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a href="/income/">
+                    Income
+                </a>
+
+                <button class="pm-mobile-finance-button" id="mobileFinanceToggle" type="button" aria-expanded="false">
+                    <span>Finance</span>
+
+                    <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m6 9 6 6 6-6" />
+                    </svg>
                 </button>
 
-                <nav class="main-nav" id="mainNav" aria-label="Main navigation">
-                    <a href="/">Home</a>
+                <div class="pm-mobile-finance-links" id="mobileFinanceLinks">
 
-                    <a href="/paycheck-tax-calculator/">Paycheck Calculator</a>
+                    <a href="/finance/">
+                        Finance Overview
+                    </a>
 
-                    <a href="/income/">Income</a>
+                    <a href="/income/">
+                        Income & Earnings
+                    </a>
 
-                    <div class="nav-dropdown" id="financeDropdown">
-                        <button type="button" id="financeButton" aria-expanded="false" aria-haspopup="true">
-                            Finance <span aria-hidden="true">▾</span>
-                        </button>
-
-                        <div class="dropdown-menu" id="financeMenu">
-                            <a href="/finance/">Finance Overview</a>
-
-                            <a href="/finance/taxes/">Taxes</a>
-
-                            <a href="/finance/budgeting/">Budgeting</a>
-
-                            <a href="/finance/credit-debt/">Credit &amp; Debt</a>
-
-                            <a href="/finance/investing/">Investing</a>
-
-                            <a href="/finance/insurance/">Insurance</a>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </header>
-
-        <main>
-            <!-- =========================
-         HERO
-    ========================= -->
-
-            <section class="hero">
-                <div class="container hero-grid">
-                    <div>
-                        <span class="eyebrow">Budgeting Guide</span>
-
-                        <h1>50/30/20 Budget Rule: Calculator, Examples &amp; How It Works</h1>
-
-                        <p>
-                            The 50/30/20 budget rule is a simple way to organize your take-home pay into needs, wants,
-                            and savings or extra debt payments. Use the calculator below to see your target amounts.
-                        </p>
-                    </div>
-
-                    <div class="hero-card">
-                        <h2>The Basic Idea</h2>
-
-                        <p>
-                            Start with your monthly take-home income and divide it into three broad spending categories.
-                        </p>
-
-                        <div class="mini-rule">
-                            <div>
-                                <strong>50%</strong>
-                                <span>Needs</span>
-                            </div>
-
-                            <div>
-                                <strong>30%</strong>
-                                <span>Wants</span>
-                            </div>
-
-                            <div>
-                                <strong>20%</strong>
-                                <span>Savings / Debt</span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-            </section>
 
-            <!-- =========================
-         CALCULATOR
-    ========================= -->
+                <a href="/paycheck-tax-calculator/">
+                    Paycheck Tax Calculator
+                </a>
 
-            <section class="calculator-section">
-                <div class="container">
-                    <div class="calculator">
+                <a href="/take-home-pay-calculator/">
+                    Take-Home Pay Calculator
+                </a>
+
+                <a href="/hourly-paycheck-calculator/">
+                    Hourly Paycheck Calculator
+                </a>
+
+                <a href="/overtime-pay-calculator/">
+                    Overtime Pay Calculator
+                </a>
+
+                <a href="/salary-paycheck-calculator/">
+                    Salary Paycheck Calculator
+                </a>
+
+                <a href="/weekly-paycheck-calculator/">
+                    Weekly Paycheck Calculator
+                </a>
+
+                <a href="/biweekly-paycheck-calculator/">
+                    Biweekly Paycheck Calculator
+                </a>
+
+                <a href="/monthly-paycheck-calculator/">
+                    Monthly Paycheck Calculator
+                </a>
+
+                <div class="pm-mobile-search-row">
+
+                    <button class="pm-button-secondary" id="mobileSearchButton" type="button">
+                        Search PaycheckMint
+                    </button>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section class="budget-hero">
+
+            <div class="budget-container">
+
+                <div class="budget-breadcrumbs">
+                    <a href="/">Home</a>
+                    <span class="budget-breadcrumb-separator">›</span>
+
+                    <a href="/finance/">Finance</a>
+                    <span class="budget-breadcrumb-separator">›</span>
+
+                    <a href="/finance/budgeting/">Budgeting</a>
+                    <span class="budget-breadcrumb-separator">›</span>
+
+                    <span>50/30/20 Rule</span>
+                </div>
+
+                <div class="budget-hero-grid">
+
+                    <div>
+
+                        <div class="budget-eyebrow">
+                            Budgeting Guide
+                        </div>
+
+                        <h1>
+                            50/30/20 Budget Rule:
+                            Calculator, Examples &amp; How It Works
+                        </h1>
+
+                        <p class="budget-hero-lead">
+                            The 50/30/20 budget rule is a simple way to
+                            organize your take-home pay into needs, wants,
+                            and savings or extra debt payments.
+                        </p>
+
+                        <div class="budget-hero-note">
+                            <strong>Quick answer:</strong>
+                            Start with your monthly take-home income and
+                            use 50% for needs, 30% for wants, and 20% for
+                            savings or additional debt payments. The
+                            percentages are a guideline, not a requirement.
+                        </div>
+
+                    </div>
+
+
+                    <div class="budget-rule-visual">
+
+                        <div class="budget-rule-visual-title">
+                            The basic framework
+                        </div>
+
+                        <div class="budget-rule-row">
+
+                            <div class="budget-rule-percent">
+                                50%
+                            </div>
+
+                            <div>
+                                <div class="budget-rule-bar">
+                                    <div class="budget-rule-fill" style="width:50%;">
+                                    </div>
+                                </div>
+
+                                <div class="budget-rule-label">
+                                    Needs
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="budget-rule-row">
+
+                            <div class="budget-rule-percent">
+                                30%
+                            </div>
+
+                            <div>
+                                <div class="budget-rule-bar">
+                                    <div class="budget-rule-fill" style="width:30%;">
+                                    </div>
+                                </div>
+
+                                <div class="budget-rule-label">
+                                    Wants
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="budget-rule-row">
+
+                            <div class="budget-rule-percent">
+                                20%
+                            </div>
+
+                            <div>
+                                <div class="budget-rule-bar">
+                                    <div class="budget-rule-fill" style="width:20%;">
+                                    </div>
+                                </div>
+
+                                <div class="budget-rule-label">
+                                    Savings &amp; Debt
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             MAIN CONTENT
+        ====================================================== -->
+
+        <div class="budget-container">
+
+            <div class="budget-layout">
+
+                <article class="budget-article">
+
+
+                    <!-- QUICK ANSWER -->
+
+                    <div class="quick-answer">
+
+                        <div class="quick-answer-label">
+                            ● Quick Answer
+                        </div>
+
+                        <p>
+                            The 50/30/20 rule divides monthly take-home
+                            income into approximately 50% for essential
+                            needs, 30% for wants, and 20% for savings,
+                            investing, or additional debt repayment.
+                            You can adjust the percentages when your
+                            housing, debt, income, family size, or other
+                            financial circumstances require a different
+                            balance.
+                        </p>
+
+                    </div>
+
+
+                    <!-- CALCULATOR -->
+
+                    <section class="budget-calculator" id="calculator">
+
                         <div class="calculator-header">
-                            <h2>50/30/20 Budget Calculator</h2>
 
-                            <p>Enter your monthly take-home pay to calculate your suggested amounts.</p>
+                            <h2>
+                                50/30/20 Budget Calculator
+                            </h2>
+
+                            <p>
+                                Enter your monthly take-home pay to see
+                                the suggested dollar amounts for each
+                                category.
+                            </p>
+
                         </div>
 
                         <div class="calculator-body">
-                            <div class="input-group">
-                                <label for="income"> Monthly take-home income </label>
 
-                                <div class="input-wrap">
-                                    <span>$</span>
+                            <div class="calculator-input-group">
 
-                                    <input
-                                        id="income"
-                                        type="number"
-                                        min="0"
-                                        step="100"
-                                        value="5000"
-                                        inputmode="decimal"
-                                        aria-label="Monthly take-home income"
-                                    />
+                                <label for="monthlyIncome">
+                                    Monthly take-home income
+                                </label>
+
+                                <div class="income-input-wrap">
+
+                                    <span class="income-symbol">
+                                        $
+                                    </span>
+
+                                    <input id="monthlyIncome" type="number" min="0" step="100" value="5000"
+                                        inputmode="decimal" placeholder="5000">
+
                                 </div>
+
                             </div>
 
-                            <div class="calculator-grid">
-                                <div class="budget-card">
-                                    <div class="percentage">50% of income</div>
 
-                                    <h3>Needs</h3>
+                            <div class="calculator-results">
 
-                                    <div class="amount" id="needsAmount">$2,500</div>
+                                <div class="result-card">
 
-                                    <p>
-                                        Housing, groceries, utilities, transportation, insurance, healthcare and minimum
-                                        debt payments.
-                                    </p>
-
-                                    <div class="progress">
-                                        <span style="width: 50%"></span>
+                                    <div class="result-percent">
+                                        50% of income
                                     </div>
+
+                                    <h3>
+                                        Needs
+                                    </h3>
+
+                                    <div class="result-amount" id="needsAmount">
+                                        $2,500
+                                    </div>
+
+                                    <div class="result-description">
+                                        Housing, groceries, utilities,
+                                        transportation, insurance,
+                                        healthcare and minimum debt
+                                        payments.
+                                    </div>
+
                                 </div>
 
-                                <div class="budget-card">
-                                    <div class="percentage">30% of income</div>
 
-                                    <h3>Wants</h3>
+                                <div class="result-card">
 
-                                    <div class="amount" id="wantsAmount">$1,500</div>
-
-                                    <p>
-                                        Dining out, entertainment, hobbies, subscriptions, travel and discretionary
-                                        spending.
-                                    </p>
-
-                                    <div class="progress">
-                                        <span style="width: 30%"></span>
+                                    <div class="result-percent">
+                                        30% of income
                                     </div>
+
+                                    <h3>
+                                        Wants
+                                    </h3>
+
+                                    <div class="result-amount" id="wantsAmount">
+                                        $1,500
+                                    </div>
+
+                                    <div class="result-description">
+                                        Dining out, entertainment,
+                                        hobbies, subscriptions, travel
+                                        and discretionary spending.
+                                    </div>
+
                                 </div>
 
-                                <div class="budget-card">
-                                    <div class="percentage">20% of income</div>
 
-                                    <h3>Savings &amp; Debt</h3>
+                                <div class="result-card">
 
-                                    <div class="amount" id="savingsAmount">$1,000</div>
-
-                                    <p>
-                                        Emergency savings, retirement, investing or debt payments above required
-                                        minimums.
-                                    </p>
-
-                                    <div class="progress">
-                                        <span style="width: 20%"></span>
+                                    <div class="result-percent">
+                                        20% of income
                                     </div>
+
+                                    <h3>
+                                        Savings &amp; Debt
+                                    </h3>
+
+                                    <div class="result-amount" id="savingsAmount">
+                                        $1,000
+                                    </div>
+
+                                    <div class="result-description">
+                                        Emergency savings, retirement,
+                                        investing or debt payments above
+                                        required minimums.
+                                    </div>
+
                                 </div>
+
                             </div>
 
-                            <p class="calculator-note">
-                                This calculator provides a budgeting guideline, not a required spending limit. Your
-                                percentages may need to change based on housing costs, income, debt, family size and
-                                financial goals.
+
+                            <p class="calculator-disclaimer">
+                                This calculator provides a budgeting
+                                guideline, not a required spending limit.
+                                Your percentages may need to change based
+                                on housing costs, income, debt, family
+                                size and financial goals.
                             </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-            <!-- =========================
-         ARTICLE + SIDEBAR
-    ========================= -->
-
-            <section class="content-section">
-                <div class="container content-layout">
-                    <article class="article">
-                        <h2 id="what-is">What Is the 50/30/20 Budget Rule?</h2>
-
-                        <p>
-                            The 50/30/20 budget rule is a simple budgeting framework that divides your take-home income
-                            into three broad categories: needs, wants, and savings or additional debt payments.
-                        </p>
-
-                        <div class="definition-box">
-                            <div>
-                                <strong>50%</strong>
-                                <span>Essential needs</span>
-                            </div>
-
-                            <div>
-                                <strong>30%</strong>
-                                <span>Wants and discretionary spending</span>
-                            </div>
-
-                            <div>
-                                <strong>20%</strong>
-                                <span>Savings and extra debt payments</span>
-                            </div>
                         </div>
 
+                    </section>
+
+
+                    <!-- BASIC IDEA -->
+
+                    <section class="budget-section" id="what-is">
+
+                        <h2>
+                            What Is the 50/30/20 Budget Rule?
+                        </h2>
+
                         <p>
-                            For example, if you bring home $5,000 per month, the guideline would allocate approximately
-                            $2,500 to needs, $1,500 to wants and $1,000 to savings or additional debt repayment.
+                            The 50/30/20 budget rule is a simple budgeting
+                            framework that divides your take-home income
+                            into three broad categories: needs, wants,
+                            and savings or additional debt payments.
                         </p>
 
-                        <div class="highlight">
+                        <div class="rule-cards">
+
+                            <div class="rule-card">
+
+                                <div class="rule-card-percent">
+                                    50%
+                                </div>
+
+                                <h3>
+                                    Essential needs
+                                </h3>
+
+                                <p>
+                                    Housing, food, utilities,
+                                    transportation, insurance and other
+                                    necessary expenses.
+                                </p>
+
+                            </div>
+
+
+                            <div class="rule-card">
+
+                                <div class="rule-card-percent">
+                                    30%
+                                </div>
+
+                                <h3>
+                                    Wants
+                                </h3>
+
+                                <p>
+                                    Dining, entertainment, hobbies,
+                                    travel and other discretionary
+                                    spending.
+                                </p>
+
+                            </div>
+
+
+                            <div class="rule-card">
+
+                                <div class="rule-card-percent">
+                                    20%
+                                </div>
+
+                                <h3>
+                                    Savings &amp; debt
+                                </h3>
+
+                                <p>
+                                    Emergency savings, retirement,
+                                    investing and additional debt
+                                    repayment.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <p>
+                            For example, if you bring home $5,000 per month,
+                            the guideline would allocate approximately
+                            $2,500 to needs, $1,500 to wants and $1,000 to
+                            savings or additional debt repayment.
+                        </p>
+
+                        <div class="warning-callout">
+
+                            <strong>
+                                Important:
+                            </strong>
+
                             <p>
-                                <strong>Important:</strong>
-                                50/30/20 is a guideline, not a requirement that every household has to follow exactly.
+                                50/30/20 is a guideline, not a requirement
+                                that every household has to follow exactly.
                             </p>
+
                         </div>
 
-                        <h2 id="income">What Income Should You Use?</h2>
+                    </section>
+
+
+                    <!-- INCOME -->
+
+                    <section class="budget-section" id="income">
+
+                        <h2>
+                            What Income Should You Use?
+                        </h2>
 
                         <p>
-                            The easiest starting point is your monthly take-home pay — the amount that actually reaches
-                            your bank account after payroll taxes and other amounts already withheld.
+                            The easiest starting point is your monthly
+                            take-home pay — the amount that actually
+                            reaches your bank account after payroll taxes
+                            and other amounts already withheld.
                         </p>
 
                         <p>
-                            Using take-home income makes the calculation practical because your budget is built around
-                            money available for spending, saving and debt payments.
+                            Using take-home income makes the calculation
+                            practical because your budget is built around
+                            money available for spending, saving and debt
+                            payments.
                         </p>
 
-                        <h3>If You Are Paid Weekly</h3>
+                        <h3>
+                            If You Are Paid Weekly
+                        </h3>
 
                         <p>
-                            Convert weekly income into an average monthly amount instead of simply multiplying one
-                            weekly paycheck by four. There are approximately 52 weekly paychecks in a year.
+                            Convert weekly income into an average monthly
+                            amount instead of simply multiplying one
+                            weekly paycheck by four. There are
+                            approximately 52 weekly paychecks in a year.
                         </p>
 
-                        <h3>If You Are Paid Every Two Weeks</h3>
+                        <h3>
+                            If You Are Paid Every Two Weeks
+                        </h3>
 
                         <p>
-                            Biweekly workers typically receive 26 paychecks each year. You can estimate annual take-home
-                            pay and divide it by 12 to create an average monthly figure.
+                            Biweekly workers typically receive 26 paychecks
+                            each year. You can estimate annual take-home
+                            pay and divide it by 12 to create an average
+                            monthly figure.
                         </p>
 
-                        <h3>If Your Income Changes Every Month</h3>
+                        <h3>
+                            If Your Income Changes Every Month
+                        </h3>
 
                         <p>
-                            Consider using a conservative income number based on recent months. A lower typical month
-                            can provide more room for essential expenses when income falls.
+                            Consider using a conservative income number
+                            based on recent months. A lower typical month
+                            can provide more room for essential expenses
+                            when income falls.
                         </p>
 
-                        <h2 id="examples">50/30/20 Budget Examples</h2>
+                    </section>
+
+
+                    <!-- EXAMPLES -->
+
+                    <section class="budget-section" id="examples">
+
+                        <h2>
+                            50/30/20 Budget Examples
+                        </h2>
 
                         <p>
-                            Here is how the basic percentages translate into monthly dollar amounts at different
+                            Here is how the basic percentages translate
+                            into monthly dollar amounts at different
                             take-home income levels.
                         </p>
 
-                        <table class="example-table">
-                            <thead>
-                                <tr>
-                                    <th>Monthly Take-Home Pay</th>
-                                    <th>Needs 50%</th>
-                                    <th>Wants 30%</th>
-                                    <th>Savings/Debt 20%</th>
-                                </tr>
-                            </thead>
+                        <div class="table-wrap">
 
-                            <tbody>
-                                <tr>
-                                    <td>$2,500</td>
-                                    <td>$1,250</td>
-                                    <td>$750</td>
-                                    <td>$500</td>
-                                </tr>
+                            <table class="budget-table">
 
-                                <tr>
-                                    <td>$3,000</td>
-                                    <td>$1,500</td>
-                                    <td>$900</td>
-                                    <td>$600</td>
-                                </tr>
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Monthly Take-Home Pay
+                                        </th>
+                                        <th>
+                                            Needs 50%
+                                        </th>
+                                        <th>
+                                            Wants 30%
+                                        </th>
+                                        <th>
+                                            Savings/Debt 20%
+                                        </th>
+                                    </tr>
+                                </thead>
 
-                                <tr>
-                                    <td>$4,000</td>
-                                    <td>$2,000</td>
-                                    <td>$1,200</td>
-                                    <td>$800</td>
-                                </tr>
+                                <tbody>
 
-                                <tr>
-                                    <td>$5,000</td>
-                                    <td>$2,500</td>
-                                    <td>$1,500</td>
-                                    <td>$1,000</td>
-                                </tr>
+                                    <tr>
+                                        <td><strong>$2,500</strong></td>
+                                        <td>$1,250</td>
+                                        <td>$750</td>
+                                        <td>$500</td>
+                                    </tr>
 
-                                <tr>
-                                    <td>$6,000</td>
-                                    <td>$3,000</td>
-                                    <td>$1,800</td>
-                                    <td>$1,200</td>
-                                </tr>
+                                    <tr>
+                                        <td><strong>$3,000</strong></td>
+                                        <td>$1,500</td>
+                                        <td>$900</td>
+                                        <td>$600</td>
+                                    </tr>
 
-                                <tr>
-                                    <td>$8,000</td>
-                                    <td>$4,000</td>
-                                    <td>$2,400</td>
-                                    <td>$1,600</td>
-                                </tr>
+                                    <tr>
+                                        <td><strong>$4,000</strong></td>
+                                        <td>$2,000</td>
+                                        <td>$1,200</td>
+                                        <td>$800</td>
+                                    </tr>
 
-                                <tr>
-                                    <td>$10,000</td>
-                                    <td>$5,000</td>
-                                    <td>$3,000</td>
-                                    <td>$2,000</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                    <tr>
+                                        <td><strong>$5,000</strong></td>
+                                        <td>$2,500</td>
+                                        <td>$1,500</td>
+                                        <td>$1,000</td>
+                                    </tr>
 
-                        <h2 id="needs">What Counts as a Need?</h2>
+                                    <tr>
+                                        <td><strong>$6,000</strong></td>
+                                        <td>$3,000</td>
+                                        <td>$1,800</td>
+                                        <td>$1,200</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>$8,000</strong></td>
+                                        <td>$4,000</td>
+                                        <td>$2,400</td>
+                                        <td>$1,600</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>$10,000</strong></td>
+                                        <td>$5,000</td>
+                                        <td>$3,000</td>
+                                        <td>$2,000</td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- NEEDS -->
+
+                    <section class="budget-section" id="needs">
+
+                        <h2>
+                            What Counts as a Need?
+                        </h2>
 
                         <p>
-                            Needs are expenses that are necessary for basic living, employment or important financial
+                            Needs are expenses that are necessary for basic
+                            living, employment or important financial
                             obligations.
                         </p>
 
-                        <ul class="check-list">
+                        <ul>
                             <li>Rent or mortgage payments</li>
                             <li>Basic utilities</li>
                             <li>Groceries and essential food</li>
-                            <li>Transportation needed for work or daily life</li>
-                            <li>Health insurance and necessary healthcare</li>
+                            <li>
+                                Transportation needed for work or daily life
+                            </li>
+                            <li>
+                                Health insurance and necessary healthcare
+                            </li>
                             <li>Basic insurance premiums</li>
                             <li>Childcare required for work</li>
                             <li>Minimum required debt payments</li>
                         </ul>
 
                         <p>
-                            Some expenses can fall into different categories depending on how you use them. Groceries
-                            are generally a need, while restaurant meals may be treated as wants.
+                            Some expenses can fall into different categories
+                            depending on how you use them. Groceries are
+                            generally a need, while restaurant meals may be
+                            treated as wants.
                         </p>
 
-                        <h2 id="wants">What Counts as a Want?</h2>
+                    </section>
+
+
+                    <!-- WANTS -->
+
+                    <section class="budget-section" id="wants">
+
+                        <h2>
+                            What Counts as a Want?
+                        </h2>
 
                         <p>
-                            Wants are expenses that improve your lifestyle but are not essential to meeting basic needs.
+                            Wants are expenses that improve your lifestyle
+                            but are not essential to meeting basic needs.
                         </p>
 
-                        <ul class="check-list">
+                        <ul>
                             <li>Restaurants and takeout</li>
                             <li>Streaming subscriptions</li>
                             <li>Entertainment</li>
@@ -1420,623 +1799,1498 @@
                             <li>Recreational activities</li>
                         </ul>
 
-                        <h2 id="savings">What Counts Toward the 20%?</h2>
+                        <p>
+                            Needs and wants can sometimes overlap. The
+                            purpose of the classification is to help you
+                            understand which expenses are essential and
+                            which expenses may be easier to reduce or delay.
+                        </p>
 
-                        <p>The final 20% is generally directed toward financial security and longer-term goals.</p>
+                        <p>
+                            See the detailed
+                            <a href="/finance/budgeting/needs-vs-wants/">
+                                Needs vs. Wants guide
+                            </a>
+                            for more examples.
+                        </p>
 
-                        <ul class="check-list">
+                    </section>
+
+
+                    <!-- SAVINGS DEBT -->
+
+                    <section class="budget-section" id="savings-debt">
+
+                        <h2>
+                            What Counts Toward the 20%?
+                        </h2>
+
+                        <p>
+                            The final 20% is generally directed toward
+                            financial security and longer-term goals.
+                        </p>
+
+                        <ul>
                             <li>Emergency fund contributions</li>
                             <li>Retirement savings</li>
                             <li>Investments</li>
-                            <li>Savings for a major future purchase</li>
-                            <li>Extra payments toward debt</li>
+                            <li>
+                                Savings for a major future purchase
+                            </li>
+                            <li>
+                                Extra payments toward debt
+                            </li>
                         </ul>
 
                         <p>
-                            Required minimum debt payments are commonly treated as needs, while additional payments
-                            intended to reduce debt faster can be included in the savings/debt portion.
+                            Required minimum debt payments are commonly
+                            treated as needs, while additional payments
+                            intended to reduce debt faster can be included
+                            in the savings/debt portion.
                         </p>
 
-                        <h2 id="five-thousand">Example: A $5,000 Monthly Budget</h2>
+                    </section>
 
-                        <p>Imagine a household has $5,000 of monthly take-home income.</p>
 
-                        <table class="example-table">
-                            <thead>
-                                <tr>
-                                    <th>Category</th>
-                                    <th>Target</th>
-                                    <th>Example Spending</th>
-                                </tr>
-                            </thead>
+                    <!-- 5000 EXAMPLE -->
 
-                            <tbody>
-                                <tr>
-                                    <td>Needs</td>
-                                    <td>$2,500</td>
-                                    <td>Housing, groceries, utilities, transportation and insurance</td>
-                                </tr>
+                    <section class="budget-section" id="five-thousand-example">
 
-                                <tr>
-                                    <td>Wants</td>
-                                    <td>$1,500</td>
-                                    <td>Dining, entertainment, hobbies and subscriptions</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Savings/Debt</td>
-                                    <td>$1,000</td>
-                                    <td>Emergency savings, retirement, investing or extra debt payments</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <h2>
+                            Example: A $5,000 Monthly Budget
+                        </h2>
 
                         <p>
-                            This does not mean every $5,000 household should spend exactly these amounts. It simply
-                            demonstrates how the percentages translate into dollars.
+                            Imagine a household has $5,000 of monthly
+                            take-home income.
                         </p>
 
-                        <h2 id="over-50">What If My Needs Are More Than 50%?</h2>
+                        <div class="table-wrap">
+
+                            <table class="budget-table">
+
+                                <thead>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Target</th>
+                                        <th>Example Spending</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td><strong>Needs</strong></td>
+                                        <td>$2,500</td>
+                                        <td>
+                                            Housing, groceries, utilities,
+                                            transportation and insurance
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>Wants</strong></td>
+                                        <td>$1,500</td>
+                                        <td>
+                                            Dining, entertainment, hobbies
+                                            and subscriptions
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>Savings/Debt</strong></td>
+                                        <td>$1,000</td>
+                                        <td>
+                                            Emergency savings, retirement,
+                                            investing or extra debt payments
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
 
                         <p>
-                            This can happen when housing, healthcare, transportation or childcare costs consume a large
-                            portion of income. Exceeding the 50% target does not automatically mean your budget has
-                            failed.
+                            This does not mean every $5,000 household should
+                            spend exactly these amounts. It simply
+                            demonstrates how the percentages translate
+                            into dollars.
+                        </p>
+
+                    </section>
+
+
+                    <!-- NEEDS OVER 50 -->
+
+                    <section class="budget-section" id="needs-over-50">
+
+                        <h2>
+                            What If My Needs Are More Than 50%?
+                        </h2>
+
+                        <p>
+                            This can happen when housing, healthcare,
+                            transportation or childcare costs consume a
+                            large portion of income. Exceeding the 50%
+                            target does not automatically mean your budget
+                            has failed.
                         </p>
 
                         <p>
-                            Instead, review the entire budget and identify adjustments that are realistic for your
+                            Instead, review the entire budget and identify
+                            adjustments that are realistic for your
                             situation.
                         </p>
 
                         <ul>
-                            <li>Reduce discretionary spending first.</li>
-                            <li>Review major recurring bills.</li>
-                            <li>Compare insurance and service costs.</li>
-                            <li>Look for ways to reduce transportation costs.</li>
-                            <li>Adjust the percentages to reflect your circumstances.</li>
+                            <li>
+                                Reduce discretionary spending first.
+                            </li>
+                            <li>
+                                Review major recurring bills.
+                            </li>
+                            <li>
+                                Compare insurance and service costs.
+                            </li>
+                            <li>
+                                Look for ways to reduce transportation costs.
+                            </li>
+                            <li>
+                                Adjust the percentages to reflect your
+                                circumstances.
+                            </li>
                         </ul>
 
-                        <h2 id="cannot-save">What If I Can't Save 20%?</h2>
+                        <div class="info-callout">
+
+                            <strong>
+                                The percentages are a framework.
+                            </strong>
+
+                            <p>
+                                High housing costs, healthcare expenses,
+                                childcare, transportation and debt can all
+                                make a 50% needs target difficult to reach.
+                            </p>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- SAVE LESS THAN 20 -->
+
+                    <section class="budget-section" id="saving-less">
+
+                        <h2>
+                            What If I Can't Save 20%?
+                        </h2>
 
                         <p>
-                            Saving 20% may not be realistic for every household. If you are currently saving less, start
-                            with an amount that fits your budget and consider increasing it when your financial
+                            Saving 20% may not be realistic for every
+                            household. If you are currently saving less,
+                            start with an amount that fits your budget and
+                            consider increasing it when your financial
                             situation improves.
                         </p>
 
                         <p>
-                            You can also consider building an emergency fund, reducing high-interest debt or
-                            contributing to available workplace retirement benefits depending on your circumstances.
+                            You can also consider building an emergency
+                            fund, reducing high-interest debt or contributing
+                            to available workplace retirement benefits
+                            depending on your circumstances.
                         </p>
 
-                        <h2 id="variable">Using the 50/30/20 Rule With Variable Income</h2>
+                    </section>
+
+
+                    <!-- VARIABLE INCOME -->
+
+                    <section class="budget-section" id="variable-income">
+
+                        <h2>
+                            Using the 50/30/20 Rule With Variable Income
+                        </h2>
 
                         <p>
-                            Freelancers, contractors, commission-based workers and people with irregular schedules may
+                            Freelancers, contractors, commission-based
+                            workers and people with irregular schedules may
                             not receive the same amount every month.
                         </p>
 
                         <p>
-                            Instead of creating a budget around your highest-earning month, consider using a
+                            Instead of creating a budget around your
+                            highest-earning month, consider using a
                             conservative income estimate.
                         </p>
 
                         <p>
-                            When income is higher than expected, additional money can be directed toward emergency
-                            savings, investing, future expenses or debt repayment.
+                            When income is higher than expected, additional
+                            money can be directed toward emergency savings,
+                            investing, future expenses or debt repayment.
                         </p>
 
-                        <h2 id="401k">How Should You Treat a 401(k)?</h2>
+                    </section>
+
+
+                    <!-- 401K -->
+
+                    <section class="budget-section" id="401k">
+
+                        <h2>
+                            How Should You Treat a 401(k)?
+                        </h2>
 
                         <p>
-                            Retirement contributions can make the 50/30/20 calculation confusing because workplace
-                            retirement contributions may be deducted from your paycheck before you receive your
-                            take-home pay.
+                            Retirement contributions can make the 50/30/20
+                            calculation confusing because workplace
+                            retirement contributions may be deducted from
+                            your paycheck before you receive your take-home
+                            pay.
                         </p>
 
                         <p>
-                            The important thing is to avoid counting the same money twice. If you calculate the rule
-                            using take-home pay, be consistent about whether retirement contributions have already been
+                            The important thing is to avoid counting the same
+                            money twice. If you calculate the rule using
+                            take-home pay, be consistent about whether
+                            retirement contributions have already been
                             removed from the income figure you are using.
                         </p>
 
                         <p>
-                            The 20% category can be used as a broader planning target for retirement, savings and
+                            The 20% category can be used as a broader
+                            planning target for retirement, savings and
                             additional debt repayment.
                         </p>
 
-                        <h2 id="comparison">50/30/20 vs. Zero-Based Budgeting</h2>
+                        <div class="warning-callout">
+
+                            <strong>
+                                Avoid double counting.
+                            </strong>
+
+                            <p>
+                                If a retirement contribution has already
+                                been deducted before your take-home pay
+                                reaches your bank account, account for that
+                                consistently when evaluating your 20%
+                                savings target.
+                            </p>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- COMPARISON -->
+
+                    <section class="budget-section" id="comparison">
+
+                        <h2>
+                            50/30/20 vs. Zero-Based Budgeting
+                        </h2>
 
                         <p>
-                            The 50/30/20 method is percentage-based. A zero-based budget assigns every dollar of income
+                            The 50/30/20 method is percentage-based. A
+                            zero-based budget assigns every dollar of income
                             a specific job.
                         </p>
 
-                        <table class="example-table">
-                            <thead>
-                                <tr>
-                                    <th>50/30/20</th>
-                                    <th>Zero-Based Budget</th>
-                                </tr>
-                            </thead>
+                        <div class="table-wrap">
 
-                            <tbody>
-                                <tr>
-                                    <td>Uses broad percentages</td>
-                                    <td>Assigns every dollar</td>
-                                </tr>
+                            <table class="budget-table">
 
-                                <tr>
-                                    <td>Faster to set up</td>
-                                    <td>More detailed</td>
-                                </tr>
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            50/30/20
+                                        </th>
+                                        <th>
+                                            Zero-Based Budget
+                                        </th>
+                                    </tr>
+                                </thead>
 
-                                <tr>
-                                    <td>Flexible</td>
-                                    <td>More precise</td>
-                                </tr>
+                                <tbody>
 
-                                <tr>
-                                    <td>Useful for a quick spending framework</td>
-                                    <td>Useful for detailed monthly planning</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                    <tr>
+                                        <td>
+                                            Uses broad percentages
+                                        </td>
+                                        <td>
+                                            Assigns every dollar
+                                        </td>
+                                    </tr>
 
-                        <h2 id="process">How to Use the 50/30/20 Rule</h2>
+                                    <tr>
+                                        <td>
+                                            Faster to set up
+                                        </td>
+                                        <td>
+                                            More detailed
+                                        </td>
+                                    </tr>
 
-                        <ol>
-                            <li>
-                                <strong>Calculate your take-home income.</strong>
-                                Start with the money available to your budget.
-                            </li>
+                                    <tr>
+                                        <td>
+                                            Flexible
+                                        </td>
+                                        <td>
+                                            More precise
+                                        </td>
+                                    </tr>
 
-                            <li>
-                                <strong>Calculate your three targets.</strong>
-                                Multiply income by 50%, 30% and 20%.
-                            </li>
+                                    <tr>
+                                        <td>
+                                            Useful for a quick spending
+                                            framework
+                                        </td>
+                                        <td>
+                                            Useful for detailed monthly
+                                            planning
+                                        </td>
+                                    </tr>
 
-                            <li>
-                                <strong>List your actual expenses.</strong>
-                                Review recent bank and credit-card transactions.
-                            </li>
+                                </tbody>
 
-                            <li>
-                                <strong>Compare actual spending with targets.</strong>
-                                Look for categories that are significantly above or below the guideline.
-                            </li>
+                            </table>
 
-                            <li>
-                                <strong>Make realistic adjustments.</strong>
-                                Focus on changes you can maintain rather than trying to make the budget perfect.
-                            </li>
-                        </ol>
-
-                        <h2 id="formula">50/30/20 Budget Formula</h2>
-
-                        <p>The calculations are straightforward:</p>
-
-                        <div class="highlight">
-                            <p>
-                                <strong>Needs:</strong>
-                                Monthly take-home income × 0.50
-                            </p>
-
-                            <p>
-                                <strong>Wants:</strong>
-                                Monthly take-home income × 0.30
-                            </p>
-
-                            <p>
-                                <strong>Savings/Debt:</strong>
-                                Monthly take-home income × 0.20
-                            </p>
                         </div>
 
                         <p>
-                            For example, $4,000 of monthly take-home income produces a $2,000 needs target, $1,200 wants
-                            target and $800 savings/debt target.
-                        </p>
-
-                        <h2 id="mistakes">Common 50/30/20 Budget Mistakes</h2>
-
-                        <ul>
-                            <li>Using gross pay instead of available take-home income.</li>
-                            <li>Treating the percentages as strict requirements.</li>
-                            <li>Forgetting irregular annual expenses.</li>
-                            <li>Treating every debt payment the same.</li>
-                            <li>Ignoring high-interest debt.</li>
-                            <li>Building a budget around an unusually high income month.</li>
-                            <li>Focusing only on percentages instead of actual cash flow.</li>
-                        </ul>
-
-                        <h2 id="right">Is the 50/30/20 Rule Right for Everyone?</h2>
-
-                        <p>
-                            The method can be useful when you want a simple starting point for organizing your money,
-                            but the percentages may not fit every household.
+                            You can also combine the approaches. For
+                            example, 50/30/20 can provide a high-level
+                            check while a zero-based budget assigns exact
+                            dollar amounts to individual expenses and
+                            financial goals.
                         </p>
 
                         <p>
-                            Someone living in a high-cost area may spend more than 50% on necessities. Someone
-                            aggressively paying off debt may want to direct more than 20% toward debt. A household with
-                            limited income may have little flexibility after essential expenses.
+                            Learn more in the
+                            <a href="/finance/budgeting/zero-based-budget/">
+                                Zero-Based Budgeting guide
+                            </a>.
+                        </p>
+
+                    </section>
+
+
+                    <!-- HOW TO USE -->
+
+                    <section class="budget-section" id="how-to-use">
+
+                        <h2>
+                            How to Use the 50/30/20 Rule
+                        </h2>
+
+                        <div class="steps">
+
+                            <div class="step">
+
+                                <div class="step-number">
+                                    1
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        Calculate Your Take-Home Income
+                                    </h3>
+
+                                    <p>
+                                        Start with the money available to
+                                        your budget.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="step">
+
+                                <div class="step-number">
+                                    2
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        Calculate Your Three Targets
+                                    </h3>
+
+                                    <p>
+                                        Multiply your income by 50%, 30%
+                                        and 20%.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="step">
+
+                                <div class="step-number">
+                                    3
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        List Your Actual Expenses
+                                    </h3>
+
+                                    <p>
+                                        Review recent bank and credit-card
+                                        transactions.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="step">
+
+                                <div class="step-number">
+                                    4
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        Compare Actual Spending With Targets
+                                    </h3>
+
+                                    <p>
+                                        Look for categories that are
+                                        significantly above or below the
+                                        guideline.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="step">
+
+                                <div class="step-number">
+                                    5
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        Make Realistic Adjustments
+                                    </h3>
+
+                                    <p>
+                                        Focus on changes you can maintain
+                                        rather than trying to make the
+                                        budget perfect.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- FORMULA -->
+
+                    <section class="budget-section" id="formula">
+
+                        <h2>
+                            50/30/20 Budget Formula
+                        </h2>
+
+                        <p>
+                            The calculations are straightforward:
+                        </p>
+
+                        <div class="formula-box">
+
+                            <h3>
+                                The formulas
+                            </h3>
+
+                            <div class="formula-line">
+                                <strong>Needs:</strong>
+                                Monthly take-home income × 0.50
+                            </div>
+
+                            <div class="formula-line">
+                                <strong>Wants:</strong>
+                                Monthly take-home income × 0.30
+                            </div>
+
+                            <div class="formula-line">
+                                <strong>Savings/Debt:</strong>
+                                Monthly take-home income × 0.20
+                            </div>
+
+                        </div>
+
+                        <p>
+                            For example, $4,000 of monthly take-home income
+                            produces a $2,000 needs target, a $1,200 wants
+                            target and an $800 savings/debt target.
+                        </p>
+
+                    </section>
+
+
+                    <!-- MISTAKES -->
+
+                    <section class="budget-section" id="mistakes">
+
+                        <h2>
+                            Common 50/30/20 Budget Mistakes
+                        </h2>
+
+                        <div class="mistake-grid">
+
+                            <div class="mistake-card">
+                                <strong>
+                                    Using gross pay
+                                </strong>
+                                <span>
+                                    Using gross income instead of available
+                                    take-home income can distort the targets.
+                                </span>
+                            </div>
+
+                            <div class="mistake-card">
+                                <strong>
+                                    Treating percentages as strict
+                                </strong>
+                                <span>
+                                    The framework is a guideline and may need
+                                    to change for your circumstances.
+                                </span>
+                            </div>
+
+                            <div class="mistake-card">
+                                <strong>
+                                    Forgetting irregular expenses
+                                </strong>
+                                <span>
+                                    Annual bills, repairs and other occasional
+                                    expenses still need to be planned.
+                                </span>
+                            </div>
+
+                            <div class="mistake-card">
+                                <strong>
+                                    Treating every debt payment the same
+                                </strong>
+                                <span>
+                                    Minimum required payments and additional
+                                    accelerated payments can serve different
+                                    budgeting purposes.
+                                </span>
+                            </div>
+
+                            <div class="mistake-card">
+                                <strong>
+                                    Ignoring high-interest debt
+                                </strong>
+                                <span>
+                                    Debt costs can be an important part of
+                                    deciding where extra money should go.
+                                </span>
+                            </div>
+
+                            <div class="mistake-card">
+                                <strong>
+                                    Using an unusually high income month
+                                </strong>
+                                <span>
+                                    Variable-income households may benefit
+                                    from using a conservative baseline.
+                                </span>
+                            </div>
+
+                            <div class="mistake-card">
+                                <strong>
+                                    Focusing only on percentages
+                                </strong>
+                                <span>
+                                    Your actual cash flow and recurring
+                                    expenses matter too.
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- IS IT RIGHT -->
+
+                    <section class="budget-section" id="is-it-right">
+
+                        <h2>
+                            Is the 50/30/20 Rule Right for Everyone?
+                        </h2>
+
+                        <p>
+                            The method can be useful when you want a simple
+                            starting point for organizing your money, but
+                            the percentages may not fit every household.
                         </p>
 
                         <p>
-                            The goal is to use the framework as a starting point and adapt it to your actual income,
+                            Someone living in a high-cost area may spend more
+                            than 50% on necessities. Someone aggressively
+                            paying off debt may want to direct more than 20%
+                            toward debt. A household with limited income may
+                            have little flexibility after essential expenses.
+                        </p>
+
+                        <p>
+                            The goal is to use the framework as a starting
+                            point and adapt it to your actual income,
                             expenses and financial priorities.
                         </p>
 
-                        <!-- CTA -->
+                    </section>
 
-                        <div class="cta">
-                            <h2>Start With Your Paycheck</h2>
 
-                            <p>
-                                Before creating a budget, find out how much money you actually take home after estimated
-                                taxes and deductions.
-                            </p>
+                    <!-- START WITH PAYCHECK -->
 
-                            <a href="/paycheck-tax-calculator/"> Calculate Your Take-Home Pay </a>
-                        </div>
-                    </article>
+                    <section class="budget-section" id="start-with-paycheck">
 
-                    <!-- SIDEBAR -->
+                        <h2>
+                            Start With Your Paycheck
+                        </h2>
 
-                    <aside class="sidebar">
-                        <div class="toc">
-                            <strong>On This Page</strong>
-
-                            <a href="#what-is">What Is 50/30/20?</a>
-                            <a href="#income">What Income Should You Use?</a>
-                            <a href="#examples">Budget Examples</a>
-                            <a href="#needs">What Counts as a Need?</a>
-                            <a href="#wants">What Counts as a Want?</a>
-                            <a href="#savings">Savings &amp; Debt</a>
-                            <a href="#over-50">Needs Over 50%</a>
-                            <a href="#cannot-save">Can't Save 20%?</a>
-                            <a href="#variable">Variable Income</a>
-                            <a href="#401k">401(k) Treatment</a>
-                            <a href="#comparison">50/30/20 vs Zero-Based</a>
-                            <a href="#process">How to Use It</a>
-                            <a href="#formula">Budget Formula</a>
-                            <a href="#mistakes">Common Mistakes</a>
-                            <a href="#right">Is It Right for Everyone?</a>
-                        </div>
-
-                        <div class="sidebar-card">
-                            <h3>Budgeting Resources</h3>
-
-                            <p>Continue learning with more PaycheckMint budgeting guides and financial tools.</p>
-
-                            <a href="/finance/budgeting/"> Budgeting Guide → </a>
-
-                            <a href="/finance/budgeting/monthly-budget/"> Monthly Budget → </a>
-
-                            <a href="/finance/budgeting/emergency-fund/"> Emergency Fund → </a>
-
-                            <a href="/finance/budgeting/zero-based-budget/"> Zero-Based Budget → </a>
-                        </div>
-
-                        <div class="sidebar-card">
-                            <h3>Need Your Take-Home Pay?</h3>
-
-                            <p>
-                                Estimate your paycheck after taxes and deductions before building your monthly budget.
-                            </p>
-
-                            <a href="/paycheck-tax-calculator/"> Paycheck Calculator → </a>
-                        </div>
-                    </aside>
-                </div>
-            </section>
-
-            <!-- =========================
-         FAQ
-    ========================= -->
-
-            <section class="faq-section">
-                <div class="container">
-                    <h2 class="section-title">50/30/20 Budget FAQ</h2>
-
-                    <div class="faq">
-                        <div class="faq-item">
-                            <button class="faq-question" type="button">
-                                <span>What is the 50/30/20 budget rule?</span>
-                                <span>+</span>
-                            </button>
-
-                            <div class="faq-answer">
-                                The 50/30/20 budget rule is a budgeting framework that divides take-home income into
-                                approximately 50% needs, 30% wants and 20% savings or additional debt repayment.
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <button class="faq-question" type="button">
-                                <span>Is 50/30/20 based on gross or net income?</span>
-                                <span>+</span>
-                            </button>
-
-                            <div class="faq-answer">
-                                It is generally easiest to apply the method to take-home pay because that is the amount
-                                available for your monthly spending plan.
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <button class="faq-question" type="button">
-                                <span>How much is 50/30/20 on $5,000?</span>
-                                <span>+</span>
-                            </button>
-
-                            <div class="faq-answer">
-                                On $5,000 of monthly take-home income, 50% is $2,500, 30% is $1,500 and 20% is $1,000.
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <button class="faq-question" type="button">
-                                <span>What if my needs are more than 50%?</span>
-                                <span>+</span>
-                            </button>
-
-                            <div class="faq-answer">
-                                Adjust the percentages to fit your circumstances. You can review discretionary spending
-                                and major recurring expenses, but there is no requirement that every household fit
-                                exactly into 50/30/20.
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <button class="faq-question" type="button">
-                                <span>Can I use 50/30/20 with irregular income?</span>
-                                <span>+</span>
-                            </button>
-
-                            <div class="faq-answer">
-                                Yes. Consider using a conservative estimate based on recent income rather than budgeting
-                                around your highest-earning month.
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <button class="faq-question" type="button">
-                                <span>Does debt repayment count toward the 20%?</span>
-                                <span>+</span>
-                            </button>
-
-                            <div class="faq-answer">
-                                Minimum required debt payments are commonly treated as needs. Additional payments
-                                intended to pay debt down faster can be included in the savings and debt portion.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- =========================
-     FOOTER
-========================= -->
-
-        <footer>
-            <div class="container">
-                <div class="footer-grid">
-                    <div>
-                        <a class="brand" href="/">Paycheck<span>Mint</span></a>
-
-                        <p class="footer-description">
-                            Simple U.S. personal finance tools, calculators and guides to help you understand your
-                            paycheck, budget and money.
+                        <p>
+                            Before creating a budget, find out how much money
+                            you actually take home after estimated taxes and
+                            deductions.
                         </p>
+
+                        <p>
+                            Use the
+                            <a href="/paycheck-tax-calculator/">
+                                Paycheck Calculator
+                            </a>
+                            to estimate your take-home pay before applying
+                            the 50/30/20 framework.
+                        </p>
+
+                    </section>
+
+
+                    <!-- FAQ -->
+
+                    <section class="budget-section" id="faq">
+
+                        <h2>
+                            50/30/20 Budget FAQ
+                        </h2>
+
+                        <div class="faq-list">
+
+
+                            <div class="faq-item">
+
+                                <button class="faq-question" type="button">
+
+                                    <span>
+                                        What is the 50/30/20 budget rule?
+                                    </span>
+
+                                    <span class="faq-icon">
+                                        +
+                                    </span>
+
+                                </button>
+
+                                <div class="faq-answer">
+
+                                    <p>
+                                        The 50/30/20 budget rule is a
+                                        budgeting framework that divides
+                                        take-home income into approximately
+                                        50% needs, 30% wants and 20% savings
+                                        or additional debt repayment.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="faq-item">
+
+                                <button class="faq-question" type="button">
+
+                                    <span>
+                                        Is 50/30/20 based on gross or net income?
+                                    </span>
+
+                                    <span class="faq-icon">
+                                        +
+                                    </span>
+
+                                </button>
+
+                                <div class="faq-answer">
+
+                                    <p>
+                                        It is generally easiest to apply
+                                        the method to take-home pay because
+                                        that is the amount available for
+                                        your monthly spending plan.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="faq-item">
+
+                                <button class="faq-question" type="button">
+
+                                    <span>
+                                        How much is 50/30/20 on $5,000?
+                                    </span>
+
+                                    <span class="faq-icon">
+                                        +
+                                    </span>
+
+                                </button>
+
+                                <div class="faq-answer">
+
+                                    <p>
+                                        On $5,000 of monthly take-home
+                                        income, 50% is $2,500, 30% is
+                                        $1,500 and 20% is $1,000.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="faq-item">
+
+                                <button class="faq-question" type="button">
+
+                                    <span>
+                                        What if my needs are more than 50%?
+                                    </span>
+
+                                    <span class="faq-icon">
+                                        +
+                                    </span>
+
+                                </button>
+
+                                <div class="faq-answer">
+
+                                    <p>
+                                        Adjust the percentages to fit your
+                                        circumstances. You can review
+                                        discretionary spending and major
+                                        recurring expenses, but there is no
+                                        requirement that every household
+                                        fit exactly into 50/30/20.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="faq-item">
+
+                                <button class="faq-question" type="button">
+
+                                    <span>
+                                        Can I use 50/30/20 with irregular income?
+                                    </span>
+
+                                    <span class="faq-icon">
+                                        +
+                                    </span>
+
+                                </button>
+
+                                <div class="faq-answer">
+
+                                    <p>
+                                        Yes. Consider using a conservative
+                                        estimate based on recent income
+                                        rather than budgeting around your
+                                        highest-earning month.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="faq-item">
+
+                                <button class="faq-question" type="button">
+
+                                    <span>
+                                        Does debt repayment count toward the 20%?
+                                    </span>
+
+                                    <span class="faq-icon">
+                                        +
+                                    </span>
+
+                                </button>
+
+                                <div class="faq-answer">
+
+                                    <p>
+                                        Minimum required debt payments are
+                                        commonly treated as needs. Additional
+                                        payments intended to pay debt down
+                                        faster can be included in the
+                                        savings and debt portion.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- DISCLAIMER -->
+
+                    <div class="article-disclaimer">
+
+                        <strong>
+                            PaycheckMint budgeting disclaimer
+                        </strong>
+
+                        <p>
+                            The 50/30/20 rule is a budgeting framework and
+                            educational tool, not a requirement or
+                            personalized financial recommendation.
+                            Individual income, expenses, debt, household
+                            circumstances and financial goals can vary.
+                            Use the percentages as a starting point and
+                            adjust your budget to your actual situation.
+                        </p>
+
                     </div>
 
-                    <div class="footer-col">
-                        <h3>Calculators</h3>
 
-                        <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+                </article>
 
-                        <a href="/hourly-paycheck-calculator/"> Hourly Paycheck Calculator </a>
 
-                        <a href="/salary-paycheck-calculator/"> Salary Paycheck Calculator </a>
+                <!-- =================================================
+                     SIDEBAR
+                ================================================== -->
 
-                        <a href="/overtime-pay-calculator/"> Overtime Calculator </a>
-                    </div>
+                <aside class="budget-sidebar">
 
-                    <div class="footer-col">
-                        <h3>Finance</h3>
+                    <div class="sidebar-card sidebar-highlight">
 
-                        <a href="/income/">Income</a>
+                        <h3>
+                            50/30/20 at a glance
+                        </h3>
 
-                        <a href="/finance/taxes/">Taxes</a>
+                        <p>
+                            Use take-home income as your starting point,
+                            then compare your actual spending with the
+                            three broad targets.
+                        </p>
 
-                        <a href="/finance/budgeting/">Budgeting</a>
-
-                        <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
-
-                        <a href="/finance/investing/"> Investing </a>
-                    </div>
-
-                    <div class="footer-col">
-                        <h3>PaycheckMint</h3>
-
-                        <a href="/about/">About</a>
-
-                        <a href="/contact/">Contact</a>
-
-                        <a href="/privacy-policy/">Privacy</a>
-
-                        <a href="/terms/">Terms</a>
+                        <a class="sidebar-button" href="#calculator">
+                            Use Calculator
+                        </a>
 
                     </div>
-                </div>
 
-                <div class="footer-bottom">
-                    © 2026 PaycheckMint. Information and calculator results are estimates for educational purposes and
-                    should not be considered financial, tax or legal advice.
-                </div>
+
+                    <div class="sidebar-card">
+
+                        <h3>
+                            On this page
+                        </h3>
+
+                        <ul class="sidebar-list">
+
+                            <li>
+                                <a href="#what-is">
+                                    What Is 50/30/20?
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#income">
+                                    What Income to Use
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#examples">
+                                    Budget Examples
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#needs">
+                                    What Counts as a Need
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#wants">
+                                    What Counts as a Want
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#savings-debt">
+                                    Savings & Debt
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#variable-income">
+                                    Variable Income
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#401k">
+                                    401(k)
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#comparison">
+                                    50/30/20 vs Zero-Based
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#mistakes">
+                                    Common Mistakes
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#faq">
+                                    FAQ
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="sidebar-card">
+
+                        <h3>
+                            Related budgeting guides
+                        </h3>
+
+                        <ul class="sidebar-list">
+
+                            <li>
+                                <a href="/finance/budgeting/">
+                                    Budgeting
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/finance/budgeting/zero-based-budget/">
+                                    Zero-Based Budgeting
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/finance/budgeting/monthly-budget/">
+                                    Monthly Budget
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/finance/budgeting/needs-vs-wants/">
+                                    Needs vs. Wants
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </aside>
+
             </div>
-        </footer>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                /* =========================
+        </div>
+
+    </main>
+
+
+    <!-- =========================================================
+         GLOBAL FOOTER
+    ========================================================= -->
+
+    <footer class="pm-footer">
+
+        <div class="pm-footer-inner">
+
+            <div class="pm-footer-main">
+
+                <div class="pm-footer-grid">
+
+                    <div class="pm-footer-brand-column">
+
+                        <a class="pm-footer-brand" href="/">
+                            Paycheck<span>Mint</span>
+                        </a>
+
+                        <p class="pm-footer-description">
+                            Practical personal finance guides, paycheck tools,
+                            and calculators to help you make informed money decisions.
+                        </p>
+
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Money</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/income/">Income</a></li>
+                            <li><a href="/paycheck-tax-calculator/">Paycheck Calculator</a></li>
+                            <li><a href="/take-home-pay-calculator/">Take-Home Pay</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Finance</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/finance/taxes/">Taxes</a></li>
+                            <li><a href="/finance/budgeting/">Budgeting</a></li>
+                            <li><a href="/finance/credit-debt/">Credit &amp; Debt</a></li>
+                            <li><a href="/finance/investing/">Investing</a></li>
+                            <li><a href="/finance/insurance/">Insurance</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Company</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/contact/">Contact</a></li>
+                            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="pm-footer-bottom">
+
+                <div class="pm-footer-copyright">
+                    © 2026 PaycheckMint. All rights reserved.
+                </div>
+
+                <div class="pm-footer-legal">
+                    <a href="/privacy-policy/">Privacy Policy</a>
+                    <a href="/terms/">Terms</a>
+                    <a href="/contact/">Contact</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         CALCULATOR + FAQ SCRIPT
+    ========================================================= -->
+
+    <script>
+
+        /* =========================================================
            50/30/20 CALCULATOR
-        ========================= */
+        ========================================================= */
 
-                const incomeInput = document.getElementById("income");
-                const needsAmount = document.getElementById("needsAmount");
-                const wantsAmount = document.getElementById("wantsAmount");
-                const savingsAmount = document.getElementById("savingsAmount");
+        const incomeInput =
+            document.getElementById("monthlyIncome");
 
-                function formatMoney(value) {
-                    return new Intl.NumberFormat("en-US", {
-                        style: "currency",
-                        currency: "USD",
-                        maximumFractionDigits: 0,
-                    }).format(value);
-                }
+        const needsAmount =
+            document.getElementById("needsAmount");
 
-                function calculateBudget() {
-                    let income = Number.parseFloat(incomeInput.value);
+        const wantsAmount =
+            document.getElementById("wantsAmount");
 
-                    if (!Number.isFinite(income) || income < 0) {
-                        income = 0;
+        const savingsAmount =
+            document.getElementById("savingsAmount");
+
+
+        function formatCurrency(value) {
+
+            return new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+                maximumFractionDigits: 0
+            }).format(value);
+
+        }
+
+
+        function calculateBudget() {
+
+            const income =
+                Math.max(
+                    0,
+                    Number(incomeInput.value) || 0
+                );
+
+            const needs =
+                income * 0.50;
+
+            const wants =
+                income * 0.30;
+
+            const savings =
+                income * 0.20;
+
+            needsAmount.textContent =
+                formatCurrency(needs);
+
+            wantsAmount.textContent =
+                formatCurrency(wants);
+
+            savingsAmount.textContent =
+                formatCurrency(savings);
+
+        }
+
+
+        incomeInput.addEventListener(
+            "input",
+            calculateBudget
+        );
+
+
+        calculateBudget();
+
+
+        /* =========================================================
+           FAQ ACCORDION
+        ========================================================= */
+
+        document
+            .querySelectorAll(".faq-question")
+            .forEach(function (button) {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        const item =
+                            button.closest(".faq-item");
+
+                        const icon =
+                            button.querySelector(".faq-icon");
+
+                        const isOpen =
+                            item.classList.contains("open");
+
+
+                        document
+                            .querySelectorAll(".faq-item")
+                            .forEach(function (otherItem) {
+
+                                otherItem.classList.remove("open");
+
+                                const otherIcon =
+                                    otherItem.querySelector(".faq-icon");
+
+                                if (otherIcon) {
+                                    otherIcon.textContent = "+";
+                                }
+
+                            });
+
+
+                        if (!isOpen) {
+
+                            item.classList.add("open");
+
+                            icon.textContent = "−";
+
+                        }
+
+                    }
+                );
+
+            });
+
+    </script>
+
+    <script>
+        (function () {
+            "use strict";
+
+            /* ==========================================================================
+               1. ASYNC COMPONENT LOADER
+               ========================================================================== */
+            document.addEventListener("DOMContentLoaded", function () {
+                loadSharedComponents();
+            });
+
+            async function loadSharedComponents() {
+                const navbar = document.getElementById("site-navbar");
+                const footer = document.getElementById("site-footer");
+
+                try {
+                    const requests = [];
+
+                    if (navbar) {
+                        requests.push(
+                            fetch("/components/navbar.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Navbar 404"))
+                                .then(html => { navbar.innerHTML = html; })
+                        );
                     }
 
-                    const needs = income * 0.5;
-                    const wants = income * 0.3;
-                    const savings = income * 0.2;
+                    if (footer) {
+                        requests.push(
+                            fetch("/components/footer.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Footer 404"))
+                                .then(html => { footer.innerHTML = html; })
+                        );
+                    }
 
-                    needsAmount.textContent = formatMoney(needs);
-                    wantsAmount.textContent = formatMoney(wants);
-                    savingsAmount.textContent = formatMoney(savings);
+                    await Promise.all(requests);
+                    // Re-bind focus or initial state if required after injection
+                    setupScrollHeader();
+                } catch (error) {
+                    console.error("Component loading error:", error);
+                    setupScrollHeader();
                 }
+            }
 
-                incomeInput.addEventListener("input", calculateBudget);
+            /* ==========================================================================
+               2. EVENT DELEGATION (Handles dynamic elements automatically)
+               ========================================================================== */
+            document.addEventListener("click", function (event) {
 
-                calculateBudget();
-
-                /* =========================
-           MOBILE NAVIGATION
-        ========================= */
-
-                const mobileMenuToggle = document.getElementById("mobileMenuToggle");
-
-                const mainNav = document.getElementById("mainNav");
-
-                const menuIcon = document.getElementById("menuIcon");
-
-                const financeDropdown = document.getElementById("financeDropdown");
-
-                const financeButton = document.getElementById("financeButton");
-
-                function closeFinanceDropdown() {
-                    financeDropdown.classList.remove("open");
-
-                    financeButton.setAttribute("aria-expanded", "false");
-                }
-
-                function closeMobileMenu() {
-                    mainNav.classList.remove("open");
-
-                    mobileMenuToggle.setAttribute("aria-expanded", "false");
-
-                    mobileMenuToggle.setAttribute("aria-label", "Open navigation menu");
-
-                    menuIcon.textContent = "☰";
-
-                    closeFinanceDropdown();
-                }
-
-                mobileMenuToggle.addEventListener("click", function (event) {
+                // --- DESKTOP DROPDOWNS ---
+                const dropdownBtn = event.target.closest(".pm-nav-dropdown-button");
+                if (dropdownBtn) {
                     event.stopPropagation();
+                    const currentDropdown = dropdownBtn.closest(".pm-nav-dropdown");
+                    const isOpen = currentDropdown.classList.contains("is-open");
 
-                    const isOpen = mainNav.classList.toggle("open");
+                    // Close all dropdowns
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
+                    });
 
-                    mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+                    // Toggle selected dropdown
+                    if (!isOpen) {
+                        currentDropdown.classList.add("is-open");
+                        dropdownBtn.setAttribute("aria-expanded", "true");
+                    }
+                    return;
+                }
 
-                    mobileMenuToggle.setAttribute(
-                        "aria-label",
-                        isOpen ? "Close navigation menu" : "Open navigation menu"
-                    );
+                // Close desktop dropdowns when clicking outside
+                if (!event.target.closest(".pm-nav-dropdown")) {
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
+                    });
+                }
 
-                    menuIcon.textContent = isOpen ? "✕" : "☰";
-                });
+                // --- MOBILE NAV TOGGLE ---
+                const mobileToggle = event.target.closest("#mobileToggle");
+                if (mobileToggle) {
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) {
+                        const isOpen = mobileNav.classList.toggle("is-open");
+                        mobileToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
+                }
 
-                /* =========================
-           FINANCE DROPDOWN
-        ========================= */
+                // --- MOBILE SUBMENU TOGGLE ---
+                const mobileFinanceToggle = event.target.closest("#mobileFinanceToggle");
+                if (mobileFinanceToggle) {
+                    event.stopPropagation();
+                    const mobileFinanceLinks = document.getElementById("mobileFinanceLinks");
+                    if (mobileFinanceLinks) {
+                        const isOpen = mobileFinanceLinks.classList.toggle("is-open");
+                        mobileFinanceToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
+                }
 
-                financeButton.addEventListener("click", function (event) {
+                // --- SEARCH TOGGLE (OPEN / CLOSE) ---
+                const searchToggle = event.target.closest("#searchToggle");
+                const mobileSearchBtn = event.target.closest("#mobileSearchButton");
+                const searchClose = event.target.closest("#searchClose");
+                const searchPanel = document.getElementById("searchPanel");
+
+                if (searchToggle || mobileSearchBtn) {
                     event.preventDefault();
                     event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) mobileNav.classList.remove("is-open");
 
-                    const isOpen = financeDropdown.classList.toggle("open");
-
-                    financeButton.setAttribute("aria-expanded", String(isOpen));
-                });
-
-                /* =========================
-           CLOSE WHEN CLICKING OUTSIDE
-        ========================= */
-
-                document.addEventListener("click", function (event) {
-                    if (!mainNav.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
-                        closeMobileMenu();
+                    if (searchPanel) {
+                        if (searchPanel.classList.contains("is-open") && searchToggle) {
+                            closeSearch();
+                        } else {
+                            openSearch();
+                        }
                     }
-                });
+                    return;
+                }
 
-                /* =========================
-           CLOSE AFTER NAVIGATION
-        ========================= */
+                if (searchClose) {
+                    event.preventDefault();
+                    closeSearch();
+                    return;
+                }
 
-                document.querySelectorAll(".main-nav a").forEach(function (link) {
-                    link.addEventListener("click", function () {
-                        closeMobileMenu();
-                    });
-                });
-
-                /* =========================
-           ESC KEY
-        ========================= */
-
-                document.addEventListener("keydown", function (event) {
-                    if (event.key === "Escape") {
-                        closeMobileMenu();
+                // Close search panel when clicking outside of it
+                if (searchPanel && searchPanel.classList.contains("is-open")) {
+                    if (!searchPanel.contains(event.target)) {
+                        closeSearch();
                     }
-                });
-
-                /* =========================
-           RESET MOBILE MENU ON DESKTOP
-        ========================= */
-
-                window.addEventListener("resize", function () {
-                    if (window.innerWidth > 850) {
-                        closeMobileMenu();
-                    }
-                });
-
-                /* =========================
-           FAQ
-        ========================= */
-
-                document.querySelectorAll(".faq-question").forEach(function (button) {
-                    button.addEventListener("click", function () {
-                        const item = button.closest(".faq-item");
-
-                        const isOpen = item.classList.toggle("open");
-
-                        const icon = button.querySelector("span:last-child");
-
-                        icon.textContent = isOpen ? "−" : "+";
-                    });
-                });
+                }
             });
-        </script>
-        
-    </body>
+
+            /* ==========================================================================
+               3. SEARCH HELPER FUNCTIONS & LIVE FILTERING
+               ========================================================================== */
+            function openSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchToggle = document.getElementById("searchToggle");
+
+                if (!searchPanel) return;
+                searchPanel.classList.add("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "true");
+                    searchToggle.setAttribute("aria-label", "Close search");
+                }
+                if (searchInput) setTimeout(() => searchInput.focus(), 100);
+            }
+
+            function closeSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchResults = document.getElementById("searchResults");
+                const searchToggle = document.getElementById("searchToggle");
+
+                if (!searchPanel) return;
+                searchPanel.classList.remove("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "false");
+                    searchToggle.setAttribute("aria-label", "Open search");
+                }
+                if (searchInput) searchInput.value = "";
+                if (searchResults) searchResults.innerHTML = "";
+            }
+
+            // Keyboard Shortcuts (Escape Key)
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closeSearch();
+                }
+            });
+
+            // Live Search Typing Input Event
+            document.addEventListener("input", function (event) {
+                if (event.target.id !== "siteSearch") return;
+
+                const query = event.target.value.trim().toLowerCase();
+                const searchResults = document.getElementById("searchResults");
+                if (!searchResults) return;
+
+                if (query.length === 0) {
+                    searchResults.innerHTML = "";
+                    return;
+                }
+
+                const searchablePages = [
+                    { title: "Paycheck Tax Calculator", url: "/paycheck-tax-calculator/", description: "Calculate accurate net pay and taxes." },
+                    { title: "Take-Home Pay Calculator", url: "/take-home-pay-calculator/", description: "Estimate your actual paycheck total after deductions." },
+                    { title: "Hourly Paycheck Calculator", url: "/hourly-paycheck-calculator/", description: "Calculate income based on hourly wage and hours worked." },
+                    { title: "Overtime Pay Calculator", url: "/overtime-pay-calculator/", description: "Compute overtime rates and total extra wages." },
+                    { title: "Salary Paycheck Calculator", url: "/salary-paycheck-calculator/", description: "Break down annual salary into per-paycheck earnings." },
+                    { title: "Income Overview", url: "/income/", description: "Learn about taxable income, gross wages, and take-home pay." },
+                    { title: "Finance Overview", url: "/finance/", description: "Guides on managing personal finances and budgeting strategies." },
+                    { title: "Budgeting Guides", url: "/finance/budgeting/", description: "Strategies for budgeting your paycheck effectively." }
+                ];
+
+                const matches = searchablePages.filter(page =>
+                    page.title.toLowerCase().includes(query) ||
+                    page.description.toLowerCase().includes(query)
+                );
+
+                if (matches.length === 0) {
+                    searchResults.innerHTML = `<p class="pm-search-no-results">No results found for "${escapeHTML(query)}"</p>`;
+                    return;
+                }
+
+                searchResults.innerHTML = matches.map(item => `
+            <a href="${item.url}" class="pm-search-result-item">
+                <span class="pm-search-result-title">${escapeHTML(item.title)}</span>
+                <span class="pm-search-result-desc">${escapeHTML(item.description)}</span>
+            </a>
+        `).join("");
+            });
+
+            function escapeHTML(str) {
+                return str.replace(/[&<>'"]/g, tag => ({
+                    '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+                }[tag] || tag));
+            }
+
+            /* ==========================================================================
+               4. SCROLL SHADOW
+               ========================================================================== */
+            function setupScrollHeader() {
+                const header = document.getElementById("site-header");
+                if (!header) return;
+
+                window.addEventListener("scroll", function () {
+                    if (window.scrollY > 20) {
+                        header.classList.add("is-scrolled");
+                    } else {
+                        header.classList.remove("is-scrolled");
+                    }
+                }, { passive: true });
+            }
+
+        })();
+    </script>
+
+</body>
+
 </html>

@@ -1,50 +1,619 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minnesota Paycheck Calculator 2026 | PaycheckMint</title>
+    <meta name="google-adsense-account" content="ca-pub-5238086737098690" />
+    <meta name="description" content="Calculate your estimated Minnesota paycheck for 2026. Estimate take-home pay after federal, Social Security, Medicare and Minnesota taxes with PaycheckMint." />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="theme-color" content="#5954d9" />
+    <link rel="canonical" href="https://paymintcheck.com/paycheck-calculator/minnesota/" />
 
-        <title>Minnesota Paycheck Calculator 2026 | PaycheckMint</title>
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Minnesota Paycheck Calculator 2026 | PaycheckMint" />
+    <meta property="og:description" content="Calculate your estimated Minnesota paycheck for 2026. Estimate take-home pay after federal, Social Security, Medicare and Minnesota taxes with PaycheckMint." />
+    <meta property="og:site_name" content="PaycheckMint" />
+    <meta property="og:url" content="https://paymintcheck.com/paycheck-calculator/minnesota/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Minnesota Paycheck Calculator 2026 | PaycheckMint" />
+    <meta name="twitter:description" content="Calculate your estimated Minnesota paycheck for 2026. Estimate take-home pay after federal, Social Security, Medicare and Minnesota taxes with PaycheckMint." />
 
-        <meta name="google-adsense-account" content="ca-pub-5238086737098690" />
+    <link rel="icon" href="/icon.ico" />
+    <link rel="stylesheet" href="/style.css" />
 
-        <meta name="description" content="Calculate your estimated Minnesota paycheck for 2026. Estimate take-home pay after federal, Social Security, Medicare and Minnesota taxes with PaycheckMint." />
+    <style>
+        /* =========================================================
+           TAKE-HOME PAY / STATE CALCULATOR DESIGN
+        ========================================================= */
 
-        <meta name="robots" content="index,follow,max-image-preview:large" />
+        :root {
+            --thp-green: #176b5b;
+            --thp-green-dark: #0f5145;
+            --thp-green-light: #eaf4f1;
+            --thp-gold: #c9922e;
+            --thp-bg: #f6f5f1;
+            --thp-white: #ffffff;
+            --thp-text: #17221f;
+            --thp-muted: #697570;
+            --thp-border: #dfe5e2;
+            --thp-danger: #b84c4c;
+            --thp-radius: 16px;
+            --thp-shadow: 0 10px 35px rgba(23, 44, 38, .08);
+        }
 
-        <meta name="theme-color" content="#5954d9" />
+        * {
+            box-sizing: border-box;
+        }
 
-        <link rel="canonical" href="https://paycheckmint.com/paycheck-calculator/minnesota/" />
+        body {
+            margin: 0;
+            background: var(--thp-bg);
+            color: var(--thp-text);
+        }
 
-        <meta property="og:type" content="website" />
+        .thp-page {
+            width: 100%;
+        }
 
-        <meta property="og:title" content="Minnesota Paycheck Calculator 2026 | PaycheckMint" />
+        .thp-container {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+        }
 
-        <meta property="og:description" content="Calculate your estimated Minnesota paycheck for 2026. Estimate take-home pay after federal, Social Security, Medicare and Minnesota taxes with PaycheckMint." />
+        .thp-container.narrow {
+            max-width: 800px;
+        }
 
-        <meta property="og:site_name" content="PaycheckMint" />
+        /* HERO */
+        .thp-hero {
+            padding: 54px 0 34px;
+        }
 
-        <meta property="og:url" content="https://paycheckmint.com/paycheck-calculator/minnesota/" />
+        .thp-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin-bottom: 13px;
+            color: var(--thp-green);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
 
-        <meta name="twitter:card" content="summary" />
+        .thp-eyebrow::before {
+            content: "";
+            width: 24px;
+            height: 2px;
+            background: var(--thp-gold);
+        }
 
-        <meta name="twitter:title" content="Minnesota Paycheck Calculator 2026 | PaycheckMint" />
+        .thp-hero h1 {
+            max-width: 760px;
+            margin: 0 0 17px;
+            font-size: clamp(34px, 5vw, 56px);
+            line-height: 1.04;
+            letter-spacing: -.035em;
+        }
 
-        <meta name="twitter:description" content="Calculate your estimated Minnesota paycheck for 2026. Estimate take-home pay after federal, Social Security, Medicare and Minnesota taxes with PaycheckMint." />
+        .thp-hero-text {
+            max-width: 750px;
+            margin: 0;
+            color: #596761;
+            font-size: 18px;
+            line-height: 1.7;
+        }
 
-        <link rel="icon" href="/icon.ico" />
+        /* CALCULATOR GRID */
+        .thp-calculator-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.12fr) minmax(350px, .88fr);
+            gap: 24px;
+            align-items: start;
+            margin: 10px auto 60px;
+        }
 
-        <!-- IMPORTANT: use the main site's CSS -->
-        <link rel="stylesheet" href="/style.css" />
+        .thp-form {
+            min-width: 0;
+            background: var(--thp-white);
+            border: 1px solid var(--thp-border);
+            border-radius: var(--thp-radius);
+            box-shadow: var(--thp-shadow);
+            overflow: hidden;
+        }
 
-        <!-- State-specific schema -->
-        <script type="application/ld+json">
-            {
+        .thp-form-header {
+            padding: 25px 26px;
+            border-bottom: 1px solid var(--thp-border);
+        }
+
+        .thp-form-header h2 {
+            margin: 0 0 7px;
+            font-size: 22px;
+            letter-spacing: -.02em;
+        }
+
+        .thp-form-header p {
+            margin: 0;
+            color: var(--thp-muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .thp-form-body {
+            padding: 26px;
+        }
+
+        .thp-section {
+            padding-bottom: 28px;
+            margin-bottom: 28px;
+            border-bottom: 1px solid #edf0ee;
+        }
+
+        .thp-section:last-child {
+            padding-bottom: 0;
+            margin-bottom: 0;
+            border-bottom: 0;
+        }
+
+        .thp-section-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin: 0 0 19px;
+            font-size: 17px;
+        }
+
+        .thp-section-title-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .thp-section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--thp-green-light);
+            color: var(--thp-green);
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .thp-section-total {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--thp-green);
+        }
+
+        /* TOGGLE */
+        .thp-toggle {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 4px;
+            margin-bottom: 20px;
+            background: #f0f3f1;
+            border-radius: 10px;
+        }
+
+        .thp-toggle button {
+            border: 0;
+            border-radius: 8px;
+            background: transparent;
+            color: #66736e;
+            padding: 11px 12px;
+            font: inherit;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .thp-toggle button.active {
+            background: var(--thp-white);
+            color: var(--thp-green-dark);
+            box-shadow: 0 2px 8px rgba(20, 40, 35, .08);
+        }
+
+        /* FIELDS */
+        .thp-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 17px;
+        }
+
+        .thp-field {
+            min-width: 0;
+            margin-bottom: 14px;
+        }
+
+        .thp-grid .thp-field {
+            margin-bottom: 0;
+        }
+
+        .thp-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .thp-field label {
+            display: block;
+            margin-bottom: 7px;
+            color: #36433e;
+            font-size: 13px;
+            font-weight: 750;
+        }
+
+        .thp-input,
+        .thp-select {
+            width: 100%;
+            height: 46px;
+            padding: 0 12px;
+            border: 1px solid #d6dfdb;
+            border-radius: 9px;
+            background: #fff;
+            color: var(--thp-text);
+            font: inherit;
+            font-size: 15px;
+            outline: none;
+            transition: border-color .15s ease, box-shadow .15s ease;
+        }
+
+        .thp-input:focus,
+        .thp-select:focus {
+            border-color: var(--thp-green);
+            box-shadow: 0 0 0 3px rgba(23, 107, 91, .10);
+        }
+
+        .thp-input-wrap {
+            position: relative;
+        }
+
+        .thp-prefix {
+            position: absolute;
+            left: 13px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6d7975;
+            pointer-events: none;
+            font-size: 14px;
+        }
+
+        .thp-input.has-prefix {
+            padding-left: 30px;
+        }
+
+        .thp-field-help {
+            margin-top: 7px;
+            color: #89938f;
+            font-size: 12px;
+            line-height: 1.45;
+        }
+
+        /* ADVANCED DETAILS DROPDOWN */
+        .thp-advanced-options {
+            margin-bottom: 28px;
+            border: 1px solid var(--thp-border);
+            border-radius: 10px;
+            background: #fafcfb;
+            overflow: hidden;
+        }
+
+        .thp-advanced-options summary {
+            padding: 16px 20px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .thp-advanced-options summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .thp-advanced-content {
+            padding: 0 20px 20px;
+            border-top: 1px solid var(--thp-border);
+        }
+
+        .thp-btn-calculate {
+            width: 100%;
+            height: 50px;
+            background: var(--thp-green);
+            color: #fff;
+            border: 0;
+            border-radius: 10px;
+            font: inherit;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background .15s ease;
+            margin-top: 10px;
+        }
+
+        .thp-btn-calculate:hover {
+            background: var(--thp-green-dark);
+        }
+
+        /* RESULT PANEL */
+        .thp-result {
+            position: sticky;
+            top: 20px;
+            min-width: 0;
+            overflow: hidden;
+            border-radius: var(--thp-radius);
+            background: var(--thp-green);
+            color: #fff;
+            box-shadow: 0 16px 42px rgba(23, 107, 91, .20);
+        }
+
+        .thp-result-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 27px 27px 23px;
+        }
+
+        .thp-result-label {
+            margin-bottom: 6px;
+            color: rgba(255, 255, 255, .72);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .thp-net-pay {
+            font-size: clamp(34px, 5vw, 47px);
+            font-weight: 850;
+            line-height: 1;
+            letter-spacing: -.045em;
+        }
+
+        .thp-net-subtitle {
+            margin-top: 8px;
+            color: rgba(255, 255, 255, .68);
+            font-size: 13px;
+        }
+
+        .thp-breakdown {
+            padding: 22px 27px 10px;
+        }
+
+        .thp-breakdown-title {
+            margin-bottom: 13px;
+            color: rgba(255, 255, 255, .55);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .thp-breakdown-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 9px 0;
+            color: rgba(255, 255, 255, .82);
+            font-size: 14px;
+        }
+
+        .thp-breakdown-name {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .thp-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .38);
+        }
+
+        .thp-dot.net {
+            background: #ffffff;
+        }
+
+        .thp-dot.federal {
+            background: #e06c75;
+        }
+
+        .thp-dot.fica {
+            background: #e5c07b;
+        }
+
+        .thp-dot.state {
+            background: #61afef;
+        }
+
+        .thp-dot.deductions {
+            background: #c678dd;
+        }
+
+        .thp-breakdown-value {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .thp-chart-wrap {
+            padding: 4px 27px 18px;
+        }
+
+        .thp-chart {
+            width: 170px;
+            height: 170px;
+            margin: 0 auto;
+            border-radius: 50%;
+            background: conic-gradient(#fff 0deg, #fff 0deg);
+            position: relative;
+        }
+
+        .thp-chart::after {
+            content: "";
+            position: absolute;
+            inset: 28px;
+            border-radius: 50%;
+            background: var(--thp-green);
+        }
+
+        .thp-chart-center {
+            position: absolute;
+            z-index: 2;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .thp-chart-center strong {
+            font-size: 18px;
+        }
+
+        .thp-chart-center span {
+            color: rgba(255, 255, 255, .6);
+            font-size: 10px;
+        }
+
+        .thp-result-summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 9px;
+            padding: 18px 20px 20px;
+            background: rgba(0, 0, 0, .10);
+        }
+
+        .thp-summary-card {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, .10);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, .045);
+        }
+
+        .thp-summary-card span {
+            display: block;
+            margin-bottom: 4px;
+            color: rgba(255, 255, 255, .52);
+            font-size: 10px;
+        }
+
+        .thp-summary-card strong {
+            font-size: 14px;
+        }
+
+        /* ARTICLE & FAQ CONTENT */
+        .thp-article {
+            min-width: 0;
+            padding: 34px;
+            background: var(--thp-white);
+            border: 1px solid var(--thp-border);
+            border-radius: var(--thp-radius);
+            margin-bottom: 40px;
+        }
+
+        .thp-article h2 {
+            margin: 0 0 15px;
+            font-size: 28px;
+            letter-spacing: -.025em;
+        }
+
+        .thp-article h3 {
+            margin: 28px 0 12px;
+            font-size: 21px;
+        }
+
+        .thp-article p {
+            margin: 0 0 17px;
+            color: #53615c;
+            font-size: 16px;
+            line-height: 1.75;
+        }
+
+        .thp-faq {
+            margin-top: 32px;
+        }
+
+        .thp-faq-item {
+            border-top: 1px solid var(--thp-border);
+        }
+
+        .thp-faq-item:last-child {
+            border-bottom: 1px solid var(--thp-border);
+        }
+
+        .thp-faq-item summary {
+            padding: 17px 0;
+            cursor: pointer;
+            list-style: none;
+            font-weight: 750;
+        }
+
+        .thp-faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .thp-faq-item p {
+            padding-bottom: 17px;
+            margin: 0;
+        }
+
+        .thp-disclaimer {
+            margin-top: 24px;
+            padding: 18px;
+            border: 1px solid #e4dfcc;
+            border-radius: 10px;
+            background: #faf8f0;
+            color: #686352;
+            font-size: 13px;
+            line-height: 1.65;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 950px) {
+            .thp-calculator-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .thp-result {
+                position: relative;
+                top: auto;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .thp-container {
+                width: min(100% - 22px, 1180px);
+            }
+
+            .thp-hero h1 {
+                font-size: 36px;
+            }
+
+            .thp-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .thp-form-header,
+            .thp-form-body {
+                padding: 20px;
+            }
+        }
+    </style>
+
+    <!-- State Schema -->
+    <script type="application/ld+json">
+        {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Minnesota Paycheck Calculator 2026",
-  "url": "https://paycheckmint.com/paycheck-calculator/minnesota/",
+  "url": "https://paymintcheck.com/paycheck-calculator/minnesota/",
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "Web",
   "description": "Calculate your estimated Minnesota paycheck for 2026. Estimate take-home pay after federal, Social Security, Medicare and Minnesota taxes with PaycheckMint.",
@@ -54,1103 +623,1214 @@
     "priceCurrency": "USD"
   }
 }
-        </script>
-    </head>
+    </script>
+</head>
 
-    <body>
-        <!-- HEADER -->
-        <header class="site-header">
-            <div class="container header-inner">
-                <a class="brand" href="/" aria-label="PaycheckMint home"> PaycheckMint </a>
+<body>
+    <!-- HEADER -->
+    <header class="pm-header" id="site-header">
+        <div class="pm-header-inner">
+            <a class="pm-brand" href="/" aria-label="PaycheckMint home">
+                Paycheck<span>Mint</span>
+            </a>
 
-                <nav class="main-nav" aria-label="Main navigation">
-                    <a href="#calculator"> Calculator </a>
+            <nav class="pm-desktop-nav" aria-label="Main navigation">
+                <a class="pm-nav-link" href="/income/">Income</a>
 
-                    <a href="#how-it-works"> How it works </a>
-
-                    <a href="#faq"> FAQ </a>
-
-                    <a href="/about/"> About </a>
-                </nav>
-            </div>
-        </header>
-
-        <main>
-            <!-- HERO -->
-            <section class="hero">
-                <div class="container hero-inner">
-                    <p class="eyebrow">2026 Minnesota PAYCHECK CALCULATOR</p>
-
-                    <h1>Minnesota Paycheck Calculator 2026</h1>
-
-                    <p class="hero-copy">
-                        Estimate your Minnesota take-home pay after federal, Social Security, Medicare and
-                        Minnesota taxes.
-                    </p>
+                <div class="pm-nav-dropdown" data-dropdown>
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                        Finance
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+                    <div class="pm-dropdown-menu">
+                        <span class="pm-dropdown-label">Explore</span>
+                        <a href="/finance/"><span>Finance Overview</span></a>
+                        <a href="/income/"><span>Income & Earnings</span></a>
+                        <a href="/finance/budgeting/"><span>Budgeting Guides</span></a>
+                    </div>
                 </div>
-            </section>
 
-            <!-- CALCULATOR -->
-            <section id="calculator" class="calculator-section">
-                <div class="container">
-                    <div class="calculator-layout">
-                        <!-- INPUT PANEL -->
-                        <div class="calculator-card">
-                            <div class="card-heading">
-                                <div>
-                                    <p class="section-kicker">INCOME</p>
+                <div class="pm-nav-dropdown" data-dropdown>
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                        Calculators
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+                    <div class="pm-dropdown-menu">
+                        <span class="pm-dropdown-label">Paycheck tools</span>
+                        <a href="/paycheck-tax-calculator/">Paycheck Tax Calculator</a>
+                        <a href="/monthly-paycheck-calculator/">Monthly Paycheck Calculator</a>
+                        <a href="/take-home-pay-calculator/">Take-Home Pay Calculator</a>
+                        <a href="/hourly-paycheck-calculator/">Hourly Paycheck Calculator</a>
+                        <a href="/overtime-pay-calculator/">Overtime Pay Calculator</a>
+                        <a href="/salary-paycheck-calculator/">Salary Paycheck Calculator</a>
+                    </div>
+                </div>
 
-                                    <h2>Pay details</h2>
-                                </div>
+                <a class="pm-nav-link" href="/finance/">Learn</a>
+            </nav>
+
+            <div class="pm-nav-spacer"></div>
+
+            <button class="pm-search-button" id="searchToggle" type="button" aria-label="Open search"
+                aria-expanded="false" aria-controls="searchPanel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="m20 20-4-4"></path>
+                </svg>
+            </button>
+
+            <a class="pm-header-cta" href="/paycheck-tax-calculator/">Calculate paycheck</a>
+
+            <button class="pm-mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation"
+                aria-expanded="false" aria-controls="mobileNav">
+                <svg id="mobileMenuIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <path d="M4 6h16" />
+                    <path d="M4 12h16" />
+                    <path d="M4 18h16" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- SEARCH PANEL -->
+        <div class="pm-search-panel" id="searchPanel">
+            <div class="pm-search-inner">
+                <div class="pm-search-field">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="m20 20-4-4" />
+                    </svg>
+                    <input id="siteSearch" class="pm-search-input" type="search" autocomplete="off"
+                        placeholder="Search PaycheckMint..." aria-label="Search PaycheckMint">
+                    <button class="pm-search-close" id="searchClose" type="button" aria-label="Close search">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 6l12 12" />
+                            <path d="M18 6 6 18" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="pm-search-results" id="searchResults"></div>
+        </div>
+
+        <!-- MOBILE NAV -->
+        <nav class="pm-mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+            <div class="pm-mobile-nav-inner">
+                <a href="/">Home</a>
+                <a href="/income/">Income</a>
+                <button class="pm-mobile-finance-button" id="mobileFinanceToggle" type="button" aria-expanded="false">
+                    <span>Finance</span>
+                    <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m6 9 6 6 6-6" />
+                    </svg>
+                </button>
+                <div class="pm-mobile-finance-links" id="mobileFinanceLinks">
+                    <a href="/finance/">Finance Overview</a>
+                    <a href="/income/">Income & Earnings</a>
+                </div>
+                <a href="/paycheck-tax-calculator/">Paycheck Tax Calculator</a>
+                <a href="/take-home-pay-calculator/">Take-Home Pay Calculator</a>
+                <a href="/hourly-paycheck-calculator/">Hourly Paycheck Calculator</a>
+                <a href="/overtime-pay-calculator/">Overtime Pay Calculator</a>
+                <a href="/salary-paycheck-calculator/">Salary Paycheck Calculator</a>
+                <a href="/weekly-paycheck-calculator/">Weekly Paycheck Calculator</a>
+                <a href="/biweekly-paycheck-calculator/">Biweekly Paycheck Calculator</a>
+                <a href="/monthly-paycheck-calculator/">Monthly Paycheck Calculator</a>
+                <div class="pm-mobile-search-row">
+                    <button class="pm-button-secondary" id="mobileSearchButton" type="button">Search
+                        PaycheckMint</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="thp-page">
+        <!-- HERO -->
+        <section class="thp-hero">
+            <div class="thp-container">
+                <div class="thp-eyebrow">2026 Minnesota PAYCHECK CALCULATOR</div>
+                <h1>Minnesota Paycheck Calculator 2026</h1>
+                <p class="thp-hero-text">
+                    Estimate your Minnesota take-home pay after federal, Social Security, Medicare, and
+                    Minnesota state taxes.
+                </p>
+            </div>
+        </section>
+
+        <!-- CALCULATOR GRID -->
+        <section id="calculator" class="thp-container">
+            <div class="thp-calculator-grid">
+
+                <!-- INPUT PANEL -->
+                <div class="thp-form">
+                    <div class="thp-form-header">
+                        <h2>Pay details</h2>
+                        <p>Enter your details below to calculate your estimated take-home pay.</p>
+                    </div>
+
+                    <div class="thp-form-body">
+                        <!-- SECTION 1: INCOME -->
+                        <div class="thp-section">
+                            <h3 class="thp-section-title">
+                                <span class="thp-section-title-left">
+                                    <span class="thp-section-number">1</span>
+                                    Pay details
+                                </span>
+                            </h3>
+
+                            <!-- Salary / Hourly Toggle -->
+                            <div class="thp-toggle">
+                                <button type="button" id="salaryMode" class="active" aria-pressed="true">Salary</button>
+                                <button type="button" id="hourlyMode" aria-pressed="false">Hourly</button>
                             </div>
 
-                            <!-- Salary / Hourly -->
-                            <div class="mode-switch">
-                                <button type="button" id="salaryMode" class="mode-button active" aria-pressed="true">
-                                    Salary
-                                </button>
-
-                                <button type="button" id="hourlyMode" class="mode-button" aria-pressed="false">
-                                    Hourly
-                                </button>
-                            </div>
-
-                            <!-- SALARY -->
+                            <!-- SALARY FIELDS -->
                             <div id="salaryFields">
-                                <label class="field-label" for="salary"> Annual salary </label>
-
-                                <div class="input-wrap">
-                                    <span>$</span>
-
-                                    <input
-                                        id="salary"
-                                        type="number"
-                                        min="0"
-                                        step="100"
-                                        inputmode="decimal"
-                                        value="60000"
-                                        placeholder="60000"
-                                    />
+                                <div class="thp-field">
+                                    <label for="salary">Annual salary</label>
+                                    <div class="thp-input-wrap">
+                                        <span class="thp-prefix">$</span>
+                                        <input id="salary" class="thp-input has-prefix" type="number" min="0" step="100"
+                                            inputmode="decimal" value="60000" placeholder="60000" />
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- HOURLY -->
+                            <!-- HOURLY FIELDS -->
                             <div id="hourlyFields" hidden>
-                                <div class="field-grid">
-                                    <div>
-                                        <label class="field-label" for="hourlyRate"> Hourly rate </label>
-
-                                        <div class="input-wrap">
-                                            <span>$</span>
-
-                                            <input
-                                                id="hourlyRate"
-                                                type="number"
-                                                min="0"
-                                                step="0.01"
-                                                inputmode="decimal"
-                                                value="25"
-                                            />
+                                <div class="thp-grid">
+                                    <div class="thp-field">
+                                        <label for="hourlyRate">Hourly rate</label>
+                                        <div class="thp-input-wrap">
+                                            <span class="thp-prefix">$</span>
+                                            <input id="hourlyRate" class="thp-input has-prefix" type="number" min="0"
+                                                step="0.01" inputmode="decimal" value="25" />
                                         </div>
                                     </div>
-
-                                    <div>
-                                        <label class="field-label" for="hoursWeek"> Hours / week </label>
-
-                                        <input
-                                            id="hoursWeek"
-                                            class="plain-input"
-                                            type="number"
-                                            min="0"
-                                            max="168"
-                                            step="0.5"
-                                            value="40"
-                                        />
+                                    <div class="thp-field">
+                                        <label for="hoursWeek">Hours / week</label>
+                                        <input id="hoursWeek" class="thp-input" type="number" min="0" max="168"
+                                            step="0.5" value="40" />
                                     </div>
                                 </div>
 
-                                <div class="field-block">
-                                    <label class="field-label" for="overtimeWeek"> Overtime hours / week </label>
-
-                                    <input
-                                        id="overtimeWeek"
-                                        class="plain-input"
-                                        type="number"
-                                        min="0"
-                                        max="168"
-                                        step="0.5"
-                                        value="0"
-                                    />
-
-                                    <p class="field-help">Overtime is estimated at 1.5× the regular hourly rate.</p>
+                                <div class="thp-field">
+                                    <label for="overtimeWeek">Overtime hours / week</label>
+                                    <input id="overtimeWeek" class="thp-input" type="number" min="0" max="168"
+                                        step="0.5" value="0" />
+                                    <p class="thp-field-help">Overtime is calculated at 1.5× the regular rate.</p>
                                 </div>
                             </div>
 
                             <!-- FREQUENCY -->
-                            <div class="field-block">
-                                <label class="field-label" for="frequency"> Pay frequency </label>
-
-                                <select id="frequency">
+                            <div class="thp-field">
+                                <label for="frequency">Pay frequency</label>
+                                <select id="frequency" class="thp-select">
                                     <option value="weekly">Weekly</option>
-
                                     <option value="biweekly" selected>Biweekly</option>
-
                                     <option value="semimonthly">Semimonthly</option>
-
                                     <option value="monthly">Monthly</option>
-
                                     <option value="quarterly">Quarterly</option>
-
                                     <option value="semiannually">Semiannually</option>
-
                                     <option value="annually">Annually</option>
                                 </select>
                             </div>
 
-                            <!-- STATE -->
-                            <div class="field-block">
-                                <label class="field-label" for="state"> State </label>
-
-                                <select id="state">
+                            <!-- STATE SELECTION -->
+                            <div class="thp-field">
+                                <label for="state">State</label>
+                                <select id="state" class="thp-select">
                                     <option value="none">Select state</option>
-
                                     <option value="al" >Alabama</option>
-
                                     <option value="ak" >Alaska</option>
-
                                     <option value="az" >Arizona</option>
-
                                     <option value="ar" >Arkansas</option>
-
                                     <option value="ca" >California</option>
-
                                     <option value="co" >Colorado</option>
-
                                     <option value="ct" >Connecticut</option>
-
                                     <option value="de" >Delaware</option>
-
                                     <option value="fl" >Florida</option>
-
                                     <option value="ga" >Georgia</option>
-
                                     <option value="hi" >Hawaii</option>
-
                                     <option value="id" >Idaho</option>
-
                                     <option value="il" >Illinois</option>
-
                                     <option value="in" >Indiana</option>
-
                                     <option value="ia" >Iowa</option>
-
                                     <option value="ks" >Kansas</option>
-
                                     <option value="ky" >Kentucky</option>
-
                                     <option value="la" >Louisiana</option>
-
                                     <option value="me" >Maine</option>
-
                                     <option value="md" >Maryland</option>
-
                                     <option value="ma" >Massachusetts</option>
-
                                     <option value="mi" >Michigan</option>
-
                                     <option value="mn" selected>Minnesota</option>
-
                                     <option value="ms" >Mississippi</option>
-
                                     <option value="mo" >Missouri</option>
-
                                     <option value="mt" >Montana</option>
-
                                     <option value="ne" >Nebraska</option>
-
                                     <option value="nv" >Nevada</option>
-
                                     <option value="nh" >New Hampshire</option>
-
                                     <option value="nj" >New Jersey</option>
-
                                     <option value="nm" >New Mexico</option>
-
                                     <option value="ny" >New York</option>
-
                                     <option value="nc" >North Carolina</option>
-
                                     <option value="nd" >North Dakota</option>
-
                                     <option value="oh" >Ohio</option>
-
                                     <option value="ok" >Oklahoma</option>
-
                                     <option value="or" >Oregon</option>
-
                                     <option value="pa" >Pennsylvania</option>
-
                                     <option value="ri" >Rhode Island</option>
-
                                     <option value="sc" >South Carolina</option>
-
                                     <option value="sd" >South Dakota</option>
-
                                     <option value="tn" >Tennessee</option>
-
                                     <option value="tx" >Texas</option>
-
                                     <option value="ut" >Utah</option>
-
                                     <option value="vt" >Vermont</option>
-
                                     <option value="va" >Virginia</option>
-
                                     <option value="wa" >Washington</option>
-
                                     <option value="wv" >West Virginia</option>
-
                                     <option value="wi" >Wisconsin</option>
-
                                     <option value="wy" >Wyoming</option>
                                 </select>
-
-                                <p class="field-help">
-                                    Minnesota state withholding is estimated. Local taxes and employer-specific
-                                    rules may also apply.
+                                <p class="thp-field-help">
+                                    Minnesota state withholding is estimated. Local taxes and local exemptions may
+                                    also apply.
                                 </p>
                             </div>
 
-                            <!-- FILING -->
-                            <div class="field-grid">
-                                <div>
-                                    <label class="field-label" for="filing"> Filing status </label>
-
-                                    <select id="filing">
+                            <!-- FILING STATUS & DEPENDENTS -->
+                            <div class="thp-grid">
+                                <div class="thp-field">
+                                    <label for="filing">Filing status</label>
+                                    <select id="filing" class="thp-select">
                                         <option value="single" selected>Single</option>
-
                                         <option value="married">Married filing jointly</option>
-
                                         <option value="hoh">Head of household</option>
                                     </select>
                                 </div>
-
-                                <div>
-                                    <label class="field-label" for="dependents"> Dependents </label>
-
-                                    <input
-                                        id="dependents"
-                                        class="plain-input"
-                                        type="number"
-                                        min="0"
-                                        max="20"
-                                        step="1"
-                                        value="0"
-                                    />
+                                <div class="thp-field">
+                                    <label for="dependents">Dependents</label>
+                                    <input id="dependents" class="thp-input" type="number" min="0" max="20" step="1"
+                                        value="0" />
                                 </div>
                             </div>
-
-                            <!-- PRE-TAX -->
-                            <div class="form-section">
-                                <div class="form-section-heading">
-                                    <div>
-                                        <p class="section-kicker">PRE-TAX</p>
-
-                                        <h3>Pre-tax deductions</h3>
-                                    </div>
-
-                                    <span id="pretaxTotal" class="section-total"> $0.00 </span>
-                                </div>
-
-                                <div class="field-block">
-                                    <label class="field-label" for="retirement401k">
-                                        401(k) / traditional retirement
-                                    </label>
-
-                                    <div class="input-wrap">
-                                        <span>$</span>
-
-                                        <input id="retirement401k" type="number" min="0" step="10" value="0" />
-                                    </div>
-                                </div>
-
-                                <div class="field-grid">
-                                    <div>
-                                        <label class="field-label" for="hsa"> HSA </label>
-
-                                        <div class="input-wrap">
-                                            <span>$</span>
-
-                                            <input id="hsa" type="number" min="0" step="10" value="0" />
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label class="field-label" for="fsa"> FSA </label>
-
-                                        <div class="input-wrap">
-                                            <span>$</span>
-
-                                            <input id="fsa" type="number" min="0" step="10" value="0" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="field-grid">
-                                    <div>
-                                        <label class="field-label" for="healthInsurance"> Health insurance </label>
-
-                                        <div class="input-wrap">
-                                            <span>$</span>
-
-                                            <input id="healthInsurance" type="number" min="0" step="10" value="0" />
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label class="field-label" for="otherPretax"> Other pre-tax </label>
-
-                                        <div class="input-wrap">
-                                            <span>$</span>
-
-                                            <input id="otherPretax" type="number" min="0" step="10" value="0" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <p class="field-help">Deduction amounts are entered per paycheck.</p>
-                            </div>
-
-                            <!-- ADVANCED W-4 -->
-                            <details class="advanced-options">
-                                <summary>
-                                    <span> Advanced W-4 options </span>
-
-                                    <span class="summary-arrow"> + </span>
-                                </summary>
-
-                                <div class="advanced-content">
-                                    <p class="advanced-description">
-                                        These options approximate common Form W-4 adjustments. Actual employer
-                                        withholding can differ.
-                                    </p>
-
-                                    <div class="field-block">
-                                        <label class="field-label" for="multipleJobs">
-                                            Multiple jobs / spouse works
-                                        </label>
-
-                                        <select id="multipleJobs">
-                                            <option value="no" selected>No</option>
-
-                                            <option value="yes">Yes</option>
-                                        </select>
-
-                                        <p class="field-help">
-                                            Step 2 generally results in higher federal withholding.
-                                        </p>
-                                    </div>
-
-                                    <div class="field-block">
-                                        <label class="field-label" for="otherIncome"> Other annual income </label>
-
-                                        <div class="input-wrap">
-                                            <span>$</span>
-
-                                            <input id="otherIncome" type="number" min="0" step="100" value="0" />
-                                        </div>
-
-                                        <p class="field-help">
-                                            For example, interest, dividends or other taxable income.
-                                        </p>
-                                    </div>
-
-                                    <div class="field-block">
-                                        <label class="field-label" for="otherDeductions">
-                                            Other annual deductions
-                                        </label>
-
-                                        <div class="input-wrap">
-                                            <span>$</span>
-
-                                            <input id="otherDeductions" type="number" min="0" step="100" value="0" />
-                                        </div>
-                                    </div>
-
-                                    <div class="field-block">
-                                        <label class="field-label" for="extraFederal">
-                                            Extra federal withholding / paycheck
-                                        </label>
-
-                                        <div class="input-wrap">
-                                            <span>$</span>
-
-                                            <input id="extraFederal" type="number" min="0" step="5" value="0" />
-                                        </div>
-                                    </div>
-
-                                    <div class="field-block">
-                                        <label class="field-label" for="extraState">
-                                            Extra state withholding / paycheck
-                                        </label>
-
-                                        <div class="input-wrap">
-                                            <span>$</span>
-
-                                            <input id="extraState" type="number" min="0" step="5" value="0" />
-                                        </div>
-                                    </div>
-
-                                    <div class="field-block">
-                                        <label class="field-label" for="additionalMedicare">
-                                            Additional Medicare / paycheck
-                                        </label>
-
-                                        <div class="input-wrap">
-                                            <span>$</span>
-
-                                            <input id="additionalMedicare" type="number" min="0" step="1" value="0" />
-                                        </div>
-
-                                        <p class="field-help">
-                                            Automatic Additional Medicare is estimated when applicable.
-                                        </p>
-                                    </div>
-
-                                    <div class="field-block">
-                                        <label class="field-label" for="otherAdjustments">
-                                            Other paycheck adjustments
-                                        </label>
-
-                                        <div class="input-wrap">
-                                            <span>$</span>
-
-                                            <input id="otherAdjustments" type="number" min="0" step="5" value="0" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </details>
-
-                            <!-- POST-TAX -->
-                            <div class="form-section">
-                                <div class="form-section-heading">
-                                    <div>
-                                        <p class="section-kicker">POST-TAX</p>
-
-                                        <h3>Post-tax deductions</h3>
-                                    </div>
-
-                                    <span id="posttaxTotal" class="section-total"> $0.00 </span>
-                                </div>
-
-                                <div class="field-grid">
-                                    <div>
-                                        <label class="field-label" for="roth401k"> Roth 401(k) </label>
-
-                                        <div class="input-wrap">
-                                            <span>$</span>
-
-                                            <input id="roth401k" type="number" min="0" step="10" value="0" />
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label class="field-label" for="loanRepayment"> Loan repayment </label>
-
-                                        <div class="input-wrap">
-                                            <span>$</span>
-
-                                            <input id="loanRepayment" type="number" min="0" step="10" value="0" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="field-grid">
-                                    <div>
-                                        <label class="field-label" for="garnishments"> Garnishments </label>
-
-                                        <div class="input-wrap">
-                                            <span>$</span>
-
-                                            <input id="garnishments" type="number" min="0" step="10" value="0" />
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label class="field-label" for="otherPosttax"> Other post-tax </label>
-
-                                        <div class="input-wrap">
-                                            <span>$</span>
-
-                                            <input id="otherPosttax" type="number" min="0" step="10" value="0" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- CALCULATE -->
-                            <button id="calculate" class="calculate-button" type="button">
-                                Calculate take-home pay
-                            </button>
-
-                            <p class="calculator-note">
-                                Estimates are for planning purposes and may differ from your actual paycheck.
-                            </p>
                         </div>
 
-                        <!-- RESULT PANEL -->
-                        <aside class="result-card">
-                            <div class="result-heading">
-                                <div>
-                                    <p class="section-kicker">ESTIMATED TAKE-HOME</p>
+                        <!-- SECTION 2: PRE-TAX DEDUCTIONS -->
+                        <div class="thp-section">
+                            <h3 class="thp-section-title">
+                                <span class="thp-section-title-left">
+                                    <span class="thp-section-number">2</span>
+                                    Pre-tax deductions
+                                </span>
+                                <span id="pretaxTotal" class="thp-section-total">$0.00</span>
+                            </h3>
 
-                                    <div id="takeHome" class="take-home">$0.00</div>
-
-                                    <p id="resultPeriod" class="result-period">Biweekly take-home</p>
+                            <div class="thp-field">
+                                <label for="retirement401k">401(k) / traditional retirement</label>
+                                <div class="thp-input-wrap">
+                                    <span class="thp-prefix">$</span>
+                                    <input id="retirement401k" class="thp-input has-prefix" type="number" min="0"
+                                        step="10" value="0" />
                                 </div>
                             </div>
 
-                            <!-- DONUT -->
-                            <div class="chart-area">
-                                <div id="paycheckChart" class="paycheck-chart">
-                                    <div class="chart-center">
-                                        <span> Take home </span>
-
-                                        <strong id="chartNet"> $0 </strong>
+                            <div class="thp-grid">
+                                <div class="thp-field">
+                                    <label for="hsa">HSA</label>
+                                    <div class="thp-input-wrap">
+                                        <span class="thp-prefix">$</span>
+                                        <input id="hsa" class="thp-input has-prefix" type="number" min="0" step="10"
+                                            value="0" />
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- LEGEND -->
-                            <div class="legend">
-                                <div class="legend-row">
-                                    <span class="legend-label">
-                                        <i class="legend-dot net"></i>
-                                        Take home
-                                    </span>
-
-                                    <strong id="legendNet"> $0 </strong>
-                                </div>
-
-                                <div class="legend-row">
-                                    <span class="legend-label">
-                                        <i class="legend-dot federal"></i>
-                                        Federal
-                                    </span>
-
-                                    <strong id="legendFederal"> $0 </strong>
-                                </div>
-
-                                <div class="legend-row">
-                                    <span class="legend-label">
-                                        <i class="legend-dot fica"></i>
-                                        FICA
-                                    </span>
-
-                                    <strong id="legendFica"> $0 </strong>
-                                </div>
-
-                                <div class="legend-row">
-                                    <span class="legend-label">
-                                        <i class="legend-dot state"></i>
-                                        State
-                                    </span>
-
-                                    <strong id="legendState"> $0 </strong>
-                                </div>
-
-                                <div class="legend-row">
-                                    <span class="legend-label">
-                                        <i class="legend-dot deductions"></i>
-                                        Deductions
-                                    </span>
-
-                                    <strong id="legendDeductions"> $0 </strong>
-                                </div>
-                            </div>
-
-                            <!-- BREAKDOWN -->
-                            <div class="result-section">
-                                <div class="result-section-heading">Paycheck breakdown</div>
-
-                                <div class="breakdown-list">
-                                    <div class="breakdown-row">
-                                        <span> Gross pay </span>
-
-                                        <strong id="grossPay"> $0.00 </strong>
-                                    </div>
-
-                                    <div class="breakdown-row">
-                                        <span> Federal tax </span>
-
-                                        <strong id="federalTax"> $0.00 </strong>
-                                    </div>
-
-                                    <div class="breakdown-row">
-                                        <span> Social Security + Medicare </span>
-
-                                        <strong id="fica"> $0.00 </strong>
-                                    </div>
-
-                                    <div class="breakdown-row">
-                                        <span> State tax </span>
-
-                                        <strong id="stateTax"> $0.00 </strong>
-                                    </div>
-
-                                    <div class="breakdown-row">
-                                        <span> Pre-tax deductions </span>
-
-                                        <strong id="preTaxResult"> $0.00 </strong>
-                                    </div>
-
-                                    <div class="breakdown-row">
-                                        <span> Post-tax deductions </span>
-
-                                        <strong id="postTaxResult"> $0.00 </strong>
+                                <div class="thp-field">
+                                    <label for="fsa">FSA</label>
+                                    <div class="thp-input-wrap">
+                                        <span class="thp-prefix">$</span>
+                                        <input id="fsa" class="thp-input has-prefix" type="number" min="0" step="10"
+                                            value="0" />
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- SUMMARY -->
-                            <div class="result-section">
-                                <div class="result-section-heading">Take-home by frequency</div>
-
-                                <div class="pay-summary">
-                                    <div>
-                                        <span>Weekly</span>
-                                        <strong id="weeklyPay">$0.00</strong>
+                            <div class="thp-grid">
+                                <div class="thp-field">
+                                    <label for="healthInsurance">Health insurance</label>
+                                    <div class="thp-input-wrap">
+                                        <span class="thp-prefix">$</span>
+                                        <input id="healthInsurance" class="thp-input has-prefix" type="number" min="0"
+                                            step="10" value="0" />
                                     </div>
-
-                                    <div>
-                                        <span>Biweekly</span>
-                                        <strong id="biweeklyPay">$0.00</strong>
-                                    </div>
-
-                                    <div>
-                                        <span>Semimonthly</span>
-                                        <strong id="semimonthlyPay">$0.00</strong>
-                                    </div>
-
-                                    <div>
-                                        <span>Monthly</span>
-                                        <strong id="monthlyPay">$0.00</strong>
-                                    </div>
-
-                                    <div>
-                                        <span>Annual</span>
-                                        <strong id="annualPay">$0.00</strong>
+                                </div>
+                                <div class="thp-field">
+                                    <label for="otherPretax">Other pre-tax</label>
+                                    <div class="thp-input-wrap">
+                                        <span class="thp-prefix">$</span>
+                                        <input id="otherPretax" class="thp-input has-prefix" type="number" min="0"
+                                            step="10" value="0" />
                                     </div>
                                 </div>
                             </div>
-                        </aside>
+                            <p class="thp-field-help">Deduction amounts are entered per paycheck.</p>
+                        </div>
+
+                        <!-- ADVANCED OPTIONS -->
+                        <details class="thp-advanced-options">
+                            <summary>
+                                <span>Advanced W-4 options</span>
+                                <span>+</span>
+                            </summary>
+
+                            <div class="thp-advanced-content">
+                                <p class="thp-field-help" style="margin-bottom: 15px;">
+                                    These parameters simulate Form W-4 choices. Actual employer withholding may vary.
+                                </p>
+
+                                <div class="thp-field">
+                                    <label for="multipleJobs">Multiple jobs / spouse works</label>
+                                    <select id="multipleJobs" class="thp-select">
+                                        <option value="no" selected>No</option>
+                                        <option value="yes">Yes</option>
+                                    </select>
+                                </div>
+
+                                <div class="thp-field">
+                                    <label for="otherIncome">Other annual income</label>
+                                    <div class="thp-input-wrap">
+                                        <span class="thp-prefix">$</span>
+                                        <input id="otherIncome" class="thp-input has-prefix" type="number" min="0"
+                                            step="100" value="0" />
+                                    </div>
+                                </div>
+
+                                <div class="thp-field">
+                                    <label for="otherDeductions">Other annual deductions</label>
+                                    <div class="thp-input-wrap">
+                                        <span class="thp-prefix">$</span>
+                                        <input id="otherDeductions" class="thp-input has-prefix" type="number" min="0"
+                                            step="100" value="0" />
+                                    </div>
+                                </div>
+
+                                <div class="thp-field">
+                                    <label for="extraFederal">Extra federal withholding / paycheck</label>
+                                    <div class="thp-input-wrap">
+                                        <span class="thp-prefix">$</span>
+                                        <input id="extraFederal" class="thp-input has-prefix" type="number" min="0"
+                                            step="5" value="0" />
+                                    </div>
+                                </div>
+
+                                <div class="thp-field">
+                                    <label for="extraState">Extra state withholding / paycheck</label>
+                                    <div class="thp-input-wrap">
+                                        <span class="thp-prefix">$</span>
+                                        <input id="extraState" class="thp-input has-prefix" type="number" min="0"
+                                            step="5" value="0" />
+                                    </div>
+                                </div>
+
+                                <div class="thp-field">
+                                    <label for="additionalMedicare">Additional Medicare / paycheck</label>
+                                    <div class="thp-input-wrap">
+                                        <span class="thp-prefix">$</span>
+                                        <input id="additionalMedicare" class="thp-input has-prefix" type="number"
+                                            min="0" step="1" value="0" />
+                                    </div>
+                                </div>
+
+                                <div class="thp-field">
+                                    <label for="otherAdjustments">Other paycheck adjustments</label>
+                                    <div class="thp-input-wrap">
+                                        <span class="thp-prefix">$</span>
+                                        <input id="otherAdjustments" class="thp-input has-prefix" type="number" min="0"
+                                            step="5" value="0" />
+                                    </div>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- SECTION 3: POST-TAX DEDUCTIONS -->
+                        <div class="thp-section">
+                            <h3 class="thp-section-title">
+                                <span class="thp-section-title-left">
+                                    <span class="thp-section-number">3</span>
+                                    Post-tax deductions
+                                </span>
+                                <span id="posttaxTotal" class="thp-section-total">$0.00</span>
+                            </h3>
+
+                            <div class="thp-grid">
+                                <div class="thp-field">
+                                    <label for="roth401k">Roth 401(k)</label>
+                                    <div class="thp-input-wrap">
+                                        <span class="thp-prefix">$</span>
+                                        <input id="roth401k" class="thp-input has-prefix" type="number" min="0"
+                                            step="10" value="0" />
+                                    </div>
+                                </div>
+                                <div class="thp-field">
+                                    <label for="loanRepayment">Loan repayment</label>
+                                    <div class="thp-input-wrap">
+                                        <span class="thp-prefix">$</span>
+                                        <input id="loanRepayment" class="thp-input has-prefix" type="number" min="0"
+                                            step="10" value="0" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="thp-grid">
+                                <div class="thp-field">
+                                    <label for="garnishments">Garnishments</label>
+                                    <div class="thp-input-wrap">
+                                        <span class="thp-prefix">$</span>
+                                        <input id="garnishments" class="thp-input has-prefix" type="number" min="0"
+                                            step="10" value="0" />
+                                    </div>
+                                </div>
+                                <div class="thp-field">
+                                    <label for="otherPosttax">Other post-tax</label>
+                                    <div class="thp-input-wrap">
+                                        <span class="thp-prefix">$</span>
+                                        <input id="otherPosttax" class="thp-input has-prefix" type="number" min="0"
+                                            step="10" value="0" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ACTION -->
+                        <button id="calculate" class="thp-btn-calculate" type="button">
+                            Calculate take-home pay
+                        </button>
                     </div>
                 </div>
-            </section>
 
-            <!-- AD -->
-            <section class="ad-section">
-                <div class="container">
-                    <div class="ad-placeholder">Advertisement</div>
-                </div>
-            </section>
-
-            <!-- OTHER TOOLS -->
-            <section class="tools-section" aria-labelledby="tools-title">
-                <div class="section-heading">
-                    <p class="eyebrow">PAYCHECK TOOLS</p>
-
-                    <h2 id="tools-title">More paycheck calculators</h2>
-
-                    <p>
-                        Use PaycheckMint's free tools to estimate different parts of your earnings and understand your
-                        pay.
-                    </p>
-                </div>
-
-                <div class="tools-grid">
-                    <a href="/overtime-pay-calculator/" class="tool-link">
+                <!-- RESULT PANEL -->
+                <aside class="thp-result">
+                    <div class="thp-result-header">
                         <div>
-                            <span class="tool-label"> OVERTIME </span>
-
-                            <h3>Overtime Pay Calculator</h3>
-
-                            <p>Calculate regular pay, overtime pay, and total gross earnings.</p>
-                        </div>
-
-                        <span class="tool-arrow" aria-hidden="true"> → </span>
-                    </a>
-
-                    <a href="/hourly-paycheck-calculator/" class="tool-link">
-                        <div>
-                            <span class="tool-label"> HOURLY PAY </span>
-
-                            <h3>Hourly Paycheck Calculator</h3>
-
-                            <p>Estimate your hourly paycheck, taxes, deductions, and take-home pay.</p>
-                        </div>
-
-                        <span class="tool-arrow" aria-hidden="true"> → </span>
-                    </a>
-
-                    <a href="/take-home-pay-calculator/" class="tool-link">
-                        <div>
-                            <span class="tool-label"> TAKE HOME PAY </span>
-
-                            <h3>Take-Home Paycheck Calculator</h3>
-
-                            <p>Estimate gross pay, taxes, deductions, and take-home pay.</p>
-                        </div>
-
-                        <span class="tool-arrow" aria-hidden="true"> → </span>
-                    </a>
-
-                    <a href="/weekly-paycheck-calculator/" class="tool-link">
-                        <div>
-                            <span class="tool-label"> WEEKLY PAY </span>
-
-                            <h3>Weekly Paycheck Calculator</h3>
-
-                            <p>Estimate weekly gross pay, taxes, deductions, and take-home pay.</p>
-                        </div>
-
-                        <span class="tool-arrow" aria-hidden="true"> → </span>
-                    </a>
-
-                    <a href="/biweekly-paycheck-calculator/" class="tool-link">
-                        <div>
-                            <span class="tool-label"> BIWEEKLY PAY </span>
-
-                            <h3>Biweekly Paycheck Calculator</h3>
-
-                            <p>Estimate biweekly gross pay, taxes, deductions, and take-home pay.</p>
-                        </div>
-
-                        <span class="tool-arrow" aria-hidden="true"> → </span>
-                    </a>
-
-                    <a href="/monthly-paycheck-calculator/" class="tool-link">
-                        <div>
-                            <span class="tool-label"> MONTHLY PAY </span>
-
-                            <h3>Monthly Paycheck Calculator</h3>
-
-                            <p>Estimate monthly gross pay, taxes, deductions, and take-home pay.</p>
-                        </div>
-
-                        <span class="tool-arrow" aria-hidden="true"> → </span>
-                    </a>
-
-                    <a href="/salary-paycheck-calculator/" class="tool-link">
-                        <div>
-                            <span class="tool-label"> SALARY PAY </span>
-
-                            <h3>Salary Paycheck Calculator</h3>
-
-                            <p>Estimate your salary take-home pay after taxes and deductions.</p>
-                        </div>
-
-                        <span class="tool-arrow" aria-hidden="true"> → </span>
-                    </a>
-
-                    <a href="/paycheck-tax-calculator/" class="tool-link">
-                        <div>
-                            <span class="tool-label"> PAYROLL TAX </span>
-
-                            <h3>Paycheck Tax Calculator</h3>
-
-                            <p>Estimate federal tax, FICA, state tax, and total taxes from your paycheck.</p>
-                        </div>
-
-                        <span class="tool-arrow" aria-hidden="true"> → </span>
-                    </a>
-                </div>
-            </section>
-
-            <!-- HOW IT WORKS -->
-            <section id="how-it-works" class="content-section">
-                <div class="container narrow">
-                    <p class="section-kicker">HOW IT WORKS</p>
-
-                    <h2>How the Minnesota paycheck calculator works</h2>
-
-                    <p class="section-intro">
-                        PaycheckMint starts with your gross wages and estimates the major taxes and deductions that can
-                        reduce your Minnesota take-home pay.
-                    </p>
-
-                    <div class="info-grid">
-                        <article class="info-item">
-                            <h3>1. Gross pay</h3>
-
-                            <p>
-                                Your salary or hourly earnings are converted into an annual amount and then into your
-                                selected pay period.
-                            </p>
-                        </article>
-
-                        <article class="info-item">
-                            <h3>2. Federal tax</h3>
-
-                            <p>
-                                The calculator estimates federal withholding using 2026 federal withholding concepts and
-                                your W-4 inputs.
-                            </p>
-                        </article>
-
-                        <article class="info-item">
-                            <h3>3. FICA</h3>
-
-                            <p>
-                                Social Security and Medicare taxes are calculated separately because they follow
-                                different rules.
-                            </p>
-                        </article>
-
-                        <article class="info-item">
-                            <h3>4. Minnesota tax</h3>
-
-                            <p>
-                                The calculator estimates applicable Minnesota state income tax. Actual withholding
-                                may differ because of state, local and employer-specific rules.
-                            </p>
-                        </article>
-                    </div>
-                </div>
-            </section>
-
-            <!-- STATE-SPECIFIC CONTENT -->
-            <section class="content-section muted-section">
-                <div class="container narrow">
-                    <p class="section-kicker">Minnesota PAYCHECK INFORMATION</p>
-
-                    <h2>What can affect your Minnesota paycheck?</h2>
-
-                    <div class="tax-facts">
-                        <div class="tax-fact">
-                            <strong> Federal income tax </strong>
-
-                            <span>
-                                Federal withholding depends on your income, filing status and W-4 information.
-                            </span>
-                        </div>
-
-                        <div class="tax-fact">
-                            <strong> Social Security </strong>
-
-                            <span>
-                                Employee Social Security tax generally applies to covered wages up to the annual wage
-                                base.
-                            </span>
-                        </div>
-
-                        <div class="tax-fact">
-                            <strong> Medicare </strong>
-
-                            <span>
-                                Employee Medicare tax generally applies to covered wages without the Social Security
-                                wage cap.
-                            </span>
-                        </div>
-
-                        <div class="tax-fact">
-                            <strong> Minnesota taxes </strong>
-
-                            <span>
-                                State withholding can depend on your income, filing status and applicable Minnesota
-                                rules.
-                            </span>
+                            <div class="thp-result-label">ESTIMATED TAKE-HOME</div>
+                            <div id="takeHome" class="thp-net-pay">$0.00</div>
+                            <div id="resultPeriod" class="thp-net-subtitle">Biweekly take-home</div>
                         </div>
                     </div>
-                </div>
-            </section>
 
-            <!-- METHODOLOGY -->
-            <section class="content-section">
-                <div class="container narrow">
-                    <p class="section-kicker">METHODOLOGY</p>
-
-                    <h2>Gross pay vs. take-home pay in Minnesota</h2>
-
-                    <p>
-                        Gross pay is the amount you earn before taxes and deductions. Take-home pay is the amount
-                        remaining after estimated taxes and deductions.
-                    </p>
-
-                    <p>
-                        Your Minnesota paycheck may be lower than your gross earnings because federal income tax,
-                        Social Security, Medicare, state taxes and deductions can reduce each paycheck.
-                    </p>
-
-                    <p>
-                        PaycheckMint is designed to provide a planning estimate before you receive your actual payroll
-                        statement.
-                    </p>
-                </div>
-            </section>
-
-            <!-- SOURCES -->
-            <section class="content-section muted-section">
-                <div class="container narrow">
-                    <p class="section-kicker">SOURCES</p>
-
-                    <h2>Official tax information</h2>
-
-                    <p>
-                        PaycheckMint's federal tax methodology is informed by official IRS publications and payroll
-                        guidance. State-specific calculations may also depend on applicable Minnesota tax rules.
-                    </p>
-
-                    <ul class="source-list">
-                        <li>
-                            <a href="https://www.irs.gov/publications/p15t" target="_blank" rel="noopener noreferrer">
-                                IRS Publication 15-T — Federal Income Tax Withholding Methods
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="https://www.irs.gov/publications/p15" target="_blank" rel="noopener noreferrer">
-                                IRS Publication 15 — Employer's Tax Guide
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="https://www.irs.gov/taxtopics/tc751" target="_blank" rel="noopener noreferrer">
-                                IRS Tax Topic 751 — Social Security and Medicare
-                            </a>
-                        </li>
-
-                        <li>
-                            <a
-                                href="https://www.irs.gov/forms-pubs/about-form-w-4"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                IRS Form W-4 information
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- FAQ -->
-            <section id="faq" class="content-section">
-                <div class="container narrow">
-                    <p class="section-kicker">FAQ</p>
-
-                    <h2>Minnesota paycheck calculator questions</h2>
-
-                    <div class="faq-list">
-                        <details>
-                            <summary>How is Minnesota take-home pay calculated?</summary>
-
-                            <p>
-                                PaycheckMint starts with gross wages and estimates federal income tax, Social Security,
-                                Medicare, applicable Minnesota state tax and the deductions you enter. The
-                                remaining amount is your estimated take-home pay.
-                            </p>
-                        </details>
-
-                        <details>
-                            <summary>Is the Minnesota paycheck calculator exact?</summary>
-
-                            <p>
-                                No. PaycheckMint provides an estimate for planning purposes. Actual payroll withholding
-                                can differ because employers use detailed federal and state withholding methods, W-4
-                                information, local taxes, benefits and year-to-date wages.
-                            </p>
-                        </details>
-
-                        <details>
-                            <summary>Does this calculator include federal taxes?</summary>
-
-                            <p>
-                                Yes. The calculator estimates federal income tax, Social Security and Medicare along
-                                with applicable Minnesota state tax.
-                            </p>
-                        </details>
-
-                        <details>
-                            <summary>Can I calculate hourly pay in Minnesota?</summary>
-
-                            <p>
-                                Yes. Select Hourly and enter your hourly rate, regular hours and overtime hours.
-                                Overtime is estimated at 1.5 times the regular hourly rate.
-                            </p>
-                        </details>
-
-                        <details>
-                            <summary>Why can my actual Minnesota paycheck be different?</summary>
-
-                            <p>
-                                Actual paychecks can differ because of employer payroll systems, W-4 elections, state
-                                withholding rules, local taxes, benefits, deductions and year-to-date wages.
-                            </p>
-                        </details>
+                    <!-- DONUT CHART -->
+                    <div class="thp-chart-wrap">
+                        <div id="paycheckChart" class="thp-chart">
+                            <div class="thp-chart-center">
+                                <span>Take home</span>
+                                <strong id="chartNet">$0</strong>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </section>
 
-            <!-- DISCLAIMER -->
-            <section class="disclaimer-section">
-                <div class="container narrow">
-                    <strong> Disclaimer </strong>
+                    <!-- LEGEND / BREAKDOWN -->
+                    <div class="thp-breakdown">
+                        <div class="thp-breakdown-title">Paycheck breakdown</div>
+                        <div class="thp-breakdown-row">
+                            <div class="thp-breakdown-name">
+                                <span class="thp-dot net"></span>
+                                Gross pay
+                            </div>
+                            <div id="grossPay" class="thp-breakdown-value">$0.00</div>
+                        </div>
+                        <div class="thp-breakdown-row">
+                            <div class="thp-breakdown-name">
+                                <span class="thp-dot federal"></span>
+                                Federal tax
+                            </div>
+                            <div id="federalTax" class="thp-breakdown-value">$0.00</div>
+                        </div>
+                        <div class="thp-breakdown-row">
+                            <div class="thp-breakdown-name">
+                                <span class="thp-dot fica"></span>
+                                Social Security + Medicare
+                            </div>
+                            <div id="fica" class="thp-breakdown-value">$0.00</div>
+                        </div>
+                        <div class="thp-breakdown-row">
+                            <div class="thp-breakdown-name">
+                                <span class="thp-dot state"></span>
+                                State tax
+                            </div>
+                            <div id="stateTax" class="thp-breakdown-value">$0.00</div>
+                        </div>
+                        <div class="thp-breakdown-row">
+                            <div class="thp-breakdown-name">
+                                <span class="thp-dot deductions"></span>
+                                Pre-tax deductions
+                            </div>
+                            <div id="preTaxResult" class="thp-breakdown-value">$0.00</div>
+                        </div>
+                        <div class="thp-breakdown-row">
+                            <div class="thp-breakdown-name">
+                                <span class="thp-dot deductions"></span>
+                                Post-tax deductions
+                            </div>
+                            <div id="postTaxResult" class="thp-breakdown-value">$0.00</div>
+                        </div>
+                    </div>
 
-                    <p>
-                        PaycheckMint provides estimates for informational and planning purposes only. It is not tax,
-                        legal, accounting or financial advice. Actual payroll withholding and take-home pay may differ.
-                        Consult your employer's payroll department or a qualified tax professional for advice about your
-                        individual situation.
-                    </p>
-                </div>
-            </section>
-        </main>
-
-        <!-- FOOTER -->
-        <footer class="site-footer">
-            <div class="container footer-inner">
-                <p>© 2026 PaycheckMint. Free online paycheck calculator.</p>
-
-                <nav aria-label="Footer navigation">
-                    <a href="/privacy-policy/"> Privacy Policy </a>
-
-                    <a href="/terms/"> Terms </a>
-
-                    <a href="/contact/"> Contact </a>
-
-                    <a href="/about/"> About </a>
-                </nav>
+                    <!-- FREQUENCY COMPARISON -->
+                    <div class="thp-result-summary">
+                        <div class="thp-summary-card">
+                            <span>Weekly</span>
+                            <strong id="weeklyPay">$0.00</strong>
+                        </div>
+                        <div class="thp-summary-card">
+                            <span>Biweekly</span>
+                            <strong id="biweeklyPay">$0.00</strong>
+                        </div>
+                        <div class="thp-summary-card">
+                            <span>Semimonthly</span>
+                            <strong id="semimonthlyPay">$0.00</strong>
+                        </div>
+                        <div class="thp-summary-card">
+                            <span>Monthly</span>
+                            <strong id="monthlyPay">$0.00</strong>
+                        </div>
+                        <div class="thp-summary-card" style="grid-column: span 2;">
+                            <span>Annual</span>
+                            <strong id="annualPay">$0.00</strong>
+                        </div>
+                    </div>
+                </aside>
             </div>
-        </footer>
+        </section>
 
-        <!-- TAX ENGINE -->
-        <script src="/tax-rules-2026.js"></script>
-        <script src="/tax-engine.js"></script>
-        <script src="/script.js"></script>
+        <!-- HOW IT WORKS -->
+        <section id="how-it-works" class="thp-container narrow">
+            <article class="thp-article">
+                <h2>How the Minnesota paycheck calculator works</h2>
+                <p>
+                    PaycheckMint starts with your gross earnings and computes federal, FICA, and Minnesota
+                    deductions to provide an accurate estimate.
+                </p>
 
-        <!-- STATE DEFAULT -->
-        <script>
-            /*
-             * Generated state:
-             * mn
-             *
-             * This makes the state page open with its own
-             * state already selected.
-             */
+                <h3>1. Gross pay</h3>
+                <p>Your salary or hourly earnings are annualized and converted into period totals.</p>
 
+                <h3>2. Federal tax</h3>
+                <p>Estimates federal income tax withholding using 2026 IRS guidance and Form W-4 details.</p>
+
+                <h3>3. FICA</h3>
+                <p>Social Security and Medicare are calculated according to wage thresholds and rates.</p>
+
+                <h3>4. Minnesota tax</h3>
+                <p>Applies state withholding formulas for Minnesota. Local tax variations may apply.</p>
+            </article>
+        </section>
+
+        <!-- STATE TAX INFO -->
+        <section class="thp-container narrow">
+            <article class="thp-article">
+                <h2>What can affect your Minnesota paycheck?</h2>
+                <p><strong>Federal income tax:</strong> Based on annual earnings, filing status, and W-4 parameters.</p>
+                <p><strong>Social Security:</strong> Applies to covered wages up to the maximum annual wage base limit.
+                </p>
+                <p><strong>Medicare:</strong> Applies to all covered earnings without a cap, plus Additional Medicare
+                    where relevant.</p>
+                <p><strong>Minnesota taxes:</strong> Configured based on specific Minnesota bracket rules and
+                    allowances.</p>
+            </article>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="thp-container narrow">
+            <article class="thp-article">
+                <h2>Minnesota paycheck calculator questions</h2>
+
+                <div class="thp-faq">
+                    <details class="thp-faq-item">
+                        <summary>How is Minnesota take-home pay calculated?</summary>
+                        <p>
+                            Gross earnings are computed first, followed by deductions for federal income tax, Social
+                            Security, Medicare, Minnesota state tax, and custom deductions.
+                        </p>
+                    </details>
+
+                    <details class="thp-faq-item">
+                        <summary>Is this Minnesota calculator exact?</summary>
+                        <p>
+                            The results are estimates for educational planning. Specific employer setup, benefit plans,
+                            and local tax districts may cause minor differences.
+                        </p>
+                    </details>
+
+                    <details class="thp-faq-item">
+                        <summary>Does this include federal tax calculations?</summary>
+                        <p>
+                            Yes, it calculates federal income tax, FICA taxes, and state withholding together.
+                        </p>
+                    </details>
+                </div>
+
+                <div class="thp-disclaimer">
+                    <strong>Disclaimer:</strong> PaycheckMint calculations are estimates for educational use and do not
+                    constitute formal legal, accounting, or tax advice. Consult a tax professional for personalized
+                    planning.
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="pm-footer">
+        <div class="pm-footer-inner">
+            <div class="pm-footer-main">
+                <div class="pm-footer-grid">
+                    <div class="pm-footer-brand-column">
+                        <a class="pm-footer-brand" href="/">Paycheck<span>Mint</span></a>
+                        <p class="pm-footer-description">
+                            Practical personal finance guides, paycheck tools, and calculators to help you make informed
+                            money decisions.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Money</h3>
+                        <ul class="pm-footer-links">
+                            <li><a href="/income/">Income</a></li>
+                            <li><a href="/paycheck-tax-calculator/">Paycheck Calculator</a></li>
+                            <li><a href="/take-home-pay-calculator/">Take-Home Pay</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Finance</h3>
+                        <ul class="pm-footer-links">
+                            <li><a href="/finance/taxes/">Taxes</a></li>
+                            <li><a href="/finance/budgeting/">Budgeting</a></li>
+                            <li><a href="/finance/credit-debt/">Credit &amp; Debt</a></li>
+                            <li><a href="/finance/investing/">Investing</a></li>
+                            <li><a href="/finance/insurance/">Insurance</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Company</h3>
+                        <ul class="pm-footer-links">
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/contact/">Contact</a></li>
+                            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pm-footer-bottom">
+                <div class="pm-footer-copyright">
+                    © 2026 PaycheckMint. All rights reserved.
+                </div>
+                <div class="pm-footer-legal">
+                    <a href="/privacy-policy/">Privacy Policy</a>
+                    <a href="/terms/">Terms</a>
+                    <a href="/contact/">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="/tax-rules-2026.js"></script>
+    <script src="/tax-engine.js"></script>
+
+    <script>
+        (function () {
+            "use strict";
+
+            /* ==========================================================================
+               1. ASYNC COMPONENT LOADER
+               ========================================================================== */
             document.addEventListener("DOMContentLoaded", function () {
-                const stateSelect = document.getElementById("state");
+                loadSharedComponents();
+            });
 
-                if (stateSelect) {
-                    stateSelect.value = "mn";
+            async function loadSharedComponents() {
+                const navbar = document.getElementById("site-navbar");
+                const footer = document.getElementById("site-footer");
 
-                    stateSelect.dispatchEvent(
-                        new Event("change", {
-                            bubbles: true,
-                        })
-                    );
+                try {
+                    const requests = [];
+
+                    if (navbar) {
+                        requests.push(
+                            fetch("/components/navbar.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Navbar 404"))
+                                .then(html => { navbar.innerHTML = html; })
+                        );
+                    }
+
+                    if (footer) {
+                        requests.push(
+                            fetch("/components/footer.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Footer 404"))
+                                .then(html => { footer.innerHTML = html; })
+                        );
+                    }
+
+                    await Promise.all(requests);
+                    setupScrollHeader();
+                } catch (error) {
+                    console.error("Component loading error:", error);
+                    setupScrollHeader();
+                }
+            }
+
+            /* ==========================================================================
+               2. EVENT DELEGATION
+               ========================================================================== */
+            document.addEventListener("click", function (event) {
+                const dropdownBtn = event.target.closest(".pm-nav-dropdown-button");
+                if (dropdownBtn) {
+                    event.stopPropagation();
+                    const currentDropdown = dropdownBtn.closest(".pm-nav-dropdown");
+                    const isOpen = currentDropdown.classList.contains("is-open");
+
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
+                    });
+
+                    if (!isOpen) {
+                        currentDropdown.classList.add("is-open");
+                        dropdownBtn.setAttribute("aria-expanded", "true");
+                    }
+                    return;
+                }
+
+                if (!event.target.closest(".pm-nav-dropdown")) {
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
+                    });
+                }
+
+                const mobileToggle = event.target.closest("#mobileToggle");
+                if (mobileToggle) {
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) {
+                        const isOpen = mobileNav.classList.toggle("is-open");
+                        mobileToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
+                }
+
+                const mobileFinanceToggle = event.target.closest("#mobileFinanceToggle");
+                if (mobileFinanceToggle) {
+                    event.stopPropagation();
+                    const mobileFinanceLinks = document.getElementById("mobileFinanceLinks");
+                    if (mobileFinanceLinks) {
+                        const isOpen = mobileFinanceLinks.classList.toggle("is-open");
+                        mobileFinanceToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
+                }
+
+                const searchToggle = event.target.closest("#searchToggle");
+                const mobileSearchBtn = event.target.closest("#mobileSearchButton");
+                const searchClose = event.target.closest("#searchClose");
+                const searchPanel = document.getElementById("searchPanel");
+
+                if (searchToggle || mobileSearchBtn) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) mobileNav.classList.remove("is-open");
+
+                    if (searchPanel) {
+                        if (searchPanel.classList.contains("is-open") && searchToggle) {
+                            closeSearch();
+                        } else {
+                            openSearch();
+                        }
+                    }
+                    return;
+                }
+
+                if (searchClose) {
+                    event.preventDefault();
+                    closeSearch();
+                    return;
+                }
+
+                if (searchPanel && searchPanel.classList.contains("is-open")) {
+                    if (!searchPanel.contains(event.target)) {
+                        closeSearch();
+                    }
                 }
             });
-        </script>
-    </body>
+
+            /* ==========================================================================
+               3. SEARCH HELPER FUNCTIONS & LIVE FILTERING
+               ========================================================================== */
+            function openSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchToggle = document.getElementById("searchToggle");
+
+                if (!searchPanel) return;
+                searchPanel.classList.add("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "true");
+                    searchToggle.setAttribute("aria-label", "Close search");
+                }
+                if (searchInput) setTimeout(() => searchInput.focus(), 100);
+            }
+
+            function closeSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchResults = document.getElementById("searchResults");
+                const searchToggle = document.getElementById("searchToggle");
+
+                if (!searchPanel) return;
+                searchPanel.classList.remove("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "false");
+                    searchToggle.setAttribute("aria-label", "Open search");
+                }
+                if (searchInput) searchInput.value = "";
+                if (searchResults) searchResults.innerHTML = "";
+            }
+
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closeSearch();
+                }
+            });
+
+            document.addEventListener("input", function (event) {
+                if (event.target.id !== "siteSearch") return;
+
+                const query = event.target.value.trim().toLowerCase();
+                const searchResults = document.getElementById("searchResults");
+                if (!searchResults) return;
+
+                if (query.length === 0) {
+                    searchResults.innerHTML = "";
+                    return;
+                }
+
+                const searchablePages = [
+                    { title: "Paycheck Tax Calculator", url: "/paycheck-tax-calculator/", description: "Calculate accurate net pay and taxes." },
+                    { title: "Take-Home Pay Calculator", url: "/take-home-pay-calculator/", description: "Estimate your actual paycheck total after deductions." },
+                    { title: "Hourly Paycheck Calculator", url: "/hourly-paycheck-calculator/", description: "Calculate income based on hourly wage and hours worked." },
+                    { title: "Overtime Pay Calculator", url: "/overtime-pay-calculator/", description: "Compute overtime rates and total extra wages." },
+                    { title: "Salary Paycheck Calculator", url: "/salary-paycheck-calculator/", description: "Break down annual salary into per-paycheck earnings." },
+                    { title: "Income Overview", url: "/income/", description: "Learn about taxable income, gross wages, and take-home pay." },
+                    { title: "Finance Overview", url: "/finance/", description: "Guides on managing personal finances and budgeting strategies." },
+                    { title: "Budgeting Guides", url: "/finance/budgeting/", description: "Strategies for budgeting your paycheck effectively." }
+                ];
+
+                const matches = searchablePages.filter(page =>
+                    page.title.toLowerCase().includes(query) ||
+                    page.description.toLowerCase().includes(query)
+                );
+
+                if (matches.length === 0) {
+                    searchResults.innerHTML = `<p class="pm-search-no-results">No results found for "${escapeHTML(query)}"</p>`;
+                    return;
+                }
+
+                searchResults.innerHTML = matches.map(item => `
+                    <a href="${item.url}" class="pm-search-result-item">
+                        <span class="pm-search-result-title">${escapeHTML(item.title)}</span>
+                        <span class="pm-search-result-desc">${escapeHTML(item.description)}</span>
+                    </a>
+                `).join("");
+            });
+
+            function escapeHTML(str) {
+                return str.replace(/[&<>'"]/g, tag => ({
+                    '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+                }[tag] || tag));
+            }
+
+            /* ==========================================================================
+               4. SCROLL SHADOW
+               ========================================================================== */
+            function setupScrollHeader() {
+                const header = document.getElementById("site-header");
+                if (!header) return;
+
+                window.addEventListener("scroll", function () {
+                    if (window.scrollY > 20) {
+                        header.classList.add("is-scrolled");
+                    } else {
+                        header.classList.remove("is-scrolled");
+                    }
+                }, { passive: true });
+            }
+        })();
+    </script>
+
+    <!-- AUTOMATIC STATE INITIALIZATION -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const stateSelect = document.getElementById("state");
+            if (stateSelect && "mn") {
+                stateSelect.value = "mn";
+                stateSelect.dispatchEvent(new Event("change", { bubbles: true }));
+            }
+        });
+    </script>
+
+    <script>
+        (function () {
+            "use strict";
+
+            document.addEventListener("DOMContentLoaded", function () {
+                initCalculator();
+            });
+
+            function initCalculator() {
+                // Mode Switches
+                const salaryBtn = document.getElementById("salaryMode");
+                const hourlyBtn = document.getElementById("hourlyMode");
+                const salaryFields = document.getElementById("salaryFields");
+                const hourlyFields = document.getElementById("hourlyFields");
+
+                if (salaryBtn && hourlyBtn) {
+                    salaryBtn.addEventListener("click", function () {
+                        salaryBtn.classList.add("active");
+                        salaryBtn.setAttribute("aria-pressed", "true");
+                        hourlyBtn.classList.remove("active");
+                        hourlyBtn.setAttribute("aria-pressed", "false");
+                        if (salaryFields) salaryFields.hidden = false;
+                        if (hourlyFields) hourlyFields.hidden = true;
+                        calculatePaycheck();
+                    });
+
+                    hourlyBtn.addEventListener("click", function () {
+                        hourlyBtn.classList.add("active");
+                        hourlyBtn.setAttribute("aria-pressed", "true");
+                        salaryBtn.classList.remove("active");
+                        salaryBtn.setAttribute("aria-pressed", "false");
+                        if (hourlyFields) hourlyFields.hidden = false;
+                        if (salaryFields) salaryFields.hidden = true;
+                        calculatePaycheck();
+                    });
+                }
+
+                // Action Button or Auto-Calculate on Input
+                const calcBtn = document.getElementById("calculate");
+                if (calcBtn) {
+                    calcBtn.addEventListener("click", calculatePaycheck);
+                }
+
+                // Live input calculation bindings
+                const inputs = document.querySelectorAll("input, select");
+                inputs.forEach(input => {
+                    input.addEventListener("input", calculatePaycheck);
+                    input.addEventListener("change", calculatePaycheck);
+                });
+
+                // Run initial calculation on page load
+                calculatePaycheck();
+            }
+
+            function calculatePaycheck() {
+                const isSalary = document.getElementById("salaryMode")?.classList.contains("active");
+
+                // Helper value fetcher
+                const getVal = (id) => parseFloat(document.getElementById(id)?.value) || 0;
+                const getStr = (id) => document.getElementById(id)?.value || "";
+
+                // 1. Calculate Gross Pay based on mode & pay frequency
+                let annualGross = 0;
+                const frequencyStr = getStr("frequency") || getStr("payFrequency") || "biweekly";
+
+                const periodsMap = {
+                    weekly: 52,
+                    biweekly: 26,
+                    semimonthly: 24,
+                    monthly: 12,
+                    quarterly: 4,
+                    semiannually: 2,
+                    annually: 1,
+                    "52": 52,
+                    "26": 26,
+                    "24": 24,
+                    "12": 12
+                };
+
+                const payPeriods = periodsMap[frequencyStr] || 26;
+
+                if (isSalary) {
+                    annualGross = getVal("salary") || getVal("annualSalary");
+                } else {
+                    const hourlyRate = getVal("hourlyRate");
+                    const hoursWeek = getVal("hoursWeek") || getVal("hoursPerWeek");
+                    const overtimeWeek = getVal("overtimeWeek") || getVal("overtimeHours");
+
+                    const regularWeekly = hourlyRate * hoursWeek;
+                    const overtimeWeekly = overtimeWeek * (hourlyRate * 1.5);
+                    annualGross = (regularWeekly + overtimeWeekly) * 52;
+                }
+
+                const grossPayPeriod = annualGross / payPeriods;
+
+                // 2. Gather Deductions (per pay period)
+                const pretaxPeriod = getVal("retirement401k") + getVal("hsa") + getVal("fsa") + getVal("healthInsurance") + getVal("otherPretax");
+                const posttaxPeriod = getVal("roth401k") + getVal("loanRepayment") + getVal("garnishments") + getVal("otherPosttax");
+
+                // UI elements for Pre-tax / Post-tax totals
+                const pretaxTotalEl = document.getElementById("pretaxTotal");
+                const posttaxTotalEl = document.getElementById("posttaxTotal");
+                if (pretaxTotalEl) pretaxTotalEl.textContent = formatCurrency(pretaxPeriod);
+                if (posttaxTotalEl) posttaxTotalEl.textContent = formatCurrency(posttaxPeriod);
+
+                // 3. Tax Engine Execution
+                // Checks if external tax engine object/function exists, otherwise defaults to standard estimates
+                const state = getStr("state");
+                const filing = getStr("filing") || getStr("filingStatus");
+                const dependents = getVal("dependents");
+                const localRate = getVal("localTaxRate") / 100;
+
+                let federalTaxPeriod = 0;
+                let ficaPeriod = 0;
+                let socialSecurityPeriod = 0;
+                let medicarePeriod = 0;
+                let stateTaxPeriod = 0;
+                let localTaxPeriod = grossPayPeriod * localRate;
+
+                if (window.TaxEngine && typeof window.TaxEngine.calculate === "function") {
+                    const taxResults = window.TaxEngine.calculate({
+                        annualGross,
+                        payPeriods,
+                        pretaxPeriod,
+                        state,
+                        filing,
+                        dependents,
+                        extraFederal: getVal("extraFederal"),
+                        extraState: getVal("extraState")
+                    });
+
+                    federalTaxPeriod = taxResults.federalTax;
+                    socialSecurityPeriod = taxResults.socialSecurity;
+                    medicarePeriod = taxResults.medicare;
+                    ficaPeriod = taxResults.fica || (socialSecurityPeriod + medicarePeriod);
+                    stateTaxPeriod = taxResults.stateTax;
+                } else {
+                    // Fallback tax estimations if TaxEngine is not loaded
+                    const taxableGross = Math.max(0, grossPayPeriod - pretaxPeriod);
+                    federalTaxPeriod = taxableGross * 0.12; // estimated federal rate
+                    socialSecurityPeriod = taxableGross * 0.062;
+                    medicarePeriod = taxableGross * 0.0145;
+                    ficaPeriod = socialSecurityPeriod + medicarePeriod;
+                    stateTaxPeriod = (state !== "none" && state !== "tx" && state !== "fl" && state !== "wa" && state !== "nv" && state !== "sd" && state !== "tn" && state !== "wy" && state !== "ak") ? taxableGross * 0.04 : 0;
+                }
+
+                // Total Tax & Take Home
+                const totalTaxes = federalTaxPeriod + ficaPeriod + stateTaxPeriod + localTaxPeriod;
+                const totalDeductions = pretaxPeriod + posttaxPeriod;
+                const takeHomePayPeriod = Math.max(0, grossPayPeriod - totalTaxes - totalDeductions);
+
+                // 4. Update UI Outputs
+                setText("takeHome", formatCurrency(takeHomePayPeriod));
+                setText("netPay", formatCurrency(takeHomePayPeriod));
+                setText("chartNet", formatCurrency(takeHomePayPeriod));
+                setText("legendNet", formatCurrency(takeHomePayPeriod));
+                setText("grossPay", formatCurrency(grossPayPeriod));
+                setText("federalTax", formatCurrency(federalTaxPeriod));
+                setText("fica", formatCurrency(ficaPeriod));
+                setText("socialSecurity", formatCurrency(socialSecurityPeriod));
+                setText("medicare", formatCurrency(medicarePeriod));
+                setText("stateTax", formatCurrency(stateTaxPeriod));
+                setText("localTax", formatCurrency(localTaxPeriod));
+                setText("deductions", formatCurrency(totalDeductions));
+                setText("legendFederal", formatCurrency(federalTaxPeriod));
+                setText("legendFica", formatCurrency(ficaPeriod));
+                setText("legendState", formatCurrency(stateTaxPeriod));
+                setText("legendDeductions", formatCurrency(totalDeductions));
+                setText("preTaxResult", formatCurrency(pretaxPeriod));
+                setText("postTaxResult", formatCurrency(posttaxPeriod));
+
+                // Effective Tax Rate
+                const effectiveRate = grossPayPeriod > 0 ? ((totalTaxes / grossPayPeriod) * 100).toFixed(2) + "%" : "0.00%";
+                setText("effectiveTaxRate", effectiveRate);
+
+                // Period Totals / Summaries
+                const annualNet = takeHomePayPeriod * payPeriods;
+                setText("annualGross", formatCompactCurrency(annualGross));
+                setText("annualNet", formatCompactCurrency(annualNet));
+                setText("monthlyNet", formatCompactCurrency(annualNet / 12));
+                setText("weeklyNet", formatCompactCurrency(annualNet / 52));
+
+                setText("weeklyPay", formatCurrency(annualNet / 52));
+                setText("biweeklyPay", formatCurrency(annualNet / 26));
+                setText("semimonthlyPay", formatCurrency(annualNet / 24));
+                setText("monthlyPay", formatCurrency(annualNet / 12));
+                setText("annualPay", formatCurrency(annualNet));
+
+                // Update Donut Chart CSS Gradient
+                updateChart(takeHomePayPeriod, federalTaxPeriod, ficaPeriod, stateTaxPeriod, totalDeductions, grossPayPeriod);
+            }
+
+            function updateChart(net, fed, fica, state, ded, gross) {
+                const chart = document.getElementById("paycheckChart") || document.getElementById("resultChart");
+                if (!chart || gross <= 0) return;
+
+                const netPct = (net / gross) * 100;
+                const fedPct = (fed / gross) * 100;
+                const ficaPct = (fica / gross) * 100;
+                const statePct = (state / gross) * 100;
+                const dedPct = (ded / gross) * 100;
+
+                // Cumulative stop percentages for conic-gradient
+                const p1 = netPct;
+                const p2 = p1 + fedPct;
+                const p3 = p2 + ficaPct;
+                const p4 = p3 + statePct;
+
+                chart.style.background = `conic-gradient(
+            #697570 0% ${p1}%,
+            #3b82f6 ${p1}% ${p2}%,
+            #f59e0b ${p2}% ${p3}%,
+            #10b981 ${p3}% ${p4}%,
+            #64748b ${p4}% 100%
+        )`;
+
+                const percentEl = document.getElementById("chartPercent");
+                if (percentEl) percentEl.textContent = Math.round(netPct) + "%";
+            }
+
+            function setText(id, val) {
+                const el = document.getElementById(id);
+                if (el) el.textContent = val;
+            }
+
+            function formatCurrency(num) {
+                return new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                }).format(num || 0);
+            }
+
+            function formatCompactCurrency(num) {
+                return new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                    maximumFractionDigits: 0
+                }).format(num || 0);
+            }
+        })();
+    </script>
+</body>
+
 </html>

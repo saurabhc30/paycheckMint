@@ -1,600 +1,270 @@
-/* =========================================================
-   PaycheckMint — Main Calculator
-   File: script.js
+/* ==========================================================================
+   PAYCHECKMINT - MAIN JAVASCRIPT
+   ========================================================================== */
 
-   Requires:
-   1. tax-rules-2026.js
-   2. tax-engine.js
-   ========================================================= */
+document.addEventListener("DOMContentLoaded", function () {
+    loadSharedComponents();
+});
 
-document.addEventListener("DOMContentLoaded", () => {
-    "use strict";
+/**
+ * Loads shared navbar and footer components asynchronously,
+ * then initializes all interactive components after injection.
+ */
+async function loadSharedComponents() {
+    const navbar = document.getElementById("site-navbar");
+    const footer = document.getElementById("site-footer");
 
-    /* ---------------------------------------------------------
-       Check tax engine
-       --------------------------------------------------------- */
+    // Always fetch relative to the domain root regardless of subpage depth
+    const root = window.location.origin;
 
-    if (!window.PaycheckMintTax) {
-        console.error(
-            "PaycheckMint: tax-engine.js was not loaded."
-        );
-        return;
-    }
+    try {
+        const requests = [];
 
-    /* ---------------------------------------------------------
-       Helpers
-       --------------------------------------------------------- */
-
-    const $ = (id) => document.getElementById(id);
-
-    const number = (value) => {
-        const n = Number(value);
-        return Number.isFinite(n) ? n : 0;
-    };
-
-    const positive = (value) =>
-        Math.max(0, number(value));
-
-    const currency = (value) =>
-        new Intl.NumberFormat("en-US", {
-            style: "currency",
-            currency: "USD",
-            maximumFractionDigits: 0
-        }).format(Math.max(0, number(value)));
-
-    const currencyExact = (value) =>
-        new Intl.NumberFormat("en-US", {
-            style: "currency",
-            currency: "USD",
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-        }).format(Math.max(0, number(value)));
-
-    /* ---------------------------------------------------------
-       Calculator elements
-       --------------------------------------------------------- */
-
-    const salaryMode = $("salaryMode");
-    const hourlyMode = $("hourlyMode");
-
-    const salaryInput = $("salary");
-
-    const hourlyRate = $("hourlyRate");
-    const hoursWeek = $("hoursWeek");
-    const overtimeWeek = $("overtimeWeek");
-
-    const frequency = $("frequency");
-    const state = $("state");
-    const filing = $("filing");
-    const dependents = $("dependents");
-
-    /* Pre-tax */
-
-    const retirement401k = $("retirement401k");
-    const hsa = $("hsa");
-    const fsa = $("fsa");
-    const healthInsurance = $("healthInsurance");
-    const otherPretax = $("otherPretax");
-
-    const pretaxTotal = $("pretaxTotal");
-
-    /* Advanced */
-
-    const extraFederal = $("extraFederal");
-    const extraState = $("extraState");
-    const additionalMedicare = $("additionalMedicare");
-    const otherAdjustments = $("otherAdjustments");
-
-    /* Post-tax */
-
-    const roth401k = $("roth401k");
-    const loanRepayment = $("loanRepayment");
-    const garnishments = $("garnishments");
-    const otherPosttax = $("otherPosttax");
-
-    const posttaxTotal = $("posttaxTotal");
-
-    /* Calculate */
-
-    const calculateButton = $("calculate");
-
-    /* Results */
-
-    const takeHome = $("takeHome");
-    const resultPeriod = $("resultPeriod");
-
-    const paycheckChart = $("paycheckChart");
-    const chartNet = $("chartNet");
-
-    const legendNet = $("legendNet");
-    const legendFederal = $("legendFederal");
-    const legendFica = $("legendFica");
-    const legendState = $("legendState");
-    const legendDeductions = $("legendDeductions");
-
-    const grossPay = $("grossPay");
-    const federalTax = $("federalTax");
-    const fica = $("fica");
-    const stateTax = $("stateTax");
-    const preTaxResult = $("preTaxResult");
-    const postTaxResult = $("postTaxResult");
-
-    const weeklyPay = $("weeklyPay");
-    const biweeklyPay = $("biweeklyPay");
-    const semimonthlyPay = $("semimonthlyPay");
-    const monthlyPay = $("monthlyPay");
-    const annualPay = $("annualPay");
-
-    /* ---------------------------------------------------------
-       Mode
-       --------------------------------------------------------- */
-
-    let mode = "salary";
-
-    function setMode(newMode) {
-        mode = newMode;
-
-        const salaryFields = $("salaryFields");
-        const hourlyFields = $("hourlyFields");
-
-        // Show / hide the correct input section
-        if (salaryFields) {
-            salaryFields.hidden = newMode !== "salary";
-        }
-
-        if (hourlyFields) {
-            hourlyFields.hidden = newMode !== "hourly";
-        }
-
-        // Update Salary button
-        if (salaryMode) {
-            salaryMode.classList.toggle(
-                "active",
-                newMode === "salary"
-            );
-
-            salaryMode.setAttribute(
-                "aria-pressed",
-                newMode === "salary"
+        if (navbar) {
+            requests.push(
+                fetch(`${root}/components/navbar.html`)
+                    .then(res => {
+                        if (!res.ok) throw new Error(`Navbar HTTP ${res.status}`);
+                        return res.text();
+                    })
+                    .then(html => { navbar.innerHTML = html; })
             );
         }
 
-        // Update Hourly button
-        if (hourlyMode) {
-            hourlyMode.classList.toggle(
-                "active",
-                newMode === "hourly"
-            );
-
-            hourlyMode.setAttribute(
-                "aria-pressed",
-                newMode === "hourly"
+        if (footer) {
+            requests.push(
+                fetch(`${root}/components/footer.html`)
+                    .then(res => {
+                        if (!res.ok) throw new Error(`Footer HTTP ${res.status}`);
+                        return res.text();
+                    })
+                    .then(html => { footer.innerHTML = html; })
             );
         }
 
-        calculate();
+        await Promise.all(requests);
+    } catch (err) {
+        console.error("Component fetch failed:", err);
     }
+}
 
-    salaryMode?.addEventListener("click", () => {
-        setMode("salary");
-    });
+document.addEventListener("DOMContentLoaded", loadSharedComponents);
 
-    hourlyMode?.addEventListener("click", () => {
-        setMode("hourly");
-    });
+/**
+ * Handles Navbar Dropdowns, Mobile Menu Navigation, and Accessibility
+ */
+function initializeNavbar() {
+    const dropdowns = document.querySelectorAll(".pm-nav-dropdown");
+    const header = document.getElementById("site-header");
 
-    /* ---------------------------------------------------------
-       Totals for deduction fields
-       --------------------------------------------------------- */
+    // Toggle Desktop & Touch Dropdowns
+    dropdowns.forEach(dropdown => {
+        const button = dropdown.querySelector(".pm-nav-dropdown-button");
 
-    function updateDeductionTotals() {
-        const pretax =
-            positive(retirement401k?.value) +
-            positive(hsa?.value) +
-            positive(fsa?.value) +
-            positive(healthInsurance?.value) +
-            positive(otherPretax?.value);
+        if (button) {
+            button.addEventListener("click", function (event) {
+                event.stopPropagation();
+                const isOpen = dropdown.classList.contains("is-open");
 
-        const posttax =
-            positive(roth401k?.value) +
-            positive(loanRepayment?.value) +
-            positive(garnishments?.value) +
-            positive(otherPosttax?.value);
+                // Close all other dropdowns
+                dropdowns.forEach(d => {
+                    d.classList.remove("is-open");
+                    const btn = d.querySelector(".pm-nav-dropdown-button");
+                    if (btn) btn.setAttribute("aria-expanded", "false");
+                });
 
-        if (pretaxTotal) {
-            pretaxTotal.textContent =
-                currencyExact(pretax);
-        }
-
-        if (posttaxTotal) {
-            posttaxTotal.textContent =
-                currencyExact(posttax);
-        }
-
-        return {
-            pretax,
-            posttax
-        };
-    }
-
-    /* ---------------------------------------------------------
-       Get hourly annual gross
-       --------------------------------------------------------- */
-
-    function getHourlyAnnualGross() {
-        const rate = positive(hourlyRate?.value);
-        const regularHours = positive(hoursWeek?.value) || 40;
-        const overtimeHours = positive(overtimeWeek?.value);
-        const overtimeMultiplier = 1.5;
-
-        const regularWeeklyPay = rate * regularHours;
-        const overtimeWeeklyPay =
-            rate * overtimeMultiplier * overtimeHours;
-
-        const weeklyGross =
-            regularWeeklyPay + overtimeWeeklyPay;
-
-        return weeklyGross * 52;
-    }
-
-    /* ---------------------------------------------------------
-       Calculate
-       --------------------------------------------------------- */
-
-    function calculate() {
-        updateDeductionTotals();
-
-        let annualGross = 0;
-
-        if (mode === "hourly") {
-            annualGross =
-                getHourlyAnnualGross();
-        } else {
-            annualGross =
-                positive(salaryInput?.value);
-        }
-
-        const pretax = {
-            retirement401k:
-                positive(retirement401k?.value),
-
-            healthInsurance:
-                positive(healthInsurance?.value),
-
-            hsa:
-                positive(hsa?.value),
-
-            fsa:
-                positive(fsa?.value),
-
-            other:
-                positive(otherPretax?.value)
-        };
-
-        const posttax = {
-            roth401k:
-                positive(roth401k?.value),
-
-            loanRepayment:
-                positive(loanRepayment?.value),
-
-            garnishments:
-                positive(garnishments?.value),
-
-            other:
-                positive(otherPosttax?.value)
-        };
-
-        /* -------------------------------------------------------
-           Shared tax engine
-           ------------------------------------------------------- */
-
-        const result =
-            PaycheckMintTax.calculate({
-                annualGross,
-
-                state:
-                    state?.value || "none",
-
-                filing:
-                    filing?.value || "single",
-
-                dependents:
-                    positive(dependents?.value),
-
-                frequency:
-                    frequency?.value || "biweekly",
-
-                pretax,
-
-                posttax,
-
-                extraFederal:
-                    positive(extraFederal?.value),
-
-                extraState:
-                    positive(extraState?.value),
-
-                additionalMedicare:
-                    positive(additionalMedicare?.value),
-
-                otherAdjustments:
-                    positive(otherAdjustments?.value)
+                // Toggle current
+                if (!isOpen) {
+                    dropdown.classList.add("is-open");
+                    button.setAttribute("aria-expanded", "true");
+                }
             });
-
-        /* -------------------------------------------------------
-           Result period
-           ------------------------------------------------------- */
-
-        const selectedFrequency =
-            frequency?.value || "biweekly";
-
-        const frequencyLabels = {
-            weekly: "weekly",
-            biweekly: "biweekly",
-            semimonthly: "semimonthly",
-            monthly: "monthly",
-            quarterly: "quarterly",
-            semiannually: "semiannually",
-            annually: "annually"
-        };
-
-        if (takeHome) {
-            takeHome.textContent =
-                currency(result.net.period);
         }
+    });
 
-        if (resultPeriod) {
-            resultPeriod.textContent =
-                `Estimated ${frequencyLabels[selectedFrequency] || "pay"} take-home`;
+    // Close dropdowns when clicking outside
+    document.addEventListener("click", function (event) {
+        if (!event.target.closest(".pm-nav-dropdown")) {
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove("is-open");
+                const button = dropdown.querySelector(".pm-nav-dropdown-button");
+                if (button) button.setAttribute("aria-expanded", "false");
+            });
         }
+    });
 
-        /* -------------------------------------------------------
-           Breakdown
-           ------------------------------------------------------- */
+    // Mobile Navigation Drawer Toggle
+    const mobileToggle = document.getElementById("mobileToggle");
+    const mobileNav = document.getElementById("mobileNav");
 
-        if (grossPay) {
-            grossPay.textContent =
-                currency(result.gross.period);
-        }
-
-        if (federalTax) {
-            federalTax.textContent =
-                currency(
-                    result.federal.tax /
-                    result.periodsPerYear
-                );
-        }
-
-        if (fica) {
-            fica.textContent =
-                currency(
-                    result.fica.total /
-                    result.periodsPerYear
-                );
-        }
-
-        if (stateTax) {
-            stateTax.textContent =
-                currency(
-                    result.state.tax /
-                    result.periodsPerYear
-                );
-        }
-
-        if (preTaxResult) {
-            preTaxResult.textContent =
-                currency(
-                    result.deductions.pretax /
-                    result.periodsPerYear
-                );
-        }
-
-        if (postTaxResult) {
-            postTaxResult.textContent =
-                currency(
-                    result.deductions.posttax /
-                    result.periodsPerYear
-                );
-        }
-
-        /* -------------------------------------------------------
-           Pay summary
-           ------------------------------------------------------- */
-
-        if (weeklyPay) {
-            weeklyPay.textContent =
-                currency(result.net.weekly);
-        }
-
-        if (biweeklyPay) {
-            biweeklyPay.textContent =
-                currency(result.net.biweekly);
-        }
-
-        if (semimonthlyPay) {
-            semimonthlyPay.textContent =
-                currency(result.net.semimonthly);
-        }
-
-        if (monthlyPay) {
-            monthlyPay.textContent =
-                currency(result.net.monthly);
-        }
-
-        if (annualPay) {
-            annualPay.textContent =
-                currency(result.net.annual);
-        }
-
-        /* -------------------------------------------------------
-           Chart
-           ------------------------------------------------------- */
-
-        updateChart(result);
-
-        /* -------------------------------------------------------
-           Public result
-           ------------------------------------------------------- */
-
-        window.paycheckMintResult = result;
-
-        return result;
+    if (mobileToggle && mobileNav) {
+        mobileToggle.addEventListener("click", function (event) {
+            event.stopPropagation();
+            const isOpen = mobileNav.classList.toggle("is-open");
+            mobileToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
     }
 
-    /* ---------------------------------------------------------
-       Donut chart
-       --------------------------------------------------------- */
+    // Mobile Submenu Dropdown Toggle
+    const mobileFinanceToggle = document.getElementById("mobileFinanceToggle");
+    const mobileFinanceLinks = document.getElementById("mobileFinanceLinks");
 
-    function updateChart(result) {
-        if (!paycheckChart) {
+    if (mobileFinanceToggle && mobileFinanceLinks) {
+        mobileFinanceToggle.addEventListener("click", function (event) {
+            event.stopPropagation();
+            const isOpen = mobileFinanceLinks.classList.toggle("is-open");
+            mobileFinanceToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+    }
+
+    // Header scroll behavior (Shadow on scroll)
+    if (header) {
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 20) {
+                header.classList.add("is-scrolled");
+            } else {
+                header.classList.remove("is-scrolled");
+            }
+        }, { passive: true });
+    }
+}
+
+/**
+ * Handles Global Site Search Toggle, Keyboard Events, and Query Filtering
+ */
+function setupSearch() {
+    const searchToggle = document.getElementById("searchToggle");
+    const mobileSearchButton = document.getElementById("mobileSearchButton");
+    const searchPanel = document.getElementById("searchPanel");
+    const searchInput = document.getElementById("siteSearch");
+    const searchClose = document.getElementById("searchClose");
+    const searchResults = document.getElementById("searchResults");
+    const mobileNav = document.getElementById("mobileNav");
+
+    if (!searchPanel || !searchInput) return;
+
+    function openSearchPanel() {
+        searchPanel.classList.add("is-open");
+        if (searchToggle) {
+            searchToggle.setAttribute("aria-expanded", "true");
+            searchToggle.setAttribute("aria-label", "Close search");
+        }
+        setTimeout(() => searchInput.focus(), 100);
+    }
+
+    function closeSearchPanel() {
+        searchPanel.classList.remove("is-open");
+        if (searchToggle) {
+            searchToggle.setAttribute("aria-expanded", "false");
+            searchToggle.setAttribute("aria-label", "Open search");
+        }
+        searchInput.value = "";
+        if (searchResults) searchResults.innerHTML = "";
+    }
+
+    // Toggle Search Bar Panel
+    if (searchToggle) {
+        searchToggle.addEventListener("click", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            if (searchPanel.classList.contains("is-open")) {
+                closeSearchPanel();
+            } else {
+                openSearchPanel();
+            }
+        });
+    }
+
+    // Mobile Search Button in Drawer
+    if (mobileSearchButton) {
+        mobileSearchButton.addEventListener("click", function (event) {
+            event.preventDefault();
+            if (mobileNav) mobileNav.classList.remove("is-open");
+            openSearchPanel();
+        });
+    }
+
+    // Close Search Panel Button
+    if (searchClose) {
+        searchClose.addEventListener("click", function (event) {
+            event.preventDefault();
+            closeSearchPanel();
+        });
+    }
+
+    // Prevent clicks inside search panel from bubbling up to document
+    searchPanel.addEventListener("click", function (event) {
+        event.stopPropagation();
+    });
+
+    // Close on Escape Key
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && searchPanel.classList.contains("is-open")) {
+            closeSearchPanel();
+        }
+    });
+
+    // Close when clicking outside search panel
+    document.addEventListener("click", function (event) {
+        if (!searchPanel.contains(event.target) && (!searchToggle || !searchToggle.contains(event.target))) {
+            if (searchPanel.classList.contains("is-open")) {
+                closeSearchPanel();
+            }
+        }
+    });
+
+    // Live Search Filter Routine
+    const searchablePages = [
+        { title: "Paycheck Tax Calculator", url: "/paycheck-tax-calculator/", description: "Calculate accurate net pay and taxes." },
+        { title: "Take-Home Pay Calculator", url: "/take-home-pay-calculator/", description: "Estimate your actual paycheck total after deductions." },
+        { title: "Hourly Paycheck Calculator", url: "/hourly-paycheck-calculator/", description: "Calculate income based on hourly wage and hours worked." },
+        { title: "Overtime Pay Calculator", url: "/overtime-pay-calculator/", description: "Compute overtime rates and total extra wages." },
+        { title: "Salary Paycheck Calculator", url: "/salary-paycheck-calculator/", description: "Break down annual salary into per-paycheck earnings." },
+        { title: "Income Overview", url: "/income/", description: "Learn about taxable income, gross wages, and take-home pay." },
+        { title: "Finance Overview", url: "/finance/", description: "Guides on managing personal finances and budgeting strategies." },
+        { title: "Budgeting Guides", url: "/finance/budgeting/", description: "Strategies for budgeting your paycheck effectively." }
+    ];
+
+    searchInput.addEventListener("input", function () {
+        if (!searchResults) return;
+
+        const query = this.value.trim().toLowerCase();
+
+        if (query.length === 0) {
+            searchResults.innerHTML = "";
             return;
         }
 
-        const net =
-            Math.max(0, result.net.annual);
-
-        const federal =
-            Math.max(0, result.federal.tax);
-
-        const ficaTax =
-            Math.max(0, result.fica.total);
-
-        const stateTaxAmount =
-            Math.max(0, result.state.tax);
-
-        const deductions =
-            Math.max(
-                0,
-                result.deductions.total
-            );
-
-        const total =
-            net +
-            federal +
-            ficaTax +
-            stateTaxAmount +
-            deductions;
-
-        if (total <= 0) {
-            paycheckChart.style.background =
-                "var(--line)";
-        } else {
-            const netEnd =
-                (net / total) * 100;
-
-            const federalEnd =
-                netEnd +
-                (federal / total) * 100;
-
-            const ficaEnd =
-                federalEnd +
-                (ficaTax / total) * 100;
-
-            const stateEnd =
-                ficaEnd +
-                (stateTaxAmount / total) * 100;
-
-            paycheckChart.style.background =
-                `conic-gradient(
-          var(--chart-net) 0 ${netEnd}%,
-          var(--chart-federal) ${netEnd}% ${federalEnd}%,
-          var(--chart-fica) ${federalEnd}% ${ficaEnd}%,
-          var(--chart-state) ${ficaEnd}% ${stateEnd}%,
-          var(--chart-deductions) ${stateEnd}% 100%
-        )`;
-        }
-
-        if (chartNet) {
-            chartNet.textContent =
-                currency(net);
-        }
-
-        /* -------------------------------------------------------
-           Legend
-           ------------------------------------------------------- */
-
-        if (legendNet) {
-            legendNet.textContent =
-                currency(net);
-        }
-
-        if (legendFederal) {
-            legendFederal.textContent =
-                currency(federal);
-        }
-
-        if (legendFica) {
-            legendFica.textContent =
-                currency(ficaTax);
-        }
-
-        if (legendState) {
-            legendState.textContent =
-                currency(stateTaxAmount);
-        }
-
-        if (legendDeductions) {
-            legendDeductions.textContent =
-                currency(deductions);
-        }
-    }
-
-    /* ---------------------------------------------------------
-       Calculate button
-       --------------------------------------------------------- */
-
-    calculateButton?.addEventListener(
-        "click",
-        calculate
-    );
-
-    /* ---------------------------------------------------------
-       Live calculation
-       --------------------------------------------------------- */
-
-    const inputs =
-        document.querySelectorAll(
-            "input, select"
+        const filteredResults = searchablePages.filter(page =>
+            page.title.toLowerCase().includes(query) ||
+            page.description.toLowerCase().includes(query)
         );
 
-    inputs.forEach((input) => {
-        input.addEventListener(
-            "input",
-            calculate
-        );
-
-        input.addEventListener(
-            "change",
-            calculate
-        );
+        renderSearchResults(filteredResults, query);
     });
 
-    /* ---------------------------------------------------------
-       Advanced options
-       --------------------------------------------------------- */
+    function renderSearchResults(results, query) {
+        if (!searchResults) return;
 
-    const advanced =
-        document.querySelector(
-            ".advanced-options"
-        );
+        if (results.length === 0) {
+            searchResults.innerHTML = `<p class="pm-search-no-results">No results found for "${escapeHTML(query)}"</p>`;
+            return;
+        }
 
-    if (advanced) {
-        advanced.addEventListener(
-            "toggle",
-            calculate
-        );
+        const html = results.map(item => `
+            <a href="${item.url}" class="pm-search-result-item">
+                <span class="pm-search-result-title">${escapeHTML(item.title)}</span>
+                <span class="pm-search-result-desc">${escapeHTML(item.description)}</span>
+            </a>
+        `).join("");
+
+        searchResults.innerHTML = html;
     }
 
-    /* ---------------------------------------------------------
-       Initial mode
-       --------------------------------------------------------- */
-
-    setMode("salary");
-
-    /* ---------------------------------------------------------
-       Initial calculation
-       --------------------------------------------------------- */
-
-    calculate();
-});
+    function escapeHTML(str) {
+        return str.replace(/[&<>'"]/g,
+            tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+        );
+    }
+}

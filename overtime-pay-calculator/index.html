@@ -1,1894 +1,4298 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>Overtime Pay Calculator 2026 | Calculate Overtime Pay | PaycheckMint</title>
+<head>
 
-        <meta
-            name="description"
-            content="Use the PaycheckMint 2026 overtime pay calculator to estimate regular pay, overtime pay, total gross pay, and annual earnings from hourly wages and overtime hours."
-        />
-        <meta name="robots" content="index, follow, max-image-preview:large" />
-        <meta name="author" content="PaycheckMint" />
-        <meta name="theme-color" content="#5954d9" />
+    <meta charset="UTF-8">
 
-        <link rel="canonical" href="https://paycheckmint.com/overtime-pay-calculator/" />
-        <link rel="icon" href="/icon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Overtime Pay Calculator 2026 | PaycheckMint" />
-        <meta
-            property="og:description"
-            content="Calculate regular pay, overtime pay, and total gross earnings with the PaycheckMint overtime pay calculator."
-        />
-        <meta property="og:url" content="https://paycheckmint.com/overtime-pay-calculator/" />
-        <meta property="og:site_name" content="PaycheckMint" />
+    <title>Weekly Paycheck Calculator 2026 | PaycheckMint</title>
 
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="Overtime Pay Calculator 2026 | PaycheckMint" />
-        <meta
-            name="twitter:description"
-            content="Calculate your estimated overtime pay and total gross earnings with PaycheckMint."
-        />
+    <meta name="description"
+        content="Use PaycheckMint's weekly paycheck calculator to estimate your take-home pay every week after federal, state, local taxes, FICA, and deductions.">
 
-        <!-- Structured Data -->
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "WebSite",
-                "name": "PaycheckMint",
-                "url": "https://paycheckmint.com/"
-            }
-        </script>
+    <meta name="robots" content="index, follow">
 
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "WebApplication",
-                "name": "PaycheckMint Overtime Pay Calculator",
-                "url": "https://paycheckmint.com/overtime-pay-calculator/",
-                "applicationCategory": "FinanceApplication",
-                "operatingSystem": "Web",
-                "description": "A free online overtime pay calculator for estimating regular pay, overtime pay, and total gross earnings."
-            }
-        </script>
+    <link rel="canonical" href="/weekly-paycheck-calculator/">
 
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": [
-                    {
-                        "@type": "Question",
-                        "name": "How is overtime pay calculated?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Multiply the regular hourly rate by the overtime multiplier and then multiply that overtime rate by the qualifying overtime hours."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "What is time and a half?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Time and a half means 1.5 times the regular hourly rate. For example, a $24 hourly rate becomes $36 per overtime hour at 1.5 times."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Is overtime pay taxed?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Generally, overtime wages are taxable income. The amount withheld from an actual paycheck depends on applicable federal, state, local, and payroll withholding rules."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Does every overtime hour have to be paid at 1.5 times?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Not necessarily. Overtime requirements can depend on federal law, state law, employee classification, employment agreements, and other circumstances."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Can I use this calculator for annual overtime income?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Yes. Enter your expected weekly overtime hours and the number of weeks you expect to work during the year. The calculator will estimate your annual gross earnings."
-                        }
-                    }
-                ]
-            }
-        </script>
+    <link rel="icon" href="/icon.ico">
 
-        <style>
-            :root {
-                --bg: #f6f5f1;
-                --surface: #ffffff;
-                --surface-soft: #faf9f6;
+    <link rel="stylesheet" href="/style.css">
 
-                --ink: #191919;
-                --muted: #74736f;
-                --line: #deddd8;
-                --line-dark: #cbc9c3;
-
-                --accent: #5954d9;
-                --accent-dark: #4843c4;
-                --accent-soft: #eeecff;
-
-                --radius-sm: 8px;
-                --radius-md: 12px;
-                --radius: 14px;
-
-                --shadow: 0 8px 30px rgba(25, 25, 25, 0.06);
-
-                --content-width: 1120px;
-            }
-
-            *,
-            *::before,
-            *::after {
-                box-sizing: border-box;
-            }
-
-            html {
-                scroll-behavior: smooth;
-            }
-
-            body {
-                margin: 0;
-                background: var(--bg);
-                color: var(--ink);
-                font-family:
-                    Inter,
-                    -apple-system,
-                    BlinkMacSystemFont,
-                    "Segoe UI",
-                    Roboto,
-                    Arial,
-                    sans-serif;
-                line-height: 1.6;
-                overflow-x: hidden;
-            }
-
-            img {
-                max-width: 100%;
-                display: block;
-            }
-
-            a {
-                color: inherit;
-            }
-
-            button,
-            input,
-            select {
-                font: inherit;
-            }
-
-            /* =========================================================
-           CONTAINER
+    <style>
+        /* =========================================================
+           WEEKLY PAYCHECK CALCULATOR
+           PAGE-SPECIFIC DESIGN
         ========================================================= */
 
-            .container {
-                width: min(var(--content-width), calc(100% - 32px));
-                margin-inline: auto;
-            }
-
-            /* =========================================================
-           HEADER
-        ========================================================= */
-
-            .site-header {
-                position: relative;
-                z-index: 1000;
-                width: 100%;
-                background: var(--surface);
-                border-bottom: 1px solid var(--line);
-                overflow: visible;
-            }
-
-            .header-inner {
-                position: relative;
-                min-height: 64px;
-                display: flex;
-                align-items: center;
-                gap: 20px;
-            }
-
-            .logo {
-                display: inline-flex;
-                align-items: center;
-                flex: 0 1 auto;
-                min-width: 0;
-
-                color: var(--ink);
-                font-size: 1.25rem;
-                font-weight: 800;
-                line-height: 1;
-
-                text-decoration: none;
-                white-space: nowrap;
-            }
-
-            .logo:hover {
-                color: var(--accent);
-            }
-
-            /* =========================================================
-           DESKTOP NAV
-        ========================================================= */
-
-            .main-nav {
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
-                gap: 4px;
-
-                position: relative;
-                z-index: 1001;
-
-                margin-left: auto;
-            }
-
-            .main-nav > a,
-            .nav-dropdown-toggle {
-                min-height: 40px;
-
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-
-                padding: 8px 11px;
-
-                border: 0;
-                border-radius: 8px;
-
-                background: transparent;
-                color: var(--ink);
-
-                font-size: 0.92rem;
-                font-weight: 600;
-
-                text-decoration: none;
-                white-space: nowrap;
-
-                cursor: pointer;
-            }
-
-            .main-nav > a:hover,
-            .nav-dropdown-toggle:hover {
-                background: var(--surface-soft);
-                color: var(--accent);
-            }
-
-            /* =========================================================
-           FINANCE DROPDOWN
-        ========================================================= */
-
-            .nav-dropdown {
-                position: relative;
-            }
-
-            .nav-dropdown-toggle {
-                gap: 7px;
-            }
-
-            .dropdown-arrow {
-                display: inline-block;
-                font-size: 11px;
-                line-height: 1;
-                transition: transform 0.2s ease;
-            }
-
-            .nav-dropdown.open .dropdown-arrow {
-                transform: rotate(180deg);
-            }
-
-            .nav-dropdown-menu {
-                position: absolute;
-                top: calc(100% + 6px);
-                right: 0;
-                z-index: 2000;
-
-                width: 245px;
-                padding: 7px;
-
-                background: var(--surface);
-                border: 1px solid var(--line);
-                border-radius: 12px;
-
-                box-shadow: var(--shadow);
-
-                display: none;
-            }
-
-            .nav-dropdown.open .nav-dropdown-menu {
-                display: block;
-            }
-
-            .nav-dropdown-menu a {
-                display: block;
-
-                padding: 10px 12px;
-
-                border-radius: 8px;
-
-                color: var(--ink);
-
-                font-size: 13px;
-                font-weight: 500;
-
-                text-decoration: none;
-            }
-
-            .nav-dropdown-menu a:hover {
-                background: var(--surface-soft);
-                color: var(--accent);
-            }
-
-            /* =========================================================
-           MOBILE MENU TOGGLE
-        ========================================================= */
-
-            .mobile-menu-toggle {
-                display: none !important;
-
-                width: 42px;
-                height: 42px;
-                flex: 0 0 42px;
-
-                margin-left: auto;
-                padding: 0;
-
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-
-                border: 1px solid var(--line);
-                border-radius: 9px;
-
-                background: var(--surface);
-                color: var(--ink);
-
-                cursor: pointer;
-
-                position: relative;
-                z-index: 3000;
-
-                visibility: visible;
-                opacity: 1;
-
-                appearance: none;
-                -webkit-appearance: none;
-
-                -webkit-tap-highlight-color: transparent;
-            }
-
-            .mobile-menu-toggle:hover {
-                background: var(--surface-soft);
-                border-color: var(--line-dark);
-            }
-
-            .mobile-menu-toggle:focus-visible {
-                outline: 3px solid var(--accent-soft);
-                outline-offset: 2px;
-                border-color: var(--accent);
-            }
-
-            .mobile-menu-toggle span {
-                display: block;
-
-                width: 20px;
-                height: 2px;
-
-                margin: 3px 0;
-
-                background: var(--ink);
-                border-radius: 2px;
-
-                transition:
-                    transform 0.2s ease,
-                    opacity 0.2s ease;
-            }
-
-            /* Hamburger to X */
-
-            .mobile-menu-toggle.open span:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
-            }
-
-            .mobile-menu-toggle.open span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .mobile-menu-toggle.open span:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
-            }
-
-            /* =========================================================
-           MOBILE NAVIGATION
-        ========================================================= */
-
-            @media (max-width: 760px) {
-                .container {
-                    width: calc(100% - 24px);
-                }
-
-                .site-header {
-                    position: relative;
-                    z-index: 5000;
-                    overflow: visible;
-                }
-
-                .header-inner {
-                    width: calc(100% - 24px);
-                    min-height: 58px;
-                    margin-inline: auto;
-
-                    display: flex;
-                    align-items: center;
-                }
-
-                /*
-             * IMPORTANT:
-             * Hamburger is explicitly forced visible on mobile.
-             */
-
-                .mobile-menu-toggle {
-                    display: inline-flex !important;
-
-                    visibility: visible !important;
-                    opacity: 1 !important;
-
-                    position: relative !important;
-
-                    margin-left: auto;
-
-                    z-index: 7000 !important;
-
-                    flex-shrink: 0;
-                }
-
-                /*
-             * Mobile navigation
-             */
-
-                .main-nav {
-                    position: absolute;
-
-                    top: 100%;
-                    left: 0;
-                    right: 0;
-
-                    width: 100%;
-
-                    z-index: 6000;
-
-                    display: flex;
-                    flex-direction: column;
-                    align-items: stretch;
-
-                    gap: 2px;
-
-                    padding: 8px 12px 12px;
-
-                    margin: 0;
-
-                    background: var(--surface);
-
-                    border-top: 1px solid var(--line);
-                    border-bottom: 1px solid var(--line);
-
-                    box-shadow: 0 12px 28px rgba(25, 25, 25, 0.1);
-
-                    visibility: hidden;
-                    opacity: 0;
-                    pointer-events: none;
-
-                    transform: translateY(-8px);
-
-                    transition:
-                        opacity 0.18s ease,
-                        transform 0.18s ease,
-                        visibility 0.18s ease;
-                }
-
-                .main-nav.mobile-open {
-                    visibility: visible;
-                    opacity: 1;
-                    pointer-events: auto;
-
-                    transform: translateY(0);
-                }
-
-                .main-nav > a,
-                .nav-dropdown-toggle {
-                    width: 100%;
-                    min-height: 46px;
-
-                    padding: 11px 12px;
-
-                    justify-content: flex-start;
-
-                    border-radius: 9px;
-
-                    font-size: 0.94rem;
-                }
-
-                .nav-dropdown {
-                    width: 100%;
-                }
-
-                .nav-dropdown-toggle {
-                    justify-content: space-between;
-                }
-
-                /*
-             * Finance submenu on mobile
-             */
-
-                .nav-dropdown-menu {
-                    position: static;
-
-                    width: 100%;
-
-                    margin: 2px 0 5px;
-                    padding: 5px;
-
-                    border: 0;
-                    border-radius: 9px;
-
-                    box-shadow: none;
-
-                    background: var(--surface-soft);
-                }
-
-                .nav-dropdown-menu a {
-                    min-height: 42px;
-
-                    display: flex;
-                    align-items: center;
-
-                    padding: 9px 12px;
-
-                    font-size: 0.86rem;
-                }
-
-                .nav-dropdown-menu a:hover {
-                    background: #f0efeb;
-                }
-            }
-
-            /* =========================================================
-           SMALL MOBILE
-        ========================================================= */
-
-            @media (max-width: 560px) {
-                .container {
-                    width: calc(100% - 20px);
-                }
-
-                .header-inner {
-                    width: calc(100% - 20px);
-                    min-height: 56px;
-                }
-
-                .logo {
-                    font-size: 1.08rem;
-                }
-
-                .mobile-menu-toggle {
-                    width: 40px;
-                    height: 40px;
-                    flex-basis: 40px;
-                }
-
-                .hero {
-                    width: calc(100% - 20px);
-                    padding: 40px 5px 26px;
-                }
-
-                h1 {
-                    font-size: clamp(1.9rem, 9vw, 2.6rem);
-                }
-
-                .hero p:not(.eyebrow) {
-                    font-size: 0.94rem;
-                }
-
-                .calculator {
-                    width: calc(100% - 20px);
-                    padding: 17px;
-                    border-radius: 14px;
-                }
-
-                .calculator-grid {
-                    grid-template-columns: 1fr;
-                    gap: 17px;
-                }
-
-                .field.full {
-                    grid-column: auto;
-                }
-
-                input,
-                select {
-                    height: 46px;
-                }
-
-                .calculate-button {
-                    min-height: 50px;
-                }
-
-                .result-grid {
-                    grid-template-columns: 1fr;
-                }
-
-                .content {
-                    width: calc(100% - 20px);
-                    padding-left: 0;
-                    padding-right: 0;
-                }
-
-                .content-section {
-                    margin-bottom: 40px;
-                }
-
-                .breakdown-row {
-                    font-size: 0.84rem;
-                }
-
-                .footer-inner {
-                    width: calc(100% - 20px);
-                }
-
-                .footer-links {
-                    gap: 9px 15px;
-                }
-            }
-
-            /* =========================================================
-           VERY SMALL MOBILE
-        ========================================================= */
-
-            @media (max-width: 380px) {
-                .header-inner {
-                    width: calc(100% - 16px);
-                }
-
-                .calculator {
-                    padding: 14px;
-                }
-
-                .breakdown-row {
-                    gap: 12px;
-                    font-size: 0.82rem;
-                }
-
-                .result-item {
-                    padding: 13px;
-                }
-
-                .main-nav {
-                    padding-left: 10px;
-                    padding-right: 10px;
-                }
-            }
-
-            /* =========================================================
+        :root {
+            --wpc-green: #176b5b;
+            --wpc-green-dark: #0f5145;
+            --wpc-green-light: #eaf4f1;
+            --wpc-gold: #c9922e;
+            --wpc-bg: #f6f5f1;
+            --wpc-white: #ffffff;
+            --wpc-text: #17221f;
+            --wpc-muted: #697570;
+            --wpc-border: #dfe5e2;
+            --wpc-danger: #b84c4c;
+            --wpc-radius: 16px;
+            --wpc-shadow: 0 10px 35px rgba(23, 44, 38, .08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--wpc-bg);
+            color: var(--wpc-text);
+        }
+
+        .wpc-page {
+            width: 100%;
+        }
+
+        .wpc-container {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        /* =========================================================
            HERO
         ========================================================= */
 
-            .hero {
-                width: min(760px, calc(100% - 32px));
+        .wpc-hero {
+            padding: 54px 0 34px;
+        }
 
-                margin-inline: auto;
+        .wpc-breadcrumb {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+            color: var(--wpc-muted);
+            font-size: 14px;
+        }
 
-                padding: 70px 16px 38px;
+        .wpc-breadcrumb a {
+            color: var(--wpc-green);
+            text-decoration: none;
+        }
 
-                text-align: center;
-            }
+        .wpc-breadcrumb span {
+            color: #9ba5a1;
+        }
 
-            .eyebrow {
-                margin: 0 0 10px;
+        .wpc-hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 330px;
+            gap: 42px;
+            align-items: end;
+        }
 
-                color: var(--accent);
+        .wpc-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin-bottom: 13px;
+            color: var(--wpc-green);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
 
-                font-size: 0.75rem;
-                font-weight: 800;
+        .wpc-eyebrow::before {
+            content: "";
+            width: 24px;
+            height: 2px;
+            background: var(--wpc-gold);
+        }
 
-                letter-spacing: 0.12em;
-            }
+        .wpc-hero h1 {
+            max-width: 760px;
+            margin: 0 0 17px;
+            font-size: clamp(34px, 5vw, 56px);
+            line-height: 1.04;
+            letter-spacing: -.035em;
+        }
 
-            h1 {
-                margin: 0;
+        .wpc-hero-text {
+            max-width: 750px;
+            margin: 0;
+            color: #596761;
+            font-size: 18px;
+            line-height: 1.7;
+        }
 
-                font-size: clamp(2rem, 5vw, 3.3rem);
+        .wpc-hero-note {
+            padding: 20px;
+            background: var(--wpc-white);
+            border: 1px solid var(--wpc-border);
+            border-radius: var(--wpc-radius);
+            box-shadow: 0 7px 25px rgba(23, 44, 38, .045);
+        }
 
-                line-height: 1.08;
+        .wpc-hero-note strong {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 17px;
+        }
 
-                letter-spacing: -0.045em;
-            }
+        .wpc-hero-note p {
+            margin: 0;
+            color: var(--wpc-muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
 
-            .hero p:not(.eyebrow) {
-                max-width: 650px;
-
-                margin: 18px auto 0;
-
-                padding: 0 4px;
-
-                color: var(--muted);
-
-                font-size: 1.04rem;
-            }
-
-            /* =========================================================
-           CALCULATOR
+        /* =========================================================
+           CALCULATOR GRID
         ========================================================= */
 
-            .calculator {
-                width: min(900px, calc(100% - 32px));
+        .wpc-calculator-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.12fr) minmax(350px, .88fr);
+            gap: 24px;
+            align-items: start;
+            margin: 10px auto 60px;
+        }
 
-                margin: 0 auto 70px;
+        .wpc-form {
+            min-width: 0;
+            background: var(--wpc-white);
+            border: 1px solid var(--wpc-border);
+            border-radius: var(--wpc-radius);
+            box-shadow: var(--wpc-shadow);
+            overflow: hidden;
+        }
 
-                padding: 28px;
+        .wpc-form-header {
+            padding: 25px 26px;
+            border-bottom: 1px solid var(--wpc-border);
+        }
 
-                background: var(--surface);
+        .wpc-form-header h2 {
+            margin: 0 0 7px;
+            font-size: 22px;
+            letter-spacing: -.02em;
+        }
 
-                border: 1px solid var(--line);
-                border-radius: 18px;
+        .wpc-form-header p {
+            margin: 0;
+            color: var(--wpc-muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
 
-                box-shadow: var(--shadow);
-            }
+        .wpc-form-body {
+            padding: 26px;
+        }
 
-            .calculator-grid {
-                display: grid;
+        .wpc-section {
+            padding-bottom: 28px;
+            margin-bottom: 28px;
+            border-bottom: 1px solid #edf0ee;
+        }
 
-                grid-template-columns: 1fr 1fr;
+        .wpc-section:last-child {
+            padding-bottom: 0;
+            margin-bottom: 0;
+            border-bottom: 0;
+        }
 
-                gap: 20px;
-            }
+        .wpc-section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 19px;
+            font-size: 17px;
+        }
 
-            .field {
-                min-width: 0;
-            }
+        .wpc-section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--wpc-green-light);
+            color: var(--wpc-green);
+            font-size: 13px;
+            font-weight: 800;
+        }
 
-            .field.full {
-                grid-column: 1 / -1;
-            }
-
-            label {
-                display: block;
-
-                margin: 0 0 7px;
-
-                font-size: 0.88rem;
-                font-weight: 700;
-            }
-
-            .field-note {
-                margin: 7px 0 0;
-
-                color: var(--muted);
-
-                font-size: 0.78rem;
-            }
-
-            input,
-            select {
-                width: 100%;
-                height: 48px;
-
-                padding: 0 13px;
-
-                border: 1px solid var(--line-dark);
-                border-radius: 10px;
-
-                background: #fff;
-                color: var(--ink);
-
-                outline: none;
-            }
-
-            input:focus,
-            select:focus {
-                border-color: var(--accent);
-
-                box-shadow: 0 0 0 3px var(--accent-soft);
-            }
-
-            .input-prefix {
-                position: relative;
-            }
-
-            .input-prefix span {
-                position: absolute;
-
-                left: 14px;
-                top: 50%;
-
-                transform: translateY(-50%);
-
-                color: var(--muted);
-
-                pointer-events: none;
-
-                font-weight: 600;
-            }
-
-            .input-prefix input {
-                padding-left: 30px;
-            }
-
-            .section-title {
-                grid-column: 1 / -1;
-            }
-
-            .section-title h2 {
-                margin: 0;
-
-                font-size: 1rem;
-
-                letter-spacing: -0.015em;
-            }
-
-            .section-title p {
-                margin: 4px 0 0;
-
-                color: var(--muted);
-
-                font-size: 0.82rem;
-            }
-
-            .calculate-button {
-                display: block;
-
-                width: 100%;
-
-                min-height: 52px;
-
-                margin-top: 26px;
-
-                padding: 12px 18px;
-
-                border: 0;
-                border-radius: 11px;
-
-                background: var(--accent);
-                color: #fff;
-
-                font-weight: 750;
-
-                cursor: pointer;
-
-                transition:
-                    background 0.18s ease,
-                    transform 0.18s ease;
-            }
-
-            .calculate-button:hover {
-                background: var(--accent-dark);
-            }
-
-            .calculate-button:active {
-                transform: translateY(1px);
-            }
-
-            /* =========================================================
-           RESULTS
+        /* =========================================================
+           TOGGLE
         ========================================================= */
 
-            .result {
-                margin-top: 28px;
+        .wpc-toggle {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 4px;
+            margin-bottom: 20px;
+            background: #f0f3f1;
+            border-radius: 10px;
+        }
 
-                padding-top: 28px;
+        .wpc-toggle button {
+            border: 0;
+            border-radius: 8px;
+            background: transparent;
+            color: #66736e;
+            padding: 11px 12px;
+            font: inherit;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+        }
 
-                border-top: 1px solid var(--line);
-            }
+        .wpc-toggle button.active {
+            background: var(--wpc-white);
+            color: var(--wpc-green-dark);
+            box-shadow: 0 2px 8px rgba(20, 40, 35, .08);
+        }
 
-            .result-label {
-                margin: 0;
+        /* =========================================================
+           FIELDS
+        ========================================================= */
 
-                color: var(--muted);
+        .wpc-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 17px;
+        }
 
-                font-size: 0.84rem;
-                font-weight: 700;
-            }
+        .wpc-field {
+            min-width: 0;
+        }
 
-            .total {
-                margin: 4px 0 6px;
+        .wpc-field.full {
+            grid-column: 1 / -1;
+        }
 
-                font-size: clamp(2rem, 7vw, 3rem);
+        .wpc-field label {
+            display: block;
+            margin-bottom: 7px;
+            color: #36433e;
+            font-size: 13px;
+            font-weight: 750;
+        }
 
-                line-height: 1;
+        .wpc-input,
+        .wpc-select {
+            width: 100%;
+            height: 46px;
+            padding: 0 12px;
+            border: 1px solid #d6dfdb;
+            border-radius: 9px;
+            background: #fff;
+            color: var(--wpc-text);
+            font: inherit;
+            font-size: 15px;
+            outline: none;
+            transition:
+                border-color .15s ease,
+                box-shadow .15s ease;
+        }
 
-                letter-spacing: -0.05em;
+        .wpc-input:focus,
+        .wpc-select:focus {
+            border-color: var(--wpc-green);
+            box-shadow: 0 0 0 3px rgba(23, 107, 91, .10);
+        }
 
-                font-weight: 800;
-            }
+        .wpc-input-wrap {
+            position: relative;
+        }
 
-            .result-subtitle {
-                margin: 0;
+        .wpc-prefix {
+            position: absolute;
+            left: 13px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6d7975;
+            pointer-events: none;
+            font-size: 14px;
+        }
 
-                color: var(--muted);
+        .wpc-input.has-prefix {
+            padding-left: 30px;
+        }
 
-                font-size: 0.88rem;
-            }
+        .wpc-field-help {
+            margin-top: 7px;
+            color: #89938f;
+            font-size: 12px;
+            line-height: 1.45;
+        }
 
-            .result-grid {
-                display: grid;
+        /* =========================================================
+           RESULT PANEL — RIGHT
+        ========================================================= */
 
-                grid-template-columns: repeat(3, 1fr);
+        .wpc-result {
+            position: sticky;
+            top: 20px;
+            min-width: 0;
+            overflow: hidden;
+            border-radius: var(--wpc-radius);
+            background: var(--wpc-green);
+            color: #fff;
+            box-shadow: 0 16px 42px rgba(23, 107, 91, .20);
+        }
 
-                gap: 12px;
+        .wpc-result-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 27px 27px 23px;
+        }
 
-                margin-top: 24px;
-            }
+        .wpc-result-label {
+            margin-bottom: 6px;
+            color: rgba(255, 255, 255, .72);
+            font-size: 13px;
+            font-weight: 700;
+        }
 
-            .result-item {
-                padding: 15px;
+        .wpc-net-pay {
+            font-size: clamp(34px, 5vw, 47px);
+            font-weight: 850;
+            line-height: 1;
+            letter-spacing: -.045em;
+        }
 
-                border: 1px solid var(--line);
-                border-radius: 11px;
+        .wpc-net-subtitle {
+            margin-top: 8px;
+            color: rgba(255, 255, 255, .68);
+            font-size: 13px;
+        }
 
-                background: var(--surface-soft);
-            }
+        .wpc-result-period {
+            align-self: flex-start;
+            padding: 7px 10px;
+            border: 1px solid rgba(255, 255, 255, .16);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, .07);
+            color: rgba(255, 255, 255, .78);
+            white-space: nowrap;
+            font-size: 11px;
+            font-weight: 700;
+        }
 
-            .result-item span {
-                display: block;
+        .wpc-result-rate {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 14px 27px;
+            border-top: 1px solid rgba(255, 255, 255, .10);
+            border-bottom: 1px solid rgba(255, 255, 255, .10);
+            background: rgba(0, 0, 0, .08);
+            color: rgba(255, 255, 255, .72);
+            font-size: 13px;
+        }
 
-                color: var(--muted);
+        .wpc-result-rate strong {
+            color: #fff;
+        }
 
-                font-size: 0.76rem;
-                font-weight: 650;
-            }
+        .wpc-breakdown {
+            padding: 22px 27px 10px;
+        }
 
-            .result-item strong {
-                display: block;
+        .wpc-breakdown-title {
+            margin-bottom: 13px;
+            color: rgba(255, 255, 255, .55);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
 
-                margin-top: 3px;
+        .wpc-breakdown-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 9px 0;
+            color: rgba(255, 255, 255, .82);
+            font-size: 14px;
+        }
 
-                font-size: 1.12rem;
-            }
+        .wpc-breakdown-name {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
 
-            .breakdown {
-                margin-top: 20px;
+        .wpc-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .38);
+        }
 
-                border-top: 1px solid var(--line);
-            }
+        .wpc-breakdown-value {
+            color: #fff;
+            font-weight: 700;
+        }
 
-            .breakdown-row {
-                display: flex;
+        .wpc-chart-wrap {
+            padding: 4px 27px 18px;
+        }
 
-                justify-content: space-between;
-                align-items: center;
+        .wpc-chart {
+            width: 170px;
+            height: 170px;
+            margin: 0 auto;
+            border-radius: 50%;
+            background:
+                conic-gradient(#fff 0deg,
+                    #fff 0deg);
+            position: relative;
+        }
 
-                gap: 20px;
+        .wpc-chart::after {
+            content: "";
+            position: absolute;
+            inset: 28px;
+            border-radius: 50%;
+            background: var(--wpc-green);
+        }
 
-                padding: 12px 0;
+        .wpc-chart-center {
+            position: absolute;
+            z-index: 2;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
 
-                border-bottom: 1px solid var(--line);
+        .wpc-chart-center strong {
+            font-size: 18px;
+        }
 
-                font-size: 0.9rem;
-            }
+        .wpc-chart-center span {
+            color: rgba(255, 255, 255, .6);
+            font-size: 10px;
+        }
 
-            .breakdown-row span:first-child {
-                color: var(--muted);
-            }
+        .wpc-chart-caption {
+            margin-top: -2px;
+            text-align: center;
+            color: rgba(255, 255, 255, .55);
+            font-size: 11px;
+        }
 
-            .breakdown-row strong {
-                white-space: nowrap;
-            }
+        .wpc-result-summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 9px;
+            padding: 18px 20px 20px;
+            background: rgba(0, 0, 0, .10);
+        }
 
-            /* =========================================================
+        .wpc-summary-card {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, .10);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, .045);
+        }
+
+        .wpc-summary-card span {
+            display: block;
+            margin-bottom: 4px;
+            color: rgba(255, 255, 255, .52);
+            font-size: 10px;
+        }
+
+        .wpc-summary-card strong {
+            font-size: 14px;
+        }
+
+        /* =========================================================
+           UPDATE ANIMATION
+        ========================================================= */
+
+        .wpc-result.is-updating .wpc-net-pay {
+            opacity: .65;
+            transform: translateY(2px);
+        }
+
+        .wpc-net-pay {
+            transition:
+                opacity .12s ease,
+                transform .12s ease;
+        }
+
+        /* =========================================================
            CONTENT
         ========================================================= */
 
-            .content {
-                width: min(850px, calc(100% - 32px));
+        .wpc-content-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 280px;
+            gap: 35px;
+            align-items: start;
+            margin-bottom: 70px;
+        }
 
-                margin-inline: auto;
+        .wpc-article {
+            min-width: 0;
+            padding: 34px;
+            background: var(--wpc-white);
+            border: 1px solid var(--wpc-border);
+            border-radius: var(--wpc-radius);
+        }
 
-                padding: 0 8px 80px;
-            }
+        .wpc-article h2 {
+            margin: 0 0 15px;
+            font-size: 28px;
+            letter-spacing: -.025em;
+        }
 
-            .content-section {
-                margin: 0 0 52px;
-            }
+        .wpc-article h3 {
+            margin: 32px 0 12px;
+            font-size: 21px;
+        }
 
-            .content-section:last-child {
-                margin-bottom: 0;
-            }
+        .wpc-article p {
+            margin: 0 0 17px;
+            color: #53615c;
+            font-size: 16px;
+            line-height: 1.75;
+        }
 
-            .content-section h2 {
-                margin: 0 0 15px;
+        .wpc-article ul,
+        .wpc-article ol {
+            margin: 0 0 20px;
+            padding-left: 22px;
+            color: #53615c;
+            line-height: 1.75;
+        }
 
-                font-size: clamp(1.45rem, 4vw, 1.9rem);
+        .wpc-article li {
+            margin-bottom: 7px;
+        }
 
-                line-height: 1.2;
+        .wpc-formula {
+            margin: 22px 0;
+            padding: 18px 20px;
+            border-left: 4px solid var(--wpc-gold);
+            border-radius: 8px;
+            background: #f7f5ed;
+            color: #36433e;
+            font-weight: 700;
+        }
 
-                letter-spacing: -0.025em;
-            }
+        .wpc-info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0 25px;
+            font-size: 14px;
+        }
 
-            .content-section h3 {
-                margin: 27px 0 9px;
+        .wpc-info-table th,
+        .wpc-info-table td {
+            padding: 12px 13px;
+            border: 1px solid var(--wpc-border);
+            text-align: left;
+        }
 
-                font-size: 1.05rem;
+        .wpc-info-table th {
+            background: #f2f5f3;
+            color: #34423d;
+        }
 
-                line-height: 1.35;
-            }
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
 
-            .content-section p {
-                margin: 0 0 15px;
+        .wpc-sidebar {
+            position: sticky;
+            top: 20px;
+        }
 
-                color: #4f4e4a;
+        .wpc-sidebar-card {
+            padding: 22px;
+            margin-bottom: 15px;
+            background: #fff;
+            border: 1px solid var(--wpc-border);
+            border-radius: 14px;
+        }
 
-                font-size: 0.98rem;
-            }
+        .wpc-sidebar-card h3 {
+            margin: 0 0 12px;
+            font-size: 17px;
+        }
 
-            .content-section ul {
-                margin: 14px 0 0;
+        .wpc-sidebar-card p {
+            margin: 0 0 15px;
+            color: var(--wpc-muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
 
-                padding-left: 24px;
+        .wpc-sidebar-links {
+            display: grid;
+            gap: 8px;
+        }
 
-                color: #4f4e4a;
-            }
+        .wpc-sidebar-links a {
+            display: block;
+            padding: 10px 11px;
+            border-radius: 8px;
+            background: #f4f7f5;
+            color: var(--wpc-green-dark);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+        }
 
-            .content-section li {
-                margin: 7px 0;
-            }
+        .wpc-sidebar-links a:hover {
+            background: var(--wpc-green-light);
+        }
 
-            .content-section a {
-                color: var(--accent);
-
-                font-weight: 600;
-
-                text-decoration: underline;
-
-                text-decoration-thickness: 1px;
-
-                text-underline-offset: 2px;
-            }
-
-            .info-box {
-                margin-top: 20px;
-
-                padding: 20px;
-
-                background: var(--surface);
-
-                border: 1px solid var(--line);
-
-                border-radius: var(--radius);
-            }
-
-            .info-box p {
-                margin: 0 0 12px;
-            }
-
-            .info-box p:last-child {
-                margin-bottom: 0;
-            }
-
-            /* =========================================================
+        /* =========================================================
            FAQ
         ========================================================= */
 
-            .faq-item {
-                padding: 19px 0;
+        .wpc-faq {
+            margin-top: 32px;
+        }
 
-                border-bottom: 1px solid var(--line);
-            }
+        .wpc-faq-item {
+            border-top: 1px solid var(--wpc-border);
+        }
 
-            .faq-item:first-child {
-                border-top: 1px solid var(--line);
-            }
+        .wpc-faq-item:last-child {
+            border-bottom: 1px solid var(--wpc-border);
+        }
 
-            .faq-item h3 {
-                margin: 0 0 8px;
+        .wpc-faq-item summary {
+            padding: 17px 0;
+            cursor: pointer;
+            list-style: none;
+            font-weight: 750;
+        }
 
-                font-size: 1rem;
+        .wpc-faq-item summary::-webkit-details-marker {
+            display: none;
+        }
 
-                line-height: 1.4;
-            }
+        .wpc-faq-item p {
+            padding-bottom: 17px;
+            margin: 0;
+        }
 
-            .faq-item p {
-                margin: 0;
-            }
-
-            /* =========================================================
+        /* =========================================================
            DISCLAIMER
         ========================================================= */
 
-            .disclaimer {
-                margin-top: 20px;
+        .wpc-disclaimer {
+            margin-top: 24px;
+            padding: 18px;
+            border: 1px solid #e4dfcc;
+            border-radius: 10px;
+            background: #faf8f0;
+            color: #686352;
+            font-size: 13px;
+            line-height: 1.65;
+        }
 
-                padding: 18px 20px;
-
-                border: 1px solid var(--line);
-
-                border-radius: 12px;
-
-                background: var(--surface-soft);
-
-                color: var(--muted);
-
-                font-size: 0.86rem;
-            }
-
-            /* =========================================================
-           FOOTER
+        /* =========================================================
+           MOBILE
         ========================================================= */
 
-            .site-footer {
-                border-top: 1px solid var(--line);
+        @media (max-width: 950px) {
 
-                background: var(--surface);
+            .wpc-hero-grid {
+                grid-template-columns: 1fr;
+                gap: 22px;
             }
 
-            .footer-inner {
-                width: min(var(--content-width), calc(100% - 32px));
-
-                margin-inline: auto;
-
-                padding: 36px 0;
+            .wpc-hero-note {
+                max-width: 520px;
             }
 
-            .footer-brand {
-                text-align: center;
+            .wpc-calculator-grid {
+                grid-template-columns: 1fr;
             }
 
-            .footer-brand strong {
-                font-size: 1rem;
+            .wpc-form {
+                grid-column: 1;
+                grid-row: 1;
             }
 
-            .footer-brand p {
-                margin: 5px 0 20px;
-
-                color: var(--muted);
-
-                font-size: 0.84rem;
+            .wpc-result {
+                grid-column: 1;
+                grid-row: 2;
+                position: relative;
+                top: auto;
             }
 
-            .footer-links {
-                display: flex;
-
-                justify-content: center;
-                align-items: center;
-
-                flex-wrap: wrap;
-
-                gap: 10px 20px;
+            .wpc-content-layout {
+                grid-template-columns: 1fr;
             }
 
-            .footer-links a {
-                color: var(--muted);
-
-                text-decoration: none;
-
-                font-size: 0.84rem;
-                font-weight: 600;
+            .wpc-sidebar {
+                position: relative;
+                top: auto;
             }
 
-            .footer-links a:hover {
-                color: var(--ink);
+        }
+
+        @media (max-width: 640px) {
+
+            .wpc-container {
+                width: min(100% - 22px, 1180px);
             }
 
-            .footer-copy {
-                margin: 20px 0 0;
-
-                color: var(--muted);
-
-                font-size: 0.76rem;
-
-                text-align: center;
+            .wpc-hero {
+                padding-top: 32px;
             }
-        </style>
-    </head>
 
-    <body>
-        <!-- =========================================================
-         NAVBAR
-    ========================================================== -->
+            .wpc-hero h1 {
+                font-size: 36px;
+            }
 
-        <header class="site-header">
-            <div class="container header-inner">
-                <a class="logo" href="/" aria-label="PaycheckMint home"> PaycheckMint </a>
+            .wpc-hero-text {
+                font-size: 16px;
+            }
 
-                <button
-                    id="mobileMenuToggle"
-                    class="mobile-menu-toggle"
-                    type="button"
-                    aria-label="Open navigation"
-                    aria-expanded="false"
-                    aria-controls="main-navigation"
-                >
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
+            .wpc-form-header,
+            .wpc-form-body {
+                padding: 20px;
+            }
+
+            .wpc-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wpc-field.full {
+                grid-column: auto;
+            }
+
+            .wpc-result-header {
+                padding: 22px 20px;
+            }
+
+            .wpc-breakdown {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .wpc-chart-wrap {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .wpc-result-summary {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .wpc-article {
+                padding: 23px 20px;
+            }
+
+            .wpc-article h2 {
+                font-size: 25px;
+            }
+
+            .wpc-info-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+        }
+    </style>
+
+    <!-- =========================================================
+         STRUCTURED DATA
+    ========================================================= -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Weekly Paycheck Calculator 2026",
+        "description": "Estimate your weekly take-home pay after federal, state, local taxes, FICA, and deductions.",
+        "url": "/weekly-paycheck-calculator/",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "PaycheckMint"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How many weekly paychecks do you get in a year?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A weekly payroll schedule normally has 52 pay periods in a calendar year."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I calculate weekly pay from annual salary?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Divide your annual gross salary by 52 to estimate gross pay per weekly paycheck."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why are some years different for weekly paychecks?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Because 365 days in a normal year equals 52 weeks plus 1 day, leap years and calendar dates can occasionally create a 53rd paycheck."
+                }
+            }
+        ]
+    }
+    </script>
+
+</head>
+
+
+<body>
+
+    <!-- =========================================================
+         SHARED NAVBAR
+    ========================================================= -->
+
+    <header class="pm-header" id="site-header">
+
+        <div class="pm-header-inner">
+
+            <a class="pm-brand" href="/" aria-label="PaycheckMint home">
+                Paycheck<span>Mint</span>
+            </a>
+
+            <nav class="pm-desktop-nav" aria-label="Main navigation">
+
+                <a class="pm-nav-link" href="/income/">
+                    Income
+                </a>
+
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                        Finance
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="pm-dropdown-menu">
+
+                        <span class="pm-dropdown-label">
+                            Explore
+                        </span>
+
+                        <a href="/finance/">
+                            <span>Finance Overview</span>
+                        </a>
+
+                        <a href="/income/">
+                            <span>Income & Earnings</span>
+                        </a>
+
+                        <a href="/finance/budgeting/">
+                            <span>Budgeting Guides</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="pm-nav-dropdown" data-dropdown>
+
+                    <button class="pm-nav-dropdown-button" type="button" aria-expanded="false">
+                        Calculators
+
+                        <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="pm-dropdown-menu">
+
+                        <span class="pm-dropdown-label">
+                            Paycheck tools
+                        </span>
+
+                        <a href="/paycheck-tax-calculator/">
+                            Paycheck Tax Calculator
+                        </a>
+
+                        <a href="/take-home-pay-calculator/">
+                            Take-Home Pay Calculator
+                        </a>
+
+                        <a href="/hourly-paycheck-calculator/">
+                            Hourly Paycheck Calculator
+                        </a>
+
+                        <a href="/overtime-pay-calculator/">
+                            Overtime Pay Calculator
+                        </a>
+
+                        <a href="/salary-paycheck-calculator/">
+                            Salary Paycheck Calculator
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <a class="pm-nav-link" href="/finance/">
+                    Learn
+                </a>
+
+            </nav>
+
+            <div class="pm-nav-spacer"></div>
+
+            <button class="pm-search-button" id="searchToggle" type="button" aria-label="Open search"
+                aria-expanded="false" aria-controls="searchPanel">
+
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="m20 20-4-4"></path>
+
+                </svg>
+
+            </button>
+
+            <a class="pm-header-cta" href="/paycheck-tax-calculator/">
+                Calculate paycheck
+            </a>
+
+            <button class="pm-mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation"
+                aria-expanded="false" aria-controls="mobileNav">
+                <svg id="mobileMenuIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <path d="M4 6h16" />
+                    <path d="M4 12h16" />
+                    <path d="M4 18h16" />
+                </svg>
+            </button>
+
+        </div>
+
+        <!-- SEARCH PANEL -->
+
+        <div class="pm-search-panel" id="searchPanel">
+
+            <div class="pm-search-inner">
+
+                <div class="pm-search-field">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="m20 20-4-4" />
+                    </svg>
+
+                    <input id="siteSearch" class="pm-search-input" type="search" autocomplete="off"
+                        placeholder="Search PaycheckMint..." aria-label="Search PaycheckMint">
+
+                    <button class="pm-search-close" id="searchClose" type="button" aria-label="Close search">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 6l12 12" />
+                            <path d="M18 6 6 18" />
+                        </svg>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="pm-search-results" id="searchResults"></div>
+
+        </div>
+
+        <!-- MOBILE NAV -->
+
+        <nav class="pm-mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+
+            <div class="pm-mobile-nav-inner">
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a href="/income/">
+                    Income
+                </a>
+
+                <button class="pm-mobile-finance-button" id="mobileFinanceToggle" type="button" aria-expanded="false">
+                    <span>Finance</span>
+
+                    <svg class="pm-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m6 9 6 6 6-6" />
+                    </svg>
                 </button>
 
-                <nav id="main-navigation" class="main-nav" aria-label="Main navigation">
+                <div class="pm-mobile-finance-links" id="mobileFinanceLinks">
+
+                    <a href="/finance/">
+                        Finance Overview
+                    </a>
+
+                    <a href="/income/">
+                        Income & Earnings
+                    </a>
+
+                </div>
+
+                <a href="/paycheck-tax-calculator/">
+                    Paycheck Tax Calculator
+                </a>
+
+                <a href="/take-home-pay-calculator/">
+                    Take-Home Pay Calculator
+                </a>
+
+                <a href="/hourly-paycheck-calculator/">
+                    Hourly Paycheck Calculator
+                </a>
+
+                <a href="/overtime-pay-calculator/">
+                    Overtime Pay Calculator
+                </a>
+
+                <a href="/salary-paycheck-calculator/">
+                    Salary Paycheck Calculator
+                </a>
+
+                <a href="/weekly-paycheck-calculator/">
+                    Weekly Paycheck Calculator
+                </a>
+
+                <a href="/biweekly-paycheck-calculator/">
+                    Biweekly Paycheck Calculator
+                </a>
+
+                <a href="/monthly-paycheck-calculator/">
+                    Monthly Paycheck Calculator
+                </a>
+
+                <div class="pm-mobile-search-row">
+
+                    <button class="pm-button-secondary" id="mobileSearchButton" type="button">
+                        Search PaycheckMint
+                    </button>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main class="wpc-page">
+
+        <!-- =====================================================
+             HERO
+        ===================================================== -->
+
+        <section class="wpc-hero">
+
+            <div class="wpc-container">
+
+                <div class="wpc-breadcrumb">
+
                     <a href="/">Home</a>
 
-                    <a href="/paycheck-tax-calculator/"> Paycheck Calculator </a>
+                    <span>/</span>
 
-                    <a href="/income/"> Income </a>
+                    <a href="/paycheck-tax-calculator/">
+                        Paycheck Calculators
+                    </a>
 
-                    <div class="nav-dropdown" id="financeDropdown">
-                        <button
-                            id="financeToggle"
-                            class="nav-dropdown-toggle"
-                            type="button"
-                            aria-expanded="false"
-                            aria-controls="financeMenu"
-                        >
-                            <span>Finance</span>
-                            <span class="dropdown-arrow" aria-hidden="true"> ▾ </span>
-                        </button>
+                    <span>/</span>
 
-                        <div id="financeMenu" class="nav-dropdown-menu">
-                            <a href="/finance/"> Finance Overview </a>
+                    <span>Weekly Paycheck Calculator</span>
 
-                            <a href="/finance/taxes/"> Taxes </a>
+                </div>
 
-                            <a href="/finance/budgeting/"> Budgeting &amp; Saving </a>
+                <div class="wpc-hero-grid">
 
-                            <a href="/finance/credit-debt/"> Credit &amp; Debt </a>
+                    <div>
 
-                            <a href="/finance/investing/"> Investing &amp; Retirement </a>
-
-                            <a href="/finance/insurance/"> Insurance </a>
+                        <div class="wpc-eyebrow">
+                            2026 paycheck tool
                         </div>
+
+                        <h1>
+                            Weekly Paycheck Calculator
+                        </h1>
+
+                        <p class="wpc-hero-text">
+                            Estimate how much you'll take home every week
+                            after federal income tax, Social Security, Medicare,
+                            state taxes, local taxes, and common payroll
+                            deductions.
+                        </p>
+
                     </div>
-                </nav>
+
+                    <div class="wpc-hero-note">
+
+                        <strong>
+                            Quick calculation
+                        </strong>
+
+                        <p>
+                            Enter your salary or hourly pay on the left.
+                            Your estimated weekly take-home pay updates
+                            instantly on the right.
+                        </p>
+
+                    </div>
+
+                </div>
+
             </div>
-        </header>
 
-        <main>
-            <!-- =======================================================
-             HERO
-        ======================================================== -->
+        </section>
 
-            <section class="hero">
-                <p class="eyebrow">2026 OVERTIME PAY CALCULATOR</p>
 
-                <h1>Calculate your overtime pay.</h1>
-
-                <p>
-                    Enter your hourly rate, regular hours, and overtime hours to estimate your regular earnings,
-                    overtime pay, and total gross pay.
-                </p>
-            </section>
-
-            <!-- =======================================================
+        <!-- =====================================================
              CALCULATOR
-        ======================================================== -->
+        ===================================================== -->
 
-            <section class="calculator" aria-label="Overtime pay calculator">
-                <div class="calculator-grid">
-                    <div class="section-title">
-                        <h2>Pay information</h2>
+        <section class="wpc-container">
 
-                        <p>Enter your normal hourly rate and weekly hours.</p>
-                    </div>
+            <div class="wpc-calculator-grid">
 
-                    <div class="field">
-                        <label for="hourlyRate"> Regular hourly rate </label>
+                <!-- =================================================
+                     INPUTS — LEFT
+                ================================================= -->
 
-                        <div class="input-prefix">
-                            <span>$</span>
+                <section class="wpc-form">
 
-                            <input
-                                id="hourlyRate"
-                                type="number"
-                                inputmode="decimal"
-                                min="0"
-                                step="0.01"
-                                value="25"
-                                placeholder="25.00"
-                            />
-                        </div>
-                    </div>
+                    <div class="wpc-form-header">
 
-                    <div class="field">
-                        <label for="regularHours"> Regular hours per week </label>
-
-                        <input
-                            id="regularHours"
-                            type="number"
-                            inputmode="decimal"
-                            min="0"
-                            max="168"
-                            step="0.25"
-                            value="40"
-                            placeholder="40"
-                        />
-                    </div>
-
-                    <div class="field">
-                        <label for="overtimeHours"> Overtime hours per week </label>
-
-                        <input
-                            id="overtimeHours"
-                            type="number"
-                            inputmode="decimal"
-                            min="0"
-                            max="128"
-                            step="0.25"
-                            value="5"
-                            placeholder="5"
-                        />
-                    </div>
-
-                    <div class="field">
-                        <label for="overtimeMultiplier"> Overtime multiplier </label>
-
-                        <select id="overtimeMultiplier">
-                            <option value="1.5" selected>1.5× — Time and a half</option>
-
-                            <option value="2">2× — Double time</option>
-
-                            <option value="1.25">1.25×</option>
-
-                            <option value="1.75">1.75×</option>
-
-                            <option value="1">1× — Regular rate</option>
-                        </select>
-                    </div>
-
-                    <div class="field full">
-                        <label for="weeksPerYear"> Weeks worked per year </label>
-
-                        <input
-                            id="weeksPerYear"
-                            type="number"
-                            inputmode="decimal"
-                            min="1"
-                            max="52"
-                            step="1"
-                            value="52"
-                        />
-
-                        <p class="field-note">
-                            Use 52 for a full working year or adjust this if you expect unpaid weeks or time away from
-                            work.
-                        </p>
-                    </div>
-                </div>
-
-                <button type="button" class="calculate-button" id="calculate">Calculate overtime pay</button>
-
-                <!-- RESULTS -->
-
-                <div class="result" id="result" aria-live="polite">
-                    <p class="result-label">Estimated weekly gross pay</p>
-
-                    <div class="total" id="weeklyTotal">$0.00</div>
-
-                    <p class="result-subtitle">Based on the hours and overtime rate entered above.</p>
-
-                    <div class="result-grid">
-                        <div class="result-item">
-                            <span>Regular pay</span>
-
-                            <strong id="regularPay"> $0.00 </strong>
-                        </div>
-
-                        <div class="result-item">
-                            <span>Overtime pay</span>
-
-                            <strong id="overtimePay"> $0.00 </strong>
-                        </div>
-
-                        <div class="result-item">
-                            <span>Overtime hourly rate</span>
-
-                            <strong id="overtimeRate"> $0.00 </strong>
-                        </div>
-                    </div>
-
-                    <div class="breakdown">
-                        <div class="breakdown-row">
-                            <span>Total hours per week</span>
-
-                            <strong id="totalHours"> 0 </strong>
-                        </div>
-
-                        <div class="breakdown-row">
-                            <span>Estimated monthly gross</span>
-
-                            <strong id="monthlyPay"> $0.00 </strong>
-                        </div>
-
-                        <div class="breakdown-row">
-                            <span>Estimated annual gross</span>
-
-                            <strong id="annualPay"> $0.00 </strong>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- =======================================================
-             CONTENT
-        ======================================================== -->
-
-            <article class="content">
-                <section class="content-section">
-                    <h2>How to calculate overtime pay</h2>
-
-                    <p>
-                        Overtime pay is commonly calculated by multiplying an employee's regular hourly rate by an
-                        overtime multiplier and then multiplying the result by the number of overtime hours worked.
-                    </p>
-
-                    <div class="info-box">
-                        <p>
-                            <strong> Overtime rate = Regular hourly rate × overtime multiplier </strong>
-                        </p>
+                        <h2>
+                            Enter your pay details
+                        </h2>
 
                         <p>
-                            <strong> Overtime pay = Overtime rate × overtime hours </strong>
+                            Change any value to see the estimated result
+                            immediately.
                         </p>
 
-                        <p>
-                            <strong> Total gross pay = Regular pay + overtime pay </strong>
-                        </p>
                     </div>
+
+                    <div class="wpc-form-body">
+
+                        <!-- INCOME -->
+
+                        <div class="wpc-section">
+
+                            <h3 class="wpc-section-title">
+
+                                <span class="wpc-section-number">
+                                    1
+                                </span>
+
+                                Income
+
+                            </h3>
+
+                            <div class="wpc-toggle">
+
+                                <button type="button" class="active" id="salaryMode">
+                                    Annual salary
+                                </button>
+
+                                <button type="button" id="hourlyMode">
+                                    Hourly pay
+                                </button>
+
+                            </div>
+
+                            <div id="salaryFields">
+
+                                <div class="wpc-field">
+
+                                    <label for="annualSalary">
+                                        Annual salary
+                                    </label>
+
+                                    <div class="wpc-input-wrap">
+
+                                        <span class="wpc-prefix">
+                                            $
+                                        </span>
+
+                                        <input class="wpc-input has-prefix" id="annualSalary" type="number" min="0"
+                                            step="100" value="75000" inputmode="decimal">
+
+                                    </div>
+
+                                    <div class="wpc-field-help">
+                                        Gross annual salary before taxes
+                                        and deductions.
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div id="hourlyFields" hidden>
+
+                                <div class="wpc-grid">
+
+                                    <div class="wpc-field">
+
+                                        <label for="hourlyRate">
+                                            Hourly rate
+                                        </label>
+
+                                        <div class="wpc-input-wrap">
+
+                                            <span class="wpc-prefix">
+                                                $
+                                            </span>
+
+                                            <input class="wpc-input has-prefix" id="hourlyRate" type="number" min="0"
+                                                step="0.01" value="25">
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="wpc-field">
+
+                                        <label for="hoursPerWeek">
+                                            Hours per week
+                                        </label>
+
+                                        <input class="wpc-input" id="hoursPerWeek" type="number" min="0" max="168"
+                                            step="0.5" value="40">
+
+                                    </div>
+
+                                    <div class="wpc-field">
+
+                                        <label for="overtimeHours">
+                                            Overtime hours / week
+                                        </label>
+
+                                        <input class="wpc-input" id="overtimeHours" type="number" min="0" step="0.5"
+                                            value="0">
+
+                                    </div>
+
+                                    <div class="wpc-field">
+
+                                        <label for="overtimeMultiplier">
+                                            Overtime multiplier
+                                        </label>
+
+                                        <input class="wpc-input" id="overtimeMultiplier" type="number" min="1"
+                                            step="0.1" value="1.5">
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- TAX PROFILE -->
+
+                        <div class="wpc-section">
+
+                            <h3 class="wpc-section-title">
+
+                                <span class="wpc-section-number">
+                                    2
+                                </span>
+
+                                Tax profile
+
+                            </h3>
+
+                            <div class="wpc-grid">
+
+                                <div class="wpc-field">
+
+                                    <label for="filingStatus">
+                                        Filing status
+                                    </label>
+
+                                    <select class="wpc-select" id="filingStatus">
+
+                                        <option value="single">
+                                            Single
+                                        </option>
+
+                                        <option value="married">
+                                            Married filing jointly
+                                        </option>
+
+                                        <option value="hoh">
+                                            Head of household
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="wpc-field">
+
+                                    <label for="state">
+                                        State
+                                    </label>
+
+                                    <select class="wpc-select" id="state">
+
+                                        <option value="none">
+                                            No state income tax / None
+                                        </option>
+
+                                        <option value="alabama">
+                                            Alabama
+                                        </option>
+
+                                        <option value="alaska">
+                                            Alaska
+                                        </option>
+
+                                        <option value="arizona">
+                                            Arizona
+                                        </option>
+
+                                        <option value="arkansas">
+                                            Arkansas
+                                        </option>
+
+                                        <option value="california">
+                                            California
+                                        </option>
+
+                                        <option value="colorado">
+                                            Colorado
+                                        </option>
+
+                                        <option value="connecticut">
+                                            Connecticut
+                                        </option>
+
+                                        <option value="delaware">
+                                            Delaware
+                                        </option>
+
+                                        <option value="district-columbia">
+                                            District of Columbia
+                                        </option>
+
+                                        <option value="florida">
+                                            Florida
+                                        </option>
+
+                                        <option value="georgia">
+                                            Georgia
+                                        </option>
+
+                                        <option value="hawaii">
+                                            Hawaii
+                                        </option>
+
+                                        <option value="idaho">
+                                            Idaho
+                                        </option>
+
+                                        <option value="illinois">
+                                            Illinois
+                                        </option>
+
+                                        <option value="indiana">
+                                            Indiana
+                                        </option>
+
+                                        <option value="iowa">
+                                            Iowa
+                                        </option>
+
+                                        <option value="kansas">
+                                            Kansas
+                                        </option>
+
+                                        <option value="kentucky">
+                                            Kentucky
+                                        </option>
+
+                                        <option value="louisiana">
+                                            Louisiana
+                                        </option>
+
+                                        <option value="maine">
+                                            Maine
+                                        </option>
+
+                                        <option value="maryland">
+                                            Maryland
+                                        </option>
+
+                                        <option value="massachusetts">
+                                            Massachusetts
+                                        </option>
+
+                                        <option value="michigan">
+                                            Michigan
+                                        </option>
+
+                                        <option value="minnesota">
+                                            Minnesota
+                                        </option>
+
+                                        <option value="mississippi">
+                                            Mississippi
+                                        </option>
+
+                                        <option value="missouri">
+                                            Missouri
+                                        </option>
+
+                                        <option value="montana">
+                                            Montana
+                                        </option>
+
+                                        <option value="nebraska">
+                                            Nebraska
+                                        </option>
+
+                                        <option value="nevada">
+                                            Nevada
+                                        </option>
+
+                                        <option value="new-hampshire">
+                                            New Hampshire
+                                        </option>
+
+                                        <option value="new-jersey">
+                                            New Jersey
+                                        </option>
+
+                                        <option value="new-mexico">
+                                            New Mexico
+                                        </option>
+
+                                        <option value="new-york">
+                                            New York
+                                        </option>
+
+                                        <option value="north-carolina">
+                                            North Carolina
+                                        </option>
+
+                                        <option value="north-dakota">
+                                            North Dakota
+                                        </option>
+
+                                        <option value="ohio">
+                                            Ohio
+                                        </option>
+
+                                        <option value="oklahoma">
+                                            Oklahoma
+                                        </option>
+
+                                        <option value="oregon">
+                                            Oregon
+                                        </option>
+
+                                        <option value="pennsylvania">
+                                            Pennsylvania
+                                        </option>
+
+                                        <option value="rhode-island">
+                                            Rhode Island
+                                        </option>
+
+                                        <option value="south-carolina">
+                                            South Carolina
+                                        </option>
+
+                                        <option value="south-dakota">
+                                            South Dakota
+                                        </option>
+
+                                        <option value="tennessee">
+                                            Tennessee
+                                        </option>
+
+                                        <option value="texas">
+                                            Texas
+                                        </option>
+
+                                        <option value="utah">
+                                            Utah
+                                        </option>
+
+                                        <option value="vermont">
+                                            Vermont
+                                        </option>
+
+                                        <option value="virginia">
+                                            Virginia
+                                        </option>
+
+                                        <option value="washington">
+                                            Washington
+                                        </option>
+
+                                        <option value="west-virginia">
+                                            West Virginia
+                                        </option>
+
+                                        <option value="wisconsin">
+                                            Wisconsin
+                                        </option>
+
+                                        <option value="wyoming">
+                                            Wyoming
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="wpc-field">
+
+                                    <label for="dependents">
+                                        Dependents
+                                    </label>
+
+                                    <input class="wpc-input" id="dependents" type="number" min="0" step="1" value="0">
+
+                                </div>
+
+                                <div class="wpc-field">
+
+                                    <label for="localTaxRate">
+                                        Local tax rate
+                                    </label>
+
+                                    <input class="wpc-input" id="localTaxRate" type="number" min="0" max="20"
+                                        step="0.01" value="0">
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- PRE-TAX -->
+
+                        <div class="wpc-section">
+
+                            <h3 class="wpc-section-title">
+
+                                <span class="wpc-section-number">
+                                    3
+                                </span>
+
+                                Pre-tax deductions
+
+                            </h3>
+
+                            <div class="wpc-grid">
+
+                                <div class="wpc-field">
+
+                                    <label for="retirement401k">
+                                        401(k)
+                                    </label>
+
+                                    <div class="wpc-input-wrap">
+
+                                        <span class="wpc-prefix">
+                                            $
+                                        </span>
+
+                                        <input class="wpc-input has-prefix" id="retirement401k" type="number" min="0"
+                                            step="1" value="0">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="wpc-field">
+
+                                    <label for="healthInsurance">
+                                        Health insurance
+                                    </label>
+
+                                    <div class="wpc-input-wrap">
+
+                                        <span class="wpc-prefix">
+                                            $
+                                        </span>
+
+                                        <input class="wpc-input has-prefix" id="healthInsurance" type="number" min="0"
+                                            step="1" value="0">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="wpc-field">
+
+                                    <label for="hsa">
+                                        HSA
+                                    </label>
+
+                                    <div class="wpc-input-wrap">
+
+                                        <span class="wpc-prefix">
+                                            $
+                                        </span>
+
+                                        <input class="wpc-input has-prefix" id="hsa" type="number" min="0" step="1"
+                                            value="0">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="wpc-field">
+
+                                    <label for="fsa">
+                                        FSA
+                                    </label>
+
+                                    <div class="wpc-input-wrap">
+
+                                        <span class="wpc-prefix">
+                                            $
+                                        </span>
+
+                                        <input class="wpc-input has-prefix" id="fsa" type="number" min="0" step="1"
+                                            value="0">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="wpc-field full">
+
+                                    <label for="otherPretax">
+                                        Other pre-tax deductions
+                                    </label>
+
+                                    <div class="wpc-input-wrap">
+
+                                        <span class="wpc-prefix">
+                                            $
+                                        </span>
+
+                                        <input class="wpc-input has-prefix" id="otherPretax" type="number" min="0"
+                                            step="1" value="0">
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- POST TAX -->
+
+                        <div class="wpc-section">
+
+                            <h3 class="wpc-section-title">
+
+                                <span class="wpc-section-number">
+                                    4
+                                </span>
+
+                                Other deductions & withholding
+
+                            </h3>
+
+                            <div class="wpc-grid">
+
+                                <div class="wpc-field">
+
+                                    <label for="roth401k">
+                                        Roth 401(k)
+                                    </label>
+
+                                    <div class="wpc-input-wrap">
+
+                                        <span class="wpc-prefix">
+                                            $
+                                        </span>
+
+                                        <input class="wpc-input has-prefix" id="roth401k" type="number" min="0" step="1"
+                                            value="0">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="wpc-field">
+
+                                    <label for="loanRepayment">
+                                        Loan repayment
+                                    </label>
+
+                                    <div class="wpc-input-wrap">
+
+                                        <span class="wpc-prefix">
+                                            $
+                                        </span>
+
+                                        <input class="wpc-input has-prefix" id="loanRepayment" type="number" min="0"
+                                            step="1" value="0">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="wpc-field">
+
+                                    <label for="garnishments">
+                                        Garnishments
+                                    </label>
+
+                                    <div class="wpc-input-wrap">
+
+                                        <span class="wpc-prefix">
+                                            $
+                                        </span>
+
+                                        <input class="wpc-input has-prefix" id="garnishments" type="number" min="0"
+                                            step="1" value="0">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="wpc-field">
+
+                                    <label for="otherPosttax">
+                                        Other post-tax deductions
+                                    </label>
+
+                                    <div class="wpc-input-wrap">
+
+                                        <span class="wpc-prefix">
+                                            $
+                                        </span>
+
+                                        <input class="wpc-input has-prefix" id="otherPosttax" type="number" min="0"
+                                            step="1" value="0">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="wpc-field">
+
+                                    <label for="extraFederal">
+                                        Extra federal withholding
+                                    </label>
+
+                                    <div class="wpc-input-wrap">
+
+                                        <span class="wpc-prefix">
+                                            $
+                                        </span>
+
+                                        <input class="wpc-input has-prefix" id="extraFederal" type="number" min="0"
+                                            step="1" value="0">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="wpc-field">
+
+                                    <label for="extraState">
+                                        Extra state withholding
+                                    </label>
+
+                                    <div class="wpc-input-wrap">
+
+                                        <span class="wpc-prefix">
+                                            $
+                                        </span>
+
+                                        <input class="wpc-input has-prefix" id="extraState" type="number" min="0"
+                                            step="1" value="0">
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
                 </section>
 
-                <section class="content-section">
-                    <h2>What is time and a half?</h2>
 
-                    <p>
-                        Time and a half means an employee receives 1.5 times their regular hourly rate for qualifying
-                        overtime hours.
-                    </p>
+                <!-- =================================================
+                     RESULTS — RIGHT
+                ================================================= -->
 
-                    <p>
-                        For example, if your regular hourly rate is $20, a 1.5× overtime rate would be $30 per overtime
-                        hour.
-                    </p>
+                <aside class="wpc-result" id="resultPanel">
 
-                    <div class="info-box">
-                        <p>
-                            <strong> $20 × 1.5 = $30 overtime rate </strong>
-                        </p>
+                    <div class="wpc-result-header">
 
-                        <p>If you worked 8 qualifying overtime hours:</p>
+                        <div>
 
-                        <p>
-                            <strong> $30 × 8 = $240 overtime pay </strong>
-                        </p>
-                    </div>
-                </section>
+                            <div class="wpc-result-label">
+                                Estimated take-home
+                            </div>
 
-                <section class="content-section">
-                    <h2>2026 overtime pay information</h2>
+                            <div class="wpc-net-pay" id="netPay">
+                                $0.00
+                            </div>
 
-                    <p>
-                        Overtime rules can depend on federal law, state law, employee classification, and the
-                        circumstances of the work arrangement. The common 1.5× calculation used by this calculator is an
-                        estimate and does not determine whether particular hours legally qualify for overtime.
-                    </p>
+                            <div class="wpc-net-subtitle">
+                                per weekly paycheck
+                            </div>
 
-                    <p>
-                        Federal overtime requirements generally involve covered, nonexempt employees working more than
-                        40 hours in a workweek. There can be important exceptions and different rules for certain
-                        employees and occupations.
-                    </p>
+                        </div>
 
-                    <p>
-                        For an authoritative explanation of federal overtime requirements, consult the U.S. Department
-                        of Labor and applicable state labor authorities.
-                    </p>
-                </section>
+                        <div class="wpc-result-period">
+                            52 checks / year
+                        </div>
 
-                <section class="content-section">
-                    <h2>Does overtime increase your total pay?</h2>
-
-                    <p>
-                        Yes. If the overtime hours are paid in addition to your regular hours, your gross earnings
-                        increase by the overtime amount.
-                    </p>
-
-                    <p>
-                        However, gross overtime pay is not the same as take-home pay. Federal income tax, Social
-                        Security, Medicare, state taxes, and other deductions can reduce the amount that reaches your
-                        paycheck.
-                    </p>
-
-                    <p>
-                        For a broader estimate that includes taxes and deductions, use the
-                        <a href="/paycheck-tax-calculator/"> PaycheckMint Paycheck Calculator </a>.
-                    </p>
-                </section>
-
-                <section class="content-section">
-                    <h2>Overtime pay examples</h2>
-
-                    <h3>$20 per hour with 5 overtime hours</h3>
-
-                    <p>
-                        At $20 per hour, 40 regular hours produce $800 of regular weekly pay. With a 1.5× overtime rate,
-                        each overtime hour is worth $30. Five overtime hours add $150, resulting in an estimated $950
-                        gross weekly pay.
-                    </p>
-
-                    <h3>$30 per hour with 10 overtime hours</h3>
-
-                    <p>
-                        At $30 per hour, 40 regular hours produce $1,200 of regular weekly pay. A 1.5× overtime rate
-                        produces $45 per overtime hour. Ten overtime hours add $450, resulting in an estimated $1,650
-                        gross weekly pay.
-                    </p>
-                </section>
-
-                <section class="content-section">
-                    <h2>Overtime Pay Calculator FAQ</h2>
-
-                    <div class="faq-item">
-                        <h3>How is overtime pay calculated?</h3>
-
-                        <p>
-                            Multiply the regular hourly rate by the overtime multiplier and then multiply that overtime
-                            rate by the qualifying overtime hours.
-                        </p>
                     </div>
 
-                    <div class="faq-item">
-                        <h3>What is time and a half?</h3>
+                    <div class="wpc-result-rate">
 
-                        <p>
-                            Time and a half means 1.5 times the regular hourly rate. For example, a $24 hourly rate
-                            becomes $36 per overtime hour at 1.5×.
-                        </p>
+                        <span>
+                            Effective tax rate
+                        </span>
+
+                        <strong id="effectiveTaxRate">
+                            0.00%
+                        </strong>
+
                     </div>
 
-                    <div class="faq-item">
-                        <h3>Is overtime pay taxed?</h3>
+                    <div class="wpc-breakdown">
 
-                        <p>
-                            Generally, overtime wages are taxable income. The amount withheld from an actual paycheck
-                            depends on applicable federal, state, local, and payroll withholding rules.
-                        </p>
+                        <div class="wpc-breakdown-title">
+                            Paycheck breakdown
+                        </div>
+
+                        <div class="wpc-breakdown-row">
+
+                            <div class="wpc-breakdown-name">
+                                <span class="wpc-dot"></span>
+                                Gross pay
+                            </div>
+
+                            <div class="wpc-breakdown-value" id="grossPay">
+                                $0.00
+                            </div>
+
+                        </div>
+
+                        <div class="wpc-breakdown-row">
+
+                            <div class="wpc-breakdown-name">
+                                <span class="wpc-dot"></span>
+                                Federal tax
+                            </div>
+
+                            <div class="wpc-breakdown-value" id="federalTax">
+                                $0.00
+                            </div>
+
+                        </div>
+
+                        <div class="wpc-breakdown-row">
+
+                            <div class="wpc-breakdown-name">
+                                <span class="wpc-dot"></span>
+                                Social Security
+                            </div>
+
+                            <div class="wpc-breakdown-value" id="socialSecurity">
+                                $0.00
+                            </div>
+
+                        </div>
+
+                        <div class="wpc-breakdown-row">
+
+                            <div class="wpc-breakdown-name">
+                                <span class="wpc-dot"></span>
+                                Medicare
+                            </div>
+
+                            <div class="wpc-breakdown-value" id="medicare">
+                                $0.00
+                            </div>
+
+                        </div>
+
+                        <div class="wpc-breakdown-row">
+
+                            <div class="wpc-breakdown-name">
+                                <span class="wpc-dot"></span>
+                                State tax
+                            </div>
+
+                            <div class="wpc-breakdown-value" id="stateTax">
+                                $0.00
+                            </div>
+
+                        </div>
+
+                        <div class="wpc-breakdown-row">
+
+                            <div class="wpc-breakdown-name">
+                                <span class="wpc-dot"></span>
+                                Local tax
+                            </div>
+
+                            <div class="wpc-breakdown-value" id="localTax">
+                                $0.00
+                            </div>
+
+                        </div>
+
+                        <div class="wpc-breakdown-row">
+
+                            <div class="wpc-breakdown-name">
+                                <span class="wpc-dot"></span>
+                                Deductions
+                            </div>
+
+                            <div class="wpc-breakdown-value" id="deductions">
+                                $0.00
+                            </div>
+
+                        </div>
+
                     </div>
 
-                    <div class="faq-item">
-                        <h3>Does every overtime hour have to be paid at 1.5×?</h3>
 
-                        <p>
-                            Not necessarily. Overtime requirements can depend on federal law, state law, employee
-                            classification, employment agreements, and other circumstances.
-                        </p>
+                    <div class="wpc-chart-wrap">
+
+                        <div class="wpc-chart" id="resultChart">
+
+                            <div class="wpc-chart-center">
+
+                                <strong id="chartPercent">
+                                    0%
+                                </strong>
+
+                                <span>
+                                    take-home
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="wpc-chart-caption">
+                            Estimated paycheck allocation
+                        </div>
+
                     </div>
 
-                    <div class="faq-item">
-                        <h3>Can I use this calculator for annual overtime income?</h3>
 
-                        <p>
-                            Yes. Enter your expected weekly overtime hours and the number of weeks you expect to work
-                            during the year. The calculator will estimate your annual gross earnings.
-                        </p>
+                    <div class="wpc-result-summary">
+
+                        <div class="wpc-summary-card">
+
+                            <span>
+                                Annual gross
+                            </span>
+
+                            <strong id="annualGross">
+                                $0
+                            </strong>
+
+                        </div>
+
+                        <div class="wpc-summary-card">
+
+                            <span>
+                                Annual net
+                            </span>
+
+                            <strong id="annualNet">
+                                $0
+                            </strong>
+
+                        </div>
+
+                        <div class="wpc-summary-card">
+
+                            <span>
+                                Monthly net
+                            </span>
+
+                            <strong id="monthlyNet">
+                                $0
+                            </strong>
+
+                        </div>
+
+                        <div class="wpc-summary-card">
+
+                            <span>
+                                Biweekly net
+                            </span>
+
+                            <strong id="biweeklyNet">
+                                $0
+                            </strong>
+
+                        </div>
+
                     </div>
-                </section>
 
-                <section class="content-section">
-                    <h2>Methodology and limitations</h2>
+                </aside>
 
-                    <p>
-                        This calculator estimates gross overtime earnings from the hourly rate, regular hours, overtime
-                        hours, overtime multiplier, and weeks worked per year entered by the user.
-                    </p>
-
-                    <p>
-                        It does not determine whether you are legally entitled to overtime, calculate every possible
-                        state or local overtime rule, or replace an employer's payroll calculation.
-                    </p>
-
-                    <div class="disclaimer">
-                        <strong>Important:</strong>
-
-                        PaycheckMint provides estimates for informational and planning purposes. For questions about
-                        your legal overtime rights, consult the U.S. Department of Labor, your state labor agency, your
-                        employer, or a qualified professional.
-                    </div>
-                </section>
-            </article>
-        </main>
-
-        <!-- =========================================================
-         FOOTER
-    ========================================================== -->
-
-        <footer class="site-footer">
-            <div class="footer-inner">
-                <div class="footer-brand">
-                    <strong> PaycheckMint </strong>
-
-                    <p>Simple tools for understanding your paycheck.</p>
-                </div>
-
-                <nav class="footer-links" aria-label="Footer navigation">
-                    <a href="/"> Calculator </a>
-
-                    <a href="/about/"> About </a>
-
-                    <a href="/privacy-policy/"> Privacy </a>
-
-                    <a href="/terms/"> Terms </a>
-
-                    <a href="/contact/"> Contact </a>
-                </nav>
-
-                <p class="footer-copy">© 2026 PaycheckMint. All rights reserved.</p>
             </div>
-        </footer>
 
-        <!-- =========================================================
-         CALCULATOR JAVASCRIPT
-    ========================================================== -->
+        </section>
 
-        <script>
-            (function () {
-                "use strict";
 
-                const $ = (id) => document.getElementById(id);
+        <!-- =====================================================
+             CONTENT
+        ===================================================== -->
 
-                function number(id, fallback = 0) {
-                    const element = $(id);
+        <section class="wpc-container">
 
-                    if (!element) {
-                        return fallback;
-                    }
+            <div class="wpc-content-layout">
 
-                    const value = parseFloat(element.value);
+                <article class="wpc-article">
 
-                    return Number.isFinite(value) ? Math.max(0, value) : fallback;
+                    <h2>
+                        How the weekly paycheck calculator works
+                    </h2>
+
+                    <p>
+                        A weekly paycheck is paid once every seven days,
+                        resulting in 52 regular pay periods during a typical
+                        year. The IRS payroll tables specifically include
+                        weekly payroll as a 52-period schedule.
+                    </p>
+
+                    <p>
+                        This calculator starts with your gross pay and estimates
+                        federal income tax, Social Security, Medicare, state
+                        and local taxes, and the deductions you enter. The goal
+                        is to give you a useful estimate of what may reach your
+                        bank account from a normal weekly paycheck.
+                    </p>
+
+                    <div class="wpc-formula">
+                        Weekly gross pay = Annual gross pay ÷ 52
+                    </div>
+
+                    <h3>
+                        Salary vs. hourly weekly pay
+                    </h3>
+
+                    <table class="wpc-info-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>
+                                    Pay type
+                                </th>
+
+                                <th>
+                                    Basic calculation
+                                </th>
+
+                                <th>
+                                    Example
+                                </th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    Salary
+                                </td>
+
+                                <td>
+                                    Annual salary ÷ 52
+                                </td>
+
+                                <td>
+                                    $78,000 ÷ 52 = $1,500
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    Hourly
+                                </td>
+
+                                <td>
+                                    Hourly rate × hours worked per week
+                                </td>
+
+                                <td>
+                                    $25 × 40 hours = $1,000
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                    <h3>
+                        What taxes can reduce your paycheck?
+                    </h3>
+
+                    <p>
+                        Federal income tax withholding depends on your wages
+                        and the information supplied to your employer on Form
+                        W-4. Withholding amounts vary based on filing status,
+                        dependents, and extra adjustments.
+                    </p>
+
+                    <p>
+                        Social Security and Medicare are separate payroll taxes
+                        known as FICA taxes. For employees, Social Security is
+                        taxed at 6.2% and Medicare at 1.45% of gross income.
+                    </p>
+
+                    <h3>
+                        2026 federal tax assumptions
+                    </h3>
+
+                    <p>
+                        For 2026, the IRS lists a standard deduction of $16,100
+                        for single filers, $24,150 for heads of household, and
+                        $32,200 for married couples filing jointly. The federal
+                        income-tax system uses seven marginal rates ranging
+                        from 10% to 37%.
+                    </p>
+
+                    <p>
+                        This calculator annualizes your estimated taxable wages
+                        and applies those federal brackets to create a
+                        paycheck-level estimate. Actual payroll withholding can
+                        differ because employer payroll systems use IRS
+                        withholding procedures and your actual Form W-4
+                        information.
+                    </p>
+
+                    <h3>
+                        Why your weekly paycheck may change
+                    </h3>
+
+                    <p>
+                        Your paycheck can change even when your salary or hourly
+                        rate stays the same. Common causes include changes to
+                        your benefits, retirement contributions, tax withholding,
+                        overtime, bonuses, or other payroll deductions.
+                    </p>
+
+                    <h3>
+                        Weekly vs. biweekly pay
+                    </h3>
+
+                    <table class="wpc-info-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>
+                                    Schedule
+                                </th>
+
+                                <th>
+                                    Payments
+                                </th>
+
+                                <th>
+                                    Typical annual checks
+                                </th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    Weekly
+                                </td>
+
+                                <td>
+                                    Every week
+                                </td>
+
+                                <td>
+                                    52
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    Biweekly
+                                </td>
+
+                                <td>
+                                    Every 2 weeks
+                                </td>
+
+                                <td>
+                                    26
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                    <h3>
+                        What happens in a 53-paycheck year?
+                    </h3>
+
+                    <p>
+                        Because a non-leap year has 365 days (52 weeks plus 1 extra day),
+                        calendar dates shift over time. Depending on the weekday your
+                        payday falls on, certain calendar years may result in 53 weekly
+                        paychecks instead of 52.
+                    </p>
+
+                    <h3>
+                        Common mistakes when estimating weekly take-home pay
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Dividing annual salary by 48 instead of 52.
+                        </li>
+
+                        <li>
+                            Forgetting pre-tax retirement or healthcare deductions.
+                        </li>
+
+                        <li>
+                            Ignoring state or local income tax rates.
+                        </li>
+
+                        <li>
+                            Confusing weekly gross pay with monthly gross pay divided by 4.
+                        </li>
+
+                    </ul>
+
+                    <h3>
+                        Related Paycheck Calculators
+                    </h3>
+
+                    <p>
+                        If you are comparing different pay schedules or types
+                        of income, these PaycheckMint tools can help:
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            <a href="/paycheck-tax-calculator/">
+                                Paycheck Tax Calculator
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/take-home-pay-calculator/">
+                                Take-Home Pay Calculator
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/hourly-paycheck-calculator/">
+                                Hourly Paycheck Calculator
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/salary-paycheck-calculator/">
+                                Salary Paycheck Calculator
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/biweekly-paycheck-calculator/">
+                                Biweekly Paycheck Calculator
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/monthly-paycheck-calculator/">
+                                Monthly Paycheck Calculator
+                            </a>
+                        </li>
+
+                    </ul>
+
+
+                    <!-- FAQ -->
+
+                    <div class="wpc-faq">
+
+                        <h2>
+                            Frequently asked questions
+                        </h2>
+
+                        <details class="wpc-faq-item">
+
+                            <summary>
+                                How many weekly paychecks are there in a year?
+                            </summary>
+
+                            <p>
+                                A standard weekly payroll schedule produces 52 paychecks per year.
+                            </p>
+
+                        </details>
+
+                        <details class="wpc-faq-item">
+
+                            <summary>
+                                How do I calculate weekly pay from salary?
+                            </summary>
+
+                            <p>
+                                Divide your annual gross salary by 52. For
+                                example, a $78,000 salary produces $1,500 in
+                                gross pay per regular weekly paycheck before
+                                taxes and deductions.
+                            </p>
+
+                        </details>
+
+                        <details class="wpc-faq-item">
+
+                            <summary>
+                                Is weekly pay better than biweekly pay?
+                            </summary>
+
+                            <p>
+                                Weekly pay provides a steady cash flow every seven days,
+                                which can make budgeting easier for daily or weekly living expenses,
+                                though your overall annual take-home pay remains equivalent for the same annual income.
+                            </p>
+
+                        </details>
+
+                        <details class="wpc-faq-item">
+
+                            <summary>
+                                Why does my actual paycheck differ from the calculator?
+                            </summary>
+
+                            <p>
+                                Payroll withholding depends on your actual
+                                Form W-4 information, benefits, deductions,
+                                payroll system, state and local rules, and
+                                other circumstances.
+                            </p>
+
+                        </details>
+
+                        <details class="wpc-faq-item">
+
+                            <summary>
+                                Can I use this calculator for hourly workers?
+                            </summary>
+
+                            <p>
+                                Yes. Switch to hourly pay and enter your hourly
+                                rate, normal weekly hours, and overtime hours
+                                if applicable.
+                            </p>
+
+                        </details>
+
+                    </div>
+
+
+                    <div class="wpc-disclaimer">
+
+                        <strong>
+                            Calculator disclaimer:
+                        </strong>
+
+                        This calculator provides an estimate for educational
+                        and planning purposes. Actual paycheck withholding may
+                        differ based on your employer's payroll system, Form
+                        W-4 elections, tax credits, benefits, state and local
+                        tax rules, and other circumstances. For an official
+                        federal withholding calculation, use the IRS Tax
+                        Withholding Estimator and current IRS payroll guidance.
+
+                    </div>
+
+                </article>
+
+
+                <!-- SIDEBAR -->
+
+                <aside class="wpc-sidebar">
+
+                    <div class="wpc-sidebar-card">
+
+                        <h3>
+                            Paycheck tools
+                        </h3>
+
+                        <p>
+                            Compare your pay across different schedules and
+                            income types.
+                        </p>
+
+                        <div class="wpc-sidebar-links">
+
+                            <a href="/paycheck-tax-calculator/">
+                                Paycheck Tax Calculator
+                            </a>
+
+                            <a href="/take-home-pay-calculator/">
+                                Take-Home Pay Calculator
+                            </a>
+
+                            <a href="/hourly-paycheck-calculator/">
+                                Hourly Paycheck Calculator
+                            </a>
+
+                            <a href="/salary-paycheck-calculator/">
+                                Salary Paycheck Calculator
+                            </a>
+
+                            <a href="/biweekly-paycheck-calculator/">
+                                Biweekly Paycheck Calculator
+                            </a>
+
+                            <a href="/monthly-paycheck-calculator/">
+                                Monthly Paycheck Calculator
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="wpc-sidebar-card">
+
+                        <h3>
+                            Quick formula
+                        </h3>
+
+                        <p>
+                            For a salaried employee:
+                        </p>
+
+                        <div class="wpc-formula">
+                            Annual salary ÷ 52
+                        </div>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         SHARED FOOTER
+    ========================================================= -->
+
+    <footer class="pm-footer">
+
+        <div class="pm-footer-inner">
+
+            <div class="pm-footer-main">
+
+                <div class="pm-footer-grid">
+
+                    <div class="pm-footer-brand-column">
+
+                        <a class="pm-footer-brand" href="/">
+                            Paycheck<span>Mint</span>
+                        </a>
+
+                        <p class="pm-footer-description">
+                            Practical personal finance guides, paycheck tools,
+                            and calculators to help you make informed money decisions.
+                        </p>
+
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Money</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/income/">Income</a></li>
+                            <li><a href="/paycheck-tax-calculator/">Paycheck Calculator</a></li>
+                            <li><a href="/take-home-pay-calculator/">Take-Home Pay</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Finance</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/finance/taxes/">Taxes</a></li>
+                            <li><a href="/finance/budgeting/">Budgeting</a></li>
+                            <li><a href="/finance/credit-debt/">Credit &amp; Debt</a></li>
+                            <li><a href="/finance/investing/">Investing</a></li>
+                            <li><a href="/finance/insurance/">Insurance</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="pm-footer-heading">Company</h3>
+
+                        <ul class="pm-footer-links">
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/contact/">Contact</a></li>
+                            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="pm-footer-bottom">
+
+                <div class="pm-footer-copyright">
+                    © 2026 PaycheckMint. All rights reserved.
+                </div>
+
+                <div class="pm-footer-legal">
+                    <a href="/privacy-policy/">Privacy Policy</a>
+                    <a href="/terms/">Terms</a>
+                    <a href="/contact/">Contact</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         CALCULATOR SCRIPT
+         ========================================================= -->
+
+    <script>
+
+        (function () {
+
+            "use strict";
+
+            const PAY_PERIODS = 52;
+
+            const STANDARD_DEDUCTION = {
+                single: 16100,
+                married: 32200,
+                hoh: 24150
+            };
+
+            /*
+             * 2026 federal income-tax brackets.
+             * Source: IRS Revenue Procedure 2025-45.
+             */
+
+            const FEDERAL_BRACKETS = {
+
+                single: [
+                    [12400, 0.10],
+                    [50400, 0.12],
+                    [105700, 0.22],
+                    [201775, 0.24],
+                    [256225, 0.32],
+                    [640600, 0.35],
+                    [Infinity, 0.37]
+                ],
+
+                married: [
+                    [24800, 0.10],
+                    [100800, 0.12],
+                    [211400, 0.22],
+                    [403550, 0.24],
+                    [512450, 0.32],
+                    [768700, 0.35],
+                    [Infinity, 0.37]
+                ],
+
+                hoh: [
+                    [17700, 0.10],
+                    [67450, 0.12],
+                    [105700, 0.22],
+                    [201750, 0.24],
+                    [256200, 0.32],
+                    [640600, 0.35],
+                    [Infinity, 0.37]
+                ]
+
+            };
+
+
+            /*
+             * State effective-rate estimates.
+             */
+
+            const STATE_RATES = {
+
+                none: 0,
+
+                alabama: .040,
+                alaska: 0,
+                arizona: .025,
+                arkansas: .035,
+                california: .055,
+                colorado: .044,
+                connecticut: .045,
+                delaware: .035,
+                "district-columbia": .045,
+                florida: 0,
+                georgia: .040,
+                hawaii: .050,
+                idaho: .035,
+                illinois: .0495,
+                indiana: .0305,
+                iowa: .035,
+                kansas: .045,
+                kentucky: .035,
+                louisiana: .035,
+                maine: .045,
+                maryland: .045,
+                massachusetts: .050,
+                michigan: .0425,
+                minnesota: .055,
+                mississippi: .040,
+                missouri: .035,
+                montana: .050,
+                nebraska: .045,
+                nevada: 0,
+                "new-hampshire": 0,
+                "new-jersey": .035,
+                "new-mexico": .045,
+                "new-york": .055,
+                "north-carolina": .0399,
+                "north-dakota": .020,
+                ohio: .025,
+                oklahoma: .035,
+                oregon: .070,
+                pennsylvania: .0307,
+                "rhode-island": .040,
+                "south-carolina": .040,
+                "south-dakota": 0,
+                tennessee: 0,
+                texas: 0,
+                utah: .045,
+                vermont: .055,
+                virginia: .040,
+                washington: 0,
+                "west-virginia": .045,
+                wisconsin: .040,
+                wyoming: 0
+
+            };
+
+
+            function number(id) {
+
+                const element = document.getElementById(id);
+
+                if (!element) {
+                    return 0;
                 }
 
-                function money(value) {
-                    return new Intl.NumberFormat("en-US", {
-                        style: "currency",
-                        currency: "USD",
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2,
-                    }).format(Number(value) || 0);
-                }
+                const value = parseFloat(element.value);
 
-                function setText(id, value) {
-                    const element = $(id);
+                return Number.isFinite(value)
+                    ? Math.max(0, value)
+                    : 0;
 
-                    if (element) {
-                        element.textContent = value;
-                    }
-                }
+            }
 
-                function calculate() {
-                    const hourlyRate = number("hourlyRate");
 
-                    const regularHours = number("regularHours");
+            function money(value) {
 
-                    const overtimeHours = number("overtimeHours");
-
-                    const overtimeMultiplier = number("overtimeMultiplier", 1.5);
-
-                    const weeksPerYear = number("weeksPerYear", 52);
-
-                    /* Overtime hourly rate */
-                    const overtimeRate = hourlyRate * overtimeMultiplier;
-
-                    /* Weekly regular pay */
-                    const regularPay = hourlyRate * regularHours;
-
-                    /* Weekly overtime pay */
-                    const overtimePay = overtimeRate * overtimeHours;
-
-                    /* Weekly gross pay */
-                    const weeklyGross = regularPay + overtimePay;
-
-                    /* Total weekly hours */
-                    const totalHours = regularHours + overtimeHours;
-
-                    /* Annual gross */
-                    const annualGross = weeklyGross * weeksPerYear;
-
-                    /* Monthly gross */
-                    const monthlyGross = annualGross / 12;
-
-                    /* Update UI */
-
-                    setText("weeklyTotal", money(weeklyGross));
-
-                    setText("regularPay", money(regularPay));
-
-                    setText("overtimePay", money(overtimePay));
-
-                    setText("overtimeRate", money(overtimeRate));
-
-                    setText("totalHours", totalHours.toFixed(2));
-
-                    setText("monthlyPay", money(monthlyGross));
-
-                    setText("annualPay", money(annualGross));
-
-                    /* Public result */
-
-                    window.paycheckMintOvertimeResult = {
-                        hourlyRate,
-                        regularHours,
-                        overtimeHours,
-                        overtimeMultiplier,
-                        overtimeRate,
-                        regularPay,
-                        overtimePay,
-                        weeklyGross,
-                        totalHours,
-                        weeksPerYear,
-                        monthlyGross,
-                        annualGross,
-                    };
-                }
-
-                const calculateButton = $("calculate");
-
-                if (calculateButton) {
-                    calculateButton.addEventListener("click", calculate);
-                }
-
-                const fields = document.querySelectorAll(
-                    "#hourlyRate, #regularHours, #overtimeHours, #overtimeMultiplier, #weeksPerYear"
+                return new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                    maximumFractionDigits: 2
+                }).format(
+                    Number.isFinite(value) ? value : 0
                 );
 
-                fields.forEach(function (field) {
-                    field.addEventListener("input", calculate);
+            }
 
-                    field.addEventListener("change", calculate);
+
+            function wholeMoney(value) {
+
+                return new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                    maximumFractionDigits: 0
+                }).format(
+                    Number.isFinite(value) ? value : 0
+                );
+
+            }
+
+
+            function calculateFederalTax(taxableIncome, status) {
+
+                let remaining = Math.max(0, taxableIncome);
+                let previousLimit = 0;
+                let tax = 0;
+
+                const brackets =
+                    FEDERAL_BRACKETS[status] ||
+                    FEDERAL_BRACKETS.single;
+
+                for (let i = 0; i < brackets.length; i++) {
+
+                    const upperLimit = brackets[i][0];
+                    const rate = brackets[i][1];
+
+                    const taxableInBracket =
+                        Math.max(
+                            0,
+                            Math.min(
+                                remaining,
+                                upperLimit - previousLimit
+                            )
+                        );
+
+                    tax += taxableInBracket * rate;
+
+                    remaining -= taxableInBracket;
+
+                    previousLimit = upperLimit;
+
+                    if (remaining <= 0) {
+                        break;
+                    }
+
+                }
+
+                return Math.max(0, tax);
+
+            }
+
+
+            function calculateSalaryGross() {
+
+                const annualSalary =
+                    number("annualSalary");
+
+                return annualSalary / PAY_PERIODS;
+
+            }
+
+
+            function calculateHourlyGross() {
+
+                const rate =
+                    number("hourlyRate");
+
+                const hours =
+                    number("hoursPerWeek");
+
+                const overtimeHours =
+                    number("overtimeHours");
+
+                const overtimeMultiplier =
+                    Math.max(
+                        1,
+                        number("overtimeMultiplier") || 1.5
+                    );
+
+                const regularHours =
+                    Math.min(40, hours);
+
+                const overtimeBase =
+                    Math.max(0, overtimeHours);
+
+                const regularWeekly =
+                    rate * regularHours;
+
+                const overtimeWeekly =
+                    rate * overtimeBase * overtimeMultiplier;
+
+                return regularWeekly + overtimeWeekly;
+
+            }
+
+
+            function getGrossPay() {
+
+                const salaryMode =
+                    document
+                        .getElementById("salaryMode")
+                        .classList
+                        .contains("active");
+
+                if (salaryMode) {
+                    return calculateSalaryGross();
+                }
+
+                return calculateHourlyGross();
+
+            }
+
+
+            function calculate() {
+
+                const resultPanel =
+                    document.getElementById("resultPanel");
+
+                if (resultPanel) {
+                    resultPanel.classList.add("is-updating");
+                }
+
+
+                const gross =
+                    getGrossPay();
+
+
+                const status =
+                    document.getElementById("filingStatus").value;
+
+
+                const dependents =
+                    number("dependents");
+
+
+                const pretax401k =
+                    number("retirement401k");
+
+                const health =
+                    number("healthInsurance");
+
+                const hsa =
+                    number("hsa");
+
+                const fsa =
+                    number("fsa");
+
+                const otherPretax =
+                    number("otherPretax");
+
+
+                const pretax =
+                    pretax401k +
+                    health +
+                    hsa +
+                    fsa +
+                    otherPretax;
+
+
+                const usablePretax =
+                    Math.min(
+                        gross,
+                        pretax
+                    );
+
+
+                const taxableWages =
+                    Math.max(
+                        0,
+                        gross - usablePretax
+                    );
+
+
+                const annualTaxableWages =
+                    taxableWages * PAY_PERIODS;
+
+
+                const standardDeduction =
+                    STANDARD_DEDUCTION[status] ||
+                    STANDARD_DEDUCTION.single;
+
+
+                const annualTaxableIncome =
+                    Math.max(
+                        0,
+                        annualTaxableWages -
+                        standardDeduction
+                    );
+
+
+                let annualFederalTax =
+                    calculateFederalTax(
+                        annualTaxableIncome,
+                        status
+                    );
+
+
+                const dependentCredit =
+                    Math.min(
+                        annualFederalTax,
+                        dependents * 2200
+                    );
+
+
+                annualFederalTax =
+                    Math.max(
+                        0,
+                        annualFederalTax -
+                        dependentCredit
+                    );
+
+
+                const federalTax =
+                    annualFederalTax /
+                    PAY_PERIODS;
+
+
+                const socialSecurity =
+                    gross * 0.062;
+
+                const medicare =
+                    gross * 0.0145;
+
+
+                const state =
+                    document.getElementById("state").value;
+
+                const stateRate =
+                    STATE_RATES[state] || 0;
+
+
+                const stateTax =
+                    taxableWages *
+                    stateRate;
+
+
+                const localRate =
+                    number("localTaxRate") /
+                    100;
+
+
+                const localTax =
+                    taxableWages *
+                    localRate;
+
+
+                const extraFederal =
+                    number("extraFederal");
+
+
+                const extraState =
+                    number("extraState");
+
+
+                const roth401k =
+                    number("roth401k");
+
+                const loanRepayment =
+                    number("loanRepayment");
+
+                const garnishments =
+                    number("garnishments");
+
+                const otherPosttax =
+                    number("otherPosttax");
+
+
+                const postTaxDeductions =
+                    roth401k +
+                    loanRepayment +
+                    garnishments +
+                    otherPosttax;
+
+
+                const totalTax =
+                    federalTax +
+                    socialSecurity +
+                    medicare +
+                    stateTax +
+                    localTax +
+                    extraFederal +
+                    extraState;
+
+
+                const totalDeductions =
+                    usablePretax +
+                    postTaxDeductions;
+
+
+                const net =
+                    Math.max(
+                        0,
+                        gross -
+                        totalTax -
+                        totalDeductions
+                    );
+
+
+                const annualGross =
+                    gross * PAY_PERIODS;
+
+                const annualNet =
+                    net * PAY_PERIODS;
+
+                const monthlyNet =
+                    annualNet / 12;
+
+                const biweeklyNet =
+                    annualNet / 26;
+
+
+                const effectiveTaxRate =
+                    gross > 0
+                        ? (
+                            totalTax /
+                            gross
+                        ) * 100
+                        : 0;
+
+
+                const takeHomePercentage =
+                    gross > 0
+                        ? (
+                            net /
+                            gross
+                        ) * 100
+                        : 0;
+
+
+                /*
+                 * Update visible result immediately.
+                 */
+
+                setText("netPay", money(net));
+
+                setText("grossPay", money(gross));
+
+                setText(
+                    "federalTax",
+                    money(federalTax + extraFederal)
+                );
+
+                setText(
+                    "socialSecurity",
+                    money(socialSecurity)
+                );
+
+                setText(
+                    "medicare",
+                    money(medicare)
+                );
+
+                setText(
+                    "stateTax",
+                    money(stateTax + extraState)
+                );
+
+                setText(
+                    "localTax",
+                    money(localTax)
+                );
+
+                setText(
+                    "deductions",
+                    money(totalDeductions)
+                );
+
+                setText(
+                    "effectiveTaxRate",
+                    effectiveTaxRate.toFixed(2) + "%"
+                );
+
+                setText(
+                    "annualGross",
+                    wholeMoney(annualGross)
+                );
+
+                setText(
+                    "annualNet",
+                    wholeMoney(annualNet)
+                );
+
+                setText(
+                    "monthlyNet",
+                    wholeMoney(monthlyNet)
+                );
+
+                setText(
+                    "biweeklyNet",
+                    wholeMoney(biweeklyNet)
+                );
+
+                setText(
+                    "chartPercent",
+                    Math.round(
+                        takeHomePercentage
+                    ) + "%"
+                );
+
+
+                updateChart(
+                    gross,
+                    net,
+                    totalTax,
+                    totalDeductions
+                );
+
+
+                if (resultPanel) {
+
+                    requestAnimationFrame(function () {
+
+                        resultPanel.classList.remove(
+                            "is-updating"
+                        );
+
+                    });
+
+                }
+
+            }
+
+
+            function setText(id, value) {
+
+                const element =
+                    document.getElementById(id);
+
+                if (element) {
+                    element.textContent = value;
+                }
+
+            }
+
+
+            function updateChart(
+                gross,
+                net,
+                taxes,
+                deductions
+            ) {
+
+                const chart =
+                    document.getElementById(
+                        "resultChart"
+                    );
+
+                if (!chart || gross <= 0) {
+                    return;
+                }
+
+
+                const safeNet =
+                    Math.max(0, net);
+
+                const safeTaxes =
+                    Math.max(0, taxes);
+
+                const safeDeductions =
+                    Math.max(0, deductions);
+
+
+                const total =
+                    safeNet +
+                    safeTaxes +
+                    safeDeductions;
+
+
+                if (total <= 0) {
+                    return;
+                }
+
+
+                const netDegrees =
+                    safeNet / total * 360;
+
+                const taxDegrees =
+                    safeTaxes / total * 360;
+
+                const deductionDegrees =
+                    safeDeductions / total * 360;
+
+
+                const first =
+                    netDegrees;
+
+                const second =
+                    first + taxDegrees;
+
+                const third =
+                    second + deductionDegrees;
+
+
+                chart.style.background =
+                    `conic-gradient(
+                        #ffffff 0deg ${first}deg,
+                        #c9922e ${first}deg ${second}deg,
+                        rgba(255,255,255,.28) ${second}deg ${third}deg,
+                        rgba(255,255,255,.10) ${third}deg 360deg
+                    )`;
+
+            }
+
+
+            function setupModeButtons() {
+
+                const salaryMode =
+                    document.getElementById(
+                        "salaryMode"
+                    );
+
+                const hourlyMode =
+                    document.getElementById(
+                        "hourlyMode"
+                    );
+
+                const salaryFields =
+                    document.getElementById(
+                        "salaryFields"
+                    );
+
+                const hourlyFields =
+                    document.getElementById(
+                        "hourlyFields"
+                    );
+
+
+                salaryMode.addEventListener(
+                    "click",
+                    function () {
+
+                        salaryMode.classList.add(
+                            "active"
+                        );
+
+                        hourlyMode.classList.remove(
+                            "active"
+                        );
+
+                        salaryFields.hidden =
+                            false;
+
+                        hourlyFields.hidden =
+                            true;
+
+                        calculate();
+
+                    }
+                );
+
+
+                hourlyMode.addEventListener(
+                    "click",
+                    function () {
+
+                        hourlyMode.classList.add(
+                            "active"
+                        );
+
+                        salaryMode.classList.remove(
+                            "active"
+                        );
+
+                        salaryFields.hidden =
+                            true;
+
+                        hourlyFields.hidden =
+                            false;
+
+                        calculate();
+
+                    }
+                );
+
+            }
+
+
+            function setupInputs() {
+
+                const fields =
+                    document.querySelectorAll(
+                        ".wpc-input, .wpc-select"
+                    );
+
+
+                fields.forEach(function (field) {
+
+                    field.addEventListener(
+                        "input",
+                        calculate
+                    );
+
+                    field.addEventListener(
+                        "change",
+                        calculate
+                    );
+
                 });
 
-                calculate();
-            })();
-        </script>
+            }
 
-        <!-- =========================================================
-         NAVIGATION JAVASCRIPT
-    ========================================================== -->
 
-        <script>
-            (function () {
-                "use strict";
+            document.addEventListener(
+                "DOMContentLoaded",
+                function () {
 
-                document.addEventListener("DOMContentLoaded", function () {
-                    const menuToggle = document.getElementById("mobileMenuToggle");
+                    setupModeButtons();
 
-                    const mainNav = document.getElementById("main-navigation");
+                    setupInputs();
 
-                    const financeDropdown = document.getElementById("financeDropdown");
+                    calculate();
 
-                    const financeToggle = document.getElementById("financeToggle");
+                }
+            );
 
-                    if (!menuToggle || !mainNav) {
+        })();
+
+    </script>
+
+
+    <!-- =========================================================
+         SHARED NAVBAR / FOOTER / SEARCH SCRIPT
+    ========================================================= -->
+
+    <script>
+
+        (function () {
+
+            "use strict";
+
+
+            /* =====================================================
+               1. ASYNC COMPONENT LOADER
+            ===================================================== */
+
+            document.addEventListener(
+                "DOMContentLoaded",
+                function () {
+                    loadSharedComponents();
+                }
+            );
+
+
+            async function loadSharedComponents() {
+
+                const navbar =
+                    document.getElementById(
+                        "site-navbar"
+                    );
+
+                const footer =
+                    document.getElementById(
+                        "site-footer"
+                    );
+
+
+                try {
+
+                    const requests = [];
+
+
+                    if (navbar) {
+
+                        requests.push(
+
+                            fetch(
+                                "/components/navbar.html"
+                            )
+
+                                .then(
+                                    res =>
+                                        res.ok
+                                            ? res.text()
+                                            : Promise.reject(
+                                                "Navbar 404"
+                                            )
+                                )
+
+                                .then(
+                                    html => {
+                                        navbar.innerHTML =
+                                            html;
+                                    }
+                                )
+
+                        );
+
+                    }
+
+
+                    if (footer) {
+
+                        requests.push(
+
+                            fetch(
+                                "/components/footer.html"
+                            )
+
+                                .then(
+                                    res =>
+                                        res.ok
+                                            ? res.text()
+                                            : Promise.reject(
+                                                "Footer 404"
+                                            )
+                                )
+
+                                .then(
+                                    html => {
+                                        footer.innerHTML =
+                                            html;
+                                    }
+                                )
+
+                        );
+
+                    }
+
+
+                    await Promise.all(
+                        requests
+                    );
+
+
+                    setupScrollHeader();
+
+                }
+
+                catch (error) {
+
+                    console.error(
+                        "Component loading error:",
+                        error
+                    );
+
+                    setupScrollHeader();
+
+                }
+
+            }
+
+
+            /* =====================================================
+               2. EVENT DELEGATION
+            ===================================================== */
+
+            document.addEventListener(
+                "click",
+                function (event) {
+
+
+                    const dropdownBtn =
+                        event.target.closest(
+                            ".pm-nav-dropdown-button"
+                        );
+
+
+                    if (dropdownBtn) {
+
+                        event.stopPropagation();
+
+
+                        const currentDropdown =
+                            dropdownBtn.closest(
+                                ".pm-nav-dropdown"
+                            );
+
+
+                        const isOpen =
+                            currentDropdown.classList.contains(
+                                "is-open"
+                            );
+
+
+                        document
+                            .querySelectorAll(
+                                ".pm-nav-dropdown"
+                            )
+                            .forEach(
+                                d => {
+
+                                    d.classList.remove(
+                                        "is-open"
+                                    );
+
+
+                                    const btn =
+                                        d.querySelector(
+                                            ".pm-nav-dropdown-button"
+                                        );
+
+
+                                    if (btn) {
+
+                                        btn.setAttribute(
+                                            "aria-expanded",
+                                            "false"
+                                        );
+
+                                    }
+
+                                }
+                            );
+
+
+                        if (!isOpen) {
+
+                            currentDropdown.classList.add(
+                                "is-open"
+                            );
+
+
+                            dropdownBtn.setAttribute(
+                                "aria-expanded",
+                                "true"
+                            );
+
+                        }
+
+
+                        return;
+
+                    }
+
+
+                    if (
+                        !event.target.closest(
+                            ".pm-nav-dropdown"
+                        )
+                    ) {
+
+                        document
+                            .querySelectorAll(
+                                ".pm-nav-dropdown"
+                            )
+                            .forEach(
+                                d => {
+
+                                    d.classList.remove(
+                                        "is-open"
+                                    );
+
+
+                                    const btn =
+                                        d.querySelector(
+                                            ".pm-nav-dropdown-button"
+                                        );
+
+
+                                    if (btn) {
+
+                                        btn.setAttribute(
+                                            "aria-expanded",
+                                            "false"
+                                        );
+
+                                    }
+
+                                }
+                            );
+
+                    }
+
+
+                    /* MOBILE NAV */
+
+                    const mobileToggle =
+                        event.target.closest(
+                            "#mobileToggle"
+                        );
+
+
+                    if (mobileToggle) {
+
+                        event.stopPropagation();
+
+
+                        const mobileNav =
+                            document.getElementById(
+                                "mobileNav"
+                            );
+
+
+                        if (mobileNav) {
+
+                            const isOpen =
+                                mobileNav.classList.toggle(
+                                    "is-open"
+                                );
+
+
+                            mobileToggle.setAttribute(
+                                "aria-expanded",
+                                isOpen
+                                    ? "true"
+                                    : "false"
+                            );
+
+                        }
+
+
+                        return;
+
+                    }
+
+
+                    /* MOBILE FINANCE */
+
+                    const mobileFinanceToggle =
+                        event.target.closest(
+                            "#mobileFinanceToggle"
+                        );
+
+
+                    if (mobileFinanceToggle) {
+
+                        event.stopPropagation();
+
+
+                        const mobileFinanceLinks =
+                            document.getElementById(
+                                "mobileFinanceLinks"
+                            );
+
+
+                        if (mobileFinanceLinks) {
+
+                            const isOpen =
+                                mobileFinanceLinks.classList.toggle(
+                                    "is-open"
+                                );
+
+
+                            mobileFinanceToggle.setAttribute(
+                                "aria-expanded",
+                                isOpen
+                                    ? "true"
+                                    : "false"
+                            );
+
+                        }
+
+
+                        return;
+
+                    }
+
+
+                    /* SEARCH */
+
+                    const searchToggle =
+                        event.target.closest(
+                            "#searchToggle"
+                        );
+
+                    const mobileSearchBtn =
+                        event.target.closest(
+                            "#mobileSearchButton"
+                        );
+
+                    const searchClose =
+                        event.target.closest(
+                            "#searchClose"
+                        );
+
+                    const searchPanel =
+                        document.getElementById(
+                            "searchPanel"
+                        );
+
+
+                    if (
+                        searchToggle ||
+                        mobileSearchBtn
+                    ) {
+
+                        event.preventDefault();
+
+                        event.stopPropagation();
+
+
+                        const mobileNav =
+                            document.getElementById(
+                                "mobileNav"
+                            );
+
+
+                        if (mobileNav) {
+
+                            mobileNav.classList.remove(
+                                "is-open"
+                            );
+
+                        }
+
+
+                        if (searchPanel) {
+
+                            if (
+                                searchPanel.classList.contains(
+                                    "is-open"
+                                ) &&
+                                searchToggle
+                            ) {
+
+                                closeSearch();
+
+                            }
+
+                            else {
+
+                                openSearch();
+
+                            }
+
+                        }
+
+
+                        return;
+
+                    }
+
+
+                    if (searchClose) {
+
+                        event.preventDefault();
+
+                        closeSearch();
+
+                        return;
+
+                    }
+
+
+                    if (
+                        searchPanel &&
+                        searchPanel.classList.contains(
+                            "is-open"
+                        )
+                    ) {
+
+                        if (
+                            !searchPanel.contains(
+                                event.target
+                            )
+                        ) {
+
+                            closeSearch();
+
+                        }
+
+                    }
+
+                }
+            );
+
+
+            /* =====================================================
+               3. SEARCH
+            ===================================================== */
+
+            function openSearch() {
+
+                const searchPanel =
+                    document.getElementById(
+                        "searchPanel"
+                    );
+
+                const searchInput =
+                    document.getElementById(
+                        "siteSearch"
+                    );
+
+                const searchToggle =
+                    document.getElementById(
+                        "searchToggle"
+                    );
+
+
+                if (!searchPanel) {
+                    return;
+                }
+
+
+                searchPanel.classList.add(
+                    "is-open"
+                );
+
+
+                if (searchToggle) {
+
+                    searchToggle.setAttribute(
+                        "aria-expanded",
+                        "true"
+                    );
+
+                    searchToggle.setAttribute(
+                        "aria-label",
+                        "Close search"
+                    );
+
+                }
+
+
+                if (searchInput) {
+
+                    setTimeout(
+                        function () {
+                            searchInput.focus();
+                        },
+                        100
+                    );
+
+                }
+
+            }
+
+
+            function closeSearch() {
+
+                const searchPanel =
+                    document.getElementById(
+                        "searchPanel"
+                    );
+
+                const searchInput =
+                    document.getElementById(
+                        "siteSearch"
+                    );
+
+                const searchResults =
+                    document.getElementById(
+                        "searchResults"
+                    );
+
+                const searchToggle =
+                    document.getElementById(
+                        "searchToggle"
+                    );
+
+
+                if (!searchPanel) {
+                    return;
+                }
+
+
+                searchPanel.classList.remove(
+                    "is-open"
+                );
+
+
+                if (searchToggle) {
+
+                    searchToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                    searchToggle.setAttribute(
+                        "aria-label",
+                        "Open search"
+                    );
+
+                }
+
+
+                if (searchInput) {
+
+                    searchInput.value = "";
+
+                }
+
+
+                if (searchResults) {
+
+                    searchResults.innerHTML = "";
+
+                }
+
+            }
+
+
+            document.addEventListener(
+                "keydown",
+                function (event) {
+
+                    if (
+                        event.key === "Escape"
+                    ) {
+
+                        closeSearch();
+
+                    }
+
+                }
+            );
+
+
+            document.addEventListener(
+                "input",
+                function (event) {
+
+                    if (
+                        event.target.id !==
+                        "siteSearch"
+                    ) {
                         return;
                     }
 
-                    /* =====================================================
-                       FINANCE DROPDOWN
-                    ===================================================== */
 
-                    function closeFinance() {
-                        if (!financeDropdown || !financeToggle) {
-                            return;
-                        }
+                    const query =
+                        event.target.value
+                            .trim()
+                            .toLowerCase();
 
-                        financeDropdown.classList.remove("open");
 
-                        financeToggle.setAttribute("aria-expanded", "false");
+                    const searchResults =
+                        document.getElementById(
+                            "searchResults"
+                        );
+
+
+                    if (!searchResults) {
+                        return;
                     }
 
-                    function toggleFinance(event) {
-                        event.preventDefault();
-                        event.stopPropagation();
 
-                        if (financeDropdown.classList.contains("open")) {
-                            closeFinance();
-                        } else {
-                            financeDropdown.classList.add("open");
+                    if (
+                        query.length === 0
+                    ) {
 
-                            financeToggle.setAttribute("aria-expanded", "true");
-                        }
+                        searchResults.innerHTML =
+                            "";
+
+                        return;
+
                     }
 
-                    if (financeToggle) {
-                        financeToggle.addEventListener("click", toggleFinance);
+
+                    const searchablePages = [
+
+                        {
+                            title:
+                                "Paycheck Tax Calculator",
+
+                            url:
+                                "/paycheck-tax-calculator/",
+
+                            description:
+                                "Calculate estimated net pay and paycheck taxes."
+                        },
+
+                        {
+                            title:
+                                "Take-Home Pay Calculator",
+
+                            url:
+                                "/take-home-pay-calculator/",
+
+                            description:
+                                "Estimate your paycheck after taxes and deductions."
+                        },
+
+                        {
+                            title:
+                                "Hourly Paycheck Calculator",
+
+                            url:
+                                "/hourly-paycheck-calculator/",
+
+                            description:
+                                "Calculate paycheck income from hourly wages."
+                        },
+
+                        {
+                            title:
+                                "Overtime Pay Calculator",
+
+                            url:
+                                "/overtime-pay-calculator/",
+
+                            description:
+                                "Estimate overtime pay and total wages."
+                        },
+
+                        {
+                            title:
+                                "Salary Paycheck Calculator",
+
+                            url:
+                                "/salary-paycheck-calculator/",
+
+                            description:
+                                "Break down salary into paycheck amounts."
+                        },
+
+                        {
+                            title:
+                                "Weekly Paycheck Calculator",
+
+                            url:
+                                "/weekly-paycheck-calculator/",
+
+                            description:
+                                "Estimate weekly take-home pay."
+                        },
+
+                        {
+                            title:
+                                "Biweekly Paycheck Calculator",
+
+                            url:
+                                "/biweekly-paycheck-calculator/",
+
+                            description:
+                                "Estimate take-home pay every two weeks."
+                        },
+
+                        {
+                            title:
+                                "Monthly Paycheck Calculator",
+
+                            url:
+                                "/monthly-paycheck-calculator/",
+
+                            description:
+                                "Estimate monthly paycheck income."
+                        },
+
+                        {
+                            title:
+                                "Income Overview",
+
+                            url:
+                                "/income/",
+
+                            description:
+                                "Learn about income, earnings and take-home pay."
+                        },
+
+                        {
+                            title:
+                                "Finance Overview",
+
+                            url:
+                                "/finance/",
+
+                            description:
+                                "Explore personal finance guides."
+                        },
+
+                        {
+                            title:
+                                "Budgeting Guides",
+
+                            url:
+                                "/finance/budgeting/",
+
+                            description:
+                                "Learn practical budgeting strategies."
+                        }
+
+                    ];
+
+
+                    const matches =
+                        searchablePages.filter(
+                            page =>
+                                page.title
+                                    .toLowerCase()
+                                    .includes(query) ||
+
+                                page.description
+                                    .toLowerCase()
+                                    .includes(query)
+                        );
+
+
+                    if (
+                        matches.length === 0
+                    ) {
+
+                        searchResults.innerHTML =
+                            `<p class="pm-search-no-results">
+                                No results found for
+                                "${escapeHTML(query)}"
+                            </p>`;
+
+                        return;
+
                     }
 
-                    /* =====================================================
-                       MOBILE MENU
-                    ===================================================== */
 
-                    function openMenu() {
-                        mainNav.classList.add("mobile-open");
+                    searchResults.innerHTML =
+                        matches
+                            .map(
+                                item => `
 
-                        menuToggle.classList.add("open");
+                                    <a
+                                        href="${item.url}"
+                                        class="pm-search-result-item">
 
-                        menuToggle.setAttribute("aria-expanded", "true");
+                                        <span
+                                            class="pm-search-result-title">
 
-                        menuToggle.setAttribute("aria-label", "Close navigation");
+                                            ${escapeHTML(
+                                    item.title
+                                )}
+
+                                        </span>
+
+                                        <span
+                                            class="pm-search-result-desc">
+
+                                            ${escapeHTML(
+                                    item.description
+                                )}
+
+                                        </span>
+
+                                    </a>
+
+                                `
+                            )
+                            .join("");
+
+                }
+            );
+
+
+            function escapeHTML(str) {
+
+                return str.replace(
+                    /[&<>'"]/g,
+                    tag => ({
+                        "&":
+                            "&amp;",
+
+                        "<":
+                            "&lt;",
+
+                        ">":
+                            "&gt;",
+
+                        "'":
+                            "&#39;",
+
+                        '"':
+                            "&quot;"
+
+                    }[tag] || tag)
+                );
+
+            }
+
+
+            /* =====================================================
+               4. SCROLL HEADER
+            ===================================================== */
+
+            function setupScrollHeader() {
+
+                const header =
+                    document.getElementById(
+                        "site-header"
+                    );
+
+
+                if (!header) {
+                    return;
+                }
+
+
+                window.addEventListener(
+                    "scroll",
+                    function () {
+
+                        if (
+                            window.scrollY > 20
+                        ) {
+
+                            header.classList.add(
+                                "is-scrolled"
+                            );
+
+                        }
+
+                        else {
+
+                            header.classList.remove(
+                                "is-scrolled"
+                            );
+
+                        }
+
+                    },
+                    {
+                        passive: true
                     }
+                );
 
-                    function closeMenu() {
-                        mainNav.classList.remove("mobile-open");
+            }
 
-                        menuToggle.classList.remove("open");
+        })();
 
-                        menuToggle.setAttribute("aria-expanded", "false");
+    </script>
 
-                        menuToggle.setAttribute("aria-label", "Open navigation");
+</body>
 
-                        closeFinance();
-                    }
-
-                    function toggleMenu() {
-                        if (mainNav.classList.contains("mobile-open")) {
-                            closeMenu();
-                        } else {
-                            openMenu();
-                        }
-                    }
-
-                    menuToggle.addEventListener("click", function (event) {
-                        event.preventDefault();
-                        event.stopPropagation();
-
-                        toggleMenu();
-                    });
-
-                    /* =====================================================
-                       NAVIGATION LINKS
-                    ===================================================== */
-
-                    mainNav.querySelectorAll("a").forEach(function (link) {
-                        link.addEventListener("click", function () {
-                            closeMenu();
-                        });
-                    });
-
-                    /* =====================================================
-                       OUTSIDE CLICK
-                    ===================================================== */
-
-                    document.addEventListener("click", function (event) {
-                        if (!event.target.closest(".site-header")) {
-                            closeMenu();
-                        }
-                    });
-
-                    /* =====================================================
-                       ESCAPE KEY
-                    ===================================================== */
-
-                    document.addEventListener("keydown", function (event) {
-                        if (event.key === "Escape") {
-                            closeMenu();
-                        }
-                    });
-
-                    /* =====================================================
-                       RESIZE
-                    ===================================================== */
-
-                    window.addEventListener("resize", function () {
-                        if (window.innerWidth > 760) {
-                            closeMenu();
-                        }
-                    });
-                });
-            })();
-        </script>
-    </body>
 </html>
