@@ -16,6 +16,7 @@
     <link rel="canonical" href="https://paycheckmint.com/">
 
     <link rel="icon" href="/icon.ico" />
+    <link rel="stylesheet" href="/style.css">
 
     <meta property="og:type" content="website">
 
@@ -25,19 +26,11 @@
 
     <meta property="og:description"
         content="Practical U.S. personal finance tools and guides for paychecks, income, taxes, budgeting, debt, and saving.">
-
-    <meta property="og:image"
-        content="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=85">
-
     <meta name="twitter:card" content="summary_large_image">
 
     <meta name="twitter:title" content="PaycheckMint | Personal Finance Tools & Guides">
 
     <meta name="twitter:description" content="Practical U.S. personal finance tools and guides.">
-
-    <meta name="twitter:image"
-        content="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=85">
-
     <style>
         /* =========================================================
            PAYCHECKMINT HOMEPAGE
@@ -108,398 +101,7 @@
             margin: 0 auto;
         }
 
-        /* =========================================================
-           HEADER
-        ========================================================== */
-
-        .pm-header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, .97);
-            border-bottom: 1px solid var(--home-border);
-            backdrop-filter: blur(12px);
-        }
-
-        .pm-header-inner {
-            width: min(1200px, calc(100% - 40px));
-            height: 68px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 24px;
-        }
-
-        .pm-brand {
-            flex: 0 0 auto;
-            text-decoration: none;
-            color: var(--home-primary);
-            font-size: 24px;
-            line-height: 1;
-            font-weight: 800;
-            letter-spacing: -0.7px;
-        }
-
-        .pm-brand span {
-            color: var(--home-accent);
-        }
-
-        .pm-desktop-nav {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            flex: 1;
-        }
-
-        .pm-nav-link,
-        .pm-nav-dropdown-button {
-            border: 0;
-            background: transparent;
-            color: var(--home-text);
-            text-decoration: none;
-            font: inherit;
-            font-size: 14px;
-            font-weight: 650;
-            padding: 10px 13px;
-            border-radius: 8px;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            white-space: nowrap;
-        }
-
-        .pm-nav-link:hover,
-        .pm-nav-dropdown-button:hover {
-            background: var(--home-soft);
-            color: var(--home-primary);
-        }
-
-        .pm-chevron {
-            width: 14px;
-            height: 14px;
-            transition: transform .2s ease;
-        }
-
-        .pm-nav-dropdown {
-            position: relative;
-        }
-
-        .pm-nav-dropdown.open .pm-chevron {
-            transform: rotate(180deg);
-        }
-
-        .pm-dropdown-menu {
-            position: absolute;
-            top: calc(100% + 10px);
-            left: 0;
-            width: 260px;
-            padding: 10px;
-            background: #fff;
-            border: 1px solid var(--home-border);
-            border-radius: 12px;
-            box-shadow: var(--home-shadow);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-5px);
-            transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
-        }
-
-        .pm-nav-dropdown.open .pm-dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .pm-dropdown-label {
-            display: block;
-            padding: 8px 10px 6px;
-            color: #87918C;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-        }
-
-        .pm-dropdown-menu a {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px;
-            border-radius: 8px;
-            color: var(--home-text);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .pm-dropdown-menu a:hover {
-            background: var(--home-soft);
-            color: var(--home-primary);
-        }
-
-        .pm-nav-spacer {
-            flex: 1;
-        }
-
-        .pm-search-button {
-            width: 40px;
-            height: 40px;
-            border: 1px solid transparent;
-            border-radius: 50%;
-            background: transparent;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--home-text);
-            cursor: pointer;
-        }
-
-        .pm-search-button:hover {
-            background: var(--home-soft);
-            color: var(--home-primary);
-        }
-
-        .pm-search-button svg {
-            width: 19px;
-            height: 19px;
-        }
-
-        .pm-header-cta {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 40px;
-            padding: 0 16px;
-            border-radius: 9px;
-            background: var(--home-primary);
-            color: #fff;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 750;
-            white-space: nowrap;
-            transition: background .2s ease, transform .2s ease;
-        }
-
-        .pm-header-cta:hover {
-            background: var(--home-primary-dark);
-            color: #fff;
-            transform: translateY(-1px);
-        }
-
-        .pm-mobile-toggle {
-            display: none;
-            width: 42px;
-            height: 42px;
-            border: 1px solid var(--home-border);
-            border-radius: 9px;
-            background: #fff;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            flex: 0 0 auto;
-        }
-
-        .pm-mobile-toggle svg {
-            width: 21px;
-            height: 21px;
-        }
-
-        /* =========================================================
-           SEARCH PANEL
-        ========================================================== */
-
-        .pm-search-panel {
-            display: none;
-            border-top: 1px solid var(--home-border);
-            background: #fff;
-            box-shadow: 0 10px 25px rgba(23, 32, 29, .06);
-        }
-
-        .pm-search-panel.open {
-            display: block;
-        }
-
-        .pm-search-inner {
-            width: min(900px, calc(100% - 40px));
-            margin: 0 auto;
-            padding: 14px 0 16px;
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .pm-search-field {
-            position: relative;
-            flex: 1;
-        }
-
-        .pm-search-field svg {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 18px;
-            height: 18px;
-            color: var(--home-muted);
-            pointer-events: none;
-        }
-
-        .pm-search-input {
-            width: 100%;
-            height: 48px;
-            padding: 0 48px;
-            border: 1px solid var(--home-border);
-            border-radius: 10px;
-            outline: none;
-            background: var(--home-bg);
-            color: var(--home-text);
-            font: inherit;
-            font-size: 15px;
-        }
-
-        .pm-search-input:focus {
-            border-color: var(--home-primary);
-            box-shadow: 0 0 0 3px rgba(23, 107, 91, .1);
-        }
-
-        .pm-search-close {
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 34px;
-            height: 34px;
-            border: 0;
-            border-radius: 7px;
-            background: transparent;
-            cursor: pointer;
-            color: var(--home-muted);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .pm-search-close:hover {
-            background: var(--home-border);
-            color: var(--home-text);
-        }
-
-        .pm-search-results {
-            width: min(900px, calc(100% - 40px));
-            margin: -4px auto 14px;
-            display: none;
-        }
-
-        .pm-search-results.visible {
-            display: block;
-        }
-
-        .pm-search-result {
-            display: block;
-            padding: 12px 14px;
-            border: 1px solid var(--home-border);
-            border-radius: 9px;
-            margin-top: 8px;
-            background: #fff;
-            color: var(--home-text);
-            text-decoration: none;
-        }
-
-        .pm-search-result:hover {
-            border-color: var(--home-primary);
-            background: var(--home-soft);
-        }
-
-        .pm-search-result strong {
-            display: block;
-            margin-bottom: 3px;
-            font-size: 14px;
-        }
-
-        .pm-search-result span {
-            color: var(--home-muted);
-            font-size: 12px;
-        }
-
-        .pm-search-empty {
-            padding: 14px;
-            color: var(--home-muted);
-            font-size: 14px;
-        }
-
-        /* =========================================================
-           MOBILE NAV
-        ========================================================== */
-
-        .pm-mobile-nav {
-            display: none;
-            border-top: 1px solid var(--home-border);
-            background: #fff;
-            max-height: calc(100vh - 68px);
-            overflow-y: auto;
-        }
-
-        .pm-mobile-nav.open {
-            display: block;
-        }
-
-        .pm-mobile-nav-inner {
-            width: min(1200px, calc(100% - 36px));
-            margin: 0 auto;
-            padding: 10px 0 20px;
-        }
-
-        .pm-mobile-nav a,
-        .pm-mobile-finance-button {
-            width: 100%;
-            min-height: 46px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 12px;
-            border: 0;
-            border-radius: 8px;
-            background: transparent;
-            color: var(--home-text);
-            text-decoration: none;
-            font: inherit;
-            font-size: 15px;
-            font-weight: 650;
-            text-align: left;
-            cursor: pointer;
-        }
-
-        .pm-mobile-nav a:hover,
-        .pm-mobile-finance-button:hover {
-            background: var(--home-soft);
-        }
-
-        .pm-mobile-finance-links {
-            display: none;
-            padding: 4px 0 8px 12px;
-        }
-
-        .pm-mobile-finance-links.open {
-            display: block;
-        }
-
-        .pm-mobile-finance-links a {
-            min-height: 40px;
-            font-size: 14px;
-            font-weight: 550;
-            color: var(--home-muted);
-        }
-
-        .pm-mobile-search-row {
-            display: flex;
-            gap: 8px;
-            margin-top: 8px;
-        }
-
-        .pm-mobile-search-row button {
-            flex: 1;
-        }
+    
 
         /* =========================================================
            HERO
@@ -559,6 +161,7 @@
 
         .pm-hero-actions {
             display: flex !important;
+            flex-direction: row !important;
             flex-wrap: wrap;
             gap: 12px;
             margin-top: 28px;
@@ -566,6 +169,8 @@
 
         .pm-button-primary,
         .pm-button-secondary {
+            min-width: 250px;
+            max-width: 300px;
             min-height: 46px;
             padding: 0 19px;
             border-radius: 9px;
@@ -998,7 +603,8 @@
         }
 
         /* =========================================================
-           TOPICS CAROUSEL - DIFFERENT DESIGN
+           TOPICS CAROUSEL - ICON DESIGN
+           Lightweight CSS/SVG visuals; no external image requests.
         ========================================================== */
 
         .pm-topics-track {
@@ -1018,61 +624,141 @@
             background: #fff;
             border: 1px solid var(--home-border);
             text-decoration: none;
-            color: #fff;
-            transition: transform .2s ease, box-shadow .2s ease;
+            color: var(--home-text);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            isolation: isolate;
+            transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
         }
 
-        .pm-topic-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--home-shadow);
-        }
-
-        .pm-topic-card img {
+        .pm-topic-card::before {
+            content: "";
             position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+            z-index: -2;
+            width: 180px;
+            height: 180px;
+            top: -70px;
+            right: -55px;
+            border-radius: 50%;
+            background: var(--topic-soft, #EEF5F2);
         }
 
         .pm-topic-card::after {
             content: "";
             position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg,
-                    rgba(0, 0, 0, .02) 25%,
-                    rgba(0, 0, 0, .76) 100%);
+            z-index: -1;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 5px;
+            background: var(--topic-accent, var(--home-primary));
+        }
+
+        .pm-topic-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--topic-accent, var(--home-primary));
+            box-shadow: var(--home-shadow);
+        }
+
+        .pm-topic-visual {
+            width: 62px;
+            height: 62px;
+            flex: 0 0 62px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 17px;
+            background: var(--topic-soft, var(--home-soft));
+            color: var(--topic-accent, var(--home-primary));
+            border: 1px solid rgba(23, 32, 29, .05);
+        }
+
+        .pm-topic-visual svg {
+            width: 30px;
+            height: 30px;
+            stroke: currentColor;
         }
 
         .pm-topic-content {
-            position: absolute;
+            position: relative;
             z-index: 2;
-            left: 18px;
-            right: 18px;
-            bottom: 17px;
+            margin-top: auto;
         }
 
         .pm-topic-number {
             display: block;
             margin-bottom: 7px;
-            color: rgba(255, 255, 255, .7);
+            color: var(--topic-accent, var(--home-primary));
             font-size: 11px;
-            font-weight: 800;
+            font-weight: 850;
             letter-spacing: .08em;
         }
 
         .pm-topic-content h3 {
             margin: 0;
+            color: var(--home-text);
             font-size: 21px;
             line-height: 1.1;
+            letter-spacing: -.35px;
         }
 
         .pm-topic-content p {
-            margin: 6px 0 0;
-            color: rgba(255, 255, 255, .8);
+            margin: 7px 0 0;
+            color: var(--home-muted);
             font-size: 12px;
-            line-height: 1.45;
+            line-height: 1.5;
+        }
+
+        .pm-topic-arrow {
+            position: absolute;
+            top: 20px;
+            right: 18px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--topic-accent, var(--home-primary));
+            background: rgba(255, 255, 255, .72);
+            border: 1px solid rgba(23, 32, 29, .06);
+        }
+
+        .pm-topic-arrow svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        .pm-topic-card:nth-child(1) {
+            --topic-accent: #176B5B;
+            --topic-soft: #EAF4F1;
+        }
+
+        .pm-topic-card:nth-child(2) {
+            --topic-accent: #B7791F;
+            --topic-soft: #FBF2DF;
+        }
+
+        .pm-topic-card:nth-child(3) {
+            --topic-accent: #397B67;
+            --topic-soft: #EAF3EF;
+        }
+
+        .pm-topic-card:nth-child(4) {
+            --topic-accent: #5B5FA8;
+            --topic-soft: #F0F0FA;
+        }
+
+        .pm-topic-card:nth-child(5) {
+            --topic-accent: #287A78;
+            --topic-soft: #E8F5F4;
+        }
+
+        .pm-topic-card:nth-child(6) {
+            --topic-accent: #8A6B32;
+            --topic-soft: #F6F0E4;
         }
 
         /* =========================================================
@@ -1097,13 +783,6 @@
         .pm-guide-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--home-shadow);
-        }
-
-        .pm-guide-image {
-            width: 100%;
-            height: 205px;
-            display: block;
-            object-fit: cover;
         }
 
         .pm-guide-body {
@@ -1335,7 +1014,8 @@
             position: relative;
             z-index: 2;
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: row;
+            flex-wrap: wrap !important;
             gap: 10px;
             margin-top: 25px;
         }
@@ -1361,89 +1041,14 @@
             color: #fff;
         }
 
-        /* =========================================================
-           FOOTER
-        ========================================================== */
-
-        .pm-footer {
-            border-top: 1px solid var(--home-border);
-            background: var(--home-bg);
-        }
-
-        .pm-footer-main {
-            width: min(1200px, calc(100% - 40px));
-            margin: 0 auto;
-            padding: 52px 0 42px;
-            display: grid;
-            grid-template-columns: 1.35fr repeat(3, 1fr);
-            gap: 40px;
-        }
-
-        .pm-footer-brand {
-            color: var(--home-primary);
-            text-decoration: none;
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: -.7px;
-        }
-
-        .pm-footer-brand span {
-            color: var(--home-accent);
-        }
-
-        .pm-footer-description {
-            max-width: 300px;
-            margin: 13px 0 0;
-            color: var(--home-muted);
-            font-size: 13px;
-            line-height: 1.65;
-        }
-
-        .pm-footer-column h3 {
-            margin: 0 0 13px;
-            color: var(--home-text);
-            font-size: 13px;
-        }
-
-        .pm-footer-column a {
-            display: block;
-            width: fit-content;
-            margin: 8px 0;
-            color: var(--home-muted);
-            text-decoration: none;
-            font-size: 13px;
-        }
-
-        .pm-footer-column a:hover {
-            color: var(--home-primary);
-        }
-
-        .pm-footer-bottom {
-            width: min(1200px, calc(100% - 40px));
-            margin: 0 auto;
-            padding: 18px 0;
-            border-top: 1px solid var(--home-border);
-            color: var(--home-muted);
-            font-size: 12px;
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-        }
+        
 
         /* =========================================================
            RESPONSIVE
         ========================================================== */
 
         @media (max-width: 1050px) {
-            .pm-desktop-nav {
-                gap: 0;
-            }
-
-            .pm-nav-link,
-            .pm-nav-dropdown-button {
-                padding-left: 9px;
-                padding-right: 9px;
-            }
+            
 
             .pm-header-cta {
                 padding: 0 12px;
@@ -1455,33 +1060,6 @@
         }
 
         @media (max-width: 900px) {
-
-            .pm-header-inner {
-                width: min(100% - 28px, 1200px);
-                height: 64px;
-                gap: 10px;
-            }
-
-            .pm-desktop-nav,
-            .pm-header-cta {
-                display: none;
-            }
-
-            .pm-nav-spacer {
-                display: block;
-            }
-
-            .pm-mobile-toggle {
-                display: inline-flex;
-            }
-
-            .pm-search-button {
-                margin-left: auto;
-            }
-
-            .pm-brand {
-                font-size: 22px;
-            }
 
             .pm-hero {
                 padding: 48px 0 55px;
@@ -1508,10 +1086,6 @@
                 grid-template-columns: 1fr;
                 gap: 35px;
             }
-
-            .pm-footer-main {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
 
         @media (max-width: 700px) {
@@ -1530,6 +1104,7 @@
                 align-items: flex-start;
                 flex-direction: column;
                 gap: 10px;
+                align-items: center;
             }
 
             .pm-start-grid {
@@ -1595,10 +1170,6 @@
                 width: calc(100% - 24px);
             }
 
-            .pm-mobile-nav-inner {
-                width: calc(100% - 24px);
-            }
-
             .pm-hero-grid {
                 width: calc(100% - 28px);
             }
@@ -1612,7 +1183,9 @@
             }
 
             .pm-hero-actions {
-                flex-direction: column;
+                flex-direction: column !important;
+                flex-wrap: wrap;
+                align-items: center;
             }
 
             .pm-button-primary,
@@ -1636,6 +1209,7 @@
 
             .pm-final-actions {
                 flex-direction: column;
+                flex-wrap: wrap;
             }
 
             .pm-final-actions a {
@@ -1657,6 +1231,250 @@
             .pm-guide-card,
             .pm-start-card {
                 transition: none;
+            }
+        }
+
+        /* =========================================================
+           IMAGE-FREE HOMEPAGE
+           Keeps the PaycheckMint visual language without loading
+           remote image assets.
+        ========================================================== */
+
+        .pm-topic-card img,
+        .pm-guide-image,
+        .pm-hero-image {
+            display: none !important;
+        }
+
+        .pm-topic-card {
+            color: var(--home-text);
+            background: var(--home-soft);
+            min-height: 285px;
+        }
+
+        .pm-topic-card::after {
+            display: none;
+        }
+
+        .pm-topic-content {
+            position: absolute;
+            z-index: 2;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+        }
+
+        .pm-topic-number {
+            color: var(--home-primary);
+        }
+
+        .pm-topic-content p {
+            color: var(--home-muted);
+        }
+
+        .pm-topic-card:nth-child(2) {
+            background: #F7F1E5;
+        }
+
+        .pm-topic-card:nth-child(3) {
+            background: #EAF4F0;
+        }
+
+        .pm-topic-card:nth-child(4) {
+            background: #F1EEEE;
+        }
+
+        .pm-topic-card:nth-child(5) {
+            background: #EEF1F7;
+        }
+
+        .pm-topic-card:nth-child(6) {
+            background: #F5F0E8;
+        }
+
+        .pm-guide-card {
+            min-height: 255px;
+        }
+
+        .pm-guide-body {
+            padding: 24px;
+        }
+
+        .pm-money-dashboard {
+            position: relative;
+            min-height: 420px;
+            padding: 25px;
+            border: 1px solid var(--home-border);
+            border-radius: 22px;
+            background:
+                radial-gradient(circle at 90% 10%, rgba(201, 146, 46, .18), transparent 28%),
+                linear-gradient(145deg, #ffffff 0%, #eef5f2 100%);
+            box-shadow: var(--home-shadow);
+            overflow: hidden;
+        }
+
+        .pm-dashboard-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .pm-dashboard-label {
+            color: var(--home-primary);
+            font-size: 11px;
+            font-weight: 850;
+            letter-spacing: .09em;
+        }
+
+        .pm-dashboard-status {
+            padding: 5px 9px;
+            border-radius: 999px;
+            background: rgba(23, 107, 91, .08);
+            color: var(--home-primary);
+            font-size: 10px;
+            font-weight: 750;
+        }
+
+        .pm-dashboard-balance {
+            margin-top: 34px;
+            padding: 20px;
+            border: 1px solid rgba(221, 227, 223, .9);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, .82);
+        }
+
+        .pm-dashboard-balance span,
+        .pm-dashboard-balance small {
+            display: block;
+            color: var(--home-muted);
+            font-size: 12px;
+        }
+
+        .pm-dashboard-balance strong {
+            display: block;
+            margin: 5px 0;
+            color: var(--home-text);
+            font-size: 34px;
+            line-height: 1;
+            letter-spacing: -1.2px;
+        }
+
+        .pm-dashboard-bars {
+            height: 105px;
+            margin: 25px 8px 18px;
+            display: flex;
+            align-items: flex-end;
+            gap: 9px;
+            border-bottom: 1px solid var(--home-border);
+        }
+
+        .pm-dashboard-bars span {
+            width: 100%;
+            height: var(--bar);
+            border-radius: 6px 6px 2px 2px;
+            background: linear-gradient(180deg, var(--home-primary), #6AA99B);
+            opacity: .9;
+        }
+
+        .pm-dashboard-summary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .pm-dashboard-summary>div {
+            padding: 11px;
+            border: 1px solid var(--home-border);
+            border-radius: 11px;
+            background: rgba(255, 255, 255, .76);
+        }
+
+        .pm-summary-dot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            margin-right: 5px;
+            border-radius: 50%;
+            background: var(--home-primary);
+        }
+
+        .pm-summary-dot.spending {
+            background: var(--home-accent);
+        }
+
+        .pm-summary-dot.goals {
+            background: #78958D;
+        }
+
+        .pm-dashboard-summary small {
+            color: var(--home-muted);
+            font-size: 10px;
+        }
+
+        .pm-dashboard-summary strong {
+            display: block;
+            margin-top: 2px;
+            color: var(--home-text);
+            font-size: 15px;
+        }
+
+        .pm-dashboard-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            margin-top: 18px;
+            color: var(--home-muted);
+            font-size: 11px;
+            font-weight: 750;
+        }
+
+        .pm-dashboard-flow b {
+            color: var(--home-primary);
+        }
+
+        @media (max-width: 900px) {
+            .pm-money-dashboard {
+                min-height: 360px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .pm-money-dashboard {
+                min-height: 330px;
+                padding: 20px;
+            }
+
+            .pm-dashboard-balance {
+                margin-top: 25px;
+            }
+
+            .pm-dashboard-balance strong {
+                font-size: 30px;
+            }
+
+            .pm-dashboard-bars {
+                height: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pm-money-dashboard {
+                min-height: 315px;
+            }
+
+            .pm-dashboard-summary {
+                gap: 6px;
+            }
+
+            .pm-dashboard-summary>div {
+                padding: 8px;
+            }
+
+            .pm-dashboard-flow {
+                gap: 5px;
+                font-size: 10px;
             }
         }
     </style>
@@ -1976,27 +1794,67 @@
 
                 <div class="pm-hero-visual">
 
-                    <img class="pm-hero-image"
-                        src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=85"
-                        alt="Person reviewing personal finances" width="1200" height="800" fetchpriority="high">
-
-                    <div class="pm-hero-card">
-
-                        <div class="pm-hero-card-label">
-                            Your money picture
+                    <div class="pm-money-dashboard"
+                        aria-label="Illustration showing how income, spending and goals connect">
+                        <div class="pm-dashboard-top">
+                            <span class="pm-dashboard-label">YOUR MONEY PICTURE</span>
+                            <span class="pm-dashboard-status">Planning view</span>
                         </div>
 
+                        <div class="pm-dashboard-balance">
+                            <span>Monthly income</span>
+                            <strong>$5,200</strong>
+                            <small>Example only</small>
+                        </div>
+
+                        <div class="pm-dashboard-bars" aria-hidden="true">
+                            <span style="--bar:72%;"></span>
+                            <span style="--bar:48%;"></span>
+                            <span style="--bar:62%;"></span>
+                            <span style="--bar:34%;"></span>
+                            <span style="--bar:55%;"></span>
+                            <span style="--bar:43%;"></span>
+                            <span style="--bar:68%;"></span>
+                        </div>
+
+                        <div class="pm-dashboard-summary">
+                            <div>
+                                <span class="pm-summary-dot income"></span>
+                                <small>Income</small>
+                                <strong>100%</strong>
+                            </div>
+                            <div>
+                                <span class="pm-summary-dot spending"></span>
+                                <small>Spending</small>
+                                <strong>62%</strong>
+                            </div>
+                            <div>
+                                <span class="pm-summary-dot goals"></span>
+                                <small>Goals</small>
+                                <strong>38%</strong>
+                            </div>
+                        </div>
+
+                        <div class="pm-dashboard-flow">
+                            <span>Income</span><b>→</b><span>Spending</span><b>→</b><span>Goals</span>
+                        </div>
+                    </div>
+
+                    <div class="pm-hero-card">
+                        <div class="pm-hero-card-label">
+                            Simple starting point
+                        </div>
                         <div class="pm-hero-card-value">
                             Income → Spending → Goals
                         </div>
-
                         <div class="pm-hero-card-note">
                             Understand it. Plan it.
                         </div>
-
                     </div>
 
                 </div>
+
+            </div>
 
             </div>
 
@@ -2433,23 +2291,25 @@
 
                             <a class="pm-topic-card" href="/income/">
 
-                                <img src="https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=800&q=80"
-                                    alt="Income and earnings" loading="lazy" width="800" height="1000">
+                                <div class="pm-topic-visual" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <rect x="3" y="5" width="18" height="14" rx="2" />
+                                        <path d="M7 9h10M7 13h4M14 13h3M7 16h7" />
+                                    </svg>
+                                </div>
+
+                                <span class="pm-topic-arrow" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M5 12h13M13 6l6 6-6 6" />
+                                    </svg>
+                                </span>
 
                                 <div class="pm-topic-content">
-
-                                    <span class="pm-topic-number">
-                                        01
-                                    </span>
-
-                                    <h3>
-                                        Income
-                                    </h3>
-
-                                    <p>
-                                        Understand the money you earn and how it is measured.
-                                    </p>
-
+                                    <span class="pm-topic-number">01</span>
+                                    <h3>Income</h3>
+                                    <p>Understand the money you earn and how it is measured.</p>
                                 </div>
 
                             </a>
@@ -2457,23 +2317,26 @@
 
                             <a class="pm-topic-card" href="/finance/">
 
-                                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80"
-                                    alt="Taxes and personal finance" loading="lazy" width="800" height="1000">
+                                <div class="pm-topic-visual" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M7 3h8l4 4v14H7z" />
+                                        <path d="M15 3v5h4M10 13h6M10 17h4" />
+                                        <path d="M12 9v2M10.5 10.5h3" />
+                                    </svg>
+                                </div>
+
+                                <span class="pm-topic-arrow" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M5 12h13M13 6l6 6-6 6" />
+                                    </svg>
+                                </span>
 
                                 <div class="pm-topic-content">
-
-                                    <span class="pm-topic-number">
-                                        02
-                                    </span>
-
-                                    <h3>
-                                        Taxes
-                                    </h3>
-
-                                    <p>
-                                        Learn how taxes affect your income and paycheck.
-                                    </p>
-
+                                    <span class="pm-topic-number">02</span>
+                                    <h3>Taxes</h3>
+                                    <p>Learn how taxes affect your income and paycheck.</p>
                                 </div>
 
                             </a>
@@ -2481,23 +2344,25 @@
 
                             <a class="pm-topic-card" href="/finance/">
 
-                                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80"
-                                    alt="Managing personal money" loading="lazy" width="800" height="1000">
+                                <div class="pm-topic-visual" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="8.5" />
+                                        <path d="M12 7v10M8.5 10h5.2a2 2 0 0 1 0 4H9" />
+                                    </svg>
+                                </div>
+
+                                <span class="pm-topic-arrow" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M5 12h13M13 6l6 6-6 6" />
+                                    </svg>
+                                </span>
 
                                 <div class="pm-topic-content">
-
-                                    <span class="pm-topic-number">
-                                        03
-                                    </span>
-
-                                    <h3>
-                                        Budgeting
-                                    </h3>
-
-                                    <p>
-                                        Build a practical plan for your income and spending.
-                                    </p>
-
+                                    <span class="pm-topic-number">03</span>
+                                    <h3>Budgeting</h3>
+                                    <p>Build a practical plan for your income and spending.</p>
                                 </div>
 
                             </a>
@@ -2505,23 +2370,26 @@
 
                             <a class="pm-topic-card" href="/finance/">
 
-                                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80"
-                                    alt="Credit and debt" loading="lazy" width="800" height="1000">
+                                <div class="pm-topic-visual" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <rect x="3" y="6" width="18" height="12" rx="2" />
+                                        <path d="M3 10h18M16 14h2" />
+                                        <circle cx="7" cy="14" r="1" />
+                                    </svg>
+                                </div>
+
+                                <span class="pm-topic-arrow" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M5 12h13M13 6l6 6-6 6" />
+                                    </svg>
+                                </span>
 
                                 <div class="pm-topic-content">
-
-                                    <span class="pm-topic-number">
-                                        04
-                                    </span>
-
-                                    <h3>
-                                        Credit & Debt
-                                    </h3>
-
-                                    <p>
-                                        Understand borrowing, balances and repayment.
-                                    </p>
-
+                                    <span class="pm-topic-number">04</span>
+                                    <h3>Credit &amp; Debt</h3>
+                                    <p>Understand borrowing, balances and repayment.</p>
                                 </div>
 
                             </a>
@@ -2529,23 +2397,26 @@
 
                             <a class="pm-topic-card" href="/finance/">
 
-                                <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80"
-                                    alt="Investing and financial growth" loading="lazy" width="800" height="1000">
+                                <div class="pm-topic-visual" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M4 19V5M4 19h16" />
+                                        <path d="m7 15 4-4 3 2 5-6" />
+                                        <path d="M16 7h3v3" />
+                                    </svg>
+                                </div>
+
+                                <span class="pm-topic-arrow" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M5 12h13M13 6l6 6-6 6" />
+                                    </svg>
+                                </span>
 
                                 <div class="pm-topic-content">
-
-                                    <span class="pm-topic-number">
-                                        05
-                                    </span>
-
-                                    <h3>
-                                        Investing
-                                    </h3>
-
-                                    <p>
-                                        Learn the basic ideas behind investing and growth.
-                                    </p>
-
+                                    <span class="pm-topic-number">05</span>
+                                    <h3>Investing</h3>
+                                    <p>Learn the basic ideas behind investing and growth.</p>
                                 </div>
 
                             </a>
@@ -2553,23 +2424,25 @@
 
                             <a class="pm-topic-card" href="/finance/">
 
-                                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80"
-                                    alt="Financial planning" loading="lazy" width="800" height="1000">
+                                <div class="pm-topic-visual" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M12 3 4 6v5c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V6z" />
+                                        <path d="m8.5 12 2.2 2.2 4.8-5" />
+                                    </svg>
+                                </div>
+
+                                <span class="pm-topic-arrow" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M5 12h13M13 6l6 6-6 6" />
+                                    </svg>
+                                </span>
 
                                 <div class="pm-topic-content">
-
-                                    <span class="pm-topic-number">
-                                        06
-                                    </span>
-
-                                    <h3>
-                                        Insurance
-                                    </h3>
-
-                                    <p>
-                                        Learn the role insurance can play in financial planning.
-                                    </p>
-
+                                    <span class="pm-topic-number">06</span>
+                                    <h3>Insurance</h3>
+                                    <p>Learn the role insurance can play in financial planning.</p>
                                 </div>
 
                             </a>
@@ -2651,11 +2524,6 @@
                         <div class="pm-carousel-track pm-guides-track" id="guidesTrack">
 
                             <a class="pm-guide-card" href="/finance/">
-
-                                <img class="pm-guide-image"
-                                    src="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=900&q=80"
-                                    alt="Person planning a household budget" loading="lazy" width="900" height="600">
-
                                 <div class="pm-guide-body">
 
                                     <span class="pm-guide-category">
@@ -2677,11 +2545,6 @@
 
 
                             <a class="pm-guide-card" href="/finance/">
-
-                                <img class="pm-guide-image"
-                                    src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=900&q=80"
-                                    alt="Investing concept" loading="lazy" width="900" height="600">
-
                                 <div class="pm-guide-body">
 
                                     <span class="pm-guide-category">
@@ -2703,11 +2566,6 @@
 
 
                             <a class="pm-guide-card" href="/finance/">
-
-                                <img class="pm-guide-image"
-                                    src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=900&q=80"
-                                    alt="Money growth concept" loading="lazy" width="900" height="600">
-
                                 <div class="pm-guide-body">
 
                                     <span class="pm-guide-category">
@@ -3043,540 +2901,330 @@
 
     <footer class="pm-footer">
 
-        <div class="pm-footer-main">
+        <div class="pm-footer-inner">
 
-            <div>
+            <div class="pm-footer-main">
 
-                <a class="pm-footer-brand" href="/">
-                    Paycheck<span>Mint</span>
-                </a>
+                <div class="pm-footer-grid">
 
-                <p class="pm-footer-description">
-                    Practical U.S. personal finance tools and explanations
-                    for everyday money decisions.
-                </p>
+                    <div class="pm-footer-brand-column">
 
-            </div>
+                        <a class="pm-footer-brand" href="/">
+                            Paycheck<span>Mint</span>
+                        </a>
 
+                        <p class="pm-footer-description">
+                            Practical personal finance guides, paycheck tools,
+                            and calculators to help you make informed money decisions.
+                        </p>
 
-            <div class="pm-footer-column">
+                    </div>
 
-                <h3>
-                    Calculators
-                </h3>
+                    <div>
+                        <h3 class="pm-footer-heading">Money</h3>
 
-                <a href="/paycheck-tax-calculator/">
-                    Paycheck Tax Calculator
-                </a>
+                        <ul class="pm-footer-links">
+                            <li><a href="/income/">Income</a></li>
+                            <li><a href="/paycheck-tax-calculator/">Paycheck Calculator</a></li>
+                            <li><a href="/take-home-pay-calculator/">Take-Home Pay</a></li>
+                        </ul>
+                    </div>
 
-                <a href="/take-home-pay-calculator/">
-                    Take-Home Pay
-                </a>
+                    <div>
+                        <h3 class="pm-footer-heading">Finance</h3>
 
-                <a href="/hourly-paycheck-calculator/">
-                    Hourly Pay
-                </a>
+                        <ul class="pm-footer-links">
+                            <li><a href="/finance/taxes/">Taxes</a></li>
+                            <li><a href="/finance/budgeting/">Budgeting</a></li>
+                            <li><a href="/finance/credit-debt/">Credit &amp; Debt</a></li>
+                            <li><a href="/finance/investing/">Investing</a></li>
+                            <li><a href="/finance/insurance/">Insurance</a></li>
+                        </ul>
+                    </div>
 
-                <a href="/overtime-pay-calculator/">
-                    Overtime Pay
-                </a>
+                    <div>
+                        <h3 class="pm-footer-heading">Company</h3>
 
-                <a href="/salary-paycheck-calculator/">
-                    Salary Pay
-                </a>
+                        <ul class="pm-footer-links">
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/contact/">Contact</a></li>
+                            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms</a></li>
+                        </ul>
+                    </div>
 
-            </div>
-
-
-            <div class="pm-footer-column">
-
-                <h3>
-                    Paycheck tools
-                </h3>
-
-                <a href="/weekly-paycheck-calculator/">
-                    Weekly Paycheck
-                </a>
-
-                <a href="/biweekly-paycheck-calculator/">
-                    Biweekly Paycheck
-                </a>
-
-                <a href="/monthly-paycheck-calculator/">
-                    Monthly Paycheck
-                </a>
-
-                <a href="/income/">
-                    Income
-                </a>
-
-                <a href="/finance/">
-                    Finance
-                </a>
+                </div>
 
             </div>
 
+            <div class="pm-footer-bottom">
 
-            <div class="pm-footer-column">
+                <div class="pm-footer-copyright">
+                    © 2026 PaycheckMint. All rights reserved.
+                </div>
 
-                <h3>
-                    Company
-                </h3>
-
-                <a href="/about/">
-                    About
-                </a>
-
-                <a href="/contact/">
-                    Contact
-                </a>
-
-                <a href="/privacy-policy/">
-                    Privacy Policy
-                </a>
-
-                <a href="/terms/">
-                    Terms
-                </a>
+                <div class="pm-footer-legal">
+                    <a href="/privacy-policy/">Privacy Policy</a>
+                    <a href="/terms/">Terms</a>
+                    <a href="/contact/">Contact</a>
+                </div>
 
             </div>
-
-        </div>
-
-
-        <div class="pm-footer-bottom">
-
-            <span>
-                © 2026 PaycheckMint. All rights reserved.
-            </span>
-
-            <span>
-                Calculator results are estimates and may differ from actual payroll results.
-            </span>
 
         </div>
 
     </footer>
 
-
     <script>
         (function () {
             "use strict";
 
-            /* =========================================================
-               NAVIGATION
-            ========================================================== */
+            /* ==========================================================================
+               1. ASYNC COMPONENT LOADER
+               ========================================================================== */
+            document.addEventListener("DOMContentLoaded", function () {
+                loadSharedComponents();
+            });
 
-            const mobileToggle = document.getElementById("mobileToggle");
-            const mobileNav = document.getElementById("mobileNav");
-            const mobileMenuIcon = document.getElementById("mobileMenuIcon");
+            async function loadSharedComponents() {
+                const navbar = document.getElementById("site-navbar");
+                const footer = document.getElementById("site-footer");
 
-            function setMobileNav(open) {
-                if (!mobileToggle || !mobileNav) return;
+                try {
+                    const requests = [];
 
-                mobileNav.classList.toggle("open", open);
-                mobileToggle.setAttribute("aria-expanded", String(open));
+                    if (navbar) {
+                        requests.push(
+                            fetch("/components/navbar.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Navbar 404"))
+                                .then(html => { navbar.innerHTML = html; })
+                        );
+                    }
 
-                if (open) {
-                    mobileMenuIcon.innerHTML =
-                        '<path d="M6 6l12 12"/><path d="M18 6 6 18"/>';
-                    mobileToggle.setAttribute(
-                        "aria-label",
-                        "Close navigation"
-                    );
-                } else {
-                    mobileMenuIcon.innerHTML =
-                        '<path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/>';
-                    mobileToggle.setAttribute(
-                        "aria-label",
-                        "Open navigation"
-                    );
+                    if (footer) {
+                        requests.push(
+                            fetch("/components/footer.html")
+                                .then(res => res.ok ? res.text() : Promise.reject("Footer 404"))
+                                .then(html => { footer.innerHTML = html; })
+                        );
+                    }
+
+                    await Promise.all(requests);
+                    // Re-bind focus or initial state if required after injection
+                    setupScrollHeader();
+                } catch (error) {
+                    console.error("Component loading error:", error);
+                    setupScrollHeader();
                 }
             }
 
-            mobileToggle?.addEventListener("click", function () {
-                const open = mobileNav.classList.contains("open");
-                setMobileNav(!open);
-            });
-
-
-            /* =========================================================
-               DESKTOP DROPDOWNS
-            ========================================================== */
-
-            const dropdowns = document.querySelectorAll("[data-dropdown]");
-
-            dropdowns.forEach(function (dropdown) {
-
-                const button = dropdown.querySelector("button");
-
-                button.addEventListener("click", function (event) {
-
-                    event.stopPropagation();
-
-                    const willOpen = !dropdown.classList.contains("open");
-
-                    dropdowns.forEach(function (item) {
-                        item.classList.remove("open");
-
-                        const itemButton = item.querySelector("button");
-
-                        if (itemButton) {
-                            itemButton.setAttribute(
-                                "aria-expanded",
-                                "false"
-                            );
-                        }
-                    });
-
-                    if (willOpen) {
-                        dropdown.classList.add("open");
-                        button.setAttribute(
-                            "aria-expanded",
-                            "true"
-                        );
-                    }
-                });
-
-            });
-
+            /* ==========================================================================
+               2. EVENT DELEGATION (Handles dynamic elements automatically)
+               ========================================================================== */
             document.addEventListener("click", function (event) {
 
-                if (!event.target.closest("[data-dropdown]")) {
+                // --- DESKTOP DROPDOWNS ---
+                const dropdownBtn = event.target.closest(".pm-nav-dropdown-button");
+                if (dropdownBtn) {
+                    event.stopPropagation();
+                    const currentDropdown = dropdownBtn.closest(".pm-nav-dropdown");
+                    const isOpen = currentDropdown.classList.contains("is-open");
 
-                    dropdowns.forEach(function (dropdown) {
-
-                        dropdown.classList.remove("open");
-
-                        const button = dropdown.querySelector("button");
-
-                        if (button) {
-                            button.setAttribute(
-                                "aria-expanded",
-                                "false"
-                            );
-                        }
-
+                    // Close all dropdowns
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
                     });
 
+                    // Toggle selected dropdown
+                    if (!isOpen) {
+                        currentDropdown.classList.add("is-open");
+                        dropdownBtn.setAttribute("aria-expanded", "true");
+                    }
+                    return;
                 }
 
+                // Close desktop dropdowns when clicking outside
+                if (!event.target.closest(".pm-nav-dropdown")) {
+                    document.querySelectorAll(".pm-nav-dropdown").forEach(d => {
+                        d.classList.remove("is-open");
+                        const btn = d.querySelector(".pm-nav-dropdown-button");
+                        if (btn) btn.setAttribute("aria-expanded", "false");
+                    });
+                }
+
+                // --- MOBILE NAV TOGGLE ---
+                const mobileToggle = event.target.closest("#mobileToggle");
+                if (mobileToggle) {
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) {
+                        const isOpen = mobileNav.classList.toggle("is-open");
+                        mobileToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
+                }
+
+                // --- MOBILE SUBMENU TOGGLE ---
+                const mobileFinanceToggle = event.target.closest("#mobileFinanceToggle");
+                if (mobileFinanceToggle) {
+                    event.stopPropagation();
+                    const mobileFinanceLinks = document.getElementById("mobileFinanceLinks");
+                    if (mobileFinanceLinks) {
+                        const isOpen = mobileFinanceLinks.classList.toggle("is-open");
+                        mobileFinanceToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    }
+                    return;
+                }
+
+                // --- SEARCH TOGGLE (OPEN / CLOSE) ---
+                const searchToggle = event.target.closest("#searchToggle");
+                const mobileSearchBtn = event.target.closest("#mobileSearchButton");
+                const searchClose = event.target.closest("#searchClose");
+                const searchPanel = document.getElementById("searchPanel");
+
+                if (searchToggle || mobileSearchBtn) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    const mobileNav = document.getElementById("mobileNav");
+                    if (mobileNav) mobileNav.classList.remove("is-open");
+
+                    if (searchPanel) {
+                        if (searchPanel.classList.contains("is-open") && searchToggle) {
+                            closeSearch();
+                        } else {
+                            openSearch();
+                        }
+                    }
+                    return;
+                }
+
+                if (searchClose) {
+                    event.preventDefault();
+                    closeSearch();
+                    return;
+                }
+
+                // Close search panel when clicking outside of it
+                if (searchPanel && searchPanel.classList.contains("is-open")) {
+                    if (!searchPanel.contains(event.target)) {
+                        closeSearch();
+                    }
+                }
             });
 
-
-            /* =========================================================
-               MOBILE FINANCE MENU
-            ========================================================== */
-
-            const mobileFinanceToggle =
-                document.getElementById("mobileFinanceToggle");
-
-            const mobileFinanceLinks =
-                document.getElementById("mobileFinanceLinks");
-
-            mobileFinanceToggle?.addEventListener("click", function () {
-
-                const open =
-                    mobileFinanceLinks.classList.toggle("open");
-
-                mobileFinanceToggle.setAttribute(
-                    "aria-expanded",
-                    String(open)
-                );
-
-            });
-
-
-            /* =========================================================
-               SEARCH
-            ========================================================== */
-
-            const searchToggle =
-                document.getElementById("searchToggle");
-
-            const searchPanel =
-                document.getElementById("searchPanel");
-
-            const searchClose =
-                document.getElementById("searchClose");
-
-            const searchInput =
-                document.getElementById("siteSearch");
-
-            const searchResults =
-                document.getElementById("searchResults");
-
-            const mobileSearchButton =
-                document.getElementById("mobileSearchButton");
-
-
+            /* ==========================================================================
+               3. SEARCH HELPER FUNCTIONS & LIVE FILTERING
+               ========================================================================== */
             function openSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchToggle = document.getElementById("searchToggle");
 
-                searchPanel.classList.add("open");
-
-                searchToggle.setAttribute(
-                    "aria-expanded",
-                    "true"
-                );
-
-                setTimeout(function () {
-                    searchInput.focus();
-                }, 40);
-
+                if (!searchPanel) return;
+                searchPanel.classList.add("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "true");
+                    searchToggle.setAttribute("aria-label", "Close search");
+                }
+                if (searchInput) setTimeout(() => searchInput.focus(), 100);
             }
-
 
             function closeSearch() {
+                const searchPanel = document.getElementById("searchPanel");
+                const searchInput = document.getElementById("siteSearch");
+                const searchResults = document.getElementById("searchResults");
+                const searchToggle = document.getElementById("searchToggle");
 
-                searchPanel.classList.remove("open");
-
-                searchToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-                searchInput.value = "";
-
-                searchResults.innerHTML = "";
-
-                searchResults.classList.remove("visible");
-
+                if (!searchPanel) return;
+                searchPanel.classList.remove("is-open");
+                if (searchToggle) {
+                    searchToggle.setAttribute("aria-expanded", "false");
+                    searchToggle.setAttribute("aria-label", "Open search");
+                }
+                if (searchInput) searchInput.value = "";
+                if (searchResults) searchResults.innerHTML = "";
             }
 
-
-            searchToggle?.addEventListener(
-                "click",
-                function () {
-
-                    const open =
-                        searchPanel.classList.contains("open");
-
-                    if (open) {
-                        closeSearch();
-                    } else {
-                        openSearch();
-                    }
-
+            // Keyboard Shortcuts (Escape Key)
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closeSearch();
                 }
-            );
+            });
 
+            // Live Search Typing Input Event
+            document.addEventListener("input", function (event) {
+                if (event.target.id !== "siteSearch") return;
 
-            searchClose?.addEventListener(
-                "click",
-                closeSearch
-            );
+                const query = event.target.value.trim().toLowerCase();
+                const searchResults = document.getElementById("searchResults");
+                if (!searchResults) return;
 
-
-            mobileSearchButton?.addEventListener(
-                "click",
-                function () {
-
-                    setMobileNav(false);
-
-                    openSearch();
-
-                }
-            );
-
-
-            document.addEventListener(
-                "keydown",
-                function (event) {
-
-                    if (event.key === "Escape") {
-
-                        closeSearch();
-
-                        dropdowns.forEach(function (dropdown) {
-                            dropdown.classList.remove("open");
-                        });
-
-                    }
-
-                }
-            );
-
-
-            /* =========================================================
-               HOMEPAGE SEARCH INDEX
-               Only real URLs currently present in repository.
-            ========================================================== */
-
-            const searchIndex = [
-
-                {
-                    title: "Paycheck Tax Calculator",
-                    description: "Estimate paycheck taxes and take-home pay.",
-                    url: "/paycheck-tax-calculator/",
-                    keywords: "paycheck tax taxes salary income payroll calculator"
-                },
-
-                {
-                    title: "Take-Home Pay Calculator",
-                    description: "Estimate take-home pay after taxes and deductions.",
-                    url: "/take-home-pay-calculator/",
-                    keywords: "take home net pay paycheck calculator"
-                },
-
-                {
-                    title: "Hourly Paycheck Calculator",
-                    description: "Estimate pay from hourly wages.",
-                    url: "/hourly-paycheck-calculator/",
-                    keywords: "hourly wage paycheck calculator"
-                },
-
-                {
-                    title: "Overtime Pay Calculator",
-                    description: "Estimate overtime earnings.",
-                    url: "/overtime-pay-calculator/",
-                    keywords: "overtime pay hours calculator"
-                },
-
-                {
-                    title: "Salary Paycheck Calculator",
-                    description: "Estimate paycheck amounts from annual salary.",
-                    url: "/salary-paycheck-calculator/",
-                    keywords: "salary annual paycheck calculator"
-                },
-
-                {
-                    title: "Weekly Paycheck Calculator",
-                    description: "Estimate weekly paycheck amounts.",
-                    url: "/weekly-paycheck-calculator/",
-                    keywords: "weekly paycheck calculator"
-                },
-
-                {
-                    title: "Biweekly Paycheck Calculator",
-                    description: "Estimate biweekly paycheck amounts.",
-                    url: "/biweekly-paycheck-calculator/",
-                    keywords: "biweekly paycheck calculator every two weeks"
-                },
-
-                {
-                    title: "Monthly Paycheck Calculator",
-                    description: "Estimate monthly paycheck amounts.",
-                    url: "/monthly-paycheck-calculator/",
-                    keywords: "monthly paycheck calculator"
-                },
-
-                {
-                    title: "Income",
-                    description: "Learn about income, earnings and pay.",
-                    url: "/income/",
-                    keywords: "income earnings gross net pay money"
-                },
-
-                {
-                    title: "Finance",
-                    description: "Explore PaycheckMint personal finance information.",
-                    url: "/finance/",
-                    keywords: "finance personal finance money budgeting debt investing"
-                },
-
-                {
-                    title: "About PaycheckMint",
-                    description: "Learn more about PaycheckMint.",
-                    url: "/about/",
-                    keywords: "about company paycheckmint"
-                },
-
-                {
-                    title: "Contact PaycheckMint",
-                    description: "Contact PaycheckMint.",
-                    url: "/contact/",
-                    keywords: "contact support"
-                }
-
-            ];
-
-
-            function renderSearchResults(query) {
-
-                const cleanQuery =
-                    query.trim().toLowerCase();
-
-                if (!cleanQuery) {
-
+                if (query.length === 0) {
                     searchResults.innerHTML = "";
-
-                    searchResults.classList.remove(
-                        "visible"
-                    );
-
-                    return;
-
-                }
-
-                const matches =
-                    searchIndex.filter(function (item) {
-
-                        const searchable =
-                            (
-                                item.title +
-                                " " +
-                                item.description +
-                                " " +
-                                item.keywords
-                            ).toLowerCase();
-
-                        return searchable.includes(
-                            cleanQuery
-                        );
-
-                    });
-
-
-                if (!matches.length) {
-
-                    searchResults.innerHTML =
-                        '<div class="pm-search-empty">' +
-                        'No matching PaycheckMint pages found. Try "paycheck", "income", "salary", or "finance".' +
-                        '</div>';
-
-                    searchResults.classList.add(
-                        "visible"
-                    );
-
                     return;
                 }
 
+                const searchablePages = [
+                    { title: "Paycheck Tax Calculator", url: "/paycheck-tax-calculator/", description: "Calculate accurate net pay and taxes." },
+                    { title: "Take-Home Pay Calculator", url: "/take-home-pay-calculator/", description: "Estimate your actual paycheck total after deductions." },
+                    { title: "Hourly Paycheck Calculator", url: "/hourly-paycheck-calculator/", description: "Calculate income based on hourly wage and hours worked." },
+                    { title: "Overtime Pay Calculator", url: "/overtime-pay-calculator/", description: "Compute overtime rates and total extra wages." },
+                    { title: "Salary Paycheck Calculator", url: "/salary-paycheck-calculator/", description: "Break down annual salary into per-paycheck earnings." },
+                    { title: "Income Overview", url: "/income/", description: "Learn about taxable income, gross wages, and take-home pay." },
+                    { title: "Finance Overview", url: "/finance/", description: "Guides on managing personal finances and budgeting strategies." },
+                    { title: "Budgeting Guides", url: "/finance/budgeting/", description: "Strategies for budgeting your paycheck effectively." }
+                ];
 
-                searchResults.innerHTML =
-                    matches.map(function (item) {
-
-                        return (
-                            '<a class="pm-search-result" href="' +
-                            item.url +
-                            '">' +
-                            '<strong>' +
-                            item.title +
-                            '</strong>' +
-                            '<span>' +
-                            item.description +
-                            '</span>' +
-                            '</a>'
-                        );
-
-                    }).join("");
-
-
-                searchResults.classList.add(
-                    "visible"
+                const matches = searchablePages.filter(page =>
+                    page.title.toLowerCase().includes(query) ||
+                    page.description.toLowerCase().includes(query)
                 );
 
+                if (matches.length === 0) {
+                    searchResults.innerHTML = `<p class="pm-search-no-results">No results found for "${escapeHTML(query)}"</p>`;
+                    return;
+                }
+
+                searchResults.innerHTML = matches.map(item => `
+            <a href="${item.url}" class="pm-search-result-item">
+                <span class="pm-search-result-title">${escapeHTML(item.title)}</span>
+                <span class="pm-search-result-desc">${escapeHTML(item.description)}</span>
+            </a>
+        `).join("");
+            });
+
+            function escapeHTML(str) {
+                return str.replace(/[&<>'"]/g, tag => ({
+                    '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+                }[tag] || tag));
             }
 
+            /* ==========================================================================
+               4. SCROLL SHADOW
+               ========================================================================== */
+            function setupScrollHeader() {
+                const header = document.getElementById("site-header");
+                if (!header) return;
 
-            searchInput?.addEventListener(
-                "input",
-                function () {
-                    renderSearchResults(
-                        searchInput.value
-                    );
-                }
-            );
+                window.addEventListener("scroll", function () {
+                    if (window.scrollY > 20) {
+                        header.classList.add("is-scrolled");
+                    } else {
+                        header.classList.remove("is-scrolled");
+                    }
+                }, { passive: true });
+            }
 
+        })();
+    </script>
+
+
+    <script>
+        (function () {
+            "use strict";
 
             /* =========================================================
                CAROUSEL ENGINE
