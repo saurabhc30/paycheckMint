@@ -15,10 +15,14 @@
 
     <link rel="canonical" href="https://paycheckmint.com/">
 
+    <meta name="theme-color" content="#176B5B">
+
     <link rel="icon" href="/icon.ico" />
     <link rel="stylesheet" href="/style.css">
 
     <meta property="og:type" content="website">
+
+    <meta property="og:site_name" content="PaycheckMint">
 
     <meta property="og:url" content="https://paycheckmint.com/">
 
@@ -26,7 +30,7 @@
 
     <meta property="og:description"
         content="Practical U.S. personal finance tools and guides for paychecks, income, taxes, budgeting, debt, and saving.">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:card" content="summary">
 
     <meta name="twitter:title" content="PaycheckMint | Personal Finance Tools & Guides">
 
@@ -51,25 +55,6 @@
             --home-shadow: 0 12px 32px rgba(23, 32, 29, .08);
             --home-radius: 16px;
 
-            /* Backgrounds */
-            --page-bg: #F7F8F6;
-            --surface: #FFFFFF;
-            --surface-soft: #EEF5F2;
-
-            /* Text */
-            --text: #17201D;
-            --text-secondary: #5F6B66;
-            --text-muted: #87918C;
-
-            /* Borders */
-            --border: #DDE3DF;
-            --border-strong: #CBD5D0;
-
-            /* Status */
-            --success: #21855A;
-            --warning: #B7791F;
-            --danger: #B94A48;
-
         }
 
         * {
@@ -83,7 +68,7 @@
 
         body {
             margin: 0;
-            background: var(--bg);
+            background: var(--page-bg);
             color: var(--text);
             font-family:
                 Inter,
@@ -101,7 +86,7 @@
             margin: 0 auto;
         }
 
-    
+
 
         /* =========================================================
            HERO
@@ -455,7 +440,7 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all .18s ease;
+            transition: background .18s ease, border-color .18s ease, color .18s ease, opacity .18s ease;
         }
 
         .pm-carousel-arrow:hover:not(:disabled) {
@@ -491,6 +476,14 @@
             background: #CBD5D0;
             cursor: pointer;
             transition: width .2s ease, background .2s ease;
+            position: relative;
+        }
+
+        /* larger invisible tap area, no layout change */
+        .pm-carousel-dot::before {
+            content: "";
+            position: absolute;
+            inset: -9px -5px;
         }
 
         .pm-carousel-dot.active {
@@ -561,7 +554,8 @@
             padding: 5px 8px;
             border-radius: 20px;
             background: rgba(201, 146, 46, .13);
-            color: var(--home-accent);
+            color: #8A5F0F;
+            /* AA contrast on the gold tint */
             font-size: 10px;
             font-weight: 850;
             letter-spacing: .06em;
@@ -1041,14 +1035,14 @@
             color: #fff;
         }
 
-        
+
 
         /* =========================================================
            RESPONSIVE
         ========================================================== */
 
         @media (max-width: 1050px) {
-            
+
 
             .pm-header-cta {
                 padding: 0 12px;
@@ -2238,7 +2232,7 @@
 
                         </div>
 
-                        <div class="pm-carousel-dots" id="toolsDots" aria-label="Calculator slides"></div>
+                        <div class="pm-carousel-dots" role="group" id="toolsDots" aria-label="Calculator slides"></div>
 
                     </div>
 
@@ -2472,7 +2466,8 @@
 
                         </div>
 
-                        <div class="pm-carousel-dots" id="topicsDots" aria-label="Finance topic slides"></div>
+                        <div class="pm-carousel-dots" role="group" id="topicsDots" aria-label="Finance topic slides">
+                        </div>
 
                     </div>
 
@@ -2610,7 +2605,7 @@
 
                         </div>
 
-                        <div class="pm-carousel-dots" id="guidesDots" aria-label="Guide slides"></div>
+                        <div class="pm-carousel-dots" role="group" id="guidesDots" aria-label="Guide slides"></div>
 
                     </div>
 
@@ -2980,43 +2975,10 @@
             "use strict";
 
             /* ==========================================================================
-               1. ASYNC COMPONENT LOADER
+               1. INIT (header/footer are inline, so no runtime fetch needed)
                ========================================================================== */
-            document.addEventListener("DOMContentLoaded", function () {
-                loadSharedComponents();
-            });
 
-            async function loadSharedComponents() {
-                const navbar = document.getElementById("site-navbar");
-                const footer = document.getElementById("site-footer");
-
-                try {
-                    const requests = [];
-
-                    if (navbar) {
-                        requests.push(
-                            fetch("/components/navbar.html")
-                                .then(res => res.ok ? res.text() : Promise.reject("Navbar 404"))
-                                .then(html => { navbar.innerHTML = html; })
-                        );
-                    }
-
-                    if (footer) {
-                        requests.push(
-                            fetch("/components/footer.html")
-                                .then(res => res.ok ? res.text() : Promise.reject("Footer 404"))
-                                .then(html => { footer.innerHTML = html; })
-                        );
-                    }
-
-                    await Promise.all(requests);
-                    // Re-bind focus or initial state if required after injection
-                    setupScrollHeader();
-                } catch (error) {
-                    console.error("Component loading error:", error);
-                    setupScrollHeader();
-                }
-            }
+            setupScrollHeader();
 
             /* ==========================================================================
                2. EVENT DELEGATION (Handles dynamic elements automatically)
@@ -3251,6 +3213,28 @@
             };
 
 
+            function setMobileNav(open) {
+
+                const mobileNav =
+                    document.getElementById("mobileNav");
+
+                const mobileToggle =
+                    document.getElementById("mobileToggle");
+
+                if (mobileNav) {
+                    mobileNav.classList.toggle("is-open", open);
+                }
+
+                if (mobileToggle) {
+                    mobileToggle.setAttribute(
+                        "aria-expanded",
+                        open ? "true" : "false"
+                    );
+                }
+
+            }
+
+
             function getCarouselStep(track) {
 
                 const firstCard =
@@ -3479,10 +3463,13 @@
                         }
                     );
 
-                    createDots(name);
-
                 }
             );
+
+            /* build dots after first paint to avoid forced reflow during load */
+            requestAnimationFrame(function () {
+                Object.keys(carouselConfig).forEach(createDots);
+            });
 
 
             document.querySelectorAll(
@@ -3512,23 +3499,28 @@
             });
 
 
+            let resizeTimer;
+
             window.addEventListener(
                 "resize",
                 function () {
 
-                    Object.keys(
-                        carouselConfig
-                    ).forEach(function (name) {
+                    clearTimeout(resizeTimer);
 
-                        createDots(name);
+                    resizeTimer = setTimeout(function () {
 
-                    });
+                        Object.keys(
+                            carouselConfig
+                        ).forEach(createDots);
 
-                    if (window.innerWidth > 900) {
-                        setMobileNav(false);
-                    }
+                        if (window.innerWidth > 900) {
+                            setMobileNav(false);
+                        }
 
-                }
+                    }, 150);
+
+                },
+                { passive: true }
             );
 
 
