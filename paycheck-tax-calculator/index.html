@@ -1403,194 +1403,609 @@
     </footer>
 
 
+
     <!-- CALCULATOR ENGINE SCRIPT -->
     <script>
         (function () {
             "use strict";
 
-            const STANDARD_DEDUCTION = { single: 16100, married: 32200, hoh: 24150 };
+            const STANDARD_DEDUCTION = {
+                single: 16100,
+                married: 32200,
+                hoh: 24150
+            };
 
             const FEDERAL_BRACKETS = {
                 single: [
-                    [12400, 0.10], [50400, 0.12], [105700, 0.22],
-                    [201775, 0.24], [256225, 0.32], [640600, 0.35], [Infinity, 0.37]
+                    [12400, 0.10],
+                    [50400, 0.12],
+                    [105700, 0.22],
+                    [201775, 0.24],
+                    [256225, 0.32],
+                    [640600, 0.35],
+                    [Infinity, 0.37]
                 ],
                 married: [
-                    [24800, 0.10], [100800, 0.12], [211400, 0.22],
-                    [403550, 0.24], [512450, 0.32], [768700, 0.35], [Infinity, 0.37]
+                    [24800, 0.10],
+                    [100800, 0.12],
+                    [211400, 0.22],
+                    [403550, 0.24],
+                    [512450, 0.32],
+                    [768700, 0.35],
+                    [Infinity, 0.37]
                 ],
                 hoh: [
-                    [17700, 0.10], [67450, 0.12], [105700, 0.22],
-                    [201750, 0.24], [256200, 0.32], [640600, 0.35], [Infinity, 0.37]
+                    [17700, 0.10],
+                    [67450, 0.12],
+                    [105700, 0.22],
+                    [201750, 0.24],
+                    [256200, 0.32],
+                    [640600, 0.35],
+                    [Infinity, 0.37]
                 ]
             };
 
+            const SOCIAL_SECURITY_RATE = 0.062;
+            const MEDICARE_RATE = 0.0145;
+            const ADDITIONAL_MEDICARE_RATE = 0.009;
+            const SOCIAL_SECURITY_WAGE_BASE_2026 = 184500;
+
+            /*
+             * Simplified illustrative state income tax rates.
+             * These are not complete state tax calculations.
+             */
             const STATE_RATES = {
-                none: 0, alabama: .040, california: .055, florida: 0,
-                georgia: .040, illinois: .0495, "new-york": .055, texas: 0, washington: 0
+                none: 0,
+                alabama: 0.040,
+                california: 0.055,
+                florida: 0,
+                georgia: 0.040,
+                illinois: 0.0495,
+                "new-york": 0.055,
+                texas: 0,
+                washington: 0
             };
 
+            const $ = id => document.getElementById(id);
+
             function number(id) {
-                const el = document.getElementById(id);
-                if (!el) return 0;
-                const val = parseFloat(el.value);
-                return Number.isFinite(val) ? Math.max(0, val) : 0;
+                const element = $(id);
+
+                if (!element) return 0;
+
+                const value = Number.parseFloat(element.value);
+
+                return Number.isFinite(value)
+                    ? Math.max(0, value)
+                    : 0;
             }
 
-            function money(val) {
-                return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 2 })
-                    .format(Number.isFinite(val) ? val : 0);
+            function money(value) {
+                const safeValue = Number.isFinite(value)
+                    ? Math.max(0, value)
+                    : 0;
+
+                return new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                }).format(safeValue);
             }
 
-            function wholeMoney(val) {
-                return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 })
-                    .format(Number.isFinite(val) ? val : 0);
+            function wholeMoney(value) {
+                const safeValue = Number.isFinite(value)
+                    ? Math.max(0, value)
+                    : 0;
+
+                return new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                    maximumFractionDigits: 0
+                }).format(safeValue);
             }
 
+            function setText(id, value) {
+                const element = $(id);
+
+                if (element) {
+                    element.textContent = value;
+                }
+            }
+
+            function getFilingStatus() {
+                const element = $("filingStatus");
+                const value = element ? element.value : "single";
+
+                return STANDARD_DEDUCTION[value]
+                    ? value
+                    : "single";
+            }
+
+            /*
+             * Calculates federal income tax using progressive brackets.
+             * Input must be annual taxable income AFTER the standard
+             * deduction, not gross income.
+             */
             function calculateFederalTax(taxableIncome, status) {
                 let remaining = Math.max(0, taxableIncome);
-                let previousLimit = 0;
+                let lowerLimit = 0;
                 let tax = 0;
-                const brackets = FEDERAL_BRACKETS[status] || FEDERAL_BRACKETS.single;
 
-                for (let i = 0; i < brackets.length; i++) {
-                    const upperLimit = brackets[i][0];
-                    const rate = brackets[i][1];
-                    const taxableInBracket = Math.max(0, Math.min(remaining, upperLimit - previousLimit));
-                    tax += taxableInBracket * rate;
-                    remaining -= taxableInBracket;
-                    previousLimit = upperLimit;
+                const brackets =
+                    FEDERAL_BRACKETS[status] ||
+                    FEDERAL_BRACKETS.single;
+
+                for (const [upperLimit, rate] of brackets) {
+                    const bracketWidth =
+                        upperLimit === Infinity
+                            ? remaining
+                            : upperLimit - lowerLimit;
+
+                    const incomeInBracket = Math.min(
+                        remaining,
+                        Math.max(0, bracketWidth)
+                    );
+
+                    tax += incomeInBracket * rate;
+                    remaining -= incomeInBracket;
+                    lowerLimit = upperLimit;
+
                     if (remaining <= 0) break;
                 }
+
                 return Math.max(0, tax);
             }
 
-            function calculate() {
-                const resultPanel = document.getElementById("resultPanel");
-                if (resultPanel) resultPanel.classList.add("is-updating");
+            /*
+             * Social Security tax:
+             * 6.2% up to the 2026 annual wage base.
+             *
+             * This annualized estimate assumes one employer and
+             * reasonably consistent earnings throughout the year.
+             */
+            function calculateSocialSecurityTax(
+                annualGross,
+                periods
+            ) {
+                const taxableAnnualWages = Math.min(
+                    Math.max(0, annualGross),
+                    SOCIAL_SECURITY_WAGE_BASE_2026
+                );
 
-                const periods = number("payFrequency") || 26;
-                document.getElementById("periodBadge").textContent = `${periods} checks / year`;
-
-                const isSalary = document.getElementById("salaryMode").classList.contains("active");
-                let gross = 0;
-
-                if (isSalary) {
-                    gross = number("annualSalary") / periods;
-                } else {
-                    const rate = number("hourlyRate");
-                    const hours = number("hoursPerWeek");
-                    const otHours = number("overtimeHours");
-                    const otMult = Math.max(1, number("overtimeMultiplier") || 1.5);
-                    const regularAnnual = rate * Math.min(40, hours) * 52;
-                    const otAnnual = rate * otHours * otMult * 52;
-                    gross = (regularAnnual + otAnnual) / periods;
-                }
-
-                const status = document.getElementById("filingStatus").value;
-                const dependents = number("dependents");
-                const pretax = number("retirement401k") + number("healthInsurance") + number("hsa") + number("fsa");
-                const usablePretax = Math.min(gross, pretax);
-
-                const taxableWages = Math.max(0, gross - usablePretax);
-                const annualTaxableWages = taxableWages * periods;
-                const stdDeduction = STANDARD_DEDUCTION[status] || STANDARD_DEDUCTION.single;
-                const annualTaxableIncome = Math.max(0, annualTaxableWages - stdDeduction);
-
-                let annualFedTax = calculateFederalTax(annualTaxableIncome, status);
-                annualFedTax = Math.max(0, annualFedTax - Math.min(annualFedTax, dependents * 2200));
-                const federalTax = annualFedTax / periods;
-
-                const socialSecurity = gross * 0.062;
-                const medicare = gross * 0.0145;
-
-                const stateRate = STATE_RATES[document.getElementById("state").value] || 0;
-                const stateTax = taxableWages * stateRate;
-                const localTax = taxableWages * (number("localTaxRate") / 100);
-
-                const extraFederal = number("extraFederal");
-                const postTax = number("roth401k");
-
-                const totalTax = federalTax + socialSecurity + medicare + stateTax + localTax + extraFederal;
-                const totalDeductions = usablePretax + postTax;
-                const net = Math.max(0, gross - totalTax - totalDeductions);
-
-                const annualNet = net * periods;
-
-                document.getElementById("netPay").textContent = money(net);
-                document.getElementById("grossPay").textContent = money(gross);
-                document.getElementById("federalTax").textContent = money(federalTax + extraFederal);
-                document.getElementById("socialSecurity").textContent = money(socialSecurity);
-                document.getElementById("medicare").textContent = money(medicare);
-                document.getElementById("stateTax").textContent = money(stateTax);
-                document.getElementById("localTax").textContent = money(localTax);
-                document.getElementById("deductions").textContent = money(totalDeductions);
-                document.getElementById("effectiveTaxRate").textContent = (gross > 0 ? (totalTax / gross) * 100 : 0).toFixed(2) + "%";
-
-                document.getElementById("annualGross").textContent = wholeMoney(gross * periods);
-                document.getElementById("annualNet").textContent = wholeMoney(annualNet);
-                document.getElementById("monthlyNet").textContent = wholeMoney(annualNet / 12);
-                document.getElementById("weeklyNet").textContent = wholeMoney(annualNet / 52);
-
-                const takeHomePct = gross > 0 ? Math.round((net / gross) * 100) : 0;
-                document.getElementById("chartPercent").textContent = takeHomePct + "%";
-
-                updateChart(gross, net, totalTax, totalDeductions);
-
-                if (resultPanel) {
-                    requestAnimationFrame(() => resultPanel.classList.remove("is-updating"));
-                }
+                return (
+                    taxableAnnualWages *
+                    SOCIAL_SECURITY_RATE
+                ) / periods;
             }
 
-            function updateChart(gross, net, taxes, deductions) {
-                const chart = document.getElementById("resultChart");
-                if (!chart || gross <= 0) return;
-                const total = net + taxes + deductions;
-                if (total <= 0) return;
+            /*
+             * Medicare tax:
+             * 1.45% regular Medicare tax plus a simplified estimate
+             * of the additional 0.9% tax above the threshold.
+             *
+             * This is an annual tax estimate, not an exact prediction
+             * of employer withholding.
+             */
+            function calculateMedicareTax(
+                annualGross,
+                status,
+                periods
+            ) {
+                const wages = Math.max(0, annualGross);
 
-                const netDeg = (net / total) * 360;
-                const taxDeg = (taxes / total) * 360;
-                const dedDeg = (deductions / total) * 360;
+                const regularTax = wages * MEDICARE_RATE;
+
+                const additionalThreshold =
+                    status === "married"
+                        ? 250000
+                        : 200000;
+
+                const additionalTax =
+                    Math.max(
+                        0,
+                        wages - additionalThreshold
+                    ) * ADDITIONAL_MEDICARE_RATE;
+
+                return (regularTax + additionalTax) / periods;
+            }
+
+            /*
+             * Annual gross wages based on the currently selected mode.
+             *
+             * Salary mode:
+             * annual salary is already an annual amount.
+             *
+             * Hourly mode:
+             * regular hours are capped at 40 per week, and overtime
+             * hours are entered separately.
+             */
+            function calculateAnnualGross(isSalary) {
+                if (isSalary) {
+                    return number("annualSalary");
+                }
+
+                const hourlyRate = number("hourlyRate");
+                const hoursPerWeek = Math.min(
+                    168,
+                    number("hoursPerWeek")
+                );
+                const overtimeHours = number("overtimeHours");
+                const overtimeMultiplier = Math.max(
+                    1,
+                    number("overtimeMultiplier") || 1.5
+                );
+
+                const regularHours = Math.min(
+                    40,
+                    hoursPerWeek
+                );
+
+                const annualRegularPay =
+                    hourlyRate * regularHours * 52;
+
+                const annualOvertimePay =
+                    hourlyRate *
+                    overtimeHours *
+                    overtimeMultiplier *
+                    52;
+
+                return Math.max(
+                    0,
+                    annualRegularPay + annualOvertimePay
+                );
+            }
+
+            /*
+             * Updates the result chart without changing the HTML layout.
+             */
+            function updateChart(
+                gross,
+                net,
+                taxes,
+                deductions
+            ) {
+                const chart = $("resultChart");
+
+                if (!chart) return;
+
+                if (gross <= 0) {
+                    chart.style.background =
+                        "conic-gradient(#ffffff 0deg, rgba(255,255,255,.10) 0deg)";
+                    return;
+                }
+
+                const safeNet = Math.max(0, net);
+                const safeTaxes = Math.max(0, taxes);
+                const safeDeductions = Math.max(0, deductions);
+
+                const total =
+                    safeNet + safeTaxes + safeDeductions;
+
+                if (total <= 0) {
+                    chart.style.background =
+                        "conic-gradient(#ffffff 0deg, rgba(255,255,255,.10) 0deg)";
+                    return;
+                }
+
+                const netDegrees = safeNet / total * 360;
+                const taxDegrees = safeTaxes / total * 360;
+                const deductionDegrees =
+                    safeDeductions / total * 360;
+
+                const taxEnd = netDegrees + taxDegrees;
+                const deductionEnd =
+                    taxEnd + deductionDegrees;
 
                 chart.style.background = `conic-gradient(
-                    #ffffff 0deg ${netDeg}deg,
-                    #c9922e ${netDeg}deg ${netDeg + taxDeg}deg,
-                    rgba(255,255,255,.28) ${netDeg + taxDeg}deg ${netDeg + taxDeg + dedDeg}deg,
-                    rgba(255,255,255,.10) ${netDeg + taxDeg + dedDeg}deg 360deg
-                )`;
+            #ffffff 0deg ${netDegrees}deg,
+            #c9922e ${netDegrees}deg ${taxEnd}deg,
+            rgba(255,255,255,.28) ${taxEnd}deg ${deductionEnd}deg,
+            rgba(255,255,255,.10) ${deductionEnd}deg 360deg
+        )`;
             }
 
-            document.addEventListener("DOMContentLoaded", () => {
-                const salaryMode = document.getElementById("salaryMode");
-                const hourlyMode = document.getElementById("hourlyMode");
-                const salaryFields = document.getElementById("salaryFields");
-                const hourlyFields = document.getElementById("hourlyFields");
+            /*
+             * Main calculation.
+             *
+             * Existing output IDs are preserved:
+             * netPay, grossPay, federalTax, socialSecurity, medicare,
+             * stateTax, localTax, deductions, effectiveTaxRate,
+             * annualGross, annualNet, monthlyNet, weeklyNet,
+             * chartPercent, periodBadge and resultPanel.
+             */
+            function calculate() {
+                const resultPanel = $("resultPanel");
 
-                salaryMode.addEventListener("click", () => {
-                    salaryMode.classList.add("active");
-                    hourlyMode.classList.remove("active");
-                    salaryFields.hidden = false;
-                    hourlyFields.hidden = true;
-                    calculate();
-                });
+                if (resultPanel) {
+                    resultPanel.classList.add("is-updating");
+                }
 
-                hourlyMode.addEventListener("click", () => {
-                    hourlyMode.classList.add("active");
-                    salaryMode.classList.remove("active");
-                    salaryFields.hidden = true;
-                    hourlyFields.hidden = false;
-                    calculate();
-                });
+                try {
+                    const periods = Math.max(
+                        1,
+                        Math.round(number("payFrequency") || 26)
+                    );
 
-                document.querySelectorAll(".ptc-input, .ptc-select").forEach(el => {
-                    el.addEventListener("input", calculate);
-                    el.addEventListener("change", calculate);
+                    setText(
+                        "periodBadge",
+                        periods + " checks / year"
+                    );
+
+                    const salaryMode = $("salaryMode");
+
+                    const isSalary = salaryMode
+                        ? salaryMode.classList.contains("active")
+                        : true;
+
+                    const annualGross = Math.max(
+                        0,
+                        calculateAnnualGross(isSalary)
+                    );
+
+                    if (!Number.isFinite(annualGross)) {
+                        throw new Error(
+                            "The annual gross income is not a valid number."
+                        );
+                    }
+
+                    const gross = annualGross / periods;
+                    const status = getFilingStatus();
+
+                    /*
+                     * Deductions entered in the form are interpreted
+                     * as per-paycheck amounts.
+                     */
+                    const requestedPretax =
+                        number("retirement401k") +
+                        number("healthInsurance") +
+                        number("hsa") +
+                        number("fsa");
+
+                    const usablePretax = Math.min(
+                        gross,
+                        requestedPretax
+                    );
+
+                    const annualPretax =
+                        usablePretax * periods;
+
+                    const annualTaxableWages = Math.max(
+                        0,
+                        annualGross - annualPretax
+                    );
+
+                    const standardDeduction =
+                        STANDARD_DEDUCTION[status];
+
+                    const annualTaxableIncome = Math.max(
+                        0,
+                        annualTaxableWages - standardDeduction
+                    );
+
+                    /*
+                     * Do not subtract an automatic fixed credit for
+                     * every dependent. This form does not collect
+                     * enough information to establish eligibility
+                     * for child or other dependent tax credits.
+                     */
+                    const annualFederalTax = calculateFederalTax(
+                        annualTaxableIncome,
+                        status
+                    );
+
+                    const federalTax =
+                        annualFederalTax / periods;
+
+                    const socialSecurity =
+                        calculateSocialSecurityTax(
+                            annualGross,
+                            periods
+                        );
+
+                    const medicare =
+                        calculateMedicareTax(
+                            annualGross,
+                            status,
+                            periods
+                        );
+
+                    const stateElement = $("state");
+
+                    const stateRate = stateElement
+                        ? (STATE_RATES[stateElement.value] ?? 0)
+                        : 0;
+
+                    const stateTax =
+                        annualTaxableWages *
+                        stateRate /
+                        periods;
+
+                    const localTaxRate =
+                        number("localTaxRate") / 100;
+
+                    const localTax =
+                        annualTaxableWages *
+                        localTaxRate /
+                        periods;
+
+                    /*
+                     * Additional withholding is an amount per
+                     * paycheck and is not a tax liability calculation.
+                     */
+                    const extraFederal =
+                        number("extraFederal");
+
+                    const postTaxDeduction =
+                        number("roth401k");
+
+                    const totalTax =
+                        federalTax +
+                        socialSecurity +
+                        medicare +
+                        stateTax +
+                        localTax +
+                        extraFederal;
+
+                    const totalDeductions =
+                        usablePretax +
+                        postTaxDeduction;
+
+                    const net = Math.max(
+                        0,
+                        gross - totalTax - totalDeductions
+                    );
+
+                    const annualNet = net * periods;
+
+                    /*
+                     * Update visible results safely.
+                     */
+                    setText("netPay", money(net));
+                    setText("grossPay", money(gross));
+
+                    setText(
+                        "federalTax",
+                        money(federalTax + extraFederal)
+                    );
+
+                    setText(
+                        "socialSecurity",
+                        money(socialSecurity)
+                    );
+
+                    setText("medicare", money(medicare));
+                    setText("stateTax", money(stateTax));
+                    setText("localTax", money(localTax));
+
+                    setText(
+                        "deductions",
+                        money(totalDeductions)
+                    );
+
+                    /*
+                     * Effective tax rate includes taxes and extra
+                     * federal withholding, but excludes deductions.
+                     */
+                    const effectiveTaxRate = gross > 0
+                        ? totalTax / gross * 100
+                        : 0;
+
+                    setText(
+                        "effectiveTaxRate",
+                        effectiveTaxRate.toFixed(2) + "%"
+                    );
+
+                    setText(
+                        "annualGross",
+                        wholeMoney(annualGross)
+                    );
+
+                    setText(
+                        "annualNet",
+                        wholeMoney(annualNet)
+                    );
+
+                    setText(
+                        "monthlyNet",
+                        wholeMoney(annualNet / 12)
+                    );
+
+                    setText(
+                        "weeklyNet",
+                        wholeMoney(annualNet / 52)
+                    );
+
+                    const takeHomePercent = gross > 0
+                        ? Math.round(net / gross * 100)
+                        : 0;
+
+                    setText(
+                        "chartPercent",
+                        takeHomePercent + "%"
+                    );
+
+                    updateChart(
+                        gross,
+                        net,
+                        totalTax,
+                        totalDeductions
+                    );
+
+                } catch (error) {
+                    console.error(
+                        "PaycheckMint calculator error:",
+                        error
+                    );
+                } finally {
+                    if (resultPanel) {
+                        requestAnimationFrame(() => {
+                            resultPanel.classList.remove(
+                                "is-updating"
+                            );
+                        });
+                    }
+                }
+            }
+
+            /*
+             * Initialize controls once the document is ready.
+             */
+            function initializeCalculator() {
+                const salaryMode = $("salaryMode");
+                const hourlyMode = $("hourlyMode");
+                const salaryFields = $("salaryFields");
+                const hourlyFields = $("hourlyFields");
+
+                if (
+                    salaryMode &&
+                    hourlyMode &&
+                    salaryFields &&
+                    hourlyFields
+                ) {
+                    salaryMode.addEventListener("click", function () {
+                        salaryMode.classList.add("active");
+                        hourlyMode.classList.remove("active");
+
+                        salaryFields.hidden = false;
+                        hourlyFields.hidden = true;
+
+                        calculate();
+                    });
+
+                    hourlyMode.addEventListener("click", function () {
+                        hourlyMode.classList.add("active");
+                        salaryMode.classList.remove("active");
+
+                        salaryFields.hidden = true;
+                        hourlyFields.hidden = false;
+
+                        calculate();
+                    });
+                }
+
+                document.querySelectorAll(
+                    ".ptc-input, .ptc-select"
+                ).forEach(function (element) {
+                    element.addEventListener("input", calculate);
+                    element.addEventListener("change", calculate);
                 });
 
                 calculate();
-            });
+            }
+
+            if (document.readyState === "loading") {
+                document.addEventListener(
+                    "DOMContentLoaded",
+                    initializeCalculator,
+                    { once: true }
+                );
+            } else {
+                initializeCalculator();
+            }
         })();
     </script>
+
 
     <script>
 
